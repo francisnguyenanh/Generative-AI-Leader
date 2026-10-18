@@ -1,0 +1,1682 @@
+[
+  {
+    "id": 1,
+    "topic": "Generative AI Fundamentals (30%)",
+    "question": "Which technique is used to evaluate the semantic similarity between a user query and a document in a vector database?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Cosine similarity"
+      },
+      {
+        "key": "B",
+        "text": "Exact keyword match"
+      },
+      {
+        "key": "C",
+        "text": "Regular expressions"
+      },
+      {
+        "key": "D",
+        "text": "SQL joins"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 2,
+    "topic": "Generative AI Fundamentals (30%)",
+    "question": "What does 'temperature' control in a generative language model?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "The speed of inference"
+      },
+      {
+        "key": "B",
+        "text": "The randomness of the output token selection"
+      },
+      {
+        "key": "C",
+        "text": "The size of the context window"
+      },
+      {
+        "key": "D",
+        "text": "The number of layers in the neural network"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 3,
+    "topic": "Generative AI Fundamentals (30%)",
+    "question": "In the context of Transformers, what is the 'context window'?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "The UI where users type prompts"
+      },
+      {
+        "key": "B",
+        "text": "The maximum number of tokens the model can process at once (input + output)"
+      },
+      {
+        "key": "C",
+        "text": "The timeframe the model was trained on"
+      },
+      {
+        "key": "D",
+        "text": "The memory size of the GPU"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 4,
+    "topic": "Generative AI Fundamentals (30%)",
+    "question": "Which of the following is a key advantage of diffusion models over GANs for image generation?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Faster training times"
+      },
+      {
+        "key": "B",
+        "text": "Simpler architecture"
+      },
+      {
+        "key": "C",
+        "text": "Better stability during training and higher sample diversity"
+      },
+      {
+        "key": "D",
+        "text": "They do not require GPUs"
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 5,
+    "topic": "Generative AI Fundamentals (30%)",
+    "question": "What is an 'embedding' in machine learning?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "A physical hardware component"
+      },
+      {
+        "key": "B",
+        "text": "A dense vector representation of data that captures semantic meaning"
+      },
+      {
+        "key": "C",
+        "text": "A watermark on generated images"
+      },
+      {
+        "key": "D",
+        "text": "A type of database index"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 6,
+    "topic": "Generative AI Fundamentals (30%)",
+    "question": "What is the primary difference between Generative AI and traditional predictive machine learning?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Predictive ML creates new data, Gen AI labels it."
+      },
+      {
+        "key": "B",
+        "text": "Gen AI creates new content based on learned distributions; predictive ML maps inputs to predefined outputs/labels."
+      },
+      {
+        "key": "C",
+        "text": "Gen AI uses rules, predictive ML uses data."
+      },
+      {
+        "key": "D",
+        "text": "There is no difference."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 7,
+    "topic": "Generative AI Fundamentals (30%)",
+    "question": "Which phase of LLM training requires the most computational resources?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Prompt engineering"
+      },
+      {
+        "key": "B",
+        "text": "Fine-tuning (PEFT)"
+      },
+      {
+        "key": "C",
+        "text": "Initial Pre-training on massive unstructured corpora"
+      },
+      {
+        "key": "D",
+        "text": "Inference"
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 8,
+    "topic": "Generative AI Fundamentals (30%)",
+    "question": "What is 'hallucination' in the context of LLMs?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "The model seeing images that are not there."
+      },
+      {
+        "key": "B",
+        "text": "The model generating fluent, plausible-sounding text that is factually incorrect or ungrounded."
+      },
+      {
+        "key": "C",
+        "text": "A hardware failure in the TPU."
+      },
+      {
+        "key": "D",
+        "text": "The model refusing to answer a prompt."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 9,
+    "topic": "Generative AI Fundamentals (30%)",
+    "question": "What does 'RLHF' stand for in model training?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Reinforcement Learning from Human Feedback"
+      },
+      {
+        "key": "B",
+        "text": "Real-time Language and Heuristics Filtering"
+      },
+      {
+        "key": "C",
+        "text": "Random Layer Hidden Features"
+      },
+      {
+        "key": "D",
+        "text": "Recurrent Learning with Hyper Parameters"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 10,
+    "topic": "Generative AI Fundamentals (30%)",
+    "question": "What is the primary purpose of 'sub-word tokenization' (like Byte-Pair Encoding)?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "To translate text to binary."
+      },
+      {
+        "key": "B",
+        "text": "To handle out-of-vocabulary words effectively by breaking them into known smaller pieces."
+      },
+      {
+        "key": "C",
+        "text": "To increase the context window size."
+      },
+      {
+        "key": "D",
+        "text": "To encrypt the user's prompt."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 11,
+    "topic": "Generative AI Fundamentals (30%)",
+    "question": "Which type of neural network is Gemini natively built upon to process sequential data like text and audio?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Convolutional Neural Network (CNN)"
+      },
+      {
+        "key": "B",
+        "text": "Transformer"
+      },
+      {
+        "key": "C",
+        "text": "Support Vector Machine (SVM)"
+      },
+      {
+        "key": "D",
+        "text": "Random Forest"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 12,
+    "topic": "Generative AI Fundamentals (30%)",
+    "question": "What does 'zero-shot' prompting mean?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "The model is given zero context."
+      },
+      {
+        "key": "B",
+        "text": "The model is asked to perform a task without being provided any specific examples in the prompt."
+      },
+      {
+        "key": "C",
+        "text": "The model returns zero results."
+      },
+      {
+        "key": "D",
+        "text": "The model uses zero energy."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 13,
+    "topic": "Generative AI Fundamentals (30%)",
+    "question": "In a multimodal model, what does 'multimodal' mean?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "It runs in multiple cloud regions."
+      },
+      {
+        "key": "B",
+        "text": "It can understand and generate across different data types (text, images, audio, video) natively."
+      },
+      {
+        "key": "C",
+        "text": "It has multiple user interfaces."
+      },
+      {
+        "key": "D",
+        "text": "It uses multiple loss functions."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 14,
+    "topic": "Generative AI Fundamentals (30%)",
+    "question": "What is the role of an 'optimizer' during neural network training?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "To clean the training data."
+      },
+      {
+        "key": "B",
+        "text": "To adjust the model's weights to minimize the loss function."
+      },
+      {
+        "key": "C",
+        "text": "To increase the speed of the internet connection."
+      },
+      {
+        "key": "D",
+        "text": "To format the final output text."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 15,
+    "topic": "Generative AI Fundamentals (30%)",
+    "question": "Why is 'unstructured data' historically difficult for traditional software to analyze?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "It is always encrypted."
+      },
+      {
+        "key": "B",
+        "text": "It lacks a predefined schema (like text, images, video), making rule-based parsing ineffective."
+      },
+      {
+        "key": "C",
+        "text": "It takes up too much storage space."
+      },
+      {
+        "key": "D",
+        "text": "It is illegal to process."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 16,
+    "topic": "Generative AI Fundamentals (30%)",
+    "question": "What is 'bias' in AI models?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "A hardware configuration."
+      },
+      {
+        "key": "B",
+        "text": "Systematic errors in the model's output that disproportionately favor or disfavor certain groups, often learned from training data."
+      },
+      {
+        "key": "C",
+        "text": "The baseline accuracy of the model."
+      },
+      {
+        "key": "D",
+        "text": "A feature that speeds up inference."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 17,
+    "topic": "Generative AI Fundamentals (30%)",
+    "question": "What is the main limitation of standard autoregressive language models?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "They cannot process text."
+      },
+      {
+        "key": "B",
+        "text": "They generate text sequentially (token by token), which can be slow, and they cannot easily revise earlier parts of the generated sequence."
+      },
+      {
+        "key": "C",
+        "text": "They only work on mobile devices."
+      },
+      {
+        "key": "D",
+        "text": "They require manual human review for every word."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 18,
+    "topic": "Generative AI Fundamentals (30%)",
+    "question": "What defines a 'Foundation Model'?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "A model with a small number of parameters."
+      },
+      {
+        "key": "B",
+        "text": "A large, highly capable model trained on vast amounts of data that can be adapted to many downstream tasks."
+      },
+      {
+        "key": "C",
+        "text": "A model used exclusively for building architecture plans."
+      },
+      {
+        "key": "D",
+        "text": "The very first AI model ever created."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 19,
+    "topic": "Google Cloud Gen AI Solutions (35%)",
+    "question": "Which Google Cloud service allows you to discover, test, and deploy Gemini and open-source models?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Google Workspace"
+      },
+      {
+        "key": "B",
+        "text": "Vertex AI Model Garden"
+      },
+      {
+        "key": "C",
+        "text": "Cloud Storage"
+      },
+      {
+        "key": "D",
+        "text": "BigQuery ML"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 20,
+    "topic": "Google Cloud Gen AI Solutions (35%)",
+    "question": "What is the primary function of Vertex AI Search?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "To search the public internet."
+      },
+      {
+        "key": "B",
+        "text": "To build enterprise search engines that allow users to query internal documents and data using generative AI."
+      },
+      {
+        "key": "C",
+        "text": "To search for cloud billing anomalies."
+      },
+      {
+        "key": "D",
+        "text": "To index relational databases automatically."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 21,
+    "topic": "Google Cloud Gen AI Solutions (35%)",
+    "question": "Which model family is Google's most capable and general model, built from the ground up to be multimodal?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "PaLM"
+      },
+      {
+        "key": "B",
+        "text": "BERT"
+      },
+      {
+        "key": "C",
+        "text": "Gemini"
+      },
+      {
+        "key": "D",
+        "text": "T5"
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 22,
+    "topic": "Google Cloud Gen AI Solutions (35%)",
+    "question": "What is the main use case for Google's 'Imagen' model?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Code completion"
+      },
+      {
+        "key": "B",
+        "text": "Text-to-image generation"
+      },
+      {
+        "key": "C",
+        "text": "Audio transcription"
+      },
+      {
+        "key": "D",
+        "text": "Tabular data forecasting"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 23,
+    "topic": "Google Cloud Gen AI Solutions (35%)",
+    "question": "How does Google Cloud ensure customer data privacy when using Vertex AI foundation models?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Customer data is mixed with public data."
+      },
+      {
+        "key": "B",
+        "text": "Customer prompts and fine-tuning data are kept strictly private and are not used to train Google's foundation models."
+      },
+      {
+        "key": "C",
+        "text": "Data is encrypted but used for training."
+      },
+      {
+        "key": "D",
+        "text": "Data is deleted immediately after inference."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 24,
+    "topic": "Google Cloud Gen AI Solutions (35%)",
+    "question": "What is 'Gemini Code Assist'?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "A standalone IDE."
+      },
+      {
+        "key": "B",
+        "text": "An AI-powered collaborator integrated into IDEs (like VS Code, IntelliJ) to help developers write, debug, and explain code."
+      },
+      {
+        "key": "C",
+        "text": "A tool to migrate legacy code to Python."
+      },
+      {
+        "key": "D",
+        "text": "A database administration tool."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 25,
+    "topic": "Google Cloud Gen AI Solutions (35%)",
+    "question": "Which database in Google Cloud natively supports vector embeddings via the pgvector extension for Gen AI apps?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Firestore"
+      },
+      {
+        "key": "B",
+        "text": "Cloud SQL for PostgreSQL"
+      },
+      {
+        "key": "C",
+        "text": "Cloud Spanner"
+      },
+      {
+        "key": "D",
+        "text": "Bigtable"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 26,
+    "topic": "Google Cloud Gen AI Solutions (35%)",
+    "question": "What is 'Vertex AI Studio'?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "A video editing software."
+      },
+      {
+        "key": "B",
+        "text": "A visual interface in Google Cloud Console for rapidly prototyping, testing, and customizing generative AI prompts and models."
+      },
+      {
+        "key": "C",
+        "text": "A data warehousing tool."
+      },
+      {
+        "key": "D",
+        "text": "A billing management dashboard."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 27,
+    "topic": "Google Cloud Gen AI Solutions (35%)",
+    "question": "What is the purpose of 'Grounding' in Vertex AI?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Shutting down idle VMs."
+      },
+      {
+        "key": "B",
+        "text": "Connecting a foundation model to specific information sources (like Google Search or enterprise data) to ensure responses are factual and up-to-date."
+      },
+      {
+        "key": "C",
+        "text": "Compressing the model size."
+      },
+      {
+        "key": "D",
+        "text": "Formatting the output as HTML."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 28,
+    "topic": "Google Cloud Gen AI Solutions (35%)",
+    "question": "Which feature of Vertex AI allows models to interact with external APIs to perform actions based on user prompts?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Model Garden"
+      },
+      {
+        "key": "B",
+        "text": "Vertex AI Extensions / Function Calling"
+      },
+      {
+        "key": "C",
+        "text": "Feature Store"
+      },
+      {
+        "key": "D",
+        "text": "Pipeline orchestration"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 29,
+    "topic": "Google Cloud Gen AI Solutions (35%)",
+    "question": "What is the 'Gemma' model family?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Proprietary audio models."
+      },
+      {
+        "key": "B",
+        "text": "A family of lightweight, state-of-the-art open models built from the same research as Gemini."
+      },
+      {
+        "key": "C",
+        "text": "Google's quantum computing architecture."
+      },
+      {
+        "key": "D",
+        "text": "A legacy text model."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 30,
+    "topic": "Google Cloud Gen AI Solutions (35%)",
+    "question": "Which Google Cloud product provides a managed Jupyter notebook environment for data scientists to build and experiment with Gen AI?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Cloud Shell"
+      },
+      {
+        "key": "B",
+        "text": "Vertex AI Workbench"
+      },
+      {
+        "key": "C",
+        "text": "Cloud Run"
+      },
+      {
+        "key": "D",
+        "text": "Dataproc"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 31,
+    "topic": "Google Cloud Gen AI Solutions (35%)",
+    "question": "What is 'AutoML' in Vertex AI?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "A tool for automatic self-driving cars."
+      },
+      {
+        "key": "B",
+        "text": "A suite of machine learning products that enables developers with limited ML expertise to train high-quality models specific to their needs."
+      },
+      {
+        "key": "C",
+        "text": "An automated billing service."
+      },
+      {
+        "key": "D",
+        "text": "A chatbot template."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 32,
+    "topic": "Google Cloud Gen AI Solutions (35%)",
+    "question": "Which Google Cloud AI capability is best suited for building highly complex, multi-turn conversational agents with state management?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Cloud Translation API"
+      },
+      {
+        "key": "B",
+        "text": "Dialogflow CX"
+      },
+      {
+        "key": "C",
+        "text": "Vision API"
+      },
+      {
+        "key": "D",
+        "text": "Video Intelligence API"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 33,
+    "topic": "Google Cloud Gen AI Solutions (35%)",
+    "question": "What does 'Vertex AI Feature Store' provide?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "A marketplace to buy AI features."
+      },
+      {
+        "key": "B",
+        "text": "A centralized repository to organize, store, and serve ML features for training and real-time inference."
+      },
+      {
+        "key": "C",
+        "text": "A storage bucket for images."
+      },
+      {
+        "key": "D",
+        "text": "A tool to design UI features."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 34,
+    "topic": "Google Cloud Gen AI Solutions (35%)",
+    "question": "Which Google Cloud service acts as a massively scalable data warehouse that can store structured data used to augment Gen AI models?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Cloud Storage"
+      },
+      {
+        "key": "B",
+        "text": "BigQuery"
+      },
+      {
+        "key": "C",
+        "text": "Memorystore"
+      },
+      {
+        "key": "D",
+        "text": "Cloud CDN"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 35,
+    "topic": "Google Cloud Gen AI Solutions (35%)",
+    "question": "What is the role of Cloud IAM in deploying Gen AI solutions?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "It manages internet routing."
+      },
+      {
+        "key": "B",
+        "text": "It provides fine-grained access control to models, data, and APIs, ensuring only authorized users/services can interact with them."
+      },
+      {
+        "key": "C",
+        "text": "It generates the user interface."
+      },
+      {
+        "key": "D",
+        "text": "It translates prompts."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 36,
+    "topic": "Google Cloud Gen AI Solutions (35%)",
+    "question": "Why would an enterprise use 'Vertex AI Pipelines'?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "To transport water."
+      },
+      {
+        "key": "B",
+        "text": "To automate, monitor, and govern end-to-end Machine Learning workflows (MLOps)."
+      },
+      {
+        "key": "C",
+        "text": "To connect on-premise servers to the cloud."
+      },
+      {
+        "key": "D",
+        "text": "To stream live video."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 37,
+    "topic": "Google Cloud Gen AI Solutions (35%)",
+    "question": "What is 'Vertex AI Model Registry'?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "A public forum for AI researchers."
+      },
+      {
+        "key": "B",
+        "text": "A central repository where you can manage the lifecycle of your ML models, including versioning and deployment status."
+      },
+      {
+        "key": "C",
+        "text": "A domain name registrar."
+      },
+      {
+        "key": "D",
+        "text": "A database for storing user prompts."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 38,
+    "topic": "Google Cloud Gen AI Solutions (35%)",
+    "question": "Which model is specifically optimized for medical and healthcare domain knowledge?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Sec-PaLM"
+      },
+      {
+        "key": "B",
+        "text": "Med-PaLM"
+      },
+      {
+        "key": "C",
+        "text": "Codey"
+      },
+      {
+        "key": "D",
+        "text": "Chirp"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 39,
+    "topic": "Google Cloud Gen AI Solutions (35%)",
+    "question": "What is the primary benefit of deploying a model to a 'Vertex AI Endpoint'?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "It turns the model into a mobile app."
+      },
+      {
+        "key": "B",
+        "text": "It provides a managed, scalable, and secure REST API for serving online predictions."
+      },
+      {
+        "key": "C",
+        "text": "It makes the model open-source."
+      },
+      {
+        "key": "D",
+        "text": "It automatically translates the output to 50 languages."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 40,
+    "topic": "Improving Gen AI Model Output (20%)",
+    "question": "What is 'Few-Shot Prompting'?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Providing a prompt with only a few words."
+      },
+      {
+        "key": "B",
+        "text": "Including a few examples of the desired input and output within the prompt to guide the model's behavior."
+      },
+      {
+        "key": "C",
+        "text": "Running the model a few times to get the best answer."
+      },
+      {
+        "key": "D",
+        "text": "Forcing the model to respond in a few seconds."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 41,
+    "topic": "Improving Gen AI Model Output (20%)",
+    "question": "How does 'Chain of Thought' prompting improve an LLM's performance on complex tasks?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "By linking multiple models together."
+      },
+      {
+        "key": "B",
+        "text": "By instructing the model to explicitly output its step-by-step reasoning process before providing the final answer."
+      },
+      {
+        "key": "C",
+        "text": "By asking the user to provide the reasoning."
+      },
+      {
+        "key": "D",
+        "text": "By searching the internet for the thought process."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 42,
+    "topic": "Improving Gen AI Model Output (20%)",
+    "question": "What is the purpose of 'Retrieval-Augmented Generation' (RAG)?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "To augment the model's physical hardware."
+      },
+      {
+        "key": "B",
+        "text": "To retrieve relevant information from an external knowledge base and inject it into the prompt to provide the model with factual, up-to-date context."
+      },
+      {
+        "key": "C",
+        "text": "To generate images alongside text."
+      },
+      {
+        "key": "D",
+        "text": "To automatically delete sensitive data."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 43,
+    "topic": "Improving Gen AI Model Output (20%)",
+    "question": "If an LLM is producing highly repetitive and boring text, which parameter should you increase?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Top-K (decrease it)"
+      },
+      {
+        "key": "B",
+        "text": "Temperature"
+      },
+      {
+        "key": "C",
+        "text": "Max output tokens"
+      },
+      {
+        "key": "D",
+        "text": "Batch size"
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 44,
+    "topic": "Improving Gen AI Model Output (20%)",
+    "question": "What does 'Parameter-Efficient Fine-Tuning' (PEFT) like LoRA achieve?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "It requires more data than full fine-tuning."
+      },
+      {
+        "key": "B",
+        "text": "It adapts a large foundation model to a specific task by updating only a small number of extra parameters, saving significant compute costs and time."
+      },
+      {
+        "key": "C",
+        "text": "It makes the model smaller for mobile devices."
+      },
+      {
+        "key": "D",
+        "text": "It removes parameters from the model."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 45,
+    "topic": "Improving Gen AI Model Output (20%)",
+    "question": "What is a 'System Prompt' (or System Instruction)?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "An error message from the OS."
+      },
+      {
+        "key": "B",
+        "text": "A meta-instruction that sets the persona, tone, and overall rules for the AI's behavior throughout a session."
+      },
+      {
+        "key": "C",
+        "text": "A prompt generated by the system automatically."
+      },
+      {
+        "key": "D",
+        "text": "A command line instruction."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 46,
+    "topic": "Improving Gen AI Model Output (20%)",
+    "question": "When should you choose to Fine-Tune a model instead of using RAG?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "When you need the model to answer questions based on a constantly changing database of live news."
+      },
+      {
+        "key": "B",
+        "text": "When you need the model to learn a highly specific tone, style, or a new domain-specific language structure that cannot be captured in a prompt."
+      },
+      {
+        "key": "C",
+        "text": "Fine-tuning is always cheaper and better."
+      },
+      {
+        "key": "D",
+        "text": "When you want to use the model offline."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 47,
+    "topic": "Improving Gen AI Model Output (20%)",
+    "question": "What does the 'Top-P' parameter do?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "It limits the response to P paragraphs."
+      },
+      {
+        "key": "B",
+        "text": "It restricts the model to select from the smallest set of tokens whose cumulative probability exceeds the value P (nucleus sampling)."
+      },
+      {
+        "key": "C",
+        "text": "It selects the top P best models."
+      },
+      {
+        "key": "D",
+        "text": "It prioritizes the prompt over system instructions."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 48,
+    "topic": "Improving Gen AI Model Output (20%)",
+    "question": "What is 'Chunking' in a RAG system?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Breaking the model into smaller pieces."
+      },
+      {
+        "key": "B",
+        "text": "Splitting large documents into smaller, meaningful segments before creating embeddings, ensuring they fit within the LLM's context window."
+      },
+      {
+        "key": "C",
+        "text": "Grouping similar user prompts together."
+      },
+      {
+        "key": "D",
+        "text": "Deleting chunks of bad data."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 49,
+    "topic": "Improving Gen AI Model Output (20%)",
+    "question": "What is a common technique to mitigate 'Prompt Injection' attacks?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Turning off the firewall."
+      },
+      {
+        "key": "B",
+        "text": "Using robust input validation, clear system instructions separating context from user input, and output filtering."
+      },
+      {
+        "key": "C",
+        "text": "Making the model open-source."
+      },
+      {
+        "key": "D",
+        "text": "Using a higher temperature setting."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 50,
+    "topic": "Improving Gen AI Model Output (20%)",
+    "question": "Why is formatting the desired output structure (e.g., JSON schema) in the prompt important?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "It makes the API call faster."
+      },
+      {
+        "key": "B",
+        "text": "It guides the model to consistently output data in a machine-readable format that downstream applications can easily parse."
+      },
+      {
+        "key": "C",
+        "text": "It prevents the model from hallucinating."
+      },
+      {
+        "key": "D",
+        "text": "It reduces the token count."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 51,
+    "topic": "Improving Gen AI Model Output (20%)",
+    "question": "What is the risk of a context window that is too large and filled with irrelevant information?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "The API becomes free."
+      },
+      {
+        "key": "B",
+        "text": "The model may suffer from the 'lost in the middle' effect, failing to retrieve the relevant information hidden among the noise."
+      },
+      {
+        "key": "C",
+        "text": "The model will permanently crash."
+      },
+      {
+        "key": "D",
+        "text": "The model will start generating images instead of text."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 52,
+    "topic": "Business Strategy for Gen AI (15%)",
+    "question": "According to Google's Secure AI Framework (SAIF), what is a key requirement for securing AI ecosystems?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Using only on-premise servers."
+      },
+      {
+        "key": "B",
+        "text": "Extending standard security operations (SecOps), threat detection, and incident response to cover AI-specific risks like prompt injection and data poisoning."
+      },
+      {
+        "key": "C",
+        "text": "Publishing all model weights."
+      },
+      {
+        "key": "D",
+        "text": "Disabling IAM controls."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 53,
+    "topic": "Business Strategy for Gen AI (15%)",
+    "question": "When establishing a Gen AI Center of Excellence (CoE), what is a primary responsibility of the team?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Writing all the code for every project."
+      },
+      {
+        "key": "B",
+        "text": "Defining AI governance, standardizing tools, sharing best practices, and ensuring alignment with business strategy across the organization."
+      },
+      {
+        "key": "C",
+        "text": "Managing the cloud billing solely."
+      },
+      {
+        "key": "D",
+        "text": "Replacing the IT helpdesk."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 54,
+    "topic": "Business Strategy for Gen AI (15%)",
+    "question": "What does 'Data Sovereignty' refer to in the context of cloud AI deployments?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "AI's ability to govern itself."
+      },
+      {
+        "key": "B",
+        "text": "Ensuring that data is stored and processed within specific geographic boundaries to comply with local laws and regulations (e.g., GDPR)."
+      },
+      {
+        "key": "C",
+        "text": "The right of the AI to own its generated data."
+      },
+      {
+        "key": "D",
+        "text": "Converting all data to sovereign currency."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 55,
+    "topic": "Business Strategy for Gen AI (15%)",
+    "question": "Why is 'Change Management' critical for a successful enterprise AI rollout?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "AI changes the source code of the operating system."
+      },
+      {
+        "key": "B",
+        "text": "AI tools significantly alter workflows; employees need training, support, and cultural alignment to effectively adopt the new tools and realize ROI."
+      },
+      {
+        "key": "C",
+        "text": "The AI models change every day."
+      },
+      {
+        "key": "D",
+        "text": "It is a regulatory requirement for all software."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 56,
+    "topic": "Business Strategy for Gen AI (15%)",
+    "question": "When evaluating a potential Gen AI use case, a project with 'High Business Value' and 'Low Implementation Complexity' is considered:",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "A bad investment."
+      },
+      {
+        "key": "B",
+        "text": "A 'Quick Win' and should be prioritized for early implementation to demonstrate value and build momentum."
+      },
+      {
+        "key": "C",
+        "text": "A long-term strategic bet."
+      },
+      {
+        "key": "D",
+        "text": "Impossible to achieve."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 57,
+    "topic": "Business Strategy for Gen AI (15%)",
+    "question": "What is 'Data Poisoning'?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "A bug in the SQL database."
+      },
+      {
+        "key": "B",
+        "text": "A security threat where malicious actors intentionally insert harmful or biased data into the training set to compromise the model's behavior."
+      },
+      {
+        "key": "C",
+        "text": "Data that is too old to be useful."
+      },
+      {
+        "key": "D",
+        "text": "Encrypting data so it cannot be read."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 58,
+    "topic": "Business Strategy for Gen AI (15%)",
+    "question": "How does Google Cloud provide peace of mind regarding copyright infringement for Gen AI outputs?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "By deleting the outputs."
+      },
+      {
+        "key": "B",
+        "text": "Through its Generative AI Indemnification policy, which protects customers against third-party copyright claims related to the use of its Gen AI services (subject to terms)."
+      },
+      {
+        "key": "C",
+        "text": "By making customers sign a waiver."
+      },
+      {
+        "key": "D",
+        "text": "By refusing to generate copyrighted material."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 59,
+    "topic": "Business Strategy for Gen AI (15%)",
+    "question": "What is the purpose of 'Human-in-the-loop' (HITL) design in AI workflows?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "To slow down the process."
+      },
+      {
+        "key": "B",
+        "text": "To ensure a human expert reviews, validates, or corrects the AI's output, especially in high-stakes, regulated, or complex decision-making scenarios."
+      },
+      {
+        "key": "C",
+        "text": "To generate the prompts manually."
+      },
+      {
+        "key": "D",
+        "text": "To provide physical security for servers."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  },
+  {
+    "id": 60,
+    "topic": "Business Strategy for Gen AI (15%)",
+    "question": "Which of the following is a core principle of Google's approach to 'Responsible AI'?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "AI should maximize profit regardless of social impact."
+      },
+      {
+        "key": "B",
+        "text": "AI should be socially beneficial, avoid creating or reinforcing unfair bias, and be built and tested for safety."
+      },
+      {
+        "key": "C",
+        "text": "AI should replace human judgment entirely."
+      },
+      {
+        "key": "D",
+        "text": "AI should be completely autonomous and unregulated."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": ""
+  }
+]

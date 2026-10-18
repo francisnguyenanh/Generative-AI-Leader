@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Luyện Thi Chứng Chỉ Generative AI Leader | 10 Bộ Đề Thi Thử</title>
+  <meta name="description" content="Nền tảng thi thử chứng chỉ Generative AI Leader với 10 bộ đề thi trắc nghiệm, bấm giờ 90 phút, chấm điểm phân tích theo chủ đề và xem đáp án chi tiết.">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- ========================================================================
+       SITE HEADER
+       ======================================================================== -->
+  <header class="site-header">
+    <div class="container header-content">
+      <div class="brand" id="brandLogo" title="Về trang chọn bộ đề">
+        <div class="brand-icon">AI</div>
+        <div class="brand-info">
+          <h1>GenAI Leader</h1>
+          <span>Luyện thi chứng chỉ</span>
+        </div>
+      </div>
+
+      <div class="header-actions">
+        <!-- Countdown Timer Widget -->
+        <div class="timer-widget" id="timerWidget" aria-label="Thời gian còn lại">
+          <span>⏱️</span>
+          <span id="timerDisplay">90:00</span>
+        </div>
+
+        <!-- Light/Dark Theme Toggle -->
+        <button type="button" class="btn-icon" id="themeToggleBtn" aria-label="Chuyển giao diện sáng/tối" title="Chuyển giao diện">
+          🌙
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ========================================================================
+       MAIN APP VIEWS
+       ======================================================================== -->
+  <main class="container">
+
+    <!-- VIEW 1: SET SELECTION DASHBOARD -->
+    <section id="setSelectionView" class="view-section active">
+      <div class="hero-banner">
+        <h2>Bộ Đề Luyện Thi Generative AI Leader</h2>
+        <p>Hệ thống 10 bộ đề thi thử bám sát cấu trúc đề thi chính thức: 60 câu hỏi trắc nghiệm, thời gian 90 phút, yêu cầu đạt từ 70%.</p>
+        <div class="exam-meta-pills">
+          <span class="meta-pill">🎯 Chuẩn đề 60 câu</span>
+          <span class="meta-pill">⏱️ Bấm giờ 90 phút</span>
+          <span class="meta-pill">📊 Chấm điểm theo 4 lĩnh vực</span>
+          <span class="meta-pill">💡 Đáp án & Giải thích chi tiết</span>
+        </div>
+      </div>
+
+      <div class="sets-grid" id="setsGrid">
+        <!-- Rendered by js/app.js -->
+      </div>
+    </section>
+
+    <!-- VIEW 2: ACTIVE EXAM INTERFACE -->
+    <section id="examView" class="view-section">
+      <div class="exam-layout">
+        
+        <!-- Left Column: Question Area -->
+        <div class="question-panel">
+          <div class="question-header">
+            <div>
+              <span id="examSetName" style="font-weight:700; color:var(--text-muted); font-size:0.85rem; margin-right:0.5rem;">Bộ đề thi</span>
+              <span class="q-topic-badge" id="qTopicBadge">Topic</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:0.5rem;">
+              <span class="q-type-badge" id="qTypeBadge">🔘 Chọn một đáp án</span>
+              <button type="button" class="q-flag-btn" id="qFlagBtn" title="Gắn cờ để kiểm tra lại trước khi nộp">
+                🏳️ Đặt cờ xem lại
+              </button>
+            </div>
+          </div>
+
+          <!-- Question Text -->
+          <h2 class="question-title" id="questionTitle">Đang tải câu hỏi...</h2>
+
+          <!-- Options -->
+          <div class="options-list" id="optionsList" role="radiogroup">
+            <!-- Rendered by js/app.js -->
+          </div>
+
+          <!-- Navigation Controls -->
+          <div class="question-actions">
+            <button type="button" class="btn btn-secondary" id="prevBtn">❮ Câu trước</button>
+            <button type="button" class="btn btn-secondary mobile-palette-toggle" id="mobilePaletteToggle">
+              📋 Danh sách câu (<span id="answeredCountLabel">0/60</span>)
+            </button>
+            <button type="button" class="btn btn-primary" id="nextBtn">Câu tiếp theo ❯</button>
+          </div>
+        </div>
+
+        <!-- Right Column: Question Palette Matrix -->
+        <aside class="palette-sidebar" id="paletteSidebar">
+          <div class="palette-header">
+            <h4>Bảng câu hỏi</h4>
+            <button type="button" class="btn-icon mobile-palette-toggle" id="closeMobilePaletteBtn" style="width:32px; height:32px;">✕</button>
+          </div>
+
+          <div class="palette-legend">
+            <div class="legend-item"><span class="legend-dot answered"></span> Đã làm</div>
+            <div class="legend-item"><span class="legend-dot unanswered"></span> Chưa làm</div>
+            <div class="legend-item"><span class="legend-dot flagged"></span> Gắn cờ</div>
+            <div class="legend-item"><span class="legend-dot current"></span> Đang xem</div>
+          </div>
+
+          <div class="palette-grid" id="paletteGrid">
+            <!-- 1 to 60 buttons -->
+          </div>
+
+          <div class="palette-footer">
+            <button type="button" class="btn btn-primary" id="submitExamBtn">
+              Nộp bài thi 🏁
+            </button>
+          </div>
+        </aside>
+
+        <div class="palette-backdrop" id="paletteBackdrop"></div>
+
+      </div>
+    </section>
+
+    <!-- VIEW 3: RESULTS & FULL REVIEW -->
+    <section id="resultView" class="view-section">
+      
+      <!-- Big Score Summary Card -->
+      <div class="result-header-card">
+        <div class="result-status-badge pass" id="resultStatusBadge">PASSED</div>
+        <div class="score-display" id="scorePercent">85%</div>
+        <div class="score-subtitle" id="scoreFraction">(51/60 câu đúng)</div>
+        
+        <div class="result-stats-row">
+          <div class="stat-box">
+            <span class="val" id="timeSpentText">45m 12s</span>
+            <span class="lbl">Thời gian làm bài</span>
+          </div>
+          <div class="stat-box">
+            <span class="val" id="correctCountText" style="color:var(--success);">51</span>
+            <span class="lbl">Số câu đúng</span>
+          </div>
+          <div class="stat-box">
+            <span class="val" id="incorrectCountText" style="color:var(--danger);">9</span>
+            <span class="lbl">Số câu sai</span>
+          </div>
+          <div class="stat-box">
+            <span class="val">70%</span>
+            <span class="lbl">Điểm chuẩn qua môn</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Domain Performance Breakdown -->
+      <div class="domains-card">
+        <h3>📊 Kết quả phân tích theo 4 lĩnh vực thi</h3>
+        <div id="domainBarsContainer">
+          <!-- Rendered by js/app.js -->
+        </div>
+      </div>
+
+      <!-- Detailed Review List -->
+      <div class="review-section">
+        <div class="review-section-header">
+          <h3>📝 Xem lại toàn bộ câu hỏi &amp; đáp án</h3>
+          <div class="review-filters">
+            <button type="button" class="filter-btn active" data-filter="all">Tất cả</button>
+            <button type="button" class="filter-btn" data-filter="correct">Câu đúng</button>
+            <button type="button" class="filter-btn" data-filter="incorrect">Câu sai</button>
+            <button type="button" class="filter-btn" data-filter="flagged">Đã gắn cờ</button>
+          </div>
+        </div>
+
+        <div class="review-list" id="reviewList">
+          <!-- Rendered by js/app.js -->
+        </div>
+
+        <div class="result-footer-actions">
+          <button type="button" class="btn btn-secondary" id="retryBtn">🔄 Làm lại đề này</button>
+          <button type="button" class="btn btn-primary" id="backToSetsBtn">🏠 Trở về danh sách bộ đề</button>
+        </div>
+      </div>
+
+    </section>
+
+  </main>
+
+  <!-- ========================================================================
+       CONFIRMATION MODAL
+       ======================================================================== -->
+  <div class="modal-overlay" id="submitModal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-content">
+      <div class="modal-icon">⚠️</div>
+      <h3 id="modalTitle">Xác nhận nộp bài</h3>
+      <p id="modalWarningText">Bạn có chắc chắn muốn nộp bài thi?</p>
+      <div class="modal-actions">
+        <button type="button" class="btn btn-secondary" id="modalCancelBtn">Tiếp tục làm bài</button>
+        <button type="button" class="btn btn-primary" id="modalConfirmBtn">Nộp bài ngay</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts: First load data JS for instant offline/file:// support without CORS, then app -->
+  <script src="Quiz_data/manifest.js"></script>
+  <script src="Quiz_data/set_1.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

@@ -1,0 +1,122 @@
+[
+  {
+    "id": "set_1",
+    "setNumber": 1,
+    "title": "Bộ đề thi số 1",
+    "description": "Bộ đề thực hành Generative AI Leader - 60 câu hỏi trắc nghiệm chuẩn.",
+    "questionCount": 60,
+    "durationMinutes": 90,
+    "isAvailable": true,
+    "dataFile": "set_1.json",
+    "jsFile": "set_1.js",
+    "jsVar": "QUIZ_DATA_SET_1"
+  },
+  {
+    "id": "set_2",
+    "setNumber": 2,
+    "title": "Bộ đề thi số 2",
+    "description": "Bộ đề thực hành Generative AI Leader - 60 câu hỏi trắc nghiệm chuẩn.",
+    "questionCount": 60,
+    "durationMinutes": 90,
+    "isAvailable": true,
+    "dataFile": "set_2.json",
+    "jsFile": "set_2.js",
+    "jsVar": "QUIZ_DATA_SET_2"
+  },
+  {
+    "id": "set_3",
+    "setNumber": 3,
+    "title": "Bộ đề thi số 3",
+    "description": "Bộ đề thực hành Generative AI Leader - 60 câu hỏi trắc nghiệm chuẩn.",
+    "questionCount": 60,
+    "durationMinutes": 90,
+    "isAvailable": true,
+    "dataFile": "set_3.json",
+    "jsFile": "set_3.js",
+    "jsVar": "QUIZ_DATA_SET_3"
+  },
+  {
+    "id": "set_4",
+    "setNumber": 4,
+    "title": "Bộ đề thi số 4",
+    "description": "Bộ đề thực hành Generative AI Leader - 60 câu hỏi trắc nghiệm chuẩn.",
+    "questionCount": 60,
+    "durationMinutes": 90,
+    "isAvailable": true,
+    "dataFile": "set_4.json",
+    "jsFile": "set_4.js",
+    "jsVar": "QUIZ_DATA_SET_4"
+  },
+  {
+    "id": "set_5",
+    "setNumber": 5,
+    "title": "Bộ đề thi số 5",
+    "description": "Bộ đề thực hành Generative AI Leader - 60 câu hỏi trắc nghiệm chuẩn.",
+    "questionCount": 60,
+    "durationMinutes": 90,
+    "isAvailable": true,
+    "dataFile": "set_5.json",
+    "jsFile": "set_5.js",
+    "jsVar": "QUIZ_DATA_SET_5"
+  },
+  {
+    "id": "set_6",
+    "setNumber": 6,
+    "title": "Bộ đề thi số 6",
+    "description": "Bộ đề thực hành Generative AI Leader - 60 câu hỏi trắc nghiệm chuẩn.",
+    "questionCount": 60,
+    "durationMinutes": 90,
+    "isAvailable": true,
+    "dataFile": "set_6.json",
+    "jsFile": "set_6.js",
+    "jsVar": "QUIZ_DATA_SET_6"
+  },
+  {
+    "id": "set_7",
+    "setNumber": 7,
+    "title": "Bộ đề thi số 7",
+    "description": "Bộ đề thực hành Generative AI Leader - 60 câu hỏi trắc nghiệm chuẩn.",
+    "questionCount": 60,
+    "durationMinutes": 90,
+    "isAvailable": true,
+    "dataFile": "set_7.json",
+    "jsFile": "set_7.js",
+    "jsVar": "QUIZ_DATA_SET_7"
+  },
+  {
+    "id": "set_8",
+    "setNumber": 8,
+    "title": "Bộ đề thi số 8",
+    "description": "Bộ đề thực hành Generative AI Leader - 60 câu hỏi trắc nghiệm chuẩn.",
+    "questionCount": 60,
+    "durationMinutes": 90,
+    "isAvailable": true,
+    "dataFile": "set_8.json",
+    "jsFile": "set_8.js",
+    "jsVar": "QUIZ_DATA_SET_8"
+  },
+  {
+    "id": "set_9",
+    "setNumber": 9,
+    "title": "Bộ đề thi số 9",
+    "description": "Bộ đề thực hành Generative AI Leader - 60 câu hỏi trắc nghiệm chuẩn.",
+    "questionCount": 60,
+    "durationMinutes": 90,
+    "isAvailable": true,
+    "dataFile": "set_9.json",
+    "jsFile": "set_9.js",
+    "jsVar": "QUIZ_DATA_SET_9"
+  },
+  {
+    "id": "set_10",
+    "setNumber": 10,
+    "title": "Bộ đề thi số 10",
+    "description": "Bộ đề thực hành Generative AI Leader - 60 câu hỏi trắc nghiệm chuẩn.",
+    "questionCount": 60,
+    "durationMinutes": 90,
+    "isAvailable": true,
+    "dataFile": "set_10.json",
+    "jsFile": "set_10.js",
+    "jsVar": "QUIZ_DATA_SET_10"
+  }
+]
