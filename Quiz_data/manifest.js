@@ -120,3 +120,4 @@ window.QUIZ_MANIFEST = [
     "jsVar": "QUIZ_DATA_SET_10"
   }
 ];
+window.QUIZ_MANIFEST_GENAI = window.QUIZ_MANIFEST;

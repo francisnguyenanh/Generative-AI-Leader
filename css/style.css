@@ -169,6 +169,42 @@ body {
   color: var(--text-muted);
 }
 
+/* Quick Exam Switcher in Header */
+.header-exam-selector {
+  display: inline-flex;
+  align-items: center;
+  background: var(--bg-surface-secondary);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-full);
+  padding: 3px;
+  gap: 2px;
+}
+
+.exam-pill-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.35rem 0.75rem;
+  font-size: 0.8rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  border: none;
+  background: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.exam-pill-btn:hover {
+  color: var(--text-primary);
+}
+
+.exam-pill-btn.active {
+  background: var(--bg-surface);
+  color: var(--accent-primary);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
 .header-actions {
   display: flex;
   align-items: center;
@@ -193,6 +229,39 @@ body {
 .btn-icon:hover {
   background: var(--bg-surface-hover);
   border-color: var(--border-focus);
+}
+
+/* Bilingual Language Toggle Button */
+.btn-lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all var(--transition-fast);
+}
+
+.btn-lang-toggle:hover {
+  background: var(--bg-surface-secondary);
+  border-color: var(--border-focus);
+  color: var(--text-primary);
+}
+
+.btn-lang-toggle.active {
+  background: var(--accent-subtle);
+  border-color: var(--accent-primary);
+  color: var(--accent-primary);
+  box-shadow: 0 0 0 1px var(--accent-subtle);
+}
+
+.btn-lang-toggle .lang-icon {
+  font-size: 1rem;
 }
 
 /* Exam Timer Widget */
@@ -297,6 +366,129 @@ main {
 /* ==========================================================================
    VIEW 1: SET SELECTION DASHBOARD
    ========================================================================== */
+
+/* Exam Switcher Dashboard Cards */
+.exam-selection-container {
+  margin-bottom: 2.25rem;
+}
+
+.exam-selection-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.25rem;
+}
+
+.exam-select-card {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 1.1rem;
+  padding: 1.35rem 1.5rem;
+  background: var(--bg-surface);
+  border: 2px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  text-align: left;
+  transition: all var(--transition-normal);
+  box-shadow: var(--shadow-sm);
+}
+
+.exam-select-card:hover {
+  transform: translateY(-2px);
+  border-color: var(--border-focus);
+  box-shadow: var(--shadow-md);
+}
+
+.exam-select-card.active {
+  border-color: var(--accent-primary);
+  background: var(--accent-subtle);
+  box-shadow: 0 4px 16px var(--accent-subtle);
+}
+
+.card-status-badge {
+  position: absolute;
+  top: -10px;
+  right: 18px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.15rem 0.65rem;
+  border-radius: var(--radius-full);
+  background: var(--accent-primary);
+  color: #ffffff;
+  letter-spacing: 0.3px;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.card-status-badge.new-badge {
+  background: #f59e0b;
+}
+
+.exam-select-card:not(.active) .card-status-badge:not(.new-badge) {
+  display: none;
+}
+
+.card-icon-wrapper {
+  width: 52px;
+  height: 52px;
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.75rem;
+  flex-shrink: 0;
+}
+
+.card-icon-wrapper.google-color {
+  background: rgba(66, 133, 244, 0.12);
+}
+
+.card-icon-wrapper.anthropic-color {
+  background: rgba(217, 119, 6, 0.14);
+}
+
+.card-info {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-provider {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: var(--text-muted);
+  margin-bottom: 0.2rem;
+}
+
+.card-info h3 {
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--text-primary);
+  margin-bottom: 0.25rem;
+  line-height: 1.35;
+}
+
+.card-info p {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  margin: 0;
+  line-height: 1.4;
+}
+
+.card-arrow {
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--text-muted);
+  transition: all var(--transition-fast);
+  padding-left: 0.5rem;
+}
+
+.exam-select-card.active .card-arrow {
+  color: var(--accent-primary);
+  transform: translateX(4px);
+}
+
 .hero-banner {
   text-align: center;
   margin-bottom: 2.5rem;
@@ -499,11 +691,26 @@ main {
 }
 
 .question-title {
+  margin-bottom: 1.5rem;
+}
+
+.q-title-en {
   font-size: 1.15rem;
   font-weight: 600;
   line-height: 1.5;
-  margin-bottom: 1.5rem;
   color: var(--text-primary);
+}
+
+.q-title-vi {
+  margin-top: 0.5rem;
+  font-size: 0.98rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+  font-weight: 400;
+  padding: 0.45rem 0.85rem;
+  border-left: 3px solid var(--accent-primary);
+  background: var(--accent-subtle);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
 }
 
 /* Options List */
@@ -549,6 +756,32 @@ main {
   font-weight: 700;
   color: var(--text-secondary);
   min-width: 1.5rem;
+  margin-top: 0.05rem;
+}
+
+.option-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.option-text-en {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--text-primary);
+  line-height: 1.45;
+}
+
+.option-text-vi {
+  font-size: 0.9rem;
+  font-weight: 400;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.option-item.selected .option-text-en {
+  font-weight: 600;
 }
 
 .option-text {
@@ -913,6 +1146,28 @@ main {
   margin: 1rem 0;
 }
 
+.review-q-title {
+  margin-bottom: 0.85rem;
+}
+
+.review-q-title .q-title-en {
+  font-size: 1.05rem;
+  font-weight: 600;
+  line-height: 1.5;
+  color: var(--text-primary);
+}
+
+.review-q-title .q-title-vi {
+  margin-top: 0.35rem;
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  padding: 0.35rem 0.75rem;
+  border-left: 3px solid var(--accent-primary);
+  background: var(--accent-subtle);
+  border-radius: 0 var(--radius-sm) var(--radius-sm) 0;
+  line-height: 1.45;
+}
+
 .review-opt {
   padding: 0.75rem 1rem;
   border-radius: var(--radius-md);
@@ -923,6 +1178,36 @@ main {
   gap: 0.75rem;
 }
 
+.review-opt-icon {
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
+.review-opt-key {
+  font-weight: 700;
+  min-width: 1.5rem;
+  line-height: 1.4;
+}
+
+.review-opt-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.review-opt-en {
+  font-size: 0.95rem;
+  color: inherit;
+  line-height: 1.45;
+}
+
+.review-opt-vi {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
 .review-opt.is-correct-answer {
   background: var(--success-subtle);
   border-color: var(--success-border);
@@ -930,20 +1215,82 @@ main {
   font-weight: 600;
 }
 
+.review-opt.is-correct-answer .review-opt-vi {
+  color: var(--success-text);
+  opacity: 0.9;
+}
+
 .review-opt.is-user-wrong {
   background: var(--danger-subtle);
   border-color: var(--danger-border);
   color: var(--danger-text);
+}
+
+.review-opt.is-user-wrong .review-opt-en {
   text-decoration: line-through;
+}
+
+.review-opt.is-user-wrong .review-opt-vi {
+  color: var(--danger-text);
+  opacity: 0.85;
+}
+
+.review-opt-badge {
+  margin-left: auto;
+  font-size: 0.8rem;
+  font-weight: 700;
+  white-space: nowrap;
 }
 
 .review-verdict {
   margin-top: 1rem;
-  padding: 0.85rem;
+  padding: 0.85rem 1rem;
   border-radius: var(--radius-md);
   background: var(--bg-surface-secondary);
   font-size: 0.9rem;
   border-left: 3px solid var(--accent-primary);
+}
+
+.verdict-summary {
+  line-height: 1.5;
+}
+
+.review-explanation {
+  margin-top: 0.65rem;
+  padding: 0.65rem 0.85rem;
+  border-radius: var(--radius-md);
+  background: var(--bg-surface);
+  border: 1px dashed var(--border-color);
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.explanation-en {
+  font-size: 0.88rem;
+  color: var(--text-primary);
+  line-height: 1.45;
+}
+
+.explanation-vi {
+  font-size: 0.88rem;
+  color: var(--text-secondary);
+  line-height: 1.45;
+  padding-top: 0.35rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.expl-label {
+  font-weight: 700;
+  color: var(--accent-primary);
+}
+
+/* Hide translations utility when toggled off */
+body.hide-translations .q-title-vi,
+body.hide-translations .option-text-vi,
+body.hide-translations .review-opt-vi,
+body.hide-translations .explanation-vi {
+  display: none !important;
 }
 
 .result-footer-actions {

@@ -7,25 +7,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Moving a model from CPU to GPU."
+        "text": "Moving a model from CPU to GPU.",
+        "text_vi": "Chuyển mô hình từ CPU sang GPU."
       },
       {
         "key": "B",
-        "text": "Transferring data from a local drive to the cloud."
+        "text": "Transferring data from a local drive to the cloud.",
+        "text_vi": "Chuyển dữ liệu từ ổ đĩa cục bộ sang đám mây."
       },
       {
         "key": "C",
-        "text": "Taking knowledge learned by a model on a large general dataset and applying it to a different, but related, specific task."
+        "text": "Taking knowledge learned by a model on a large general dataset and applying it to a different, but related, specific task.",
+        "text_vi": "Lấy kiến thức đã học được bằng mô hình trên một tập dữ liệu tổng quát lớn và áp dụng nó vào một nhiệm vụ cụ thể khác nhưng có liên quan."
       },
       {
         "key": "D",
-        "text": "Translating text from English to French."
+        "text": "Translating text from English to French.",
+        "text_vi": "Dịch văn bản từ tiếng Anh sang tiếng Pháp."
       }
     ],
     "answer": [
       "C"
     ],
-    "explanation": "Correct: Taking knowledge learned by a model on a large general dataset and applying it to a different, but related, specific task. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Taking knowledge learned by a model on a large general dataset and applying it to a different, but related, specific task. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "'Học chuyển giao' trong bối cảnh AI sáng tạo là gì?",
+    "explanation_vi": "Đúng: Lấy kiến thức được mô hình học được trên một tập dữ liệu tổng quát lớn và áp dụng nó vào một nhiệm vụ cụ thể khác nhưng có liên quan. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 2,
@@ -35,25 +41,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Accuracy"
+        "text": "Accuracy",
+        "text_vi": "Độ chính xác"
       },
       {
         "key": "B",
-        "text": "ROUGE (Recall-Oriented Understudy for Gisting Evaluation)"
+        "text": "ROUGE (Recall-Oriented Understudy for Gisting Evaluation)",
+        "text_vi": "ROUGE (Nghiên cứu theo định hướng thu hồi để đánh giá Gisting)"
       },
       {
         "key": "C",
-        "text": "RMSE (Root Mean Square Error)"
+        "text": "RMSE (Root Mean Square Error)",
+        "text_vi": "RMSE (Lỗi bình phương trung bình gốc)"
       },
       {
         "key": "D",
-        "text": "F1-Score"
+        "text": "F1-Score",
+        "text_vi": "Điểm F1"
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Correct: ROUGE (Recall-Oriented Understudy for Gisting Evaluation) Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: ROUGE (Recall-Oriented Understudy for Gisting Evaluation) Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Số liệu nào thường được sử dụng để đánh giá chất lượng của các bản tóm tắt do AI tạo ra bằng cách so sánh chúng với các bản tóm tắt tham khảo do con người viết?",
+    "explanation_vi": "Đúng: ROUGE (Nghiên cứu sinh theo định hướng thu hồi để đánh giá Gisting) Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế thì không."
   },
   {
     "id": 3,
@@ -63,25 +75,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "The hardware crashing and losing memory."
+        "text": "The hardware crashing and losing memory.",
+        "text_vi": "Phần cứng bị hỏng và mất bộ nhớ."
       },
       {
         "key": "B",
-        "text": "The model deleting its own training data."
+        "text": "The model deleting its own training data.",
+        "text_vi": "Mô hình xóa dữ liệu đào tạo của chính nó."
       },
       {
         "key": "C",
-        "text": "The user forgetting their API key."
+        "text": "The user forgetting their API key.",
+        "text_vi": "Người dùng quên khóa API của họ."
       },
       {
         "key": "D",
-        "text": "The tendency of an AI model to abruptly forget previously learned information upon learning new information."
+        "text": "The tendency of an AI model to abruptly forget previously learned information upon learning new information.",
+        "text_vi": "Xu hướng mô hình AI đột ngột quên thông tin đã học trước đó khi học thông tin mới."
       }
     ],
     "answer": [
       "D"
     ],
-    "explanation": "Correct: The tendency of an AI model to abruptly forget previously learned information upon learning new information. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: The tendency of an AI model to abruptly forget previously learned information upon learning new information. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "'Sự lãng quên thảm khốc' trong mạng lưới thần kinh là gì?",
+    "explanation_vi": "Đúng: Xu hướng mô hình AI đột ngột quên thông tin đã học trước đó khi học thông tin mới. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 4,
@@ -91,25 +109,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "The semantic similarity between the two words."
+        "text": "The semantic similarity between the two words.",
+        "text_vi": "Sự giống nhau về ngữ nghĩa giữa hai từ."
       },
       {
         "key": "B",
-        "text": "The alphabetical order of the words."
+        "text": "The alphabetical order of the words.",
+        "text_vi": "Thứ tự chữ cái của các từ."
       },
       {
         "key": "C",
-        "text": "The length of the words."
+        "text": "The length of the words.",
+        "text_vi": "Độ dài của từ."
       },
       {
         "key": "D",
-        "text": "The size of the words in bytes."
+        "text": "The size of the words in bytes.",
+        "text_vi": "Kích thước của các từ tính bằng byte."
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Correct: The semantic similarity between the two words. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: The semantic similarity between the two words. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Trong mô hình không gian vectơ, khoảng cách giữa hai từ nhúng cho biết điều gì?",
+    "explanation_vi": "Đúng: Sự giống nhau về ngữ nghĩa giữa hai từ. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 5,
@@ -119,25 +143,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "To calculate the billing costs."
+        "text": "To calculate the billing costs.",
+        "text_vi": "Để tính toán chi phí thanh toán."
       },
       {
         "key": "B",
-        "text": "To turn the physical servers on and off."
+        "text": "To turn the physical servers on and off.",
+        "text_vi": "Để bật và tắt các máy chủ vật lý."
       },
       {
         "key": "C",
-        "text": "To introduce non-linearity into the network, allowing it to learn complex patterns."
+        "text": "To introduce non-linearity into the network, allowing it to learn complex patterns.",
+        "text_vi": "Để đưa tính phi tuyến tính vào mạng, cho phép nó học các mẫu phức tạp."
       },
       {
         "key": "D",
-        "text": "To format the output text."
+        "text": "To format the output text.",
+        "text_vi": "Để định dạng văn bản đầu ra."
       }
     ],
     "answer": [
       "C"
     ],
-    "explanation": "Correct: To introduce non-linearity into the network, allowing it to learn complex patterns. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: To introduce non-linearity into the network, allowing it to learn complex patterns. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Chức năng chính của 'Chức năng kích hoạt' trong mạng thần kinh là gì?",
+    "explanation_vi": "Đúng: Để đưa tính phi tuyến tính vào mạng, cho phép mạng tìm hiểu các mẫu phức tạp. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 6,
@@ -147,25 +177,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Massive, diverse, unlabelled datasets (e.g., scraping the internet)."
+        "text": "Massive, diverse, unlabelled datasets (e.g., scraping the internet).",
+        "text_vi": "Các bộ dữ liệu khổng lồ, đa dạng, không được gắn nhãn (ví dụ: tìm kiếm trên internet)."
       },
       {
         "key": "B",
-        "text": "Small, highly curated, labeled datasets."
+        "text": "Small, highly curated, labeled datasets.",
+        "text_vi": "Bộ dữ liệu nhỏ, được quản lý chặt chẽ, được dán nhãn."
       },
       {
         "key": "C",
-        "text": "Structured SQL databases only."
+        "text": "Structured SQL databases only.",
+        "text_vi": "Chỉ cơ sở dữ liệu SQL có cấu trúc."
       },
       {
         "key": "D",
-        "text": "Financial transaction logs."
+        "text": "Financial transaction logs.",
+        "text_vi": "Nhật ký giao dịch tài chính."
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Correct: Massive, diverse, unlabelled datasets (e.g., scraping the internet). Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Massive, diverse, unlabelled datasets (e.g., scraping the internet). Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Loại dữ liệu nào quan trọng nhất đối với giai đoạn 'Đào tạo trước' của Mô hình nền tảng?",
+    "explanation_vi": "Đúng: Các bộ dữ liệu khổng lồ, đa dạng, không được gắn nhãn (ví dụ: tìm kiếm trên internet). Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 7,
@@ -175,25 +211,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Translating languages."
+        "text": "Translating languages.",
+        "text_vi": "Dịch ngôn ngữ."
       },
       {
         "key": "B",
-        "text": "Sorting databases."
+        "text": "Sorting databases.",
+        "text_vi": "Sắp xếp cơ sở dữ liệu."
       },
       {
         "key": "C",
-        "text": "Summarizing text documents."
+        "text": "Summarizing text documents.",
+        "text_vi": "Tóm tắt tài liệu văn bản."
       },
       {
         "key": "D",
-        "text": "Generating highly realistic images by pitting a generator against a discriminator."
+        "text": "Generating highly realistic images by pitting a generator against a discriminator.",
+        "text_vi": "Tạo ra hình ảnh có độ chân thực cao bằng cách đặt máy phát điện chống lại bộ phân biệt đối xử."
       }
     ],
     "answer": [
       "D"
     ],
-    "explanation": "Correct: Generating highly realistic images by pitting a generator against a discriminator. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Generating highly realistic images by pitting a generator against a discriminator. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "'Mạng đối thủ sáng tạo (GAN)' được biết đến nhiều nhất là gì?",
+    "explanation_vi": "Đúng: Tạo ra hình ảnh có độ chân thực cao bằng cách đặt máy phát điện chống lại bộ phân biệt đối xử. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 8,
@@ -203,25 +245,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "They require no input data."
+        "text": "They require no input data.",
+        "text_vi": "Họ không yêu cầu dữ liệu đầu vào."
       },
       {
         "key": "B",
-        "text": "They map an input sequence (like a sentence in English) to an output sequence (like a sentence in French)."
+        "text": "They map an input sequence (like a sentence in English) to an output sequence (like a sentence in French).",
+        "text_vi": "Chúng ánh xạ một chuỗi đầu vào (như một câu trong tiếng Anh) thành một chuỗi đầu ra (như một câu trong tiếng Pháp)."
       },
       {
         "key": "C",
-        "text": "They output a single number for any given text."
+        "text": "They output a single number for any given text.",
+        "text_vi": "Họ xuất ra một số duy nhất cho bất kỳ văn bản nhất định."
       },
       {
         "key": "D",
-        "text": "They only generate images."
+        "text": "They only generate images.",
+        "text_vi": "Họ chỉ tạo ra hình ảnh."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Correct: They map an input sequence (like a sentence in English) to an output sequence (like a sentence in French). Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: They map an input sequence (like a sentence in English) to an output sequence (like a sentence in French). Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Các mô hình 'Sequence-to-Sequence' (Seq2Seq) thường hoạt động như thế nào?",
+    "explanation_vi": "Đúng: Họ ánh xạ chuỗi đầu vào (như một câu trong tiếng Anh) thành chuỗi đầu ra (như một câu trong tiếng Pháp). Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 9,
@@ -231,25 +279,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Masking sensitive PII data."
+        "text": "Masking sensitive PII data.",
+        "text_vi": "Che giấu dữ liệu PII nhạy cảm."
       },
       {
         "key": "B",
-        "text": "Hiding the model from the public internet."
+        "text": "Hiding the model from the public internet.",
+        "text_vi": "Ẩn mô hình khỏi internet công cộng."
       },
       {
         "key": "C",
-        "text": "Generating a mask for image editing."
+        "text": "Generating a mask for image editing.",
+        "text_vi": "Tạo mặt nạ để chỉnh sửa hình ảnh."
       },
       {
         "key": "D",
-        "text": "Hiding a percentage of input tokens and training the model to predict the missing words based on the surrounding context."
+        "text": "Hiding a percentage of input tokens and training the model to predict the missing words based on the surrounding context.",
+        "text_vi": "Ẩn phần trăm mã thông báo đầu vào và huấn luyện mô hình để dự đoán các từ còn thiếu dựa trên ngữ cảnh xung quanh."
       }
     ],
     "answer": [
       "D"
     ],
-    "explanation": "Correct: Hiding a percentage of input tokens and training the model to predict the missing words based on the surrounding context. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Hiding a percentage of input tokens and training the model to predict the missing words based on the surrounding context. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Mục tiêu 'Mô hình ngôn ngữ đeo mặt nạ' liên quan đến điều gì?",
+    "explanation_vi": "Đúng: Ẩn phần trăm mã thông báo đầu vào và đào tạo mô hình để dự đoán các từ còn thiếu dựa trên ngữ cảnh xung quanh. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 10,
@@ -259,25 +313,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "They are the learnable parameters that capture the knowledge the model has extracted from the training data."
+        "text": "They are the learnable parameters that capture the knowledge the model has extracted from the training data.",
+        "text_vi": "Chúng là các tham số có thể học được để nắm bắt kiến thức mà mô hình đã trích xuất từ dữ liệu huấn luyện."
       },
       {
         "key": "B",
-        "text": "They are the physical weight of the hardware."
+        "text": "They are the physical weight of the hardware.",
+        "text_vi": "Chúng là trọng lượng vật lý của phần cứng."
       },
       {
         "key": "C",
-        "text": "They are security protocols."
+        "text": "They are security protocols.",
+        "text_vi": "Chúng là các giao thức bảo mật."
       },
       {
         "key": "D",
-        "text": "They refer to user preferences."
+        "text": "They refer to user preferences.",
+        "text_vi": "Họ đề cập đến sở thích của người dùng."
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Correct: They are the learnable parameters that capture the knowledge the model has extracted from the training data. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: They are the learnable parameters that capture the knowledge the model has extracted from the training data. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Vai trò của 'Trọng lượng và Xu hướng' trong mạng lưới thần kinh được đào tạo là gì?",
+    "explanation_vi": "Đúng: Chúng là các tham số có thể học được nhằm nắm bắt kiến thức mà mô hình đã trích xuất từ dữ liệu huấn luyện. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 11,
@@ -287,25 +347,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "To delete bad data."
+        "text": "To delete bad data.",
+        "text_vi": "Để xóa dữ liệu xấu."
       },
       {
         "key": "B",
-        "text": "To artificially increase the size and diversity of a training dataset by applying transformations (like cropping or paraphrasing) to existing data."
+        "text": "To artificially increase the size and diversity of a training dataset by applying transformations (like cropping or paraphrasing) to existing data.",
+        "text_vi": "Để tăng kích thước và tính đa dạng của tập dữ liệu huấn luyện một cách giả tạo bằng cách áp dụng các phép biến đổi (như cắt xén hoặc diễn giải) cho dữ liệu hiện có."
       },
       {
         "key": "C",
-        "text": "To encrypt the database."
+        "text": "To encrypt the database.",
+        "text_vi": "Để mã hóa cơ sở dữ liệu."
       },
       {
         "key": "D",
-        "text": "To increase the network bandwidth."
+        "text": "To increase the network bandwidth.",
+        "text_vi": "Để tăng băng thông mạng."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Correct: To artificially increase the size and diversity of a training dataset by applying transformations (like cropping or paraphrasing) to existing data. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: To artificially increase the size and diversity of a training dataset by applying transformations (like cropping or paraphrasing) to existing data. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Tại sao 'Tăng cường dữ liệu' được sử dụng trong Học máy (Machine Learning)?",
+    "explanation_vi": "Đúng: Để tăng kích thước và tính đa dạng của tập dữ liệu huấn luyện một cách giả tạo bằng cách áp dụng các phép biến đổi (như cắt xén hoặc diễn giải) cho dữ liệu hiện có. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 12,
@@ -315,25 +381,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "They diffuse heat from the GPU."
+        "text": "They diffuse heat from the GPU.",
+        "text_vi": "Chúng khuếch tán nhiệt từ GPU."
       },
       {
         "key": "B",
-        "text": "They use GANs to generate text."
+        "text": "They use GANs to generate text.",
+        "text_vi": "Họ sử dụng GAN để tạo văn bản."
       },
       {
         "key": "C",
-        "text": "They operate in a lower-dimensional latent space rather than the high-dimensional pixel space, making image generation computationally cheaper and faster."
+        "text": "They operate in a lower-dimensional latent space rather than the high-dimensional pixel space, making image generation computationally cheaper and faster.",
+        "text_vi": "Chúng hoạt động trong không gian tiềm ẩn có chiều thấp hơn thay vì không gian pixel chiều cao, giúp việc tạo hình ảnh về mặt tính toán rẻ hơn và nhanh hơn."
       },
       {
         "key": "D",
-        "text": "They only generate 1D audio."
+        "text": "They only generate 1D audio.",
+        "text_vi": "Họ chỉ tạo ra âm thanh 1D."
       }
     ],
     "answer": [
       "C"
     ],
-    "explanation": "Correct: They operate in a lower-dimensional latent space rather than the high-dimensional pixel space, making image generation computationally cheaper and faster. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: They operate in a lower-dimensional latent space rather than the high-dimensional pixel space, making image generation computationally cheaper and faster. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Điều nào sau đây mô tả 'mô hình khuếch tán (diffusion model) tiềm ẩn' (như Khuếch tán ổn định)?",
+    "explanation_vi": "Đúng: Chúng hoạt động trong không gian tiềm ẩn có chiều thấp hơn thay vì không gian pixel có chiều cao, giúp việc tạo hình ảnh về mặt tính toán rẻ hơn và nhanh hơn. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 13,
@@ -343,25 +415,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Dense models are for images, sparse models for text."
+        "text": "Dense models are for images, sparse models for text.",
+        "text_vi": "Mô hình dày đặc dành cho hình ảnh, mô hình thưa thớt dành cho văn bản."
       },
       {
         "key": "B",
-        "text": "There is no difference."
+        "text": "There is no difference.",
+        "text_vi": "Không có sự khác biệt."
       },
       {
         "key": "C",
-        "text": "Dense models run on CPUs, sparse on GPUs."
+        "text": "Dense models run on CPUs, sparse on GPUs.",
+        "text_vi": "Các mô hình dày đặc chạy trên CPU, thưa thớt trên GPU."
       },
       {
         "key": "D",
-        "text": "In a dense model, all parameters are used for every prediction; in a sparse model (like Mixture of Experts), only a subset of parameters is activated for a given input."
+        "text": "In a dense model, all parameters are used for every prediction; in a sparse model (like Mixture of Experts), only a subset of parameters is activated for a given input.",
+        "text_vi": "Trong một mô hình dày đặc, tất cả các tham số đều được sử dụng cho mọi dự đoán; trong mô hình thưa thớt (như Hỗn hợp các chuyên gia), chỉ một tập hợp con các tham số được kích hoạt cho một đầu vào nhất định."
       }
     ],
     "answer": [
       "D"
     ],
-    "explanation": "Correct: In a dense model, all parameters are used for every prediction; in a sparse model (like Mixture of Experts), only a subset of parameters is activated for a given input. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: In a dense model, all parameters are used for every prediction; in a sparse model (like Mixture of Experts), only a subset of parameters is activated for a given input. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Sự khác biệt giữa mô hình 'Dày đặc' và 'Thưa thớt' là gì?",
+    "explanation_vi": "Đúng: Trong một mô hình dày đặc, tất cả các tham số đều được sử dụng cho mọi dự đoán; trong mô hình thưa thớt (như Hỗn hợp các chuyên gia), chỉ một tập hợp con các tham số được kích hoạt cho một đầu vào nhất định. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 14,
@@ -371,25 +449,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "The process of training a model to understand that different modalities (e.g., a picture of a dog and the word 'dog') represent the same semantic concept."
+        "text": "The process of training a model to understand that different modalities (e.g., a picture of a dog and the word 'dog') represent the same semantic concept.",
+        "text_vi": "Quá trình đào tạo một mô hình để hiểu rằng các phương thức khác nhau (ví dụ: hình ảnh một con chó và từ 'chó') đại diện cho cùng một khái niệm ngữ nghĩa."
       },
       {
         "key": "B",
-        "text": "Aligning the server racks."
+        "text": "Aligning the server racks.",
+        "text_vi": "Căn chỉnh các giá đỡ máy chủ."
       },
       {
         "key": "C",
-        "text": "Formatting text in a UI."
+        "text": "Formatting text in a UI.",
+        "text_vi": "Định dạng văn bản trong giao diện người dùng."
       },
       {
         "key": "D",
-        "text": "Translating text to speech."
+        "text": "Translating text to speech.",
+        "text_vi": "Dịch văn bản thành lời nói."
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Correct: The process of training a model to understand that different modalities (e.g., a picture of a dog and the word 'dog') represent the same semantic concept. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: The process of training a model to understand that different modalities (e.g., a picture of a dog and the word 'dog') represent the same semantic concept. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "'Căn chỉnh đa phương thức' đề cập đến điều gì?",
+    "explanation_vi": "Đúng: Quá trình đào tạo một mô hình để hiểu rằng các phương thức khác nhau (ví dụ: hình ảnh một con chó và từ 'chó') đại diện cho cùng một khái niệm ngữ nghĩa. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 15,
@@ -399,25 +483,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Bubble Sort"
+        "text": "Bubble Sort",
+        "text_vi": "Sắp xếp bong bóng"
       },
       {
         "key": "B",
-        "text": "Backpropagation"
+        "text": "Backpropagation",
+        "text_vi": "Lan truyền ngược"
       },
       {
         "key": "C",
-        "text": "Dijkstra's Algorithm"
+        "text": "Dijkstra's Algorithm",
+        "text_vi": "Thuật toán Dijkstra"
       },
       {
         "key": "D",
-        "text": "Binary Search"
+        "text": "Binary Search",
+        "text_vi": "Tìm kiếm nhị phân"
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Correct: Backpropagation Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Backpropagation Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Thuật toán nào chịu trách nhiệm cơ bản cho việc cập nhật trọng số của mạng nơ-ron bằng cách tính toán độ dốc?",
+    "explanation_vi": "Đúng: Lan truyền ngược Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 16,
@@ -427,25 +517,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Cooling down data centers."
+        "text": "Cooling down data centers.",
+        "text_vi": "Hạ nhiệt các trung tâm dữ liệu."
       },
       {
         "key": "B",
-        "text": "Generating fake news."
+        "text": "Generating fake news.",
+        "text_vi": "Tạo ra tin giả."
       },
       {
         "key": "C",
-        "text": "Overcoming data scarcity and privacy issues by using AI to generate artificial, yet statistically representative, data for training."
+        "text": "Overcoming data scarcity and privacy issues by using AI to generate artificial, yet statistically representative, data for training.",
+        "text_vi": "Khắc phục sự khan hiếm dữ liệu và các vấn đề về quyền riêng tư bằng cách sử dụng AI để tạo ra dữ liệu nhân tạo nhưng mang tính đại diện về mặt thống kê cho đào tạo."
       },
       {
         "key": "D",
-        "text": "Replacing human engineers."
+        "text": "Replacing human engineers.",
+        "text_vi": "Thay thế kỹ sư con người"
       }
     ],
     "answer": [
       "C"
     ],
-    "explanation": "Correct: Overcoming data scarcity and privacy issues by using AI to generate artificial, yet statistically representative, data for training. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Overcoming data scarcity and privacy issues by using AI to generate artificial, yet statistically representative, data for training. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "'Dữ liệu tổng hợp' được sử dụng để làm gì trong AI sáng tạo?",
+    "explanation_vi": "Đúng: Khắc phục sự khan hiếm dữ liệu và các vấn đề về quyền riêng tư bằng cách sử dụng AI để tạo ra dữ liệu nhân tạo nhưng mang tính đại diện về mặt thống kê cho đào tạo. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 17,
@@ -455,25 +551,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Because numbers are not allowed in prompts."
+        "text": "Because numbers are not allowed in prompts.",
+        "text_vi": "Bởi vì số không được phép trong lời nhắc."
       },
       {
         "key": "B",
-        "text": "Because they are optimized to predict the next most likely token based on language patterns, not to execute symbolic mathematical logic."
+        "text": "Because they are optimized to predict the next most likely token based on language patterns, not to execute symbolic mathematical logic.",
+        "text_vi": "Bởi vì chúng được tối ưu hóa để dự đoán mã thông báo có khả năng xảy ra tiếp theo dựa trên mẫu ngôn ngữ chứ không phải để thực thi logic toán học tượng trưng."
       },
       {
         "key": "C",
-        "text": "Because they are not connected to the internet."
+        "text": "Because they are not connected to the internet.",
+        "text_vi": "Bởi vì họ không được kết nối với internet."
       },
       {
         "key": "D",
-        "text": "Because they don't have a calculator."
+        "text": "Because they don't have a calculator.",
+        "text_vi": "Vì họ không có máy tính."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Correct: Because they are optimized to predict the next most likely token based on language patterns, not to execute symbolic mathematical logic. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Because they are optimized to predict the next most likely token based on language patterns, not to execute symbolic mathematical logic. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Tại sao LLM đôi khi gặp khó khăn với số học cơ bản?",
+    "explanation_vi": "Đúng: Bởi vì chúng được tối ưu hóa để dự đoán mã thông báo có khả năng xảy ra tiếp theo dựa trên mẫu ngôn ngữ chứ không phải để thực thi logic toán học tượng trưng. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 18,
@@ -483,25 +585,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Buying too many servers."
+        "text": "Buying too many servers.",
+        "text_vi": "Mua quá nhiều máy chủ."
       },
       {
         "key": "B",
-        "text": "When the context window is exceeded."
+        "text": "When the context window is exceeded.",
+        "text_vi": "Khi vượt quá cửa sổ ngữ cảnh."
       },
       {
         "key": "C",
-        "text": "When a model learns the training data too well, including its noise, resulting in poor generalization to new, unseen data."
+        "text": "When a model learns the training data too well, including its noise, resulting in poor generalization to new, unseen data.",
+        "text_vi": "Khi một mô hình học dữ liệu huấn luyện quá tốt, bao gồm cả nhiễu của nó, dẫn đến khả năng khái quát hóa kém đối với dữ liệu mới, chưa được nhìn thấy."
       },
       {
         "key": "D",
-        "text": "When a model is too large to fit in memory."
+        "text": "When a model is too large to fit in memory.",
+        "text_vi": "Khi một mô hình quá lớn để vừa với bộ nhớ."
       }
     ],
     "answer": [
       "C"
     ],
-    "explanation": "Correct: When a model learns the training data too well, including its noise, resulting in poor generalization to new, unseen data. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: When a model learns the training data too well, including its noise, resulting in poor generalization to new, unseen data. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "'Overfitting' trong Học máy (Machine Learning) là gì?",
+    "explanation_vi": "Đúng: Khi một mô hình học dữ liệu huấn luyện quá tốt, bao gồm cả độ nhiễu của nó, dẫn đến khả năng khái quát hóa kém đối với dữ liệu mới, chưa được nhìn thấy. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 19,
@@ -511,25 +619,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Cloud Build"
+        "text": "Cloud Build",
+        "text_vi": "Xây dựng đám mây"
       },
       {
         "key": "B",
-        "text": "Cloud Functions"
+        "text": "Cloud Functions",
+        "text_vi": "Chức năng đám mây"
       },
       {
         "key": "C",
-        "text": "Vertex AI Model Registry"
+        "text": "Vertex AI Model Registry",
+        "text_vi": "Cơ quan đăng ký mô hình AI của Vertex"
       },
       {
         "key": "D",
-        "text": "Vertex AI Evaluation"
+        "text": "Vertex AI Evaluation",
+        "text_vi": "Đánh giá AI của Vertex"
       }
     ],
     "answer": [
       "D"
     ],
-    "explanation": "Correct: Vertex AI Evaluation Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Vertex AI Evaluation Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Tính năng Vertex AI nào cho phép bạn thực hiện đánh giá song song (AutoSxS) tự động của hai mô hình tổng quát?",
+    "explanation_vi": "Đúng: Đánh giá AI của Vertex Xem xét tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế thì không."
   },
   {
     "id": 20,
@@ -539,25 +653,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Performing low-latency, highly scalable nearest-neighbor similarity searches on vector embeddings for applications like RAG and recommendation engines."
+        "text": "Performing low-latency, highly scalable nearest-neighbor similarity searches on vector embeddings for applications like RAG and recommendation engines.",
+        "text_vi": "Thực hiện các tìm kiếm tương tự lân cận gần nhất có độ trễ thấp, có khả năng mở rộng cao trên các phần nhúng vectơ cho các ứng dụng như RAG và các công cụ đề xuất."
       },
       {
         "key": "B",
-        "text": "Searching for string matches in BigQuery."
+        "text": "Searching for string matches in BigQuery.",
+        "text_vi": "Tìm kiếm chuỗi khớp trong BigQuery."
       },
       {
         "key": "C",
-        "text": "Searching text files locally."
+        "text": "Searching text files locally.",
+        "text_vi": "Tìm kiếm tập tin văn bản cục bộ."
       },
       {
         "key": "D",
-        "text": "Searching for cloud security threats."
+        "text": "Searching for cloud security threats.",
+        "text_vi": "Tìm kiếm các mối đe dọa bảo mật đám mây."
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Correct: Performing low-latency, highly scalable nearest-neighbor similarity searches on vector embeddings for applications like RAG and recommendation engines. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Performing low-latency, highly scalable nearest-neighbor similarity searches on vector embeddings for applications like RAG and recommendation engines. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "'Tìm kiếm vectơ AI của Vertex' (trước đây là Công cụ kết hợp) được sử dụng để làm gì?",
+    "explanation_vi": "Đúng: Thực hiện các tìm kiếm tương tự lân cận gần nhất có độ trễ thấp, khả năng mở rộng cao trên các phần nhúng vectơ cho các ứng dụng như RAG và các công cụ đề xuất. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 21,
@@ -567,25 +687,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "It only works on images of cats."
+        "text": "It only works on images of cats.",
+        "text_vi": "Nó chỉ hoạt động trên hình ảnh của mèo."
       },
       {
         "key": "B",
-        "text": "Document AI is a specialized suite of models and tools specifically trained to extract, classify, and understand data from structured and unstructured documents (like invoices or IDs)."
+        "text": "Document AI is a specialized suite of models and tools specifically trained to extract, classify, and understand data from structured and unstructured documents (like invoices or IDs).",
+        "text_vi": "Document AI là một bộ mô hình và công cụ chuyên dụng được đào tạo đặc biệt để trích xuất, phân loại và hiểu dữ liệu từ các tài liệu có cấu trúc và phi cấu trúc (như hóa đơn hoặc ID)."
       },
       {
         "key": "C",
-        "text": "It generates new documents from scratch."
+        "text": "It generates new documents from scratch.",
+        "text_vi": "Nó tạo ra các tài liệu mới từ đầu."
       },
       {
         "key": "D",
-        "text": "It does not use machine learning."
+        "text": "It does not use machine learning.",
+        "text_vi": "Nó không sử dụng máy học."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Correct: Document AI is a specialized suite of models and tools specifically trained to extract, classify, and understand data from structured and unstructured documents (like invoices or IDs). Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Document AI is a specialized suite of models and tools specifically trained to extract, classify, and understand data from structured and unstructured documents (like invoices or IDs). Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "AI tài liệu của Google Cloud khác với các mô hình AI thế hệ thông thường như thế nào?",
+    "explanation_vi": "Đúng: Document AI là một bộ mô hình và công cụ chuyên dụng được đào tạo đặc biệt để trích xuất, phân loại và hiểu dữ liệu từ các tài liệu có cấu trúc và phi cấu trúc (như hóa đơn hoặc ID). Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 22,
@@ -595,25 +721,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Sec-PaLM"
+        "text": "Sec-PaLM",
+        "text_vi": "Sec-PaLM"
       },
       {
         "key": "B",
-        "text": "Imagen"
+        "text": "Imagen",
+        "text_vi": "Hình ảnh"
       },
       {
         "key": "C",
-        "text": "Codey"
+        "text": "Codey",
+        "text_vi": "Codey"
       },
       {
         "key": "D",
-        "text": "Med-PaLM"
+        "text": "Med-PaLM",
+        "text_vi": "Med-PaLM"
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Correct: Sec-PaLM Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Sec-PaLM Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Mô hình nền tảng nào của Google được thiết kế riêng cho các trường hợp sử dụng an ninh mạng, giúp các nhà phân tích phát hiện và tóm tắt các mối đe dọa?",
+    "explanation_vi": "Đúng: Sec-PaLM Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế thì không."
   },
   {
     "id": 23,
@@ -623,25 +755,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Compute Engine (VMs)"
+        "text": "Compute Engine (VMs)",
+        "text_vi": "Công cụ tính toán (VM)"
       },
       {
         "key": "B",
-        "text": "Bare Metal Solution"
+        "text": "Bare Metal Solution",
+        "text_vi": "Giải pháp kim loại trần"
       },
       {
         "key": "C",
-        "text": "Cloud SQL"
+        "text": "Cloud SQL",
+        "text_vi": "Đám mây SQL"
       },
       {
         "key": "D",
-        "text": "Cloud Run"
+        "text": "Cloud Run",
+        "text_vi": "Chạy trên đám mây"
       }
     ],
     "answer": [
       "D"
     ],
-    "explanation": "Correct: Cloud Run Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Cloud Run Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Nếu bạn muốn triển khai một ứng dụng Gen AI nhẹ, được đóng gói trong bộ chứa có tỷ lệ về 0 khi không sử dụng, dịch vụ điện toán Google Cloud nào là tốt nhất?",
+    "explanation_vi": "Đúng: Cloud Run Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 24,
@@ -651,25 +789,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "It can only handle 1,000 tokens."
+        "text": "It can only handle 1,000 tokens.",
+        "text_vi": "Nó chỉ có thể xử lý 1.000 token."
       },
       {
         "key": "B",
-        "text": "It requires zero tokens."
+        "text": "It requires zero tokens.",
+        "text_vi": "Nó yêu cầu không có token."
       },
       {
         "key": "C",
-        "text": "It has a massive context window of up to 1 million (or 2 million) tokens, allowing it to process massive documents, hours of video, or entire codebases in one prompt."
+        "text": "It has a massive context window of up to 1 million (or 2 million) tokens, allowing it to process massive documents, hours of video, or entire codebases in one prompt.",
+        "text_vi": "Nó có một cửa sổ ngữ cảnh khổng lồ lên tới 1 triệu (hoặc 2 triệu) mã thông báo, cho phép nó xử lý các tài liệu lớn, hàng giờ video hoặc toàn bộ cơ sở mã trong một lời nhắc."
       },
       {
         "key": "D",
-        "text": "It cannot process video."
+        "text": "It cannot process video.",
+        "text_vi": "Nó không thể xử lý video."
       }
     ],
     "answer": [
       "C"
     ],
-    "explanation": "Correct: It has a massive context window of up to 1 million (or 2 million) tokens, allowing it to process massive documents, hours of video, or entire codebases in one prompt. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: It has a massive context window of up to 1 million (or 2 million) tokens, allowing it to process massive documents, hours of video, or entire codebases in one prompt. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Khả năng chính của mẫu Gemini 1.5 Pro liên quan đến ngữ cảnh là gì?",
+    "explanation_vi": "Đúng: Nó có một cửa sổ ngữ cảnh khổng lồ lên tới 1 triệu (hoặc 2 triệu) mã thông báo, cho phép nó xử lý các tài liệu lớn, hàng giờ video hoặc toàn bộ cơ sở mã trong một lời nhắc. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 25,
@@ -679,25 +823,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Cloud Translation API"
+        "text": "Cloud Translation API",
+        "text_vi": "API dịch đám mây"
       },
       {
         "key": "B",
-        "text": "Google Maps API"
+        "text": "Google Maps API",
+        "text_vi": "API bản đồ Google"
       },
       {
         "key": "C",
-        "text": "Vertex AI SDK / PaLM & Gemini APIs"
+        "text": "Vertex AI SDK / PaLM & Gemini APIs",
+        "text_vi": "SDK AI của Vertex / API PaLM & Gemini"
       },
       {
         "key": "D",
-        "text": "Google Drive API"
+        "text": "Google Drive API",
+        "text_vi": "API Google Drive"
       }
     ],
     "answer": [
       "C"
     ],
-    "explanation": "Correct: Vertex AI SDK / PaLM & Gemini APIs Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Vertex AI SDK / PaLM & Gemini APIs Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "API nào cho phép các nhà phát triển tương tác theo chương trình với các mô hình nền tảng của Google trong Vertex AI?",
+    "explanation_vi": "Đúng: Vertex AI SDK / PaLM & Gemini API Xem lại lý do tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 26,
@@ -707,25 +857,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Limits the daily API cost."
+        "text": "Limits the daily API cost.",
+        "text_vi": "Giới hạn chi phí API hàng ngày."
       },
       {
         "key": "B",
-        "text": "Sets the maximum length of the response generated by the model."
+        "text": "Sets the maximum length of the response generated by the model.",
+        "text_vi": "Đặt độ dài tối đa của phản hồi do mô hình tạo ra."
       },
       {
         "key": "C",
-        "text": "Restricts the input prompt size."
+        "text": "Restricts the input prompt size.",
+        "text_vi": "Hạn chế kích thước lời nhắc đầu vào."
       },
       {
         "key": "D",
-        "text": "Limits the number of users who can access the app."
+        "text": "Limits the number of users who can access the app.",
+        "text_vi": "Giới hạn số lượng người dùng có thể truy cập ứng dụng."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Correct: Sets the maximum length of the response generated by the model. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Sets the maximum length of the response generated by the model. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Khi sử dụng Vertex AI Studio để thiết kế lời nhắc, bạn điều chỉnh 'Giới hạn mã thông báo'. Cái này làm gì?",
+    "explanation_vi": "Đúng: Đặt độ dài tối đa của phản hồi do mô hình tạo ra. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 27,
@@ -735,25 +891,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "The model is free but you cannot see the code."
+        "text": "The model is free but you cannot see the code.",
+        "text_vi": "Mô hình này miễn phí nhưng bạn không thể xem mã."
       },
       {
         "key": "B",
-        "text": "The model is strictly proprietary to Google."
+        "text": "The model is strictly proprietary to Google.",
+        "text_vi": "Mô hình này hoàn toàn thuộc quyền sở hữu của Google."
       },
       {
         "key": "C",
-        "text": "The model has no weights."
+        "text": "The model has no weights.",
+        "text_vi": "Mô hình không có trọng lượng."
       },
       {
         "key": "D",
-        "text": "The model's trained parameters (weights) are available for users to download, inspect, and deploy anywhere (e.g., Gemma)."
+        "text": "The model's trained parameters (weights) are available for users to download, inspect, and deploy anywhere (e.g., Gemma).",
+        "text_vi": "Các tham số (trọng lượng) đã được đào tạo của mô hình có sẵn để người dùng tải xuống, kiểm tra và triển khai ở bất cứ đâu (ví dụ: Gemma)."
       }
     ],
     "answer": [
       "D"
     ],
-    "explanation": "Correct: The model's trained parameters (weights) are available for users to download, inspect, and deploy anywhere (e.g., Gemma). Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: The model's trained parameters (weights) are available for users to download, inspect, and deploy anywhere (e.g., Gemma). Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Điều đó có nghĩa là gì khi một mô hình trong Vertex AI Model Garden là 'Trọng lượng mở'?",
+    "explanation_vi": "Đúng: Các tham số (trọng số) đã huấn luyện của mô hình có sẵn để người dùng tải xuống, kiểm tra và triển khai ở bất cứ đâu (ví dụ: Gemma). Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 28,
@@ -763,25 +925,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "By allowing the model to act as an agent, securely calling external APIs, executing code, or querying databases to take real-world actions."
+        "text": "By allowing the model to act as an agent, securely calling external APIs, executing code, or querying databases to take real-world actions.",
+        "text_vi": "Bằng cách cho phép mô hình hoạt động như một tác nhân, gọi các API bên ngoài một cách an toàn, thực thi mã hoặc truy vấn cơ sở dữ liệu để thực hiện các hành động trong thế giới thực."
       },
       {
         "key": "B",
-        "text": "By translating the output."
+        "text": "By translating the output.",
+        "text_vi": "Bằng cách dịch đầu ra."
       },
       {
         "key": "C",
-        "text": "By adding more memory to the server."
+        "text": "By adding more memory to the server.",
+        "text_vi": "Bằng cách thêm nhiều bộ nhớ hơn vào máy chủ."
       },
       {
         "key": "D",
-        "text": "By making the UI bigger."
+        "text": "By making the UI bigger.",
+        "text_vi": "Bằng cách làm cho giao diện người dùng lớn hơn."
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Correct: By allowing the model to act as an agent, securely calling external APIs, executing code, or querying databases to take real-world actions. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: By allowing the model to act as an agent, securely calling external APIs, executing code, or querying databases to take real-world actions. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "'Tiện ích mở rộng AI của Vertex' cải thiện mô hình AI thế hệ như thế nào?",
+    "explanation_vi": "Đúng: Bằng cách cho phép mô hình hoạt động như một tác nhân, gọi các API bên ngoài một cách an toàn, thực thi mã hoặc truy vấn cơ sở dữ liệu để thực hiện các hành động trong thế giới thực. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 29,
@@ -791,25 +959,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Memorystore"
+        "text": "Memorystore",
+        "text_vi": "Kho ký ức"
       },
       {
         "key": "B",
-        "text": "Cloud Storage"
+        "text": "Cloud Storage",
+        "text_vi": "Lưu trữ đám mây"
       },
       {
         "key": "C",
-        "text": "Cloud Spanner"
+        "text": "Cloud Spanner",
+        "text_vi": "Cờ lê đám mây"
       },
       {
         "key": "D",
-        "text": "Cloud CDN"
+        "text": "Cloud CDN",
+        "text_vi": "CDN đám mây"
       }
     ],
     "answer": [
       "C"
     ],
-    "explanation": "Correct: Cloud Spanner Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Cloud Spanner Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Dịch vụ Google Cloud nào cung cấp cơ sở dữ liệu không có máy chủ, được quản lý toàn phần, rất phù hợp để xây dựng các ứng dụng Gen AI quy mô toàn cầu đòi hỏi tính nhất quán cao?",
+    "explanation_vi": "Đúng: Cloud Spanner Xem lại lý do tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 30,
@@ -819,25 +993,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "It plays high-fidelity audio."
+        "text": "It plays high-fidelity audio.",
+        "text_vi": "Nó phát âm thanh có độ trung thực cao."
       },
       {
         "key": "B",
-        "text": "It forces the model to strictly extract answers only from the provided enterprise documents, minimizing hallucination and extrapolation."
+        "text": "It forces the model to strictly extract answers only from the provided enterprise documents, minimizing hallucination and extrapolation.",
+        "text_vi": "Nó buộc mô hình chỉ trích xuất nghiêm ngặt các câu trả lời từ các tài liệu doanh nghiệp được cung cấp, giảm thiểu ảo giác AI (hallucination) và ngoại suy."
       },
       {
         "key": "C",
-        "text": "It generates high-resolution images."
+        "text": "It generates high-resolution images.",
+        "text_vi": "Nó tạo ra hình ảnh có độ phân giải cao."
       },
       {
         "key": "D",
-        "text": "It connects to Google Maps."
+        "text": "It connects to Google Maps.",
+        "text_vi": "Nó kết nối với Google Maps."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Correct: It forces the model to strictly extract answers only from the provided enterprise documents, minimizing hallucination and extrapolation. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: It forces the model to strictly extract answers only from the provided enterprise documents, minimizing hallucination and extrapolation. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Lợi ích chính của việc sử dụng 'Nối đất có độ chính xác cao' trong Vertex AI là gì?",
+    "explanation_vi": "Đúng: Nó buộc mô hình chỉ trích xuất nghiêm ngặt các câu trả lời từ các tài liệu doanh nghiệp được cung cấp, giảm thiểu ảo giác AI (hallucination) và ngoại suy. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 31,
@@ -847,25 +1027,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Cloud Source Repositories"
+        "text": "Cloud Source Repositories",
+        "text_vi": "Kho lưu trữ nguồn đám mây"
       },
       {
         "key": "B",
-        "text": "Artifact Registry"
+        "text": "Artifact Registry",
+        "text_vi": "Cơ quan đăng ký hiện vật"
       },
       {
         "key": "C",
-        "text": "Cloud Deploy"
+        "text": "Cloud Deploy",
+        "text_vi": "Triển khai đám mây"
       },
       {
         "key": "D",
-        "text": "Vertex AI ML Metadata / Experiments"
+        "text": "Vertex AI ML Metadata / Experiments",
+        "text_vi": "Siêu dữ liệu / Thử nghiệm AI ML của Vertex"
       }
     ],
     "answer": [
       "D"
     ],
-    "explanation": "Correct: Vertex AI ML Metadata / Experiments Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Vertex AI ML Metadata / Experiments Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Công cụ Google Cloud nào giúp nhà phát triển quản lý, theo dõi và tạo phiên bản cho các tạo phẩm và thử nghiệm ML của họ?",
+    "explanation_vi": "Đúng: Siêu dữ liệu / Thử nghiệm Vertex AI ML Xem lại lý do tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế thì không."
   },
   {
     "id": 32,
@@ -875,25 +1061,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "They are deeply integrated; BigQuery ML allows running ML models directly on data using SQL, and Vertex AI models can be called directly from BigQuery for analysis."
+        "text": "They are deeply integrated; BigQuery ML allows running ML models directly on data using SQL, and Vertex AI models can be called directly from BigQuery for analysis.",
+        "text_vi": "Chúng được tích hợp sâu sắc; BigQuery ML cho phép chạy các mô hình ML trực tiếp trên dữ liệu bằng SQL và các mô hình Vertex AI có thể được gọi trực tiếp từ BigQuery để phân tích."
       },
       {
         "key": "B",
-        "text": "BigQuery is for images, Vertex AI for text."
+        "text": "BigQuery is for images, Vertex AI for text.",
+        "text_vi": "BigQuery dành cho hình ảnh, Vertex AI dành cho văn bản."
       },
       {
         "key": "C",
-        "text": "They cannot be connected."
+        "text": "They cannot be connected.",
+        "text_vi": "Họ không thể được kết nối."
       },
       {
         "key": "D",
-        "text": "They are competitors."
+        "text": "They are competitors.",
+        "text_vi": "Họ là đối thủ cạnh tranh."
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Correct: They are deeply integrated; BigQuery ML allows running ML models directly on data using SQL, and Vertex AI models can be called directly from BigQuery for analysis. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: They are deeply integrated; BigQuery ML allows running ML models directly on data using SQL, and Vertex AI models can be called directly from BigQuery for analysis. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Mối quan hệ giữa BigQuery và Vertex AI là gì?",
+    "explanation_vi": "Đúng: Chúng được tích hợp sâu sắc; BigQuery ML cho phép chạy các mô hình ML trực tiếp trên dữ liệu bằng SQL và các mô hình Vertex AI có thể được gọi trực tiếp từ BigQuery để phân tích. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 33,
@@ -903,25 +1095,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Because it generates videos."
+        "text": "Because it generates videos.",
+        "text_vi": "Bởi vì nó tạo ra video."
       },
       {
         "key": "B",
-        "text": "Because it natively integrates with Vertex AI and supports the pgvector extension for high-performance vector search on operational data."
+        "text": "Because it natively integrates with Vertex AI and supports the pgvector extension for high-performance vector search on operational data.",
+        "text_vi": "Bởi vì nó tích hợp nguyên bản với Vertex AI và hỗ trợ phần mở rộng pgvector để tìm kiếm vectơ hiệu suất cao trên dữ liệu vận hành."
       },
       {
         "key": "C",
-        "text": "Because it is an open-source model."
+        "text": "Because it is an open-source model.",
+        "text_vi": "Bởi vì nó là một mô hình nguồn mở."
       },
       {
         "key": "D",
-        "text": "Because it is a NoSQL database."
+        "text": "Because it is a NoSQL database.",
+        "text_vi": "Bởi vì nó là cơ sở dữ liệu NoSQL."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Correct: Because it natively integrates with Vertex AI and supports the pgvector extension for high-performance vector search on operational data. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Because it natively integrates with Vertex AI and supports the pgvector extension for high-performance vector search on operational data. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Tại sao bạn lại sử dụng 'AlloyDB cho PostgreSQL' cho ứng dụng Generative AI?",
+    "explanation_vi": "Đúng: Vì nó vốn tích hợp với Vertex AI và hỗ trợ phần mở rộng pgvector để tìm kiếm vectơ hiệu suất cao trên dữ liệu vận hành. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 34,
@@ -931,25 +1129,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "The AI model resides on a local USB drive."
+        "text": "The AI model resides on a local USB drive.",
+        "text_vi": "Mô hình AI nằm trên ổ USB cục bộ."
       },
       {
         "key": "B",
-        "text": "The data is resident in the model's memory forever."
+        "text": "The data is resident in the model's memory forever.",
+        "text_vi": "Dữ liệu sẽ tồn tại vĩnh viễn trong bộ nhớ của mô hình."
       },
       {
         "key": "C",
-        "text": "Google owns the resident data."
+        "text": "Google owns the resident data.",
+        "text_vi": "Google sở hữu dữ liệu thường trú."
       },
       {
         "key": "D",
-        "text": "Customers can choose the specific geographic cloud region where their data is stored at rest and where the ML processing occurs, helping meet compliance requirements."
+        "text": "Customers can choose the specific geographic cloud region where their data is stored at rest and where the ML processing occurs, helping meet compliance requirements.",
+        "text_vi": "Khách hàng có thể chọn vùng đám mây địa lý cụ thể nơi dữ liệu của họ được lưu trữ ở trạng thái nghỉ và nơi diễn ra quá trình xử lý ML, giúp đáp ứng các yêu cầu tuân thủ."
       }
     ],
     "answer": [
       "D"
     ],
-    "explanation": "Correct: Customers can choose the specific geographic cloud region where their data is stored at rest and where the ML processing occurs, helping meet compliance requirements. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Customers can choose the specific geographic cloud region where their data is stored at rest and where the ML processing occurs, helping meet compliance requirements. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "'Data Residency' có nghĩa là gì trong bối cảnh Google Cloud Gen AI?",
+    "explanation_vi": "Đúng: Khách hàng có thể chọn vùng đám mây địa lý cụ thể nơi dữ liệu của họ được lưu trữ ở trạng thái lưu trữ và nơi diễn ra quá trình xử lý ML, giúp đáp ứng các yêu cầu tuân thủ. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 35,
@@ -959,25 +1163,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Cloud Router"
+        "text": "Cloud Router",
+        "text_vi": "Bộ định tuyến đám mây"
       },
       {
         "key": "B",
-        "text": "Cloud SQL"
+        "text": "Cloud SQL",
+        "text_vi": "Đám mây SQL"
       },
       {
         "key": "C",
-        "text": "Cloud Load Balancing"
+        "text": "Cloud Load Balancing",
+        "text_vi": "Cân bằng tải đám mây"
       },
       {
         "key": "D",
-        "text": "Cloud NAT"
+        "text": "Cloud NAT",
+        "text_vi": "Đám mây NAT"
       }
     ],
     "answer": [
       "C"
     ],
-    "explanation": "Correct: Cloud Load Balancing Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Cloud Load Balancing Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Dịch vụ nào được dùng để cân bằng lưu lượng mạng và hiển thị các điểm cuối Gen AI cho người dùng toàn cầu trên Google Cloud một cách an toàn?",
+    "explanation_vi": "Đúng: Cân bằng tải trên đám mây Xem lại lý do tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế thì không."
   },
   {
     "id": 36,
@@ -987,25 +1197,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "It is an API management platform used to secure, monitor, rate-limit, and monetize the Generative AI APIs exposed to external developers or clients."
+        "text": "It is an API management platform used to secure, monitor, rate-limit, and monetize the Generative AI APIs exposed to external developers or clients.",
+        "text_vi": "Đây là một nền tảng quản lý API được sử dụng để bảo mật, giám sát, giới hạn tỷ lệ và kiếm tiền từ các API Generative AI được cung cấp cho các nhà phát triển hoặc khách hàng bên ngoài."
       },
       {
         "key": "B",
-        "text": "It is a data visualization tool."
+        "text": "It is a data visualization tool.",
+        "text_vi": "Nó là một công cụ trực quan hóa dữ liệu."
       },
       {
         "key": "C",
-        "text": "It generates the AI models."
+        "text": "It generates the AI models.",
+        "text_vi": "Nó tạo ra các mô hình AI."
       },
       {
         "key": "D",
-        "text": "It trains audio models."
+        "text": "It trains audio models.",
+        "text_vi": "Nó đào tạo các mô hình âm thanh."
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Correct: It is an API management platform used to secure, monitor, rate-limit, and monetize the Generative AI APIs exposed to external developers or clients. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: It is an API management platform used to secure, monitor, rate-limit, and monetize the Generative AI APIs exposed to external developers or clients. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "'Apigee' được sử dụng để làm gì trong kiến ​​trúc AI sáng tạo?",
+    "explanation_vi": "Đúng: Đây là một nền tảng quản lý API được sử dụng để bảo mật, giám sát, giới hạn tỷ lệ và kiếm tiền từ các API Generative AI được cung cấp cho các nhà phát triển hoặc khách hàng bên ngoài. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 37,
@@ -1015,25 +1231,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Tuning a guitar using AI."
+        "text": "Tuning a guitar using AI.",
+        "text_vi": "Điều chỉnh guitar bằng AI."
       },
       {
         "key": "B",
-        "text": "A managed process that takes a foundation model and a training dataset to create a new, customized version of the model (fine-tuning)."
+        "text": "A managed process that takes a foundation model and a training dataset to create a new, customized version of the model (fine-tuning).",
+        "text_vi": "Một quy trình được quản lý lấy mô hình nền tảng và tập dữ liệu huấn luyện để tạo phiên bản mô hình mới, tùy chỉnh (tinh chỉnh (fine-tuning))."
       },
       {
         "key": "C",
-        "text": "Optimizing the cloud billing account."
+        "text": "Optimizing the cloud billing account.",
+        "text_vi": "Tối ưu hóa tài khoản thanh toán đám mây."
       },
       {
         "key": "D",
-        "text": "Adjusting the screen brightness."
+        "text": "Adjusting the screen brightness.",
+        "text_vi": "Điều chỉnh độ sáng màn hình."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Correct: A managed process that takes a foundation model and a training dataset to create a new, customized version of the model (fine-tuning). Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: A managed process that takes a foundation model and a training dataset to create a new, customized version of the model (fine-tuning). Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Trong Vertex AI, 'Công việc điều chỉnh' là gì?",
+    "explanation_vi": "Đúng: Một quy trình được quản lý sử dụng mô hình nền tảng và tập dữ liệu huấn luyện để tạo phiên bản mô hình mới, tùy chỉnh (tinh chỉnh (fine-tuning)). Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 38,
@@ -1043,25 +1265,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Google Meet closed captions"
+        "text": "Google Meet closed captions",
+        "text_vi": "Phụ đề chi tiết của Google Meet"
       },
       {
         "key": "B",
-        "text": "Google Calendar scheduling"
+        "text": "Google Calendar scheduling",
+        "text_vi": "Lên lịch Lịch Google"
       },
       {
         "key": "C",
-        "text": "'Help me read' / Summarization in Gmail"
+        "text": "'Help me read' / Summarization in Gmail",
+        "text_vi": "'Giúp tôi đọc'/Tóm tắt trong Gmail"
       },
       {
         "key": "D",
-        "text": "Google Sheets Formula Editor"
+        "text": "Google Sheets Formula Editor",
+        "text_vi": "Trình chỉnh sửa công thức của Google Trang tính"
       }
     ],
     "answer": [
       "C"
     ],
-    "explanation": "Correct: 'Help me read' / Summarization in Gmail Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: 'Help me read' / Summarization in Gmail Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Tính năng nào của Google Workspace sử dụng Gemini để giúp người dùng tóm tắt nhanh các chuỗi email dài?",
+    "explanation_vi": "Đúng: 'Giúp tôi đọc'/Tóm tắt trong Gmail Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 39,
@@ -1071,25 +1299,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Raw VMs are easier to use for beginners."
+        "text": "Raw VMs are easier to use for beginners.",
+        "text_vi": "Máy ảo thô dễ sử dụng hơn cho người mới bắt đầu."
       },
       {
         "key": "B",
-        "text": "Managed services require you to manage the OS patching manually."
+        "text": "Managed services require you to manage the OS patching manually.",
+        "text_vi": "Các dịch vụ được quản lý yêu cầu bạn quản lý việc vá lỗi hệ điều hành theo cách thủ công."
       },
       {
         "key": "C",
-        "text": "Managed services are always offline."
+        "text": "Managed services are always offline.",
+        "text_vi": "Các dịch vụ được quản lý luôn ngoại tuyến."
       },
       {
         "key": "D",
-        "text": "Managed services handle the underlying infrastructure, scaling, security, and maintenance automatically, letting teams focus on AI development."
+        "text": "Managed services handle the underlying infrastructure, scaling, security, and maintenance automatically, letting teams focus on AI development.",
+        "text_vi": "Các dịch vụ được quản lý tự động xử lý cơ sở hạ tầng cơ bản, mở rộng quy mô, bảo mật và bảo trì, cho phép các nhóm tập trung vào phát triển AI."
       }
     ],
     "answer": [
       "D"
     ],
-    "explanation": "Correct: Managed services handle the underlying infrastructure, scaling, security, and maintenance automatically, letting teams focus on AI development. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Managed services handle the underlying infrastructure, scaling, security, and maintenance automatically, letting teams focus on AI development. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Lợi thế của việc sử dụng 'Dịch vụ được quản lý' như Vertex AI so với việc triển khai AI trên máy ảo thô là gì?",
+    "explanation_vi": "Đúng: Các dịch vụ được quản lý tự động xử lý cơ sở hạ tầng cơ bản, mở rộng quy mô, bảo mật và bảo trì, cho phép các nhóm tập trung vào phát triển AI. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 40,
@@ -1099,25 +1333,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Asking the model the same question multiple times (often with Chain of Thought), generating multiple reasoning paths, and taking the most frequent (majority) answer to improve accuracy."
+        "text": "Asking the model the same question multiple times (often with Chain of Thought), generating multiple reasoning paths, and taking the most frequent (majority) answer to improve accuracy.",
+        "text_vi": "Hỏi mô hình cùng một câu hỏi nhiều lần (thường bằng Chuỗi suy nghĩ), tạo ra nhiều lối suy luận và lấy câu trả lời thường xuyên nhất (đa số) để cải thiện độ chính xác."
       },
       {
         "key": "B",
-        "text": "The model writing its own prompts."
+        "text": "The model writing its own prompts.",
+        "text_vi": "Mô hình viết lời nhắc của riêng mình."
       },
       {
         "key": "C",
-        "text": "The prompt must be written consistently in lowercase."
+        "text": "The prompt must be written consistently in lowercase.",
+        "text_vi": "Lời nhắc phải được viết nhất quán bằng chữ thường."
       },
       {
         "key": "D",
-        "text": "The model always giving the same wrong answer."
+        "text": "The model always giving the same wrong answer.",
+        "text_vi": "Người mẫu luôn đưa ra câu trả lời sai giống nhau."
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Correct: Asking the model the same question multiple times (often with Chain of Thought), generating multiple reasoning paths, and taking the most frequent (majority) answer to improve accuracy. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Asking the model the same question multiple times (often with Chain of Thought), generating multiple reasoning paths, and taking the most frequent (majority) answer to improve accuracy. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "'Tính tự nhất quán' trong kỹ thuật prompt (prompt engineering) là gì?",
+    "explanation_vi": "Đúng: Hỏi mô hình cùng một câu hỏi nhiều lần (thường bằng Chuỗi suy nghĩ), tạo ra nhiều lối suy luận và lấy câu trả lời thường xuyên nhất (đa số) để cải thiện độ chính xác. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 41,
@@ -1127,25 +1367,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Instead of changing the human-readable text, soft prompting trains a small set of continuous embedding vectors (soft prompts) that are prepended to the input, offering a parameter-efficient way to tune the model."
+        "text": "Instead of changing the human-readable text, soft prompting trains a small set of continuous embedding vectors (soft prompts) that are prepended to the input, offering a parameter-efficient way to tune the model.",
+        "text_vi": "Thay vì thay đổi văn bản mà con người có thể đọc được, lời nhắc mềm sẽ đào tạo một tập hợp nhỏ các vectơ nhúng liên tục (lời nhắc mềm) được thêm vào đầu vào, cung cấp một cách hiệu quả về tham số để điều chỉnh mô hình."
       },
       {
         "key": "B",
-        "text": "Soft prompting is used only for images."
+        "text": "Soft prompting is used only for images.",
+        "text_vi": "Lời nhắc mềm chỉ được sử dụng cho hình ảnh."
       },
       {
         "key": "C",
-        "text": "Soft prompting uses nicer words."
+        "text": "Soft prompting uses nicer words.",
+        "text_vi": "Nhắc nhở nhẹ nhàng sử dụng những từ ngữ đẹp hơn."
       },
       {
         "key": "D",
-        "text": "Soft prompting is done by humans, hard prompting by machines."
+        "text": "Soft prompting is done by humans, hard prompting by machines.",
+        "text_vi": "Nhắc nhở nhẹ nhàng là do con người thực hiện, nhắc nhở cứng rắn là do máy móc thực hiện."
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Correct: Instead of changing the human-readable text, soft prompting trains a small set of continuous embedding vectors (soft prompts) that are prepended to the input, offering a parameter-efficient way to tune the model. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Instead of changing the human-readable text, soft prompting trains a small set of continuous embedding vectors (soft prompts) that are prepended to the input, offering a parameter-efficient way to tune the model. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "'Nhắc nhở mềm' khác với kỹ thuật nhắc nhở (cứng) truyền thống như thế nào?",
+    "explanation_vi": "Đúng: Thay vì thay đổi văn bản mà con người có thể đọc được, lời nhắc mềm sẽ huấn luyện một tập hợp nhỏ các vectơ nhúng liên tục (lời nhắc mềm) được thêm vào đầu vào, cung cấp một cách hiệu quả về tham số để điều chỉnh mô hình. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 42,
@@ -1155,25 +1401,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Ask the model to delete the output."
+        "text": "Ask the model to delete the output.",
+        "text_vi": "Yêu cầu mô hình xóa đầu ra."
       },
       {
         "key": "B",
-        "text": "Change the UI color."
+        "text": "Change the UI color.",
+        "text_vi": "Thay đổi màu giao diện người dùng."
       },
       {
         "key": "C",
-        "text": "Increase the temperature."
+        "text": "Increase the temperature.",
+        "text_vi": "Tăng nhiệt độ."
       },
       {
         "key": "D",
-        "text": "Use a 'Verification Prompt' (asking the model to review and fact-check its own previous answer against a provided source text)."
+        "text": "Use a 'Verification Prompt' (asking the model to review and fact-check its own previous answer against a provided source text).",
+        "text_vi": "Sử dụng 'Lời nhắc xác minh' (yêu cầu mô hình xem xét và kiểm tra tính xác thực của câu trả lời trước đó của chính mô hình đó dựa trên văn bản nguồn được cung cấp)."
       }
     ],
     "answer": [
       "D"
     ],
-    "explanation": "Correct: Use a 'Verification Prompt' (asking the model to review and fact-check its own previous answer against a provided source text). Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Use a 'Verification Prompt' (asking the model to review and fact-check its own previous answer against a provided source text). Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Khi LLM tạo ra ảo giác AI (hallucination), kỹ thuật kỹ thuật kịp thời hiệu quả để xác minh đầu ra là gì?",
+    "explanation_vi": "Đúng: Sử dụng 'Lời nhắc xác minh' (yêu cầu mô hình xem xét và kiểm tra tính xác thực của câu trả lời trước đó của chính mô hình đó dựa trên văn bản nguồn được cung cấp). Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 43,
@@ -1183,25 +1435,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "To reduce the image file size."
+        "text": "To reduce the image file size.",
+        "text_vi": "Để giảm kích thước tập tin hình ảnh."
       },
       {
         "key": "B",
-        "text": "To explicitly specify elements, styles, or artifacts you want the model to exclude from the generated image (e.g., 'no text', 'no extra fingers')."
+        "text": "To explicitly specify elements, styles, or artifacts you want the model to exclude from the generated image (e.g., 'no text', 'no extra fingers').",
+        "text_vi": "Để chỉ định rõ ràng các thành phần, kiểu hoặc thành phần lạ mà bạn muốn mô hình loại trừ khỏi hình ảnh được tạo (ví dụ: 'không có văn bản', 'không có ngón tay phụ')."
       },
       {
         "key": "C",
-        "text": "To make the image black and white."
+        "text": "To make the image black and white.",
+        "text_vi": "Để làm cho hình ảnh có màu đen và trắng."
       },
       {
         "key": "D",
-        "text": "To generate sad images."
+        "text": "To generate sad images.",
+        "text_vi": "Để tạo ra những hình ảnh buồn."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Correct: To explicitly specify elements, styles, or artifacts you want the model to exclude from the generated image (e.g., 'no text', 'no extra fingers'). Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: To explicitly specify elements, styles, or artifacts you want the model to exclude from the generated image (e.g., 'no text', 'no extra fingers'). Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Tại sao bạn có thể sử dụng 'Nhắc nhở tiêu cực' trong các mô hình tạo hình ảnh?",
+    "explanation_vi": "Đúng: Để chỉ định rõ ràng các thành phần, kiểu hoặc thành phần lạ mà bạn muốn mô hình loại trừ khỏi hình ảnh được tạo (ví dụ: 'không có văn bản', 'không có ngón tay phụ'). Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 44,
@@ -1211,25 +1469,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "It bypasses copyright laws."
+        "text": "It bypasses copyright laws.",
+        "text_vi": "Nó bỏ qua luật bản quyền."
       },
       {
         "key": "B",
-        "text": "It reduces the token cost to zero."
+        "text": "It reduces the token cost to zero.",
+        "text_vi": "Nó làm giảm chi phí mã thông báo xuống bằng không."
       },
       {
         "key": "C",
-        "text": "It establishes a strong context, guiding the model's tone, vocabulary, formatting, and perspective to align with a specific domain (e.g., 'Act as a Senior Legal Advisor')."
+        "text": "It establishes a strong context, guiding the model's tone, vocabulary, formatting, and perspective to align with a specific domain (e.g., 'Act as a Senior Legal Advisor').",
+        "text_vi": "Nó thiết lập một bối cảnh vững chắc, hướng dẫn giọng điệu, từ vựng, định dạng và quan điểm của mô hình để phù hợp với một lĩnh vực cụ thể (ví dụ: 'Hoạt động với tư cách là Cố vấn pháp lý cấp cao')."
       },
       {
         "key": "D",
-        "text": "It forces the model to change its architecture."
+        "text": "It forces the model to change its architecture.",
+        "text_vi": "Nó buộc mô hình phải thay đổi kiến trúc của nó."
       }
     ],
     "answer": [
       "C"
     ],
-    "explanation": "Correct: It establishes a strong context, guiding the model's tone, vocabulary, formatting, and perspective to align with a specific domain (e.g., 'Act as a Senior Legal Advisor'). Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: It establishes a strong context, guiding the model's tone, vocabulary, formatting, and perspective to align with a specific domain (e.g., 'Act as a Senior Legal Advisor'). Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Lợi ích của việc xác định 'Vai trò' hoặc 'Tính cách' trong Lời nhắc Hệ thống là gì?",
+    "explanation_vi": "Đúng: Nó thiết lập một bối cảnh rõ ràng, hướng dẫn giọng điệu, từ vựng, định dạng và quan điểm của mô hình để phù hợp với một lĩnh vực cụ thể (ví dụ: 'Hoạt động với tư cách là Cố vấn pháp lý cấp cao'). Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 45,
@@ -1239,25 +1503,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "One-shot prompting (or Few-shot with one per class)"
+        "text": "One-shot prompting (or Few-shot with one per class)",
+        "text_vi": "Nhắc một lần (hoặc Ít lần một lần cho mỗi lớp)"
       },
       {
         "key": "B",
-        "text": "RAG"
+        "text": "RAG",
+        "text_vi": "RAG"
       },
       {
         "key": "C",
-        "text": "Fine-tuning"
+        "text": "Fine-tuning",
+        "text_vi": "tinh chỉnh (fine-tuning)"
       },
       {
         "key": "D",
-        "text": "Zero-shot prompting"
+        "text": "Zero-shot prompting",
+        "text_vi": "Nhắc nhở bắn không"
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Correct: One-shot prompting (or Few-shot with one per class) Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: One-shot prompting (or Few-shot with one per class) Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Nếu bạn muốn một mô hình phân loại các đánh giá của khách hàng thành 'Tích cực', 'Trung lập' hoặc 'Tiêu cực' và bạn cung cấp chính xác một ví dụ cho mỗi đánh giá trong lời nhắc thì điều này được gọi là:",
+    "explanation_vi": "Đúng: Nhắc một lần (hoặc Ít lần một lần cho mỗi lớp) Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 46,
@@ -1267,25 +1537,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "A prompt that generates code for a prison."
+        "text": "A prompt that generates code for a prison.",
+        "text_vi": "Lời nhắc tạo mã cho nhà tù."
       },
       {
         "key": "B",
-        "text": "A maliciously crafted prompt designed to bypass the model's safety filters, ethical guardrails, and system instructions to elicit restricted or harmful content."
+        "text": "A maliciously crafted prompt designed to bypass the model's safety filters, ethical guardrails, and system instructions to elicit restricted or harmful content.",
+        "text_vi": "Một lời nhắc được tạo ra một cách độc hại được thiết kế để vượt qua các bộ lọc an toàn, rào cản đạo đức và hướng dẫn hệ thống của mô hình nhằm gợi ra nội dung bị hạn chế hoặc có hại."
       },
       {
         "key": "C",
-        "text": "A technique to speed up the model."
+        "text": "A technique to speed up the model.",
+        "text_vi": "Một kỹ thuật để tăng tốc mô hình."
       },
       {
         "key": "D",
-        "text": "A prompt that crashes the server."
+        "text": "A prompt that crashes the server.",
+        "text_vi": "Một lời nhắc làm hỏng máy chủ."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Correct: A maliciously crafted prompt designed to bypass the model's safety filters, ethical guardrails, and system instructions to elicit restricted or harmful content. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: A maliciously crafted prompt designed to bypass the model's safety filters, ethical guardrails, and system instructions to elicit restricted or harmful content. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Lời nhắc 'Jailbreak' là gì?",
+    "explanation_vi": "Đúng: Lời nhắc được tạo ra một cách độc hại được thiết kế để vượt qua các bộ lọc an toàn, rào cản đạo đức và hướng dẫn hệ thống của mô hình nhằm gợi ra nội dung bị hạn chế hoặc có hại. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 47,
@@ -1295,25 +1571,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "JSON requires examples to work."
+        "text": "JSON requires examples to work.",
+        "text_vi": "JSON yêu cầu các ví dụ để hoạt động."
       },
       {
         "key": "B",
-        "text": "It makes the output creative."
+        "text": "It makes the output creative.",
+        "text_vi": "Nó làm cho đầu ra sáng tạo."
       },
       {
         "key": "C",
-        "text": "To make the prompt longer."
+        "text": "To make the prompt longer.",
+        "text_vi": "Để làm cho lời nhắc dài hơn."
       },
       {
         "key": "D",
-        "text": "It provides clear structural guidelines, reducing the chance of the model adding conversational filler or malformed syntax that breaks downstream parsers."
+        "text": "It provides clear structural guidelines, reducing the chance of the model adding conversational filler or malformed syntax that breaks downstream parsers.",
+        "text_vi": "Nó cung cấp các nguyên tắc cấu trúc rõ ràng, giảm khả năng mô hình thêm phần đệm hội thoại hoặc cú pháp không đúng định dạng làm hỏng các trình phân tích cú pháp xuôi dòng."
       }
     ],
     "answer": [
       "D"
     ],
-    "explanation": "Correct: It provides clear structural guidelines, reducing the chance of the model adding conversational filler or malformed syntax that breaks downstream parsers. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: It provides clear structural guidelines, reducing the chance of the model adding conversational filler or malformed syntax that breaks downstream parsers. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Khi buộc LLM xuất JSON có cấu trúc, tại sao bạn nên cung cấp lược đồ mẫu trong lời nhắc?",
+    "explanation_vi": "Đúng: Nó cung cấp các nguyên tắc cấu trúc rõ ràng, giảm khả năng mô hình thêm phần đệm hội thoại hoặc cú pháp không đúng định dạng làm hỏng các trình phân tích cú pháp xuôi dòng. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 48,
@@ -1323,25 +1605,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Increase Max Tokens"
+        "text": "Increase Max Tokens",
+        "text_vi": "Tăng số token tối đa"
       },
       {
         "key": "B",
-        "text": "Increase Top-K to 100"
+        "text": "Increase Top-K to 100",
+        "text_vi": "Tăng Top-K lên 100"
       },
       {
         "key": "C",
-        "text": "Decrease Temperature to 0.0 (or very low)"
+        "text": "Decrease Temperature to 0.0 (or very low)",
+        "text_vi": "Giảm nhiệt độ xuống 0,0 (hoặc rất thấp)"
       },
       {
         "key": "D",
-        "text": "Increase Temperature to 1.0"
+        "text": "Increase Temperature to 1.0",
+        "text_vi": "Tăng nhiệt độ lên 1,0"
       }
     ],
     "answer": [
       "C"
     ],
-    "explanation": "Correct: Decrease Temperature to 0.0 (or very low) Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Decrease Temperature to 0.0 (or very low) Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Bạn sẽ điều chỉnh tham số nào nếu muốn mô hình tạo ra phản hồi có khả năng xảy ra cao nhất, có thể dự đoán được và 'an toàn' nhất có thể?",
+    "explanation_vi": "Đúng: Giảm Nhiệt độ xuống 0,0 (hoặc rất thấp) Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế thì không."
   },
   {
     "id": 49,
@@ -1351,25 +1639,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Writing the prompt once and never changing it."
+        "text": "Writing the prompt once and never changing it.",
+        "text_vi": "Viết lời nhắc một lần và không bao giờ thay đổi nó."
       },
       {
         "key": "B",
-        "text": "Having an AI write the prompt."
+        "text": "Having an AI write the prompt.",
+        "text_vi": "Có AI viết lời nhắc."
       },
       {
         "key": "C",
-        "text": "Using a loop in Python to send 1000 prompts."
+        "text": "Using a loop in Python to send 1000 prompts.",
+        "text_vi": "Sử dụng vòng lặp trong Python để gửi 1000 lời nhắc"
       },
       {
         "key": "D",
-        "text": "The process of testing a prompt, evaluating the model's output, refining the prompt to address shortcomings, and repeating until the desired quality is achieved."
+        "text": "The process of testing a prompt, evaluating the model's output, refining the prompt to address shortcomings, and repeating until the desired quality is achieved.",
+        "text_vi": "Quá trình thử nghiệm lời nhắc, đánh giá đầu ra của mô hình, tinh chỉnh (fine-tuning) lời nhắc để giải quyết các thiếu sót và lặp lại cho đến khi đạt được chất lượng mong muốn."
       }
     ],
     "answer": [
       "D"
     ],
-    "explanation": "Correct: The process of testing a prompt, evaluating the model's output, refining the prompt to address shortcomings, and repeating until the desired quality is achieved. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: The process of testing a prompt, evaluating the model's output, refining the prompt to address shortcomings, and repeating until the desired quality is achieved. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "'Nhắc nhở lặp đi lặp lại' đòi hỏi điều gì?",
+    "explanation_vi": "Đúng: Quá trình thử nghiệm lời nhắc, đánh giá đầu ra của mô hình, tinh chỉnh (fine-tuning) lời nhắc để giải quyết các thiếu sót và lặp lại cho đến khi đạt được chất lượng mong muốn. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 50,
@@ -1379,25 +1673,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "The chunk size does not matter."
+        "text": "The chunk size does not matter.",
+        "text_vi": "Kích thước khối không thành vấn đề."
       },
       {
         "key": "B",
-        "text": "The embeddings become more accurate."
+        "text": "The embeddings become more accurate.",
+        "text_vi": "Việc nhúng trở nên chính xác hơn."
       },
       {
         "key": "C",
-        "text": "The specific context may be diluted, and retrieving the chunk might exceed the LLM's context window, leading to poor or truncated answers."
+        "text": "The specific context may be diluted, and retrieving the chunk might exceed the LLM's context window, leading to poor or truncated answers.",
+        "text_vi": "Ngữ cảnh cụ thể có thể bị pha loãng và việc truy xuất đoạn có thể vượt quá cửa sổ ngữ cảnh của LLM, dẫn đến câu trả lời kém hoặc bị cắt ngắn."
       },
       {
         "key": "D",
-        "text": "The document is automatically deleted."
+        "text": "The document is automatically deleted.",
+        "text_vi": "Tài liệu sẽ tự động bị xóa."
       }
     ],
     "answer": [
       "C"
     ],
-    "explanation": "Correct: The specific context may be diluted, and retrieving the chunk might exceed the LLM's context window, leading to poor or truncated answers. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: The specific context may be diluted, and retrieving the chunk might exceed the LLM's context window, leading to poor or truncated answers. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Trong quy trình làm việc RAG, điều gì xảy ra nếu 'kích thước khối' cho phần nhúng tài liệu quá lớn?",
+    "explanation_vi": "Đúng: Ngữ cảnh cụ thể có thể bị pha loãng và việc truy xuất đoạn có thể vượt quá cửa sổ ngữ cảnh của LLM, dẫn đến câu trả lời kém hoặc bị cắt ngắn. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 51,
@@ -1407,25 +1707,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Using a physical chain to secure servers."
+        "text": "Using a physical chain to secure servers.",
+        "text_vi": "Sử dụng chuỗi vật lý để bảo mật máy chủ."
       },
       {
         "key": "B",
-        "text": "Breaking a complex task into multiple sequential steps, where the output of one prompt is programmatically passed as the input to the next prompt."
+        "text": "Breaking a complex task into multiple sequential steps, where the output of one prompt is programmatically passed as the input to the next prompt.",
+        "text_vi": "Chia một nhiệm vụ phức tạp thành nhiều bước tuần tự, trong đó đầu ra của một lời nhắc được chuyển theo chương trình làm đầu vào cho lời nhắc tiếp theo."
       },
       {
         "key": "C",
-        "text": "Generating a chain of images."
+        "text": "Generating a chain of images.",
+        "text_vi": "Tạo ra một chuỗi hình ảnh"
       },
       {
         "key": "D",
-        "text": "Linking two different models permanently."
+        "text": "Linking two different models permanently.",
+        "text_vi": "Liên kết hai mô hình khác nhau vĩnh viễn."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Correct: Breaking a complex task into multiple sequential steps, where the output of one prompt is programmatically passed as the input to the next prompt. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Breaking a complex task into multiple sequential steps, where the output of one prompt is programmatically passed as the input to the next prompt. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "'Chuỗi nhắc nhở' là gì?",
+    "explanation_vi": "Đúng: Chia một nhiệm vụ phức tạp thành nhiều bước tuần tự, trong đó đầu ra của một lời nhắc được chuyển theo chương trình làm đầu vào cho lời nhắc tiếp theo. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 52,
@@ -1435,25 +1741,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "To ensure cross-functional oversight, manage risks (ethics, security, compliance), evaluate use cases, and ensure AI initiatives align with corporate values and regulations."
+        "text": "To ensure cross-functional oversight, manage risks (ethics, security, compliance), evaluate use cases, and ensure AI initiatives align with corporate values and regulations.",
+        "text_vi": "Để đảm bảo giám sát liên chức năng, quản lý rủi ro (đạo đức, bảo mật, tuân thủ), đánh giá các trường hợp sử dụng và đảm bảo các sáng kiến AI phù hợp với các giá trị và quy định của công ty."
       },
       {
         "key": "B",
-        "text": "To sell AI products to other companies."
+        "text": "To sell AI products to other companies.",
+        "text_vi": "Để bán sản phẩm AI cho các công ty khác."
       },
       {
         "key": "C",
-        "text": "To write the code for AI applications."
+        "text": "To write the code for AI applications.",
+        "text_vi": "Để viết mã cho các ứng dụng AI."
       },
       {
         "key": "D",
-        "text": "To slow down AI adoption."
+        "text": "To slow down AI adoption.",
+        "text_vi": "Để làm chậm việc áp dụng AI."
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Correct: To ensure cross-functional oversight, manage risks (ethics, security, compliance), evaluate use cases, and ensure AI initiatives align with corporate values and regulations. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: To ensure cross-functional oversight, manage risks (ethics, security, compliance), evaluate use cases, and ensure AI initiatives align with corporate values and regulations. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Tại sao việc thành lập 'Ban quản trị AI' lại quan trọng đối với chiến lược AI thế hệ doanh nghiệp?",
+    "explanation_vi": "Đúng: Để đảm bảo giám sát liên chức năng, quản lý rủi ro (đạo đức, bảo mật, tuân thủ), đánh giá các trường hợp sử dụng và đảm bảo các sáng kiến AI phù hợp với các giá trị và quy định của công ty. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 53,
@@ -1463,25 +1775,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Training and running large foundation models requires massive amounts of compute and electricity, impacting carbon footprints, which should be factored into ESG (Environmental, Social, and Governance) goals."
+        "text": "Training and running large foundation models requires massive amounts of compute and electricity, impacting carbon footprints, which should be factored into ESG (Environmental, Social, and Governance) goals.",
+        "text_vi": "Việc đào tạo và chạy các mô hình nền tảng lớn đòi hỏi lượng điện toán và điện năng khổng lồ, tác động đến lượng khí thải carbon, điều này cần được đưa vào các mục tiêu ESG (Môi trường, Xã hội và Quản trị)."
       },
       {
         "key": "B",
-        "text": "AI models consume physical paper."
+        "text": "AI models consume physical paper.",
+        "text_vi": "Các mô hình AI tiêu thụ giấy vật lý."
       },
       {
         "key": "C",
-        "text": "AI uses up too much internet bandwidth."
+        "text": "AI uses up too much internet bandwidth.",
+        "text_vi": "AI sử dụng quá nhiều băng thông internet."
       },
       {
         "key": "D",
-        "text": "AI causes noise pollution."
+        "text": "AI causes noise pollution.",
+        "text_vi": "AI gây ô nhiễm tiếng ồn"
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Correct: Training and running large foundation models requires massive amounts of compute and electricity, impacting carbon footprints, which should be factored into ESG (Environmental, Social, and Governance) goals. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Training and running large foundation models requires massive amounts of compute and electricity, impacting carbon footprints, which should be factored into ESG (Environmental, Social, and Governance) goals. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Điểm cân nhắc chính liên quan đến 'Tác động môi trường' của AI sáng tạo là gì?",
+    "explanation_vi": "Đúng: Việc đào tạo và chạy các mô hình nền tảng lớn đòi hỏi lượng điện toán và điện năng khổng lồ, ảnh hưởng đến lượng khí thải carbon, điều này cần được đưa vào các mục tiêu ESG (Môi trường, Xã hội và Quản trị). Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 54,
@@ -1491,25 +1809,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "The number of layers in the neural network."
+        "text": "The number of layers in the neural network.",
+        "text_vi": "Số lớp trong mạng lưới thần kinh."
       },
       {
         "key": "B",
-        "text": "The size of the AI model in gigabytes."
+        "text": "The size of the AI model in gigabytes.",
+        "text_vi": "Kích thước của mô hình AI tính bằng gigabyte."
       },
       {
         "key": "C",
-        "text": "Reduction in Average Handle Time (AHT) and increase in Customer Satisfaction (CSAT) scores."
+        "text": "Reduction in Average Handle Time (AHT) and increase in Customer Satisfaction (CSAT) scores.",
+        "text_vi": "Giảm thời gian xử lý trung bình (AHT) và tăng điểm mức độ hài lòng của khách hàng (CSAT)."
       },
       {
         "key": "D",
-        "text": "The amount of training data used by Google."
+        "text": "The amount of training data used by Google.",
+        "text_vi": "Lượng dữ liệu đào tạo được Google sử dụng."
       }
     ],
     "answer": [
       "C"
     ],
-    "explanation": "Correct: Reduction in Average Handle Time (AHT) and increase in Customer Satisfaction (CSAT) scores. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Reduction in Average Handle Time (AHT) and increase in Customer Satisfaction (CSAT) scores. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Khi đo lường ROI (Lợi tức đầu tư) của công cụ Generative AI dành cho dịch vụ khách hàng, KPI nào phù hợp nhất?",
+    "explanation_vi": "Đúng: Giảm thời gian xử lý trung bình (AHT) và tăng điểm mức độ hài lòng của khách hàng (CSAT). Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 55,
@@ -1519,25 +1843,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Using only proprietary on-premise hardware."
+        "text": "Using only proprietary on-premise hardware.",
+        "text_vi": "Chỉ sử dụng phần cứng tại chỗ độc quyền."
       },
       {
         "key": "B",
-        "text": "Signing a 100-year contract with one vendor."
+        "text": "Signing a 100-year contract with one vendor.",
+        "text_vi": "Ký hợp đồng 100 năm với một nhà cung cấp."
       },
       {
         "key": "C",
-        "text": "Avoiding AI completely."
+        "text": "Avoiding AI completely.",
+        "text_vi": "Tránh hoàn toàn AI."
       },
       {
         "key": "D",
-        "text": "Adopting an open ecosystem approach, using platforms like Vertex AI that support diverse model choices (first-party, open-source like Llama/Gemma, third-party) and containerized deployment."
+        "text": "Adopting an open ecosystem approach, using platforms like Vertex AI that support diverse model choices (first-party, open-source like Llama/Gemma, third-party) and containerized deployment.",
+        "text_vi": "Áp dụng cách tiếp cận hệ sinh thái mở, sử dụng các nền tảng như Vertex AI hỗ trợ các lựa chọn mô hình đa dạng (bên thứ nhất, nguồn mở như Llama/Gemma, bên thứ ba) và triển khai trong vùng chứa."
       }
     ],
     "answer": [
       "D"
     ],
-    "explanation": "Correct: Adopting an open ecosystem approach, using platforms like Vertex AI that support diverse model choices (first-party, open-source like Llama/Gemma, third-party) and containerized deployment. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Adopting an open ecosystem approach, using platforms like Vertex AI that support diverse model choices (first-party, open-source like Llama/Gemma, third-party) and containerized deployment. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Để tránh tình trạng 'Khóa nhà cung cấp' trong khi tận dụng Gen AI, chiến lược doanh nghiệp có thể bao gồm:",
+    "explanation_vi": "Đúng: Áp dụng cách tiếp cận hệ sinh thái mở, sử dụng các nền tảng như Vertex AI hỗ trợ các lựa chọn mô hình đa dạng (bên thứ nhất, nguồn mở như Llama/Gemma, bên thứ ba) và triển khai trong vùng chứa. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 56,
@@ -1547,25 +1877,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Train a new model specifically on PII."
+        "text": "Train a new model specifically on PII.",
+        "text_vi": "Đào tạo một mô hình mới đặc biệt về PII."
       },
       {
         "key": "B",
-        "text": "Implement strict data classification, use data masking/DLP (Data Loss Prevention) APIs to redact PII before sending it to models, and ensure compliance with privacy laws (GDPR, HIPAA)."
+        "text": "Implement strict data classification, use data masking/DLP (Data Loss Prevention) APIs to redact PII before sending it to models, and ensure compliance with privacy laws (GDPR, HIPAA).",
+        "text_vi": "Triển khai phân loại dữ liệu nghiêm ngặt, sử dụng API che giấu dữ liệu/DLP (Ngăn chặn mất dữ liệu) để loại bỏ PII trước khi gửi đến mô hình và đảm bảo tuân thủ luật về quyền riêng tư (GDPR, HIPAA)."
       },
       {
         "key": "C",
-        "text": "Publish the PII on the internet."
+        "text": "Publish the PII on the internet.",
+        "text_vi": "Xuất bản PII trên internet."
       },
       {
         "key": "D",
-        "text": "Include all PII in the prompts to give the model context."
+        "text": "Include all PII in the prompts to give the model context.",
+        "text_vi": "Bao gồm tất cả PII trong lời nhắc để cung cấp bối cảnh mô hình."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Correct: Implement strict data classification, use data masking/DLP (Data Loss Prevention) APIs to redact PII before sending it to models, and ensure compliance with privacy laws (GDPR, HIPAA). Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Implement strict data classification, use data masking/DLP (Data Loss Prevention) APIs to redact PII before sending it to models, and ensure compliance with privacy laws (GDPR, HIPAA). Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Doanh nghiệp nên xử lý Thông tin nhận dạng cá nhân (PII) như thế nào khi sử dụng mô hình Generative AI?",
+    "explanation_vi": "Đúng: Triển khai phân loại dữ liệu nghiêm ngặt, sử dụng API che giấu dữ liệu/DLP (Ngăn chặn mất dữ liệu) để loại bỏ PII trước khi gửi đến mô hình và đảm bảo tuân thủ luật về quyền riêng tư (GDPR, HIPAA). Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 57,
@@ -1575,25 +1911,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "Changing the UI color scheme."
+        "text": "Changing the UI color scheme.",
+        "text_vi": "Thay đổi bảng màu UI."
       },
       {
         "key": "B",
-        "text": "Translating the prompts."
+        "text": "Translating the prompts.",
+        "text_vi": "Dịch lời nhắc."
       },
       {
         "key": "C",
-        "text": "Finding a cool name for the app."
+        "text": "Finding a cool name for the app.",
+        "text_vi": "Tìm một cái tên hay cho ứng dụng."
       },
       {
         "key": "D",
-        "text": "Transitioning from a single, ideal prompt to building robust MLOps pipelines, ensuring high availability, latency control, security, and continuous evaluation under real-world loads."
+        "text": "Transitioning from a single, ideal prompt to building robust MLOps pipelines, ensuring high availability, latency control, security, and continuous evaluation under real-world loads.",
+        "text_vi": "Chuyển đổi từ một lời nhắc lý tưởng duy nhất sang xây dựng quy trình MLOps mạnh mẽ, đảm bảo tính khả dụng cao, kiểm soát độ trễ, bảo mật và đánh giá liên tục dưới tải trong thế giới thực."
       }
     ],
     "answer": [
       "D"
     ],
-    "explanation": "Correct: Transitioning from a single, ideal prompt to building robust MLOps pipelines, ensuring high availability, latency control, security, and continuous evaluation under real-world loads. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: Transitioning from a single, ideal prompt to building robust MLOps pipelines, ensuring high availability, latency control, security, and continuous evaluation under real-world loads. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Thách thức chính khi nhân rộng 'Bằng chứng khái niệm' (PoC) AI sáng tạo sang môi trường sản xuất là gì?",
+    "explanation_vi": "Đúng: Chuyển từ một lời nhắc lý tưởng, duy nhất sang xây dựng quy trình MLOps mạnh mẽ, đảm bảo tính sẵn sàng cao, kiểm soát độ trễ, bảo mật và đánh giá liên tục dưới tải trong thế giới thực. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 58,
@@ -1603,25 +1945,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "The ability to understand and explain how the AI model arrived at a specific decision or output, which is crucial for trust and auditing in regulated industries."
+        "text": "The ability to understand and explain how the AI model arrived at a specific decision or output, which is crucial for trust and auditing in regulated industries.",
+        "text_vi": "Khả năng hiểu và giải thích cách mô hình AI đưa ra quyết định hoặc kết quả cụ thể, điều này rất quan trọng đối với sự tin cậy và kiểm toán trong các ngành được quản lý."
       },
       {
         "key": "B",
-        "text": "The model's ability to speak clearly."
+        "text": "The model's ability to speak clearly.",
+        "text_vi": "Khả năng nói rõ ràng của người mẫu."
       },
       {
         "key": "C",
-        "text": "Translating code to English."
+        "text": "Translating code to English.",
+        "text_vi": "Dịch mã sang tiếng Anh."
       },
       {
         "key": "D",
-        "text": "Publishing the source code."
+        "text": "Publishing the source code.",
+        "text_vi": "Xuất bản mã nguồn."
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Correct: The ability to understand and explain how the AI model arrived at a specific decision or output, which is crucial for trust and auditing in regulated industries. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: The ability to understand and explain how the AI model arrived at a specific decision or output, which is crucial for trust and auditing in regulated industries. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Theo nguyên tắc AI có trách nhiệm của Google, 'Khả năng diễn giải' hoặc 'Khả năng giải thích' đề cập đến điều gì?",
+    "explanation_vi": "Đúng: Khả năng hiểu và giải thích cách mô hình AI đưa ra quyết định hoặc kết quả cụ thể, điều này rất quan trọng đối với sự tin cậy và kiểm toán trong các ngành được quản lý. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 59,
@@ -1631,25 +1979,31 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "When they want to spend the maximum amount of money."
+        "text": "When they want to spend the maximum amount of money.",
+        "text_vi": "Khi họ muốn chi tiêu số tiền tối đa."
       },
       {
         "key": "B",
-        "text": "When they want fast time-to-market, lack deep ML research expertise, and the use case relies on general reasoning, summarization, or standard knowledge tasks."
+        "text": "When they want fast time-to-market, lack deep ML research expertise, and the use case relies on general reasoning, summarization, or standard knowledge tasks.",
+        "text_vi": "Khi họ muốn có thời gian tiếp thị nhanh, thiếu chuyên môn nghiên cứu ML sâu và trường hợp sử dụng phụ thuộc vào lý luận chung, tóm tắt hoặc các nhiệm vụ kiến thức tiêu chuẩn."
       },
       {
         "key": "C",
-        "text": "When they want to build the hardware themselves."
+        "text": "When they want to build the hardware themselves.",
+        "text_vi": "Khi họ muốn tự mình xây dựng phần cứng."
       },
       {
         "key": "D",
-        "text": "When they need a hyper-specialized, proprietary model built from scratch on top-secret data that cannot leave their air-gapped servers."
+        "text": "When they need a hyper-specialized, proprietary model built from scratch on top-secret data that cannot leave their air-gapped servers.",
+        "text_vi": "Khi họ cần một mô hình độc quyền, siêu chuyên biệt được xây dựng từ đầu trên dữ liệu tuyệt mật mà không thể để máy chủ của họ bị cô lập."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Correct: When they want fast time-to-market, lack deep ML research expertise, and the use case relies on general reasoning, summarization, or standard knowledge tasks. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: When they want fast time-to-market, lack deep ML research expertise, and the use case relies on general reasoning, summarization, or standard knowledge tasks. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "Khi đánh giá chiến lược 'Mua so với Xây dựng' cho Gen AI, khi nào một công ty nên nghiêng nhiều về 'Mua' (sử dụng các mô hình API được quản lý)?",
+    "explanation_vi": "Đúng: Khi họ muốn có thời gian tiếp thị nhanh, thiếu chuyên môn nghiên cứu ML sâu và trường hợp sử dụng phụ thuộc vào lý luận chung, tóm tắt hoặc các nhiệm vụ kiến thức tiêu chuẩn. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   },
   {
     "id": 60,
@@ -1659,24 +2013,30 @@ window.QUIZ_DATA_SET_5 = [
     "options": [
       {
         "key": "A",
-        "text": "An AI that works in the dark."
+        "text": "An AI that works in the dark.",
+        "text_vi": "Một AI hoạt động trong bóng tối."
       },
       {
         "key": "B",
-        "text": "A feature of Google Cloud for dark mode."
+        "text": "A feature of Google Cloud for dark mode.",
+        "text_vi": "Một tính năng của Google Cloud dành cho chế độ tối."
       },
       {
         "key": "C",
-        "text": "When employees unsanctioned or unvetted external Generative AI tools (like public chatbots) for work tasks, creating severe risks of data leakage and compliance violations."
+        "text": "When employees unsanctioned or unvetted external Generative AI tools (like public chatbots) for work tasks, creating severe risks of data leakage and compliance violations.",
+        "text_vi": "Khi nhân viên sử dụng các công cụ Generative AI bên ngoài không được phê duyệt hoặc chưa được kiểm duyệt (như chatbot công cộng) cho các nhiệm vụ công việc, sẽ tạo ra rủi ro nghiêm trọng về rò rỉ dữ liệu và vi phạm tuân thủ."
       },
       {
         "key": "D",
-        "text": "A specialized AI for analyzing shadows in images."
+        "text": "A specialized AI for analyzing shadows in images.",
+        "text_vi": "Một AI chuyên dụng để phân tích bóng trong hình ảnh."
       }
     ],
     "answer": [
       "C"
     ],
-    "explanation": "Correct: When employees unsanctioned or unvetted external Generative AI tools (like public chatbots) for work tasks, creating severe risks of data leakage and compliance violations. Review why this choice fits the question and why alternatives do not."
+    "explanation": "Correct: When employees unsanctioned or unvetted external Generative AI tools (like public chatbots) for work tasks, creating severe risks of data leakage and compliance violations. Review why this choice fits the question and why alternatives do not.",
+    "question_vi": "'Shadow AI' trong môi trường doanh nghiệp là gì?",
+    "explanation_vi": "Đúng: Khi nhân viên không được phê duyệt hoặc chưa được kiểm duyệt các công cụ Generative AI bên ngoài (như chatbot công cộng) cho các nhiệm vụ công việc, sẽ tạo ra rủi ro nghiêm trọng về rò rỉ dữ liệu và vi phạm tuân thủ. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
   }
 ];

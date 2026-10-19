@@ -5,8 +5,51 @@
 (function () {
   "use strict";
 
+  // Supported Certification Exams Configuration
+  const EXAMS = {
+    genai: {
+      id: "genai",
+      name: "GenAI Leader",
+      fullName: "Google Cloud Generative AI Leader",
+      icon: "🤖",
+      folder: "Quiz_data",
+      manifestVar: "QUIZ_MANIFEST_GENAI",
+      fallbackManifestVar: "QUIZ_MANIFEST",
+      heroTitle: "Bộ Đề Luyện Thi Generative AI Leader",
+      heroDesc: "Hệ thống 10 bộ đề thi thử bám sát cấu trúc đề thi chính thức: 60 câu hỏi trắc nghiệm, thời gian 90 phút, yêu cầu đạt từ 70%.",
+      pills: [
+        "🎯 Chuẩn đề 60 câu",
+        "⏱️ Bấm giờ 90 phút",
+        "🇻🇳 Song ngữ Anh - Việt",
+        "📊 Chấm điểm theo 4 lĩnh vực",
+        "💡 Đáp án &amp; Giải thích chi tiết"
+      ],
+      defaultCount: 60
+    },
+    ccarp: {
+      id: "ccarp",
+      name: "CCAR-P",
+      fullName: "Claude Certified Architect (CCAR-P)",
+      icon: "🧠",
+      folder: "CCAR-P",
+      manifestVar: "QUIZ_MANIFEST_CCARP",
+      fallbackManifestVar: "QUIZ_MANIFEST_CCARP",
+      heroTitle: "Bộ Đề Luyện Thi Claude Certified Architect (CCAR-P)",
+      heroDesc: "Hệ thống 10 bộ đề thực hành chuyên sâu kiến trúc Claude & LLM: 63 câu hỏi tình huống, thời gian 90 phút, đánh giá 7 lĩnh vực năng lực cốt lõi.",
+      pills: [
+        "🎯 Chuẩn đề 63 câu",
+        "⏱️ Bấm giờ 90 phút",
+        "🇻🇳 Song ngữ Anh - Việt",
+        "📊 Chấm điểm theo 7 lĩnh vực",
+        "💡 Đáp án &amp; Giải thích chi tiết"
+      ],
+      defaultCount: 63
+    }
+  };
+
   // Application State
   const state = {
+    currentExam: "genai", // "genai" or "ccarp"
     sets: [],
     currentSet: null,
     questions: [],
@@ -17,13 +60,29 @@
     timerInterval: null,
     isSubmitted: false,
     examStartTime: null,
-    reviewFilter: "all"
+    reviewFilter: "all",
+    showTranslation: true
   };
 
   // DOM Elements Cache
   const els = {
-    themeToggleBtn: document.getElementById("themeToggleBtn"),
     brandLogo: document.getElementById("brandLogo"),
+    brandIcon: document.getElementById("brandIcon"),
+    brandTitle: document.getElementById("brandTitle"),
+    brandSubtitle: document.getElementById("brandSubtitle"),
+    
+    // Exam Selectors
+    headBtnGenAI: document.getElementById("headBtnGenAI"),
+    headBtnCCARP: document.getElementById("headBtnCCARP"),
+    cardGenAI: document.getElementById("cardGenAI"),
+    cardCCARP: document.getElementById("cardCCARP"),
+    heroTitle: document.getElementById("heroTitle"),
+    heroDesc: document.getElementById("heroDesc"),
+    heroMetaPills: document.getElementById("heroMetaPills"),
+
+    themeToggleBtn: document.getElementById("themeToggleBtn"),
+    langToggleBtn: document.getElementById("langToggleBtn"),
+    langToggleText: document.getElementById("langToggleText"),
     timerWidget: document.getElementById("timerWidget"),
     timerDisplay: document.getElementById("timerDisplay"),
     
@@ -66,6 +125,7 @@
     correctCountText: document.getElementById("correctCountText"),
     incorrectCountText: document.getElementById("incorrectCountText"),
     domainBarsContainer: document.getElementById("domainBarsContainer"),
+    domainsCardTitle: document.getElementById("domainsCardTitle"),
     reviewList: document.getElementById("reviewList"),
     reviewFilterBtns: document.querySelectorAll(".filter-btn"),
     retryBtn: document.getElementById("retryBtn"),
@@ -99,36 +159,135 @@
   }
 
   // ==========================================================================
+  // 1b. LANGUAGE PREFERENCE (SONG NGỮ ANH - VIỆT)
+  // ==========================================================================
+  function initLanguage() {
+    const savedPref = localStorage.getItem("genai_exam_show_vi");
+    state.showTranslation = savedPref !== "false"; // Mặc định hiển thị bản dịch tiếng Việt
+    applyLanguagePreference();
+
+    if (els.langToggleBtn) {
+      els.langToggleBtn.addEventListener("click", () => {
+        state.showTranslation = !state.showTranslation;
+        localStorage.setItem("genai_exam_show_vi", state.showTranslation ? "true" : "false");
+        applyLanguagePreference();
+      });
+    }
+  }
+
+  function applyLanguagePreference() {
+    if (state.showTranslation) {
+      document.body.classList.remove("hide-translations");
+      if (els.langToggleBtn) {
+        els.langToggleBtn.classList.add("active");
+        if (els.langToggleText) els.langToggleText.textContent = "Dịch TV: Bật";
+        els.langToggleBtn.setAttribute("aria-pressed", "true");
+      }
+    } else {
+      document.body.classList.add("hide-translations");
+      if (els.langToggleBtn) {
+        els.langToggleBtn.classList.remove("active");
+        if (els.langToggleText) els.langToggleText.textContent = "Dịch TV: Tắt";
+        els.langToggleBtn.setAttribute("aria-pressed", "false");
+      }
+    }
+  }
+
+  // ==========================================================================
+  // 1c. EXAM SWITCHING LOGIC (GENAI LEADER & CCAR-P)
+  // ==========================================================================
+  function initExamSelection() {
+    const savedExam = localStorage.getItem("genai_exam_selected_exam");
+    if (savedExam && EXAMS[savedExam]) {
+      state.currentExam = savedExam;
+    }
+    updateExamUI();
+  }
+
+  function updateExamUI() {
+    const exam = EXAMS[state.currentExam] || EXAMS.genai;
+
+    // Header buttons
+    if (els.headBtnGenAI && els.headBtnCCARP) {
+      els.headBtnGenAI.classList.toggle("active", state.currentExam === "genai");
+      els.headBtnCCARP.classList.toggle("active", state.currentExam === "ccarp");
+    }
+
+    // Dashboard card tabs
+    if (els.cardGenAI && els.cardCCARP) {
+      els.cardGenAI.classList.toggle("active", state.currentExam === "genai");
+      els.cardGenAI.setAttribute("aria-selected", state.currentExam === "genai" ? "true" : "false");
+      els.cardCCARP.classList.toggle("active", state.currentExam === "ccarp");
+      els.cardCCARP.setAttribute("aria-selected", state.currentExam === "ccarp" ? "true" : "false");
+    }
+
+    // Hero Banner
+    if (els.heroTitle) els.heroTitle.textContent = exam.heroTitle;
+    if (els.heroDesc) els.heroDesc.textContent = exam.heroDesc;
+    if (els.heroMetaPills) {
+      els.heroMetaPills.innerHTML = exam.pills.map((p) => `<span class="meta-pill">${p}</span>`).join("");
+    }
+
+    // Brand icon & title
+    if (els.brandTitle) els.brandTitle.textContent = exam.name;
+    if (els.brandIcon) els.brandIcon.textContent = exam.icon;
+  }
+
+  async function switchExam(examId) {
+    if (!EXAMS[examId] || state.currentExam === examId) return;
+
+    if (state.currentSet && !state.isSubmitted) {
+      if (!confirm("Bạn đang làm bài thi. Chuyển kỳ thi sẽ hủy bài thi hiện tại. Bạn có chắc không?")) {
+        return;
+      }
+      clearInterval(state.timerInterval);
+      els.timerWidget.style.display = "none";
+    }
+
+    state.currentExam = examId;
+    localStorage.setItem("genai_exam_selected_exam", examId);
+    updateExamUI();
+    switchView("sets");
+    await loadManifest();
+  }
+
+  // ==========================================================================
   // 2. INITIALIZATION & DATA LOADING
   // ==========================================================================
   async function initApp() {
     initTheme();
+    initLanguage();
+    initExamSelection();
     setupEventListeners();
     await loadManifest();
   }
 
   async function loadManifest() {
+    const exam = EXAMS[state.currentExam] || EXAMS.genai;
     try {
       // 1. Fallback nếu chạy offline file:// có nhúng script manifest.js
-      if (window.QUIZ_MANIFEST && Array.isArray(window.QUIZ_MANIFEST)) {
-        state.sets = window.QUIZ_MANIFEST;
+      if (window[exam.manifestVar] && Array.isArray(window[exam.manifestVar])) {
+        state.sets = window[exam.manifestVar];
+      } else if (exam.fallbackManifestVar && window[exam.fallbackManifestVar] && Array.isArray(window[exam.fallbackManifestVar])) {
+        state.sets = window[exam.fallbackManifestVar];
       } else {
-        const response = await fetch("Quiz_data/manifest.json");
+        const response = await fetch(`${exam.folder}/manifest.json`);
         state.sets = await response.json();
       }
     } catch (err) {
-      console.warn("Could not fetch manifest.json, generating default fallback sets:", err);
+      console.warn(`Could not fetch ${exam.folder}/manifest.json, generating default fallback sets:`, err);
       // Fallback 10 bộ đề
       state.sets = Array.from({ length: 10 }, (_, i) => ({
         id: `set_${i + 1}`,
         setNumber: i + 1,
-        title: `Bộ đề thi số ${i + 1}`,
-        description: i === 0 ? "Bộ đề thực hành Generative AI Leader 60 câu." : "Đang chuẩn bị câu hỏi. Thêm file input/" + (i + 1) + ".xlsx để kích hoạt.",
-        questionCount: i === 0 ? 60 : 0,
+        title: `Bộ đề thi ${exam.id === 'ccarp' ? 'CCAR-P ' : ''}số ${i + 1}`,
+        description: `Bộ đề thực hành ${exam.name} - ${exam.defaultCount} câu hỏi trắc nghiệm chuẩn.`,
+        questionCount: exam.defaultCount,
         durationMinutes: 90,
-        isAvailable: i === 0,
+        isAvailable: true,
         dataFile: `set_${i + 1}.json`,
-        jsVar: `QUIZ_DATA_SET_${i + 1}`
+        jsFile: `set_${i + 1}.js`,
+        jsVar: exam.id === 'ccarp' ? `QUIZ_DATA_CCARP_SET_${i + 1}` : `QUIZ_DATA_SET_${i + 1}`
       }));
     }
     renderSetsGrid();
@@ -186,6 +345,7 @@
   // ==========================================================================
   async function startExam(set) {
     state.currentSet = set;
+    const exam = EXAMS[state.currentExam] || EXAMS.genai;
     
     // Tải dữ liệu câu hỏi (hỗ trợ cả HTTP/GitHub Pages và mở trực tiếp file://)
     try {
@@ -193,7 +353,7 @@
         state.questions = window[set.jsVar];
       } else {
         try {
-          const res = await fetch(`Quiz_data/${set.dataFile}`);
+          const res = await fetch(`${exam.folder}/${set.dataFile}`);
           if (res.ok) {
             state.questions = await res.json();
           } else {
@@ -201,7 +361,7 @@
           }
         } catch (fetchErr) {
           // Fallback load script JS dynamically cho chế độ offline/file://
-          await loadScriptAsync(`Quiz_data/${set.jsFile}`);
+          await loadScriptAsync(`${exam.folder}/${set.jsFile}`);
           state.questions = window[set.jsVar];
         }
       }
@@ -225,7 +385,7 @@
     state.examStartTime = Date.now();
 
     // Setup Header & UI
-    els.examSetName.textContent = set.title;
+    els.examSetName.textContent = `${exam.name} • ${set.title}`;
     switchView("exam");
     startTimer();
     renderQuestionPalette();
@@ -279,10 +439,17 @@
     
     updateFlagButton();
 
-    // Tiêu đề câu hỏi
-    els.questionTitle.innerHTML = `<span style="color:var(--accent-primary); font-weight:700;">Câu ${index + 1}/${state.questions.length}:</span> ${escapeHtml(q.question)}`;
+    // Tiêu đề câu hỏi (Hiển thị tiếng Việt dưới tiếng Anh)
+    const questionVi = q.question_vi || q.questionVi || "";
+    els.questionTitle.innerHTML = `
+      <div class="q-title-en">
+        <span style="color:var(--accent-primary); font-weight:700;">Câu ${index + 1}/${state.questions.length}:</span> 
+        ${escapeHtml(q.question)}
+      </div>
+      ${questionVi ? `<div class="q-title-vi">${escapeHtml(questionVi)}</div>` : ""}
+    `;
 
-    // Danh sách các lựa chọn
+    // Danh sách các lựa chọn (Hiển thị tiếng Việt dưới tiếng Anh)
     els.optionsList.innerHTML = "";
     const currentAns = state.userAnswers[q.id] || [];
 
@@ -294,6 +461,8 @@
       optItem.setAttribute("aria-checked", isSelected ? "true" : "false");
       optItem.tabIndex = 0;
 
+      const optVi = opt.text_vi || opt.textVi || "";
+
       optItem.innerHTML = `
         <input 
           type="${isMulti ? "checkbox" : "radio"}" 
@@ -304,7 +473,10 @@
           tabindex="-1"
         >
         <span class="option-key">${opt.key})</span>
-        <span class="option-text">${escapeHtml(opt.text)}</span>
+        <div class="option-content">
+          <span class="option-text-en">${escapeHtml(opt.text)}</span>
+          ${optVi ? `<span class="option-text-vi">${escapeHtml(optVi)}</span>` : ""}
+        </div>
       `;
 
       const toggleOption = () => {
@@ -531,7 +703,12 @@
 
   function renderDomainBreakdown(domainStats) {
     els.domainBarsContainer.innerHTML = "";
-    Object.keys(domainStats).forEach((topic) => {
+    const domainKeys = Object.keys(domainStats);
+    if (els.domainsCardTitle) {
+      els.domainsCardTitle.textContent = `📊 Kết quả phân tích theo ${domainKeys.length} lĩnh vực thi`;
+    }
+
+    domainKeys.forEach((topic) => {
       const stat = domainStats[topic];
       const topicPct = Math.round((stat.correct / stat.total) * 100);
 
@@ -573,10 +750,13 @@
       const card = document.createElement("div");
       card.className = `review-card ${isCorrect ? "correct" : "incorrect"}`;
 
+      const questionVi = q.question_vi || q.questionVi || "";
+
       let optionsHtml = "";
       q.options.forEach((opt) => {
         const isOptCorrect = correctAns.includes(opt.key);
         const isOptUserChoice = userAns.includes(opt.key);
+        const optVi = opt.text_vi || opt.textVi || "";
 
         let optClass = "review-opt";
         let icon = "⚪";
@@ -591,13 +771,19 @@
 
         optionsHtml += `
           <div class="${optClass}">
-            <span>${icon}</span>
-            <span style="font-weight:700;">${opt.key})</span>
-            <span>${escapeHtml(opt.text)}</span>
-            ${isOptUserChoice ? '<span style="margin-left:auto; font-size:0.8rem; font-weight:700;">(Bạn đã chọn)</span>' : ""}
+            <span class="review-opt-icon">${icon}</span>
+            <span class="review-opt-key">${opt.key})</span>
+            <div class="review-opt-content">
+              <div class="review-opt-en">${escapeHtml(opt.text)}</div>
+              ${optVi ? `<div class="review-opt-vi">${escapeHtml(optVi)}</div>` : ""}
+            </div>
+            ${isOptUserChoice ? '<span class="review-opt-badge">(Bạn đã chọn)</span>' : ""}
           </div>
         `;
       });
+
+      const explanationEn = q.explanation || "";
+      const explanationVi = q.explanation_vi || q.explanationVi || "";
 
       card.innerHTML = `
         <div class="review-q-meta">
@@ -606,16 +792,24 @@
             ${isCorrect ? "✓ Trả lời Đúng" : "✗ Trả lời Sai"}
           </span>
         </div>
-        <div class="question-title">
-          <strong>Câu ${idx + 1}:</strong> ${escapeHtml(q.question)}
+        <div class="review-q-title">
+          <div class="q-title-en"><strong>Câu ${idx + 1}:</strong> ${escapeHtml(q.question)}</div>
+          ${questionVi ? `<div class="q-title-vi">${escapeHtml(questionVi)}</div>` : ""}
         </div>
         <div class="review-options">
           ${optionsHtml}
         </div>
         <div class="review-verdict">
-          <strong>Đáp án chính xác:</strong> ${correctAns.join(", ")} | 
-          <strong>Lựa chọn của bạn:</strong> ${userAns.length > 0 ? userAns.join(", ") : "<em>Chưa trả lời</em>"}
-          ${q.explanation ? `<div style="margin-top:0.4rem; color:var(--text-secondary); font-size:0.85rem;">💡 <em>${escapeHtml(q.explanation)}</em></div>` : ""}
+          <div class="verdict-summary">
+            <strong>Đáp án chính xác:</strong> ${correctAns.join(", ")} | 
+            <strong>Lựa chọn của bạn:</strong> ${userAns.length > 0 ? userAns.join(", ") : "<em>Chưa trả lời</em>"}
+          </div>
+          ${(explanationEn || explanationVi) ? `
+            <div class="review-explanation">
+              ${explanationEn ? `<div class="explanation-en"><span class="expl-label">💡 Giải thích:</span> ${escapeHtml(explanationEn)}</div>` : ""}
+              ${explanationVi ? `<div class="explanation-vi"><span class="expl-label">🇻🇳 Dịch nghĩa:</span> ${escapeHtml(explanationVi)}</div>` : ""}
+            </div>
+          ` : ""}
         </div>
       `;
 
@@ -631,6 +825,12 @@
   // 8. EVENT LISTENERS & NAVIGATION
   // ==========================================================================
   function setupEventListeners() {
+    // Exam Selection Listeners
+    if (els.headBtnGenAI) els.headBtnGenAI.addEventListener("click", () => switchExam("genai"));
+    if (els.headBtnCCARP) els.headBtnCCARP.addEventListener("click", () => switchExam("ccarp"));
+    if (els.cardGenAI) els.cardGenAI.addEventListener("click", () => switchExam("genai"));
+    if (els.cardCCARP) els.cardCCARP.addEventListener("click", () => switchExam("ccarp"));
+
     // Brand click to go Home
     els.brandLogo.addEventListener("click", () => {
       if (state.currentSet && !state.isSubmitted) {
