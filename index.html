@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="vi" data-theme="light">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Luyện Thi Chứng Chỉ Generative AI Leader | 10 Bộ Đề Thi Thử</title>
-  <meta name="description" content="Nền tảng thi thử chứng chỉ Generative AI Leader với 10 bộ đề thi trắc nghiệm, bấm giờ 90 phút, chấm điểm phân tích theo chủ đề và xem đáp án chi tiết.">
+  <meta name="description"
+    content="Nền tảng thi thử chứng chỉ Generative AI Leader với 10 bộ đề thi trắc nghiệm, bấm giờ 90 phút, chấm điểm phân tích theo chủ đề và xem đáp án chi tiết.">
   <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
 
   <!-- ========================================================================
@@ -15,7 +18,6 @@
   <header class="site-header">
     <div class="container header-content">
       <div class="brand" id="brandLogo" title="Về trang chọn bộ đề">
-        <div class="brand-icon" id="brandIcon">AI</div>
         <div class="brand-info">
           <h1 id="brandTitle">Exam Portal</h1>
           <span id="brandSubtitle">Luyện thi chứng chỉ</span>
@@ -24,12 +26,14 @@
 
       <!-- Quick Exam Switcher in Header -->
       <div class="header-exam-selector" id="headerExamSelector" role="group" aria-label="Chọn kỳ thi chứng chỉ">
-        <button type="button" class="exam-pill-btn active" data-exam="genai" id="headBtnGenAI" title="Chuyển sang kỳ thi Google Cloud Generative AI Leader">
-          <span class="exam-pill-icon">🤖</span>
+        <button type="button" class="exam-pill-btn active" data-exam="genai" id="headBtnGenAI"
+          title="Chuyển sang kỳ thi Google Cloud Generative AI Leader">
+          <span class="exam-pill-icon"></span>
           <span class="exam-pill-name">GenAI Leader</span>
         </button>
-        <button type="button" class="exam-pill-btn" data-exam="ccarp" id="headBtnCCARP" title="Chuyển sang kỳ thi Claude Certified Architect (CCAR-P)">
-          <span class="exam-pill-icon">🧠</span>
+        <button type="button" class="exam-pill-btn" data-exam="ccarp" id="headBtnCCARP"
+          title="Chuyển sang kỳ thi Claude Certified Architect (CCAR-P)">
+          <span class="exam-pill-icon"></span>
           <span class="exam-pill-name">CCAR-P</span>
         </button>
       </div>
@@ -42,13 +46,15 @@
         </div>
 
         <!-- Bilingual Translation Toggle Button -->
-        <button type="button" class="btn-lang-toggle active" id="langToggleBtn" aria-label="Bật/Tắt dịch tiếng Việt" title="Bật/Tắt hiển thị bản dịch tiếng Việt song ngữ">
+        <button type="button" class="btn-lang-toggle active" id="langToggleBtn" aria-label="Bật/Tắt dịch tiếng Việt"
+          title="Bật/Tắt hiển thị bản dịch tiếng Việt song ngữ">
           <span class="lang-icon">🇻🇳</span>
           <span class="lang-label" id="langToggleText">Dịch TV: Bật</span>
         </button>
 
         <!-- Light/Dark Theme Toggle -->
-        <button type="button" class="btn-icon" id="themeToggleBtn" aria-label="Chuyển giao diện sáng/tối" title="Chuyển giao diện">
+        <button type="button" class="btn-icon" id="themeToggleBtn" aria-label="Chuyển giao diện sáng/tối"
+          title="Chuyển giao diện">
           🌙
         </button>
       </div>
@@ -62,44 +68,12 @@
 
     <!-- VIEW 1: SET SELECTION DASHBOARD -->
     <section id="setSelectionView" class="view-section active">
-      
-      <!-- EXAM SELECTION CARDS -->
-      <div class="exam-selection-container">
-        <div class="exam-selection-cards" role="tablist" aria-label="Chọn kỳ thi chứng chỉ">
-          <button type="button" class="exam-select-card active" id="cardGenAI" data-exam="genai" role="tab" aria-selected="true">
-            <span class="card-status-badge">Đang chọn</span>
-            <div class="card-icon-wrapper google-color">🤖</div>
-            <div class="card-info">
-              <span class="card-provider">Google Cloud</span>
-              <h3>Generative AI Leader</h3>
-              <p>10 Bộ đề • 60 câu/đề • 90 phút • 4 Lĩnh vực</p>
-            </div>
-            <span class="card-arrow">❯</span>
-          </button>
 
-          <button type="button" class="exam-select-card" id="cardCCARP" data-exam="ccarp" role="tab" aria-selected="false">
-            <span class="card-status-badge new-badge">Mới</span>
-            <div class="card-icon-wrapper anthropic-color">🧠</div>
-            <div class="card-info">
-              <span class="card-provider">Anthropic Claude</span>
-              <h3>Claude Certified Architect (CCAR-P)</h3>
-              <p>10 Bộ đề • 63 câu/đề • 90 phút • 7 Lĩnh vực</p>
-            </div>
-            <span class="card-arrow">❯</span>
-          </button>
-        </div>
-      </div>
+      <!-- EXAM SELECTION CARDS -->
+
 
       <div class="hero-banner" id="heroBanner">
         <h2 id="heroTitle">Bộ Đề Luyện Thi Generative AI Leader</h2>
-        <p id="heroDesc">Hệ thống 10 bộ đề thi thử bám sát cấu trúc đề thi chính thức: 60 câu hỏi trắc nghiệm, thời gian 90 phút, yêu cầu đạt từ 70%.</p>
-        <div class="exam-meta-pills" id="heroMetaPills">
-          <span class="meta-pill">🎯 Chuẩn đề 60 câu</span>
-          <span class="meta-pill">⏱️ Bấm giờ 90 phút</span>
-          <span class="meta-pill">🇻🇳 Song ngữ Anh - Việt</span>
-          <span class="meta-pill">📊 Chấm điểm theo 4 lĩnh vực</span>
-          <span class="meta-pill">💡 Đáp án &amp; Giải thích chi tiết</span>
-        </div>
       </div>
 
       <div class="sets-grid" id="setsGrid">
@@ -110,12 +84,14 @@
     <!-- VIEW 2: ACTIVE EXAM INTERFACE -->
     <section id="examView" class="view-section">
       <div class="exam-layout">
-        
+
         <!-- Left Column: Question Area -->
         <div class="question-panel">
           <div class="question-header">
             <div>
-              <span id="examSetName" style="font-weight:700; color:var(--text-muted); font-size:0.85rem; margin-right:0.5rem;">Bộ đề thi</span>
+              <span id="examSetName"
+                style="font-weight:700; color:var(--text-muted); font-size:0.85rem; margin-right:0.5rem;">Bộ đề
+                thi</span>
               <span class="q-topic-badge" id="qTopicBadge">Topic</span>
             </div>
             <div style="display:flex; align-items:center; gap:0.5rem;">
@@ -148,7 +124,8 @@
         <aside class="palette-sidebar" id="paletteSidebar">
           <div class="palette-header">
             <h4>Bảng câu hỏi</h4>
-            <button type="button" class="btn-icon mobile-palette-toggle" id="closeMobilePaletteBtn" style="width:32px; height:32px;">✕</button>
+            <button type="button" class="btn-icon mobile-palette-toggle" id="closeMobilePaletteBtn"
+              style="width:32px; height:32px;">✕</button>
           </div>
 
           <div class="palette-legend">
@@ -176,13 +153,13 @@
 
     <!-- VIEW 3: RESULTS & FULL REVIEW -->
     <section id="resultView" class="view-section">
-      
+
       <!-- Big Score Summary Card -->
       <div class="result-header-card">
         <div class="result-status-badge pass" id="resultStatusBadge">PASSED</div>
         <div class="score-display" id="scorePercent">85%</div>
         <div class="score-subtitle" id="scoreFraction">(51/60 câu đúng)</div>
-        
+
         <div class="result-stats-row">
           <div class="stat-box">
             <span class="val" id="timeSpentText">45m 12s</span>
@@ -259,4 +236,5 @@
   <script src="CCAR-P/set_1.js"></script>
   <script src="js/app.js"></script>
 </body>
+
 </html>

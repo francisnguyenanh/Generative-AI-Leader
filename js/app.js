@@ -11,7 +11,7 @@
       id: "genai",
       name: "GenAI Leader",
       fullName: "Google Cloud Generative AI Leader",
-      icon: "🤖",
+      icon: "",
       folder: "Quiz_data",
       manifestVar: "QUIZ_MANIFEST_GENAI",
       fallbackManifestVar: "QUIZ_MANIFEST",
@@ -30,7 +30,7 @@
       id: "ccarp",
       name: "CCAR-P",
       fullName: "Claude Certified Architect (CCAR-P)",
-      icon: "🧠",
+      icon: "",
       folder: "CCAR-P",
       manifestVar: "QUIZ_MANIFEST_CCARP",
       fallbackManifestVar: "QUIZ_MANIFEST_CCARP",
@@ -70,7 +70,7 @@
     brandIcon: document.getElementById("brandIcon"),
     brandTitle: document.getElementById("brandTitle"),
     brandSubtitle: document.getElementById("brandSubtitle"),
-    
+
     // Exam Selectors
     headBtnGenAI: document.getElementById("headBtnGenAI"),
     headBtnCCARP: document.getElementById("headBtnCCARP"),
@@ -85,15 +85,15 @@
     langToggleText: document.getElementById("langToggleText"),
     timerWidget: document.getElementById("timerWidget"),
     timerDisplay: document.getElementById("timerDisplay"),
-    
+
     // Views
     setSelectionView: document.getElementById("setSelectionView"),
     examView: document.getElementById("examView"),
     resultView: document.getElementById("resultView"),
-    
+
     // Set Selection
     setsGrid: document.getElementById("setsGrid"),
-    
+
     // Exam Interface
     examSetName: document.getElementById("examSetName"),
     qTopicBadge: document.getElementById("qTopicBadge"),
@@ -110,13 +110,13 @@
     closeMobilePaletteBtn: document.getElementById("closeMobilePaletteBtn"),
     submitExamBtn: document.getElementById("submitExamBtn"),
     answeredCountLabel: document.getElementById("answeredCountLabel"),
-    
+
     // Modal
     submitModal: document.getElementById("submitModal"),
     modalWarningText: document.getElementById("modalWarningText"),
     modalCancelBtn: document.getElementById("modalCancelBtn"),
     modalConfirmBtn: document.getElementById("modalConfirmBtn"),
-    
+
     // Results
     resultStatusBadge: document.getElementById("resultStatusBadge"),
     scorePercent: document.getElementById("scorePercent"),
@@ -346,7 +346,7 @@
   async function startExam(set) {
     state.currentSet = set;
     const exam = EXAMS[state.currentExam] || EXAMS.genai;
-    
+
     // Tải dữ liệu câu hỏi (hỗ trợ cả HTTP/GitHub Pages và mở trực tiếp file://)
     try {
       if (window[set.jsVar] && Array.isArray(window[set.jsVar])) {
@@ -436,7 +436,7 @@
     els.qTopicBadge.textContent = q.topic || "Generative AI Leader";
     const isMulti = q.type === "multiple" || (q.answer && q.answer.length > 1);
     els.qTypeBadge.innerHTML = isMulti ? "☑️ Chọn nhiều đáp án" : "🔘 Chọn một đáp án";
-    
+
     updateFlagButton();
 
     // Tiêu đề câu hỏi (Hiển thị tiếng Việt dưới tiếng Anh)
@@ -653,7 +653,7 @@
   function calculateAndShowResults() {
     let totalQuestions = state.questions.length;
     let correctCount = 0;
-    
+
     // Thống kê theo chủ đề (Domain breakdown)
     const domainStats = {};
 
