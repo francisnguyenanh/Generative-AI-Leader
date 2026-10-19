@@ -7,25 +7,25 @@
     "options": [
       {
         "key": "A",
-        "text": "Transferring data from a local drive to the cloud."
+        "text": "Moving a model from CPU to GPU."
       },
       {
         "key": "B",
-        "text": "Taking knowledge learned by a model on a large general dataset and applying it to a different, but related, specific task."
+        "text": "Transferring data from a local drive to the cloud."
       },
       {
         "key": "C",
-        "text": "Translating text from English to French."
+        "text": "Taking knowledge learned by a model on a large general dataset and applying it to a different, but related, specific task."
       },
       {
         "key": "D",
-        "text": "Moving a model from CPU to GPU."
+        "text": "Translating text from English to French."
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: Taking knowledge learned by a model on a large general dataset and applying it to a different, but related, specific task. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 2,
@@ -53,7 +53,7 @@
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: ROUGE (Recall-Oriented Understudy for Gisting Evaluation) Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 3,
@@ -63,25 +63,25 @@
     "options": [
       {
         "key": "A",
-        "text": "The model deleting its own training data."
-      },
-      {
-        "key": "B",
-        "text": "The tendency of an AI model to abruptly forget previously learned information upon learning new information."
-      },
-      {
-        "key": "C",
         "text": "The hardware crashing and losing memory."
       },
       {
-        "key": "D",
+        "key": "B",
+        "text": "The model deleting its own training data."
+      },
+      {
+        "key": "C",
         "text": "The user forgetting their API key."
+      },
+      {
+        "key": "D",
+        "text": "The tendency of an AI model to abruptly forget previously learned information upon learning new information."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: The tendency of an AI model to abruptly forget previously learned information upon learning new information. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 4,
@@ -91,25 +91,25 @@
     "options": [
       {
         "key": "A",
-        "text": "The size of the words in bytes."
-      },
-      {
-        "key": "B",
         "text": "The semantic similarity between the two words."
       },
       {
-        "key": "C",
+        "key": "B",
         "text": "The alphabetical order of the words."
       },
       {
-        "key": "D",
+        "key": "C",
         "text": "The length of the words."
+      },
+      {
+        "key": "D",
+        "text": "The size of the words in bytes."
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: The semantic similarity between the two words. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 5,
@@ -119,15 +119,15 @@
     "options": [
       {
         "key": "A",
-        "text": "To turn the physical servers on and off."
+        "text": "To calculate the billing costs."
       },
       {
         "key": "B",
-        "text": "To introduce non-linearity into the network, allowing it to learn complex patterns."
+        "text": "To turn the physical servers on and off."
       },
       {
         "key": "C",
-        "text": "To calculate the billing costs."
+        "text": "To introduce non-linearity into the network, allowing it to learn complex patterns."
       },
       {
         "key": "D",
@@ -135,9 +135,9 @@
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: To introduce non-linearity into the network, allowing it to learn complex patterns. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 6,
@@ -147,11 +147,11 @@
     "options": [
       {
         "key": "A",
-        "text": "Small, highly curated, labeled datasets."
+        "text": "Massive, diverse, unlabelled datasets (e.g., scraping the internet)."
       },
       {
         "key": "B",
-        "text": "Massive, diverse, unlabelled datasets (e.g., scraping the internet)."
+        "text": "Small, highly curated, labeled datasets."
       },
       {
         "key": "C",
@@ -163,9 +163,9 @@
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: Massive, diverse, unlabelled datasets (e.g., scraping the internet). Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 7,
@@ -175,25 +175,25 @@
     "options": [
       {
         "key": "A",
-        "text": "Generating highly realistic images by pitting a generator against a discriminator."
-      },
-      {
-        "key": "B",
-        "text": "Summarizing text documents."
-      },
-      {
-        "key": "C",
         "text": "Translating languages."
       },
       {
-        "key": "D",
+        "key": "B",
         "text": "Sorting databases."
+      },
+      {
+        "key": "C",
+        "text": "Summarizing text documents."
+      },
+      {
+        "key": "D",
+        "text": "Generating highly realistic images by pitting a generator against a discriminator."
       }
     ],
     "answer": [
-      "A"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: Generating highly realistic images by pitting a generator against a discriminator. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 8,
@@ -203,7 +203,7 @@
     "options": [
       {
         "key": "A",
-        "text": "They output a single number for any given text."
+        "text": "They require no input data."
       },
       {
         "key": "B",
@@ -211,17 +211,17 @@
       },
       {
         "key": "C",
-        "text": "They only generate images."
+        "text": "They output a single number for any given text."
       },
       {
         "key": "D",
-        "text": "They require no input data."
+        "text": "They only generate images."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: They map an input sequence (like a sentence in English) to an output sequence (like a sentence in French). Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 9,
@@ -231,25 +231,25 @@
     "options": [
       {
         "key": "A",
-        "text": "Hiding the model from the public internet."
-      },
-      {
-        "key": "B",
-        "text": "Hiding a percentage of input tokens and training the model to predict the missing words based on the surrounding context."
-      },
-      {
-        "key": "C",
         "text": "Masking sensitive PII data."
       },
       {
-        "key": "D",
+        "key": "B",
+        "text": "Hiding the model from the public internet."
+      },
+      {
+        "key": "C",
         "text": "Generating a mask for image editing."
+      },
+      {
+        "key": "D",
+        "text": "Hiding a percentage of input tokens and training the model to predict the missing words based on the surrounding context."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: Hiding a percentage of input tokens and training the model to predict the missing words based on the surrounding context. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 10,
@@ -259,25 +259,25 @@
     "options": [
       {
         "key": "A",
-        "text": "They are the physical weight of the hardware."
-      },
-      {
-        "key": "B",
         "text": "They are the learnable parameters that capture the knowledge the model has extracted from the training data."
       },
       {
+        "key": "B",
+        "text": "They are the physical weight of the hardware."
+      },
+      {
         "key": "C",
-        "text": "They refer to user preferences."
+        "text": "They are security protocols."
       },
       {
         "key": "D",
-        "text": "They are security protocols."
+        "text": "They refer to user preferences."
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: They are the learnable parameters that capture the knowledge the model has extracted from the training data. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 11,
@@ -287,11 +287,11 @@
     "options": [
       {
         "key": "A",
-        "text": "To artificially increase the size and diversity of a training dataset by applying transformations (like cropping or paraphrasing) to existing data."
+        "text": "To delete bad data."
       },
       {
         "key": "B",
-        "text": "To delete bad data."
+        "text": "To artificially increase the size and diversity of a training dataset by applying transformations (like cropping or paraphrasing) to existing data."
       },
       {
         "key": "C",
@@ -303,9 +303,9 @@
       }
     ],
     "answer": [
-      "A"
+      "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: To artificially increase the size and diversity of a training dataset by applying transformations (like cropping or paraphrasing) to existing data. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 12,
@@ -315,7 +315,7 @@
     "options": [
       {
         "key": "A",
-        "text": "They operate in a lower-dimensional latent space rather than the high-dimensional pixel space, making image generation computationally cheaper and faster."
+        "text": "They diffuse heat from the GPU."
       },
       {
         "key": "B",
@@ -323,17 +323,17 @@
       },
       {
         "key": "C",
-        "text": "They only generate 1D audio."
+        "text": "They operate in a lower-dimensional latent space rather than the high-dimensional pixel space, making image generation computationally cheaper and faster."
       },
       {
         "key": "D",
-        "text": "They diffuse heat from the GPU."
+        "text": "They only generate 1D audio."
       }
     ],
     "answer": [
-      "A"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: They operate in a lower-dimensional latent space rather than the high-dimensional pixel space, making image generation computationally cheaper and faster. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 13,
@@ -347,7 +347,7 @@
       },
       {
         "key": "B",
-        "text": "In a dense model, all parameters are used for every prediction; in a sparse model (like Mixture of Experts), only a subset of parameters is activated for a given input."
+        "text": "There is no difference."
       },
       {
         "key": "C",
@@ -355,13 +355,13 @@
       },
       {
         "key": "D",
-        "text": "There is no difference."
+        "text": "In a dense model, all parameters are used for every prediction; in a sparse model (like Mixture of Experts), only a subset of parameters is activated for a given input."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: In a dense model, all parameters are used for every prediction; in a sparse model (like Mixture of Experts), only a subset of parameters is activated for a given input. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 14,
@@ -371,25 +371,25 @@
     "options": [
       {
         "key": "A",
-        "text": "Aligning the server racks."
-      },
-      {
-        "key": "B",
         "text": "The process of training a model to understand that different modalities (e.g., a picture of a dog and the word 'dog') represent the same semantic concept."
       },
       {
+        "key": "B",
+        "text": "Aligning the server racks."
+      },
+      {
         "key": "C",
-        "text": "Translating text to speech."
+        "text": "Formatting text in a UI."
       },
       {
         "key": "D",
-        "text": "Formatting text in a UI."
+        "text": "Translating text to speech."
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: The process of training a model to understand that different modalities (e.g., a picture of a dog and the word 'dog') represent the same semantic concept. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 15,
@@ -399,7 +399,7 @@
     "options": [
       {
         "key": "A",
-        "text": "Binary Search"
+        "text": "Bubble Sort"
       },
       {
         "key": "B",
@@ -411,13 +411,13 @@
       },
       {
         "key": "D",
-        "text": "Bubble Sort"
+        "text": "Binary Search"
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: Backpropagation Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 16,
@@ -427,25 +427,25 @@
     "options": [
       {
         "key": "A",
-        "text": "Replacing human engineers."
+        "text": "Cooling down data centers."
       },
       {
         "key": "B",
-        "text": "Overcoming data scarcity and privacy issues by using AI to generate artificial, yet statistically representative, data for training."
-      },
-      {
-        "key": "C",
         "text": "Generating fake news."
       },
       {
+        "key": "C",
+        "text": "Overcoming data scarcity and privacy issues by using AI to generate artificial, yet statistically representative, data for training."
+      },
+      {
         "key": "D",
-        "text": "Cooling down data centers."
+        "text": "Replacing human engineers."
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: Overcoming data scarcity and privacy issues by using AI to generate artificial, yet statistically representative, data for training. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 17,
@@ -455,7 +455,7 @@
     "options": [
       {
         "key": "A",
-        "text": "Because they don't have a calculator."
+        "text": "Because numbers are not allowed in prompts."
       },
       {
         "key": "B",
@@ -467,13 +467,13 @@
       },
       {
         "key": "D",
-        "text": "Because numbers are not allowed in prompts."
+        "text": "Because they don't have a calculator."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: Because they are optimized to predict the next most likely token based on language patterns, not to execute symbolic mathematical logic. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 18,
@@ -487,21 +487,21 @@
       },
       {
         "key": "B",
-        "text": "When a model learns the training data too well, including its noise, resulting in poor generalization to new, unseen data."
+        "text": "When the context window is exceeded."
       },
       {
         "key": "C",
-        "text": "When a model is too large to fit in memory."
+        "text": "When a model learns the training data too well, including its noise, resulting in poor generalization to new, unseen data."
       },
       {
         "key": "D",
-        "text": "When the context window is exceeded."
+        "text": "When a model is too large to fit in memory."
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: When a model learns the training data too well, including its noise, resulting in poor generalization to new, unseen data. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 19,
@@ -511,25 +511,25 @@
     "options": [
       {
         "key": "A",
-        "text": "Vertex AI Model Registry"
-      },
-      {
-        "key": "B",
-        "text": "Vertex AI Evaluation"
-      },
-      {
-        "key": "C",
         "text": "Cloud Build"
       },
       {
-        "key": "D",
+        "key": "B",
         "text": "Cloud Functions"
+      },
+      {
+        "key": "C",
+        "text": "Vertex AI Model Registry"
+      },
+      {
+        "key": "D",
+        "text": "Vertex AI Evaluation"
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: Vertex AI Evaluation Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 20,
@@ -539,25 +539,25 @@
     "options": [
       {
         "key": "A",
-        "text": "Searching for string matches in BigQuery."
-      },
-      {
-        "key": "B",
         "text": "Performing low-latency, highly scalable nearest-neighbor similarity searches on vector embeddings for applications like RAG and recommendation engines."
       },
       {
+        "key": "B",
+        "text": "Searching for string matches in BigQuery."
+      },
+      {
         "key": "C",
-        "text": "Searching for cloud security threats."
+        "text": "Searching text files locally."
       },
       {
         "key": "D",
-        "text": "Searching text files locally."
+        "text": "Searching for cloud security threats."
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: Performing low-latency, highly scalable nearest-neighbor similarity searches on vector embeddings for applications like RAG and recommendation engines. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 21,
@@ -585,7 +585,7 @@
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: Document AI is a specialized suite of models and tools specifically trained to extract, classify, and understand data from structured and unstructured documents (like invoices or IDs). Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 22,
@@ -595,11 +595,11 @@
     "options": [
       {
         "key": "A",
-        "text": "Med-PaLM"
+        "text": "Sec-PaLM"
       },
       {
         "key": "B",
-        "text": "Sec-PaLM"
+        "text": "Imagen"
       },
       {
         "key": "C",
@@ -607,13 +607,13 @@
       },
       {
         "key": "D",
-        "text": "Imagen"
+        "text": "Med-PaLM"
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: Sec-PaLM Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 23,
@@ -627,21 +627,21 @@
       },
       {
         "key": "B",
-        "text": "Cloud Run"
-      },
-      {
-        "key": "C",
         "text": "Bare Metal Solution"
       },
       {
-        "key": "D",
+        "key": "C",
         "text": "Cloud SQL"
+      },
+      {
+        "key": "D",
+        "text": "Cloud Run"
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: Cloud Run Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 24,
@@ -655,11 +655,11 @@
       },
       {
         "key": "B",
-        "text": "It has a massive context window of up to 1 million (or 2 million) tokens, allowing it to process massive documents, hours of video, or entire codebases in one prompt."
+        "text": "It requires zero tokens."
       },
       {
         "key": "C",
-        "text": "It requires zero tokens."
+        "text": "It has a massive context window of up to 1 million (or 2 million) tokens, allowing it to process massive documents, hours of video, or entire codebases in one prompt."
       },
       {
         "key": "D",
@@ -667,9 +667,9 @@
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: It has a massive context window of up to 1 million (or 2 million) tokens, allowing it to process massive documents, hours of video, or entire codebases in one prompt. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 25,
@@ -679,25 +679,25 @@
     "options": [
       {
         "key": "A",
-        "text": "Google Maps API"
+        "text": "Cloud Translation API"
       },
       {
         "key": "B",
-        "text": "Vertex AI SDK / PaLM & Gemini APIs"
+        "text": "Google Maps API"
       },
       {
         "key": "C",
-        "text": "Google Drive API"
+        "text": "Vertex AI SDK / PaLM & Gemini APIs"
       },
       {
         "key": "D",
-        "text": "Cloud Translation API"
+        "text": "Google Drive API"
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: Vertex AI SDK / PaLM & Gemini APIs Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 26,
@@ -707,7 +707,7 @@
     "options": [
       {
         "key": "A",
-        "text": "Limits the number of users who can access the app."
+        "text": "Limits the daily API cost."
       },
       {
         "key": "B",
@@ -715,17 +715,17 @@
       },
       {
         "key": "C",
-        "text": "Limits the daily API cost."
+        "text": "Restricts the input prompt size."
       },
       {
         "key": "D",
-        "text": "Restricts the input prompt size."
+        "text": "Limits the number of users who can access the app."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: Sets the maximum length of the response generated by the model. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 27,
@@ -739,7 +739,7 @@
       },
       {
         "key": "B",
-        "text": "The model's trained parameters (weights) are available for users to download, inspect, and deploy anywhere (e.g., Gemma)."
+        "text": "The model is strictly proprietary to Google."
       },
       {
         "key": "C",
@@ -747,13 +747,13 @@
       },
       {
         "key": "D",
-        "text": "The model is strictly proprietary to Google."
+        "text": "The model's trained parameters (weights) are available for users to download, inspect, and deploy anywhere (e.g., Gemma)."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: The model's trained parameters (weights) are available for users to download, inspect, and deploy anywhere (e.g., Gemma). Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 28,
@@ -763,11 +763,11 @@
     "options": [
       {
         "key": "A",
-        "text": "By making the UI bigger."
+        "text": "By allowing the model to act as an agent, securely calling external APIs, executing code, or querying databases to take real-world actions."
       },
       {
         "key": "B",
-        "text": "By allowing the model to act as an agent, securely calling external APIs, executing code, or querying databases to take real-world actions."
+        "text": "By translating the output."
       },
       {
         "key": "C",
@@ -775,13 +775,13 @@
       },
       {
         "key": "D",
-        "text": "By translating the output."
+        "text": "By making the UI bigger."
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: By allowing the model to act as an agent, securely calling external APIs, executing code, or querying databases to take real-world actions. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 29,
@@ -791,25 +791,25 @@
     "options": [
       {
         "key": "A",
-        "text": "Cloud Storage"
+        "text": "Memorystore"
       },
       {
         "key": "B",
-        "text": "Cloud Spanner"
+        "text": "Cloud Storage"
       },
       {
         "key": "C",
-        "text": "Cloud CDN"
+        "text": "Cloud Spanner"
       },
       {
         "key": "D",
-        "text": "Memorystore"
+        "text": "Cloud CDN"
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: Cloud Spanner Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 30,
@@ -819,7 +819,7 @@
     "options": [
       {
         "key": "A",
-        "text": "It generates high-resolution images."
+        "text": "It plays high-fidelity audio."
       },
       {
         "key": "B",
@@ -827,7 +827,7 @@
       },
       {
         "key": "C",
-        "text": "It plays high-fidelity audio."
+        "text": "It generates high-resolution images."
       },
       {
         "key": "D",
@@ -837,7 +837,7 @@
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: It forces the model to strictly extract answers only from the provided enterprise documents, minimizing hallucination and extrapolation. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 31,
@@ -851,7 +851,7 @@
       },
       {
         "key": "B",
-        "text": "Vertex AI ML Metadata / Experiments"
+        "text": "Artifact Registry"
       },
       {
         "key": "C",
@@ -859,13 +859,13 @@
       },
       {
         "key": "D",
-        "text": "Artifact Registry"
+        "text": "Vertex AI ML Metadata / Experiments"
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: Vertex AI ML Metadata / Experiments Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 32,
@@ -875,25 +875,25 @@
     "options": [
       {
         "key": "A",
-        "text": "They are competitors."
-      },
-      {
-        "key": "B",
         "text": "They are deeply integrated; BigQuery ML allows running ML models directly on data using SQL, and Vertex AI models can be called directly from BigQuery for analysis."
       },
       {
-        "key": "C",
+        "key": "B",
         "text": "BigQuery is for images, Vertex AI for text."
       },
       {
-        "key": "D",
+        "key": "C",
         "text": "They cannot be connected."
+      },
+      {
+        "key": "D",
+        "text": "They are competitors."
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: They are deeply integrated; BigQuery ML allows running ML models directly on data using SQL, and Vertex AI models can be called directly from BigQuery for analysis. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 33,
@@ -903,7 +903,7 @@
     "options": [
       {
         "key": "A",
-        "text": "Because it is a NoSQL database."
+        "text": "Because it generates videos."
       },
       {
         "key": "B",
@@ -911,17 +911,17 @@
       },
       {
         "key": "C",
-        "text": "Because it generates videos."
+        "text": "Because it is an open-source model."
       },
       {
         "key": "D",
-        "text": "Because it is an open-source model."
+        "text": "Because it is a NoSQL database."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: Because it natively integrates with Vertex AI and supports the pgvector extension for high-performance vector search on operational data. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 34,
@@ -935,21 +935,21 @@
       },
       {
         "key": "B",
-        "text": "Customers can choose the specific geographic cloud region where their data is stored at rest and where the ML processing occurs, helping meet compliance requirements."
-      },
-      {
-        "key": "C",
         "text": "The data is resident in the model's memory forever."
       },
       {
-        "key": "D",
+        "key": "C",
         "text": "Google owns the resident data."
+      },
+      {
+        "key": "D",
+        "text": "Customers can choose the specific geographic cloud region where their data is stored at rest and where the ML processing occurs, helping meet compliance requirements."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: Customers can choose the specific geographic cloud region where their data is stored at rest and where the ML processing occurs, helping meet compliance requirements. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 35,
@@ -959,7 +959,7 @@
     "options": [
       {
         "key": "A",
-        "text": "Cloud Load Balancing"
+        "text": "Cloud Router"
       },
       {
         "key": "B",
@@ -967,17 +967,17 @@
       },
       {
         "key": "C",
-        "text": "Cloud NAT"
+        "text": "Cloud Load Balancing"
       },
       {
         "key": "D",
-        "text": "Cloud Router"
+        "text": "Cloud NAT"
       }
     ],
     "answer": [
-      "A"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: Cloud Load Balancing Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 36,
@@ -987,15 +987,15 @@
     "options": [
       {
         "key": "A",
-        "text": "It generates the AI models."
-      },
-      {
-        "key": "B",
         "text": "It is an API management platform used to secure, monitor, rate-limit, and monetize the Generative AI APIs exposed to external developers or clients."
       },
       {
-        "key": "C",
+        "key": "B",
         "text": "It is a data visualization tool."
+      },
+      {
+        "key": "C",
+        "text": "It generates the AI models."
       },
       {
         "key": "D",
@@ -1003,9 +1003,9 @@
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: It is an API management platform used to secure, monitor, rate-limit, and monetize the Generative AI APIs exposed to external developers or clients. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 37,
@@ -1015,7 +1015,7 @@
     "options": [
       {
         "key": "A",
-        "text": "Adjusting the screen brightness."
+        "text": "Tuning a guitar using AI."
       },
       {
         "key": "B",
@@ -1023,17 +1023,17 @@
       },
       {
         "key": "C",
-        "text": "Tuning a guitar using AI."
+        "text": "Optimizing the cloud billing account."
       },
       {
         "key": "D",
-        "text": "Optimizing the cloud billing account."
+        "text": "Adjusting the screen brightness."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: A managed process that takes a foundation model and a training dataset to create a new, customized version of the model (fine-tuning). Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 38,
@@ -1043,25 +1043,25 @@
     "options": [
       {
         "key": "A",
-        "text": "Google Sheets Formula Editor"
+        "text": "Google Meet closed captions"
       },
       {
         "key": "B",
-        "text": "'Help me read' / Summarization in Gmail"
-      },
-      {
-        "key": "C",
         "text": "Google Calendar scheduling"
       },
       {
+        "key": "C",
+        "text": "'Help me read' / Summarization in Gmail"
+      },
+      {
         "key": "D",
-        "text": "Google Meet closed captions"
+        "text": "Google Sheets Formula Editor"
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: 'Help me read' / Summarization in Gmail Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 39,
@@ -1071,11 +1071,11 @@
     "options": [
       {
         "key": "A",
-        "text": "Managed services require you to manage the OS patching manually."
+        "text": "Raw VMs are easier to use for beginners."
       },
       {
         "key": "B",
-        "text": "Managed services handle the underlying infrastructure, scaling, security, and maintenance automatically, letting teams focus on AI development."
+        "text": "Managed services require you to manage the OS patching manually."
       },
       {
         "key": "C",
@@ -1083,13 +1083,13 @@
       },
       {
         "key": "D",
-        "text": "Raw VMs are easier to use for beginners."
+        "text": "Managed services handle the underlying infrastructure, scaling, security, and maintenance automatically, letting teams focus on AI development."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: Managed services handle the underlying infrastructure, scaling, security, and maintenance automatically, letting teams focus on AI development. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 40,
@@ -1099,11 +1099,11 @@
     "options": [
       {
         "key": "A",
-        "text": "The model always giving the same wrong answer."
+        "text": "Asking the model the same question multiple times (often with Chain of Thought), generating multiple reasoning paths, and taking the most frequent (majority) answer to improve accuracy."
       },
       {
         "key": "B",
-        "text": "Asking the model the same question multiple times (often with Chain of Thought), generating multiple reasoning paths, and taking the most frequent (majority) answer to improve accuracy."
+        "text": "The model writing its own prompts."
       },
       {
         "key": "C",
@@ -1111,13 +1111,13 @@
       },
       {
         "key": "D",
-        "text": "The model writing its own prompts."
+        "text": "The model always giving the same wrong answer."
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: Asking the model the same question multiple times (often with Chain of Thought), generating multiple reasoning paths, and taking the most frequent (majority) answer to improve accuracy. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 41,
@@ -1127,25 +1127,25 @@
     "options": [
       {
         "key": "A",
-        "text": "Soft prompting uses nicer words."
-      },
-      {
-        "key": "B",
         "text": "Instead of changing the human-readable text, soft prompting trains a small set of continuous embedding vectors (soft prompts) that are prepended to the input, offering a parameter-efficient way to tune the model."
       },
       {
+        "key": "B",
+        "text": "Soft prompting is used only for images."
+      },
+      {
         "key": "C",
-        "text": "Soft prompting is done by humans, hard prompting by machines."
+        "text": "Soft prompting uses nicer words."
       },
       {
         "key": "D",
-        "text": "Soft prompting is used only for images."
+        "text": "Soft prompting is done by humans, hard prompting by machines."
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: Instead of changing the human-readable text, soft prompting trains a small set of continuous embedding vectors (soft prompts) that are prepended to the input, offering a parameter-efficient way to tune the model. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 42,
@@ -1159,7 +1159,7 @@
       },
       {
         "key": "B",
-        "text": "Use a 'Verification Prompt' (asking the model to review and fact-check its own previous answer against a provided source text)."
+        "text": "Change the UI color."
       },
       {
         "key": "C",
@@ -1167,13 +1167,13 @@
       },
       {
         "key": "D",
-        "text": "Change the UI color."
+        "text": "Use a 'Verification Prompt' (asking the model to review and fact-check its own previous answer against a provided source text)."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: Use a 'Verification Prompt' (asking the model to review and fact-check its own previous answer against a provided source text). Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 43,
@@ -1183,7 +1183,7 @@
     "options": [
       {
         "key": "A",
-        "text": "To make the image black and white."
+        "text": "To reduce the image file size."
       },
       {
         "key": "B",
@@ -1191,17 +1191,17 @@
       },
       {
         "key": "C",
-        "text": "To generate sad images."
+        "text": "To make the image black and white."
       },
       {
         "key": "D",
-        "text": "To reduce the image file size."
+        "text": "To generate sad images."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: To explicitly specify elements, styles, or artifacts you want the model to exclude from the generated image (e.g., 'no text', 'no extra fingers'). Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 44,
@@ -1211,25 +1211,25 @@
     "options": [
       {
         "key": "A",
-        "text": "It forces the model to change its architecture."
-      },
-      {
-        "key": "B",
-        "text": "It establishes a strong context, guiding the model's tone, vocabulary, formatting, and perspective to align with a specific domain (e.g., 'Act as a Senior Legal Advisor')."
-      },
-      {
-        "key": "C",
         "text": "It bypasses copyright laws."
       },
       {
-        "key": "D",
+        "key": "B",
         "text": "It reduces the token cost to zero."
+      },
+      {
+        "key": "C",
+        "text": "It establishes a strong context, guiding the model's tone, vocabulary, formatting, and perspective to align with a specific domain (e.g., 'Act as a Senior Legal Advisor')."
+      },
+      {
+        "key": "D",
+        "text": "It forces the model to change its architecture."
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: It establishes a strong context, guiding the model's tone, vocabulary, formatting, and perspective to align with a specific domain (e.g., 'Act as a Senior Legal Advisor'). Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 45,
@@ -1239,11 +1239,11 @@
     "options": [
       {
         "key": "A",
-        "text": "Zero-shot prompting"
+        "text": "One-shot prompting (or Few-shot with one per class)"
       },
       {
         "key": "B",
-        "text": "One-shot prompting (or Few-shot with one per class)"
+        "text": "RAG"
       },
       {
         "key": "C",
@@ -1251,13 +1251,13 @@
       },
       {
         "key": "D",
-        "text": "RAG"
+        "text": "Zero-shot prompting"
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: One-shot prompting (or Few-shot with one per class) Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 46,
@@ -1267,7 +1267,7 @@
     "options": [
       {
         "key": "A",
-        "text": "A prompt that crashes the server."
+        "text": "A prompt that generates code for a prison."
       },
       {
         "key": "B",
@@ -1275,17 +1275,17 @@
       },
       {
         "key": "C",
-        "text": "A prompt that generates code for a prison."
+        "text": "A technique to speed up the model."
       },
       {
         "key": "D",
-        "text": "A technique to speed up the model."
+        "text": "A prompt that crashes the server."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: A maliciously crafted prompt designed to bypass the model's safety filters, ethical guardrails, and system instructions to elicit restricted or harmful content. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 47,
@@ -1295,25 +1295,25 @@
     "options": [
       {
         "key": "A",
-        "text": "To make the prompt longer."
-      },
-      {
-        "key": "B",
-        "text": "It provides clear structural guidelines, reducing the chance of the model adding conversational filler or malformed syntax that breaks downstream parsers."
-      },
-      {
-        "key": "C",
         "text": "JSON requires examples to work."
       },
       {
-        "key": "D",
+        "key": "B",
         "text": "It makes the output creative."
+      },
+      {
+        "key": "C",
+        "text": "To make the prompt longer."
+      },
+      {
+        "key": "D",
+        "text": "It provides clear structural guidelines, reducing the chance of the model adding conversational filler or malformed syntax that breaks downstream parsers."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: It provides clear structural guidelines, reducing the chance of the model adding conversational filler or malformed syntax that breaks downstream parsers. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 48,
@@ -1323,25 +1323,25 @@
     "options": [
       {
         "key": "A",
-        "text": "Increase Temperature to 1.0"
+        "text": "Increase Max Tokens"
       },
       {
         "key": "B",
-        "text": "Decrease Temperature to 0.0 (or very low)"
-      },
-      {
-        "key": "C",
         "text": "Increase Top-K to 100"
       },
       {
+        "key": "C",
+        "text": "Decrease Temperature to 0.0 (or very low)"
+      },
+      {
         "key": "D",
-        "text": "Increase Max Tokens"
+        "text": "Increase Temperature to 1.0"
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: Decrease Temperature to 0.0 (or very low) Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 49,
@@ -1355,7 +1355,7 @@
       },
       {
         "key": "B",
-        "text": "The process of testing a prompt, evaluating the model's output, refining the prompt to address shortcomings, and repeating until the desired quality is achieved."
+        "text": "Having an AI write the prompt."
       },
       {
         "key": "C",
@@ -1363,13 +1363,13 @@
       },
       {
         "key": "D",
-        "text": "Having an AI write the prompt."
+        "text": "The process of testing a prompt, evaluating the model's output, refining the prompt to address shortcomings, and repeating until the desired quality is achieved."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: The process of testing a prompt, evaluating the model's output, refining the prompt to address shortcomings, and repeating until the desired quality is achieved. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 50,
@@ -1379,25 +1379,25 @@
     "options": [
       {
         "key": "A",
-        "text": "The embeddings become more accurate."
+        "text": "The chunk size does not matter."
       },
       {
         "key": "B",
-        "text": "The specific context may be diluted, and retrieving the chunk might exceed the LLM's context window, leading to poor or truncated answers."
+        "text": "The embeddings become more accurate."
       },
       {
         "key": "C",
-        "text": "The document is automatically deleted."
+        "text": "The specific context may be diluted, and retrieving the chunk might exceed the LLM's context window, leading to poor or truncated answers."
       },
       {
         "key": "D",
-        "text": "The chunk size does not matter."
+        "text": "The document is automatically deleted."
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: The specific context may be diluted, and retrieving the chunk might exceed the LLM's context window, leading to poor or truncated answers. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 51,
@@ -1415,17 +1415,17 @@
       },
       {
         "key": "C",
-        "text": "Linking two different models permanently."
+        "text": "Generating a chain of images."
       },
       {
         "key": "D",
-        "text": "Generating a chain of images."
+        "text": "Linking two different models permanently."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: Breaking a complex task into multiple sequential steps, where the output of one prompt is programmatically passed as the input to the next prompt. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 52,
@@ -1435,11 +1435,11 @@
     "options": [
       {
         "key": "A",
-        "text": "To slow down AI adoption."
+        "text": "To ensure cross-functional oversight, manage risks (ethics, security, compliance), evaluate use cases, and ensure AI initiatives align with corporate values and regulations."
       },
       {
         "key": "B",
-        "text": "To ensure cross-functional oversight, manage risks (ethics, security, compliance), evaluate use cases, and ensure AI initiatives align with corporate values and regulations."
+        "text": "To sell AI products to other companies."
       },
       {
         "key": "C",
@@ -1447,13 +1447,13 @@
       },
       {
         "key": "D",
-        "text": "To sell AI products to other companies."
+        "text": "To slow down AI adoption."
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: To ensure cross-functional oversight, manage risks (ethics, security, compliance), evaluate use cases, and ensure AI initiatives align with corporate values and regulations. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 53,
@@ -1463,25 +1463,25 @@
     "options": [
       {
         "key": "A",
-        "text": "AI models consume physical paper."
-      },
-      {
-        "key": "B",
         "text": "Training and running large foundation models requires massive amounts of compute and electricity, impacting carbon footprints, which should be factored into ESG (Environmental, Social, and Governance) goals."
       },
       {
+        "key": "B",
+        "text": "AI models consume physical paper."
+      },
+      {
         "key": "C",
-        "text": "AI causes noise pollution."
+        "text": "AI uses up too much internet bandwidth."
       },
       {
         "key": "D",
-        "text": "AI uses up too much internet bandwidth."
+        "text": "AI causes noise pollution."
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: Training and running large foundation models requires massive amounts of compute and electricity, impacting carbon footprints, which should be factored into ESG (Environmental, Social, and Governance) goals. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 54,
@@ -1491,15 +1491,15 @@
     "options": [
       {
         "key": "A",
-        "text": "The size of the AI model in gigabytes."
+        "text": "The number of layers in the neural network."
       },
       {
         "key": "B",
-        "text": "Reduction in Average Handle Time (AHT) and increase in Customer Satisfaction (CSAT) scores."
+        "text": "The size of the AI model in gigabytes."
       },
       {
         "key": "C",
-        "text": "The number of layers in the neural network."
+        "text": "Reduction in Average Handle Time (AHT) and increase in Customer Satisfaction (CSAT) scores."
       },
       {
         "key": "D",
@@ -1507,9 +1507,9 @@
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: Reduction in Average Handle Time (AHT) and increase in Customer Satisfaction (CSAT) scores. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 55,
@@ -1523,21 +1523,21 @@
       },
       {
         "key": "B",
-        "text": "Adopting an open ecosystem approach, using platforms like Vertex AI that support diverse model choices (first-party, open-source like Llama/Gemma, third-party) and containerized deployment."
-      },
-      {
-        "key": "C",
         "text": "Signing a 100-year contract with one vendor."
       },
       {
-        "key": "D",
+        "key": "C",
         "text": "Avoiding AI completely."
+      },
+      {
+        "key": "D",
+        "text": "Adopting an open ecosystem approach, using platforms like Vertex AI that support diverse model choices (first-party, open-source like Llama/Gemma, third-party) and containerized deployment."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: Adopting an open ecosystem approach, using platforms like Vertex AI that support diverse model choices (first-party, open-source like Llama/Gemma, third-party) and containerized deployment. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 56,
@@ -1547,7 +1547,7 @@
     "options": [
       {
         "key": "A",
-        "text": "Include all PII in the prompts to give the model context."
+        "text": "Train a new model specifically on PII."
       },
       {
         "key": "B",
@@ -1559,13 +1559,13 @@
       },
       {
         "key": "D",
-        "text": "Train a new model specifically on PII."
+        "text": "Include all PII in the prompts to give the model context."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: Implement strict data classification, use data masking/DLP (Data Loss Prevention) APIs to redact PII before sending it to models, and ensure compliance with privacy laws (GDPR, HIPAA). Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 57,
@@ -1575,25 +1575,25 @@
     "options": [
       {
         "key": "A",
-        "text": "Finding a cool name for the app."
-      },
-      {
-        "key": "B",
-        "text": "Transitioning from a single, ideal prompt to building robust MLOps pipelines, ensuring high availability, latency control, security, and continuous evaluation under real-world loads."
-      },
-      {
-        "key": "C",
         "text": "Changing the UI color scheme."
       },
       {
-        "key": "D",
+        "key": "B",
         "text": "Translating the prompts."
+      },
+      {
+        "key": "C",
+        "text": "Finding a cool name for the app."
+      },
+      {
+        "key": "D",
+        "text": "Transitioning from a single, ideal prompt to building robust MLOps pipelines, ensuring high availability, latency control, security, and continuous evaluation under real-world loads."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: Transitioning from a single, ideal prompt to building robust MLOps pipelines, ensuring high availability, latency control, security, and continuous evaluation under real-world loads. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 58,
@@ -1603,11 +1603,11 @@
     "options": [
       {
         "key": "A",
-        "text": "The model's ability to speak clearly."
+        "text": "The ability to understand and explain how the AI model arrived at a specific decision or output, which is crucial for trust and auditing in regulated industries."
       },
       {
         "key": "B",
-        "text": "The ability to understand and explain how the AI model arrived at a specific decision or output, which is crucial for trust and auditing in regulated industries."
+        "text": "The model's ability to speak clearly."
       },
       {
         "key": "C",
@@ -1619,9 +1619,9 @@
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: The ability to understand and explain how the AI model arrived at a specific decision or output, which is crucial for trust and auditing in regulated industries. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 59,
@@ -1631,7 +1631,7 @@
     "options": [
       {
         "key": "A",
-        "text": "When they need a hyper-specialized, proprietary model built from scratch on top-secret data that cannot leave their air-gapped servers."
+        "text": "When they want to spend the maximum amount of money."
       },
       {
         "key": "B",
@@ -1639,17 +1639,17 @@
       },
       {
         "key": "C",
-        "text": "When they want to spend the maximum amount of money."
+        "text": "When they want to build the hardware themselves."
       },
       {
         "key": "D",
-        "text": "When they want to build the hardware themselves."
+        "text": "When they need a hyper-specialized, proprietary model built from scratch on top-secret data that cannot leave their air-gapped servers."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: When they want fast time-to-market, lack deep ML research expertise, and the use case relies on general reasoning, summarization, or standard knowledge tasks. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 60,
@@ -1663,11 +1663,11 @@
       },
       {
         "key": "B",
-        "text": "When employees unsanctioned or unvetted external Generative AI tools (like public chatbots) for work tasks, creating severe risks of data leakage and compliance violations."
+        "text": "A feature of Google Cloud for dark mode."
       },
       {
         "key": "C",
-        "text": "A feature of Google Cloud for dark mode."
+        "text": "When employees unsanctioned or unvetted external Generative AI tools (like public chatbots) for work tasks, creating severe risks of data leakage and compliance violations."
       },
       {
         "key": "D",
@@ -1675,8 +1675,8 @@
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: When employees unsanctioned or unvetted external Generative AI tools (like public chatbots) for work tasks, creating severe risks of data leakage and compliance violations. Review why this choice fits the question and why alternatives do not."
   }
 ]

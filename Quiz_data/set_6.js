@@ -11,21 +11,21 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "B",
-        "text": "Reducing the numerical precision of the model's weights (e.g., from 32-bit float to 8-bit integer) to save memory and compute resources during inference."
+        "text": "Encrypting the model's output."
       },
       {
         "key": "C",
-        "text": "Converting text into numerical tokens."
+        "text": "Reducing the numerical precision of the model's weights (e.g., from 32-bit float to 8-bit integer) to save memory and compute resources during inference."
       },
       {
         "key": "D",
-        "text": "Encrypting the model's output."
+        "text": "Converting text into numerical tokens."
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: Reducing the numerical precision of the model's weights (e.g., from 32-bit float to 8-bit integer) to save memory and compute resources during inference. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 2,
@@ -35,25 +35,25 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "It shoots a laser to read the hard drive faster."
-      },
-      {
-        "key": "B",
         "text": "It explores and keeps track of the top N most likely sequences of words at each step, rather than just choosing the single most likely next word, improving overall sentence quality."
       },
       {
+        "key": "B",
+        "text": "It permanently deletes low-probability words from the vocabulary."
+      },
+      {
         "key": "C",
-        "text": "It searches the internet for answers."
+        "text": "It shoots a laser to read the hard drive faster."
       },
       {
         "key": "D",
-        "text": "It permanently deletes low-probability words from the vocabulary."
+        "text": "It searches the internet for answers."
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: It explores and keeps track of the top N most likely sequences of words at each step, rather than just choosing the single most likely next word, improving overall sentence quality. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 3,
@@ -63,7 +63,7 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "It tries to use as much memory as possible."
+        "text": "It generates all possible words and lets the user choose."
       },
       {
         "key": "B",
@@ -71,17 +71,17 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "C",
-        "text": "It generates all possible words and lets the user choose."
+        "text": "It randomly picks words."
       },
       {
         "key": "D",
-        "text": "It randomly picks words."
+        "text": "It tries to use as much memory as possible."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: It simply selects the single highest probability token at each generation step, which is fast but can sometimes lead to suboptimal overall sequences. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 4,
@@ -91,25 +91,25 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "To extract water from data centers."
-      },
-      {
-        "key": "B",
-        "text": "To train a smaller, faster 'student' model to replicate the behavior and performance of a much larger, complex 'teacher' model."
-      },
-      {
-        "key": "C",
         "text": "To summarize a large document into a single sentence."
       },
       {
-        "key": "D",
+        "key": "B",
         "text": "To translate knowledge bases into other languages."
+      },
+      {
+        "key": "C",
+        "text": "To extract water from data centers."
+      },
+      {
+        "key": "D",
+        "text": "To train a smaller, faster 'student' model to replicate the behavior and performance of a much larger, complex 'teacher' model."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: To train a smaller, faster 'student' model to replicate the behavior and performance of a much larger, complex 'teacher' model. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 5,
@@ -119,25 +119,25 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "The UI color contrast and font size."
-      },
-      {
-        "key": "B",
         "text": "Model size (parameters), dataset size, and compute budget used for training."
       },
       {
+        "key": "B",
+        "text": "The UI color contrast and font size."
+      },
+      {
         "key": "C",
-        "text": "Only the size of the prompt."
+        "text": "The number of human operators."
       },
       {
         "key": "D",
-        "text": "The number of human operators."
+        "text": "Only the size of the prompt."
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: Model size (parameters), dataset size, and compute budget used for training. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 6,
@@ -147,11 +147,11 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "An AI that manages multiple chatbots at once."
+        "text": "A hardware setup using multiple monitors."
       },
       {
         "key": "B",
-        "text": "An architectural component that allows the model to jointly attend to information from different representation subspaces at different positions in the input sequence."
+        "text": "An AI that manages multiple chatbots at once."
       },
       {
         "key": "C",
@@ -159,13 +159,13 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "D",
-        "text": "A hardware setup using multiple monitors."
+        "text": "An architectural component that allows the model to jointly attend to information from different representation subspaces at different positions in the input sequence."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: An architectural component that allows the model to jointly attend to information from different representation subspaces at different positions in the input sequence. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 7,
@@ -193,7 +193,7 @@ window.QUIZ_DATA_SET_6 = [
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: Removing redundant, zero, or non-essential weights and connections in a trained neural network to make it smaller and faster without losing significant accuracy. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 8,
@@ -203,25 +203,25 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "Mean Squared Error (MSE)"
-      },
-      {
-        "key": "B",
-        "text": "Cross-Entropy Loss"
-      },
-      {
-        "key": "C",
         "text": "Hinge Loss"
       },
       {
-        "key": "D",
+        "key": "B",
         "text": "L1 Regularization"
+      },
+      {
+        "key": "C",
+        "text": "Cross-Entropy Loss"
+      },
+      {
+        "key": "D",
+        "text": "Mean Squared Error (MSE)"
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: Cross-Entropy Loss Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 9,
@@ -231,25 +231,25 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "When the user selects the wrong prompt."
-      },
-      {
-        "key": "B",
         "text": "When the training dataset is not representative of the real-world population or scenarios the model will actually encounter, leading to skewed predictions."
       },
       {
+        "key": "B",
+        "text": "When the AI selects a random answer."
+      },
+      {
         "key": "C",
-        "text": "When the hardware selects the wrong GPU."
+        "text": "When the user selects the wrong prompt."
       },
       {
         "key": "D",
-        "text": "When the AI selects a random answer."
+        "text": "When the hardware selects the wrong GPU."
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: When the training dataset is not representative of the real-world population or scenarios the model will actually encounter, leading to skewed predictions. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 10,
@@ -259,7 +259,7 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "They crash and stop working."
+        "text": "They skip the word completely."
       },
       {
         "key": "B",
@@ -267,17 +267,17 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "C",
-        "text": "They search Google to find the word."
+        "text": "They crash and stop working."
       },
       {
         "key": "D",
-        "text": "They skip the word completely."
+        "text": "They search Google to find the word."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: They typically replace the unknown word with a special [UNK] (unknown) token, losing the specific meaning of that word. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 11,
@@ -287,25 +287,25 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "A parameter that moves faster than light."
-      },
-      {
-        "key": "B",
-        "text": "A configuration value set by the developer before the learning process begins (like learning rate or batch size), which governs the training process itself."
-      },
-      {
-        "key": "C",
         "text": "The weights learned by the model."
       },
       {
-        "key": "D",
+        "key": "B",
         "text": "The output text generated by the model."
+      },
+      {
+        "key": "C",
+        "text": "A parameter that moves faster than light."
+      },
+      {
+        "key": "D",
+        "text": "A configuration value set by the developer before the learning process begins (like learning rate or batch size), which governs the training process itself."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: A configuration value set by the developer before the learning process begins (like learning rate or batch size), which governs the training process itself. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 12,
@@ -319,21 +319,21 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "B",
-        "text": "Scale up the total parameter count significantly without proportionally increasing the computation cost per token, by only activating a small 'expert' subset of parameters for each specific input."
+        "text": "Mix audio and video streams."
       },
       {
         "key": "C",
-        "text": "Hire human experts to answer questions."
+        "text": "Scale up the total parameter count significantly without proportionally increasing the computation cost per token, by only activating a small 'expert' subset of parameters for each specific input."
       },
       {
         "key": "D",
-        "text": "Mix audio and video streams."
+        "text": "Hire human experts to answer questions."
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: Scale up the total parameter count significantly without proportionally increasing the computation cost per token, by only activating a small 'expert' subset of parameters for each specific input. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 13,
@@ -343,15 +343,15 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "GPUs have larger screens."
-      },
-      {
-        "key": "B",
         "text": "GPUs are designed to perform thousands of simple matrix multiplications in parallel, which is the core mathematical operation of neural networks."
       },
       {
-        "key": "C",
+        "key": "B",
         "text": "GPUs are strictly for rendering video games."
+      },
+      {
+        "key": "C",
+        "text": "GPUs have larger screens."
       },
       {
         "key": "D",
@@ -359,9 +359,9 @@ window.QUIZ_DATA_SET_6 = [
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: GPUs are designed to perform thousands of simple matrix multiplications in parallel, which is the core mathematical operation of neural networks. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 14,
@@ -371,25 +371,25 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "Watching the AI train on a monitor."
-      },
-      {
-        "key": "B",
-        "text": "Taking a pre-trained model and training it further on high-quality, human-written pairs of instructions and desired responses to teach it how to act like an assistant."
-      },
-      {
-        "key": "C",
         "text": "Tuning the physical hardware."
       },
       {
-        "key": "D",
+        "key": "B",
+        "text": "Watching the AI train on a monitor."
+      },
+      {
+        "key": "C",
         "text": "Using unlabeled data."
+      },
+      {
+        "key": "D",
+        "text": "Taking a pre-trained model and training it further on high-quality, human-written pairs of instructions and desired responses to teach it how to act like an assistant."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: Taking a pre-trained model and training it further on high-quality, human-written pairs of instructions and desired responses to teach it how to act like an assistant. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 15,
@@ -403,11 +403,11 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "B",
-        "text": "Maintaining temporal consistency (keeping objects, lighting, and physics consistent from one frame to the next) over time."
+        "text": "Videos cannot be stored in the cloud."
       },
       {
         "key": "C",
-        "text": "Videos cannot be stored in the cloud."
+        "text": "Maintaining temporal consistency (keeping objects, lighting, and physics consistent from one frame to the next) over time."
       },
       {
         "key": "D",
@@ -415,9 +415,9 @@ window.QUIZ_DATA_SET_6 = [
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: Maintaining temporal consistency (keeping objects, lighting, and physics consistent from one frame to the next) over time. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 16,
@@ -427,7 +427,7 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "Phonetic spelling."
+        "text": "Binary encoding."
       },
       {
         "key": "B",
@@ -435,45 +435,45 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "C",
-        "text": "Alphabetical sorting."
+        "text": "Phonetic spelling."
       },
       {
         "key": "D",
-        "text": "Binary encoding."
+        "text": "Alphabetical sorting."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: Semantic representation / Semantic understanding. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 17,
     "topic": "Generative AI Fundamentals (30%)",
-    "question": "What is an 'epoch' in model training?",
+    "question": "A training dataset contains ten times more records than before. What should leadership expect about the duration of one training epoch, all else being equal?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "The year the model was created."
+        "text": "The data automatically becomes unlabeled."
       },
       {
         "key": "B",
-        "text": "One complete pass of the entire training dataset through the neural network algorithm."
+        "text": "An epoch always completes in exactly one second."
       },
       {
         "key": "C",
-        "text": "A unit of cloud billing."
+        "text": "The number of model parameters must become ten times larger."
       },
       {
         "key": "D",
-        "text": "The time it takes to process a prompt."
+        "text": "An epoch generally requires processing more examples, increasing work per epoch."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "An epoch is a pass over the training dataset, so larger datasets generally increase computation per epoch."
   },
   {
     "id": 18,
@@ -501,7 +501,7 @@ window.QUIZ_DATA_SET_6 = [
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: An optimization algorithm that updates the model's parameters using a small, random batch of data at a time to efficiently minimize the loss function. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 19,
@@ -515,11 +515,11 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "B",
-        "text": "By pulling verbatim text snippets directly from the ingested enterprise documents to answer the query, reducing hallucination risk."
+        "text": "By translating the text."
       },
       {
         "key": "C",
-        "text": "By translating the text."
+        "text": "By pulling verbatim text snippets directly from the ingested enterprise documents to answer the query, reducing hallucination risk."
       },
       {
         "key": "D",
@@ -527,9 +527,9 @@ window.QUIZ_DATA_SET_6 = [
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: By pulling verbatim text snippets directly from the ingested enterprise documents to answer the query, reducing hallucination risk. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 20,
@@ -539,25 +539,25 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "To physically protect cloud servers."
-      },
-      {
-        "key": "B",
         "text": "To filter out harmful, toxic, or policy-violating content from both user inputs (prompts) and model outputs (responses)."
       },
       {
+        "key": "B",
+        "text": "To prevent DDoS attacks on the UI."
+      },
+      {
         "key": "C",
-        "text": "To encrypt data at rest."
+        "text": "To physically protect cloud servers."
       },
       {
         "key": "D",
-        "text": "To prevent DDoS attacks on the UI."
+        "text": "To encrypt data at rest."
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: To filter out harmful, toxic, or policy-violating content from both user inputs (prompts) and model outputs (responses). Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 21,
@@ -567,11 +567,11 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "ML.MATH"
+        "text": "ML.CREATE_IMAGE"
       },
       {
         "key": "B",
-        "text": "ML.GENERATE_TEXT or ML.GENERATE_TEXT_EMBEDDING"
+        "text": "ML.MATH"
       },
       {
         "key": "C",
@@ -579,13 +579,13 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "D",
-        "text": "ML.CREATE_IMAGE"
+        "text": "ML.GENERATE_TEXT or ML.GENERATE_TEXT_EMBEDDING"
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: ML.GENERATE_TEXT or ML.GENERATE_TEXT_EMBEDDING Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 22,
@@ -599,11 +599,11 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "B",
-        "text": "A pricing and deployment model where you reserve dedicated processing capacity for consistent, low-latency model serving, ideal for high-traffic production workloads."
+        "text": "A free tier for students."
       },
       {
         "key": "C",
-        "text": "A free tier for students."
+        "text": "A pricing and deployment model where you reserve dedicated processing capacity for consistent, low-latency model serving, ideal for high-traffic production workloads."
       },
       {
         "key": "D",
@@ -611,9 +611,9 @@ window.QUIZ_DATA_SET_6 = [
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: A pricing and deployment model where you reserve dedicated processing capacity for consistent, low-latency model serving, ideal for high-traffic production workloads. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 23,
@@ -641,7 +641,7 @@ window.QUIZ_DATA_SET_6 = [
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: Cloud Dataflow (often integrated with Pub/Sub) Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 24,
@@ -651,25 +651,25 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "Predicting the plot of movies."
-      },
-      {
-        "key": "B",
         "text": "Identifying anomalies and forecasting trends in time-series data (like IoT sensor data or server metrics)."
       },
       {
+        "key": "B",
+        "text": "Translating dates."
+      },
+      {
         "key": "C",
-        "text": "Generating historical fiction."
+        "text": "Predicting the plot of movies."
       },
       {
         "key": "D",
-        "text": "Translating dates."
+        "text": "Generating historical fiction."
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: Identifying anomalies and forecasting trends in time-series data (like IoT sensor data or server metrics). Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 25,
@@ -683,7 +683,7 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "B",
-        "text": "Flash is designed to be lighter, faster, and more cost-efficient for high-volume, lower-complexity tasks, while Pro is for complex reasoning."
+        "text": "There is no difference."
       },
       {
         "key": "C",
@@ -691,13 +691,13 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "D",
-        "text": "There is no difference."
+        "text": "Flash is designed to be lighter, faster, and more cost-efficient for high-volume, lower-complexity tasks, while Pro is for complex reasoning."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: Flash is designed to be lighter, faster, and more cost-efficient for high-volume, lower-complexity tasks, while Pro is for complex reasoning. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 26,
@@ -707,7 +707,7 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "A physical hard drive."
+        "text": "A prompt template."
       },
       {
         "key": "B",
@@ -715,17 +715,17 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "C",
-        "text": "A marketplace to buy data."
+        "text": "A physical hard drive."
       },
       {
         "key": "D",
-        "text": "A prompt template."
+        "text": "A marketplace to buy data."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: A central container that holds your ingested data (website URLs, unstructured documents, structured data) for the search engine or generative agent to retrieve information from. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 27,
@@ -735,11 +735,11 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "A sports manual."
+        "text": "A natural language instruction manual that tells the generative agent how to handle specific scenarios, its goals, and which tools to use."
       },
       {
         "key": "B",
-        "text": "A natural language instruction manual that tells the generative agent how to handle specific scenarios, its goals, and which tools to use."
+        "text": "A billing configuration file."
       },
       {
         "key": "C",
@@ -747,13 +747,13 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "D",
-        "text": "A billing configuration file."
+        "text": "A sports manual."
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: A natural language instruction manual that tells the generative agent how to handle specific scenarios, its goals, and which tools to use. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 28,
@@ -763,25 +763,25 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "Google Analytics"
-      },
-      {
-        "key": "B",
-        "text": "Vertex AI TensorBoard"
-      },
-      {
-        "key": "C",
         "text": "Cloud Billing Report"
       },
       {
-        "key": "D",
+        "key": "B",
         "text": "Looker Studio"
+      },
+      {
+        "key": "C",
+        "text": "Vertex AI TensorBoard"
+      },
+      {
+        "key": "D",
+        "text": "Google Analytics"
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: Vertex AI TensorBoard Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 29,
@@ -791,25 +791,25 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "They run faster than normal VMs."
-      },
-      {
-        "key": "B",
-        "text": "They offer significant cost savings (up to 91%) for fault-tolerant, interruptible training workloads."
-      },
-      {
-        "key": "C",
         "text": "They provide free software licenses."
       },
       {
-        "key": "D",
+        "key": "B",
         "text": "They never shut down."
+      },
+      {
+        "key": "C",
+        "text": "They offer significant cost savings (up to 91%) for fault-tolerant, interruptible training workloads."
+      },
+      {
+        "key": "D",
+        "text": "They run faster than normal VMs."
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: They offer significant cost savings (up to 91%) for fault-tolerant, interruptible training workloads. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 30,
@@ -823,7 +823,7 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "B",
-        "text": "It provides enterprise-grade security, compliance, and direct integration with Vertex AI services and private VPC networks."
+        "text": "It requires a physical CD to install."
       },
       {
         "key": "C",
@@ -831,13 +831,13 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "D",
-        "text": "It requires a physical CD to install."
+        "text": "It provides enterprise-grade security, compliance, and direct integration with Vertex AI services and private VPC networks."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: It provides enterprise-grade security, compliance, and direct integration with Vertex AI services and private VPC networks. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 31,
@@ -847,7 +847,7 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "Cloud Storage Coldline"
+        "text": "Cloud SQL"
       },
       {
         "key": "B",
@@ -855,17 +855,17 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "C",
-        "text": "Cloud Storage Archive"
+        "text": "Cloud Storage Coldline"
       },
       {
         "key": "D",
-        "text": "Cloud SQL"
+        "text": "Cloud Storage Archive"
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: Cloud Storage Standard Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 32,
@@ -875,15 +875,15 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "Hardware failure."
-      },
-      {
-        "key": "B",
         "text": "Training-serving skew, by ensuring the exact same feature engineering logic and data are used in both training and real-time inference."
       },
       {
-        "key": "C",
+        "key": "B",
         "text": "Prompt injection."
+      },
+      {
+        "key": "C",
+        "text": "Hardware failure."
       },
       {
         "key": "D",
@@ -891,9 +891,9 @@ window.QUIZ_DATA_SET_6 = [
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: Training-serving skew, by ensuring the exact same feature engineering logic and data are used in both training and real-time inference. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 33,
@@ -903,25 +903,25 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "Text-to-Speech"
-      },
-      {
-        "key": "B",
         "text": "Multimodal / Vision Embeddings"
       },
       {
-        "key": "C",
+        "key": "B",
         "text": "Translation API"
       },
       {
-        "key": "D",
+        "key": "C",
         "text": "Document AI"
+      },
+      {
+        "key": "D",
+        "text": "Text-to-Speech"
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: Multimodal / Vision Embeddings Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 34,
@@ -931,11 +931,11 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "Only translating open-source code."
+        "text": "Providing free translations."
       },
       {
         "key": "B",
-        "text": "Customizing translations using glossaries and custom AutoML models for highly specific, industry-specific terminology."
+        "text": "Only translating open-source code."
       },
       {
         "key": "C",
@@ -943,13 +943,13 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "D",
-        "text": "Providing free translations."
+        "text": "Customizing translations using glossaries and custom AutoML models for highly specific, industry-specific terminology."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: Customizing translations using glossaries and custom AutoML models for highly specific, industry-specific terminology. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 35,
@@ -959,7 +959,7 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "Cloud Functions"
+        "text": "Cloud Run"
       },
       {
         "key": "B",
@@ -967,17 +967,17 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "C",
-        "text": "Dataproc"
+        "text": "Cloud Functions"
       },
       {
         "key": "D",
-        "text": "Cloud Run"
+        "text": "Dataproc"
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: Vertex AI Pipelines Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 36,
@@ -987,25 +987,25 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "To write essays automatically."
+        "text": "To format text in bold."
       },
       {
         "key": "B",
-        "text": "To easily train custom models for text classification, entity extraction, and sentiment analysis without writing deep learning code."
-      },
-      {
-        "key": "C",
         "text": "To generate SQL queries."
       },
       {
+        "key": "C",
+        "text": "To easily train custom models for text classification, entity extraction, and sentiment analysis without writing deep learning code."
+      },
+      {
         "key": "D",
-        "text": "To format text in bold."
+        "text": "To write essays automatically."
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: To easily train custom models for text classification, entity extraction, and sentiment analysis without writing deep learning code. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 37,
@@ -1015,11 +1015,11 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "Unplug the server."
+        "text": "By setting the prompt temperature to 0."
       },
       {
         "key": "B",
-        "text": "By using VPC Service Controls to create a secure perimeter around Vertex AI resources."
+        "text": "Unplug the server."
       },
       {
         "key": "C",
@@ -1027,13 +1027,13 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "D",
-        "text": "By setting the prompt temperature to 0."
+        "text": "By using VPC Service Controls to create a secure perimeter around Vertex AI resources."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: By using VPC Service Controls to create a secure perimeter around Vertex AI resources. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 38,
@@ -1043,25 +1043,25 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "The physical location of the data center."
-      },
-      {
-        "key": "B",
         "text": "A fully managed service that securely hosts your trained models and provides a REST API for serving online, real-time predictions."
       },
       {
-        "key": "C",
+        "key": "B",
         "text": "A tool to stop the training process."
       },
       {
-        "key": "D",
+        "key": "C",
         "text": "A UI design tool."
+      },
+      {
+        "key": "D",
+        "text": "The physical location of the data center."
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: A fully managed service that securely hosts your trained models and provides a REST API for serving online, real-time predictions. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 39,
@@ -1071,7 +1071,7 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "Context Deletion"
+        "text": "System Instructions"
       },
       {
         "key": "B",
@@ -1083,13 +1083,13 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "D",
-        "text": "System Instructions"
+        "text": "Context Deletion"
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: Context Caching Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 40,
@@ -1103,21 +1103,21 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "B",
-        "text": "A technique that allows the LLM to explore multiple different reasoning paths simultaneously, evaluate them, and back-track if necessary, mimicking human problem-solving."
+        "text": "Providing zero context."
       },
       {
         "key": "C",
-        "text": "A prompt that generates a family tree."
+        "text": "A technique that allows the LLM to explore multiple different reasoning paths simultaneously, evaluate them, and back-track if necessary, mimicking human problem-solving."
       },
       {
         "key": "D",
-        "text": "Providing zero context."
+        "text": "A prompt that generates a family tree."
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: A technique that allows the LLM to explore multiple different reasoning paths simultaneously, evaluate them, and back-track if necessary, mimicking human problem-solving. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 41,
@@ -1127,11 +1127,11 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "It penalizes the user for not being present."
+        "text": "It penalizes the model for repeating tokens that have already appeared in the output, encouraging it to talk about new topics and concepts."
       },
       {
         "key": "B",
-        "text": "It penalizes the model for repeating tokens that have already appeared in the output, encouraging it to talk about new topics and concepts."
+        "text": "It penalizes the user for not being present."
       },
       {
         "key": "C",
@@ -1143,9 +1143,9 @@ window.QUIZ_DATA_SET_6 = [
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: It penalizes the model for repeating tokens that have already appeared in the output, encouraging it to talk about new topics and concepts. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 42,
@@ -1155,25 +1155,25 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "Penalizes the user for sending too many requests."
-      },
-      {
-        "key": "B",
-        "text": "Penalizes tokens based on how many times they have *already* appeared in the text, reducing repetitive phrasing and redundancy."
-      },
-      {
-        "key": "C",
         "text": "Changes the audio frequency of text-to-speech."
       },
       {
-        "key": "D",
+        "key": "B",
+        "text": "Penalizes the user for sending too many requests."
+      },
+      {
+        "key": "C",
         "text": "Increases the speed of generation."
+      },
+      {
+        "key": "D",
+        "text": "Penalizes tokens based on how many times they have *already* appeared in the text, reducing repetitive phrasing and redundancy."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: Penalizes tokens based on how many times they have *already* appeared in the text, reducing repetitive phrasing and redundancy. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 43,
@@ -1183,25 +1183,25 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "Mapping the document to a physical location."
+        "text": "Deleting half the document randomly."
       },
       {
         "key": "B",
-        "text": "Breaking the document into chunks, summarizing each chunk individually (Map), and then summarizing the resulting summaries into a final output (Reduce)."
+        "text": "Mapping the document to a physical location."
       },
       {
         "key": "C",
-        "text": "Reducing the font size to fit more text."
+        "text": "Breaking the document into chunks, summarizing each chunk individually (Map), and then summarizing the resulting summaries into a final output (Reduce)."
       },
       {
         "key": "D",
-        "text": "Deleting half the document randomly."
+        "text": "Reducing the font size to fit more text."
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: Breaking the document into chunks, summarizing each chunk individually (Map), and then summarizing the resulting summaries into a final output (Reduce). Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 44,
@@ -1211,7 +1211,7 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "It uses a human judge to read outputs."
+        "text": "It sends the output to a legal court."
       },
       {
         "key": "B",
@@ -1219,17 +1219,17 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "C",
-        "text": "It sends the output to a legal court."
+        "text": "It checks for spelling errors only."
       },
       {
         "key": "D",
-        "text": "It checks for spelling errors only."
+        "text": "It uses a human judge to read outputs."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: Using a more capable LLM (like Gemini 1.5 Pro) to grade or score the outputs of another LLM based on predefined rubrics like relevance, helpfulness, and safety. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 45,
@@ -1243,21 +1243,21 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "B",
-        "text": "Providing the LLM with specific hints, keywords, or a skeleton outline in the prompt to guide its generation toward a highly specific desired outcome."
+        "text": "Forcing the model to output binary code."
       },
       {
         "key": "C",
-        "text": "Using electrical stimuli."
+        "text": "Providing the LLM with specific hints, keywords, or a skeleton outline in the prompt to guide its generation toward a highly specific desired outcome."
       },
       {
         "key": "D",
-        "text": "Forcing the model to output binary code."
+        "text": "Using electrical stimuli."
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: Providing the LLM with specific hints, keywords, or a skeleton outline in the prompt to guide its generation toward a highly specific desired outcome. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 46,
@@ -1267,11 +1267,11 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "It is too expensive."
+        "text": "It relies heavily on exact word (n-gram) matching against a reference, which fails to capture semantic meaning or valid, creative paraphrasing."
       },
       {
         "key": "B",
-        "text": "It relies heavily on exact word (n-gram) matching against a reference, which fails to capture semantic meaning or valid, creative paraphrasing."
+        "text": "It requires manual human calculation."
       },
       {
         "key": "C",
@@ -1279,13 +1279,13 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "D",
-        "text": "It requires manual human calculation."
+        "text": "It is too expensive."
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: It relies heavily on exact word (n-gram) matching against a reference, which fails to capture semantic meaning or valid, creative paraphrasing. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 47,
@@ -1303,17 +1303,17 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "C",
-        "text": "Using a smaller model."
+        "text": "Lowering the temperature."
       },
       {
         "key": "D",
-        "text": "Lowering the temperature."
+        "text": "Using a smaller model."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: Prompting the model to generate an initial draft, then prompting it to critique its own draft, and finally prompting it to improve the draft based on the critique. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 48,
@@ -1323,25 +1323,25 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "A prompt that asks the model not to think."
-      },
-      {
-        "key": "B",
-        "text": "Simply adding the phrase 'Let's think step by step' to the prompt without providing any specific examples of the reasoning process."
-      },
-      {
-        "key": "C",
         "text": "A prompt with zero tokens."
       },
       {
-        "key": "D",
+        "key": "B",
         "text": "A prompt that provides 10 examples."
+      },
+      {
+        "key": "C",
+        "text": "A prompt that asks the model not to think."
+      },
+      {
+        "key": "D",
+        "text": "Simply adding the phrase 'Let's think step by step' to the prompt without providing any specific examples of the reasoning process."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: Simply adding the phrase 'Let's think step by step' to the prompt without providing any specific examples of the reasoning process. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 49,
@@ -1351,11 +1351,11 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "Unplug the router."
+        "text": "There is no way to do this."
       },
       {
         "key": "B",
-        "text": "Specify the desired length explicitly in the system prompt (e.g., 'Respond in exactly three complete sentences.' or 'Keep the response under 50 words.')."
+        "text": "Unplug the router."
       },
       {
         "key": "C",
@@ -1363,13 +1363,13 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "D",
-        "text": "There is no way to do this."
+        "text": "Specify the desired length explicitly in the system prompt (e.g., 'Respond in exactly three complete sentences.' or 'Keep the response under 50 words.')."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: Specify the desired length explicitly in the system prompt (e.g., 'Respond in exactly three complete sentences.' or 'Keep the response under 50 words.'). Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 50,
@@ -1379,7 +1379,7 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "Giving the user a new title."
+        "text": "Sorting the database alphabetically."
       },
       {
         "key": "B",
@@ -1387,7 +1387,7 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "C",
-        "text": "Sorting the database alphabetically."
+        "text": "Giving the user a new title."
       },
       {
         "key": "D",
@@ -1397,7 +1397,7 @@ window.QUIZ_DATA_SET_6 = [
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: Using a secondary model to re-score and re-order the initially retrieved documents to ensure the absolute most relevant ones are passed to the LLM. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 51,
@@ -1407,11 +1407,11 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "Making the prompt flash on screen."
+        "text": "Using a vector database to retrieve and insert only the most contextually relevant examples into the prompt based on the user's specific query, rather than static examples."
       },
       {
         "key": "B",
-        "text": "Using a vector database to retrieve and insert only the most contextually relevant examples into the prompt based on the user's specific query, rather than static examples."
+        "text": "Forcing the model to output a video."
       },
       {
         "key": "C",
@@ -1419,13 +1419,13 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "D",
-        "text": "Forcing the model to output a video."
+        "text": "Making the prompt flash on screen."
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: Using a vector database to retrieve and insert only the most contextually relevant examples into the prompt based on the user's specific query, rather than static examples. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 52,
@@ -1435,25 +1435,25 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "The cost of the open-source license."
-      },
-      {
-        "key": "B",
-        "text": "The ongoing costs of MLOps, infrastructure maintenance, scaling, and the specialized engineering talent required to keep it running safely."
-      },
-      {
-        "key": "C",
         "text": "The cost of internet bandwidth."
       },
       {
-        "key": "D",
+        "key": "B",
         "text": "The cost of the prompt text."
+      },
+      {
+        "key": "C",
+        "text": "The ongoing costs of MLOps, infrastructure maintenance, scaling, and the specialized engineering talent required to keep it running safely."
+      },
+      {
+        "key": "D",
+        "text": "The cost of the open-source license."
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: The ongoing costs of MLOps, infrastructure maintenance, scaling, and the specialized engineering talent required to keep it running safely. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 53,
@@ -1463,7 +1463,7 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "A circuit board inside a GPU."
+        "text": "A dashboard in Google Cloud."
       },
       {
         "key": "B",
@@ -1471,7 +1471,7 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "C",
-        "text": "A dashboard in Google Cloud."
+        "text": "A circuit board inside a GPU."
       },
       {
         "key": "D",
@@ -1481,7 +1481,7 @@ window.QUIZ_DATA_SET_6 = [
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: A cross-functional corporate committee responsible for reviewing AI projects to ensure they align with human rights, fairness, safety, and corporate values. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 54,
@@ -1491,11 +1491,11 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "It slows it down due to compliance checks."
+        "text": "It significantly accelerates TTM by assisting developers with rapid code generation, automated testing, and debugging (e.g., Gemini Code Assist)."
       },
       {
         "key": "B",
-        "text": "It significantly accelerates TTM by assisting developers with rapid code generation, automated testing, and debugging (e.g., Gemini Code Assist)."
+        "text": "It replaces the need for a market."
       },
       {
         "key": "C",
@@ -1503,13 +1503,13 @@ window.QUIZ_DATA_SET_6 = [
       },
       {
         "key": "D",
-        "text": "It replaces the need for a market."
+        "text": "It slows it down due to compliance checks."
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: It significantly accelerates TTM by assisting developers with rapid code generation, automated testing, and debugging (e.g., Gemini Code Assist). Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 55,
@@ -1519,25 +1519,25 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "Firing employees who don't use it on day one."
+        "text": "Changing the company name."
       },
       {
         "key": "B",
-        "text": "Identifying 'champions' or early adopters within the team to showcase early success, share best practices, and drive peer adoption."
+        "text": "Firing employees who don't use it on day one."
       },
       {
         "key": "C",
-        "text": "Banning all other software tools."
+        "text": "Identifying 'champions' or early adopters within the team to showcase early success, share best practices, and drive peer adoption."
       },
       {
         "key": "D",
-        "text": "Changing the company name."
+        "text": "Banning all other software tools."
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: Identifying 'champions' or early adopters within the team to showcase early success, share best practices, and drive peer adoption. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 56,
@@ -1547,25 +1547,25 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "The Right to be Forgotten."
+        "text": "The Right to Compute."
       },
       {
         "key": "B",
-        "text": "The 'Right to Explanation' (found in frameworks like GDPR and the EU AI Act)."
-      },
-      {
-        "key": "C",
         "text": "The Right to Free Speech."
       },
       {
+        "key": "C",
+        "text": "The Right to be Forgotten."
+      },
+      {
         "key": "D",
-        "text": "The Right to Compute."
+        "text": "The 'Right to Explanation' (found in frameworks like GDPR and the EU AI Act)."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: The 'Right to Explanation' (found in frameworks like GDPR and the EU AI Act). Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 57,
@@ -1575,25 +1575,25 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "Data containing customer credit card numbers."
-      },
-      {
-        "key": "B",
-        "text": "Information that is freely accessible (like press releases or public website info) and poses no risk to the organization if ingested by an AI model."
-      },
-      {
-        "key": "C",
         "text": "Internal employee salary data."
       },
       {
-        "key": "D",
+        "key": "B",
         "text": "Secret intellectual property."
+      },
+      {
+        "key": "C",
+        "text": "Data containing customer credit card numbers."
+      },
+      {
+        "key": "D",
+        "text": "Information that is freely accessible (like press releases or public website info) and poses no risk to the organization if ingested by an AI model."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": ""
+    "explanation": "Correct: Information that is freely accessible (like press releases or public website info) and poses no risk to the organization if ingested by an AI model. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 58,
@@ -1621,7 +1621,7 @@ window.QUIZ_DATA_SET_6 = [
     "answer": [
       "B"
     ],
-    "explanation": ""
+    "explanation": "Correct: Proactively testing the AI model by acting as an adversary to uncover vulnerabilities, biases, prompt injection flaws, and safety risks before deployment. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 59,
@@ -1631,25 +1631,25 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "To force employees to use it 24/7."
-      },
-      {
-        "key": "B",
-        "text": "To clearly define to employees what tools are approved, what types of data can be shared, and what use cases are strictly prohibited to prevent data leaks."
-      },
-      {
-        "key": "C",
         "text": "To increase the cloud bill."
       },
       {
-        "key": "D",
+        "key": "B",
         "text": "To ban AI completely."
+      },
+      {
+        "key": "C",
+        "text": "To clearly define to employees what tools are approved, what types of data can be shared, and what use cases are strictly prohibited to prevent data leaks."
+      },
+      {
+        "key": "D",
+        "text": "To force employees to use it 24/7."
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": ""
+    "explanation": "Correct: To clearly define to employees what tools are approved, what types of data can be shared, and what use cases are strictly prohibited to prevent data leaks. Review why this choice fits the question and why alternatives do not."
   },
   {
     "id": 60,
@@ -1659,24 +1659,24 @@ window.QUIZ_DATA_SET_6 = [
     "options": [
       {
         "key": "A",
-        "text": "To act as a bottleneck and stop all projects."
-      },
-      {
-        "key": "B",
         "text": "To provide centralized governance, standardized platforms, security guardrails, and specialized ML expertise to support the various business units (the spokes)."
       },
       {
+        "key": "B",
+        "text": "To act as a bottleneck and stop all projects."
+      },
+      {
         "key": "C",
-        "text": "To write marketing emails."
+        "text": "To manage physical office spaces."
       },
       {
         "key": "D",
-        "text": "To manage physical office spaces."
+        "text": "To write marketing emails."
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": ""
+    "explanation": "Correct: To provide centralized governance, standardized platforms, security guardrails, and specialized ML expertise to support the various business units (the spokes). Review why this choice fits the question and why alternatives do not."
   }
 ];
