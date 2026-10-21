@@ -1,0 +1,1462 @@
+[
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Configure Claude tools and environments for teams (e.g., Claude Code)",
+    "source": "output_5/02_Team_Setup_and_Environment.md",
+    "question": "A bank's 35 engineers use Claude Code on the same payments repository. Each set up Claude Code individually from a wiki page. Reviewers now see inconsistent results: some sessions run the test suite and respect the Decimal currency convention, others do not, and nobody can tell whether differences come from prompts, configuration or people. What should the Architect do first?",
+    "question_vi": "35 kỹ sư của một ngân hàng dùng Claude Code trên cùng một repository thanh toán. Mỗi người tự cài đặt Claude Code theo một trang wiki. Giờ đây reviewer thấy kết quả không nhất quán: có phiên chạy test suite và tuân theo quy ước dùng kiểu Decimal cho tiền tệ, có phiên thì không, và không ai biết khác biệt đến từ prompt, cấu hình hay con người. Architect nên làm gì trước tiên?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Expand the wiki page with more detailed setup steps and ask each engineer to re-check their personal configuration.",
+        "text_vi": "Mở rộng trang wiki với các bước cài đặt chi tiết hơn và yêu cầu từng kỹ sư kiểm tra lại cấu hình cá nhân."
+      },
+      {
+        "key": "B",
+        "text": "Commit a shared project baseline (CLAUDE.md, agreed tools and MCP servers, permission posture) to the repo.",
+        "text_vi": "Commit một baseline dự án dùng chung (CLAUDE.md, tool và MCP server đã thống nhất, permission posture) vào repo."
+      },
+      {
+        "key": "C",
+        "text": "Move every engineer to the most capable model tier so that sessions follow conventions more reliably.",
+        "text_vi": "Chuyển mọi kỹ sư sang model tier mạnh nhất để các phiên làm việc tuân theo quy ước đáng tin cậy hơn."
+      },
+      {
+        "key": "D",
+        "text": "Let each engineer keep tuning personal prompts and share the best ones in a weekly team meeting.",
+        "text_vi": "Để mỗi kỹ sư tiếp tục tinh chỉnh prompt cá nhân và chia sẻ những prompt tốt nhất trong buổi họp team hằng tuần."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "A team environment should be a shared configuration that everyone starts from, versioned in the repository so it can be reviewed and improved once for everyone instead of drifting across 35 personal setups. A more detailed wiki still produces individual configurations that drift, a stronger model does not remove configuration differences, and sharing personal prompts keeps the know-how undocumented and unversioned.",
+    "explanation_vi": "Môi trường của team nên là một shared configuration mà mọi người xuất phát từ đó, được version trong repository để có thể review và cải tiến một lần cho tất cả thay vì trôi dạt giữa 35 cấu hình cá nhân. Một trang wiki chi tiết hơn vẫn tạo ra các cấu hình cá nhân bị trôi dạt, model mạnh hơn không xóa được khác biệt cấu hình, còn chia sẻ prompt cá nhân giữ tri thức ở dạng không được ghi lại và không có version."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Configure Claude tools and environments for teams (e.g., Claude Code)",
+    "source": "output_5/07_Supplement_Claude_Code_for_Teams.md",
+    "question": "A hospital group's security office requires that Claude Code on every company laptop can never read .env files or the secrets/ directory, in any repository, and that individual developers cannot switch this restriction off. Several repositories are created each month by different teams. Which configuration meets the requirement?",
+    "question_vi": "Phòng bảo mật của một tập đoàn bệnh viện yêu cầu Claude Code trên mọi laptop của công ty không bao giờ được đọc tệp .env hoặc thư mục secrets/, trong bất kỳ repository nào, và từng developer không thể tự tắt hạn chế này. Mỗi tháng các team khác nhau tạo ra nhiều repository mới. Cấu hình nào đáp ứng yêu cầu?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Add a clear instruction never to read .env or secrets/ to the CLAUDE.md template used for new repositories.",
+        "text_vi": "Thêm một hướng dẫn rõ ràng không bao giờ đọc .env hoặc secrets/ vào mẫu CLAUDE.md dùng cho các repository mới."
+      },
+      {
+        "key": "B",
+        "text": "Add deny rules for these paths to each repository's checked-in .claude/settings.json file.",
+        "text_vi": "Thêm deny rule cho các đường dẫn này vào tệp .claude/settings.json được check-in của từng repository."
+      },
+      {
+        "key": "C",
+        "text": "Deploy deny rules for these paths through organization managed settings, which users cannot override.",
+        "text_vi": "Triển khai deny rule cho các đường dẫn này qua managed settings của tổ chức, thứ mà người dùng không thể ghi đè."
+      },
+      {
+        "key": "D",
+        "text": "Ask each developer to add the deny rules to their own user settings during onboarding.",
+        "text_vi": "Yêu cầu từng developer thêm deny rule vào user settings của chính họ trong buổi onboarding."
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "Managed settings have the highest precedence and cannot be loosened by users, and deny rules are enforced deterministically regardless of the prompt, so they cover every repository and every machine. A CLAUDE.md line is advisory context, not enforcement; per-repository settings miss new repositories and can be edited by developers; user settings are under each developer's control.",
+    "explanation_vi": "Managed settings có độ ưu tiên cao nhất và người dùng không nới lỏng được, còn deny rule được cưỡng chế một cách tất định bất kể prompt, nên phủ được mọi repository và mọi máy. Một dòng trong CLAUDE.md chỉ là ngữ cảnh mang tính hướng dẫn, không phải cưỡng chế; settings theo từng repository bỏ sót repository mới và developer có thể sửa; user settings nằm trong quyền kiểm soát của từng developer."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Configure Claude tools and environments for teams (e.g., Claude Code)",
+    "source": "output_5/07_Supplement_Claude_Code_for_Teams.md",
+    "question": "A SaaS platform team has a CLAUDE.md line telling Claude Code to run the formatter after editing TypeScript files. Code review keeps finding unformatted files that Claude Code edited, because sometimes the step is simply skipped. The team wants formatting to happen after every edit for every team member without relying on anyone remembering. What should the Architect configure?",
+    "question_vi": "Một team nền tảng SaaS có một dòng trong CLAUDE.md yêu cầu Claude Code chạy formatter sau khi sửa tệp TypeScript. Code review liên tục phát hiện các tệp do Claude Code sửa mà chưa được format, vì đôi khi bước này bị bỏ qua. Team muốn việc format diễn ra sau mỗi lần sửa cho mọi thành viên mà không phụ thuộc vào việc ai đó nhớ. Architect nên cấu hình gì?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "A PostToolUse hook on edit and write tools that runs the formatter, in shared project settings.",
+        "text_vi": "Một PostToolUse hook trên các tool sửa và ghi file để chạy formatter, đặt trong project settings dùng chung."
+      },
+      {
+        "key": "B",
+        "text": "A stronger, repeated instruction in CLAUDE.md placed at the top of the file so Claude Code notices it.",
+        "text_vi": "Một hướng dẫn mạnh hơn, nhắc lại nhiều lần trong CLAUDE.md, đặt ở đầu tệp để Claude Code chú ý."
+      },
+      {
+        "key": "C",
+        "text": "A /format slash command in .claude/commands that developers can run when they finish a change.",
+        "text_vi": "Một slash command /format trong .claude/commands để developer chạy khi hoàn tất thay đổi."
+      },
+      {
+        "key": "D",
+        "text": "A plan-mode default so that every edit is reviewed by the developer before Claude Code applies it.",
+        "text_vi": "Đặt plan mode làm mặc định để mọi chỉnh sửa được developer xem xét trước khi Claude Code áp dụng."
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "Hooks are deterministic gates that fire on lifecycle events, so a PostToolUse hook on edit tools formats every changed file regardless of whether the model remembers, and checking it in shares it with the whole team. A louder CLAUDE.md instruction is still advisory, a slash command depends on a person remembering to run it, and plan mode adds approvals without guaranteeing formatting.",
+    "explanation_vi": "Hooks là các cổng tất định chạy theo sự kiện vòng đời, nên một PostToolUse hook trên các tool sửa file sẽ format mọi tệp bị thay đổi bất kể model có nhớ hay không, và việc check-in giúp cả team dùng chung. Một hướng dẫn nhấn mạnh hơn trong CLAUDE.md vẫn chỉ là hướng dẫn, slash command phụ thuộc vào việc người dùng nhớ chạy nó, còn plan mode thêm bước duyệt nhưng không bảo đảm việc format."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Configure Claude tools and environments for teams (e.g., Claude Code)",
+    "source": "output_5/02_Team_Setup_and_Environment.md",
+    "question": "A manufacturer is enabling Claude Code for 220 engineers across four departments: firmware, MES integration, data and web. Leadership proposes a single launch day with an all-hands email containing install links. The Architect expects each department's workflows to differ significantly and wants adoption to standardize rather than depend on a few enthusiasts. Which rollout plan fits best?",
+    "question_vi": "Một nhà sản xuất đang triển khai Claude Code cho 220 kỹ sư thuộc bốn phòng ban: firmware, tích hợp MES, dữ liệu và web. Ban lãnh đạo đề xuất một ngày ra mắt duy nhất với một email toàn công ty chứa link cài đặt. Architect dự đoán workflow của mỗi phòng ban khác nhau đáng kể và muốn adoption được chuẩn hóa thay vì phụ thuộc vào vài người nhiệt tình. Kế hoạch rollout nào phù hợp nhất?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Launch to everyone at once, then track prompts per engineer and set a minimum daily usage target per department.",
+        "text_vi": "Ra mắt cho tất cả cùng lúc, sau đó theo dõi số prompt của từng kỹ sư và đặt chỉ tiêu sử dụng tối thiểu hằng ngày cho mỗi phòng ban."
+      },
+      {
+        "key": "B",
+        "text": "Launch to everyone at once and let each department request help from the Architect when they run into problems.",
+        "text_vi": "Ra mắt cho tất cả cùng lúc và để mỗi phòng ban yêu cầu Architect hỗ trợ khi họ gặp vấn đề."
+      },
+      {
+        "key": "C",
+        "text": "Launch to everyone at once with the most capable model as default so that first impressions are as strong as possible.",
+        "text_vi": "Ra mắt cho tất cả cùng lúc với model mạnh nhất làm mặc định để ấn tượng ban đầu tốt nhất có thể."
+      },
+      {
+        "key": "D",
+        "text": "Enable one champion per department to convert a real workflow first, then have each champion seed adoption batch by batch.",
+        "text_vi": "Bật trước cho một champion mỗi phòng ban để chuyển đổi một workflow thật, sau đó để mỗi champion gieo mầm adoption theo từng batch."
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "The champion-per-department pattern proves the workflow on real departmental work, builds local examples and a first line of support, and then spreads usage deliberately in batches, which is what prevents uneven adoption. Usage targets create token activity rather than enablement, waiting for requests leads to quiet retreats to old habits, and a top-tier default multiplies cost across every engineer without addressing adoption.",
+    "explanation_vi": "Mô hình champion mỗi phòng ban chứng minh workflow trên công việc thật của phòng, xây dựng ví dụ tại chỗ và tuyến hỗ trợ đầu tiên, rồi lan tỏa việc sử dụng có chủ đích theo từng batch, chính điều này ngăn adoption không đều. Chỉ tiêu sử dụng tạo ra hoạt động hình thức chứ không phải enablement, chờ yêu cầu hỗ trợ dẫn tới việc lặng lẽ quay về thói quen cũ, còn model tier cao nhất làm mặc định nhân chi phí lên theo mọi kỹ sư mà không giải quyết vấn đề adoption."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Configure Claude tools and environments for teams (e.g., Claude Code)",
+    "source": "output_5/02_Team_Setup_and_Environment.md",
+    "question": "An insurer has packaged its claims-compliance review procedure as a Skill. Regulators expect every department to run the identical procedure, and the compliance office must be able to push updates centrally and revert to the prior version within minutes if an update misbehaves. How should the Skill be distributed?",
+    "question_vi": "Một công ty bảo hiểm đã đóng gói quy trình rà soát tuân thủ hồ sơ bồi thường thành một Skill. Cơ quan quản lý kỳ vọng mọi phòng ban chạy cùng một quy trình giống hệt nhau, và phòng compliance phải có khả năng đẩy cập nhật tập trung và quay về phiên bản trước trong vài phút nếu bản cập nhật có vấn đề. Skill nên được phân phối như thế nào?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "As an org-provisioned Skill under Organization settings, so every member receives the latest upload automatically.",
+        "text_vi": "Dưới dạng org-provisioned Skill trong Organization settings, để mọi thành viên tự động nhận bản upload mới nhất."
+      },
+      {
+        "key": "B",
+        "text": "An organization-managed plugin for all departments, with version-controlled updates from a connected repo.",
+        "text_vi": "Một organization-managed plugin cho mọi phòng ban, với cập nhật có kiểm soát phiên bản từ một repo được kết nối."
+      },
+      {
+        "key": "C",
+        "text": "As a Claude Code project Skill in the compliance team's repository, versioned alongside its code.",
+        "text_vi": "Dưới dạng Claude Code project Skill trong repository của team compliance, được version cùng code của team đó."
+      },
+      {
+        "key": "D",
+        "text": "Through server-managed settings, which refresh on every developer machine on an hourly polling cycle.",
+        "text_vi": "Thông qua server-managed settings, được làm mới trên mọi máy developer theo chu kỳ polling hằng giờ."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "An organization-managed plugin provides group or org targeting, install preferences and version-controlled updates with rollback, which is exactly what identical, centrally updatable and revertible execution requires. An org-provisioned Skill reaches everyone but has no version pinning or native rollback, a project Skill only covers repositories that carry it, and server-managed settings are a settings channel, not a Skills distribution path.",
+    "explanation_vi": "Organization-managed plugin cung cấp targeting theo nhóm hoặc toàn org, install preferences và cập nhật có kiểm soát phiên bản kèm rollback, đúng những gì việc thực thi đồng nhất, cập nhật tập trung và hoàn tác được đòi hỏi. Org-provisioned Skill đến được mọi người nhưng không có version pinning hay rollback gốc, project Skill chỉ phủ các repository chứa nó, còn server-managed settings là kênh settings, không phải kênh phân phối Skills."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Configure Claude tools and environments for teams (e.g., Claude Code)",
+    "source": "output_5/02_Team_Setup_and_Environment.md",
+    "question": "A telco's marketing office created a Skill that rewrites customer-facing text in the company's brand voice. Every employee, from engineering to retail stores, should have it. The content rarely changes, there is no requirement for version history or rollback, and the admin wants the simplest path with the least ongoing administration. Which distribution mechanism fits?",
+    "question_vi": "Phòng marketing của một công ty viễn thông đã tạo một Skill viết lại văn bản gửi khách hàng theo giọng thương hiệu của công ty. Mọi nhân viên, từ kỹ sư đến cửa hàng bán lẻ, đều nên có Skill này. Nội dung hiếm khi thay đổi, không có yêu cầu về lịch sử phiên bản hay rollback, và admin muốn con đường đơn giản nhất với ít công quản trị nhất. Cơ chế phân phối nào phù hợp?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "A plugin set to required for every group, synced from a connected repository with version-controlled updates.",
+        "text_vi": "Một plugin đặt ở chế độ required cho mọi nhóm, đồng bộ từ một repository được kết nối với cập nhật có kiểm soát phiên bản."
+      },
+      {
+        "key": "B",
+        "text": "An API Skill attached through the Messages API container with an explicitly pinned version.",
+        "text_vi": "Một API Skill gắn qua Messages API container với phiên bản được pin tường minh."
+      },
+      {
+        "key": "C",
+        "text": "An org-provisioned Skill uploaded under Organization settings, available to everyone in the organization at once.",
+        "text_vi": "Một org-provisioned Skill được upload trong Organization settings, có sẵn cho mọi người trong tổ chức cùng lúc."
+      },
+      {
+        "key": "D",
+        "text": "A Claude Code project Skill copied into the .claude/skills/ folder of each team's repository.",
+        "text_vi": "Một Claude Code project Skill được sao chép vào thư mục .claude/skills/ trong repository của từng team."
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "When a capability genuinely should reach every member and needs no versioning or rollback, the org-provisioned Skill is the simplest path to the whole organization. A governed plugin works but adds administration the scenario explicitly does not need, an API Skill is for products calling the capability programmatically, and project Skills only reach developers working in repositories, not store staff.",
+    "explanation_vi": "Khi một năng lực thật sự cần đến mọi thành viên và không cần versioning hay rollback, org-provisioned Skill là con đường đơn giản nhất tới toàn tổ chức. Một plugin có governance vẫn dùng được nhưng thêm công quản trị mà tình huống nói rõ là không cần, API Skill dành cho sản phẩm gọi năng lực bằng chương trình, còn project Skill chỉ đến được developer làm việc trong repository, không đến được nhân viên cửa hàng."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Configure Claude tools and environments for teams (e.g., Claude Code)",
+    "source": "output_5/02_Team_Setup_and_Environment.md",
+    "question": "A logistics software vendor has three SaaS products that must all call the same shipment-document classification capability from their backend services. A silent behavior change last quarter broke one product's parsing, so engineering now insists that each product controls exactly which version it runs. No humans invoke the capability directly. Which mechanism should the Architect choose?",
+    "question_vi": "Một nhà cung cấp phần mềm logistics có ba sản phẩm SaaS đều phải gọi cùng một năng lực phân loại chứng từ vận chuyển từ các dịch vụ backend. Một thay đổi hành vi âm thầm quý trước đã làm hỏng phần parsing của một sản phẩm, nên bộ phận kỹ thuật giờ yêu cầu mỗi sản phẩm kiểm soát chính xác phiên bản mà nó chạy. Không có con người nào gọi năng lực này trực tiếp. Architect nên chọn cơ chế nào?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "An organization-managed plugin assigned to the three product engineering groups with version-controlled updates.",
+        "text_vi": "Một organization-managed plugin gán cho ba nhóm kỹ thuật sản phẩm với cập nhật có kiểm soát phiên bản."
+      },
+      {
+        "key": "B",
+        "text": "An org-provisioned Skill so that all three product teams share one centrally uploaded copy.",
+        "text_vi": "Một org-provisioned Skill để cả ba team sản phẩm dùng chung một bản được upload tập trung."
+      },
+      {
+        "key": "C",
+        "text": "A Claude Code project Skill committed to each product's repository and updated by pull request.",
+        "text_vi": "Một Claude Code project Skill commit vào repository của từng sản phẩm và cập nhật qua pull request."
+      },
+      {
+        "key": "D",
+        "text": "An API Skill called through the Messages API, with each product pinning an explicit Skill version.",
+        "text_vi": "Một API Skill được gọi qua Messages API, mỗi sản phẩm pin một phiên bản Skill tường minh."
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "The consumers are software products calling the capability machine to machine, and API Skills are governed in the calling system with explicit version pinning, which directly addresses the silent behavior change. Plugins and org-provisioned Skills target humans using Claude, and project Skills are a Claude Code developer asset rather than a runtime capability for backend services.",
+    "explanation_vi": "Người tiêu thụ là các sản phẩm phần mềm gọi năng lực theo kiểu machine-to-machine, và API Skill được quản trị trong hệ thống gọi với explicit version pinning, giải quyết trực tiếp vấn đề thay đổi hành vi âm thầm. Plugin và org-provisioned Skill hướng tới con người dùng Claude, còn project Skill là tài sản của developer trong Claude Code chứ không phải năng lực runtime cho dịch vụ backend."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Configure Claude tools and environments for teams (e.g., Claude Code)",
+    "source": "output_5/02_Team_Setup_and_Environment.md",
+    "question": "A retailer expanded Claude Code from a 10-person pilot to 160 developers. Two months later spend is several times the forecast. Usage logs show most sessions start on the most capable tier for routine edits, a few scripted loops consumed large volumes overnight, and admins never changed any setting from the defaults. Which action addresses the root cause?",
+    "question_vi": "Một nhà bán lẻ mở rộng Claude Code từ pilot 10 người lên 160 developer. Hai tháng sau chi phí cao gấp nhiều lần dự báo. Log sử dụng cho thấy phần lớn phiên bắt đầu với tier mạnh nhất cho các chỉnh sửa thường ngày, một vài vòng lặp chạy bằng script tiêu thụ khối lượng lớn qua đêm, và admin chưa từng thay đổi bất kỳ setting nào khỏi mặc định. Hành động nào giải quyết nguyên nhân gốc?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Set a spend posture: task-matched model default, allowlist, effort guidance, and spend, rate and per-user caps.",
+        "text_vi": "Đặt spend posture: model default khớp với tác vụ, allowlist, effort guidance, cùng các giới hạn spend, rate và per-user cap."
+      },
+      {
+        "key": "B",
+        "text": "Force every developer onto the smallest available model regardless of the task, so spend falls back under the forecast.",
+        "text_vi": "Ép mọi developer dùng model nhỏ nhất hiện có bất kể tác vụ, để chi phí quay về dưới mức dự báo."
+      },
+      {
+        "key": "C",
+        "text": "Suspend access for the whole team until finance reviews the next monthly invoice line by line.",
+        "text_vi": "Tạm ngưng quyền truy cập của cả team cho đến khi bộ phận tài chính rà soát từng dòng hóa đơn tháng tới."
+      },
+      {
+        "key": "D",
+        "text": "Publish a cost-awareness guide in the shared CLAUDE.md asking developers to choose cheaper models when possible.",
+        "text_vi": "Đăng một hướng dẫn nâng cao ý thức chi phí trong CLAUDE.md dùng chung, đề nghị developer chọn model rẻ hơn khi có thể."
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "The cost came from inherited defaults: unmanaged model choice routed routine work to an expensive tier and nothing capped runaway loops, so the fix is a deliberately set spend posture of defaults, allowlists, effort guidance and caps. Forcing the smallest model ignores task fit and hurts quality, suspending access stops adoption without fixing configuration, and a CLAUDE.md note is advisory rather than a control.",
+    "explanation_vi": "Chi phí phát sinh từ các giá trị mặc định được thừa hưởng: lựa chọn model không được quản lý đã đẩy công việc thường ngày sang tier đắt, và không có gì chặn các vòng lặp mất kiểm soát, nên cách khắc phục là đặt spend posture có chủ đích gồm defaults, allowlists, effort guidance và caps. Ép dùng model nhỏ nhất bỏ qua sự phù hợp với tác vụ và làm giảm chất lượng, tạm ngưng truy cập làm dừng adoption mà không sửa cấu hình, còn một ghi chú trong CLAUDE.md chỉ là hướng dẫn chứ không phải biện pháp kiểm soát."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Configure Claude tools and environments for teams (e.g., Claude Code)",
+    "source": "output/10_Entry_Points_Governance.md",
+    "question": "A public-sector agency runs Claude Code in an unattended CI pipeline that generates test scaffolding. Nobody is present to approve prompts, so runs currently hang waiting for confirmation. The security team requires that the agent execute only the commands explicitly listed in allow rules and that anything else be refused automatically rather than approved. Which permission mode fits?",
+    "question_vi": "Một cơ quan nhà nước chạy Claude Code trong một CI pipeline không có người giám sát để sinh khung test. Không có ai để duyệt các yêu cầu xác nhận, nên các lần chạy hiện bị treo chờ xác nhận. Đội bảo mật yêu cầu agent chỉ thực thi các lệnh được liệt kê tường minh trong allow rules và mọi thứ khác phải bị tự động từ chối thay vì được duyệt. Permission mode nào phù hợp?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "bypassPermissions, so that the pipeline never stops to ask for confirmation of any action.",
+        "text_vi": "bypassPermissions, để pipeline không bao giờ dừng lại hỏi xác nhận cho bất kỳ hành động nào."
+      },
+      {
+        "key": "B",
+        "text": "acceptEdits, so that file edits and common filesystem commands are approved automatically.",
+        "text_vi": "acceptEdits, để việc sửa file và các lệnh filesystem phổ biến được tự động duyệt."
+      },
+      {
+        "key": "C",
+        "text": "dontAsk, which auto-denies anything that would prompt and runs only what the allow rules cover.",
+        "text_vi": "dontAsk, chế độ tự từ chối mọi thứ cần hỏi và chỉ chạy những gì allow rules cho phép."
+      },
+      {
+        "key": "D",
+        "text": "Plan mode, which keeps the session read-only until a plan is approved by a reviewer.",
+        "text_vi": "Plan mode, giữ phiên ở chế độ chỉ đọc cho đến khi kế hoạch được một reviewer duyệt."
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "dontAsk auto-denies anything that would require a prompt and executes only what allow rules cover, which is the course's mode for locked-down CI and matches the refuse-by-default requirement. bypassPermissions skips all checks instead of refusing, acceptEdits still prompts for other Bash commands and would hang, and plan mode needs a human to approve the plan, which an unattended pipeline cannot provide.",
+    "explanation_vi": "dontAsk tự từ chối mọi thứ cần hỏi xác nhận và chỉ thực thi những gì allow rules cho phép, đây là chế độ course khuyến nghị cho CI bị khóa chặt và khớp với yêu cầu mặc định từ chối. bypassPermissions bỏ qua mọi kiểm tra thay vì từ chối, acceptEdits vẫn hỏi với các lệnh Bash khác nên vẫn bị treo, còn plan mode cần con người duyệt kế hoạch, điều mà pipeline không người giám sát không thể đáp ứng."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Configure Claude tools and environments for teams (e.g., Claude Code)",
+    "source": "output/10_Entry_Points_Governance.md",
+    "question": "At a regulated bank, junior developers are onboarding onto a large legacy core-banking codebase with Claude Code. Team leads want Claude Code to explore the code and propose a change approach, but it must not modify any file or run commands with side effects until a developer has reviewed and approved the proposed approach. Which configuration best fits this requirement?",
+    "question_vi": "Tại một ngân hàng chịu quản lý chặt, các developer mới đang làm quen với một codebase core-banking cũ và lớn bằng Claude Code. Trưởng nhóm muốn Claude Code khám phá code và đề xuất hướng thay đổi, nhưng không được sửa bất kỳ tệp nào hay chạy lệnh có tác dụng phụ cho đến khi developer đã xem xét và duyệt hướng tiếp cận được đề xuất. Cấu hình nào phù hợp nhất với yêu cầu này?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Plan mode, which keeps the session read-only until the user approves the plan.",
+        "text_vi": "Plan mode, giữ phiên ở chế độ chỉ đọc cho đến khi người dùng duyệt kế hoạch."
+      },
+      {
+        "key": "B",
+        "text": "acceptEdits mode, combined with a CLAUDE.md note asking for a plan before editing.",
+        "text_vi": "Chế độ acceptEdits, kèm một ghi chú trong CLAUDE.md yêu cầu lập kế hoạch trước khi sửa."
+      },
+      {
+        "key": "C",
+        "text": "Auto mode, letting a classifier decide which edits are safe enough to apply.",
+        "text_vi": "Auto mode, để một classifier quyết định chỉnh sửa nào đủ an toàn để áp dụng."
+      },
+      {
+        "key": "D",
+        "text": "A Skill that generates a change plan, invoked on demand by the developer.",
+        "text_vi": "Một Skill sinh kế hoạch thay đổi, được developer gọi khi cần."
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "Plan mode locks the session to read-only until the user approves a plan, which enforces explore-and-propose-first behavior through the permission layer. acceptEdits approves file edits automatically and a CLAUDE.md note is only advisory, auto mode lets a classifier approve actions without the required human approval of the approach, and a Skill shapes what the agent does but does not restrict what it can touch.",
+    "explanation_vi": "Plan mode khóa phiên ở chế độ chỉ đọc cho đến khi người dùng duyệt kế hoạch, qua đó cưỡng chế hành vi khám phá và đề xuất trước thông qua lớp permission. acceptEdits tự động duyệt việc sửa file còn ghi chú trong CLAUDE.md chỉ mang tính hướng dẫn, auto mode để classifier duyệt hành động mà không có bước con người duyệt hướng tiếp cận như yêu cầu, còn Skill định hình việc agent làm nhưng không giới hạn những gì agent được chạm vào."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Configure Claude tools and environments for teams (e.g., Claude Code)",
+    "source": "output_5/02_Team_Setup_and_Environment.md",
+    "question": "A pharmaceutical company with 300 engineers will enable Claude Code next quarter. The Architect is preparing the work that must be done before the broad rollout begins, so that adoption is even and costs stay bounded. Which TWO activities belong in this pre-rollout phase? (Choose TWO.)",
+    "question_vi": "Một công ty dược phẩm với 300 kỹ sư sẽ triển khai Claude Code vào quý tới. Architect đang chuẩn bị những việc phải hoàn thành trước khi rollout rộng bắt đầu, để adoption đồng đều và chi phí được kiểm soát. HAI hoạt động nào thuộc pha trước rollout này? (Chọn HAI đáp án.)",
+    "type": "multiple",
+    "options": [
+      {
+        "key": "A",
+        "text": "Designate a champion per department to convert a real workflow and tune the shared CLAUDE.md.",
+        "text_vi": "Chỉ định một champion mỗi phòng ban để chuyển đổi một workflow thật và tinh chỉnh CLAUDE.md dùng chung."
+      },
+      {
+        "key": "B",
+        "text": "Send one company-wide email with install links so all engineers start on the same day.",
+        "text_vi": "Gửi một email toàn công ty kèm link cài đặt để mọi kỹ sư bắt đầu cùng một ngày."
+      },
+      {
+        "key": "C",
+        "text": "Set the spend posture: model default, allowlist, effort guidance and per-user caps.",
+        "text_vi": "Đặt spend posture: model default, allowlist, effort guidance và per-user cap."
+      },
+      {
+        "key": "D",
+        "text": "Make the most expensive model the default to create a strong first impression.",
+        "text_vi": "Đặt model đắt nhất làm mặc định để tạo ấn tượng ban đầu mạnh mẽ."
+      },
+      {
+        "key": "E",
+        "text": "Let each engineer choose their own MCP servers and permission rules on day one.",
+        "text_vi": "Để mỗi kỹ sư tự chọn MCP server và permission rule của mình ngay từ ngày đầu."
+      }
+    ],
+    "answer": [
+      "A",
+      "C"
+    ],
+    "explanation": "Champion-led rollout and a deliberately set spend posture are two of the four team-setup decisions that must be made before anyone logs in broadly. A single mass email produces a spike of confused prompts and quiet retreat, an expensive default multiplies cost across every engineer and request, and per-person MCP and permission choices are the opposite of a shared configuration and cause drift.",
+    "explanation_vi": "Rollout do champion dẫn dắt và spend posture được đặt có chủ đích là hai trong bốn quyết định thiết lập team phải hoàn thành trước khi mở rộng cho mọi người. Một email hàng loạt duy nhất tạo ra đợt tăng vọt prompt bối rối và sự rút lui lặng lẽ, model đắt làm mặc định nhân chi phí lên theo mọi kỹ sư và mọi request, còn việc mỗi người tự chọn MCP và permission là điều ngược lại với shared configuration và gây trôi dạt cấu hình."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Configure Claude tools and environments for teams (e.g., Claude Code)",
+    "source": "output_5/07_Supplement_Claude_Code_for_Teams.md",
+    "question": "A university IT department wants all developers on its student-portal repository to use the same MCP connection to the internal issue tracker, and a code-reviewer agent that can read files but never edit them or run commands. Today each developer adds the tracker server locally from a wiki, some with the API token pasted into config. Which TWO configurations should the Architect put in place? (Choose TWO.)",
+    "question_vi": "Phòng CNTT của một trường đại học muốn mọi developer làm việc trên repository cổng thông tin sinh viên dùng cùng một kết nối MCP tới issue tracker nội bộ, và một agent code-reviewer chỉ được đọc tệp, không bao giờ được sửa hay chạy lệnh. Hiện tại mỗi developer tự thêm server tracker ở máy mình theo wiki, một số người dán cả API token vào cấu hình. Architect nên thiết lập HAI cấu hình nào? (Chọn HAI đáp án.)",
+    "type": "multiple",
+    "options": [
+      {
+        "key": "A",
+        "text": "Keep the wiki instructions but ask every developer to add the tracker server at local scope the same way.",
+        "text_vi": "Giữ hướng dẫn trên wiki nhưng yêu cầu mọi developer thêm server tracker ở local scope theo cùng một cách."
+      },
+      {
+        "key": "B",
+        "text": "Define the tracker MCP server in a project-scope .mcp.json checked in to the repo, with the token supplied by environment variable.",
+        "text_vi": "Định nghĩa MCP server tracker trong .mcp.json ở project scope được check-in vào repo, với token cung cấp qua biến môi trường."
+      },
+      {
+        "key": "C",
+        "text": "Commit the API token into .mcp.json so every developer connects without extra setup.",
+        "text_vi": "Commit API token vào .mcp.json để mọi developer kết nối được mà không cần thiết lập thêm."
+      },
+      {
+        "key": "D",
+        "text": "Define a code-reviewer subagent in .claude/agents/ with a restricted, read-only tool set.",
+        "text_vi": "Định nghĩa một subagent code-reviewer trong .claude/agents/ với bộ tool bị giới hạn, chỉ đọc."
+      },
+      {
+        "key": "E",
+        "text": "Give the reviewer agent the full tool set so it can fix the problems it finds directly.",
+        "text_vi": "Cấp cho agent reviewer toàn bộ tool để nó trực tiếp sửa các vấn đề tìm thấy."
+      }
+    ],
+    "answer": [
+      "B",
+      "D"
+    ],
+    "explanation": "A checked-in project-scope MCP definition gives the whole team the same connection as part of the shared baseline, with secrets kept out of the repository, and a subagent with a restricted read-only tool set enforces the reviewer's least-privilege role. Per-developer local setup keeps configuration drifting, committing the token leaks a secret into the repository, and a full tool set violates least privilege for a reviewer whose output should be input to humans.",
+    "explanation_vi": "Định nghĩa MCP ở project scope được check-in mang lại cùng một kết nối cho cả team như một phần của baseline dùng chung, đồng thời giữ secrets ngoài repository, và một subagent với bộ tool chỉ đọc bị giới hạn cưỡng chế vai trò least privilege của reviewer. Việc mỗi developer tự cấu hình ở local khiến cấu hình tiếp tục trôi dạt, commit token làm lộ secret vào repository, còn cấp toàn bộ tool vi phạm least privilege đối với một reviewer mà output chỉ nên là input cho con người."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Configure Claude tools and environments for teams (e.g., Claude Code)",
+    "source": "output_5/02_Team_Setup_and_Environment.md",
+    "question": "A platform team packaged its release-notes procedure as a Skill and pushed it inside a plugin to a forty-engineer group as a flat bundle. A well-meaning prompt edit then made every team's notes come out in the wrong format, and fixing it required a manual re-edit while bad output kept shipping. Which TWO changes would most directly prevent a repeat? (Choose TWO.)",
+    "question_vi": "Một team nền tảng đóng gói quy trình viết release notes thành một Skill và đẩy nó trong một plugin tới một nhóm bốn mươi kỹ sư dưới dạng flat bundle. Sau đó một chỉnh sửa prompt có thiện ý khiến release notes của mọi team ra sai format, và việc khắc phục đòi hỏi sửa tay trong khi output xấu vẫn tiếp tục được tạo ra. HAI thay đổi nào ngăn tái diễn trực tiếp nhất? (Chọn HAI đáp án.)",
+    "type": "multiple",
+    "options": [
+      {
+        "key": "A",
+        "text": "Move the Skill to an org-provisioned Skill so that everyone always receives the newest upload.",
+        "text_vi": "Chuyển Skill sang org-provisioned Skill để mọi người luôn nhận bản upload mới nhất."
+      },
+      {
+        "key": "B",
+        "text": "Have each team keep its own local copy of the Skill so one bad edit cannot affect the others.",
+        "text_vi": "Để mỗi team giữ bản sao Skill riêng ở máy mình để một chỉnh sửa xấu không ảnh hưởng tới team khác."
+      },
+      {
+        "key": "C",
+        "text": "Connect the plugin to a repository so updates are version-controlled and can be rolled back.",
+        "text_vi": "Kết nối plugin với một repository để các cập nhật được kiểm soát phiên bản và có thể rollback."
+      },
+      {
+        "key": "D",
+        "text": "Name an owner who reviews every change to the Skill before it is released to the group.",
+        "text_vi": "Chỉ định một owner xem xét mọi thay đổi của Skill trước khi phát hành cho nhóm."
+      },
+      {
+        "key": "E",
+        "text": "Replace the Skill with formatting rules written into each repository's CLAUDE.md file.",
+        "text_vi": "Thay Skill bằng các quy tắc định dạng viết vào tệp CLAUDE.md của từng repository."
+      }
+    ],
+    "answer": [
+      "C",
+      "D"
+    ],
+    "explanation": "The team chose the right channel but skipped its governance: a shared asset needs version-controlled updates with rollback and an identified owner, so a bad change can be reviewed before release and reverted quickly. An org-provisioned Skill has no native rollback, so the newest upload is the problem rather than the fix; local copies create drift and lose central updates; scattering rules across CLAUDE.md files removes the single governed artifact.",
+    "explanation_vi": "Team đã chọn đúng kênh nhưng bỏ qua governance của nó: tài sản dùng chung cần cập nhật có kiểm soát phiên bản kèm rollback và một owner được chỉ định, để thay đổi xấu được review trước khi phát hành và hoàn tác nhanh. Org-provisioned Skill không có rollback gốc, nên bản upload mới nhất chính là vấn đề chứ không phải giải pháp; bản sao cục bộ gây trôi dạt và mất khả năng cập nhật tập trung; rải quy tắc khắp các tệp CLAUDE.md làm mất đi một artifact duy nhất có governance."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Configure Claude tools and environments for teams (e.g., Claude Code)",
+    "source": "output_5/07_Supplement_Claude_Code_for_Teams.md",
+    "question": "A fintech's security lead hands the Architect a list of Claude Code rules for the trading-platform repository and asks which ones must be implemented as enforceable settings (permissions, hooks or managed settings) rather than written as instructions in CLAUDE.md. Which TWO rules require enforcement? (Choose TWO.)",
+    "question_vi": "Trưởng bộ phận bảo mật của một công ty fintech đưa cho Architect danh sách các quy tắc Claude Code cho repository nền tảng giao dịch và hỏi quy tắc nào phải được hiện thực bằng enforceable settings (permissions, hooks hoặc managed settings) thay vì viết thành hướng dẫn trong CLAUDE.md. HAI quy tắc nào đòi hỏi cưỡng chế? (Chọn HAI đáp án.)",
+    "type": "multiple",
+    "options": [
+      {
+        "key": "A",
+        "text": "Prefer pnpm over npm when adding new frontend dependencies.",
+        "text_vi": "Ưu tiên pnpm thay vì npm khi thêm dependency frontend mới."
+      },
+      {
+        "key": "B",
+        "text": "Never read the credentials vault folder under any circumstances.",
+        "text_vi": "Không bao giờ đọc thư mục vault chứa credentials trong bất kỳ trường hợp nào."
+      },
+      {
+        "key": "C",
+        "text": "The order-matching engine lives in src/engine and has its own tests.",
+        "text_vi": "Engine khớp lệnh nằm trong src/engine và có bộ test riêng."
+      },
+      {
+        "key": "D",
+        "text": "Never run curl or other commands that send data to arbitrary hosts.",
+        "text_vi": "Không bao giờ chạy curl hay các lệnh khác gửi dữ liệu tới host tùy ý."
+      },
+      {
+        "key": "E",
+        "text": "Explain proposed changes briefly before showing the diff.",
+        "text_vi": "Giải thích ngắn gọn thay đổi đề xuất trước khi hiển thị diff."
+      }
+    ],
+    "answer": [
+      "B",
+      "D"
+    ],
+    "explanation": "Rules whose violation is unacceptable, such as reading secrets or sending data to arbitrary hosts, must be enforced deterministically with deny rules, hooks or managed settings, because CLAUDE.md is advisory context the model may not always follow. Package-manager preference, repository layout and explanation style are conventions and project context, which is exactly what CLAUDE.md is for.",
+    "explanation_vi": "Những quy tắc mà vi phạm là không thể chấp nhận, như đọc secrets hay gửi dữ liệu tới host tùy ý, phải được cưỡng chế một cách tất định bằng deny rule, hooks hoặc managed settings, vì CLAUDE.md chỉ là ngữ cảnh hướng dẫn mà model không phải lúc nào cũng làm theo. Sở thích package manager, cấu trúc repository và phong cách giải thích là quy ước và ngữ cảnh dự án, đúng là thứ CLAUDE.md được dùng để chứa."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Improve developer workflows using AI-assisted tooling",
+    "source": "output_5/03_Developer_Workflows_and_Verification.md",
+    "question": "Three months after a bank licensed Claude Code for its lending-platform engineers, 90 percent of them log in weekly, yet almost nobody lets Claude run tests, uses the configured MCP servers, or invokes Skills. Engineers mostly paste error messages and ask what they mean. Delivery throughput is unchanged. What is the best diagnosis and response?",
+    "question_vi": "Ba tháng sau khi một ngân hàng mua license Claude Code cho kỹ sư nền tảng cho vay, 90 phần trăm trong số họ đăng nhập hằng tuần, nhưng gần như không ai để Claude chạy test, dùng các MCP server đã cấu hình hay gọi Skills. Kỹ sư chủ yếu dán thông báo lỗi và hỏi nó nghĩa là gì. Năng suất giao hàng không thay đổi. Chẩn đoán và cách xử lý nào tốt nhất?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Lumpy adoption; buy additional licenses so that more engineers can become heavy users of the tool.",
+        "text_vi": "Lumpy adoption; mua thêm license để nhiều kỹ sư hơn có thể trở thành người dùng tích cực của công cụ."
+      },
+      {
+        "key": "B",
+        "text": "Judgment erosion; introduce a verification checklist so engineers stop trusting the chat answers by default.",
+        "text_vi": "Judgment erosion; đưa vào verification checklist để kỹ sư thôi mặc nhiên tin các câu trả lời chat."
+      },
+      {
+        "key": "C",
+        "text": "Stalling at basic chat; enable repository-aware, tool-use and Skill workflows within the current workflow.",
+        "text_vi": "Stalling at basic chat; kích hoạt các workflow repository-aware, tool use và Skills ngay trong workflow hiện tại."
+      },
+      {
+        "key": "D",
+        "text": "A weak spend posture; raise the default model tier so answers become useful enough to change behavior.",
+        "text_vi": "Spend posture yếu; nâng model tier mặc định để câu trả lời đủ hữu ích nhằm thay đổi hành vi."
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "Usage is broad but limited to question answering, which is the stalling-at-basic-chat failure mode: access was provided but no one enabled the higher-value workflows past the first step. It is not lumpy adoption because usage is even, judgment erosion concerns review quality rather than depth of use, and a stronger model does not unlock workflows nobody has configured or taught.",
+    "explanation_vi": "Việc sử dụng rộng khắp nhưng chỉ giới hạn ở hỏi đáp, đó chính là failure mode stalling at basic chat: quyền truy cập đã được cấp nhưng không ai kích hoạt các workflow giá trị cao hơn sau bước đầu tiên. Đây không phải lumpy adoption vì mức sử dụng đồng đều, judgment erosion liên quan tới chất lượng review chứ không phải độ sâu sử dụng, và model mạnh hơn không mở khóa được các workflow mà chưa ai cấu hình hay hướng dẫn."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Improve developer workflows using AI-assisted tooling",
+    "source": "output_5/03_Developer_Workflows_and_Verification.md",
+    "question": "In a retailer's e-commerce engineering group, four developers use Claude Code for almost everything and have each built their own effective prompts and habits. The other 40 developers barely use it, and team leads complain that there is still no common way of working with the tool. What should the Architect do?",
+    "question_vi": "Trong nhóm kỹ thuật thương mại điện tử của một nhà bán lẻ, bốn developer dùng Claude Code cho gần như mọi việc và mỗi người đã tự xây dựng prompt và thói quen hiệu quả riêng. 40 developer còn lại hầu như không dùng, và các trưởng nhóm phàn nàn rằng vẫn chưa có cách làm việc chung nào với công cụ này. Architect nên làm gì?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Run a champion-and-batch rollout and turn the early adopters' practices into shared configuration and Skills.",
+        "text_vi": "Triển khai rollout champion-and-batch và biến thực hành của những người dùng sớm thành shared configuration và Skills."
+      },
+      {
+        "key": "B",
+        "text": "Set a mandatory weekly usage quota for every developer and publish a leaderboard of the heaviest users.",
+        "text_vi": "Đặt chỉ tiêu sử dụng hằng tuần bắt buộc cho mọi developer và công bố bảng xếp hạng người dùng nhiều nhất."
+      },
+      {
+        "key": "C",
+        "text": "Leave adoption to grow organically, since the four power users will eventually influence their peers.",
+        "text_vi": "Để adoption tự phát triển, vì bốn người dùng tích cực cuối cùng sẽ ảnh hưởng tới đồng nghiệp."
+      },
+      {
+        "key": "D",
+        "text": "Ask the four power users to document their prompts on a wiki page that others can copy when needed.",
+        "text_vi": "Yêu cầu bốn người dùng tích cực ghi lại prompt của họ lên một trang wiki để người khác sao chép khi cần."
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "This is lumpy adoption, and the remedy is to spread usage deliberately through champions and batches while packaging the early adopters' good practice into governed shared assets so it standardizes. Usage quotas create activity rather than enablement, leaving it to organic growth is what produced the lumpiness, and a wiki of copied prompts remains undocumented know-how without versioning or consistent application.",
+    "explanation_vi": "Đây là lumpy adoption, và cách khắc phục là lan tỏa việc sử dụng có chủ đích qua champion và từng batch, đồng thời đóng gói thực hành tốt của những người dùng sớm thành tài sản dùng chung có governance để nó được chuẩn hóa. Chỉ tiêu sử dụng tạo ra hoạt động chứ không phải enablement, để adoption tự phát chính là nguyên nhân gây ra tình trạng không đều, còn một wiki chứa prompt để sao chép vẫn là tri thức không có versioning và không được áp dụng nhất quán."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Improve developer workflows using AI-assisted tooling",
+    "source": "output_5/05_Wrapup_Quiz_and_Glossary.md",
+    "question": "A hospital's patient-portal team adopted AI-assisted coding and ships noticeably faster. Last month an AI-generated endpoint passed code review and tests, then exposed appointment data because an input parameter was never validated. The team already runs a linter in CI. What was most likely missing from their workflow?",
+    "question_vi": "Team cổng thông tin bệnh nhân của một bệnh viện áp dụng lập trình có AI hỗ trợ và ship nhanh hơn rõ rệt. Tháng trước một endpoint do AI sinh đã qua code review và tests, rồi làm lộ dữ liệu lịch hẹn vì một tham số đầu vào không bao giờ được validate. Team đã chạy linter trong CI. Điều gì có khả năng cao nhất đang thiếu trong workflow của họ?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "A review SLA that lets small AI-generated changes skip security review so reviewers can focus on large diffs.",
+        "text_vi": "Một SLA review cho phép các thay đổi nhỏ do AI sinh bỏ qua review bảo mật để reviewer tập trung vào diff lớn."
+      },
+      {
+        "key": "B",
+        "text": "Additional linter rules configured to flag more known vulnerability patterns before the merge happens.",
+        "text_vi": "Thêm quy tắc linter để gắn cờ nhiều mẫu lỗ hổng đã biết hơn trước khi merge."
+      },
+      {
+        "key": "C",
+        "text": "More frequent model upgrades so that generated code reflects the most recent security practices.",
+        "text_vi": "Nâng cấp model thường xuyên hơn để code được sinh ra phản ánh các thực hành bảo mật mới nhất."
+      },
+      {
+        "key": "D",
+        "text": "A verification checklist that AI-generated code must pass before production, including a security dimension.",
+        "text_vi": "Một verification checklist mà code do AI sinh phải vượt qua trước production, bao gồm chiều security."
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "The missing control is a verification checklist gating AI-generated code before production, whose security dimension explicitly asks whether inputs are validated and access is least-privilege. An SLA exempting small changes weakens review rather than filling the gap, a linter only catches known patterns and is one automated part inside the checklist, and model upgrades do not replace the team's responsibility to verify.",
+    "explanation_vi": "Biện pháp kiểm soát còn thiếu là một verification checklist làm cổng cho code do AI sinh trước production, trong đó chiều security hỏi tường minh input có được validate không và quyền truy cập có theo least privilege không. SLA miễn review cho thay đổi nhỏ làm yếu review chứ không lấp được lỗ hổng, linter chỉ bắt các mẫu đã biết và chỉ là một phần tự động bên trong checklist, còn nâng cấp model không thay thế được trách nhiệm xác minh của team."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Improve developer workflows using AI-assisted tooling",
+    "source": "output_5/03_Developer_Workflows_and_Verification.md",
+    "question": "At an insurer, a pull request with AI-generated policy-number parsing has green tests and the AI reviewer reports no issues. When the human reviewer asks why the function normalizes certain Unicode characters, the author cannot explain the behavior or what happens for inputs not covered by tests. What should happen to the pull request?",
+    "question_vi": "Tại một công ty bảo hiểm, một pull request chứa đoạn parse số hợp đồng do AI sinh có tests xanh và AI reviewer báo không có vấn đề gì. Khi reviewer con người hỏi vì sao hàm chuẩn hóa một số ký tự Unicode nhất định, tác giả không giải thích được hành vi đó cũng như điều gì xảy ra với các input không được test bao phủ. Pull request nên được xử lý thế nào?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Merge it, because both the automated tests and the AI reviewer independently agree the change is correct.",
+        "text_vi": "Merge, vì cả tests tự động lẫn AI reviewer đều độc lập xác nhận thay đổi là đúng."
+      },
+      {
+        "key": "B",
+        "text": "Hold it until the author can explain the behavior and why, adding tests for unconsidered inputs.",
+        "text_vi": "Giữ lại cho đến khi tác giả giải thích được hành vi và lý do, bổ sung test cho các input chưa được xem xét."
+      },
+      {
+        "key": "C",
+        "text": "Route this and every future AI-generated pull request to the Architect for final approval.",
+        "text_vi": "Chuyển PR này và mọi PR do AI sinh trong tương lai cho Architect phê duyệt cuối cùng."
+      },
+      {
+        "key": "D",
+        "text": "Discard the AI-generated code and the tests and require the author to rewrite the function by hand.",
+        "text_vi": "Loại bỏ đoạn code do AI sinh cùng các test và yêu cầu tác giả viết lại hàm bằng tay."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "The human-understanding dimension requires that the person merging can explain what the code does and why, including for untested inputs; AI flags are input, not a verdict, and green tests only cover what was written. Merging repeats the merge nobody could explain, routing every AI merge to the Architect creates a bottleneck against self-sufficiency, and discarding everything overreacts to a gap in understanding rather than in code origin.",
+    "explanation_vi": "Chiều human understanding yêu cầu người merge giải thích được code làm gì và vì sao, kể cả với input chưa được test; cảnh báo của AI là input chứ không phải phán quyết, và tests xanh chỉ bao phủ những gì đã được viết. Merge sẽ lặp lại bài học 'merge không ai giải thích được', đẩy mọi merge có AI lên Architect tạo nút thắt đi ngược mục tiêu tự chủ, còn loại bỏ tất cả là phản ứng thái quá với một lỗ hổng về hiểu biết chứ không phải về nguồn gốc code."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Improve developer workflows using AI-assisted tooling",
+    "source": "output_5/07_Supplement_Claude_Code_for_Teams.md",
+    "question": "A B2B SaaS company wants every pull request to receive a first-pass review from Claude before a human reviewer looks at it, because reviewers lose time understanding large diffs. Some engineers propose letting Claude approve and merge pull requests it finds no problems in, to speed delivery. Which design fits the course's review discipline?",
+    "question_vi": "Một công ty SaaS B2B muốn mọi pull request được Claude review sơ bộ trước khi reviewer con người xem, vì reviewer mất nhiều thời gian để hiểu các diff lớn. Một số kỹ sư đề xuất để Claude tự approve và merge các pull request mà nó không tìm thấy vấn đề, nhằm tăng tốc giao hàng. Thiết kế nào phù hợp với kỷ luật review của course?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Grant Claude merge rights for pull requests it rates as clean, keeping human review only for the ones it flags.",
+        "text_vi": "Cấp quyền merge cho Claude với các pull request nó đánh giá là sạch, chỉ giữ review con người cho những PR bị nó gắn cờ."
+      },
+      {
+        "key": "B",
+        "text": "Remove human review for pull requests that already carry an AI review to reduce reviewer workload.",
+        "text_vi": "Bỏ review con người với các pull request đã có AI review để giảm tải cho reviewer."
+      },
+      {
+        "key": "C",
+        "text": "Run Claude Code in CI to comment on each pull request, while a human still approves the merge.",
+        "text_vi": "Chạy Claude Code trong CI để nhận xét trên từng pull request, trong khi con người vẫn approve việc merge."
+      },
+      {
+        "key": "D",
+        "text": "Run Claude Code with bypassPermissions on the shared runner so reviews never stall waiting for approval.",
+        "text_vi": "Chạy Claude Code với bypassPermissions trên runner dùng chung để việc review không bao giờ bị treo chờ duyệt."
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "Integrating Claude into the review process through CI removes real friction, but AI review output is a suggestion: AI flags are input, not a verdict, so a human still approves the merge against the verification checklist. Letting Claude merge or dropping human review hands judgment to the AI and invites judgment erosion, and bypassing permissions on a shared runner violates least privilege when only the needed tools should be allowlisted.",
+    "explanation_vi": "Tích hợp Claude vào quy trình review qua CI loại bỏ được ma sát thật, nhưng output review của AI chỉ là đề xuất: cảnh báo của AI là input chứ không phải phán quyết, nên con người vẫn approve merge dựa trên verification checklist. Để Claude tự merge hoặc bỏ review con người là giao phán đoán cho AI và dẫn tới judgment erosion, còn bỏ qua permission trên runner dùng chung vi phạm least privilege trong khi chỉ nên allowlist các tool cần thiết."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Improve developer workflows using AI-assisted tooling",
+    "source": "output_5/03_Developer_Workflows_and_Verification.md",
+    "question": "A telco's billing service shows intermittent timeouts. A developer gives Claude Code the error trace, and Claude proposes that the database connection pool is too small and drafts a configuration change raising the pool size. The on-call lead asks what the team should do next, given the course's review discipline for debugging. What is the best next step?",
+    "question_vi": "Dịch vụ tính cước của một công ty viễn thông có hiện tượng timeout chập chờn. Một developer đưa error trace cho Claude Code, và Claude đề xuất rằng connection pool của database quá nhỏ, kèm bản nháp thay đổi cấu hình tăng kích thước pool. Trưởng ca trực hỏi team nên làm gì tiếp theo, theo kỷ luật review cho debugging của course. Bước tiếp theo tốt nhất là gì?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Apply the pool-size change in production right away, since Claude derived it from the actual error trace.",
+        "text_vi": "Áp dụng ngay thay đổi kích thước pool lên production, vì Claude đã suy ra nó từ error trace thực tế."
+      },
+      {
+        "key": "B",
+        "text": "Ask a second model the same question and apply the change only if both models reach the same conclusion.",
+        "text_vi": "Hỏi một model khác cùng câu hỏi và chỉ áp dụng thay đổi nếu cả hai model đưa ra cùng kết luận."
+      },
+      {
+        "key": "C",
+        "text": "Escalate the issue to the database vendor because the hypothesis points to a database component.",
+        "text_vi": "Escalate vấn đề lên nhà cung cấp database vì giả thuyết chỉ tới một thành phần database."
+      },
+      {
+        "key": "D",
+        "text": "Verify the hypothesis against evidence, such as pool-usage metrics and failing-request traces.",
+        "text_vi": "Kiểm chứng giả thuyết bằng bằng chứng, như metric sử dụng pool và trace của các request lỗi."
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "In debugging, Claude's role is proposing hypotheses from a symptom and a trace, and the review discipline is to verify the hypothesis against evidence before acting, otherwise a fix may mask the real cause. Applying it immediately skips verification, agreement between two models is still not evidence, and escalating to a vendor has no basis before the team has confirmed where the problem lies.",
+    "explanation_vi": "Trong debugging, vai trò của Claude là đề xuất giả thuyết từ triệu chứng và trace, còn kỷ luật review là kiểm chứng giả thuyết bằng bằng chứng trước khi hành động, nếu không bản sửa có thể che giấu nguyên nhân thật. Áp dụng ngay là bỏ qua bước kiểm chứng, việc hai model đồng ý vẫn không phải là bằng chứng, còn escalate lên nhà cung cấp là không có cơ sở khi team chưa xác nhận vấn đề nằm ở đâu."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Improve developer workflows using AI-assisted tooling",
+    "source": "output_5/05_Wrapup_Quiz_and_Glossary.md",
+    "question": "A media company added automated Claude review to every pull request six months ago. A recent audit found that human reviewers now approve almost every pull request the AI did not flag, often within a minute, and two production defects traced back to logic nobody on the team had actually reasoned through. What risk has materialized, and what is the right response?",
+    "question_vi": "Một công ty truyền thông đã thêm Claude review tự động cho mọi pull request từ sáu tháng trước. Một đợt audit gần đây phát hiện reviewer con người giờ approve gần như mọi pull request mà AI không gắn cờ, thường chỉ trong một phút, và hai lỗi production được truy về logic mà không ai trong team thực sự suy xét kỹ. Rủi ro nào đã xảy ra, và cách xử lý đúng là gì?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Judgment erosion; treat AI flags as input, not a verdict, and enforce the human-understanding check.",
+        "text_vi": "Judgment erosion; coi cảnh báo của AI là input chứ không phải phán quyết, và cưỡng chế bước kiểm tra human understanding."
+      },
+      {
+        "key": "B",
+        "text": "Lumpy adoption; extend the AI review rollout to the remaining teams so that review coverage becomes uniform.",
+        "text_vi": "Lumpy adoption; mở rộng rollout AI review sang các team còn lại để độ bao phủ review trở nên đồng đều."
+      },
+      {
+        "key": "C",
+        "text": "Retrieval drift; re-index the codebase so the AI reviewer has fresher context for its analysis.",
+        "text_vi": "Retrieval drift; re-index codebase để AI reviewer có ngữ cảnh mới hơn cho việc phân tích."
+      },
+      {
+        "key": "D",
+        "text": "Spend posture; move the AI reviewer to a cheaper tier because its reviews are not being read.",
+        "text_vi": "Spend posture; chuyển AI reviewer sang tier rẻ hơn vì các bản review của nó không được đọc."
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "Humans gradually delegating judgment to the AI and shipping logic nobody understands is judgment erosion, and the remedy is the review discipline itself: AI flags are input, not a verdict, plus a human-understanding gate. Lumpy adoption concerns uneven usage, retrieval drift concerns a RAG corpus outgrowing its index, and changing the reviewer's tier addresses cost rather than the erosion of review quality.",
+    "explanation_vi": "Việc con người dần giao phán đoán cho AI và ship logic mà không ai hiểu chính là judgment erosion, và cách khắc phục là chính kỷ luật review: cảnh báo của AI là input chứ không phải phán quyết, kèm cổng kiểm tra human understanding. Lumpy adoption nói về mức sử dụng không đều, retrieval drift nói về corpus RAG tăng nhanh hơn index, còn đổi tier của reviewer giải quyết chi phí chứ không giải quyết sự xói mòn chất lượng review."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Improve developer workflows using AI-assisted tooling",
+    "source": "output_5/03_Developer_Workflows_and_Verification.md",
+    "question": "Engineers at an industrial-equipment manufacturer use Claude only in a browser chat tab: they copy code into the chat, re-explain the project structure each time, and paste suggestions back into their editor before running tests manually. Leadership asks the Architect how to get more value from the tool without adding a separate process. What should the Architect recommend?",
+    "question_vi": "Kỹ sư tại một nhà sản xuất thiết bị công nghiệp chỉ dùng Claude trong một tab chat trên trình duyệt: họ copy code vào chat, giải thích lại cấu trúc dự án mỗi lần, rồi dán gợi ý trở lại editor trước khi chạy test thủ công. Ban lãnh đạo hỏi Architect làm sao để thu được nhiều giá trị hơn từ công cụ mà không thêm một quy trình riêng. Architect nên khuyến nghị gì?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Publish a prompt library on the wiki so engineers can describe the project structure more quickly in the chat window.",
+        "text_vi": "Xuất bản một thư viện prompt trên wiki để kỹ sư mô tả cấu trúc dự án nhanh hơn trong cửa sổ chat."
+      },
+      {
+        "key": "B",
+        "text": "Run Claude Code in the editor, review and test loop, with project config letting it read the repo and run tests.",
+        "text_vi": "Chạy Claude Code trong editor, quy trình review và vòng lặp test, với cấu hình dự án cho phép nó đọc repo và chạy test."
+      },
+      {
+        "key": "C",
+        "text": "Upgrade to a model with a larger context window so engineers can paste the whole codebase into each chat.",
+        "text_vi": "Nâng cấp lên model có context window lớn hơn để kỹ sư dán toàn bộ codebase vào mỗi lần chat."
+      },
+      {
+        "key": "D",
+        "text": "Create a dedicated AI office hour each week where engineers bring code to discuss with Claude together.",
+        "text_vi": "Tổ chức một giờ AI riêng mỗi tuần để kỹ sư mang code đến thảo luận cùng Claude."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "AI tooling pays off when it lives inside the existing workflow, the editor, review process and test loop, which removes the copy-paste and re-explaining friction and lets Claude work with repository context and run tests. A prompt library and a bigger context window keep the work in a separate chat window, and a weekly office hour adds a separate process rather than integrating assistance into daily work.",
+    "explanation_vi": "Công cụ AI phát huy giá trị khi nằm bên trong workflow sẵn có, tức editor, quy trình review và vòng lặp test, giúp loại bỏ ma sát copy-paste và giải thích lại, đồng thời để Claude làm việc với ngữ cảnh repository và chạy test. Thư viện prompt và context window lớn hơn vẫn giữ công việc trong một cửa sổ chat riêng, còn giờ AI hằng tuần thêm một quy trình riêng thay vì tích hợp sự hỗ trợ vào công việc hằng ngày."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Improve developer workflows using AI-assisted tooling",
+    "source": "output_5/03_Developer_Workflows_and_Verification.md",
+    "question": "In a government tax agency's engineering team, key practices live only in senior engineers' heads: always use the repository pattern, every pull request needs a rollback migration, and API changes must update the OpenAPI spec. New hires using Claude Code produce code that ignores these practices unless a senior happens to review it. What should the Architect do?",
+    "question_vi": "Trong team kỹ thuật của một cơ quan thuế, các thực hành quan trọng chỉ nằm trong đầu kỹ sư senior: luôn dùng repository pattern, mọi pull request cần migration rollback, và thay đổi API phải cập nhật OpenAPI spec. Nhân viên mới dùng Claude Code tạo ra code bỏ qua các thực hành này trừ khi tình cờ có một senior review. Architect nên làm gì?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Assign a senior engineer to pair with every new hire until they have absorbed the conventions personally.",
+        "text_vi": "Phân công một kỹ sư senior làm việc cặp với mỗi nhân viên mới cho đến khi họ tự thấm các quy ước."
+      },
+      {
+        "key": "B",
+        "text": "Require new hires to stop using Claude Code until they have worked on the codebase for six months.",
+        "text_vi": "Yêu cầu nhân viên mới ngừng dùng Claude Code cho đến khi họ đã làm việc với codebase được sáu tháng."
+      },
+      {
+        "key": "C",
+        "text": "Switch new hires to a more capable model tier that is more likely to infer the conventions from the code.",
+        "text_vi": "Chuyển nhân viên mới sang model tier mạnh hơn để có khả năng tự suy ra quy ước từ code cao hơn."
+      },
+      {
+        "key": "D",
+        "text": "Encode the conventions in the project CLAUDE.md and repeated procedures as Skills or slash commands.",
+        "text_vi": "Mã hóa các quy ước vào CLAUDE.md của dự án và các quy trình lặp lại thành Skills hoặc slash commands."
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "Integration is how team knowledge gets encoded: conventions and repeated procedures that live in people's heads become CLAUDE.md, Skills and project configuration that Claude applies consistently, so good practice travels with the tooling rather than depending on who is in the room. Pairing still depends on who is available, banning the tool forfeits its value, and a stronger model cannot reliably infer unwritten team rules.",
+    "explanation_vi": "Tích hợp là cách tri thức của team được mã hóa: các quy ước và quy trình lặp lại nằm trong đầu mọi người trở thành CLAUDE.md, Skills và cấu hình dự án mà Claude áp dụng nhất quán, nhờ đó thực hành tốt đi theo công cụ thay vì phụ thuộc vào việc ai đang có mặt. Làm việc cặp vẫn phụ thuộc vào việc ai rảnh, cấm dùng công cụ thì mất giá trị của nó, còn model mạnh hơn không thể suy ra một cách đáng tin cậy các quy tắc chưa được viết ra của team."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Improve developer workflows using AI-assisted tooling",
+    "source": "output_5/03_Developer_Workflows_and_Verification.md",
+    "question": "An online-education company's engineering director reports Claude Code adoption as a success because 95 percent of engineers have logged in this quarter. The Architect suspects the figure hides how the tool is actually used and wants a measure that shows whether workflows have really changed. Which measure best reflects real adoption?",
+    "question_vi": "Giám đốc kỹ thuật của một công ty giáo dục trực tuyến báo cáo việc áp dụng Claude Code là thành công vì 95 phần trăm kỹ sư đã đăng nhập trong quý này. Architect nghi ngờ con số này che giấu cách công cụ thực sự được dùng và muốn một thước đo cho thấy workflow có thật sự thay đổi hay không. Thước đo nào phản ánh tốt nhất adoption thực sự?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "The total number of prompts sent per engineer per day, compared across teams each week.",
+        "text_vi": "Tổng số prompt mỗi kỹ sư gửi mỗi ngày, so sánh giữa các team hằng tuần."
+      },
+      {
+        "key": "B",
+        "text": "The number of seats purchased compared with the number of engineers on the payroll.",
+        "text_vi": "Số seat đã mua so với số kỹ sư trong biên chế."
+      },
+      {
+        "key": "C",
+        "text": "Which workflows were converted, such as the share of pull requests with AI review.",
+        "text_vi": "Những workflow nào đã được chuyển đổi, ví dụ tỷ lệ pull request có AI review."
+      },
+      {
+        "key": "D",
+        "text": "The average session length, since longer sessions suggest deeper engagement with the tool.",
+        "text_vi": "Độ dài phiên trung bình, vì phiên dài hơn cho thấy mức độ gắn bó sâu hơn với công cụ."
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "High login counts can still mean stalling at basic chat, so adoption should be measured by which workflows were actually converted to AI-assisted ones with review discipline. Prompt counts and session length reward activity rather than workflow change and mirror the usage-target distractor, and seats purchased measures access, which the course stresses is not adoption.",
+    "explanation_vi": "Số lượt đăng nhập cao vẫn có thể là stalling at basic chat, nên adoption cần được đo bằng các workflow đã thực sự được chuyển sang có AI hỗ trợ kèm kỷ luật review. Số prompt và độ dài phiên thưởng cho hoạt động chứ không phải thay đổi workflow, giống đáp án nhiễu kiểu chỉ tiêu sử dụng, còn số seat đã mua đo quyền truy cập, mà course nhấn mạnh rằng truy cập không phải là adoption."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Improve developer workflows using AI-assisted tooling",
+    "source": "output_5/03_Developer_Workflows_and_Verification.md",
+    "question": "A logistics company's AI-assisted team now opens three times as many pull requests as before, and reviewers admit they skim. The team has a written verification checklist but applies it by memory. The Architect wants the checklist to become a repeatable gate rather than a good intention. Which TWO measures best achieve this? (Choose TWO.)",
+    "question_vi": "Team có AI hỗ trợ của một công ty logistics giờ mở số pull request gấp ba trước đây, và reviewer thừa nhận họ chỉ đọc lướt. Team có một verification checklist bằng văn bản nhưng áp dụng theo trí nhớ. Architect muốn checklist trở thành một cổng lặp lại được chứ không chỉ là thiện chí. HAI biện pháp nào đạt được điều này tốt nhất? (Chọn HAI đáp án.)",
+    "type": "multiple",
+    "options": [
+      {
+        "key": "A",
+        "text": "Run the regression test suite and eval set automatically on every change in CI.",
+        "text_vi": "Chạy regression test suite và eval set tự động trên mọi thay đổi trong CI."
+      },
+      {
+        "key": "B",
+        "text": "Remind reviewers in a team meeting to read AI-generated code more carefully.",
+        "text_vi": "Nhắc reviewer trong buổi họp team đọc code do AI sinh cẩn thận hơn."
+      },
+      {
+        "key": "C",
+        "text": "Exempt changes under 20 lines from review so reviewers can focus on larger diffs.",
+        "text_vi": "Miễn review cho thay đổi dưới 20 dòng để reviewer tập trung vào diff lớn hơn."
+      },
+      {
+        "key": "D",
+        "text": "Automate secret scanning and linters in CI or hooks, leaving human understanding to reviewers.",
+        "text_vi": "Tự động hóa secret scanning và linter trong CI hoặc hooks, dành phần human understanding cho reviewer."
+      },
+      {
+        "key": "E",
+        "text": "Switch to the newest model release, since it introduces fewer defects than earlier ones.",
+        "text_vi": "Chuyển sang phiên bản model mới nhất vì nó tạo ra ít lỗi hơn các bản trước."
+      }
+    ],
+    "answer": [
+      "A",
+      "D"
+    ],
+    "explanation": "Wherever a check can be made automatic it should be: tests and evals prove correctness on every change, and scans and linters cover part of security and maintainability, freeing reviewers to focus on human understanding, which cannot be automated. A reminder is still a good intention rather than a gate, exempting small changes opens a hole where a few lines can leak data, and a newer model does not replace verification.",
+    "explanation_vi": "Kiểm tra nào tự động hóa được thì nên tự động hóa: tests và evals chứng minh correctness trên mọi thay đổi, còn scan và linter bao phủ một phần security và maintainability, giúp reviewer tập trung vào human understanding, phần không thể tự động hóa. Lời nhắc nhở vẫn chỉ là thiện chí chứ không phải cổng, miễn review cho thay đổi nhỏ mở ra lỗ hổng nơi vài dòng code có thể làm rò rỉ dữ liệu, còn model mới hơn không thay thế được việc xác minh."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Improve developer workflows using AI-assisted tooling",
+    "source": "output_5/03_Developer_Workflows_and_Verification.md",
+    "question": "A pharmaceutical company's lab-data team gates AI-generated code with green unit tests and a passing linter, and treats that as its verification checklist. The Architect compares this gate with the four dimensions the course requires. Which TWO checks address dimensions the current gate does not cover? (Choose TWO.)",
+    "question_vi": "Team dữ liệu phòng thí nghiệm của một công ty dược đặt cổng cho code do AI sinh bằng unit test xanh và linter pass, và coi đó là verification checklist của mình. Architect so sánh cổng này với bốn chiều mà course yêu cầu. HAI kiểm tra nào xử lý các chiều mà cổng hiện tại chưa bao phủ? (Chọn HAI đáp án.)",
+    "type": "multiple",
+    "options": [
+      {
+        "key": "A",
+        "text": "Confirm that the unit test suite passes on the continuous integration server.",
+        "text_vi": "Xác nhận unit test suite pass trên máy chủ continuous integration."
+      },
+      {
+        "key": "B",
+        "text": "Confirm the author can explain what the code does and how it handles untested inputs.",
+        "text_vi": "Xác nhận tác giả giải thích được code làm gì và xử lý thế nào với các input chưa được test."
+      },
+      {
+        "key": "C",
+        "text": "Confirm the formatting matches the style rules enforced by the team linter.",
+        "text_vi": "Xác nhận định dạng khớp với các quy tắc style mà linter của team cưỡng chế."
+      },
+      {
+        "key": "D",
+        "text": "Confirm the change was generated by the latest approved model version.",
+        "text_vi": "Xác nhận thay đổi được sinh bởi phiên bản model mới nhất đã được duyệt."
+      },
+      {
+        "key": "E",
+        "text": "Confirm there are no secrets, inputs are validated and external calls use least privilege.",
+        "text_vi": "Xác nhận không có secrets, input được validate và các external call dùng least privilege."
+      }
+    ],
+    "answer": [
+      "B",
+      "E"
+    ],
+    "explanation": "The checklist needs correctness, security, maintainability and human understanding; tests and a linter touch correctness and part of maintainability, leaving the security checks (no secrets, validated inputs, least-privilege calls) and the human-understanding check uncovered. Passing tests and lint formatting are already in the gate, and the model version used is not one of the verification dimensions.",
+    "explanation_vi": "Checklist cần đủ correctness, security, maintainability và human understanding; tests và linter chạm tới correctness và một phần maintainability, còn bỏ ngỏ các kiểm tra security (không có secrets, input được validate, call theo least privilege) và kiểm tra human understanding. Tests pass và định dạng theo linter đã nằm trong cổng, còn phiên bản model được dùng không phải là một chiều xác minh."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Improve developer workflows using AI-assisted tooling",
+    "source": "output_5/03_Developer_Workflows_and_Verification.md",
+    "question": "A law firm's internal-tools team finds that pull requests containing Claude-generated code are hard to review: diffs are large, mix several purposes, and descriptions are pasted straight from Claude's output. The team wants practices that keep authors understanding their changes and reviewers able to judge them. Which TWO practices should the Architect recommend? (Choose TWO.)",
+    "question_vi": "Team công cụ nội bộ của một công ty luật thấy các pull request chứa code do Claude sinh rất khó review: diff lớn, trộn nhiều mục đích, và mô tả được dán thẳng từ output của Claude. Team muốn các thực hành giúp tác giả hiểu thay đổi của mình và reviewer có thể đánh giá chúng. Architect nên khuyến nghị HAI thực hành nào? (Chọn HAI đáp án.)",
+    "type": "multiple",
+    "options": [
+      {
+        "key": "A",
+        "text": "Batch AI-assisted changes into one larger weekly pull request to reduce review overhead.",
+        "text_vi": "Gom các thay đổi có AI hỗ trợ thành một pull request lớn hằng tuần để giảm công review."
+      },
+      {
+        "key": "B",
+        "text": "Label AI-assisted pull requests so reviewers can apply a lighter standard to them.",
+        "text_vi": "Gắn nhãn pull request có AI hỗ trợ để reviewer áp dụng tiêu chuẩn nhẹ hơn."
+      },
+      {
+        "key": "C",
+        "text": "Ask Claude to work in small steps so each pull request has one purpose and a small diff.",
+        "text_vi": "Yêu cầu Claude làm từng bước nhỏ để mỗi pull request có một mục đích và diff nhỏ."
+      },
+      {
+        "key": "D",
+        "text": "Let Claude approve its own pull request whenever all tests are green.",
+        "text_vi": "Để Claude tự approve pull request của chính nó mỗi khi tất cả tests xanh."
+      },
+      {
+        "key": "E",
+        "text": "Require authors to write the pull request description in their own words.",
+        "text_vi": "Yêu cầu tác giả tự viết mô tả pull request bằng lời của chính mình."
+      }
+    ],
+    "answer": [
+      "C",
+      "E"
+    ],
+    "explanation": "Small single-purpose diffs keep review meaningful instead of skimmed, and authors writing the description in their own words forces the understanding that the human-understanding dimension requires. Larger batched pull requests make skimming worse, an AI-assisted label is for directing attention, not for lowering the bar since AI code is held to the same standard, and self-approval turns AI output into a verdict.",
+    "explanation_vi": "Diff nhỏ, mỗi PR một mục đích giúp review thực chất thay vì đọc lướt, và việc tác giả tự viết mô tả bằng lời của mình buộc họ phải hiểu thay đổi, đúng điều chiều human understanding yêu cầu. Gom thành pull request lớn khiến việc đọc lướt tệ hơn, nhãn AI-assisted là để hướng sự chú ý chứ không phải để hạ chuẩn vì code AI được giữ cùng tiêu chuẩn, còn tự approve biến output của AI thành phán quyết."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Support debugging and operational issue resolution",
+    "source": "output_5/04_Operational_Issue_Resolution.md",
+    "question": "An insurer's claims-guidance assistant has given gradually worse answers over two months. There have been no code deployments in that period, infrastructure dashboards are green, and the policy library it retrieves from has grown by roughly a third. The operations team pulls in the Architect. Where should the investigation start?",
+    "question_vi": "Trợ lý hướng dẫn bồi thường của một công ty bảo hiểm đưa ra câu trả lời kém dần trong hai tháng. Không có lần deploy code nào trong khoảng thời gian đó, dashboard hạ tầng vẫn xanh, và thư viện chính sách mà nó truy xuất đã tăng khoảng một phần ba. Team vận hành mời Architect vào cuộc. Việc điều tra nên bắt đầu từ đâu?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Roll back the most recent code deployment and re-run the integration test suite.",
+        "text_vi": "Rollback lần deploy code gần nhất và chạy lại bộ integration test."
+      },
+      {
+        "key": "B",
+        "text": "Compare against an eval set and check what changed in the model, the prompt and the corpus.",
+        "text_vi": "So với eval set và kiểm tra những gì đã thay đổi ở model, prompt và corpus."
+      },
+      {
+        "key": "C",
+        "text": "Move to a more capable model tier so it can compensate for weaker retrieved context.",
+        "text_vi": "Chuyển sang model tier mạnh hơn để bù đắp cho ngữ cảnh truy xuất kém hơn."
+      },
+      {
+        "key": "D",
+        "text": "Disable prompt caching so that every request is processed with completely fresh content.",
+        "text_vi": "Tắt prompt caching để mọi request được xử lý với nội dung hoàn toàn mới."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "Gradual quality decline with no code change maps to a model or prompt change, or retrieval drift as the corpus grew, and the first action is to compare against an eval set and check what changed in model, prompt or corpus; the corpus growth makes retrieval drift a strong candidate. Rolling back code is irrelevant when nothing was deployed, a bigger model masks the symptom and adds cost, and disabling caching raises latency and cost without touching the index.",
+    "explanation_vi": "Chất lượng giảm dần mà không đổi code ứng với thay đổi model hoặc prompt, hoặc retrieval drift khi corpus tăng, và hành động đầu tiên là so với eval set và kiểm tra những gì đã đổi ở model, prompt hoặc corpus; việc corpus tăng khiến retrieval drift là ứng viên mạnh. Rollback code là vô nghĩa khi không có gì được deploy, model lớn hơn chỉ che triệu chứng và tăng chi phí, còn tắt cache làm tăng latency và chi phí mà không chạm tới index."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Support debugging and operational issue resolution",
+    "source": "output_5/04_Operational_Issue_Resolution.md",
+    "question": "A telco's customer-care assistant saw p95 latency double over one week. No new release went out, error rates are flat, and the assistant calls two tools: a plan-lookup API and a network-status MCP server. The support team wants to add application instances immediately. What should the Architect have the team do first?",
+    "question_vi": "Trợ lý chăm sóc khách hàng của một công ty viễn thông có latency p95 tăng gấp đôi trong một tuần. Không có bản phát hành mới nào, tỷ lệ lỗi không đổi, và trợ lý gọi hai tool: một API tra cứu gói cước và một MCP server trạng thái mạng. Team hỗ trợ muốn thêm instance ứng dụng ngay lập tức. Architect nên yêu cầu team làm gì trước tiên?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Add application instances first, then investigate further only if latency remains high afterwards.",
+        "text_vi": "Thêm instance ứng dụng trước, rồi chỉ điều tra tiếp nếu sau đó latency vẫn cao."
+      },
+      {
+        "key": "B",
+        "text": "Switch to a smaller, faster model tier to bring the response time back within target.",
+        "text_vi": "Chuyển sang model tier nhỏ và nhanh hơn để đưa thời gian phản hồi về lại mức mục tiêu."
+      },
+      {
+        "key": "C",
+        "text": "Turn off prompt caching temporarily to rule out the cache as a possible source of delay.",
+        "text_vi": "Tạm tắt prompt caching để loại trừ cache như một nguồn gây chậm có thể có."
+      },
+      {
+        "key": "D",
+        "text": "Use request traces to find the slowest span: token counts, slowest tool call, cache behavior.",
+        "text_vi": "Dùng request traces để tìm span chậm nhất: token count, tool call chậm nhất, hành vi cache."
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "A latency spike traces to growing context, a slow tool or a cache that stopped hitting, and the first action is to find the slowest span with telemetry and traces while checking token counts, tool timings and cache behavior. Adding instances does not help if a tool or token growth is the bottleneck, downsizing the model acts before diagnosing and may hurt quality, and disabling caching usually increases latency rather than isolating the cause.",
+    "explanation_vi": "Latency tăng vọt bắt nguồn từ context phình to, một tool chậm hoặc cache ngừng hit, và hành động đầu tiên là tìm span chậm nhất bằng telemetry và traces, đồng thời kiểm tra token count, thời gian của tool và hành vi cache. Thêm instance không giúp ích nếu nút thắt là một tool hoặc token tăng, giảm model là hành động trước khi chẩn đoán và có thể làm giảm chất lượng, còn tắt cache thường làm tăng latency thay vì khoanh vùng được nguyên nhân."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Support debugging and operational issue resolution",
+    "source": "output_5/04_Operational_Issue_Resolution.md",
+    "question": "A retailer's order-support agent calls an order-lookup tool through an MCP server. Since a seasonal traffic increase, about 5 percent of tool calls fail with no obvious pattern, and the agent then gives customers vague replies. The on-call engineer suggests adding few-shot examples to the prompt. What should the Architect have the team do first?",
+    "question_vi": "Agent hỗ trợ đơn hàng của một nhà bán lẻ gọi tool tra cứu đơn hàng qua một MCP server. Từ khi lưu lượng tăng theo mùa, khoảng 5 phần trăm số lần gọi tool thất bại mà không theo quy luật rõ ràng, và sau đó agent trả lời khách hàng một cách mơ hồ. Kỹ sư trực đề xuất thêm few-shot examples vào prompt. Architect nên yêu cầu team làm gì trước tiên?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Inspect the tool's authorization and rate limits and trace one failed call end to end.",
+        "text_vi": "Kiểm tra authorization và rate limit của tool và trace một call lỗi từ đầu đến cuối."
+      },
+      {
+        "key": "B",
+        "text": "Add few-shot examples showing how the agent should reply when order data is missing.",
+        "text_vi": "Thêm few-shot examples cho thấy agent nên trả lời thế nào khi thiếu dữ liệu đơn hàng."
+      },
+      {
+        "key": "C",
+        "text": "Re-index the order knowledge base so the agent retrieves fresher order information.",
+        "text_vi": "Re-index knowledge base đơn hàng để agent truy xuất được thông tin đơn hàng mới hơn."
+      },
+      {
+        "key": "D",
+        "text": "Move to a model with a longer context window so failed results fit into the prompt.",
+        "text_vi": "Chuyển sang model có context window dài hơn để kết quả lỗi vừa với prompt."
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "Intermittent tool failures, especially after a traffic increase, point to authorization, rate limits or an unhandled error path, and the first action is to inspect the tool's auth and limits and trace a single failed call end to end. Few-shot examples only change how the agent words a failure, re-indexing addresses retrieval drift rather than tool calls, and a longer context window has nothing to do with calls failing.",
+    "explanation_vi": "Tool lỗi chập chờn, nhất là sau khi lưu lượng tăng, chỉ tới authorization, rate limit hoặc một error path chưa được xử lý, và hành động đầu tiên là kiểm tra auth và giới hạn của tool rồi trace một call lỗi từ đầu đến cuối. Few-shot examples chỉ thay đổi cách agent diễn đạt khi lỗi, re-index xử lý retrieval drift chứ không phải lỗi gọi tool, còn context window dài hơn không liên quan gì tới việc call thất bại."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Support debugging and operational issue resolution",
+    "source": "output_5/04_Operational_Issue_Resolution.md",
+    "question": "A SaaS company's monthly Claude bill rose 40 percent while request volume, active users and average conversation length stayed essentially flat. Finance asks the platform team for an explanation before next month's budget review. Which check should the team perform first?",
+    "question_vi": "Hóa đơn Claude hằng tháng của một công ty SaaS tăng 40 phần trăm trong khi số request, số người dùng hoạt động và độ dài hội thoại trung bình gần như không đổi. Bộ phận tài chính yêu cầu team nền tảng giải thích trước buổi review ngân sách tháng tới. Team nên thực hiện kiểm tra nào trước tiên?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Count how many new developer seats were granted during the month and who approved them.",
+        "text_vi": "Đếm số seat developer mới được cấp trong tháng và ai đã duyệt chúng."
+      },
+      {
+        "key": "B",
+        "text": "Survey users about answer quality to see whether satisfaction changed during the month.",
+        "text_vi": "Khảo sát người dùng về chất lượng câu trả lời để xem mức hài lòng có thay đổi trong tháng không."
+      },
+      {
+        "key": "C",
+        "text": "Check the per-request model tier and the cache hit rate against the budget model.",
+        "text_vi": "Kiểm tra model tier theo từng request và cache hit rate so với budget model."
+      },
+      {
+        "key": "D",
+        "text": "Measure the response time of each MCP server the application calls during peak hours.",
+        "text_vi": "Đo thời gian phản hồi của từng MCP server mà ứng dụng gọi trong giờ cao điểm."
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "Cost rising without a usage change points to model tier creep or regressed caching, so the first check is per-request model tier and cache hit rate against the budget model. New seats contradict the flat-usage evidence, a quality survey addresses a different symptom, and MCP response time is a latency investigation rather than a cost one.",
+    "explanation_vi": "Chi phí tăng mà mức sử dụng không đổi chỉ tới model tier creep hoặc caching bị suy giảm, nên kiểm tra đầu tiên là model tier theo từng request và cache hit rate so với budget model. Seat mới mâu thuẫn với bằng chứng mức sử dụng không đổi, khảo sát chất lượng xử lý một triệu chứng khác, còn thời gian phản hồi của MCP server là điều tra về latency chứ không phải chi phí."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Support debugging and operational issue resolution",
+    "source": "output_5/04_Operational_Issue_Resolution.md",
+    "question": "A bank's internal policy assistant became both slower and more expensive the day after a small change that inserted the current timestamp and the user ID at the very beginning of its long, static system prompt. Answer quality is unchanged, and the change was made to improve audit logging. What is the most likely architecture cause?",
+    "question_vi": "Trợ lý chính sách nội bộ của một ngân hàng trở nên vừa chậm hơn vừa tốn kém hơn ngay ngày sau một thay đổi nhỏ chèn timestamp hiện tại và user ID vào ngay đầu system prompt dài và tĩnh của nó. Chất lượng câu trả lời không đổi, và thay đổi được thực hiện để cải thiện audit logging. Nguyên nhân kiến trúc khả dĩ nhất là gì?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "The dynamic values at the start of the prompt broke the cached prefix, so the cache stopped hitting.",
+        "text_vi": "Các giá trị động ở đầu prompt làm vỡ prefix đã cache, khiến cache ngừng hit."
+      },
+      {
+        "key": "B",
+        "text": "The retrieval index drifted because the policy corpus grew during the same week.",
+        "text_vi": "Index truy xuất bị trôi dạt vì corpus chính sách tăng trong cùng tuần đó."
+      },
+      {
+        "key": "C",
+        "text": "The audit tool hit its rate limit and returned intermittent authorization failures.",
+        "text_vi": "Tool audit chạm rate limit và trả về lỗi authorization chập chờn."
+      },
+      {
+        "key": "D",
+        "text": "The model tier crept up because routing sent more requests to an expensive model.",
+        "text_vi": "Model tier bị đẩy lên vì routing gửi nhiều request hơn tới một model đắt tiền."
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "Inserting dynamic content such as a timestamp or user ID at the start of the prompt breaks the prompt caching prefix, so a cache that stopped hitting explains both the latency rise and the cost rise that began with the change. Retrieval drift would degrade quality, which is unchanged; tool rate limits would show as intermittent failures; and nothing in the change altered model routing.",
+    "explanation_vi": "Chèn nội dung động như timestamp hay user ID vào đầu prompt làm vỡ prefix của prompt caching, nên việc cache ngừng hit giải thích được cả latency lẫn chi phí tăng bắt đầu cùng thay đổi đó. Retrieval drift sẽ làm giảm chất lượng, trong khi chất lượng không đổi; rate limit của tool sẽ biểu hiện thành lỗi chập chờn; và thay đổi này không động gì tới routing model."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Support debugging and operational issue resolution",
+    "source": "output_5/05_Wrapup_Quiz_and_Glossary.md",
+    "question": "At a regional hospital, a first-line engineer followed the runbook entry for intermittent tool failures on the clinical-scheduling assistant, but the failures continued after every listed step. The engineer spent most of the night unsure whether to keep trying, wake someone up, or contact the vendor. Which team-operations artifact is missing?",
+    "question_vi": "Tại một bệnh viện khu vực, một kỹ sư tuyến đầu đã làm theo entry runbook cho lỗi tool chập chờn của trợ lý xếp lịch lâm sàng, nhưng lỗi vẫn tiếp diễn sau mọi bước được liệt kê. Kỹ sư mất gần như cả đêm không chắc nên tiếp tục thử, đánh thức ai đó hay liên hệ nhà cung cấp. Tài liệu vận hành nào của team đang thiếu?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "A verification checklist covering correctness, security, maintainability and human understanding.",
+        "text_vi": "Một verification checklist bao phủ correctness, security, maintainability và human understanding."
+      },
+      {
+        "key": "B",
+        "text": "An escalation path defining who handles what and when an issue leaves the first-line team.",
+        "text_vi": "Một escalation path xác định ai xử lý việc gì và khi nào sự cố rời khỏi team tuyến đầu."
+      },
+      {
+        "key": "C",
+        "text": "A shared configuration baseline with an agreed permission posture for the assistant.",
+        "text_vi": "Một baseline shared configuration với permission posture đã thống nhất cho trợ lý."
+      },
+      {
+        "key": "D",
+        "text": "A spend posture with per-user caps and a model allowlist for the clinical tools.",
+        "text_vi": "Một spend posture với per-user cap và model allowlist cho các tool lâm sàng."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "The runbook existed and was followed; what was missing is the escalation path, the named definition of who handles what and when an issue leaves the team, which tells first-line staff the boundary of what they resolve themselves. A verification checklist gates code before production, shared configuration standardizes the environment, and spend posture bounds cost; none of them define hand-off when a runbook step fails.",
+    "explanation_vi": "Runbook đã có và đã được làm theo; thứ còn thiếu là escalation path, định nghĩa cụ thể ai xử lý việc gì và khi nào sự cố rời khỏi team, giúp nhân sự tuyến đầu biết ranh giới những gì họ tự xử lý. Verification checklist là cổng cho code trước production, shared configuration chuẩn hóa môi trường, còn spend posture chặn trên chi phí; không cái nào định nghĩa việc chuyển giao khi một bước runbook thất bại."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Support debugging and operational issue resolution",
+    "source": "output_5/04_Operational_Issue_Resolution.md",
+    "question": "An energy utility's Architect is proud of resolving every incident on the outage-reporting assistant within an hour by personally diving into traces and fixing the problem. The operations manager notes that the team still cannot handle any incident alone and that the Architect is now supporting five deployments. What change in approach does the course recommend?",
+    "question_vi": "Architect của một công ty điện lực tự hào vì đã xử lý mọi sự cố của trợ lý báo cáo mất điện trong vòng một giờ bằng cách tự mình đi sâu vào traces và sửa lỗi. Quản lý vận hành nhận xét rằng team vẫn chưa tự xử lý được sự cố nào và Architect hiện đang hỗ trợ năm deployment. Course khuyến nghị thay đổi cách tiếp cận nào?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Keep resolving incidents personally, since fast resolution is the clearest proof of the Architect's value.",
+        "text_vi": "Tiếp tục tự xử lý sự cố, vì xử lý nhanh là bằng chứng rõ ràng nhất cho giá trị của Architect."
+      },
+      {
+        "key": "B",
+        "text": "Hire an additional Architect so that each deployment has dedicated incident coverage around the clock.",
+        "text_vi": "Tuyển thêm một Architect để mỗi deployment có người xử lý sự cố chuyên trách suốt ngày đêm."
+      },
+      {
+        "key": "C",
+        "text": "Ask the team to log incidents and hold them for a monthly review session with the Architect.",
+        "text_vi": "Yêu cầu team ghi lại sự cố và giữ chúng cho một buổi review hằng tháng với Architect."
+      },
+      {
+        "key": "D",
+        "text": "Walk the team through the symptom-to-cause path during incidents and leave a runbook entry each time.",
+        "text_vi": "Dẫn team đi qua con đường từ triệu chứng đến nguyên nhân trong lúc xử lý sự cố và để lại một entry runbook mỗi lần."
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "Resolving incidents yourself is firefighting; support that lasts teaches the team the symptom-to-cause path and leaves runbook entries, so the Architect is needed only for new problems and load falls over time. Continuing to fix everything personally repeats the load across five deployments, adding Architects scales the same anti-pattern, and holding incidents for a monthly review delays resolution like the drift that waited for a quarterly review.",
+    "explanation_vi": "Tự mình xử lý sự cố là chữa cháy; hỗ trợ bền vững là dạy team con đường từ triệu chứng đến nguyên nhân và để lại các entry runbook, nhờ đó chỉ cần Architect cho vấn đề mới và tải giảm dần theo thời gian. Tiếp tục tự sửa mọi thứ lặp lại tải trên năm deployment, tuyển thêm Architect nhân rộng cùng một anti-pattern, còn giữ sự cố cho buổi review hằng tháng làm chậm việc xử lý giống như bài học drift chờ đến buổi review hằng quý."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Support debugging and operational issue resolution",
+    "source": "output_5/04_Operational_Issue_Resolution.md",
+    "question": "A city government's citizen-services assistant kept green uptime and error-rate dashboards for a whole quarter while answer quality slowly declined; the cause, a growing corpus that the index had not kept pace with, was found only at the quarterly business review. Leadership asks how to catch this kind of problem the day it starts. What should the Architect add?",
+    "question_vi": "Trợ lý dịch vụ công dân của một chính quyền thành phố giữ dashboard uptime và tỷ lệ lỗi xanh suốt cả quý trong khi chất lượng câu trả lời giảm dần; nguyên nhân, một corpus tăng nhanh hơn khả năng theo kịp của index, chỉ được phát hiện ở buổi review kinh doanh hằng quý. Ban lãnh đạo hỏi làm sao bắt được loại vấn đề này ngay ngày nó bắt đầu. Architect nên bổ sung gì?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Additional CPU, memory and uptime alerts with tighter thresholds on the existing dashboards.",
+        "text_vi": "Thêm cảnh báo CPU, memory và uptime với ngưỡng chặt hơn trên các dashboard hiện có."
+      },
+      {
+        "key": "B",
+        "text": "Full request logging retained for a year so the next quarterly review has more data to analyze.",
+        "text_vi": "Ghi log đầy đủ mọi request và lưu một năm để buổi review hằng quý tới có nhiều dữ liệu phân tích hơn."
+      },
+      {
+        "key": "C",
+        "text": "Scheduled evals with alert thresholds, plus a runbook entry for gradual quality decline.",
+        "text_vi": "Eval định kỳ có ngưỡng cảnh báo, kèm một entry runbook cho trường hợp chất lượng giảm dần."
+      },
+      {
+        "key": "D",
+        "text": "A move from quarterly to semi-annual business reviews so that trends become easier to see.",
+        "text_vi": "Chuyển từ review kinh doanh hằng quý sang nửa năm một lần để xu hướng dễ thấy hơn."
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "Infrastructure dashboards do not measure answer quality, so scheduled evals with alert thresholds turn slow degradation into a signal, and a runbook entry saying gradual decline with no code change points at model, prompt or retrieval drift lets first-line engineers resolve it quickly. Infrastructure alerts measure the wrong thing, logs that nobody analyzes until a review raise no alert, and less frequent reviews would detect the drift even later.",
+    "explanation_vi": "Dashboard hạ tầng không đo được chất lượng câu trả lời, nên eval định kỳ có ngưỡng cảnh báo biến suy giảm chậm thành một tín hiệu, và một entry runbook ghi rằng chất lượng giảm dần không đổi code chỉ tới model, prompt hoặc retrieval drift giúp kỹ sư tuyến đầu xử lý nhanh. Cảnh báo hạ tầng đo sai thứ cần đo, log không ai phân tích cho đến buổi review thì không tạo ra cảnh báo, còn review thưa hơn sẽ phát hiện drift còn muộn hơn."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Support debugging and operational issue resolution",
+    "source": "output_5/04_Operational_Issue_Resolution.md",
+    "question": "At an automotive parts manufacturer, a shared Skill that generates supplier quality reports, distributed through a version-controlled organization plugin, suddenly started producing reports in the wrong format for every plant this morning. Change history shows a prompt edit to the Skill merged yesterday without review. What should the team do first?",
+    "question_vi": "Tại một nhà sản xuất phụ tùng ô tô, một Skill dùng chung để sinh báo cáo chất lượng nhà cung cấp, được phân phối qua một organization plugin có kiểm soát phiên bản, sáng nay đột nhiên tạo báo cáo sai format cho mọi nhà máy. Lịch sử thay đổi cho thấy một chỉnh sửa prompt của Skill được merge hôm qua mà không qua review. Team nên làm gì trước tiên?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Ask each plant to correct the reports by hand until the author has time to fix the prompt directly.",
+        "text_vi": "Yêu cầu từng nhà máy sửa báo cáo bằng tay cho đến khi tác giả có thời gian sửa trực tiếp prompt."
+      },
+      {
+        "key": "B",
+        "text": "Roll back to the previous Skill version, then run a small eval and assign a change owner.",
+        "text_vi": "Rollback về phiên bản Skill trước, sau đó chạy một eval nhỏ và chỉ định owner cho các thay đổi."
+      },
+      {
+        "key": "C",
+        "text": "Move the Skill to an org-provisioned Skill so future updates reach every plant more quickly.",
+        "text_vi": "Chuyển Skill sang org-provisioned Skill để các cập nhật sau này đến mọi nhà máy nhanh hơn."
+      },
+      {
+        "key": "D",
+        "text": "Switch the Skill to a more capable model tier so it follows the report template more reliably.",
+        "text_vi": "Chuyển Skill sang model tier mạnh hơn để nó tuân theo mẫu báo cáo đáng tin cậy hơn."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "The change history identifies the variable that changed, and because the plugin is version-controlled the fastest safe action is to roll back, then validate the edit with a small eval and put an owner in place so unreviewed edits stop shipping. Manual correction lets bad output keep spreading, an org-provisioned Skill has no native rollback and would remove the safety net, and a stronger model ignores the actual cause, a prompt edit.",
+    "explanation_vi": "Lịch sử thay đổi đã chỉ ra biến số thay đổi, và vì plugin có kiểm soát phiên bản nên hành động an toàn nhanh nhất là rollback, sau đó kiểm chứng chỉnh sửa bằng một eval nhỏ và chỉ định owner để các chỉnh sửa không qua review thôi được phát hành. Sửa tay để output xấu tiếp tục lan rộng, org-provisioned Skill không có rollback gốc nên sẽ mất đi lưới an toàn, còn model mạnh hơn bỏ qua nguyên nhân thực sự là một chỉnh sửa prompt."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Support debugging and operational issue resolution",
+    "source": "output_5/04_Operational_Issue_Resolution.md",
+    "question": "A fintech runs Claude Code headless in its CI pipeline to draft changelog entries. After working for weeks, runs started hanging or failing yesterday. Nothing in the prompt changed, but a pipeline refactor added a new step that asks Claude to run the project's lint script, and the CI service account's token rotation date was this week. What should the team check first?",
+    "question_vi": "Một công ty fintech chạy Claude Code ở chế độ headless trong CI pipeline để soạn các mục changelog. Sau nhiều tuần hoạt động tốt, từ hôm qua các lần chạy bắt đầu bị treo hoặc thất bại. Prompt không thay đổi gì, nhưng một lần refactor pipeline đã thêm bước yêu cầu Claude chạy lint script của dự án, và ngày xoay vòng token của service account CI rơi vào tuần này. Team nên kiểm tra gì trước tiên?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Switch the job to bypassPermissions on the shared runner so the agent no longer waits for approval.",
+        "text_vi": "Chuyển job sang bypassPermissions trên runner dùng chung để agent không còn phải chờ duyệt."
+      },
+      {
+        "key": "B",
+        "text": "Upgrade the model used in CI, since a stronger model is less likely to stall on multi-step tasks.",
+        "text_vi": "Nâng cấp model dùng trong CI, vì model mạnh hơn ít có khả năng bị kẹt ở các tác vụ nhiều bước."
+      },
+      {
+        "key": "C",
+        "text": "Rewrite the changelog prompt with more detailed step-by-step instructions for the agent.",
+        "text_vi": "Viết lại prompt changelog với hướng dẫn từng bước chi tiết hơn cho agent."
+      },
+      {
+        "key": "D",
+        "text": "Check the allowlist for the new lint command and pipeline secrets; read a failed run's log.",
+        "text_vi": "Kiểm tra allowlist cho lệnh lint mới và secrets của pipeline; đọc log của một lần chạy lỗi."
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "A headless agent that hangs or fails typically lacks permission for a needed tool in non-interactive mode or has an expired CI credential, and both changed here, so the first action is to check the allowlist and pipeline secrets and read a failed run's log. Bypassing permissions on a shared runner violates least privilege, a stronger model does not grant missing permissions or credentials, and the prompt did not change.",
+    "explanation_vi": "Một agent headless bị treo hoặc thất bại thường thiếu quyền cho một tool cần thiết ở chế độ non-interactive hoặc có credential CI đã hết hạn, và cả hai đều đã thay đổi ở đây, nên hành động đầu tiên là kiểm tra allowlist và secrets của pipeline và đọc log của một lần chạy lỗi. Bỏ qua permission trên runner dùng chung vi phạm least privilege, model mạnh hơn không cấp được quyền hay credential còn thiếu, và prompt thì không hề thay đổi."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Support debugging and operational issue resolution",
+    "source": "output_5/04_Operational_Issue_Resolution.md",
+    "question": "A law firm's Architect was called three times this month for the same pattern on the contract-search assistant: answers degrade gradually after large batches of new precedents are added to the corpus. Each time the Architect diagnosed and fixed it personally. Which TWO actions would most durably reduce the Architect's load? (Choose TWO.)",
+    "question_vi": "Architect của một công ty luật bị gọi ba lần trong tháng này cho cùng một mẫu sự cố trên trợ lý tìm kiếm hợp đồng: câu trả lời giảm chất lượng dần sau khi các đợt lớn án lệ mới được thêm vào corpus. Mỗi lần Architect đều tự chẩn đoán và sửa. HAI hành động nào giảm tải cho Architect một cách bền vững nhất? (Chọn HAI đáp án.)",
+    "type": "multiple",
+    "options": [
+      {
+        "key": "A",
+        "text": "Write a runbook entry with the team: symptom, likely causes, checks to run and actions to take.",
+        "text_vi": "Cùng team viết một entry runbook: triệu chứng, nguyên nhân khả dĩ, các bước kiểm tra và hành động cần làm."
+      },
+      {
+        "key": "B",
+        "text": "Keep fixing it personally each time, because a fast fix minimizes disruption to attorneys.",
+        "text_vi": "Tiếp tục tự sửa mỗi lần, vì sửa nhanh giảm tối đa gián đoạn cho luật sư."
+      },
+      {
+        "key": "C",
+        "text": "Define an escalation path: first line resolves via the runbook and escalates on clear criteria.",
+        "text_vi": "Định nghĩa escalation path: tuyến đầu xử lý theo runbook và chuyển lên khi vượt các tiêu chí rõ ràng."
+      },
+      {
+        "key": "D",
+        "text": "Schedule a quarterly quality review to catch the decline across all batches at once.",
+        "text_vi": "Lên lịch review chất lượng hằng quý để bắt suy giảm của tất cả các đợt cùng một lúc."
+      },
+      {
+        "key": "E",
+        "text": "Raise the model tier so it can compensate for weaker retrieval after each corpus update.",
+        "text_vi": "Nâng model tier để bù đắp cho truy xuất kém hơn sau mỗi lần cập nhật corpus."
+      }
+    ],
+    "answer": [
+      "A",
+      "C"
+    ],
+    "explanation": "A runbook captures the known symptom-to-cause-to-action path so the team resolves recurring issues without the Architect, and an escalation path sets the boundary of what first line handles and when to hand off. Fixing it personally is firefighting that repeats the load, a quarterly review is exactly how drift goes unnoticed for months, and a bigger model masks the index problem while adding cost.",
+    "explanation_vi": "Runbook ghi lại con đường đã biết từ triệu chứng đến nguyên nhân đến hành động để team xử lý sự cố lặp lại mà không cần Architect, còn escalation path đặt ranh giới những gì tuyến đầu xử lý và khi nào chuyển giao. Tự sửa là chữa cháy và lặp lại tải, review hằng quý chính là cách drift bị bỏ sót nhiều tháng, còn model lớn hơn che giấu vấn đề index và tăng chi phí."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Support debugging and operational issue resolution",
+    "source": "output_5/04_Operational_Issue_Resolution.md",
+    "question": "An airline's rebooking assistant shows a latency spike that began two weeks ago. Error rates are normal, answer quality is unchanged, and spend per request is flat. While the team pulls traces, the Architect lists the likely architecture causes the course associates with this symptom. Which TWO belong on that list? (Choose TWO.)",
+    "question_vi": "Trợ lý đổi vé của một hãng hàng không có latency tăng vọt bắt đầu từ hai tuần trước. Tỷ lệ lỗi bình thường, chất lượng câu trả lời không đổi, và chi phí mỗi request không đổi. Trong khi team thu thập traces, Architect liệt kê các nguyên nhân kiến trúc khả dĩ mà course gắn với triệu chứng này. HAI nguyên nhân nào thuộc danh sách đó? (Chọn HAI đáp án.)",
+    "type": "multiple",
+    "options": [
+      {
+        "key": "A",
+        "text": "Retrieval drift as the fare-rules corpus grew beyond what the index tracks.",
+        "text_vi": "Retrieval drift khi corpus quy tắc giá vé tăng vượt quá những gì index theo dõi."
+      },
+      {
+        "key": "B",
+        "text": "The context sent with each request grew, for example longer conversation history.",
+        "text_vi": "Context gửi kèm mỗi request đã phình to, ví dụ lịch sử hội thoại dài hơn."
+      },
+      {
+        "key": "C",
+        "text": "The default model tier crept up through routing to a more expensive model.",
+        "text_vi": "Model tier mặc định bị đẩy lên do routing sang một model đắt hơn."
+      },
+      {
+        "key": "D",
+        "text": "A tool the assistant depends on, such as the seat-inventory API, got slow.",
+        "text_vi": "Một tool mà trợ lý phụ thuộc, ví dụ API tồn kho chỗ ngồi, trở nên chậm."
+      },
+      {
+        "key": "E",
+        "text": "An expired authorization token causing intermittent tool-call failures.",
+        "text_vi": "Một token authorization hết hạn gây lỗi gọi tool chập chờn."
+      }
+    ],
+    "answer": [
+      "B",
+      "D"
+    ],
+    "explanation": "The course maps a latency spike to context size growth, a slow tool, or a cache that stopped hitting, so growing context and a slower dependent tool belong on the list. Retrieval drift shows up as quality decline, which is unchanged; model tier creep shows up as higher cost, which is flat; and expired authorization shows up as intermittent tool failures, while error rates are normal.",
+    "explanation_vi": "Course gắn latency tăng vọt với context phình to, một tool chậm, hoặc cache ngừng hit, nên context tăng và một tool phụ thuộc bị chậm thuộc danh sách. Retrieval drift biểu hiện thành giảm chất lượng, trong khi chất lượng không đổi; model tier creep biểu hiện thành chi phí cao hơn, trong khi chi phí không đổi; còn authorization hết hạn biểu hiện thành lỗi tool chập chờn, trong khi tỷ lệ lỗi bình thường."
+  },
+  {
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Support debugging and operational issue resolution",
+    "source": "output_5/04_Operational_Issue_Resolution.md",
+    "question": "A national tax authority is handing its taxpayer-help assistant to an internal operations team. During the pilot, first-line engineers either escalated every minor issue straight to the Architect or sat on serious data-exposure concerns for days. The Architect is now writing the escalation path. Which TWO elements should it contain? (Choose TWO.)",
+    "question_vi": "Một cơ quan thuế quốc gia đang bàn giao trợ lý hỗ trợ người nộp thuế cho một team vận hành nội bộ. Trong pilot, kỹ sư tuyến đầu hoặc escalate mọi vấn đề nhỏ thẳng lên Architect, hoặc giữ các lo ngại nghiêm trọng về lộ dữ liệu trong nhiều ngày. Architect đang viết escalation path. Nó nên chứa HAI thành phần nào? (Chọn HAI đáp án.)",
+    "type": "multiple",
+    "options": [
+      {
+        "key": "A",
+        "text": "Clear tiers with named owners and contact channels, from first line through platform owner to the Architect and vendor.",
+        "text_vi": "Các tầng rõ ràng với người phụ trách và kênh liên lạc cụ thể, từ tuyến đầu qua platform owner đến Architect và nhà cung cấp."
+      },
+      {
+        "key": "B",
+        "text": "A rule that every issue, whatever its size, goes directly to the Architect for triage.",
+        "text_vi": "Một quy tắc rằng mọi vấn đề, bất kể lớn nhỏ, đều chuyển thẳng tới Architect để phân loại."
+      },
+      {
+        "key": "C",
+        "text": "A rule that first-line engineers must not take any action until a senior engineer is online.",
+        "text_vi": "Một quy tắc rằng kỹ sư tuyến đầu không được hành động gì cho đến khi có kỹ sư senior trực tuyến."
+      },
+      {
+        "key": "D",
+        "text": "A policy of collecting unresolved issues for discussion at the next quarterly review.",
+        "text_vi": "Một chính sách gom các vấn đề chưa giải quyết để thảo luận ở buổi review hằng quý tiếp theo."
+      },
+      {
+        "key": "E",
+        "text": "Criteria for moving up a tier, such as impact, time unresolved, and security or compliance risk.",
+        "text_vi": "Tiêu chí chuyển lên tầng trên, như mức độ ảnh hưởng, thời gian chưa giải quyết, và rủi ro bảo mật hoặc compliance."
+      }
+    ],
+    "answer": [
+      "A",
+      "E"
+    ],
+    "explanation": "An escalation path names who handles what and when an issue leaves the team, so it needs explicit tiers with owners and channels and clear criteria for moving up, which fixes both over-escalation of minor issues and slow escalation of data-exposure risks. Sending everything to the Architect defeats self-sufficiency, forbidding first-line action removes the runbook's purpose, and deferring to a quarterly review delays serious issues.",
+    "explanation_vi": "Escalation path xác định ai xử lý việc gì và khi nào sự cố rời khỏi team, nên cần các tầng rõ ràng có người phụ trách và kênh liên lạc cùng tiêu chí chuyển tầng rõ ràng, giải quyết được cả việc escalate quá mức các vấn đề nhỏ lẫn việc chậm escalate rủi ro lộ dữ liệu. Đẩy mọi thứ lên Architect phá vỡ sự tự chủ, cấm tuyến đầu hành động làm mất ý nghĩa của runbook, còn dời sang buổi review hằng quý làm chậm xử lý các vấn đề nghiêm trọng."
+  }
+]

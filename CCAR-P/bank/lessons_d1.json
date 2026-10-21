@@ -1,0 +1,950 @@
+{
+  "domain": 1,
+  "title": "Solution Design & Architecture",
+  "title_vi": "Thiết kế giải pháp & Kiến trúc",
+  "weight": 17,
+  "overview": "This domain tests whether you can turn an ambiguous business request into a Claude architecture you can build, fund and defend. Think in the course's order of decisions: translate the problem and constraints, decompose the work across Claude, existing systems and humans, choose the simplest pattern that meets error tolerance and observability, wire it with a proven reference architecture and feedback loops, and tie every choice to a measurable business value pillar.",
+  "overview_vi": "Domain này kiểm tra liệu bạn có biến được một yêu cầu kinh doanh mơ hồ thành một kiến trúc Claude có thể build, cấp vốn và bảo vệ được hay không. Hãy tư duy theo thứ tự quyết định của khóa học: chuyển dịch bài toán và constraint, phân rã công việc giữa Claude, hệ thống hiện có và con người, chọn pattern đơn giản nhất đáp ứng error tolerance và observability, đi dây bằng reference architecture đã được chứng minh cùng các vòng phản hồi, và gắn mọi lựa chọn với một trụ cột giá trị kinh doanh đo được.",
+  "topics": [
+    {
+      "id": "d1-t1",
+      "objective": "Translate business problems into Claude-based AI solutions",
+      "title": "From business problem to a scoped Claude solution",
+      "title_vi": "Từ bài toán kinh doanh đến giải pháp Claude có phạm vi rõ ràng",
+      "sources": [
+        "output/01_Module_Introduction.md",
+        "output_4/02_Discovery_and_Scoping.md",
+        "output_4/09_Supplement_Business_Value_and_Discovery_Toolkit.md",
+        "output_2/04_Sizing_and_Feasibility.md",
+        "output/11_Assembly_Recap.md"
+      ],
+      "sections": [
+        {
+          "heading": "Four decisions, in order",
+          "heading_vi": "Bốn quyết định, theo đúng thứ tự",
+          "body": "Designing a Claude solution goes beyond choosing a model. Before building, four decisions shape everything: what part of the work Claude should own (versus existing systems and humans), what shape the work is (augmented call, workflow or agent), which reference architecture you are committing to, and where the work interacts with Claude (entry point, model, context strategy). Getting these out of order is the most reliable path to an expensive pivot.\n\nGovernance and regulated-industry constraints act as a pre-filter: they rule out a route or entry point before any cost or latency tradeoff is considered. For example, if a hospital compares two options and the cheaper one runs through a route without a BAA, that option is eliminated first; only then do you compare cost and latency among the survivors. Exam questions that ask what the architect should do FIRST usually reward the earlier decision in this chain (clarify the problem, decompose the work) rather than picking a model or tool.",
+          "body_vi": "Thiết kế một giải pháp Claude không chỉ là chọn model. Trước khi build, bốn quyết định định hình mọi thứ: phần việc nào Claude nên sở hữu (so với hệ thống hiện có và con người), công việc có hình dạng gì (augmented call, workflow hay agent), bạn cam kết với reference architecture nào, và công việc tương tác với Claude ở đâu (entry point, model, context strategy). Làm sai thứ tự là con đường chắc chắn nhất dẫn tới một lần pivot tốn kém.\n\nCác ràng buộc governance và ngành được quản lý (regulated industry) đóng vai trò bộ lọc trước: chúng loại bỏ một route hay entry point trước khi xét bất kỳ đánh đổi cost hay latency nào. Ví dụ, nếu một bệnh viện so sánh hai phương án và phương án rẻ hơn đi qua route không có BAA, phương án đó bị loại trước; chỉ sau đó mới so sánh cost và latency giữa các phương án còn lại. Câu hỏi thi hỏi architect nên làm gì ĐẦU TIÊN thường thưởng cho quyết định đứng sớm hơn trong chuỗi (làm rõ bài toán, phân rã công việc) thay vì chọn model hay công cụ.",
+          "bullets": [
+            {
+              "en": "Decision 1: what Claude owns vs existing systems vs humans (decomposition).",
+              "vi": "Quyết định 1: Claude sở hữu gì, hệ thống hiện có làm gì, con người làm gì (decomposition)."
+            },
+            {
+              "en": "Decision 2: the shape of the work (augmented LLM, workflow, agent).",
+              "vi": "Quyết định 2: hình dạng công việc (augmented LLM, workflow, agent)."
+            },
+            {
+              "en": "Decision 3: the reference architecture you can name and defend.",
+              "vi": "Quyết định 3: reference architecture mà bạn gọi tên và bảo vệ được."
+            },
+            {
+              "en": "Decision 4: entry point, model and context strategy; governance filters first, cost/latency second.",
+              "vi": "Quyết định 4: entry point, model và context strategy; governance lọc trước, cost/latency cân sau."
+            }
+          ]
+        },
+        {
+          "heading": "Discovery: listen, translate, write down",
+          "heading_vi": "Discovery: lắng nghe, chuyển dịch, ghi lại",
+          "body": "A discovery call is a structured elicitation, not a conversation. It works as a three-step filter: listen to the business goal in plain language, translate it into requirements, assumptions and unresolved constraints, and write them down before the conversation moves on. The core move is translation: a stated preference almost always hides a constraint. When a stakeholder says 'seamless', 'fast', 'simple' or 'intuitive', ask what would make it NOT seamless. The answers become testable, bounded constraints such as a p95 latency target, a no-re-entry integration requirement, a handoff rule and a safe failure path.\n\nForce every vague statement into four buckets: what the system must do, what it must not do, what it must cost (budget, latency target, volume forecast), and what it must prove (evidence and proof obligations, especially in regulated workflows). Stakeholders volunteer the must-do bucket; must-not-do and must-prove are rarely volunteered and must be asked for explicitly. The output is a translation table with one row per item: stakeholder statement, implied constraint, required architectural decision, and the assumption being documented.",
+          "body_vi": "Một buổi discovery là một quá trình khai thác yêu cầu có cấu trúc, không phải một cuộc trò chuyện. Nó hoạt động như bộ lọc ba bước: lắng nghe mục tiêu kinh doanh bằng ngôn ngữ thường, chuyển dịch nó thành requirement, assumption và constraint chưa được giải quyết, và ghi chúng lại trước khi cuộc trò chuyện chuyển sang chủ đề khác. Động tác cốt lõi là chuyển dịch: một preference được nói ra gần như luôn che giấu một constraint. Khi stakeholder nói 'seamless', 'nhanh', 'đơn giản' hay 'trực quan', hãy hỏi điều gì sẽ khiến nó KHÔNG seamless. Câu trả lời trở thành các constraint kiểm chứng được (testable) và có biên (bounded), như mục tiêu p95 latency, yêu cầu tích hợp không nhập lại dữ liệu, quy tắc chuyển giao và một đường lỗi an toàn.\n\nĐưa mọi phát biểu mơ hồ vào bốn bucket: hệ thống phải làm gì, không được làm gì, phải tốn bao nhiêu (ngân sách, mục tiêu latency, dự báo volume), và phải chứng minh gì (bằng chứng và nghĩa vụ chứng minh, đặc biệt trong workflow được quản lý). Stakeholder tự nói về bucket must-do; must-not-do và must-prove hiếm khi được nói ra và phải được hỏi tường minh. Đầu ra là một translation table, mỗi hạng mục một hàng: phát biểu của stakeholder, constraint ngầm định, quyết định kiến trúc bắt buộc, và assumption đang được ghi nhận.",
+          "bullets": [
+            {
+              "en": "Watch out: a discovery call that turns into a design session too early ends the questions; constraints then surface in compliance review.",
+              "vi": "Cảnh giác: buổi discovery biến thành buổi thiết kế quá sớm sẽ chấm dứt việc đặt câu hỏi; constraint sau đó lộ ra ở compliance review."
+            },
+            {
+              "en": "Words like 'just', 'quick check', 'anyway' signal a constraint to chase down (e.g. a mandatory licensed-clinician authorization gate).",
+              "vi": "Các từ như 'chỉ', 'kiểm tra nhanh', 'dù sao' là tín hiệu một constraint cần đào sâu (ví dụ gate phê duyệt bắt buộc của clinician có giấy phép)."
+            },
+            {
+              "en": "An unsourced item in a requirements document is an undocumented assumption: label it and confirm it with the stakeholder and compliance.",
+              "vi": "Một mục không có nguồn trong tài liệu requirement là assumption chưa được ghi nhận: gắn nhãn và xác nhận với stakeholder và compliance."
+            }
+          ]
+        },
+        {
+          "heading": "Scoping and feasibility before commitment",
+          "heading_vi": "Xác định phạm vi và tính khả thi trước khi cam kết",
+          "body": "Scoping runs in four steps: business requirement to capability list (name each capability separately: 'process insurance claims' is a goal, not a capability), capability list to architecture sketch (decide owner per capability), sketch to boundary conditions (when the architecture works and when it does not), and boundary conditions into the statement of work (SOW) so the development team and business owner agree what is in and out of scope.\n\nA feasibility assessment that only asks 'can Claude do this' is just a capability check. Use the four AI properties to find where compensating controls are needed: next-token prediction (precision on specific values needs verification), knowledge (rare, recent or proprietary information must be brought into context via RAG or tool calls), working memory (inputs that exceed the window need chunking, progressive loading or a pipeline), and steerability (precise computation belongs to code; use schemas and evaluator-optimizer loops). The verdict is one of three: feasible as scoped, feasible with constraints, or not feasible, and it must name the load-bearing constraint. Gather volume, input size, latency SLA, cost ceiling and compliance constraints before issuing any verdict: the verdict is only as sound as the constraints gathered before it.",
+          "body_vi": "Việc xác định phạm vi gồm bốn bước: từ requirement kinh doanh sang danh sách capability (gọi tên từng capability riêng: 'xử lý hồ sơ bảo hiểm' là mục tiêu, không phải capability), từ danh sách capability sang phác thảo kiến trúc (quyết định owner cho từng capability), từ phác thảo sang boundary condition (khi nào kiến trúc hoạt động và khi nào không), và đưa boundary condition vào statement of work (SOW) để đội phát triển và business owner thống nhất cái gì trong và ngoài phạm vi.\n\nMột đánh giá khả thi chỉ hỏi 'Claude có làm được không' chỉ là kiểm tra năng lực. Dùng bốn thuộc tính AI để tìm chỗ cần compensating control: next-token prediction (độ chính xác của giá trị cụ thể cần được kiểm chứng), knowledge (thông tin hiếm, mới hoặc độc quyền phải được đưa vào context qua RAG hoặc tool call), working memory (input vượt window cần chunking, progressive loading hoặc pipeline), và steerability (phép tính chính xác thuộc về code; dùng schema và vòng evaluator-optimizer). Verdict là một trong ba: feasible as scoped, feasible with constraints, hoặc not feasible, và phải nêu tên load-bearing constraint. Thu thập volume, kích thước input, latency SLA, cost ceiling và ràng buộc compliance trước khi đưa ra bất kỳ verdict nào: verdict chỉ vững chắc bằng các constraint đã thu thập trước nó.",
+          "bullets": []
+        }
+      ],
+      "table": {
+        "caption": "Feasibility verdicts and what to document",
+        "caption_vi": "Các feasibility verdict và nội dung cần ghi lại",
+        "headers": [
+          "Verdict",
+          "Meaning",
+          "What to document"
+        ],
+        "headers_vi": [
+          "Verdict",
+          "Ý nghĩa",
+          "Cần ghi lại"
+        ],
+        "rows": [
+          [
+            "Feasible as scoped",
+            "All four AI properties favour Claude per capability; cost within ceiling; p95 within SLA",
+            "State the assumptions; the verdict changes when they change"
+          ],
+          [
+            "Feasible with constraints",
+            "Works only under enforced conditions (length threshold, index refresh, review gate)",
+            "Each constraint explicitly, plus the failure mode if violated"
+          ],
+          [
+            "Not feasible",
+            "An AI-property limit or cost gap that cannot be compensated within scope and budget",
+            "The disqualifying constraint and any scope reduction that would change the verdict"
+          ]
+        ]
+      },
+      "keyPoints": [
+        {
+          "en": "Order of decisions: decompose, choose pattern, choose reference architecture, then model/context/entry point; governance rules out options before cost or latency.",
+          "vi": "Thứ tự quyết định: phân rã, chọn pattern, chọn reference architecture, rồi model/context/entry point; governance loại phương án trước cost hay latency."
+        },
+        {
+          "en": "Start problem-first: a one-sentence problem statement and a measured baseline, not a technology ('we want a chatbot').",
+          "vi": "Bắt đầu từ bài toán: một câu problem statement và baseline đã đo, không phải từ công nghệ ('chúng tôi muốn chatbot')."
+        },
+        {
+          "en": "Translate preferences into testable, bounded constraints using the four buckets: must do, must not do, must cost, must prove.",
+          "vi": "Chuyển preference thành constraint testable, bounded bằng bốn bucket: must do, must not do, must cost, must prove."
+        },
+        {
+          "en": "Every requirement must trace back to a stakeholder statement; anything that does not is an assumption to label and confirm.",
+          "vi": "Mọi requirement phải truy được về một phát biểu của stakeholder; cái gì không truy được là assumption cần gắn nhãn và xác nhận."
+        },
+        {
+          "en": "Feasibility = verdict + load-bearing constraint; a capability demo is necessary but not sufficient.",
+          "vi": "Feasibility = verdict + load-bearing constraint; demo năng lực là cần nhưng chưa đủ."
+        },
+        {
+          "en": "Engage compliance, privacy and security as Consulted stakeholders during discovery, not at final review.",
+          "vi": "Mời compliance, privacy và security tham gia với vai trò Consulted ngay trong discovery, không phải ở review cuối."
+        }
+      ],
+      "examTips": [
+        {
+          "en": "'What should the architect do FIRST?' usually rewards clarifying the problem, baseline or decomposition, not benchmarking models or proposing an agent.",
+          "vi": "'Architect nên làm gì ĐẦU TIÊN?' thường thưởng cho việc làm rõ bài toán, baseline hoặc phân rã, không phải benchmark model hay đề xuất agent."
+        },
+        {
+          "en": "If a project is blocked late by legal or compliance, the root cause is usually skipped must-prove / must-not-do questions in discovery.",
+          "vi": "Nếu dự án bị legal hay compliance chặn muộn, nguyên nhân gốc thường là bỏ qua câu hỏi must-prove / must-not-do trong discovery."
+        },
+        {
+          "en": "Eliminate options that 'build a prototype first to show progress' or 'confirm feasibility now and gather constraints later'.",
+          "vi": "Loại các phương án 'làm prototype trước để thể hiện tiến độ' hoặc 'xác nhận khả thi ngay rồi thu thập constraint sau'."
+        },
+        {
+          "en": "Knowledge gap (proprietary, recent) points to RAG or tools; working memory (input exceeds window) points to chunking, progressive loading or a pipeline.",
+          "vi": "Knowledge gap (độc quyền, mới) dẫn tới RAG hoặc tool; working memory (input vượt window) dẫn tới chunking, progressive loading hoặc pipeline."
+        }
+      ],
+      "terms": [
+        {
+          "term": "Translation table",
+          "en": "Discovery output with one row per item: stakeholder statement, implied constraint, required architectural decision, and documented assumption.",
+          "vi": "Đầu ra của discovery, mỗi hạng mục một hàng: phát biểu của stakeholder, constraint ngầm định, quyết định kiến trúc bắt buộc và assumption được ghi nhận."
+        },
+        {
+          "term": "Four discovery buckets",
+          "en": "Must do, must not do, must cost, must prove: the categories that turn vague statements into requirements.",
+          "vi": "Must do, must not do, must cost, must prove: các nhóm biến phát biểu mơ hồ thành requirement."
+        },
+        {
+          "term": "Load-bearing constraint",
+          "en": "The single constraint that, if removed or violated, makes the feasibility verdict collapse.",
+          "vi": "Constraint duy nhất mà nếu bị bỏ hoặc vi phạm thì feasibility verdict sụp đổ."
+        },
+        {
+          "term": "Boundary condition",
+          "en": "A stated condition under which the architecture works or does not (e.g. documents up to 20 pages); it belongs in the SOW.",
+          "vi": "Điều kiện được nêu rõ mà kiến trúc hoạt động hoặc không (ví dụ tài liệu tối đa 20 trang); thuộc về SOW."
+        },
+        {
+          "term": "Undocumented assumption",
+          "en": "A requirement the architect introduced without any stakeholder statement behind it; the most dangerous kind because nobody remembers deciding it.",
+          "vi": "Requirement do architect tự đưa vào mà không có phát biểu stakeholder nào đứng sau; loại nguy hiểm nhất vì không ai nhớ đã quyết định nó."
+        }
+      ]
+    },
+    {
+      "id": "d1-t2",
+      "objective": "Design end-to-end architectures (input → processing → output → feedback loops)",
+      "title": "End-to-end architecture with feedback loops",
+      "title_vi": "Kiến trúc end-to-end với các vòng phản hồi",
+      "sources": [
+        "output/13_Supplement_Business_Value_End_to_End.md",
+        "output/06_Reference_Architectures.md",
+        "output/11_Assembly_Recap.md",
+        "output/05_Pattern_Selection.md"
+      ],
+      "sections": [
+        {
+          "heading": "Four blocks: input, processing, output, feedback",
+          "heading_vi": "Bốn khối: input, processing, output, feedback",
+          "body": "A shippable Claude solution is more than one model call. Draw all four blocks. Input: channels (web app, email, API, upload, events), user authentication and authorization, cleaning and PII redaction, classification and routing. Processing: the decomposition across Claude, systems and humans; the pattern (augmented, workflow, agent); RAG or tool calls; model tier per step; context strategy and caching. Output: validation (schema, rules, guardrails), actions on systems with a human gate when they are irreversible, and results returned with citations.\n\nExample for an e-commerce support assistant: input is web chat with customer authentication, unnecessary PII masked and an intent classifier on a fast tier; processing routes FAQs to RAG, order status to a get_order tool, refunds to a rule engine plus human approval above a threshold, and composes replies with a cached system prompt; output follows a JSON output contract and is checked for promises outside policy; feedback captures CSAT, escalation rate and agent-corrected answers that feed a weekly eval set.",
+          "body_vi": "Một giải pháp Claude có thể đưa vào production (shippable) không chỉ là một lời gọi model. Hãy vẽ đủ bốn khối. Input: kênh (web app, email, API, upload, sự kiện), xác thực và phân quyền người dùng, làm sạch và che PII (PII redaction), phân loại và routing. Processing: phân rã giữa Claude, hệ thống và con người; pattern (augmented, workflow, agent); RAG hoặc tool call; model tier theo từng bước; context strategy và caching. Output: validation (schema, rule, guardrail), hành động trên hệ thống kèm human gate khi không đảo ngược được, và trả kết quả kèm citation.\n\nVí dụ trợ lý chăm sóc khách hàng e-commerce: input là chat web có xác thực khách hàng, che PII không cần thiết và một intent classifier chạy trên tier nhanh; processing chuyển FAQ sang RAG, trạng thái đơn sang tool get_order, hoàn tiền sang rule engine cộng duyệt người trên ngưỡng, và soạn phản hồi với system prompt được cache; output theo output contract JSON và được kiểm tra không hứa hẹn ngoài chính sách; feedback thu CSAT, tỷ lệ chuyển người và các câu trả lời bị nhân viên sửa để đưa vào eval set hằng tuần.",
+          "bullets": []
+        },
+        {
+          "heading": "Three feedback loops designed from day one",
+          "heading_vi": "Ba vòng phản hồi thiết kế ngay từ đầu",
+          "body": "Online (operational) loop: a shared trace ID across every step, latency metrics (p50/p95), tokens and cost per step, validation-failure rate and escalation rate, with alerts when thresholds are crossed. Human feedback loop: every reviewer correction is a label signal; store the before and after versions for analysis. Offline improvement loop: real failure cases are added to the eval set, then prompt, model or retrieval changes are made, the eval gate is run against thresholds set in advance, and the change is released with a pinned model version.\n\nWithout feedback loops a system has no way to detect drift. In the course's deterministic-drift case, 41 of 14,000 claims were misrouted and the problem was caught by an audit, not by monitoring, because ordinary request logging does not record the decisions a model makes inside a single request. Business-level metrics (for example weekly senior-routing rate and sampled reconciliation) plus an eval set with messy cases are what make such failures visible. Likewise, an unpinned model version that rolls forward without re-validation is a governance gap under any pattern.",
+          "body_vi": "Vòng online (vận hành): trace ID dùng chung cho mọi bước, metric latency (p50/p95), token và chi phí theo bước, tỷ lệ lỗi validation và tỷ lệ escalation, kèm cảnh báo khi vượt ngưỡng. Vòng phản hồi con người: mỗi lần reviewer sửa là một tín hiệu nhãn; lưu phiên bản trước và sau để phân tích. Vòng cải tiến offline: ca lỗi thật được thêm vào eval set, sau đó thay đổi prompt, model hoặc retrieval, chạy eval gate với ngưỡng đặt trước, và release thay đổi với model version được pin.\n\nKhông có vòng phản hồi, hệ thống không có cách phát hiện drift. Trong ca deterministic drift của khóa học, 41 trên 14.000 claim bị route sai và vấn đề được phát hiện bởi audit chứ không phải monitoring, vì log request thông thường không ghi lại các quyết định model đưa ra bên trong một request. Metric cấp nghiệp vụ (ví dụ tỷ lệ chuyển senior hằng tuần và đối chiếu mẫu) cộng một eval set chứa các ca 'bẩn' mới làm lộ những lỗi như vậy. Tương tự, model version không được pin và tự roll forward mà không re-validate là lỗ hổng governance với bất kỳ pattern nào.",
+          "bullets": [
+            {
+              "en": "Online: trace ID, p95 latency, cost per step, validation and escalation rates, alerts.",
+              "vi": "Online: trace ID, p95 latency, chi phí theo bước, tỷ lệ validation và escalation, cảnh báo."
+            },
+            {
+              "en": "Human: reviewer edits, thumbs up/down and escalations captured as labels.",
+              "vi": "Con người: chỉnh sửa của reviewer, thumbs up/down và escalation được lưu làm nhãn."
+            },
+            {
+              "en": "Offline: failures into eval set, change, eval gate, release with pinned version.",
+              "vi": "Offline: lỗi vào eval set, thay đổi, eval gate, release với version được pin."
+            }
+          ]
+        },
+        {
+          "heading": "Wiring the processing block with reference architectures",
+          "heading_vi": "Đi dây khối processing bằng reference architecture",
+          "body": "Reference architectures give the wiring around a pattern. The five documented ones are Agent, RAG, Document processing pipeline (evaluator-optimizer), Customer-service triage (routing) and Coding agent. Each has a known failure: agents with unbounded autonomy; RAG used for live state; document pipelines with no exception path for low-confidence extractions; triage that uses retrieval for live order status, lacks a human escalation path, or deploys an agent before the routed workflow was measured; coding agents that edit and commit without a human review gate or without regression tracking per language.\n\nMatch each kind of data to its mechanism: stable knowledge (manuals, policies, FAQs) to retrieval; live state (orders, inventory, balances, calendar slots) to a tool call against the system of record; business rules to code or a rule engine; small stable instructions used on every request to the system prompt with prompt caching. The most common mistake is retrieval applied to live state: symptoms are stale chunks, answers that shift with each index refresh and contradictions with the database. A better embedding model, shorter refresh interval or higher similarity threshold will not fix it; call the system that owns the live state. Combine two reference architectures only when the parts break in different ways worth managing separately, and give each its own eval set.",
+          "body_vi": "Reference architecture cung cấp cách đi dây quanh một pattern. Năm kiến trúc được tài liệu hóa là Agent, RAG, Document processing pipeline (evaluator-optimizer), Customer-service triage (routing) và Coding agent. Mỗi kiến trúc có một lỗi điển hình: agent với quyền tự chủ không giới hạn; RAG dùng cho live state; document pipeline không có exception path cho trích xuất low-confidence; triage dùng retrieval cho trạng thái đơn hàng live, thiếu đường leo thang tới người, hoặc triển khai agent trước khi routed workflow được đo; coding agent sửa và commit mà không có human review gate hoặc không theo dõi regression theo từng ngôn ngữ.\n\nGhép mỗi loại dữ liệu với cơ chế của nó: tri thức ổn định (manual, chính sách, FAQ) dùng retrieval; live state (đơn hàng, tồn kho, số dư, lịch trống) dùng tool call tới system of record; quy tắc nghiệp vụ dùng code hoặc rule engine; chỉ dẫn nhỏ, ổn định dùng mọi request đặt trong system prompt với prompt caching. Lỗi phổ biến nhất là dùng retrieval cho live state: triệu chứng là chunk cũ, câu trả lời thay đổi theo mỗi lần refresh index và mâu thuẫn với database. Embedding model tốt hơn, chu kỳ refresh ngắn hơn hay similarity threshold cao hơn đều không sửa được; hãy gọi hệ thống sở hữu live state. Chỉ kết hợp hai reference architecture khi các phần hỏng theo những cách khác nhau đáng quản lý riêng, và mỗi phần có eval set riêng.",
+          "bullets": []
+        }
+      ],
+      "table": {
+        "caption": "Data type to mechanism map",
+        "caption_vi": "Bản đồ loại dữ liệu sang cơ chế",
+        "headers": [
+          "Data type",
+          "Example",
+          "Mechanism"
+        ],
+        "headers_vi": [
+          "Loại dữ liệu",
+          "Ví dụ",
+          "Cơ chế"
+        ],
+        "rows": [
+          [
+            "Stable, large knowledge",
+            "Manuals, FAQs, published policy",
+            "RAG / retrieval"
+          ],
+          [
+            "Live state",
+            "Order status, inventory, balance, calendar slot",
+            "Tool call / API / MCP to system of record"
+          ],
+          [
+            "Business rule",
+            "Approval threshold, refund eligibility",
+            "Rule engine / code"
+          ],
+          [
+            "Small, stable, every request",
+            "Role instructions, output contract",
+            "System prompt with prompt caching"
+          ]
+        ]
+      },
+      "keyPoints": [
+        {
+          "en": "End-to-end = four blocks (input, processing, output, feedback) plus three feedback loops (operational, human, offline eval).",
+          "vi": "End-to-end = bốn khối (input, processing, output, feedback) cộng ba vòng phản hồi (vận hành, con người, eval offline)."
+        },
+        {
+          "en": "Validate output (schema, rules) before writing to any system; gate irreversible actions with a human.",
+          "vi": "Validate output (schema, rule) trước khi ghi vào bất kỳ hệ thống nào; đặt human gate cho hành động không đảo ngược."
+        },
+        {
+          "en": "Continuous improvement = real failures into the eval set, change, eval gate, release with a pinned model version.",
+          "vi": "Cải tiến liên tục = lỗi thật vào eval set, thay đổi, eval gate, release với model version được pin."
+        },
+        {
+          "en": "Stable knowledge to retrieval, live state to tool call, rules to code: similarity is not truth.",
+          "vi": "Tri thức ổn định dùng retrieval, live state dùng tool call, quy tắc dùng code: similarity không phải là sự thật."
+        },
+        {
+          "en": "Each composed reference architecture needs its own eval set; a healthy top-level score can mask a failing component.",
+          "vi": "Mỗi reference architecture được kết hợp cần eval set riêng; điểm tổng tốt có thể che một thành phần đang hỏng."
+        }
+      ],
+      "examTips": [
+        {
+          "en": "'No errors, normal latency, but wrong current status' points to retrieval doing a tool call's job: call the system of record.",
+          "vi": "'Không lỗi, latency bình thường, nhưng trạng thái hiện tại sai' chỉ ra retrieval đang làm việc của tool call: gọi system of record."
+        },
+        {
+          "en": "'How do we keep improving after go-live?' is answered by feedback into the eval set plus an eval gate, not by swapping to each new model release.",
+          "vi": "'Làm sao tiếp tục cải thiện sau go-live?' được trả lời bằng feedback vào eval set cộng eval gate, không phải đổi sang mỗi bản model mới."
+        },
+        {
+          "en": "Document pipeline questions: the classic defect is no exception path or human gate for low-confidence extractions.",
+          "vi": "Câu hỏi document pipeline: lỗi kinh điển là không có exception path hoặc human gate cho trích xuất low-confidence."
+        },
+        {
+          "en": "'Behaviour changed although nobody deployed' points to an unpinned model version with no re-validation gate.",
+          "vi": "'Hành vi thay đổi dù không ai deploy' chỉ ra model version không được pin và không có gate re-validate."
+        }
+      ],
+      "terms": [
+        {
+          "term": "Feedback loop",
+          "en": "A designed path by which production signals (metrics, reviewer corrections, failures) flow back into monitoring and the eval set to drive controlled changes.",
+          "vi": "Đường được thiết kế để tín hiệu production (metric, chỉnh sửa của reviewer, lỗi) quay lại monitoring và eval set, dẫn tới các thay đổi có kiểm soát."
+        },
+        {
+          "term": "Live state",
+          "en": "Data that changes during a conversation or process (order status, inventory, price, calendar slot); needs a direct lookup against the source of truth.",
+          "vi": "Dữ liệu thay đổi trong vòng đời một hội thoại hay quy trình (trạng thái đơn, tồn kho, giá, lịch trống); cần tra cứu trực tiếp nguồn sự thật."
+        },
+        {
+          "term": "Exception path",
+          "en": "The route that sends low-confidence or validation-failing outputs to a human or a separate handling step instead of the normal pipeline.",
+          "vi": "Đường chuyển output low-confidence hoặc không qua validation tới người hoặc bước xử lý riêng thay vì pipeline thông thường."
+        },
+        {
+          "term": "Shared trace ID",
+          "en": "One identifier propagated through every step or agent so a single run can be reconstructed end to end.",
+          "vi": "Một định danh được truyền qua mọi bước hoặc agent để tái dựng một lần chạy từ đầu tới cuối."
+        },
+        {
+          "term": "Model pinning",
+          "en": "Using a specific versioned model identifier in production and treating any version change as a release gated by evals.",
+          "vi": "Dùng model identifier có phiên bản cụ thể trong production và coi mọi thay đổi version là một release có eval gate."
+        }
+      ]
+    },
+    {
+      "id": "d1-t3",
+      "objective": "Select appropriate architectural patterns (workflow, agentic, augmented LLM)",
+      "title": "Choosing augmented LLM, workflow or agent",
+      "title_vi": "Chọn augmented LLM, workflow hay agent",
+      "sources": [
+        "output/05_Pattern_Selection.md",
+        "output/06_Reference_Architectures.md",
+        "output/11_Assembly_Recap.md"
+      ],
+      "sections": [
+        {
+          "heading": "Three patterns on two axes",
+          "heading_vi": "Ba pattern trên hai trục",
+          "body": "Each pattern takes a position on predictability (how predictable the path is) and model autonomy. An augmented LLM is a single bounded model call: you can add tool use, retrieval or extended thinking, but control flow never branches on what the model decides. Use it when the task is well-defined and the output verifiable. A workflow decomposes the task into named steps orchestrated in your own code; control flow lives in code, so you can log, test and reason about it like any software. Use it when error cost is real, observability matters and steps can be determined in advance. An agent receives a goal and tools and chooses its own sequence of steps; control flow lives inside the model.\n\nUse an agent only when the path cannot be enumerated in advance and an unexpected or inconsistent output is acceptable and recoverable: open-ended investigation, long-horizon work, tasks where the next move depends on what the last one turned up (Claude Code exploring an unfamiliar codebase is the production example). Production agents are bound by constrained tool entry points, per-turn budgets, explicit permissions and stopping criteria; these are not optional. Apply the delegation lens to the pattern itself: autonomy is justified only when the stakes and reversibility of the agent's actions allow it.",
+          "body_vi": "Mỗi pattern chiếm một vị trí trên trục predictability (đường đi dễ đoán đến đâu) và trục model autonomy. Augmented LLM là một lời gọi model có giới hạn: bạn có thể thêm tool use, retrieval hoặc extended thinking, nhưng control flow không bao giờ rẽ nhánh theo quyết định của model. Dùng khi tác vụ được xác định rõ và output kiểm chứng được. Workflow phân rã tác vụ thành các bước có tên được điều phối bằng code của bạn; control flow nằm trong code, nên bạn có thể log, test và suy luận về nó như mọi phần mềm. Dùng khi chi phí lỗi là thật, observability quan trọng và các bước xác định được trước. Agent nhận một mục tiêu và bộ tool rồi tự chọn chuỗi bước; control flow nằm trong model.\n\nChỉ dùng agent khi đường đi không thể liệt kê trước và một output bất ngờ hoặc không nhất quán là chấp nhận được và phục hồi được: điều tra mở, công việc dài hạn, tác vụ mà bước tiếp theo phụ thuộc vào điều vừa phát hiện (Claude Code khám phá một codebase lạ là ví dụ production). Agent production bị ràng buộc bởi tool entry point hẹp, ngân sách mỗi turn, quyền tường minh và điều kiện dừng; những thứ này không phải tùy chọn. Áp dụng lăng kính delegation cho chính pattern: quyền tự chủ chỉ hợp lý khi stakes và khả năng đảo ngược của hành động agent cho phép.",
+          "bullets": []
+        },
+        {
+          "heading": "Workflow sub-patterns",
+          "heading_vi": "Các sub-pattern của workflow",
+          "body": "Choosing a workflow does not fully specify the design. Chaining: step 2 consumes step 1's output (extract obligations, then classify by risk, then draft a memo). Routing: a classifier, often Claude, picks the downstream path (billing questions to an account-data index, technical issues to product docs, escalations to a human queue). Parallelization: independent sub-tasks run concurrently and results are aggregated or voted (twelve supplier contracts reviewed simultaneously, then one risk report). Evaluator-optimizer: one call drafts, a second grades against a rubric or schema and requests revision until criteria pass or a retry limit is hit (complaint replies graded for naming the issue, ownership, next steps and brand tone).\n\nThese sub-patterns combine freely. Choose the simplest one that meets the task's error tolerance and observability requirements, revisit with production data, and escalate only when measurement shows the simpler pattern falling short. When prompting feels unreliable, follow the progression: optimize the prompt, add tool use or retrieval, move to a stronger pattern such as evaluator-optimizer, and only then consider fine-tuning (justified for very high volume where inference cost dominates, critical latency where a smaller specialized model wins, or a format prompting cannot hold). Fine-tuning Claude is not broadly available and locks you to a fixed model version.",
+          "body_vi": "Chọn workflow chưa đủ để xác định thiết kế. Chaining: bước 2 dùng output của bước 1 (trích nghĩa vụ, rồi phân loại theo rủi ro, rồi soạn memo). Routing: một bộ phân loại, thường là Claude, chọn nhánh phía sau (câu hỏi thanh toán tới index dữ liệu tài khoản, sự cố kỹ thuật tới tài liệu sản phẩm, leo thang tới hàng đợi người). Parallelization: các tác vụ con độc lập chạy đồng thời và kết quả được tổng hợp hoặc bỏ phiếu (mười hai hợp đồng nhà cung cấp được review cùng lúc, rồi một báo cáo rủi ro). Evaluator-optimizer: một lời gọi soạn, lời gọi thứ hai chấm theo rubric hoặc schema và yêu cầu sửa cho tới khi đạt tiêu chí hoặc chạm giới hạn retry (phản hồi khiếu nại được chấm về việc nêu đúng vấn đề, nhận trách nhiệm, bước tiếp theo và giọng thương hiệu).\n\nCác sub-pattern này kết hợp tự do. Chọn cái đơn giản nhất đáp ứng error tolerance và yêu cầu observability của tác vụ, xem lại với dữ liệu production, và chỉ leo thang khi đo lường cho thấy pattern đơn giản hơn chưa đủ. Khi prompting có vẻ không ổn định, đi theo thứ tự: tối ưu prompt, thêm tool use hoặc retrieval, chuyển sang pattern mạnh hơn như evaluator-optimizer, và chỉ sau đó mới cân nhắc fine-tuning (hợp lý khi volume rất lớn và chi phí inference là ràng buộc chính, latency tối quan trọng và model nhỏ chuyên biệt vượt trội, hoặc định dạng mà prompting không giữ được). Fine-tuning Claude không phổ biến rộng rãi và khóa bạn vào một model version cố định.",
+          "bullets": []
+        },
+        {
+          "heading": "Five factors and the 'flexibility' trap",
+          "heading_vi": "Năm yếu tố và cái bẫy 'linh hoạt'",
+          "body": "Walk five factors in sequence and ask whether each rules out a pattern; the first factor that rules one out decides. Predictability: can you enumerate the steps? Error cost: is a wrong answer a retry, an audit or a lawsuit? Observability: can operations reconstruct what happened and why? Latency budget: what is the user-visible deadline (agents have open-ended runtime; budget for the worst case)? Cost: per-request tokens at expected volume. Agents do not automatically cost more; cost is driven by accumulated context and the number of calls, so a poorly designed workflow can cost more than a well-designed agent.\n\nThe classic mistake is choosing an agent because the task feels open-ended. One team's 90-day retrospective: they added so many guardrail tools that they had rewritten the workflow inside the agent loop minus the logging; an auditor asked which step approved a disbursement and they could only point to a model turn; mined traces showed only four path shapes, so a router and four chains would have saved six months. The separate finding that the model version had rolled forward without re-validation is a model-governance gap that would hit any pattern; the fix is pinning plus an eval gate.",
+          "body_vi": "Đi qua năm yếu tố theo thứ tự và hỏi mỗi yếu tố có loại pattern nào không; yếu tố đầu tiên loại được một pattern là yếu tố quyết định. Predictability: bạn có liệt kê được các bước không? Error cost: một câu trả lời sai là thử lại, một cuộc audit hay một vụ kiện? Observability: đội vận hành có tái dựng được điều gì đã xảy ra và vì sao không? Latency budget: deadline người dùng thấy là bao nhiêu (agent có runtime mở; hãy tính cho trường hợp xấu nhất)? Cost: token mỗi request ở volume dự kiến. Agent không tự động đắt hơn; chi phí do lượng context tích lũy và số lần gọi quyết định, nên một workflow thiết kế tồi có thể đắt hơn một agent thiết kế tốt.\n\nSai lầm kinh điển là chọn agent vì tác vụ có cảm giác mở. Retrospective 90 ngày của một đội: họ thêm nhiều guardrail tool đến mức đã viết lại workflow bên trong agent loop nhưng thiếu logging; auditor hỏi bước nào phê duyệt một khoản giải ngân và họ chỉ có thể chỉ vào một model turn; phân tích trace cho thấy chỉ có bốn hình dạng đường đi, nên một router và bốn chain đã có thể tiết kiệm sáu tháng. Phát hiện riêng rằng model version đã roll forward mà không re-validate là lỗ hổng model governance ảnh hưởng mọi pattern; cách sửa là pin version cộng eval gate.",
+          "bullets": [
+            {
+              "en": "Feeling uncertain about structure is not the same as steps that cannot be determined in advance.",
+              "vi": "Cảm thấy chưa chắc về cấu trúc không giống với các bước không thể xác định trước."
+            },
+            {
+              "en": "If you could write the steps in code, use a workflow.",
+              "vi": "Nếu bạn viết được các bước bằng code, hãy dùng workflow."
+            },
+            {
+              "en": "Packaging option: prompt-only, direct tool use, or a versioned Skill when the same procedure repeats across teams and must be governed.",
+              "vi": "Lựa chọn đóng gói: chỉ prompt, tool use trực tiếp, hoặc Skill có version khi cùng một quy trình lặp lại giữa các đội và cần được quản trị."
+            }
+          ]
+        }
+      ],
+      "table": {
+        "caption": "What each pattern costs you per factor (higher = more burden)",
+        "caption_vi": "Mỗi pattern khiến bạn trả giá gì theo từng yếu tố (cao hơn = gánh nặng lớn hơn)",
+        "headers": [
+          "Factor",
+          "Augmented LLM",
+          "Workflow",
+          "Agent"
+        ],
+        "headers_vi": [
+          "Yếu tố",
+          "Augmented LLM",
+          "Workflow",
+          "Agent"
+        ],
+        "rows": [
+          [
+            "Predictability",
+            "Low (single bounded task)",
+            "Low (you wrote the path)",
+            "High (unpredictable by design)"
+          ],
+          [
+            "Error cost",
+            "Medium (no step-level guards)",
+            "Low (deterministic guards between steps)",
+            "High (full output distribution over many turns)"
+          ],
+          [
+            "Observability",
+            "Medium (easy to log, opaque inside)",
+            "Low (logs like code)",
+            "High (trajectory reads like a transcript)"
+          ],
+          [
+            "Latency / Cost",
+            "Low / Low",
+            "Medium (additive) / Medium (per step)",
+            "High (open-ended) / High if poorly bounded"
+          ]
+        ]
+      },
+      "keyPoints": [
+        {
+          "en": "The key distinction between workflow and agent is where control flow lives: in your code or in the model.",
+          "vi": "Điểm phân biệt then chốt giữa workflow và agent là control flow nằm ở đâu: trong code của bạn hay trong model."
+        },
+        {
+          "en": "Pick the simplest pattern that meets error tolerance and observability; escalate only on measured evidence.",
+          "vi": "Chọn pattern đơn giản nhất đáp ứng error tolerance và observability; chỉ leo thang khi có bằng chứng đo lường."
+        },
+        {
+          "en": "Sub-pattern keywords: extract then classify then summarize = chaining; different kinds of input = routing; independent and concurrent = parallelization; rubric or test suite with retries = evaluator-optimizer.",
+          "vi": "Từ khóa sub-pattern: trích rồi phân loại rồi tóm tắt = chaining; nhiều loại input khác nhau = routing; độc lập và đồng thời = parallelization; rubric hoặc test suite có retry = evaluator-optimizer."
+        },
+        {
+          "en": "Production agents need narrow tool entry points, turn budgets, explicit permissions and stopping criteria.",
+          "vi": "Agent production cần tool entry point hẹp, ngân sách turn, quyền tường minh và điều kiện dừng."
+        },
+        {
+          "en": "Fine-tuning is the last step after prompt, tools/retrieval and stronger patterns.",
+          "vi": "Fine-tuning là bước cuối sau prompt, tool/retrieval và pattern mạnh hơn."
+        },
+        {
+          "en": "Auditors need a discrete, auditable approval step; an agent trajectory cannot provide one.",
+          "vi": "Auditor cần một bước phê duyệt rời rạc, kiểm toán được; quỹ đạo của agent không cung cấp được điều đó."
+        }
+      ],
+      "examTips": [
+        {
+          "en": "If the scenario says traces or history fall into a few fixed paths, the answer is a router plus chains, not a better-guarded agent.",
+          "vi": "Nếu đề nói trace hoặc lịch sử rơi vào vài đường đi cố định, đáp án là router cộng các chain, không phải agent được bảo vệ kỹ hơn."
+        },
+        {
+          "en": "Eliminate 'choose an agent for future flexibility', 'fine-tune immediately' and 'multi-agent to improve accuracy'.",
+          "vi": "Loại 'chọn agent cho linh hoạt tương lai', 'fine-tune ngay' và 'multi-agent để tăng độ chính xác'."
+        },
+        {
+          "en": "Tight latency and high volume with a verifiable output usually points to an augmented LLM call.",
+          "vi": "Latency chặt và volume lớn với output kiểm chứng được thường chỉ tới một lời gọi augmented LLM."
+        },
+        {
+          "en": "In choose-two items, separate pattern failures (no auditable step) from governance failures (unpinned model version).",
+          "vi": "Trong câu chọn hai, tách lỗi pattern (không có bước kiểm toán được) khỏi lỗi governance (model version không được pin)."
+        }
+      ],
+      "terms": [
+        {
+          "term": "Augmented LLM",
+          "en": "A single bounded model call, optionally with tools, retrieval or extended thinking, whose control flow never branches on the model's decisions.",
+          "vi": "Một lời gọi model có giới hạn, có thể kèm tool, retrieval hoặc extended thinking, với control flow không bao giờ rẽ nhánh theo quyết định của model."
+        },
+        {
+          "term": "Workflow",
+          "en": "Named steps orchestrated in your own code; each step may call Claude, but code decides the next step.",
+          "vi": "Các bước có tên được điều phối bằng code của bạn; mỗi bước có thể gọi Claude nhưng code quyết định bước tiếp theo."
+        },
+        {
+          "term": "Agent",
+          "en": "Claude given a goal and tools that determines its own sequence of steps; control flow lives in the model.",
+          "vi": "Claude được giao mục tiêu và tool, tự quyết định chuỗi bước; control flow nằm trong model."
+        },
+        {
+          "term": "Evaluator-optimizer",
+          "en": "A generator call plus an evaluator call that grades against a rubric or schema and loops until criteria pass or a retry limit is hit.",
+          "vi": "Một lời gọi sinh cộng một lời gọi đánh giá chấm theo rubric hoặc schema, lặp đến khi đạt tiêu chí hoặc chạm giới hạn retry."
+        },
+        {
+          "term": "Skill",
+          "en": "A versioned, reusable package of a procedure, its instructions and scripts, governed as one unit.",
+          "vi": "Gói có version, tái sử dụng được, chứa một quy trình, chỉ dẫn và script, được quản trị như một đơn vị."
+        }
+      ]
+    },
+    {
+      "id": "d1-t4",
+      "objective": "Design multi-agent systems and orchestration strategies",
+      "title": "Multi-agent systems: orchestrator, subagents and failure boundaries",
+      "title_vi": "Hệ thống multi-agent: orchestrator, subagent và ranh giới lỗi",
+      "sources": [
+        "output/05_Pattern_Selection.md",
+        "output/06_Reference_Architectures.md",
+        "output/11_Assembly_Recap.md"
+      ],
+      "sections": [
+        {
+          "heading": "Roles and the fan-out pattern",
+          "heading_vi": "Vai trò và pattern fan-out",
+          "body": "Some problems are too large or too varied for a single agent to hold in one context. A multi-agent system has two roles. The orchestrator owns the goal: it decomposes the work, decides what to delegate and synthesizes results into one answer; it never does the sub-task work itself. Subagents own scoped sub-tasks: each runs in its own context, does one piece and returns a result. Three things must be designed, not assumed: how work is decomposed into sub-tasks, how each subagent's result is structured so the orchestrator can combine it, and how the orchestrator resolves conflicts or gaps.\n\nThe most common shape is fan-out over a large work item: a 400-file codebase to audit, a 200-document corpus to summarize, a regulatory filing checked against fifty rules. The orchestrator splits the item into independent units, dispatches one subagent per unit (in parallel where units do not depend on each other), then synthesizes. The win is twofold: each subagent works in a clean context sized to its unit, and independent units run concurrently. Multi-agent systems multiply token spend, so reach for them only when the work genuinely exceeds one context, and use the fewest agents that meet the requirement.",
+          "body_vi": "Một số bài toán quá lớn hoặc quá đa dạng để một agent giữ trong một context. Hệ thống multi-agent có hai vai trò. Orchestrator sở hữu mục tiêu: nó phân rã công việc, quyết định giao gì và tổng hợp kết quả thành một câu trả lời; nó không bao giờ tự làm việc của tác vụ con. Subagent sở hữu các tác vụ con có phạm vi: mỗi subagent chạy trong context riêng, làm một phần và trả về kết quả. Ba thứ phải được thiết kế, không được giả định: công việc được phân rã thành tác vụ con thế nào, kết quả của mỗi subagent được cấu trúc ra sao để orchestrator kết hợp được, và orchestrator giải quyết xung đột hay khoảng trống thế nào.\n\nHình dạng phổ biến nhất là fan-out trên một hạng mục lớn: một codebase 400 file cần audit, một kho 200 tài liệu cần tóm tắt, một hồ sơ pháp quy cần kiểm tra theo năm mươi quy tắc. Orchestrator chia hạng mục thành các đơn vị độc lập, giao mỗi đơn vị cho một subagent (song song khi các đơn vị không phụ thuộc nhau), rồi tổng hợp. Lợi ích kép: mỗi subagent làm việc trong context sạch vừa với đơn vị của nó, và các đơn vị độc lập chạy đồng thời. Hệ thống multi-agent nhân chi phí token, nên chỉ dùng khi công việc thực sự vượt quá một context, và dùng số agent ít nhất đáp ứng yêu cầu.",
+          "bullets": []
+        },
+        {
+          "heading": "Where each failure is recoverable",
+          "heading_vi": "Mỗi lỗi có thể phục hồi ở đâu",
+          "body": "Ask where each failure mode is recoverable. A subagent failure is usually recoverable: the orchestrator can retry the unit, route it elsewhere, or drop it and flag the gap while the rest proceeds. An orchestrator failure is usually not recoverable: if the agent that owns the goal and synthesis state loses its thread, the whole run fails and partial work may be stranded. Design for this asymmetry: make subagent work idempotent and retryable, and protect and checkpoint orchestrator state so a failed run can resume rather than restart.\n\nThe dangerous failure is the silent one. In the course case, a 50-section vendor contract was fanned out; one subagent timed out and another failed to parse a scanned page, and the orchestrator reported '48 sections reviewed, 3 flagged'. There was no coverage check, nothing owned the subagent boundary, and the fluent summary hid the gap. The fix is deterministic: results returned must equal units dispatched, failed units are retried and then flagged explicitly, and the run reports the difference before anyone reads the summary. Adding a bigger model or another 'auditor' agent does not replace this count.",
+          "body_vi": "Hãy hỏi mỗi failure mode có thể phục hồi ở đâu. Lỗi subagent thường phục hồi được: orchestrator có thể retry đơn vị, chuyển nó đi nơi khác, hoặc bỏ nó và gắn cờ khoảng trống trong khi phần còn lại tiếp tục. Lỗi orchestrator thường không phục hồi được: nếu agent sở hữu mục tiêu và trạng thái tổng hợp mất mạch, cả lần chạy thất bại và phần việc đã làm có thể bị bỏ dở. Thiết kế cho sự bất đối xứng này: làm cho công việc của subagent idempotent và retry được, đồng thời bảo vệ và checkpoint trạng thái orchestrator để lần chạy lỗi có thể resume thay vì restart.\n\nLỗi nguy hiểm là lỗi im lặng. Trong ca của khóa học, một hợp đồng nhà cung cấp 50 mục được fan-out; một subagent bị timeout và một subagent khác không parse được trang scan, và orchestrator báo cáo '48 mục đã review, 3 mục bị gắn cờ'. Không có coverage check, không thành phần nào sở hữu ranh giới subagent, và bản tóm tắt trôi chảy đã che khoảng trống. Cách sửa mang tính deterministic: số kết quả trả về phải bằng số đơn vị đã dispatch, đơn vị lỗi được retry rồi gắn cờ tường minh, và lần chạy báo chênh lệch trước khi bất kỳ ai đọc bản tóm tắt. Thêm model lớn hơn hay thêm một agent 'kiểm toán' không thay thế được phép đếm này.",
+          "bullets": [
+            {
+              "en": "Malformed or empty subagent result: validate, retry or re-route, record the gap rather than failing the run.",
+              "vi": "Kết quả subagent sai định dạng hoặc rỗng: validate, retry hoặc chuyển hướng, ghi nhận khoảng trống thay vì làm hỏng lần chạy."
+            },
+            {
+              "en": "Conflicting subagent results: an explicit conflict-resolution rule or escalation to a human.",
+              "vi": "Kết quả subagent mâu thuẫn: quy tắc giải quyết xung đột tường minh hoặc leo thang tới người."
+            },
+            {
+              "en": "Orchestrator loses state: protect state and checkpoint progress to resume.",
+              "vi": "Orchestrator mất trạng thái: bảo vệ trạng thái và checkpoint tiến độ để resume."
+            },
+            {
+              "en": "Fragmented traces: propagate a shared trace identifier to every subagent.",
+              "vi": "Trace bị phân mảnh: truyền một trace identifier chung tới mọi subagent."
+            }
+          ]
+        },
+        {
+          "heading": "Human checkpoints and budgets in orchestration",
+          "heading_vi": "Checkpoint con người và ngân sách trong orchestration",
+          "body": "A multi-agent system can take many actions before a human sees any output, so checkpoint placement is a deliberate design choice. A human-in-the-loop checkpoint pauses execution for review and is positioned by the risk and reversibility of the action about to be taken: gate any irreversible or high-stakes action a subagent would otherwise take autonomously (deleting, auto-archiving, sending externally, paying), and sample lower-stakes actions instead of gating each one. The gate is part of the orchestration design, not bolted on afterward.\n\nA practical design checklist: a structured input/output contract per subagent (for example unit_id, status, verdict, evidence) validated before synthesis; a coverage check; idempotency so a re-run does not send an email twice or write duplicates; orchestrator checkpoints in external storage; a shared trace ID; human gates before irreversible actions; and budgets on the number of subagents, retries and per-unit timeouts. Example: a bank reviewing 300 loan contracts against 20 new rules splits by contract, each subagent returns a schema verdict, the orchestrator reconciles all 300, conflicts go to a person, and sending amendment notices to customers is gated by human approval.",
+          "body_vi": "Một hệ thống multi-agent có thể thực hiện nhiều hành động trước khi con người thấy bất kỳ output nào, nên việc đặt checkpoint là một lựa chọn thiết kế có chủ đích. Checkpoint human-in-the-loop tạm dừng thực thi để review và được đặt theo rủi ro và khả năng đảo ngược của hành động sắp thực hiện: đặt gate trước mọi hành động không đảo ngược hoặc stakes cao mà subagent lẽ ra sẽ tự làm (xóa, tự động lưu trữ, gửi ra ngoài, thanh toán), và lấy mẫu các hành động stakes thấp hơn thay vì gate từng cái. Gate là một phần của thiết kế orchestration, không phải gắn thêm về sau.\n\nChecklist thiết kế thực tế: hợp đồng input/output có cấu trúc cho từng subagent (ví dụ unit_id, status, verdict, evidence) được validate trước khi tổng hợp; coverage check; idempotency để chạy lại không gửi email hai lần hay ghi trùng; checkpoint của orchestrator lưu ở bộ nhớ ngoài; shared trace ID; human gate trước hành động không đảo ngược; và ngân sách cho số subagent, số retry và timeout mỗi đơn vị. Ví dụ: một ngân hàng rà soát 300 hợp đồng vay theo 20 quy định mới chia theo hợp đồng, mỗi subagent trả verdict theo schema, orchestrator đối chiếu đủ 300, xung đột chuyển cho người, và việc gửi thông báo sửa đổi cho khách hàng có gate phê duyệt của con người.",
+          "bullets": []
+        }
+      ],
+      "table": {
+        "caption": "Multi-agent failure boundaries",
+        "caption_vi": "Ranh giới lỗi trong multi-agent",
+        "headers": [
+          "Failure",
+          "Where it lands",
+          "Design response"
+        ],
+        "headers_vi": [
+          "Lỗi",
+          "Rơi vào đâu",
+          "Phản ứng thiết kế"
+        ],
+        "rows": [
+          [
+            "Malformed or empty subagent result",
+            "Subagent boundary (recoverable)",
+            "Validate; retry or re-route; record the gap"
+          ],
+          [
+            "Conflicting subagent results",
+            "Synthesis step (recoverable)",
+            "Explicit conflict rule or escalate to a human"
+          ],
+          [
+            "Orchestrator loses goal or state",
+            "Orchestrator (often unrecoverable)",
+            "Protect state; checkpoint to resume"
+          ],
+          [
+            "Traces fragment across agents",
+            "Observability (cross-cutting)",
+            "Propagate a shared trace identifier"
+          ]
+        ]
+      },
+      "keyPoints": [
+        {
+          "en": "Orchestrator = decompose, delegate, synthesize; it does not do sub-task work. Subagents = scoped work in their own clean context.",
+          "vi": "Orchestrator = phân rã, giao việc, tổng hợp; không tự làm tác vụ con. Subagent = công việc có phạm vi trong context sạch riêng."
+        },
+        {
+          "en": "Use multi-agent only when work exceeds one context or has many independent units, not to 'improve accuracy' in general.",
+          "vi": "Chỉ dùng multi-agent khi công việc vượt một context hoặc có nhiều đơn vị độc lập, không phải để 'tăng độ chính xác' chung chung."
+        },
+        {
+          "en": "Subagent failures are usually recoverable; orchestrator failures usually are not: idempotent subagents, checkpointed orchestrator.",
+          "vi": "Lỗi subagent thường phục hồi được; lỗi orchestrator thường không: subagent idempotent, orchestrator có checkpoint."
+        },
+        {
+          "en": "Coverage check at synthesis: results returned must equal units dispatched, or the run flags the difference.",
+          "vi": "Coverage check khi tổng hợp: số kết quả trả về phải bằng số đơn vị dispatch, nếu không lần chạy phải báo chênh lệch."
+        },
+        {
+          "en": "Gate irreversible or high-stakes actions; sample low-stakes ones.",
+          "vi": "Gate hành động không đảo ngược hoặc stakes cao; lấy mẫu hành động stakes thấp."
+        }
+      ],
+      "examTips": [
+        {
+          "en": "'Report says 48 reviewed but there were 50' points to a missing coverage check plus retry/flag at the subagent boundary, not hallucination or a weak orchestrator prompt.",
+          "vi": "'Báo cáo nói 48 đã review nhưng có 50' chỉ ra thiếu coverage check cộng retry/gắn cờ ở ranh giới subagent, không phải hallucination hay prompt orchestrator yếu."
+        },
+        {
+          "en": "'Cannot reconstruct a single run' points to a shared trace identifier.",
+          "vi": "'Không tái dựng được một lần chạy' chỉ ra shared trace identifier."
+        },
+        {
+          "en": "Eliminate 'use a larger model for the orchestrator' and 'add another checking subagent' when the problem is a deterministic count.",
+          "vi": "Loại 'dùng model lớn hơn cho orchestrator' và 'thêm một subagent kiểm tra' khi vấn đề là một phép đếm deterministic."
+        },
+        {
+          "en": "Human gates belong before irreversible actions, not on every step.",
+          "vi": "Human gate thuộc về trước hành động không đảo ngược, không phải ở mọi bước."
+        }
+      ],
+      "terms": [
+        {
+          "term": "Orchestrator",
+          "en": "The agent that owns the goal: decomposes work, delegates to subagents and synthesizes their results.",
+          "vi": "Agent sở hữu mục tiêu: phân rã công việc, giao cho subagent và tổng hợp kết quả của chúng."
+        },
+        {
+          "term": "Subagent",
+          "en": "An agent that owns one scoped sub-task in its own context and returns a structured result.",
+          "vi": "Agent sở hữu một tác vụ con có phạm vi trong context riêng và trả về kết quả có cấu trúc."
+        },
+        {
+          "term": "Fan-out",
+          "en": "Splitting a large work item into independent units dispatched to subagents, often in parallel, then synthesizing.",
+          "vi": "Chia một hạng mục lớn thành các đơn vị độc lập giao cho subagent, thường song song, rồi tổng hợp."
+        },
+        {
+          "term": "Coverage check",
+          "en": "A deterministic rule at synthesis that the number of valid results plus flagged gaps equals the number of units dispatched.",
+          "vi": "Quy tắc deterministic khi tổng hợp: số kết quả hợp lệ cộng khoảng trống được gắn cờ bằng số đơn vị đã dispatch."
+        },
+        {
+          "term": "Idempotent",
+          "en": "Safe to re-run: retrying a unit produces no duplicate side effects such as a second email or duplicate write.",
+          "vi": "An toàn khi chạy lại: retry một đơn vị không tạo tác dụng phụ trùng lặp như email thứ hai hay bản ghi trùng."
+        }
+      ]
+    },
+    {
+      "id": "d1-t5",
+      "objective": "Apply decomposition techniques for complex problem solving",
+      "title": "Decomposition: Claude, existing systems and humans",
+      "title_vi": "Phân rã: Claude, hệ thống hiện có và con người",
+      "sources": [
+        "output/04_Decomposition.md",
+        "output/02_How_Claude_Behaves.md",
+        "output_2/04_Sizing_and_Feasibility.md"
+      ],
+      "sections": [
+        {
+          "heading": "Three owners and the delegation map",
+          "heading_vi": "Ba chủ sở hữu và delegation map",
+          "body": "Every Claude solution lands in three buckets. What Claude does: work that benefits from language understanding, summarization, planning, drafting or tool-mediated action. What existing systems do: anything the partner has already paid to make reliable, such as the order-status service, policy engine, rules table or database of record. What humans do: judgment calls, exception paths, approvals, and moments where being right matters more than being fast. Over-assigning to Claude almost always makes the process more expensive, slower and harder.\n\nDecomposition produces a delegation map: for each part you decide not only whether Claude can do it but whether it should own it, as AI-appropriate work, human-retained work, or collaborative work where Claude drafts and a person decides. Justify each assignment with Reversibility (can a wrong call be undone?), Stakes (what does a wrong call cost?) and Accountability (who must answer for it?). The guiding question shifts from 'Where can Claude help?' to 'Where do the four properties argue for Claude over the system that already does this right?'",
+          "body_vi": "Mọi giải pháp Claude đều rơi vào ba bucket. Việc Claude làm: công việc hưởng lợi từ hiểu ngôn ngữ, tóm tắt, lập kế hoạch, soạn thảo hoặc hành động thông qua tool. Việc hệ thống hiện có làm: mọi thứ partner đã trả tiền để làm cho đáng tin cậy, như dịch vụ trạng thái đơn hàng, policy engine, bảng quy tắc hoặc database of record. Việc con người làm: các quyết định phán đoán, đường ngoại lệ, phê duyệt, và những lúc đúng quan trọng hơn nhanh. Giao quá nhiều cho Claude gần như luôn làm quy trình đắt hơn, chậm hơn và khó hơn.\n\nDecomposition tạo ra một delegation map: với mỗi phần, bạn quyết định không chỉ Claude có làm được không mà còn Claude có nên sở hữu nó không, dưới dạng việc phù hợp cho AI (AI-appropriate), việc con người giữ lại (human-retained), hoặc việc cộng tác (collaborative) khi Claude soạn và người quyết. Biện minh mỗi phân công bằng Reversibility (quyết định sai có đảo ngược được không?), Stakes (quyết định sai tốn bao nhiêu?) và Accountability (ai phải chịu trách nhiệm?). Câu hỏi định hướng chuyển từ 'Claude giúp được ở đâu?' sang 'Ở đâu bốn thuộc tính ủng hộ Claude hơn hệ thống đã làm đúng việc này?'",
+          "bullets": [
+            {
+              "en": "Claude signals: free text, read, summarize, extract, draft, classify language, interpret images.",
+              "vi": "Dấu hiệu Claude: văn bản tự do, đọc, tóm tắt, trích xuất, soạn thảo, phân loại ngôn ngữ, hiểu hình ảnh."
+            },
+            {
+              "en": "Existing-system signals: rule, threshold, policy table, current or live value, database of record, calculate, look up.",
+              "vi": "Dấu hiệu hệ thống hiện có: quy tắc, ngưỡng, bảng chính sách, giá trị hiện tại hoặc live, database of record, tính toán, tra cứu."
+            },
+            {
+              "en": "Human signals: approve, irreversible, refund above X, safety incident, legal sign-off, accountable.",
+              "vi": "Dấu hiệu con người: phê duyệt, không đảo ngược, hoàn tiền trên X, sự cố an toàn, ký duyệt pháp lý, chịu trách nhiệm."
+            }
+          ]
+        },
+        {
+          "heading": "Worked example: the claims triage assistant",
+          "heading_vi": "Ví dụ: trợ lý phân loại claim",
+          "body": "A partner asks for a claims triage assistant that reads a claim, decides priority, looks up policy coverage and emails the adjuster. Read the claim: pattern-rich language work with a constrained output schema, so Claude. Decide priority: looks like a language task but is a deterministic rule the partner already maintains in a rule engine; Claude calls the rule engine. Look up policy coverage: policies and coverage tables change and the model cannot know when its training data went stale, so the answer comes from the live coverage system via tool use or an MCP server. Email the adjuster: split it; Claude drafts, the email system sends, and a human approves anything above a value threshold.\n\nThe four properties drive these calls. Next-token prediction is weak on precise specifics (names, dates, amounts), so verify against sources. Knowledge is unreliable for rare, private or fast-changing facts, so make an external system the source of truth. Working memory has a hard edge at the context window. Steerability struggles with precise numerical or logical computation, so deterministic computation or tool execution should own the answer; for example, calculating total billable time across job tickets belongs to the billing system even though it sounds simple.",
+          "body_vi": "Một partner yêu cầu trợ lý phân loại claim đọc hồ sơ, quyết định mức ưu tiên, tra phạm vi bảo hiểm và gửi email cho adjuster. Đọc hồ sơ: công việc ngôn ngữ giàu mẫu với output schema ràng buộc, nên là Claude. Quyết định ưu tiên: trông như việc ngôn ngữ nhưng là quy tắc deterministic mà partner đã duy trì trong rule engine; Claude gọi rule engine. Tra phạm vi bảo hiểm: chính sách và bảng coverage thay đổi và model không thể biết khi nào dữ liệu huấn luyện đã lỗi thời, nên câu trả lời đến từ hệ thống coverage live qua tool use hoặc MCP server. Gửi email cho adjuster: tách ra; Claude soạn, hệ thống email gửi, và con người duyệt mọi thứ trên ngưỡng giá trị.\n\nBốn thuộc tính dẫn dắt các quyết định này. Next-token prediction yếu ở chi tiết chính xác (tên, ngày, số tiền), nên phải đối chiếu nguồn. Knowledge không đáng tin với dữ kiện hiếm, riêng tư hoặc thay đổi nhanh, nên để hệ thống bên ngoài làm nguồn sự thật. Working memory có biên cứng ở context window. Steerability gặp khó với phép tính số học hoặc logic chính xác, nên tính toán deterministic hoặc thực thi tool phải sở hữu câu trả lời; ví dụ tính tổng thời gian tính phí qua các phiếu công việc thuộc về hệ thống billing dù nghe có vẻ đơn giản.",
+          "bullets": []
+        },
+        {
+          "heading": "Watch out: deterministic drift",
+          "heading_vi": "Cảnh giác: deterministic drift",
+          "body": "A partner had a rule that any claim over 5,000 pounds needs a senior adjuster, enforced by a SQL check. To simplify, the architect let Claude extract the amount and route in one step. Three months later, 41 of 14,000 claims had been misrouted: amounts were embedded in sentences such as 'damages estimated around five thousand pounds', and the model treated them as loose estimates. A rule that must be right every time had been handed to a system that is right most of the time. No test set covered routing because it was treated as something the model would just handle, and the misroutes were found by audit, not monitoring.\n\nThe root-cause fix keeps the rule in code: Claude extracts the amount into a typed field with an uncertainty flag, code compares against the threshold (or the SQL check remains), uncertain or near-threshold cases default to senior review, an eval set covers messy cases (amounts in words, 'around', multiple figures, other currencies), and business-level monitoring watches routing rates. More few-shot examples, a stronger model or extra logging improve probabilities or detection but leave the model owning the rule. The CCR analysis: cost rises because lookups a table could do go to the model; complexity rises because errors stop being traceable; risk rises because authoritative answers drift silently.",
+          "body_vi": "Một partner có quy tắc mọi claim trên 5.000 bảng Anh cần senior adjuster, được thực thi bằng một SQL check. Để đơn giản hóa, architect để Claude trích số tiền và route trong một bước. Ba tháng sau, 41 trên 14.000 claim bị route sai: số tiền nằm trong câu như 'thiệt hại ước tính khoảng năm nghìn bảng', và model coi đó là ước lượng lỏng. Một quy tắc phải đúng mọi lúc đã được giao cho một hệ thống đúng phần lớn thời gian. Không có test set nào cho routing vì nó được coi là thứ model sẽ tự xử lý, và lỗi được phát hiện bởi audit chứ không phải monitoring.\n\nCách sửa tận gốc giữ quy tắc trong code: Claude trích số tiền vào một trường có kiểu kèm cờ không chắc chắn, code so sánh với ngưỡng (hoặc giữ SQL check), ca không chắc chắn hoặc gần ngưỡng mặc định chuyển senior review, một eval set phủ các ca bẩn (số viết bằng chữ, 'khoảng', nhiều con số, đơn vị tiền khác), và monitoring cấp nghiệp vụ theo dõi tỷ lệ routing. Thêm few-shot, dùng model mạnh hơn hoặc thêm logging chỉ cải thiện xác suất hoặc khả năng phát hiện nhưng vẫn để model sở hữu quy tắc. Phân tích CCR: chi phí tăng vì những tra cứu mà một bảng làm được lại gửi cho model; độ phức tạp tăng vì lỗi không còn truy vết được; rủi ro tăng vì câu trả lời authoritative trôi dạt im lặng.",
+          "bullets": []
+        }
+      ],
+      "table": {
+        "caption": "Example delegation map (e-commerce delivery complaint)",
+        "caption_vi": "Ví dụ delegation map (khiếu nại giao hàng e-commerce)",
+        "headers": [
+          "Step",
+          "Owner",
+          "Reason"
+        ],
+        "headers_vi": [
+          "Bước",
+          "Chủ sở hữu",
+          "Lý do"
+        ],
+        "rows": [
+          [
+            "Read complaint email, extract order ID and issue",
+            "Claude",
+            "Free text, clear schema"
+          ],
+          [
+            "Look up order status",
+            "Existing system (order API)",
+            "Live state"
+          ],
+          [
+            "Check refund eligibility under policy",
+            "Existing system (rule engine)",
+            "Deterministic rule, must be right every time"
+          ],
+          [
+            "Draft customer reply",
+            "Claude",
+            "Language and brand voice"
+          ],
+          [
+            "Refund above threshold",
+            "Human approves, payment system executes",
+            "Irreversible, financial accountability"
+          ]
+        ]
+      },
+      "keyPoints": [
+        {
+          "en": "Decomposition is the move that comes before architecture: split work into Claude, existing systems and humans first.",
+          "vi": "Phân rã là bước đứng trước kiến trúc: chia việc cho Claude, hệ thống hiện có và con người trước tiên."
+        },
+        {
+          "en": "Assign owners with Reversibility, Stakes and Accountability; delegation types are AI-appropriate, collaborative and human-retained.",
+          "vi": "Gán owner bằng Reversibility, Stakes và Accountability; các kiểu giao việc là AI-appropriate, collaborative và human-retained."
+        },
+        {
+          "en": "Claude extracts, code decides, people own the rule.",
+          "vi": "Claude trích xuất, code quyết định, con người sở hữu quy tắc."
+        },
+        {
+          "en": "A step that sounds like one action often must be split (draft by Claude, send by system, approve by human).",
+          "vi": "Một bước nghe như một hành động thường phải được tách (Claude soạn, hệ thống gửi, người duyệt)."
+        },
+        {
+          "en": "Do not gate every step with a human: place gates by reversibility and stakes, sample low-risk work.",
+          "vi": "Không đặt human gate ở mọi bước: đặt gate theo khả năng đảo ngược và stakes, lấy mẫu việc rủi ro thấp."
+        },
+        {
+          "en": "Demos show clean cases; a 0.3 percent failure rate on messy inputs only appears in production or audit.",
+          "vi": "Demo chỉ cho thấy ca sạch; tỷ lệ lỗi 0,3 phần trăm trên input bẩn chỉ lộ ra ở production hoặc audit."
+        }
+      ],
+      "examTips": [
+        {
+          "en": "'Decide whether X qualifies under the published policy' is a rule-engine task even though the verb 'decide' sounds like judgment.",
+          "vi": "'Quyết định X có đủ điều kiện theo chính sách đã công bố không' là việc của rule engine dù động từ 'quyết định' nghe như phán đoán."
+        },
+        {
+          "en": "For audit-discovered misroutes on a threshold, the root-cause answer moves the rule back to deterministic code with structured extraction.",
+          "vi": "Với lỗi route sai ngưỡng do audit phát hiện, đáp án tận gốc đưa quy tắc về code deterministic với trích xuất có cấu trúc."
+        },
+        {
+          "en": "Eliminate 'let Claude do everything to reduce integrations', 'better prompt so Claude applies the rule exactly' and 'fine-tune the model to learn the rules'.",
+          "vi": "Loại 'để Claude làm tất cả cho bớt tích hợp', 'prompt tốt hơn để Claude áp quy tắc chính xác' và 'fine-tune để model học quy tắc'."
+        },
+        {
+          "en": "Exact arithmetic (totals, taxes, thresholds) belongs to code or tools; Claude interprets and explains.",
+          "vi": "Phép tính chính xác (tổng, thuế, ngưỡng) thuộc về code hoặc tool; Claude diễn giải và giải thích."
+        }
+      ],
+      "terms": [
+        {
+          "term": "Delegation map",
+          "en": "The decomposition output assigning each step to Claude, an existing system or a human, with the delegation type and justification.",
+          "vi": "Đầu ra của decomposition gán mỗi bước cho Claude, hệ thống hiện có hoặc con người, kèm kiểu giao việc và lý do."
+        },
+        {
+          "term": "Reversibility, Stakes, Accountability",
+          "en": "The three-question screen for deciding whether Claude should own a step: can it be undone, what does an error cost, who answers for it.",
+          "vi": "Bộ ba câu hỏi để quyết định Claude có nên sở hữu một bước: có đảo ngược được không, lỗi tốn bao nhiêu, ai chịu trách nhiệm."
+        },
+        {
+          "term": "Deterministic rule",
+          "en": "A rule that always produces the same output for the same input.",
+          "vi": "Quy tắc luôn cho cùng output với cùng input."
+        },
+        {
+          "term": "Deterministic drift",
+          "en": "Silent degradation that occurs when a business rule enforced in code is moved into a probabilistic model.",
+          "vi": "Sự suy giảm im lặng xảy ra khi một quy tắc nghiệp vụ thực thi bằng code bị chuyển vào model xác suất."
+        },
+        {
+          "term": "Four properties",
+          "en": "Next-token prediction, knowledge, working memory and steerability: the model behaviours architects design around.",
+          "vi": "Next-token prediction, knowledge, working memory và steerability: các hành vi của model mà architect thiết kế xoay quanh."
+        }
+      ]
+    },
+    {
+      "id": "d1-t6",
+      "objective": "Align solutions to business value pillars (efficiency, transformation, productivity, cost, performance SLAs)",
+      "title": "Business value pillars, ROI and outcome evidence",
+      "title_vi": "Các trụ cột giá trị kinh doanh, ROI và bằng chứng kết quả",
+      "sources": [
+        "output/13_Supplement_Business_Value_End_to_End.md",
+        "output_2/04_Sizing_and_Feasibility.md",
+        "output_4/06_Entry_Point_Selection_and_Outcomes.md",
+        "output_4/09_Supplement_Business_Value_and_Discovery_Toolkit.md",
+        "output/08_Model_Context_Strategy.md"
+      ],
+      "sections": [
+        {
+          "heading": "The five pillars",
+          "heading_vi": "Năm trụ cột",
+          "body": "The business case rests on five pillars: efficiency (the same work done faster or with fewer steps), productivity (more output from the same people, or more time on high-value work), transformation (work that was not feasible or economical before becomes possible, such as reviewing every contract instead of a sample), cost (lower cost per unit of work and the run cost of the solution itself), and performance SLAs (the service levels the deployment or the business must hold, such as responding to customers within a committed time). Map each ROI claim to the pillar it advances so the value statement captures both the number and the kind of value.\n\nEach use case should have one primary pillar chosen by what the sponsor cares about most (a CFO tends toward cost, a COO toward efficiency or SLAs, a CEO toward transformation). Productivity should be framed as freed capacity for higher-value work unless the sponsor has defined another goal. Pillars trade off: Opus everywhere may raise quality on a few steps but break the budget and latency SLA; full automation of a high-consequence step raises efficiency but also risk, so a collaborative design (Claude drafts, a person approves) keeps most of the value at acceptable risk; agents unlock transformation but are harder to audit.",
+          "body_vi": "Business case dựa trên năm trụ cột: efficiency (cùng công việc làm nhanh hơn hoặc ít bước hơn), productivity (nhiều đầu ra hơn từ cùng số người, hoặc nhiều thời gian hơn cho việc giá trị cao), transformation (công việc trước đây không khả thi hoặc không kinh tế trở nên khả thi, như review mọi hợp đồng thay vì lấy mẫu), cost (chi phí trên đơn vị công việc thấp hơn và chi phí vận hành của chính giải pháp), và performance SLAs (mức dịch vụ mà hệ thống hoặc doanh nghiệp phải giữ, như phản hồi khách hàng trong thời gian đã cam kết). Gắn mỗi tuyên bố ROI với trụ cột mà nó thúc đẩy để value statement thể hiện cả con số lẫn loại giá trị.\n\nMỗi use case nên có một trụ cột chính, được chọn theo điều sponsor quan tâm nhất (CFO thường nghiêng về cost, COO về efficiency hoặc SLA, CEO về transformation). Productivity nên được trình bày như năng lực được giải phóng cho việc giá trị cao hơn, trừ khi sponsor đã xác định mục tiêu khác. Các trụ cột đánh đổi nhau: Opus ở mọi nơi có thể tăng chất lượng ở vài bước nhưng phá ngân sách và SLA latency; tự động hóa hoàn toàn một bước hậu quả cao tăng efficiency nhưng cũng tăng rủi ro, nên thiết kế collaborative (Claude soạn, người duyệt) giữ phần lớn giá trị với rủi ro chấp nhận được; agent mở khóa transformation nhưng khó audit hơn.",
+          "bullets": []
+        },
+        {
+          "heading": "Sizing and ROI mapping",
+          "heading_vi": "Sizing và ánh xạ ROI",
+          "body": "Sizing produces a cost model before code is written from four inputs: call volume (from the business owner, not a sample dataset), token budget per request (model the distribution and tail, not just the average), model tier, and sensitivity parameters. Project monthly cost with separate input and output rates, cache-read rates where prompt caching applies (explicit cache_control markers, cache writes cost more than standard input, default TTL is 5 minutes so sparse traffic may not save), and consider the Batch API where the SLA allows asynchronous processing, after verifying BAA or compliance coverage for regulated data. Run sensitivity: what if volume doubles or tokens shift toward the tail?\n\nROI mapping then answers whether it is worth building, in four steps: name the baseline in a business unit from the owner's operational data; predict the post-deployment state in the same unit, including human review cost where the design requires it; subtract the run cost from the sizing model; state the payback period with sensitivity. Common errors: an estimated rather than measured baseline, a projection that assumes full automation when the design requires human review, and run cost taken from an average rather than the sizing distribution. Business cases must also use production volume, often 10 to 100 times the pilot, not pilot cost.",
+          "body_vi": "Sizing tạo ra mô hình chi phí trước khi viết code từ bốn đầu vào: call volume (lấy từ business owner, không phải dataset mẫu), token budget mỗi request (mô hình hóa phân phối và phần đuôi, không chỉ trung bình), model tier, và tham số sensitivity. Dự phóng chi phí tháng với đơn giá input và output tách riêng, đơn giá cache read khi áp dụng prompt caching (cần cache_control marker tường minh, cache write đắt hơn input thường, TTL mặc định 5 phút nên traffic thưa có thể không tiết kiệm), và cân nhắc Batch API khi SLA cho phép xử lý bất đồng bộ, sau khi xác minh BAA hoặc cấu hình compliance bao phủ dữ liệu được quản lý. Chạy sensitivity: nếu volume tăng gấp đôi hoặc token dịch về phần đuôi thì sao?\n\nÁnh xạ ROI sau đó trả lời có đáng build không, theo bốn bước: gọi tên baseline bằng đơn vị kinh doanh từ dữ liệu vận hành của owner; dự đoán trạng thái sau triển khai bằng cùng đơn vị, gồm cả chi phí human review khi thiết kế yêu cầu; trừ run cost từ mô hình sizing; nêu payback period kèm sensitivity. Lỗi thường gặp: baseline ước đoán thay vì đo, dự phóng giả định tự động hóa hoàn toàn khi thiết kế yêu cầu human review, và run cost lấy từ trung bình thay vì phân phối sizing. Business case cũng phải dùng production volume, thường gấp 10 đến 100 lần pilot, không dùng chi phí pilot.",
+          "bullets": []
+        },
+        {
+          "heading": "Outcome evidence and SLA-driven design",
+          "heading_vi": "Bằng chứng kết quả và thiết kế theo SLA",
+          "body": "Customer outcome documentation makes value legible beyond the build team. It has six fields: use case with scope boundary, metric before, metric after (same definition), control in place that makes the comparison auditable, measurement owner after the engagement closes, and reuse potential. A document built from easy-to-export technical metrics (request volume, average latency, error rate) fails the CFO's first question: 'That tells me it runs. What did it do for us?' Without the before number there is no story; without the control, the after number is an assertion. The baseline must be captured in discovery.\n\nPerformance SLAs and cost drive concrete architecture choices. In the course's Opus-everywhere case, cost ran at seven times the model, median latency was 2.3 seconds against an 800-millisecond target, and CSAT had not moved; extended thinking was even enabled on a routing classifier. Building a per-step eval set let the team route the classifier to Haiku, summarization to Sonnet and keep Opus only for final composition, cutting cost by 71 percent and median latency to 940 milliseconds with unchanged CSAT. Sonnet is the default; move up or down only when an eval says so.",
+          "body_vi": "Tài liệu kết quả khách hàng (customer outcome documentation) làm cho giá trị dễ hiểu với người ngoài đội build. Nó có sáu trường: use case kèm ranh giới phạm vi, metric trước, metric sau (cùng định nghĩa), control làm cho phép so sánh kiểm toán được, người sở hữu việc đo sau khi dự án kết thúc, và tiềm năng tái sử dụng. Một tài liệu dựng từ các metric kỹ thuật dễ export (request volume, latency trung bình, error rate) thất bại trước câu hỏi đầu tiên của CFO: 'Điều đó cho tôi biết nó chạy. Nó đã làm được gì cho chúng ta?' Không có số trước thì không có câu chuyện; không có control thì số sau chỉ là lời khẳng định. Baseline phải được thu thập trong discovery.\n\nPerformance SLA và chi phí dẫn tới các lựa chọn kiến trúc cụ thể. Trong ca Opus-everywhere của khóa học, chi phí gấp bảy lần mô hình dự tính, latency trung vị 2,3 giây so với mục tiêu 800 mili giây, và CSAT không thay đổi; extended thinking thậm chí được bật trên một routing classifier. Xây eval set theo từng bước cho phép đội chuyển classifier sang Haiku, phần tóm tắt sang Sonnet và chỉ giữ Opus cho bước soạn cuối, giảm 71 phần trăm chi phí và latency trung vị còn 940 mili giây với CSAT không đổi. Sonnet là mặc định; chỉ lên hoặc xuống tier khi eval cho thấy cần.",
+          "bullets": []
+        }
+      ],
+      "table": {
+        "caption": "Pillars, example KPIs and related architecture levers",
+        "caption_vi": "Trụ cột, KPI ví dụ và đòn bẩy kiến trúc liên quan",
+        "headers": [
+          "Pillar",
+          "Example KPI",
+          "Architecture lever"
+        ],
+        "headers_vi": [
+          "Trụ cột",
+          "KPI ví dụ",
+          "Đòn bẩy kiến trúc"
+        ],
+        "rows": [
+          [
+            "Efficiency",
+            "Handling time per case, manual steps",
+            "Automate language steps, keep rules in systems"
+          ],
+          [
+            "Productivity",
+            "Cases per person per day, expert hours saved",
+            "Collaborative pattern: Claude drafts, person approves"
+          ],
+          [
+            "Transformation",
+            "New service, 100 percent coverage instead of sampling",
+            "Agent for open investigation; RAG over untapped knowledge"
+          ],
+          [
+            "Cost",
+            "Cost per transaction, total cost of ownership",
+            "Model tiering, caching, batch, progressive context"
+          ],
+          [
+            "Performance SLAs",
+            "p95 latency, percent within SLA, accuracy on eval set",
+            "Fast tier on user path, streaming, fallback, eval gate"
+          ]
+        ]
+      },
+      "keyPoints": [
+        {
+          "en": "Partners pay for business outcomes (time, cost, revenue, compliance), not benchmark scores.",
+          "vi": "Partner trả tiền cho kết quả kinh doanh (thời gian, chi phí, doanh thu, tuân thủ), không phải điểm benchmark."
+        },
+        {
+          "en": "Value case: baseline, specific measurable target, mechanism, cost, risk and guardrails, post-deployment measurement on the same KPI.",
+          "vi": "Value case: baseline, mục tiêu cụ thể đo được, cơ chế, chi phí, rủi ro và guardrail, đo sau triển khai trên cùng KPI."
+        },
+        {
+          "en": "Feasibility answers 'can we build it'; ROI answers 'is it worth building'; both travel into the SOW.",
+          "vi": "Feasibility trả lời 'có build được không'; ROI trả lời 'có đáng build không'; cả hai cùng đi vào SOW."
+        },
+        {
+          "en": "Include human review cost and production-volume token cost; use the sizing distribution, not the average.",
+          "vi": "Tính cả chi phí human review và chi phí token ở production volume; dùng phân phối sizing, không dùng trung bình."
+        },
+        {
+          "en": "Outcome documents need before and after business metrics on the same definition, plus an auditable control and a measurement owner.",
+          "vi": "Outcome document cần metric kinh doanh trước và sau cùng định nghĩa, cộng control kiểm toán được và người sở hữu việc đo."
+        },
+        {
+          "en": "Tight latency SLAs call for a fast tier, no default thinking, short outputs and streaming, proven by eval, not the strongest model.",
+          "vi": "SLA latency chặt cần tier nhanh, không bật thinking mặc định, output ngắn và streaming, được chứng minh bằng eval, không phải model mạnh nhất."
+        }
+      ],
+      "examTips": [
+        {
+          "en": "'Prove ROI' questions reward a measured baseline and business KPIs, not model benchmarks, token counts or request volume.",
+          "vi": "Câu hỏi 'chứng minh ROI' thưởng cho baseline đã đo và KPI kinh doanh, không phải benchmark model, số token hay request volume."
+        },
+        {
+          "en": "Distractors in business cases: pilot costs, full automation despite a review gate, and average token costs.",
+          "vi": "Distractor trong business case: chi phí pilot, tự động hóa hoàn toàn dù có review gate, và chi phí token trung bình."
+        },
+        {
+          "en": "Streaming improves perceived latency but does not reduce token cost; Batch API and caching reduce cost when the SLA and traffic pattern allow.",
+          "vi": "Streaming cải thiện latency cảm nhận nhưng không giảm chi phí token; Batch API và caching giảm chi phí khi SLA và mẫu traffic cho phép."
+        },
+        {
+          "en": "A missing 'control in place' makes the after metric an unverifiable assertion.",
+          "vi": "Thiếu 'control in place' khiến metric sau chỉ là lời khẳng định không kiểm chứng được."
+        }
+      ],
+      "terms": [
+        {
+          "term": "Business value pillars",
+          "en": "Efficiency, transformation, productivity, cost and performance SLAs: the categories used to express the value of a solution.",
+          "vi": "Efficiency, transformation, productivity, cost và performance SLA: các nhóm dùng để diễn đạt giá trị của một giải pháp."
+        },
+        {
+          "term": "Baseline",
+          "en": "The business metric as it stands before deployment, measured from the owner's operational data in the unit the business tracks.",
+          "vi": "Metric kinh doanh trước khi triển khai, đo từ dữ liệu vận hành của owner bằng đơn vị mà doanh nghiệp theo dõi."
+        },
+        {
+          "term": "Payback period",
+          "en": "The time for accumulated operational gain to cover build and run cost; should be stated with sensitivity.",
+          "vi": "Thời gian để lợi ích vận hành tích lũy bù được chi phí build và vận hành; nên nêu kèm sensitivity."
+        },
+        {
+          "term": "Outcome document",
+          "en": "A six-field artifact (scope, metric before, metric after, control, measurement owner, reuse) that makes deployment value legible to sponsors.",
+          "vi": "Artifact sáu trường (phạm vi, metric trước, metric sau, control, người sở hữu đo lường, tái sử dụng) giúp sponsor hiểu giá trị triển khai."
+        },
+        {
+          "term": "Sensitivity analysis",
+          "en": "Testing how cost or payback moves when volume, token distribution or gain-per-task assumptions change.",
+          "vi": "Kiểm tra chi phí hoặc payback thay đổi thế nào khi giả định về volume, phân phối token hoặc lợi ích mỗi tác vụ thay đổi."
+        }
+      ]
+    }
+  ]
+}

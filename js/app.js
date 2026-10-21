@@ -24,7 +24,10 @@
         "📊 Chấm điểm theo 4 lĩnh vực",
         "💡 Đáp án &amp; Giải thích chi tiết"
       ],
-      defaultCount: 60
+      defaultCount: 60,
+      defaultDuration: 90,
+      passPercent: 70,
+      passLabel: "≥ 70%"
     },
     ccarp: {
       id: "ccarp",
@@ -35,15 +38,29 @@
       manifestVar: "QUIZ_MANIFEST_CCARP",
       fallbackManifestVar: "QUIZ_MANIFEST_CCARP",
       heroTitle: "Bộ Đề Luyện Thi Claude Certified Architect (CCAR-P)",
-      heroDesc: "Hệ thống 10 bộ đề thực hành chuyên sâu kiến trúc Claude & LLM: 63 câu hỏi tình huống, thời gian 90 phút, đánh giá 7 lĩnh vực năng lực cốt lõi.",
+      heroDesc: "10 bộ đề bám sát Exam Guide CCAR-P v1.0: 63 câu tình huống, 120 phút, phân bổ theo tỷ trọng 7 domain, đạt khi ≥ 72% (tương ứng điểm chuẩn 720/1000).",
       pills: [
         "🎯 Chuẩn đề 63 câu",
-        "⏱️ Bấm giờ 90 phút",
+        "⏱️ Bấm giờ 120 phút",
         "🇻🇳 Song ngữ Anh - Việt",
-        "📊 Chấm điểm theo 7 lĩnh vực",
+        "📊 Chấm điểm theo 7 domain",
         "💡 Đáp án &amp; Giải thích chi tiết"
       ],
-      defaultCount: 63
+      defaultCount: 63,
+      defaultDuration: 120,
+      // Bài thi thật chấm theo thang 100–1.000 (đạt 720); ở đây quy đổi gần đúng thành 72% số câu đúng
+      passPercent: 72,
+      passLabel: "≥ 72% (≈720/1000)",
+      learnUrl: "ccarp-learn.html",
+      domainOrder: [
+        "Solution Design & Architecture",
+        "Claude Models, Prompting & Context Engineering",
+        "Integration",
+        "Evaluation, Testing & Optimization",
+        "Governance, Safety & Risk Management",
+        "Stakeholder Communication & Lifecycle Management",
+        "Developer Productivity & Operational Enablement"
+      ]
     }
   };
 
@@ -70,6 +87,8 @@
     brandIcon: document.getElementById("brandIcon"),
     brandTitle: document.getElementById("brandTitle"),
     brandSubtitle: document.getElementById("brandSubtitle"),
+    learnLink: document.getElementById("learnLink"),
+    passMarkText: document.getElementById("passMarkText"),
 
     // Exam Selectors
     headBtnGenAI: document.getElementById("headBtnGenAI"),
@@ -197,9 +216,11 @@
   // 1c. EXAM SWITCHING LOGIC (GENAI LEADER & CCAR-P)
   // ==========================================================================
   function initExamSelection() {
-    const savedExam = localStorage.getItem("genai_exam_selected_exam");
+    const urlExam = new URLSearchParams(window.location.search).get("exam");
+    const savedExam = urlExam || localStorage.getItem("genai_exam_selected_exam");
     if (savedExam && EXAMS[savedExam]) {
       state.currentExam = savedExam;
+      localStorage.setItem("genai_exam_selected_exam", savedExam);
     }
     updateExamUI();
   }
@@ -231,6 +252,9 @@
     // Brand icon & title
     if (els.brandTitle) els.brandTitle.textContent = exam.name;
     if (els.brandIcon) els.brandIcon.textContent = exam.icon;
+
+    // Link trang học (chỉ có với CCAR-P)
+    if (els.learnLink) els.learnLink.style.display = exam.learnUrl ? "" : "none";
   }
 
   async function switchExam(examId) {
@@ -283,7 +307,7 @@
         title: `Bộ đề thi ${exam.id === 'ccarp' ? 'CCAR-P ' : ''}số ${i + 1}`,
         description: `Bộ đề thực hành ${exam.name} - ${exam.defaultCount} câu hỏi trắc nghiệm chuẩn.`,
         questionCount: exam.defaultCount,
-        durationMinutes: 90,
+        durationMinutes: exam.defaultDuration,
         isAvailable: true,
         dataFile: `set_${i + 1}.json`,
         jsFile: `set_${i + 1}.js`,
@@ -294,6 +318,7 @@
   }
 
   function renderSetsGrid() {
+    const exam = EXAMS[state.currentExam] || EXAMS.genai;
     els.setsGrid.innerHTML = "";
     state.sets.forEach((set) => {
       const card = document.createElement("div");
@@ -313,7 +338,7 @@
         <div>
           <div class="set-specs">
             <span>📝 ${set.isAvailable ? `${set.questionCount} câu hỏi` : "Đang cập nhật"}</span>
-            <span>🎯 Đạt: ≥ 70%</span>
+            <span>🎯 Đạt: ${exam.passLabel}</span>
           </div>
           <button class="btn btn-primary start-set-btn" ${!set.isAvailable ? "disabled" : ""} data-set-id="${set.id}">
             ${set.isAvailable ? "Bắt đầu làm bài" : "Chưa có đề thi"}
@@ -381,7 +406,7 @@
     state.userAnswers = {};
     state.flaggedQuestions.clear();
     state.isSubmitted = false;
-    state.timeRemaining = (set.durationMinutes || 90) * 60;
+    state.timeRemaining = (set.durationMinutes || exam.defaultDuration) * 60;
     state.examStartTime = Date.now();
 
     // Setup Header & UI
@@ -403,7 +428,7 @@
 
       if (state.timeRemaining <= 0) {
         clearInterval(state.timerInterval);
-        alert("⏰ Hết thời gian làm bài (90 phút)! Hệ thống sẽ tự động nộp bài.");
+        alert(`⏰ Hết thời gian làm bài (${state.currentSet.durationMinutes} phút)! Hệ thống sẽ tự động nộp bài.`);
         finishExam();
       }
     }, 1000);
@@ -435,7 +460,8 @@
     // Cập nhật badges & flag
     els.qTopicBadge.textContent = q.topic || "Generative AI Leader";
     const isMulti = q.type === "multiple" || (q.answer && q.answer.length > 1);
-    els.qTypeBadge.innerHTML = isMulti ? "☑️ Chọn nhiều đáp án" : "🔘 Chọn một đáp án";
+    const selectCount = getSelectCount(q);
+    els.qTypeBadge.innerHTML = isMulti ? `☑️ Chọn ${selectCount} đáp án` : "🔘 Chọn một đáp án";
 
     updateFlagButton();
 
@@ -480,7 +506,7 @@
       `;
 
       const toggleOption = () => {
-        handleOptionSelect(q.id, opt.key, isMulti);
+        handleOptionSelect(q.id, opt.key, isMulti, selectCount);
       };
 
       optItem.addEventListener("click", toggleOption);
@@ -505,7 +531,12 @@
     updateQuestionPaletteCurrent();
   }
 
-  function handleOptionSelect(questionId, key, isMulti) {
+  // Số đáp án cần chọn (đề CCAR-P luôn ghi rõ, ví dụ "Choose TWO")
+  function getSelectCount(q) {
+    return q.selectCount || (q.answer ? q.answer.length : 1);
+  }
+
+  function handleOptionSelect(questionId, key, isMulti, selectCount) {
     let current = state.userAnswers[questionId] ? [...state.userAnswers[questionId]] : [];
 
     if (isMulti) {
@@ -513,6 +544,8 @@
         current = current.filter((k) => k !== key);
       } else {
         current.push(key);
+        // Giống bài thi thật: không chọn quá số đáp án yêu cầu, bỏ lựa chọn cũ nhất
+        if (current.length > selectCount) current.shift();
       }
     } else {
       current = [key];
@@ -674,8 +707,10 @@
       if (isCorrect) domainStats[topic].correct++;
     });
 
+    const exam = EXAMS[state.currentExam] || EXAMS.genai;
     const percent = Math.round((correctCount / totalQuestions) * 100);
-    const isPassed = percent >= 70; // 70% threshold
+    const isPassed = percent >= exam.passPercent;
+    if (els.passMarkText) els.passMarkText.textContent = exam.passLabel;
 
     // Hiển thị Score Banner
     els.resultStatusBadge.className = `result-status-badge ${isPassed ? "pass" : "fail"}`;
@@ -703,7 +738,15 @@
 
   function renderDomainBreakdown(domainStats) {
     els.domainBarsContainer.innerHTML = "";
+    const exam = EXAMS[state.currentExam] || EXAMS.genai;
     const domainKeys = Object.keys(domainStats);
+    if (exam.domainOrder) {
+      const rank = (t) => {
+        const i = exam.domainOrder.findIndex((d) => t.startsWith(d));
+        return i === -1 ? 99 : i;
+      };
+      domainKeys.sort((a, b) => rank(a) - rank(b));
+    }
     if (els.domainsCardTitle) {
       els.domainsCardTitle.textContent = `📊 Kết quả phân tích theo ${domainKeys.length} lĩnh vực thi`;
     }
@@ -720,7 +763,7 @@
           <span>${stat.correct}/${stat.total} (${topicPct}%)</span>
         </div>
         <div class="domain-bar-bg">
-          <div class="domain-bar-fill" style="width: ${topicPct}%; background: ${topicPct >= 70 ? "var(--success)" : "var(--accent-primary)"};"></div>
+          <div class="domain-bar-fill" style="width: ${topicPct}%; background: ${topicPct >= exam.passPercent ? "var(--success)" : "var(--accent-primary)"};"></div>
         </div>
       `;
       els.domainBarsContainer.appendChild(item);
@@ -784,6 +827,10 @@
 
       const explanationEn = q.explanation || "";
       const explanationVi = q.explanation_vi || q.explanationVi || "";
+      const exam = EXAMS[state.currentExam] || EXAMS.genai;
+      const lessonHtml = exam.learnUrl && q.lessonId
+        ? `<a class="review-lesson-link" href="${exam.learnUrl}#${encodeURIComponent(q.lessonId)}" target="_blank" rel="noopener">📚 Ôn bài: ${escapeHtml(q.objective || "Xem bài học")}</a>`
+        : "";
 
       card.innerHTML = `
         <div class="review-q-meta">
@@ -810,6 +857,7 @@
               ${explanationVi ? `<div class="explanation-vi"><span class="expl-label">🇻🇳 Dịch nghĩa:</span> ${escapeHtml(explanationVi)}</div>` : ""}
             </div>
           ` : ""}
+          ${lessonHtml}
         </div>
       `;
 

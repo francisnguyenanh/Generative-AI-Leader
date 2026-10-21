@@ -1,0 +1,781 @@
+{
+ "domain": 2,
+ "title": "Claude Models, Prompting & Context Engineering",
+ "title_vi": "Model Claude, Prompting & Context Engineering",
+ "weight": 13,
+ "overview": "This domain tests whether you treat the model, the prompt and the context as designed architectural assets rather than habits. Expect scenarios where you must pick a model tier with eval evidence, write prompts whose guardrails are structural, choose the lightest prompting technique that meets the bar, keep the context window lean and measured, and reuse prompts through caching, modular libraries or versioned Skills. The winning answer almost always names the measured evidence (an eval, the usage field, a cache hit rate) and the cheapest lever that targets the actual driver.",
+ "overview_vi": "Domain này kiểm tra xem bạn có coi model, prompt và context là những tài sản kiến trúc được thiết kế có chủ đích, thay vì làm theo thói quen hay không. Hãy chờ đợi các tình huống trong đó bạn phải chọn model tier dựa trên bằng chứng eval, viết prompt có guardrail mang tính cấu trúc, chọn kỹ thuật prompting nhẹ nhất vẫn đạt yêu cầu, giữ context window gọn gàng và được đo lường, và tái sử dụng prompt thông qua caching, thư viện prompt dạng module hoặc Skill có version. Đáp án đúng gần như luôn nêu được bằng chứng đo lường (một eval, trường usage, tỷ lệ cache hit) và đòn bẩy rẻ nhất nhắm đúng vào yếu tố gây ra vấn đề thực sự.",
+ "topics": [
+  {
+   "id": "d2-t1",
+   "objective": "Select appropriate Claude models based on trade-offs",
+   "title": "Choosing Opus, Sonnet or Haiku with eval evidence",
+   "title_vi": "Chọn Opus, Sonnet hay Haiku dựa trên bằng chứng eval",
+   "sources": [
+    "output/08_Model_Context_Strategy.md",
+    "output_2/03_POC_to_Production.md",
+    "output_2/04_Sizing_and_Feasibility.md",
+    "output_2/09_Supplement_Integration_Mechanisms_and_Optimization.md"
+   ],
+   "sections": [
+    {
+     "heading": "Start with Sonnet, move deliberately",
+     "heading_vi": "Bắt đầu với Sonnet, thay đổi có chủ đích",
+     "body": "The Claude model family consists of Opus, Sonnet and Haiku, each optimized for a different balance of cost, latency and capability. Opus is the most capable tier, suited to demanding reasoning, advanced coding and research synthesis. Sonnet balances intelligence, speed and cost and is the default starting point. Haiku is fast and inexpensive, a good fit for classification, routing, simple extraction, high volume and tight latency.\n\nThe course rule is simple: start with Sonnet. Move up to Opus only when an eval set shows Sonnet is not meeting the quality bar, and move down to Haiku only when an eval set confirms the quality trade-off is acceptable for that specific task. A model move should be measured, not reflexive. Selection is also per step: a pipeline can run Haiku for its classifier, Sonnet for summarization and Opus only for the final composition step where the eval proves the higher tier earns its place. Using one model for every step is itself an implicit decision, and usually the most expensive one.",
+     "body_vi": "Họ model Claude gồm Opus, Sonnet và Haiku, mỗi model được tối ưu cho một sự cân bằng khác nhau giữa chi phí, latency và năng lực. Opus là tier mạnh nhất, phù hợp với suy luận khó, coding nâng cao và tổng hợp nghiên cứu. Sonnet cân bằng giữa trí tuệ, tốc độ và chi phí, và là điểm khởi đầu mặc định. Haiku nhanh và rẻ, phù hợp cho phân loại, routing, trích xuất đơn giản, volume lớn và latency chặt.\n\nQuy tắc của course rất đơn giản: bắt đầu với Sonnet. Chỉ nâng lên Opus khi một eval set cho thấy Sonnet không đạt ngưỡng chất lượng, và chỉ hạ xuống Haiku khi eval set xác nhận mức đánh đổi chất lượng là chấp nhận được cho đúng tác vụ đó. Việc đổi model phải được đo lường, không phải phản xạ. Việc chọn model cũng theo từng bước: một pipeline có thể chạy Haiku cho bộ phân loại, Sonnet cho bước tóm tắt và chỉ dùng Opus cho bước soạn câu trả lời cuối, nơi eval chứng minh tier cao xứng đáng. Dùng một model cho mọi bước tự nó đã là một quyết định ngầm, và thường là quyết định đắt nhất.",
+     "bullets": [
+      {
+       "en": "Not choosing a model is equivalent to choosing the most expensive one.",
+       "vi": "Không chọn model tương đương với việc chọn model đắt nhất."
+      },
+      {
+       "en": "Context window capacity is part of the tier decision: a 1M-token model can take a 300-page contract without chunking, a 200k model may need chunking.",
+       "vi": "Dung lượng context window là một phần của quyết định tier: model 1 triệu token có thể nhận hợp đồng 300 trang mà không cần chunking, model 200k có thể cần chunking."
+      },
+      {
+       "en": "Model routing or cascading sends simple requests to a smaller tier and complex ones to a larger tier; every branch, and the router itself, must pass the eval.",
+       "vi": "Model routing hoặc cascading gửi request đơn giản tới tier nhỏ và request phức tạp tới tier lớn; mọi nhánh, và cả chính bộ định tuyến, đều phải qua eval."
+      }
+     ]
+    },
+    {
+     "heading": "Gate every model change with an eval",
+     "heading_vi": "Đặt cổng eval cho mọi thay đổi model",
+     "body": "A model swap looks like a one-line configuration change but rewrites how the whole product behaves, so it is a release. At minimum you need a curated test set covering the real distribution of work, a grading function (model-graded against a rubric, or programmatic where the check can be expressed in code), and a delta threshold set in advance below which you do not ship. Setting the threshold after seeing results is writing the acceptance criteria after the build.\n\nWorked case: a document pipeline wanted to move from Sonnet to Haiku. On 250 stratified documents Sonnet averaged 0.94 and Haiku 0.86, but two document types fell to 0.71 and 0.74. The pre-set rollback criterion (no type below 0.85) rejected the full migration. The salvage was a partial migration: route those two types to Sonnet via the existing classifier and the rest to Haiku. Per-segment scores exposed an option that a single average would have hidden. Pin model versions in configuration, watch the deprecation page and keep a version-update runbook, because a version change is also a change that goes through the eval gate.",
+     "body_vi": "Đổi model trông như thay đổi một dòng cấu hình nhưng thực chất viết lại cách toàn bộ sản phẩm hoạt động, vì vậy đó là một release. Tối thiểu bạn cần một test set được tuyển chọn bao phủ phân phối công việc thực tế, một grading function (model chấm theo rubric, hoặc chấm bằng code khi kiểm tra có thể diễn đạt bằng code), và một ngưỡng chênh lệch đặt trước mà dưới mức đó bạn không ship. Đặt ngưỡng sau khi thấy kết quả là viết tiêu chí nghiệm thu sau khi đã build.\n\nVí dụ: một pipeline tài liệu muốn chuyển từ Sonnet sang Haiku. Trên 250 tài liệu được phân tầng, Sonnet đạt trung bình 0,94 và Haiku 0,86, nhưng hai loại tài liệu tụt xuống 0,71 và 0,74. Rollback criterion đặt trước (không loại nào dưới 0,85) đã bác bỏ việc migration toàn bộ. Cách cứu vãn là migration một phần: chuyển hai loại đó sang Sonnet qua bộ phân loại sẵn có và phần còn lại sang Haiku. Điểm theo từng phân nhóm đã làm lộ ra một lựa chọn mà một điểm trung bình duy nhất sẽ che giấu. Hãy pin phiên bản model trong cấu hình, theo dõi trang deprecation và duy trì runbook cập nhật phiên bản, vì đổi phiên bản cũng là một thay đổi phải qua cổng eval.",
+     "bullets": []
+    },
+    {
+     "heading": "Extended thinking is a billed trade-off",
+     "heading_vi": "Extended thinking là một đánh đổi có tính phí",
+     "body": "Extended thinking is a per-request capability where the model works through the problem in a separate block of thinking tokens before answering. On Claude Opus 4.6 and later, Sonnet 4.6 and later, and Sonnet 5, adaptive thinking with the effort parameter is the recommended control; the older budget_tokens setting is deprecated on the 4.6 generation and removed on Sonnet 5, where it returns a 400 error. Thinking tokens are billed as output tokens and add latency. You are billed for the thinking tokens actually consumed, not the length of a visible summary.\n\nThe decision rule: run your evals without it, improve the prompt, and only enable it when a measured accuracy gap remains, and only on the step that needs it. The 7x cost overrun case shows the anti-pattern: Opus on every call, no per-step eval, and extended thinking switched on for a routing classifier. Rebuilding with per-step evals (Haiku for the classifier, Sonnet for summarization, Opus kept for final composition) cut monthly cost by 71% and median latency from 2.3 s to 940 ms with unchanged customer satisfaction.",
+     "body_vi": "Extended thinking là năng lực theo từng request, trong đó model xử lý vấn đề trong một khối thinking token riêng trước khi trả lời. Trên Claude Opus 4.6 trở lên, Sonnet 4.6 trở lên và Sonnet 5, adaptive thinking với tham số effort là cơ chế điều khiển được khuyến nghị; thiết lập budget_tokens cũ bị deprecated ở thế hệ 4.6 và bị loại bỏ trên Sonnet 5, nơi nó trả về lỗi 400. Thinking token được tính phí như output token và làm tăng latency. Bạn bị tính phí cho số thinking token thực sự tiêu thụ, không phải độ dài của bản tóm tắt hiển thị.\n\nQuy tắc quyết định: chạy eval khi không bật, cải thiện prompt, và chỉ bật khi vẫn còn khoảng cách chính xác đo được, và chỉ cho đúng bước cần. Case vượt chi phí 7 lần cho thấy anti-pattern: Opus ở mọi lời gọi, không có eval theo từng bước, và extended thinking được bật cho một routing classifier. Xây lại với eval theo từng bước (Haiku cho classifier, Sonnet cho tóm tắt, giữ Opus cho bước soạn cuối) đã giảm 71% chi phí hàng tháng và giảm median latency từ 2,3 giây xuống 940 ms, trong khi mức hài lòng của khách hàng không đổi.",
+     "bullets": [
+      {
+       "en": "The load-bearing control is the setting tied to whichever budget has the least margin: if latency is tight, model tier and extended thinking; if cost is tight, tier and context strategy.",
+       "vi": "Load-bearing control là thiết lập gắn với ngân sách có biên thấp nhất: nếu latency chặt thì là model tier và extended thinking; nếu chi phí chặt thì là tier và context strategy."
+      },
+      {
+       "en": "Fallback chains to a smaller tier must themselves be evaluated; a smaller model may not meet the threshold for every task.",
+       "vi": "Fallback chain sang tier nhỏ hơn cũng phải được eval; model nhỏ hơn có thể không đạt ngưỡng cho mọi tác vụ."
+      }
+     ]
+    }
+   ],
+   "table": {
+    "caption": "Model tiers at a glance (always confirm with an eval)",
+    "caption_vi": "Tổng quan các model tier (luôn xác nhận bằng eval)",
+    "headers": [
+     "Tier",
+     "Strength",
+     "Typical use",
+     "Trade-off"
+    ],
+    "headers_vi": [
+     "Tier",
+     "Thế mạnh",
+     "Dùng điển hình",
+     "Đánh đổi"
+    ],
+    "rows": [
+     [
+      "Opus",
+      "Most capable: hard reasoning, advanced coding, research synthesis",
+      "The hardest pipeline step where the eval proves it is needed",
+      "Highest cost and latency"
+     ],
+     [
+      "Sonnet",
+      "Balance of intelligence, speed and cost",
+      "Default starting point for most workloads",
+      "Move only on eval evidence"
+     ],
+     [
+      "Haiku",
+      "Fast and inexpensive",
+      "Classification, routing, simple extraction, high volume, tight latency",
+      "Lower quality on complex tasks"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Default to Sonnet; move up or down only when an eval set says so.",
+     "vi": "Mặc định dùng Sonnet; chỉ nâng hoặc hạ khi eval set chỉ ra điều đó."
+    },
+    {
+     "en": "Select models per pipeline step; one model everywhere is an implicit, usually expensive, decision.",
+     "vi": "Chọn model theo từng bước pipeline; một model cho mọi nơi là quyết định ngầm, thường là đắt."
+    },
+    {
+     "en": "A model swap is a release: curated test set, grading function, threshold set in advance, rollback criterion.",
+     "vi": "Đổi model là một release: test set được tuyển chọn, grading function, ngưỡng đặt trước, rollback criterion."
+    },
+    {
+     "en": "Read scores per segment; an average can hide a regression and a partial-migration option.",
+     "vi": "Đọc điểm theo từng phân nhóm; điểm trung bình có thể che giấu regression và cả lựa chọn migration một phần."
+    },
+    {
+     "en": "Extended thinking costs output tokens and latency; enable it only for a measured accuracy gap after prompt work, never on classifiers by default.",
+     "vi": "Extended thinking tốn output token và latency; chỉ bật khi có khoảng cách chính xác đo được sau khi đã tối ưu prompt, không bao giờ bật mặc định cho classifier."
+    },
+    {
+     "en": "Pin model versions and keep a version-update runbook that re-runs the eval suite.",
+     "vi": "Pin phiên bản model và duy trì runbook cập nhật phiên bản có chạy lại eval suite."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "Cost overrun with Opus everywhere and flat CSAT: the first step is per-step evals and per-step tier selection, not moving everything to Haiku or negotiating price.",
+     "vi": "Chi phí vượt khi dùng Opus khắp nơi và CSAT không đổi: bước đầu tiên là eval theo từng bước và chọn tier theo từng bước, không phải chuyển hết sang Haiku hay đàm phán giá."
+    },
+    {
+     "en": "Downgrade questions: the answer with a stratified eval set, a pre-set threshold and per-type partial migration beats canary-by-complaints or comparing averages.",
+     "vi": "Câu hỏi hạ model: đáp án có eval set phân tầng, ngưỡng đặt trước và migration một phần theo loại sẽ thắng phương án thử canary rồi chờ phàn nàn hoặc so sánh điểm trung bình."
+    },
+    {
+     "en": "Eliminate 'use the most capable model to be safe', 'set the threshold after seeing results' and 'extended thinking can't hurt'.",
+     "vi": "Loại các phương án 'dùng model mạnh nhất cho chắc', 'đặt ngưỡng sau khi xem kết quả' và 'extended thinking thì không thể có hại'."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Per-step model selection",
+     "en": "Assigning a model tier to each pipeline step based on that step's eval results.",
+     "vi": "Gán model tier cho từng bước pipeline dựa trên kết quả eval của bước đó."
+    },
+    {
+     "term": "Rollback criterion",
+     "en": "A pass/fail rule fixed before the eval runs that decides whether a model change ships.",
+     "vi": "Quy tắc đạt/không đạt được cố định trước khi chạy eval, quyết định thay đổi model có được ship hay không."
+    },
+    {
+     "term": "Extended thinking",
+     "en": "A per-request capability where the model reasons in a separate block of thinking tokens, billed as output tokens.",
+     "vi": "Năng lực theo request trong đó model suy luận trong một khối thinking token riêng, tính phí như output token."
+    },
+    {
+     "term": "Adaptive thinking (effort)",
+     "en": "The recommended thinking control on newer models: you set reasoning effort instead of a token budget.",
+     "vi": "Cơ chế điều khiển thinking được khuyến nghị trên các model mới: bạn đặt mức effort suy luận thay vì một ngân sách token."
+    },
+    {
+     "term": "Model version pinning",
+     "en": "Configuring a fixed model version and upgrading only through a runbook with evals.",
+     "vi": "Cấu hình một phiên bản model cố định và chỉ nâng cấp qua runbook có chạy eval."
+    },
+    {
+     "term": "Load-bearing control",
+     "en": "The single setting tied to the budget with the least margin; relaxing it breaches a budget first.",
+     "vi": "Thiết lập duy nhất gắn với ngân sách có biên thấp nhất; nới nó ra sẽ phá ngân sách trước tiên."
+    }
+   ]
+  },
+  {
+   "id": "d2-t2",
+   "objective": "Design system prompts, templates, and guardrails",
+   "title": "System prompts, templates and structural guardrails",
+   "title_vi": "System prompt, template và guardrail mang tính cấu trúc",
+   "sources": [
+    "output/09_Prompting_as_Architecture.md",
+    "output/02_How_Claude_Behaves.md"
+   ],
+   "sections": [
+    {
+     "heading": "The enterprise system prompt is a designed asset",
+     "heading_vi": "System prompt doanh nghiệp là một tài sản được thiết kế",
+     "body": "A system prompt for a one-off chat and one that hundreds of requests a day depend on are different artifacts. The enterprise version has structure: a clear statement of role and scope, the constraints the model must hold (what it must never do, what it must always do), and an output contract that names the shape of the response. When a prompt is reused at scale, ambiguity is a defect multiplied across every request.\n\nA practical skeleton uses XML-style tags: role, scope (with an explicit out_of_scope status for anything outside it), constraints, and an output contract such as a JSON object with reply, cited_sections, needs_human and reason fields. The fixed part sits first and can be cached; the per-request slots such as the ticket text and the manual excerpt come after. Tags also separate instructions from data, which helps the model and reduces the chance that user data is read as an instruction. That is one part of prompt-injection defence, not the only measure.",
+     "body_vi": "System prompt cho một cuộc chat đơn lẻ và system prompt mà hàng trăm request mỗi ngày phụ thuộc vào là hai sản phẩm khác nhau. Phiên bản doanh nghiệp có cấu trúc: một tuyên bố rõ ràng về vai trò (role) và phạm vi (scope), các ràng buộc model phải giữ (điều không bao giờ được làm, điều luôn phải làm), và một output contract nêu rõ hình dạng của response. Khi một prompt được tái sử dụng ở quy mô lớn, sự mơ hồ là một lỗi được nhân lên trên mọi request.\n\nMột khung thực tế dùng thẻ kiểu XML: role, scope (với trạng thái out_of_scope tường minh cho mọi thứ nằm ngoài phạm vi), constraints, và một output contract, ví dụ một đối tượng JSON với các trường reply, cited_sections, needs_human và reason. Phần cố định đứng trước và có thể được cache; các slot theo từng request như nội dung ticket và đoạn trích tài liệu hướng dẫn đứng sau. Thẻ cũng tách chỉ dẫn khỏi dữ liệu, giúp model và giảm khả năng dữ liệu người dùng bị hiểu thành chỉ dẫn. Đó là một phần của phòng chống prompt injection, không phải biện pháp duy nhất.",
+     "bullets": [
+      {
+       "en": "Enterprise system prompt = Role + Scope + Constraints + Output contract.",
+       "vi": "System prompt doanh nghiệp = Role + Scope + Constraints + Output contract."
+      },
+      {
+       "en": "Reinforce the output contract with structured outputs or a tool with a JSON schema, then validate in application code.",
+       "vi": "Củng cố output contract bằng structured outputs hoặc tool có JSON schema, rồi validate bằng code phía ứng dụng."
+      }
+     ]
+    },
+    {
+     "heading": "Templates make the safe path the default path",
+     "heading_vi": "Template biến đường an toàn thành đường mặc định",
+     "body": "A template is a system prompt with parameterized slots (the parts that change per request) and fixed scaffolding around them. The fixed scaffolding carries the consistency and safety guarantees, so filling a slot cannot accidentally remove a constraint. Users supply the variable content and inherit the guardrails without re-authoring them. If a template lets users edit the constraint section, it is no longer a guardrail.\n\nTemplates also concentrate complexity in one place where it can be reviewed and governed, instead of scattering it across ad-hoc prompts no one owns. A vague system prompt is paid for in every request that needs correction, retry or human cleanup; designing it well once is far cheaper than diagnosing drift across thousands of calls.",
+     "body_vi": "Template là một system prompt có các slot tham số hóa (phần thay đổi theo từng request) và phần khung cố định bao quanh. Phần khung cố định mang các đảm bảo về tính nhất quán và an toàn, nên việc điền một slot không thể vô tình xóa bỏ một ràng buộc. Người dùng cung cấp nội dung biến đổi và thừa hưởng guardrail mà không phải tự viết lại. Nếu template cho phép người dùng sửa phần ràng buộc, nó không còn là guardrail nữa.\n\nTemplate cũng tập trung độ phức tạp vào một nơi có thể được review và quản trị, thay vì rải rác trong các prompt tùy hứng không ai sở hữu. Một system prompt mơ hồ phải trả giá ở mọi request cần sửa, retry hoặc người dọn dẹp; thiết kế tốt một lần rẻ hơn nhiều so với chẩn đoán sự trôi lệch trên hàng nghìn lời gọi.",
+     "bullets": []
+    },
+    {
+     "heading": "Description and underspecification",
+     "heading_vi": "Description và underspecification (đặc tả thiếu)",
+     "body": "Description, one of the four AI Fluency competencies, is telling the model precisely what you want. A well-described prompt names the scope (what is in and out of bounds), the format (the exact output contract) and the constraints (the rules that must never be violated). Underspecification is a gap the model fills with its own assumption, differently each time. Diagnose it by asking, for each requirement, whether the prompt states it or merely hopes for it: maximum length, response language, behaviour when information is missing, date format, behaviour for out-of-scope questions. The fix is to make the implicit explicit: restate the goal alongside the instruction, name the format and bound the constraints.\n\nThe steerability property explains why: Claude follows short, concrete, verifiable instructions well, but may follow the letter of an instruction while drifting from its intent. Restate the goal (for example, every claim of 5,000 or more must reach a senior adjuster, even when the amount is written in words). For precise numeric or logical computation, deterministic code or a tool should own the answer, with the model extracting values into a schema.",
+     "body_vi": "Description, một trong bốn năng lực AI Fluency, là việc nói với model chính xác điều bạn muốn. Một prompt được mô tả tốt nêu rõ scope (cái gì trong và ngoài phạm vi), format (output contract chính xác) và constraints (các quy tắc không bao giờ được vi phạm). Underspecification là một khoảng trống mà model lấp bằng giả định của chính nó, mỗi lần một khác. Chẩn đoán bằng cách hỏi, với từng yêu cầu, prompt có nói điều đó hay chỉ hy vọng: độ dài tối đa, ngôn ngữ trả lời, hành vi khi thiếu thông tin, định dạng ngày, hành vi với câu hỏi ngoài phạm vi. Cách sửa là biến điều ngầm định thành tường minh: nêu lại mục tiêu bên cạnh chỉ dẫn, gọi tên định dạng và giới hạn các ràng buộc.\n\nThuộc tính steerability giải thích lý do: Claude làm theo tốt các chỉ dẫn ngắn, cụ thể, kiểm chứng được, nhưng có thể làm đúng câu chữ của chỉ dẫn trong khi lệch khỏi ý định. Hãy nêu lại mục tiêu (ví dụ, mọi yêu cầu bồi thường từ 5.000 trở lên phải đến senior adjuster, kể cả khi số tiền được viết bằng chữ). Với tính toán số học hay logic cần chính xác, code tất định hoặc một tool phải sở hữu câu trả lời, còn model trích xuất giá trị vào một schema.",
+     "bullets": [
+      {
+       "en": "An underspecified guardrail is worse than a missing one: it looks like a control without the substance.",
+       "vi": "Một guardrail đặc tả thiếu còn tệ hơn không có: nó trông như một biện pháp kiểm soát nhưng không có thực chất."
+      },
+      {
+       "en": "Capital letters or repeating 'never' three times is still only an instruction, not a guardrail.",
+       "vi": "Viết hoa hay lặp lại 'không bao giờ' ba lần vẫn chỉ là chỉ dẫn, không phải guardrail."
+      }
+     ]
+    },
+    {
+     "heading": "Guardrails in depth: structure plus code",
+     "heading_vi": "Guardrail nhiều lớp: cấu trúc cộng với code",
+     "body": "A rule stated in the role text can be drifted past. A constraint built into the output contract shapes the response format and cannot be quietly ignored. In the support-reply exercise, the never-promise-a-refund rule becomes explicit schema fields such as refund_offered and timeline_promised plus requires_agent_approval and approval_reason; any draft that needs to mention a refund or timeline must set the approval flag instead of promising.\n\nThe prompt is only the soft layer. For important rules add hard layers: required fields in the output contract, a deterministic post-generation check in code (regex or classifier for commitment phrases), and blocking or routing to a human when a violation is found. Non-determinism means a clean demo is not evidence: validate outputs against a schema, run an eval set on the real distribution, and never treat output as fixed because it repeated five times.",
+     "body_vi": "Một quy tắc nêu trong phần role có thể bị trôi qua. Một ràng buộc được xây vào output contract định hình định dạng response và không thể bị lặng lẽ bỏ qua. Trong bài tập soạn phản hồi hỗ trợ, quy tắc không bao giờ hứa hoàn tiền trở thành các trường schema tường minh như refund_offered và timeline_promised cùng requires_agent_approval và approval_reason; bất kỳ bản nháp nào cần nhắc tới hoàn tiền hay mốc thời gian phải bật cờ phê duyệt thay vì tự hứa.\n\nPrompt chỉ là lớp mềm. Với quy tắc quan trọng, hãy thêm các lớp cứng: trường bắt buộc trong output contract, một bước kiểm tra tất định bằng code sau khi sinh (regex hoặc classifier cho các cụm từ cam kết), và chặn hoặc chuyển sang người khi phát hiện vi phạm. Non-determinism nghĩa là một bản demo sạch không phải bằng chứng: validate output theo schema, chạy eval set trên phân phối thực, và không bao giờ coi output là cố định chỉ vì nó lặp lại năm lần.",
+     "bullets": []
+    }
+   ],
+   "keyPoints": [
+    {
+     "en": "Structure every reused system prompt as role, scope, constraints and output contract.",
+     "vi": "Cấu trúc mọi system prompt tái sử dụng thành role, scope, constraints và output contract."
+    },
+    {
+     "en": "Templates keep guardrails in fixed scaffolding; users only fill slots.",
+     "vi": "Template giữ guardrail trong phần khung cố định; người dùng chỉ điền slot."
+    },
+    {
+     "en": "Inconsistent outputs from the same prompt usually mean underspecification of format, scope or constraints, not a model problem.",
+     "vi": "Output không nhất quán từ cùng một prompt thường là do đặc tả thiếu về format, scope hoặc constraints, không phải vấn đề của model."
+    },
+    {
+     "en": "Enforce critical rules in the output contract and validate in code; prompt wording alone can be drifted past.",
+     "vi": "Thực thi quy tắc quan trọng trong output contract và validate bằng code; chỉ dựa vào câu chữ trong prompt thì có thể bị trôi qua."
+    },
+    {
+     "en": "Use XML tags to separate instructions from data as one layer of injection defence.",
+     "vi": "Dùng thẻ XML để tách chỉ dẫn khỏi dữ liệu như một lớp phòng chống injection."
+    },
+    {
+     "en": "Let code own precise arithmetic; let the model extract values into a schema.",
+     "vi": "Để code sở hữu các phép tính chính xác; để model trích xuất giá trị vào schema."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "'Outputs vary between requests with the same prompt' points to underspecification: fix with an explicit output contract and structured output, not a model change.",
+     "vi": "'Output khác nhau giữa các request dùng cùng prompt' chỉ ra underspecification: sửa bằng output contract tường minh và structured output, không phải đổi model."
+    },
+    {
+     "en": "'The model still promises refunds despite the prompt' points to a structural constraint in the output contract plus code validation.",
+     "vi": "'Model vẫn hứa hoàn tiền dù prompt cấm' chỉ ra ràng buộc cấu trúc trong output contract cộng với validate bằng code."
+    },
+    {
+     "en": "Common distractors: capitalize or repeat the rule, add a few-shot example, set temperature to 0, use a bigger model.",
+     "vi": "Distractor thường gặp: viết hoa hoặc lặp lại quy tắc, thêm một ví dụ few-shot, đặt temperature bằng 0, dùng model lớn hơn."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Output contract",
+     "en": "The exact required shape of the response, such as a JSON schema with mandatory fields.",
+     "vi": "Hình dạng bắt buộc chính xác của response, ví dụ một JSON schema với các trường bắt buộc."
+    },
+    {
+     "term": "Template",
+     "en": "A system prompt with parameterized slots inside fixed scaffolding that carries the guardrails.",
+     "vi": "Một system prompt có các slot tham số hóa bên trong phần khung cố định mang các guardrail."
+    },
+    {
+     "term": "Underspecification",
+     "en": "A requirement the prompt does not state, which the model fills with its own varying assumption.",
+     "vi": "Một yêu cầu mà prompt không nêu ra, được model lấp bằng giả định riêng, thay đổi mỗi lần."
+    },
+    {
+     "term": "Description (4D)",
+     "en": "The AI Fluency competency of stating scope, format and constraints precisely.",
+     "vi": "Năng lực AI Fluency về việc nêu chính xác scope, format và constraints."
+    },
+    {
+     "term": "Steerability",
+     "en": "Claude's ability to follow concrete instructions, with the limit that it may follow the letter while drifting from intent.",
+     "vi": "Khả năng Claude làm theo chỉ dẫn cụ thể, với giới hạn là có thể làm đúng câu chữ nhưng lệch khỏi ý định."
+    }
+   ]
+  },
+  {
+   "id": "d2-t3",
+   "objective": "Apply prompt engineering techniques (zero-shot, few-shot, chain-of-thought)",
+   "title": "Zero-shot, few-shot and chain-of-thought by task complexity",
+   "title_vi": "Zero-shot, few-shot và chain-of-thought theo độ phức tạp của tác vụ",
+   "sources": [
+    "output/09_Prompting_as_Architecture.md",
+    "output/08_Model_Context_Strategy.md"
+   ],
+   "sections": [
+    {
+     "heading": "Choose the lightest technique that meets the requirement",
+     "heading_vi": "Chọn kỹ thuật nhẹ nhất đáp ứng yêu cầu",
+     "body": "Technique is chosen by the complexity of the task, not by habit. Zero-shot is instruction only, with no examples, and is the default to try first for well-specified tasks the model already handles reliably. Few-shot adds a handful of input/output examples and fits tasks where the desired format or judgment is easier to show than to describe. Chain-of-thought prompts the model to reason step by step before answering and fits multi-step reasoning, arithmetic-like logic, or tasks where the path matters to the answer.\n\nThe progression is deliberate: start zero-shot, add examples only if the task needs them, add explicit reasoning only if the task's structure demands it. Each step adds tokens and latency on every call. The course checkpoint makes it concrete: classifying tickets into five named categories is zero-shot; extracting date, vendor and amount from receipts with widely varying layouts is few-shot; deciding whether a contract clause creates liability under three interacting conditions is chain-of-thought; summarizing a 400-word description into two sentences is zero-shot.",
+     "body_vi": "Kỹ thuật được chọn theo độ phức tạp của tác vụ, không theo thói quen. Zero-shot là chỉ có chỉ dẫn, không có ví dụ, và là mặc định nên thử trước cho các tác vụ được đặc tả rõ mà model đã xử lý đáng tin cậy. Few-shot thêm một vài ví dụ input/output và phù hợp với tác vụ mà định dạng hoặc phán đoán mong muốn dễ cho xem hơn là mô tả. Chain-of-thought yêu cầu model suy luận từng bước trước khi trả lời và phù hợp với suy luận nhiều bước, logic kiểu số học, hoặc tác vụ mà con đường suy luận quan trọng với câu trả lời.\n\nLộ trình này là có chủ đích: bắt đầu zero-shot, chỉ thêm ví dụ khi tác vụ cần, chỉ thêm suy luận tường minh khi cấu trúc tác vụ đòi hỏi. Mỗi bậc thêm token và latency cho mọi lời gọi. Checkpoint của course minh họa cụ thể: phân loại ticket vào năm nhóm đã được đặt tên là zero-shot; trích xuất ngày, nhà cung cấp và số tiền từ hóa đơn có bố cục rất khác nhau là few-shot; xác định một điều khoản hợp đồng có tạo ra trách nhiệm pháp lý dưới ba điều kiện tương tác nhau hay không là chain-of-thought; tóm tắt một mô tả 400 từ thành hai câu là zero-shot.",
+     "bullets": [
+      {
+       "en": "Good few-shot: 3 to 5 diverse examples covering real variants, wrapped in example tags, balanced across classes.",
+       "vi": "Few-shot tốt: 3 đến 5 ví dụ đa dạng bao phủ các biến thể thật, đặt trong thẻ example, cân bằng giữa các lớp."
+      },
+      {
+       "en": "Structured CoT: reasoning inside a thinking tag and the final result inside an answer tag, so the application parses only the answer.",
+       "vi": "CoT có cấu trúc: suy luận nằm trong thẻ thinking và kết quả cuối nằm trong thẻ answer, để ứng dụng chỉ parse phần answer."
+      }
+     ]
+    },
+    {
+     "heading": "Chain-of-thought versus extended thinking",
+     "heading_vi": "Chain-of-thought so với extended thinking",
+     "body": "Chain-of-thought is a prompt technique: the reasoning appears in the normal output. Extended thinking is an API feature: a separate thinking block billed as output tokens. Both cost tokens and latency and should be used only when the task needs them. Chain-of-thought on a task that does not need it is a recurring tax for no gain.\n\nNeither technique should own precise arithmetic. For high-stakes numerical accuracy, the model extracts values and deterministic code or a tool computes the result.",
+     "body_vi": "Chain-of-thought là một kỹ thuật prompt: phần suy luận xuất hiện trong output thông thường. Extended thinking là một tính năng API: một khối thinking riêng được tính phí như output token. Cả hai đều tốn token và latency và chỉ nên dùng khi tác vụ cần. Chain-of-thought cho một tác vụ không cần đến nó là một khoản thuế lặp lại mà không mang lại lợi ích.\n\nKhông kỹ thuật nào nên sở hữu phép tính số học chính xác. Với độ chính xác số liệu có rủi ro cao, model trích xuất giá trị còn code tất định hoặc một tool tính ra kết quả.",
+     "bullets": []
+    },
+    {
+     "heading": "The prompt-model pairing is what you ship",
+     "heading_vi": "Cặp prompt–model mới là thứ bạn ship",
+     "body": "The same prompt does not behave identically across model tiers or generations. A more capable model may need less scaffolding (fewer examples, less explicit step-by-step instruction) to reach the same quality, while a less capable model may need more. A prompt tuned for one model is a starting point for another, not a finished artifact. This is why a model swap is gated with an evaluation: changing either half of the pairing needs an eval.\n\nFew-shot examples are also content to maintain. As the task evolves, stale examples quietly steer the model wrong, so examples need ownership and review like any other asset.",
+     "body_vi": "Cùng một prompt không hoạt động giống hệt nhau giữa các model tier hoặc các thế hệ model. Một model mạnh hơn có thể cần ít scaffolding hơn (ít ví dụ hơn, ít chỉ dẫn từng bước tường minh hơn) để đạt cùng chất lượng, trong khi model yếu hơn có thể cần nhiều hơn. Một prompt được tinh chỉnh cho model này chỉ là điểm khởi đầu cho model khác, không phải sản phẩm hoàn chỉnh. Đó là lý do việc đổi model phải qua cổng eval: thay đổi bất kỳ nửa nào của cặp đều cần eval.\n\nCác ví dụ few-shot cũng là nội dung cần bảo trì. Khi tác vụ thay đổi, các ví dụ cũ lặng lẽ dẫn model đi sai, nên ví dụ cần có người sở hữu và được review như mọi tài sản khác.",
+     "bullets": []
+    },
+    {
+     "heading": "Avoiding bias in prompt construction",
+     "heading_vi": "Tránh bias khi xây dựng prompt",
+     "body": "Prompt construction can introduce bias the task never intended: leading phrasing, unbalanced examples (few-shot sets that show only one kind of case), and assumptions baked into the instruction. 'Explain why this candidate is not suitable' presumes the conclusion; five credit examples all showing one demographic group being rejected teach a false association. The discipline is to phrase neutrally ('assess suitability against criteria A, B and C'), balance examples across the cases the system will actually see, and check whether the prompt presumes an answer it should be eliciting.\n\nBias is invisible in any single output and only shows up in aggregate, so neutral phrasing and balanced examples are a design requirement, and the eval must measure results per group.",
+     "body_vi": "Việc xây dựng prompt có thể đưa vào bias mà tác vụ không hề có ý định: câu chữ dẫn dắt, ví dụ mất cân bằng (bộ few-shot chỉ thể hiện một loại trường hợp), và các giả định cài sẵn trong chỉ dẫn. 'Hãy giải thích vì sao ứng viên này không phù hợp' đã giả định kết luận; năm ví dụ tín dụng đều cho thấy một nhóm nhân khẩu học bị từ chối sẽ dạy model một mối liên hệ sai. Kỷ luật cần có là diễn đạt trung tính ('đánh giá mức độ phù hợp theo tiêu chí A, B và C'), cân bằng ví dụ theo các trường hợp hệ thống sẽ thực sự gặp, và kiểm tra xem prompt có đang giả định trước một câu trả lời mà lẽ ra nó phải khơi gợi hay không.\n\nBias vô hình trong từng output riêng lẻ và chỉ lộ ra ở dạng tổng hợp, vì vậy diễn đạt trung tính và ví dụ cân bằng là yêu cầu thiết kế, và eval phải đo kết quả theo từng nhóm.",
+     "bullets": []
+    }
+   ],
+   "table": {
+    "caption": "Technique selection by task complexity",
+    "caption_vi": "Chọn kỹ thuật theo độ phức tạp tác vụ",
+    "headers": [
+     "Technique",
+     "What it is",
+     "When it fits",
+     "Cost"
+    ],
+    "headers_vi": [
+     "Kỹ thuật",
+     "Là gì",
+     "Khi nào phù hợp",
+     "Chi phí"
+    ],
+    "rows": [
+     [
+      "Zero-shot",
+      "Instruction only, no examples",
+      "Well-specified tasks the model handles reliably; try first",
+      "Lightest"
+     ],
+     [
+      "Few-shot",
+      "A handful of input/output examples",
+      "Format or judgment easier to show than describe; widely varying layouts",
+      "More tokens; examples to maintain"
+     ],
+     [
+      "Chain-of-thought",
+      "Reason step by step before answering",
+      "Multi-step or interacting conditional logic where the path matters",
+      "Most tokens and latency"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Start zero-shot; climb to few-shot or chain-of-thought only when the eval shows the need.",
+     "vi": "Bắt đầu zero-shot; chỉ leo lên few-shot hoặc chain-of-thought khi eval cho thấy cần."
+    },
+    {
+     "en": "Named, well-specified categories point to zero-shot; widely varying layouts point to few-shot; interacting conditions point to chain-of-thought.",
+     "vi": "Nhóm đã đặt tên, đặc tả rõ chỉ ra zero-shot; bố cục rất khác nhau chỉ ra few-shot; các điều kiện tương tác nhau chỉ ra chain-of-thought."
+    },
+    {
+     "en": "Heavier techniques add tokens and latency on every call.",
+     "vi": "Kỹ thuật nặng hơn thêm token và latency cho mọi lời gọi."
+    },
+    {
+     "en": "Re-tune and re-evaluate prompts when the model changes; the prompt-model pairing is the shipped unit.",
+     "vi": "Tinh chỉnh lại và eval lại prompt khi đổi model; cặp prompt–model là đơn vị được ship."
+    },
+    {
+     "en": "Phrase neutrally, balance examples and measure outcomes per group to avoid prompt-induced bias.",
+     "vi": "Diễn đạt trung tính, cân bằng ví dụ và đo kết quả theo từng nhóm để tránh bias do prompt gây ra."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "Keyword map: 'categories are named' or 'short summary of bounded input' gives zero-shot; 'layouts vary widely' gives few-shot; 'multiple interacting conditions' gives chain-of-thought.",
+     "vi": "Bản đồ từ khóa: 'các nhóm đã được đặt tên' hoặc 'tóm tắt ngắn input có giới hạn' cho zero-shot; 'bố cục rất khác nhau' cho few-shot; 'nhiều điều kiện tương tác' cho chain-of-thought."
+    },
+    {
+     "en": "'Quality dropped after a model change with the same prompt' means the pairing changed: re-tune the prompt and re-run the eval.",
+     "vi": "'Chất lượng giảm sau khi đổi model dù prompt giữ nguyên' nghĩa là cặp đã thay đổi: tinh chỉnh lại prompt và chạy lại eval."
+    },
+    {
+     "en": "Eliminate 'always use chain-of-thought to be safe' and 'add many more examples'.",
+     "vi": "Loại 'luôn dùng chain-of-thought cho chắc' và 'thêm thật nhiều ví dụ'."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Zero-shot",
+     "en": "Prompting with an instruction only and no examples.",
+     "vi": "Prompt chỉ có chỉ dẫn, không có ví dụ."
+    },
+    {
+     "term": "Few-shot",
+     "en": "Including a handful of input/output examples to demonstrate format or judgment.",
+     "vi": "Đưa vào một vài ví dụ input/output để minh họa định dạng hoặc phán đoán."
+    },
+    {
+     "term": "Chain-of-thought (CoT)",
+     "en": "Prompting the model to reason step by step in its output before the final answer.",
+     "vi": "Yêu cầu model suy luận từng bước trong output trước khi đưa ra câu trả lời cuối."
+    },
+    {
+     "term": "Prompt-model pairing",
+     "en": "The combination of a prompt and the model it was tuned for; changing either requires an eval.",
+     "vi": "Sự kết hợp giữa một prompt và model mà nó được tinh chỉnh cho; thay đổi một trong hai đều cần eval."
+    },
+    {
+     "term": "Prompt bias",
+     "en": "Bias introduced by leading phrasing, unbalanced examples or baked-in assumptions.",
+     "vi": "Bias được đưa vào bởi câu chữ dẫn dắt, ví dụ mất cân bằng hoặc giả định cài sẵn."
+    }
+   ]
+  },
+  {
+   "id": "d2-t4",
+   "objective": "Optimize context windows and manage token usage",
+   "title": "Context window budgeting and context strategy",
+   "title_vi": "Lập ngân sách context window và chiến lược context",
+   "sources": [
+    "output/08_Model_Context_Strategy.md",
+    "output/02_How_Claude_Behaves.md",
+    "output_2/03_POC_to_Production.md",
+    "output_2/04_Sizing_and_Feasibility.md",
+    "output_2/09_Supplement_Integration_Mechanisms_and_Optimization.md"
+   ],
+   "sections": [
+    {
+     "heading": "Four terms that are easy to conflate",
+     "heading_vi": "Bốn thuật ngữ dễ bị nhầm lẫn",
+     "body": "The context window is the model's active attention space; anything outside it does not exist to the model, and it resets between calls unless your application manages continuity. Retrieval is external knowledge fetched at query time; it augments the window but does not replace it. Persistent application state (order status, user records, balances) is owned by your system and reaches the model only through a tool call. Summaries and memory layers are application-managed continuity: the model has no native memory between calls, so memory is an architectural choice, not a model capability.\n\nThe window is measured in tokens, and how much text a token covers varies by model generation, tokenizer and language. Treat any characters-per-token ratio as an illustration only. Measure instead: every response reports actual counts in its usage field, and the token-counting API lets you check before sending. Everything counts: system prompt, tool definitions, conversation history, retrieved documents, tool outputs and the model's responses.",
+     "body_vi": "Context window là không gian chú ý đang hoạt động của model; mọi thứ nằm ngoài nó đều không tồn tại với model, và nó được làm mới giữa các lời gọi trừ khi ứng dụng của bạn tự quản lý tính liên tục. Retrieval là tri thức bên ngoài được truy xuất lúc truy vấn; nó bổ sung cho window chứ không thay thế. Persistent application state (trạng thái đơn hàng, hồ sơ người dùng, số dư) do hệ thống của bạn sở hữu và chỉ đến được model qua tool call. Summaries và memory layer là tính liên tục do ứng dụng quản lý: model không có bộ nhớ gốc giữa các lời gọi, nên memory là một lựa chọn kiến trúc, không phải năng lực của model.\n\nWindow được đo bằng token, và một token tương ứng bao nhiêu chữ phụ thuộc vào thế hệ model, tokenizer và ngôn ngữ. Hãy coi mọi tỷ lệ ký tự trên token chỉ là minh họa. Thay vào đó hãy đo: mọi response đều báo số lượng thực tế trong trường usage, và token-counting API cho phép bạn kiểm tra trước khi gửi. Mọi thứ đều được tính: system prompt, định nghĩa tool, lịch sử hội thoại, tài liệu truy xuất, output của tool và response của model.",
+     "bullets": [
+      {
+       "en": "Budget = system prompt + tool definitions + largest realistic history + retrieved context + tool outputs + expected output + thinking tokens if enabled + growth margin.",
+       "vi": "Ngân sách = system prompt + định nghĩa tool + lịch sử lớn nhất thực tế + context truy xuất + output của tool + output dự kiến + thinking token nếu bật + biên dự phòng tăng trưởng."
+      },
+      {
+       "en": "The window is a ceiling, not a target: designing towards the ceiling means you hit it in production.",
+       "vi": "Window là trần, không phải mục tiêu: thiết kế hướng tới trần nghĩa là bạn sẽ chạm trần trong production."
+      }
+     ]
+    },
+    {
+     "heading": "Errors at the edge of the window",
+     "heading_vi": "Các lỗi ở mép context window",
+     "body": "Two different errors happen at the edge. An oversized request is rejected before generation: if it exceeds the model's token limit the API returns 400 invalid_request_error saying the prompt is too long; if the raw request body exceeds the byte limit it returns 413 request_too_large. A request that fits but whose generation runs into the window ceiling stops early with the model_context_window_exceeded stop reason and truncated output. Separately, the max_tokens stop reason means the output hit the max_tokens limit you set, which is not the model's window.\n\nMitigations are progressive loading, chunking, front-loading critical information, summarizing across turns, and checking usage and token counts before you hit the limit.",
+     "body_vi": "Có hai loại lỗi khác nhau xảy ra ở mép window. Một request quá lớn bị từ chối trước khi sinh: nếu vượt giới hạn token của model, API trả về 400 invalid_request_error báo prompt quá dài; nếu thân request thô vượt giới hạn byte, API trả về 413 request_too_large. Một request vừa với window nhưng quá trình sinh chạm trần window sẽ dừng sớm với stop reason model_context_window_exceeded và output bị cắt. Ngoài ra, stop reason max_tokens nghĩa là output chạm giới hạn max_tokens do bạn đặt, không phải window của model.\n\nCác biện pháp giảm thiểu là nạp context dần (progressive loading), chunking, đưa thông tin quan trọng lên trước, tóm tắt qua các lượt, và kiểm tra usage cùng số token trước khi chạm giới hạn.",
+     "bullets": []
+    },
+    {
+     "heading": "Monolithic, progressive, retrieval and compaction",
+     "heading_vi": "Monolithic, progressive, retrieval và compaction",
+     "body": "Monolithic context loads everything into one prompt. It earns its place for bounded tasks with predictable input size, stable prefixes that benefit from caching, single-shot Q&A, and reasoning that genuinely needs all material at once. It breaks down when context accumulates across turns: cost and latency scale linearly with input length and attention quality can degrade well before the hard limit. A conversation that starts at 4,000 tokens can carry 80,000 by turn 30 with no visible signal until billing.\n\nProgressive context carries forward only what the next step needs and is the right default for most production workloads, but long-range coherence can suffer, caching is harder when carried context mutates, and the exact input at step N is no longer reconstructable. Retrieval (RAG) fits corpora too large for the window, sources that change faster than redeploys, small-slice queries and citation requirements, but recall failures and chunking that splits semantic units are risks. Compaction summarizes accumulated context for long-running sessions; it can drop load-bearing detail such as exact identifiers, numeric values and prior decisions, it is itself a model call, and it is largely one-way. Keep those details verbatim, for example in a separate facts and decisions structure.",
+     "body_vi": "Monolithic context nạp mọi thứ vào một prompt. Nó phù hợp với tác vụ có giới hạn, kích thước input dự đoán được, prefix ổn định hưởng lợi từ caching, hỏi đáp một lần, và suy luận thực sự cần toàn bộ tài liệu cùng lúc. Nó thất bại khi context tích lũy qua các lượt: chi phí và latency tăng tuyến tính theo độ dài input và chất lượng chú ý có thể giảm từ rất lâu trước khi chạm giới hạn cứng. Một cuộc hội thoại bắt đầu với 4.000 token có thể mang 80.000 token ở lượt 30 mà không có tín hiệu nào cho đến khi nhận hóa đơn.\n\nProgressive context chỉ mang theo những gì bước tiếp theo cần và là mặc định đúng cho hầu hết workload production, nhưng tính mạch lạc tầm xa có thể bị ảnh hưởng, caching khó hơn khi context mang theo thay đổi mỗi lượt, và không thể tái dựng chính xác input ở bước N. Retrieval (RAG) phù hợp với kho tài liệu quá lớn so với window, nguồn thay đổi nhanh hơn chu kỳ redeploy, truy vấn chỉ cần một phần nhỏ và yêu cầu trích dẫn, nhưng lỗi recall và chunking cắt rời đơn vị ngữ nghĩa là các rủi ro. Compaction tóm tắt context tích lũy cho phiên chạy dài; nó có thể làm rơi chi tiết load-bearing như mã định danh chính xác, giá trị số và các quyết định trước đó, bản thân nó là một lời gọi model, và phần lớn là một chiều. Hãy giữ nguyên văn các chi tiết đó, ví dụ trong một cấu trúc facts và decisions riêng.",
+     "bullets": [
+      {
+       "en": "Production systems layer the strategies: a cached monolithic prefix at session start, a progressive recent-state window, just-in-time retrieval for discovery, and compaction when the window fills.",
+       "vi": "Hệ thống production xếp lớp các chiến lược: prefix monolithic được cache khi bắt đầu phiên, cửa sổ progressive cho trạng thái gần nhất, retrieval just-in-time để khám phá, và compaction khi window đầy dần."
+      },
+      {
+       "en": "Context strategy and context sizing are separate decisions that interact; treating them as one is where most designs go wrong.",
+       "vi": "Chiến lược context và kích thước context là hai quyết định riêng có tương tác; coi chúng là một là nơi phần lớn thiết kế đi sai."
+      }
+     ]
+    },
+    {
+     "heading": "Token usage levers and cost modeling",
+     "heading_vi": "Đòn bẩy sử dụng token và mô hình hóa chi phí",
+     "body": "The same progressive principle applies to capabilities: loading 80 tool definitions into every request wastes tokens and degrades tool selection. Trim tools that do not map to a task step and load capabilities on demand; Skills keep only a short name and description in context until relevant. Output tokens usually cost more than input tokens, so cap max_tokens, ask for concise or structured output and watch stop_reason for truncation. Push deterministic work (calculations, validation, rules) into code.\n\nCost models must use the token distribution, not the average. If 90% of contracts are about 5,000 tokens and 10% are 150,000, the long tail drives most of the spend, and an average measured on 'normal' samples can be wrong by a factor of several. Gather volume from the business owner, model the distribution and run sensitivity analysis.",
+     "body_vi": "Nguyên tắc progressive tương tự áp dụng cho năng lực (capabilities): nạp 80 định nghĩa tool vào mọi request làm lãng phí token và làm giảm khả năng chọn đúng tool. Gỡ các tool không ánh xạ tới bước nào của tác vụ và nạp năng lực theo nhu cầu; Skills chỉ giữ name và description ngắn trong context cho đến khi liên quan. Output token thường đắt hơn input token, vì vậy hãy giới hạn max_tokens, yêu cầu output ngắn gọn hoặc có cấu trúc và theo dõi stop_reason để phát hiện bị cắt cụt. Đẩy phần việc tất định (tính toán, validate, quy tắc) sang code.\n\nMô hình chi phí phải dùng phân phối token, không phải giá trị trung bình. Nếu 90% hợp đồng khoảng 5.000 token và 10% là 150.000 token, phần đuôi dài chiếm phần lớn chi phí, và giá trị trung bình đo trên các mẫu 'bình thường' có thể sai vài lần. Lấy volume từ business owner, mô hình hóa phân phối và chạy sensitivity analysis.",
+     "bullets": []
+    }
+   ],
+   "table": {
+    "caption": "Context strategies",
+    "caption_vi": "Các chiến lược context",
+    "headers": [
+     "Strategy",
+     "Earns its place",
+     "Breaks down"
+    ],
+    "headers_vi": [
+     "Chiến lược",
+     "Phù hợp khi",
+     "Thất bại khi"
+    ],
+    "rows": [
+     [
+      "Monolithic",
+      "Bounded, predictable input; stable cacheable prefix; needs all material at once",
+      "Context accumulates across turns; linear cost and latency"
+     ],
+     [
+      "Progressive",
+      "Multi-turn dialogue, agent loops, staged workflows (default)",
+      "Long-range coherence; harder caching; step N not reconstructable"
+     ],
+     [
+      "Retrieval (RAG)",
+      "Corpus too large; fast-changing sources; citations required",
+      "Cross-document synthesis; bad chunking; recall misses"
+     ],
+     [
+      "Compaction",
+      "Long-running sessions; phase transitions; near the limit",
+      "Drops load-bearing detail; extra model call; one-way"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Do not budget the full window; it is a ceiling, not a target.",
+     "vi": "Không lập ngân sách dùng hết window; nó là trần, không phải mục tiêu."
+    },
+    {
+     "en": "Measure tokens with the usage field and the token-counting API instead of character ratios.",
+     "vi": "Đo token bằng trường usage và token-counting API thay vì tỷ lệ ký tự."
+    },
+    {
+     "en": "400 and 413 are rejections before generation; model_context_window_exceeded is a stop during generation; max_tokens is your own output cap.",
+     "vi": "400 và 413 là từ chối trước khi sinh; model_context_window_exceeded là dừng trong khi sinh; max_tokens là giới hạn output do bạn đặt."
+    },
+    {
+     "en": "Progressive context is the default; growing per-turn cost signals accumulating monolithic context.",
+     "vi": "Progressive context là mặc định; chi phí mỗi lượt tăng dần là dấu hiệu monolithic context đang tích lũy."
+    },
+    {
+     "en": "Compaction must preserve identifiers, amounts and decisions verbatim.",
+     "vi": "Compaction phải giữ nguyên văn mã định danh, số tiền và các quyết định."
+    },
+    {
+     "en": "Model the token distribution and tail, not the average.",
+     "vi": "Mô hình hóa phân phối token và phần đuôi, không phải giá trị trung bình."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "'Cost grows with conversation length and long sessions get cut off' calls for progressive context plus compaction, not a bigger window or a cheaper model first.",
+     "vi": "'Chi phí tăng theo độ dài hội thoại và phiên dài bị cắt' cần progressive context cộng compaction, không phải window lớn hơn hay model rẻ hơn trước tiên."
+    },
+    {
+     "en": "Questions may ask which error occurs before generation: 400 for tokens, 413 for bytes.",
+     "vi": "Câu hỏi có thể hỏi lỗi nào xảy ra trước khi sinh: 400 cho token, 413 cho byte."
+    },
+    {
+     "en": "'Agent has dozens of tools and picks the wrong one' calls for trimming tools and progressive discovery, not a larger model.",
+     "vi": "'Agent có hàng chục tool và chọn sai' cần thu gọn tool và progressive discovery, không phải model lớn hơn."
+    },
+    {
+     "en": "Distractor: 'stuff all documents in because the window is large enough'.",
+     "vi": "Distractor: 'nhồi toàn bộ tài liệu vào vì window đủ lớn'."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Context window",
+     "en": "The model's active attention space for one call, measured in tokens.",
+     "vi": "Không gian chú ý đang hoạt động của model trong một lời gọi, đo bằng token."
+    },
+    {
+     "term": "Progressive context",
+     "en": "Staging context so each call carries only what the next step needs.",
+     "vi": "Phân tầng context để mỗi lời gọi chỉ mang những gì bước tiếp theo cần."
+    },
+    {
+     "term": "Compaction",
+     "en": "Periodically summarizing or compressing accumulated context.",
+     "vi": "Định kỳ tóm tắt hoặc nén context đã tích lũy."
+    },
+    {
+     "term": "Token-counting API",
+     "en": "An API to count a request's tokens before sending it.",
+     "vi": "API để đếm số token của một request trước khi gửi."
+    },
+    {
+     "term": "model_context_window_exceeded",
+     "en": "Stop reason returned when generation runs into the window ceiling, with truncated output.",
+     "vi": "Stop reason được trả về khi quá trình sinh chạm trần window, output bị cắt."
+    },
+    {
+     "term": "Progressive discovery",
+     "en": "Loading short metadata first and full tools or instructions only when needed.",
+     "vi": "Nạp metadata ngắn trước và chỉ nạp đầy đủ tool hoặc hướng dẫn khi cần."
+    }
+   ]
+  },
+  {
+   "id": "d2-t5",
+   "objective": "Implement prompt reuse strategies (caching, modular prompts, Skills)",
+   "title": "Prompt caching, modular prompt libraries and Skills",
+   "title_vi": "Prompt caching, thư viện prompt dạng module và Skills",
+   "sources": [
+    "output/09_Prompting_as_Architecture.md",
+    "output/10_Entry_Points_Governance.md",
+    "output_2/03_POC_to_Production.md",
+    "output_2/04_Sizing_and_Feasibility.md",
+    "output/03_Platform_Map_Primitives.md"
+   ],
+   "sections": [
+    {
+     "heading": "Caching mechanics an architect designs around",
+     "heading_vi": "Cơ chế caching mà Architect thiết kế xoay quanh",
+     "body": "Prompt caching preserves a processed prompt prefix so the API does not reprocess it on later requests. It requires explicit cache_control markers; it does not happen by itself. Everything before the marker, in the order tools, then system, then messages, is the cached prefix, and a later call hits only if that prefix is byte-for-byte identical. A small change in the prefix, such as an inserted timestamp, a user name, or reordered tool definitions, causes a miss. So the rule is static before dynamic, always: the large unchanging block first, per-request content after the breakpoint. Multiple breakpoints (limited in number) allow layered caching: tools, then system prompt, then a large reference document, then the conversation.\n\nThe course's cache-that-never-hits story: a team placed the document being analyzed above the large fixed instruction block, so the prefix changed on every request. Reordering fixed content first fixed it. What is cached is the prompt prefix, not the response; responses are still generated fresh.",
+     "body_vi": "Prompt caching lưu lại phần prefix của prompt đã được xử lý để API không phải xử lý lại ở các request sau. Nó yêu cầu đặt cache_control marker tường minh; nó không tự xảy ra. Mọi thứ đứng trước marker, theo thứ tự tools, rồi system, rồi messages, là prefix được cache, và một lời gọi sau chỉ hit khi prefix đó giống hệt từng byte. Một thay đổi nhỏ trong prefix, như chèn timestamp, tên người dùng hay đảo thứ tự định nghĩa tool, đều gây miss. Vì vậy quy tắc là luôn đặt tĩnh trước, động sau: khối lớn không đổi đứng đầu, nội dung theo từng request đứng sau breakpoint. Nhiều breakpoint (có giới hạn số lượng) cho phép cache theo tầng: tools, rồi system prompt, rồi một tài liệu tham chiếu lớn, rồi hội thoại.\n\nCâu chuyện cache không bao giờ hit của course: một đội đặt tài liệu cần phân tích lên trên khối chỉ dẫn cố định lớn, nên prefix thay đổi ở mọi request. Sắp xếp lại để nội dung cố định đứng trước đã khắc phục được. Cái được cache là prefix của prompt, không phải response; response vẫn được sinh mới mỗi lần.",
+     "bullets": [
+      {
+       "en": "Double benefit: lower input cost and lower time-to-first-token, because the prefix is not reprocessed.",
+       "vi": "Lợi ích kép: giảm chi phí input và giảm time-to-first-token, vì prefix không phải xử lý lại."
+      },
+      {
+       "en": "Track effectiveness with cache_creation_input_tokens and cache_read_input_tokens in the usage field.",
+       "vi": "Theo dõi hiệu quả bằng cache_creation_input_tokens và cache_read_input_tokens trong trường usage."
+      }
+     ]
+    },
+    {
+     "heading": "When caching pays and when it does not",
+     "heading_vi": "Khi nào caching có lợi và khi nào không",
+     "body": "Cache writes cost more per token than standard input; cache reads cost much less (the course's illustration is 10% of the input rate; verify current pricing). Savings scale with prefix length times reuse frequency within the TTL. The default TTL is 5 minutes and is refreshed on use; a longer-lived option exists at a higher write price. If requests arrive less often than the TTL, the cache keeps expiring and you pay writes without reads. If a prompt is called infrequently or its fixed portion is small, caching can cost more than it saves. Caching is a design decision, not a default to switch on everywhere.\n\nThere is also a consistency risk: if cached content needs to reflect live state such as prices or stock, caching creates a consistency window. Live data belongs in the dynamic part of the prompt, fetched through a tool call. In the course calculator, a stable 5,000-token system prompt across 50,000 monthly requests is about 94% of input, so caching it is the lever that does the most work.",
+     "body_vi": "Ghi cache tốn nhiều hơn mỗi token so với input thường; đọc cache rẻ hơn nhiều (course minh họa bằng mức 10% giá input; hãy kiểm tra giá hiện hành). Mức tiết kiệm tăng theo độ dài prefix nhân với tần suất tái sử dụng trong TTL. TTL mặc định là 5 phút và được làm mới khi được dùng; có tùy chọn thời gian sống dài hơn với giá ghi cao hơn. Nếu request đến thưa hơn TTL, cache liên tục hết hạn và bạn trả phí ghi mà không được đọc. Nếu một prompt được gọi không thường xuyên hoặc phần cố định nhỏ, caching có thể tốn hơn số tiền nó tiết kiệm. Caching là một quyết định thiết kế, không phải mặc định bật ở mọi nơi.\n\nNgoài ra còn có rủi ro nhất quán: nếu nội dung được cache cần phản ánh trạng thái live như giá hay tồn kho, caching tạo ra một cửa sổ không nhất quán. Dữ liệu live thuộc về phần động của prompt, được lấy qua tool call. Trong calculator của course, một system prompt ổn định 5.000 token trên 50.000 request mỗi tháng chiếm khoảng 94% input, nên cache nó là đòn bẩy đóng góp nhiều nhất.",
+     "bullets": [
+      {
+       "en": "Combine caching with the Batch API for asynchronous work where the SLA allows; check BAA coverage for regulated data.",
+       "vi": "Kết hợp caching với Batch API cho công việc bất đồng bộ khi SLA cho phép; kiểm tra phạm vi BAA với dữ liệu được quản lý."
+      }
+     ]
+    },
+    {
+     "heading": "Modular prompt library or versioned Skill",
+     "heading_vi": "Thư viện prompt dạng module hay Skill có version",
+     "body": "A modular prompt library is a shared collection of prompt fragments and templates that engineers assemble in their own code: lightweight, flexible, suited to prompts that are still often tweaked and shared within one codebase or team. A Skill is a formal, versioned, self-contained unit: a folder with SKILL.md (name and description metadata plus instructions), optional executable scripts and resources, so the whole procedure travels as one governed artifact that can be reviewed, approved and rolled back. Lean toward a Skill when the procedure is stable and run the same way every time, distributed across teams or products, and needs versioning, approval and rollback.\n\nAn ungoverned prompt copied across teams drifts into many slightly different versions; versioned reuse is the control. Skills also use progressive disclosure: only the short metadata sits in context at first, and the body and supporting files load when the Skill is relevant. In the course exercise, a support-reply procedure run hundreds of times a day across an organization ships as a versioned Skill, with role, tone, output contract and guardrail as the stable cached prefix and the ticket plus manual section after the breakpoint.",
+     "body_vi": "Thư viện prompt dạng module là một tập hợp dùng chung các mảnh prompt và template mà kỹ sư tự lắp ghép trong code của mình: nhẹ, linh hoạt, phù hợp với prompt còn hay được tinh chỉnh và chia sẻ trong một codebase hoặc một đội. Skill là một đơn vị chính thức, có version, tự chứa: một thư mục có SKILL.md (metadata name và description cùng các hướng dẫn), script thực thi tùy chọn và tài nguyên, để toàn bộ quy trình di chuyển như một artifact được quản trị, có thể review, phê duyệt và rollback. Nghiêng về Skill khi quy trình ổn định và chạy giống hệt nhau mỗi lần, được phân phối qua nhiều đội hoặc sản phẩm, và cần versioning, phê duyệt và rollback.\n\nMột prompt không được quản trị bị sao chép qua nhiều đội sẽ trôi thành nhiều phiên bản hơi khác nhau; tái sử dụng có version là biện pháp kiểm soát. Skills còn dùng progressive disclosure: ban đầu chỉ metadata ngắn nằm trong context, phần thân và các file hỗ trợ được nạp khi Skill liên quan. Trong bài tập của course, quy trình soạn phản hồi hỗ trợ chạy hàng trăm lần mỗi ngày trên toàn tổ chức được ship dưới dạng Skill có version, với role, tone, output contract và guardrail là prefix ổn định được cache, còn ticket cùng đoạn tài liệu hướng dẫn nằm sau breakpoint.",
+     "bullets": []
+    },
+    {
+     "heading": "Skills as an integration mechanism",
+     "heading_vi": "Skills như một cơ chế tích hợp",
+     "body": "Skills are an integration mechanism, not only packaging. Through the API a Skill is attached to a request with the container.skills parameter, published and versioned through the /v1/skills endpoint, and managed under version control like any deployed asset. Skills require the Code Execution Tool, so the pattern carries a sandboxed execution environment dependency. Skills also work in Claude Code and Claude.ai.\n\nKeep the primitives distinct: a Skill packages a procedure (instructions plus scripts), while MCP connects shared tools and data across multiple Claude clients. When the requirement is the same tools reachable from several clients, the answer is MCP; when it is a repeatable, versioned procedure, it is a Skill.",
+     "body_vi": "Skills là một cơ chế tích hợp, không chỉ là cách đóng gói. Qua API, một Skill được gắn vào request bằng tham số container.skills, được phát hành và quản lý version qua endpoint /v1/skills, và được quản lý trong version control như mọi tài sản triển khai khác. Skills cần Code Execution Tool, nên pattern này mang theo phụ thuộc vào một môi trường thực thi sandbox. Skills cũng hoạt động trong Claude Code và Claude.ai.\n\nHãy giữ các primitive tách biệt: Skill đóng gói một quy trình (hướng dẫn cộng script), còn MCP kết nối tool và dữ liệu dùng chung giữa nhiều Claude client. Khi yêu cầu là cùng một bộ tool truy cập được từ nhiều client, đáp án là MCP; khi yêu cầu là một quy trình lặp lại có version, đáp án là Skill.",
+     "bullets": []
+    }
+   ],
+   "table": {
+    "caption": "The reuse decision: library or Skill",
+    "caption_vi": "Quyết định tái sử dụng: thư viện hay Skill",
+    "headers": [
+     "Consideration",
+     "Lean toward a prompt library",
+     "Lean toward a Skill"
+    ],
+    "headers_vi": [
+     "Yếu tố",
+     "Nghiêng về thư viện prompt",
+     "Nghiêng về Skill"
+    ],
+    "rows": [
+     [
+      "Repeatability",
+      "An assembled, often-tweaked prompt per use",
+      "A stable procedure run the same way every time"
+     ],
+     [
+      "Distribution",
+      "Shared within one codebase or team",
+      "Distributed across teams or products"
+     ],
+     [
+      "Governance",
+      "Lightweight; engineers own the fragments",
+      "Needs versioning, approval and rollback"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Static before dynamic; put the breakpoint at the fixed/variable boundary and keep the fixed part byte-identical.",
+     "vi": "Tĩnh trước, động sau; đặt breakpoint ở ranh giới cố định/biến đổi và giữ phần cố định giống hệt từng byte."
+    },
+    {
+     "en": "Caching needs explicit cache_control markers and pays off only for large prefixes reused often within the TTL.",
+     "vi": "Caching cần cache_control marker tường minh và chỉ có lợi với prefix lớn được tái sử dụng thường xuyên trong TTL."
+    },
+    {
+     "en": "Small, rarely called prompts may cost more with caching because of write overhead.",
+     "vi": "Prompt nhỏ, ít được gọi có thể tốn hơn khi bật caching do chi phí ghi."
+    },
+    {
+     "en": "Do not cache live state; fetch it with a tool call in the dynamic part.",
+     "vi": "Không cache trạng thái live; lấy nó bằng tool call ở phần động."
+    },
+    {
+     "en": "Stable, widely distributed procedures needing versioning and rollback ship as Skills.",
+     "vi": "Quy trình ổn định, phân phối rộng, cần versioning và rollback được ship dưới dạng Skill."
+    },
+    {
+     "en": "Skill packages a procedure; MCP connects tools across clients.",
+     "vi": "Skill đóng gói quy trình; MCP kết nối tool giữa nhiều client."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "'Caching enabled but no savings' means check ordering and variable values (timestamps, IDs, names) inside the prefix first.",
+     "vi": "'Đã bật caching nhưng không tiết kiệm' nghĩa là trước tiên kiểm tra thứ tự và các giá trị biến đổi (timestamp, ID, tên) nằm trong prefix."
+    },
+    {
+     "en": "Long, stable prefix plus many requests: static first and prompt caching. Eliminate truncating the document, moving it into few-shot examples, or switching to the smallest model regardless of fit.",
+     "vi": "Prefix dài, ổn định cộng nhiều request: tĩnh trước và prompt caching. Loại các phương án cắt ngắn tài liệu, chuyển nó vào ví dụ few-shot, hoặc chuyển sang model nhỏ nhất bất kể độ phù hợp."
+    },
+    {
+     "en": "'Same procedure copy-pasted in several teams, behaviour diverges' calls for a versioned Skill with approval and rollback.",
+     "vi": "'Cùng một quy trình được copy-paste ở nhiều đội, hành vi lệch nhau' cần một Skill có version với phê duyệt và rollback."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Prompt caching",
+     "en": "Reusing a processed, byte-identical prompt prefix across requests to cut input cost and latency.",
+     "vi": "Tái sử dụng một prefix prompt đã xử lý, giống hệt từng byte, giữa các request để giảm chi phí input và latency."
+    },
+    {
+     "term": "Cache breakpoint (cache_control)",
+     "en": "The explicit marker separating the cacheable fixed prefix from per-request content.",
+     "vi": "Marker tường minh tách prefix cố định có thể cache khỏi nội dung theo từng request."
+    },
+    {
+     "term": "TTL",
+     "en": "Cache lifetime; 5 minutes by default and refreshed on use, with a longer option at a higher write price.",
+     "vi": "Thời gian sống của cache; mặc định 5 phút và được làm mới khi dùng, có tùy chọn dài hơn với giá ghi cao hơn."
+    },
+    {
+     "term": "Modular prompt library",
+     "en": "Shared prompt fragments and templates engineers assemble in their own code.",
+     "vi": "Các mảnh prompt và template dùng chung mà kỹ sư tự lắp ghép trong code của mình."
+    },
+    {
+     "term": "Skill",
+     "en": "A versioned, self-contained unit (SKILL.md, optional scripts) that packages a repeatable procedure.",
+     "vi": "Một đơn vị có version, tự chứa (SKILL.md, script tùy chọn) đóng gói một quy trình lặp lại."
+    },
+    {
+     "term": "Progressive disclosure",
+     "en": "Only a Skill's name and description are loaded up front; the full body loads when relevant.",
+     "vi": "Chỉ name và description của Skill được nạp từ đầu; phần thân đầy đủ được nạp khi liên quan."
+    }
+   ]
+  }
+ ]
+}

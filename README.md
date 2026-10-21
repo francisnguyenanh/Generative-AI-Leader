@@ -4,7 +4,7 @@ Nền tảng thi thử chứng chỉ AI hàng đầu với hệ thống bộ đ�
 
 Hỗ trợ 2 kỳ thi chứng chỉ chính:
 1. **Google Cloud Generative AI Leader**: 10 bộ đề thi (600 câu hỏi trắc nghiệm) • 4 Lĩnh vực trọng tâm.
-2. **Claude Certified Architect (CCAR-P)**: 10 bộ đề thi (630 câu hỏi tình huống thực tế) • 7 Lĩnh vực năng lực cốt lõi.
+2. **Claude Certified Architect (CCAR-P)**: 10 bộ đề thi (630 câu hỏi tình huống) • 7 Domain • 120 phút • kèm **trang học song ngữ** (`ccarp-learn.html`).
 
 ---
 
@@ -97,3 +97,12 @@ Bạn chỉ cần mở trực tiếp file `index.html` bằng bất kỳ trình 
 - **HTML5 Semantic & CSS3 Modern** (CSS Variables, Flexbox, Grid, Dark/Light mode).
 - **Vanilla JavaScript (ES6+)**.
 - **Python (openpyxl)**: Dùng để trích xuất và chuyển đổi các file đề thi từ Excel sang định dạng JSON/JS hỗ trợ song ngữ.
+
+
+---
+
+## 📚 CCAR-P: Trang học & chuẩn hóa bộ đề
+
+- **Trang học**: `ccarp-learn.html` — bài học song ngữ Anh/Việt theo 7 domain → từng objective của Exam Guide (key points, mẹo thi, thuật ngữ, luyện câu hỏi theo bài, theo dõi tiến độ).
+- **Bộ đề chuẩn Exam Guide v1.0**: 63 câu/đề, 120 phút, phân bổ 11/8/12/10/9/9/4 câu cho D1–D7, câu chọn nhiều ghi rõ "(Choose TWO.)", đạt ≥ 72% (≈720/1000).
+- **Nguồn dữ liệu**: `CCAR-P/bank/` (ngân hàng câu hỏi + bài học theo domain, bám tài liệu `input-ccar-p/`). Sau khi sửa, chạy `python build_ccarp.py` để sinh lại `set_1..10`, `manifest`, `lessons/`.

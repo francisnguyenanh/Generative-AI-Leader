@@ -1,0 +1,926 @@
+{
+ "domain": 4,
+ "title": "Evaluation, Testing & Optimization",
+ "title_vi": "Đánh giá, Kiểm thử & Tối ưu hóa",
+ "weight": 16,
+ "overview": "This domain tests whether you can prove a Claude system is good enough and keep it that way. Expect decisions about which metrics and grading methods to use, how to build representative datasets, how to run valid experiments, how to diagnose failures by class, how to trade off cost, latency and accuracy, and what to log. Always ask which variable changed and what evidence an eval or trace gives.",
+ "overview_vi": "Domain này kiểm tra khả năng chứng minh một hệ thống Claude đủ tốt và duy trì được điều đó. Hãy chuẩn bị cho các quyết định về metric và phương pháp chấm, cách xây dataset đại diện, cách chạy thí nghiệm hợp lệ, cách chẩn đoán lỗi theo loại, cách đánh đổi chi phí, latency và độ chính xác, và cần log gì. Luôn hỏi biến số nào đã thay đổi và eval hoặc trace cung cấp bằng chứng gì.",
+ "topics": [
+  {
+   "id": "d4-t1",
+   "objective": "Define evaluation metrics (accuracy, latency, cost, safety, security)",
+   "title": "Defining evaluation metrics across five dimensions",
+   "title_vi": "Định nghĩa eval metric theo năm chiều",
+   "sources": [
+    "output_2/02_Evals_as_Acceptance_Criteria.md",
+    "output_2/07_Exercise_Evaluation_Framework.md",
+    "output_2/06_AB_Testing_and_Observability.md"
+   ],
+   "sections": [
+    {
+     "heading": "Evals are acceptance criteria, written before code",
+     "heading_vi": "Eval là tiêu chí nghiệm thu, viết trước code",
+     "body": "An eval is a structured test that checks whether your system returns the expected and accurate output. Writing the eval suite before production code forces three things that are otherwise easy to defer: you state what success means in measurable terms, you expose design assumptions early while changing them is still cheap, and you get a gate that tells you whether a model swap, a prompt change or a new retrieval strategy measurably improved the system. If you cannot write an eval for a behavior, you have no reliable way to know whether that behavior is present.\n\nA business requirement such as 'summarize claims accurately' does not tell you what to measure. Turn it into a criterion in four steps: identify the behavior specifically (extract the filer's name, claim number, incident date and claimed amount), set the threshold (for example 100% accuracy on structured fields, less than 2% hallucination rate, schema-valid output 99.5% of the time), identify the failure modes (a fake claim number, a missing date, a value from the wrong claim), and include adversarial inputs (missing fields, handwriting, unusual layouts). Thresholds must come from the business requirement, not from whatever the first prototype happens to achieve.",
+     "body_vi": "Eval (evaluation – đánh giá) là một bài kiểm tra có cấu trúc, xác định hệ thống có trả về output đúng và chính xác như kỳ vọng hay không. Viết eval suite trước code production buộc ba việc vốn dễ bị trì hoãn phải xảy ra: bạn phát biểu thành công bằng các tiêu chí đo được, bạn phơi bày các giả định thiết kế sớm khi việc thay đổi còn rẻ, và bạn có một cổng (gate) cho biết việc đổi model, đổi prompt hay đổi chiến lược retrieval có thực sự cải thiện hệ thống hay không. Nếu không viết được eval cho một hành vi, bạn không có cách đáng tin cậy nào để biết hành vi đó có hiện diện hay không.\n\nMột yêu cầu kinh doanh như 'tóm tắt claim chính xác' không cho biết phải đo gì. Hãy chuyển nó thành tiêu chí qua bốn bước: xác định hành vi cụ thể (trích tên người nộp, số claim, ngày sự cố và số tiền yêu cầu), đặt ngưỡng (ví dụ 100% chính xác trên các trường có cấu trúc, hallucination rate dưới 2%, output đúng schema 99,5% thời gian), xác định các failure mode (số claim bịa, thiếu ngày, giá trị lấy từ claim khác), và đưa vào adversarial input (thiếu trường, chữ viết tay, bố cục bất thường). Ngưỡng phải đến từ yêu cầu kinh doanh, không phải từ kết quả mà prototype đầu tiên tình cờ đạt được.",
+     "bullets": [
+      {
+       "en": "Behavior: name the exact fields or actions being judged.",
+       "vi": "Hành vi: nêu chính xác các trường hoặc hành động được đánh giá."
+      },
+      {
+       "en": "Threshold: a number taken from the business requirement.",
+       "vi": "Ngưỡng: một con số lấy từ yêu cầu kinh doanh."
+      },
+      {
+       "en": "Failure modes: each one becomes a labeled category in the dataset.",
+       "vi": "Failure mode: mỗi loại trở thành một category có nhãn trong dataset."
+      },
+      {
+       "en": "Adversarial inputs: messy, incomplete and non-standard documents.",
+       "vi": "Adversarial input: tài liệu lộn xộn, thiếu thông tin và không chuẩn."
+      }
+     ]
+    },
+    {
+     "heading": "The five dimensions and how each is graded",
+     "heading_vi": "Năm chiều đánh giá và cách chấm từng chiều",
+     "body": "The course exercise for a regional insurer (extract claim fields, summarize the narrative, flag possible fraud, respond within seconds, stay within a per-claim cost, never leak one claimant's data into another's summary, never auto-deny) maps exactly onto the five blueprint metrics. Accuracy of field extraction is a code-based eval because the expected values are known and can be checked by exact or schema match. Latency is a code-based eval because p95 is a number compared to a target. Cost per claim is a code-based eval computed from input tokens, output tokens, model tier and caching.\n\nSafety needs two methods: a code-based check for the deny action (binary: a denial was issued or it was not) and an LLM judge for summary faithfulness (whether the narrative represents the source without fabrication is interpretive). Security, no cross-claimant leakage, stays in code even though the stakes are high, because it can be checked deterministically by scanning each summary for identifiers from any other claim. The lesson: choose the grading method by the nature of the check, not by how important the dimension is, and one dimension may need more than one method.",
+     "body_vi": "Bài tập của khóa học cho một công ty bảo hiểm khu vực (trích trường của claim, tóm tắt tường thuật, gắn cờ nghi gian lận, phản hồi trong vài giây, nằm trong chi phí mỗi claim, không bao giờ rò rỉ dữ liệu của người yêu cầu này sang tóm tắt của người khác, không bao giờ tự động từ chối) ánh xạ chính xác vào năm metric của blueprint. Accuracy của việc trích trường là code-based eval vì giá trị kỳ vọng đã biết và kiểm tra được bằng exact match hoặc schema match. Latency là code-based eval vì p95 là một con số so với mục tiêu. Cost mỗi claim là code-based eval tính từ input token, output token, model tier và caching.\n\nSafety cần hai phương pháp: kiểm tra bằng code cho hành động từ chối (nhị phân: có phát ra quyết định từ chối hay không) và LLM judge cho độ trung thành (faithfulness) của tóm tắt (tường thuật có phản ánh đúng nguồn mà không bịa đặt hay không là việc cần diễn giải). Security, tức không rò rỉ chéo giữa các claim, vẫn dùng code dù mức độ quan trọng cao, vì có thể kiểm tra một cách tất định bằng cách quét mỗi tóm tắt tìm identifier của bất kỳ claim nào khác. Bài học: chọn phương pháp chấm theo bản chất của phép kiểm tra, không theo mức độ quan trọng của chiều đánh giá, và một chiều có thể cần nhiều hơn một phương pháp.",
+     "bullets": []
+    },
+    {
+     "heading": "Metrics that look beyond the average",
+     "heading_vi": "Metric nhìn xa hơn giá trị trung bình",
+     "body": "Two metric design choices recur throughout the course. First, latency targets use p95, the value below which 95% of requests complete, because SLA breaches and user abandonment are driven by the slow tail, not the median (p50). Second, aggregate scores must be broken down by category: a change that raises the mean score while quietly degrading edge cases or adversarial inputs does not make the system better.\n\nFor retrieval systems, retrieval precision and recall are system metrics in their own right, because retrieval quality is not visible in the final output. Hallucination rate is defined as the percentage of responses in which the model invented, inferred or stated information not supported by the input, source data or allowed logic. In production, technical metrics are mapped through a translation layer to business metrics such as first-contact resolution or handle time.",
+     "body_vi": "Hai lựa chọn thiết kế metric lặp lại xuyên suốt khóa học. Thứ nhất, mục tiêu latency dùng p95, giá trị mà 95% request hoàn thành dưới mức đó, vì vi phạm SLA và việc người dùng bỏ đi là do phần đuôi chậm gây ra, không phải median (p50). Thứ hai, điểm tổng hợp phải được phân rã theo category: một thay đổi làm tăng điểm trung bình nhưng âm thầm làm giảm chất lượng ở edge case hoặc adversarial input thì không làm hệ thống tốt hơn.\n\nVới hệ thống retrieval, retrieval precision và recall là metric hệ thống riêng, vì chất lượng retrieval không nhìn thấy được trong output cuối. Hallucination rate được định nghĩa là tỉ lệ phần trăm phản hồi mà model bịa ra, suy diễn hoặc nêu thông tin không được hỗ trợ bởi input, dữ liệu nguồn hay logic cho phép. Trong production, metric kỹ thuật được ánh xạ qua một translation layer (lớp chuyển đổi) sang metric kinh doanh như first-contact resolution hay handle time.",
+     "bullets": []
+    }
+   ],
+   "table": {
+    "caption": "Five-dimension eval framework (insurer claims exercise)",
+    "caption_vi": "Khung eval năm chiều (bài tập claim bảo hiểm)",
+    "headers": [
+     "Dimension",
+     "Metric",
+     "Grading method"
+    ],
+    "headers_vi": [
+     "Chiều",
+     "Metric",
+     "Phương pháp chấm"
+    ],
+    "rows": [
+     [
+      "Accuracy",
+      "Field match vs ground truth",
+      "Code-based (exact/schema match)"
+     ],
+     [
+      "Latency",
+      "p95 response time vs target",
+      "Code-based"
+     ],
+     [
+      "Safety",
+      "No auto-deny; summary faithfulness",
+      "Code for deny action; calibrated LLM judge for faithfulness"
+     ],
+     [
+      "Security",
+      "Identifiers from other claims in output",
+      "Code-based scan (target 0)"
+     ],
+     [
+      "Cost",
+      "Per-claim spend from tokens, tier, caching",
+      "Code-based vs ceiling"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Write the eval suite before production code; it defines success, exposes assumptions and gates every change.",
+     "vi": "Viết eval suite trước code production; nó định nghĩa thành công, phơi bày giả định và làm cổng cho mọi thay đổi."
+    },
+    {
+     "en": "Thresholds come from the business requirement, not from what the prototype achieved.",
+     "vi": "Ngưỡng đến từ yêu cầu kinh doanh, không phải từ kết quả prototype đạt được."
+    },
+    {
+     "en": "Grade by the nature of the check: deterministic checks go to code even when stakes are high.",
+     "vi": "Chấm theo bản chất phép kiểm tra: kiểm tra tất định dùng code ngay cả khi mức độ quan trọng cao."
+    },
+    {
+     "en": "A single dimension can need two methods, e.g. safety = code for the deny action plus a judge for faithfulness.",
+     "vi": "Một chiều có thể cần hai phương pháp, ví dụ safety = code cho hành động từ chối cộng judge cho faithfulness."
+    },
+    {
+     "en": "Use p95 for latency targets and per-category breakdowns for quality scores.",
+     "vi": "Dùng p95 cho mục tiêu latency và phân rã theo category cho điểm chất lượng."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "If the stem stresses that a requirement is high-stakes (leakage, denial), check whether it is still deterministic; if so, code-based eval is correct.",
+     "vi": "Nếu đề nhấn mạnh yêu cầu có mức độ rủi ro cao (rò rỉ, từ chối), hãy kiểm tra xem nó có còn tất định không; nếu có, code-based eval là đáp án đúng."
+    },
+    {
+     "en": "Eliminate options that set the pass threshold from prototype results or public benchmarks.",
+     "vi": "Loại các phương án đặt ngưỡng pass theo kết quả prototype hoặc benchmark công khai."
+    },
+    {
+     "en": "Median or average latency as a design target is a distractor; p95 is the target.",
+     "vi": "Median hoặc latency trung bình làm mục tiêu thiết kế là distractor; p95 mới là mục tiêu."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Eval",
+     "en": "A structured test set that pairs inputs with expected outputs or quality criteria and produces a score comparable across model versions, prompts or configurations.",
+     "vi": "Bộ kiểm tra có cấu trúc ghép input với output kỳ vọng hoặc tiêu chí chất lượng, cho ra điểm có thể so sánh giữa các phiên bản model, prompt hoặc cấu hình."
+    },
+    {
+     "term": "p95 latency",
+     "en": "The latency value below which 95% of requests complete; the production design target because the slow tail drives SLA breaches.",
+     "vi": "Giá trị latency mà 95% request hoàn thành dưới mức đó; là mục tiêu thiết kế production vì phần đuôi chậm gây vi phạm SLA."
+    },
+    {
+     "term": "Hallucination rate",
+     "en": "Percentage of responses in which the model invented, inferred or stated information not supported by the input, source data or allowed logic.",
+     "vi": "Tỉ lệ phản hồi mà model bịa, suy diễn hoặc nêu thông tin không được hỗ trợ bởi input, dữ liệu nguồn hoặc logic cho phép."
+    },
+    {
+     "term": "Success criterion",
+     "en": "A specific behavior plus a business-derived threshold, with its failure modes and adversarial inputs enumerated.",
+     "vi": "Một hành vi cụ thể cộng ngưỡng xuất phát từ nghiệp vụ, kèm liệt kê failure mode và adversarial input."
+    }
+   ]
+  },
+  {
+   "id": "d4-t2",
+   "objective": "Design evaluation datasets and test frameworks using mixed methodologies",
+   "title": "Golden datasets, the grading ladder and mixed eval methods",
+   "title_vi": "Golden dataset, grading ladder và phương pháp eval kết hợp",
+   "sources": [
+    "output_2/02_Evals_as_Acceptance_Criteria.md",
+    "output_2/07_Exercise_Evaluation_Framework.md",
+    "output_2/08_Production_Readiness_and_Wrapup.md",
+    "output/08_Model_Context_Strategy.md"
+   ],
+   "sections": [
+    {
+     "heading": "The five-stage eval workflow",
+     "heading_vi": "Quy trình eval năm giai đoạn",
+     "body": "A well-constructed eval workflow runs through five stages, each producing an artifact for the next: (1) define the task in specific, measurable terms with the prompt to test and pass criteria; (2) build the golden dataset, a labeled set of the inputs the system will meet, including edge cases and counterexamples; (3) run automated checks for unambiguous behaviors such as format, schema and factual lookups; (4) score with a judge for behaviors that need interpretation; (5) interpret and act, looking at the overall score and the per-category breakdown.\n\nThe golden dataset must be representative of the production input distribution. The course postmortem of a contract review assistant shows the two classic defects: the dataset was built from ten convenient contracts the team knew well, so a class of non-standard obligation structures was never tested; and when the prompt changed, the expected outputs were never updated, so the suite kept passing while measuring behavior that no longer existed. Manual spot-checks are not a substitute: they confirm a specific input produces a specific output but say nothing about unknown inputs.",
+     "body_vi": "Một quy trình eval được xây dựng tốt đi qua năm giai đoạn, mỗi giai đoạn tạo ra artefact cho giai đoạn sau: (1) định nghĩa tác vụ bằng tiêu chí cụ thể, đo được, kèm prompt cần kiểm tra và tiêu chí pass; (2) xây golden dataset, tập có nhãn gồm các input mà hệ thống sẽ gặp, bao gồm edge case và counterexample (phản ví dụ); (3) chạy kiểm tra tự động cho các hành vi rõ ràng như định dạng, schema và tra cứu dữ kiện; (4) chấm bằng judge cho các hành vi cần diễn giải; (5) diễn giải và hành động, xem điểm tổng và phân rã theo category.\n\nGolden dataset phải đại diện cho phân phối input production. Postmortem trong khóa học về một trợ lý review hợp đồng cho thấy hai lỗi kinh điển: dataset được xây từ mười hợp đồng tiện tay mà team đã quen, nên một nhóm hợp đồng có cấu trúc nghĩa vụ không chuẩn chưa bao giờ được kiểm tra; và khi prompt thay đổi, output kỳ vọng không được cập nhật, nên suite vẫn pass trong khi đo một hành vi không còn tồn tại. Spot-check thủ công không thay thế được eval: nó xác nhận một input cụ thể cho ra một output cụ thể nhưng không nói gì về các input chưa biết.",
+     "bullets": [
+      {
+       "en": "Representative: sample the real production distribution, stratified by input type.",
+       "vi": "Đại diện: lấy mẫu theo phân phối production thật, phân tầng theo loại input."
+      },
+      {
+       "en": "Current: update cases and expected outputs whenever the prompt or behavior changes.",
+       "vi": "Cập nhật: sửa case và output kỳ vọng mỗi khi prompt hoặc hành vi thay đổi."
+      },
+      {
+       "en": "Multi-turn: conversations need their own golden transcripts covering follow-ups, topic shifts and lengths.",
+       "vi": "Nhiều lượt: hội thoại cần golden transcript riêng, bao gồm câu hỏi tiếp nối, chuyển chủ đề và độ dài."
+      }
+     ]
+    },
+    {
+     "heading": "Code, model and human evals: the grading ladder",
+     "heading_vi": "Eval bằng code, model và con người: grading ladder",
+     "body": "Code-based evals run deterministic checks (schema validation, regex, JSON parse, length, assertion against authoritative data) in milliseconds at almost no cost and never drift, but cannot judge tone, helpfulness or reasoning. Model-based evals use a judge model with the original prompt, the output and a rubric; they cost roughly a model call per item and can be inconsistent in borderline cases. Human review is reserved for high-stakes or novel behaviors where neither code nor a judge can be trusted, and for calibrating judges; it is the slowest, most expensive and least scalable.\n\nThe grading ladder says: reach for the cheapest reliable method first. Use code wherever the behavior allows it; climb to an LLM judge when interpretation is needed, made rigorous with detailed rubrics, constrained verdicts from a small fixed label set, calibration against human-labeled examples, and a different model from the one being graded to avoid self-preference; use human grading as the last resort. Favor volume over perfection: many automatically gradable cases catch more regressions than a handful of manually graded ones and can run on every change.",
+     "body_vi": "Code-based eval chạy các kiểm tra tất định (validate schema, regex, parse JSON, độ dài, so khớp với dữ liệu chuẩn) trong vài mili giây, gần như không tốn chi phí và không bao giờ drift, nhưng không đánh giá được giọng điệu, mức độ hữu ích hay chất lượng lập luận. Model-based eval dùng một judge model nhận prompt gốc, output và rubric (bảng tiêu chí chấm); chi phí khoảng một lần gọi model cho mỗi mục và có thể thiếu nhất quán ở các trường hợp ranh giới. Human review dành cho hành vi rủi ro cao hoặc mới lạ, nơi cả code lẫn judge đều không đáng tin, và để calibrate judge; đây là phương pháp chậm nhất, đắt nhất và kém scale nhất.\n\nGrading ladder (thang phương pháp chấm) nói: dùng phương pháp rẻ nhất mà đáng tin cậy trước. Dùng code ở mọi nơi hành vi cho phép; leo lên LLM judge khi cần diễn giải, và làm cho nó nghiêm ngặt bằng rubric chi tiết, constrained verdict (phán quyết từ một tập nhãn nhỏ cố định), calibrate với các ví dụ do người gán nhãn, và dùng model khác với model đang được chấm để tránh self-preference (thiên vị bản thân); dùng con người chấm như phương án cuối cùng. Ưu tiên số lượng hơn sự hoàn hảo: nhiều case chấm tự động bắt được nhiều regression hơn một vài case chấm thủ công và có thể chạy trên mọi thay đổi.",
+     "bullets": []
+    },
+    {
+     "heading": "Judge calibration and keeping the framework alive",
+     "heading_vi": "Calibrate judge và duy trì khung eval",
+     "body": "An LLM judge is itself a system that can be wrong. Calibrate it by running it against a set of human-labeled outputs and confirming its agreement with human judgment is high enough to rely on. An uncalibrated judge produces confident scores that may be meaningless, which is worse than no automated grade because it seems trustworthy. Force the judge to give reasoning with its score so inconsistency becomes detectable.\n\nEval infrastructure is a parallel system to maintain: the golden dataset must stay current, judge prompts must be engineered and tested, and thresholds revisited when requirements change. Cost of model-graded evals should not push you to an undersized set; a regression that slips through costs more. For a model change, the minimum is a curated test set covering the real distribution, a grading function, and a delta threshold set in advance. The highest-risk moment for a regression is when evals exist but are out of date.",
+     "body_vi": "Bản thân LLM judge cũng là một hệ thống có thể sai. Hãy calibrate (hiệu chuẩn) nó bằng cách chạy trên một tập output đã được người gán nhãn và xác nhận mức đồng thuận với đánh giá của con người đủ cao để tin cậy. Một judge chưa calibrate cho ra điểm số tự tin nhưng có thể vô nghĩa, điều này còn tệ hơn không có điểm tự động vì nó trông có vẻ đáng tin. Buộc judge đưa ra lập luận cùng với điểm để có thể phát hiện sự thiếu nhất quán.\n\nHạ tầng eval là một hệ thống song song cần bảo trì: golden dataset phải được cập nhật, judge prompt phải được thiết kế và kiểm thử, và ngưỡng phải được xem lại khi yêu cầu thay đổi. Chi phí của eval do model chấm không nên khiến bạn dùng một tập quá nhỏ; một regression lọt qua tốn kém hơn nhiều. Với một thay đổi model, tối thiểu cần một test set được tuyển chọn bao phủ phân phối thực, một hàm chấm điểm và một ngưỡng chênh lệch được đặt trước. Thời điểm rủi ro regression cao nhất là khi eval tồn tại nhưng đã lỗi thời.",
+     "bullets": []
+    }
+   ],
+   "table": {
+    "caption": "Choosing a grading method",
+    "caption_vi": "Chọn phương pháp chấm",
+    "headers": [
+     "Method",
+     "Use for",
+     "Limitation"
+    ],
+    "headers_vi": [
+     "Phương pháp",
+     "Dùng cho",
+     "Hạn chế"
+    ],
+    "rows": [
+     [
+      "Code-based",
+      "Schema, exact match, length, presence, lookup vs authoritative data",
+      "Cannot judge tone, reasoning or appropriateness"
+     ],
+     [
+      "LLM judge",
+      "Faithfulness, tone, reasoning quality, edge-case handling",
+      "Inconsistent in borderline cases; must be calibrated"
+     ],
+     [
+      "Human review",
+      "High-stakes or novel behaviors; calibrating judges",
+      "Slow, expensive, only viable on samples"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "The golden dataset must be representative of production, include edge cases and adversarial inputs, and be kept current.",
+     "vi": "Golden dataset phải đại diện cho production, có edge case và adversarial input, và luôn được cập nhật."
+    },
+    {
+     "en": "Grading ladder: code first, calibrated LLM judge when interpretation is needed, humans last.",
+     "vi": "Grading ladder: code trước, LLM judge đã calibrate khi cần diễn giải, con người sau cùng."
+    },
+    {
+     "en": "Rigorous judges use detailed rubrics, constrained verdicts, reasoning, human calibration and a different model than the one graded.",
+     "vi": "Judge nghiêm ngặt dùng rubric chi tiết, constrained verdict, lập luận, calibrate với người và model khác với model được chấm."
+    },
+    {
+     "en": "Spot-checks are not evals; an out-of-date eval suite gives false confidence.",
+     "vi": "Spot-check không phải eval; eval suite lỗi thời tạo cảm giác an toàn giả."
+    },
+    {
+     "en": "Multi-turn behavior needs a separate golden dataset of full conversation transcripts.",
+     "vi": "Hành vi nhiều lượt cần golden dataset riêng gồm transcript hội thoại đầy đủ."
+    },
+    {
+     "en": "Favor many automatically graded cases that run on every change over a few manual ones.",
+     "vi": "Ưu tiên nhiều case chấm tự động chạy trên mọi thay đổi hơn vài case chấm thủ công."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "Eval passes but production fails on a new input class: the dataset is not representative. Eval passes after a prompt change but new behavior is wrong: the eval is out of date.",
+     "vi": "Eval pass nhưng production lỗi trên một nhóm input mới: dataset không đại diện. Eval pass sau khi đổi prompt nhưng hành vi mới sai: eval đã lỗi thời."
+    },
+    {
+     "en": "Distractors: judge for everything, humans for everything, the generating model grading itself, trusting an uncalibrated judge.",
+     "vi": "Distractor: judge cho mọi thứ, con người cho mọi thứ, model sinh output tự chấm chính nó, tin judge chưa calibrate."
+    },
+    {
+     "en": "Keywords: deterministic, schema, known value, binary, numeric threshold point to code; tone, faithfulness, reasoning point to a judge; novel, safety-critical, no rubric point to humans.",
+     "vi": "Từ khóa: tất định, schema, giá trị đã biết, nhị phân, ngưỡng số thì chọn code; giọng điệu, faithfulness, lập luận thì chọn judge; mới lạ, an toàn trọng yếu, chưa có rubric thì chọn con người."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Golden dataset",
+     "en": "A representative labeled set of inputs with expected outputs, including edge cases and counterexamples, that the eval runs against.",
+     "vi": "Tập input có nhãn mang tính đại diện kèm output kỳ vọng, gồm edge case và counterexample, làm chuẩn để chạy eval."
+    },
+    {
+     "term": "Grading ladder",
+     "en": "Choose the cheapest reliable grading method first: code, then LLM judge, then human review.",
+     "vi": "Chọn phương pháp chấm rẻ nhất mà đáng tin cậy trước: code, rồi LLM judge, rồi human review."
+    },
+    {
+     "term": "Judge calibration",
+     "en": "Running an LLM judge on human-labeled outputs and confirming its agreement with human judgment before trusting it.",
+     "vi": "Chạy LLM judge trên output đã được người gán nhãn và xác nhận mức đồng thuận với con người trước khi tin dùng."
+    },
+    {
+     "term": "Constrained verdict",
+     "en": "A judge output restricted to a small fixed set of labels rather than free-form scores.",
+     "vi": "Kết quả của judge bị giới hạn trong một tập nhãn nhỏ cố định thay vì điểm số tự do."
+    },
+    {
+     "term": "Self-preference",
+     "en": "The bias of a model favoring its own outputs; avoided by grading with a different model.",
+     "vi": "Thiên lệch khi model ưu ái output của chính nó; tránh bằng cách dùng model khác để chấm."
+    },
+    {
+     "term": "Multi-turn eval",
+     "en": "An eval that scores a whole conversation for context retention, no invented details and stable quality over length.",
+     "vi": "Eval chấm cả cuộc hội thoại về việc giữ ngữ cảnh, không bịa chi tiết và chất lượng ổn định theo độ dài."
+    }
+   ]
+  },
+  {
+   "id": "d4-t3",
+   "objective": "Conduct A/B testing and iterative improvements",
+   "title": "Structured A/B testing, shadow testing and eval-gated iteration",
+   "title_vi": "A/B testing có cấu trúc, shadow testing và cải tiến qua cổng eval",
+   "sources": [
+    "output_2/06_AB_Testing_and_Observability.md",
+    "output_2/02_Evals_as_Acceptance_Criteria.md",
+    "output_2/08_Production_Readiness_and_Wrapup.md",
+    "output/08_Model_Context_Strategy.md"
+   ],
+   "sections": [
+    {
+     "heading": "Anatomy of a valid experiment",
+     "heading_vi": "Cấu trúc của một thí nghiệm hợp lệ",
+     "body": "An A/B test for a Claude system needs a hypothesis, a treatment group, a control group, a primary metric and a sample size large enough to be statistically meaningful. LLM outputs are probabilistic, so results are noisier than in classical software testing and the required sample size is larger. A usable hypothesis names the treatment, the metric, the success threshold and the constraint: 'Replacing the instruction to summarize with an instruction to extract the three most important action items will increase task success rate by at least 5% without degrading response latency p95.'\n\nAssignment must be random and consistent per user or session to avoid contamination. The primary metric is chosen before the experiment runs; picking it afterward is outcome-shopping. Sample size is calculated from the minimum detectable effect, the baseline and the required confidence. In the course capstone, detecting a 70% to 75% improvement needs about 1,500 sessions per group, roughly four days at 800 requests per day.",
+     "body_vi": "Một A/B test cho hệ thống Claude cần hypothesis (giả thuyết), nhóm treatment, nhóm control, một primary metric (metric chính) và cỡ mẫu đủ lớn để có ý nghĩa thống kê. Output của LLM mang tính xác suất nên kết quả nhiễu hơn so với kiểm thử phần mềm truyền thống và cỡ mẫu cần thiết lớn hơn. Một hypothesis dùng được phải nêu treatment, metric, ngưỡng thành công và ràng buộc: 'Thay chỉ dẫn tóm tắt bằng chỉ dẫn trích ba action item quan trọng nhất sẽ tăng task success rate ít nhất 5% mà không làm xấu đi latency p95.'\n\nViệc phân nhóm phải ngẫu nhiên và nhất quán theo user hoặc session để tránh nhiễm chéo. Primary metric được chọn trước khi thí nghiệm chạy; chọn sau là outcome-shopping (lựa kết quả). Cỡ mẫu được tính từ minimum detectable effect (hiệu ứng nhỏ nhất cần phát hiện), baseline và mức tin cậy yêu cầu. Trong bài tổng hợp của khóa học, phát hiện mức cải thiện từ 70% lên 75% cần khoảng 1.500 session mỗi nhóm, tức khoảng bốn ngày với 800 request mỗi ngày.",
+     "bullets": [
+      {
+       "en": "Hypothesis: treatment + primary metric + threshold + guardrail constraint.",
+       "vi": "Hypothesis: treatment + primary metric + ngưỡng + ràng buộc guardrail."
+      },
+      {
+       "en": "Assignment: random, sticky per user or session.",
+       "vi": "Phân nhóm: ngẫu nhiên, cố định theo user hoặc session."
+      },
+      {
+       "en": "Sample size: from MDE, baseline and confidence, fixed before the run.",
+       "vi": "Cỡ mẫu: từ MDE, baseline và độ tin cậy, chốt trước khi chạy."
+      }
+     ]
+    },
+    {
+     "heading": "Reading results without overclaiming",
+     "heading_vi": "Đọc kết quả mà không phóng đại",
+     "body": "Statistical significance means a result is unlikely to be chance; whether it is large enough to matter is a separate question. Before declaring a winner ask: is the effect large enough to justify maintaining the new version, and did any secondary metric degrade? A prompt that improves task success while raising cost 30% may not be a net win. LLM experiments also show interaction effects: a change that helps typical inputs can hurt edge cases that are rare in the test period but frequent in a future seasonal spike, so test period and input distribution alignment matter.\n\nThe course '50-session winner' shows the trap: 68% vs 62% on 50 sessions each was declared a win and settled at 61% two weeks later. Three problems each invalidated it: the sample was far too small, the input distribution was not controlled (the treatment group had fewer edge cases), and the primary metric was not pre-specified.",
+     "body_vi": "Ý nghĩa thống kê (statistical significance) nghĩa là kết quả khó xảy ra do ngẫu nhiên; còn nó có đủ lớn để đáng kể hay không là một câu hỏi khác. Trước khi tuyên bố bên thắng, hãy hỏi: hiệu ứng có đủ lớn để biện minh cho việc duy trì phiên bản mới không, và có metric phụ nào xấu đi không? Một prompt tăng task success nhưng làm cost tăng 30% có thể không phải là thắng ròng. Thí nghiệm LLM còn có interaction effect (hiệu ứng tương tác): một thay đổi giúp ích cho input điển hình có thể làm hại edge case vốn hiếm trong giai đoạn test nhưng thường gặp trong đợt cao điểm theo mùa sau này, vì vậy sự khớp giữa giai đoạn test và phân phối input rất quan trọng.\n\nVí dụ '50-session winner' của khóa học cho thấy cái bẫy: 68% so với 62% trên 50 session mỗi nhóm được tuyên bố là thắng, và hai tuần sau ổn định ở 61%. Ba vấn đề, mỗi vấn đề đều đủ làm kết quả mất giá trị: cỡ mẫu quá nhỏ, phân phối input không được kiểm soát (nhóm treatment có ít edge case hơn), và primary metric không được định trước.",
+     "bullets": []
+    },
+    {
+     "heading": "Shadow testing and the iteration loop",
+     "heading_vi": "Shadow testing và vòng lặp cải tiến",
+     "body": "Shadow testing runs the new version in parallel on a copy of live requests, serves every user the current version's response, logs the new outputs and scores them offline. No user sees the new version before the decision. Use a live A/B test when the deployment can absorb a small bounded exposure and traffic is high enough to reach a meaningful sample; you gain downstream signals such as whether the user accepted the answer. Use shadow testing when a single bad output carries too much risk or traffic is too low; you lose downstream signal and rely on offline rubrics or golden answers. In regulated industries shadow testing is often the only acceptable option.\n\nIteration is gated by evals: every model swap, prompt revision, context strategy change or retrieval update runs through the eval suite before production. For model changes, set the rollback criterion before the data arrives. In the course Sonnet-to-Haiku case, Haiku averaged 0.86 vs 0.94, but two document types fell to 0.71 and 0.74, below the pre-set 0.85 floor; the migration was rejected and salvaged as a partial migration routing those two types to Sonnet. Discernment (judging outputs as acceptable, needs revision or needs override) feeds bad cases back into the evals.",
+     "body_vi": "Shadow testing chạy phiên bản mới song song trên bản sao của request thật, trả cho mọi người dùng phản hồi của phiên bản hiện tại, ghi log output mới và chấm điểm offline. Không người dùng nào thấy phiên bản mới trước khi có quyết định. Dùng live A/B test khi hệ thống chịu được mức phơi nhiễm nhỏ có giới hạn và traffic đủ lớn để đạt cỡ mẫu có ý nghĩa; bạn có được tín hiệu hạ nguồn như người dùng có chấp nhận câu trả lời hay không. Dùng shadow testing khi một output xấu đơn lẻ mang rủi ro quá lớn hoặc traffic quá thấp; bạn mất tín hiệu hạ nguồn và dựa vào rubric offline hoặc golden answer. Trong ngành có quản lý chặt, shadow testing thường là lựa chọn duy nhất được chấp nhận.\n\nCải tiến được kiểm soát bằng eval: mọi lần đổi model, sửa prompt, đổi chiến lược context hay cập nhật retrieval đều chạy qua eval suite trước khi lên production. Với thay đổi model, đặt rollback criterion (tiêu chí hoàn tác) trước khi có dữ liệu. Trong case Sonnet sang Haiku của khóa học, Haiku trung bình đạt 0,86 so với 0,94, nhưng hai loại tài liệu giảm xuống 0,71 và 0,74, dưới mức sàn 0,85 đặt trước; việc chuyển đổi bị từ chối và được cứu vãn bằng chuyển đổi một phần, định tuyến hai loại đó sang Sonnet. Discernment (đánh giá output là chấp nhận được, cần sửa hoặc cần ghi đè) đưa các case xấu trở lại eval.",
+     "bullets": []
+    }
+   ],
+   "table": {
+    "caption": "Offline eval vs shadow testing vs live A/B",
+    "caption_vi": "Offline eval, shadow testing và live A/B",
+    "headers": [
+     "Approach",
+     "Users see new version?",
+     "Best when"
+    ],
+    "headers_vi": [
+     "Cách làm",
+     "Người dùng thấy bản mới?",
+     "Phù hợp khi"
+    ],
+    "rows": [
+     [
+      "Offline eval (golden set)",
+      "No",
+      "Every change, as the first gate"
+     ],
+     [
+      "Shadow testing",
+      "No (outputs logged, scored offline)",
+      "High risk, regulated, or low traffic"
+     ],
+     [
+      "Live A/B test",
+      "Yes, a bounded fraction",
+      "Bounded risk acceptable, enough traffic, need downstream signal"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Pre-specify hypothesis, primary metric and sample size; never pick the metric after seeing results.",
+     "vi": "Định trước hypothesis, primary metric và cỡ mẫu; không bao giờ chọn metric sau khi xem kết quả."
+    },
+    {
+     "en": "LLM variance means larger samples; 50 vs 50 sessions is a confirmation check, not a test.",
+     "vi": "Phương sai của LLM đòi hỏi mẫu lớn hơn; 50 so với 50 session là kiểm tra xác nhận, không phải thí nghiệm."
+    },
+    {
+     "en": "Statistical significance is not practical significance; check guardrail metrics like cost and p95.",
+     "vi": "Ý nghĩa thống kê không phải ý nghĩa thực tế; kiểm tra các guardrail metric như cost và p95."
+    },
+    {
+     "en": "Segment results by input type to catch interaction effects on edge cases.",
+     "vi": "Phân rã kết quả theo loại input để phát hiện interaction effect trên edge case."
+    },
+    {
+     "en": "Shadow testing validates on real traffic with zero user exposure but loses downstream signal.",
+     "vi": "Shadow testing kiểm chứng trên traffic thật mà không để người dùng tiếp xúc nhưng mất tín hiệu hạ nguồn."
+    },
+    {
+     "en": "Set rollback criteria before the data arrives; per-segment scores can reveal a partial-migration option.",
+     "vi": "Đặt rollback criterion trước khi có dữ liệu; điểm theo phân nhóm có thể mở ra phương án chuyển đổi một phần."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "Regulated, a single bad output unacceptable, or low traffic: choose shadow testing. Need real user behavior, high traffic, bounded risk: live A/B.",
+     "vi": "Ngành có quản lý, một output xấu là không chấp nhận được, hoặc traffic thấp: chọn shadow testing. Cần hành vi người dùng thật, traffic cao, rủi ro có giới hạn: live A/B."
+    },
+    {
+     "en": "Multi-select items often draw from the three failures: underpowered, uncontrolled input distribution, metric not pre-specified.",
+     "vi": "Câu chọn nhiều đáp án thường lấy từ ba lỗi: thiếu cỡ mẫu, không kiểm soát phân phối input, metric không định trước."
+    },
+    {
+     "en": "Eliminate 'run until significant', 'compare to last month', and 'ship because p < 0.05' options.",
+     "vi": "Loại các phương án 'chạy đến khi có ý nghĩa thống kê', 'so với tháng trước' và 'ship vì p < 0,05'."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Primary metric",
+     "en": "The single metric defined before the experiment that decides the outcome.",
+     "vi": "Metric duy nhất được định nghĩa trước thí nghiệm, quyết định kết quả."
+    },
+    {
+     "term": "Guardrail metric",
+     "en": "A secondary metric that must not degrade beyond a set limit, such as latency p95 or cost per request.",
+     "vi": "Metric phụ không được xấu đi quá giới hạn, như latency p95 hoặc cost mỗi request."
+    },
+    {
+     "term": "Minimum detectable effect (MDE)",
+     "en": "The smallest difference the experiment is sized to detect; smaller MDE requires a larger sample.",
+     "vi": "Mức chênh lệch nhỏ nhất mà thí nghiệm được thiết kế để phát hiện; MDE càng nhỏ thì cỡ mẫu càng lớn."
+    },
+    {
+     "term": "Shadow testing",
+     "en": "Running a new version on a copy of live traffic, logging its outputs without returning them, and scoring offline.",
+     "vi": "Chạy phiên bản mới trên bản sao traffic thật, ghi log output mà không trả về người dùng, rồi chấm offline."
+    },
+    {
+     "term": "Outcome-shopping",
+     "en": "Choosing the metric after seeing the results, turning a test into a search for whatever moved.",
+     "vi": "Chọn metric sau khi xem kết quả, biến thí nghiệm thành việc tìm bất kỳ chỉ số nào đã thay đổi."
+    },
+    {
+     "term": "Rollback criterion",
+     "en": "A threshold set in advance below which a change is rejected, e.g. any document type below 0.85.",
+     "vi": "Ngưỡng đặt trước mà nếu dưới mức đó thì thay đổi bị từ chối, ví dụ bất kỳ loại tài liệu nào dưới 0,85."
+    }
+   ]
+  },
+  {
+   "id": "d4-t4",
+   "objective": "Diagnose system issues (prompt failure, hallucinations, model mismatch)",
+   "title": "Diagnosing failures with a failure taxonomy",
+   "title_vi": "Chẩn đoán sự cố bằng phân loại lỗi (failure taxonomy)",
+   "sources": [
+    "output_2/06_AB_Testing_and_Observability.md",
+    "output_2/03_POC_to_Production.md",
+    "output_2/02_Evals_as_Acceptance_Criteria.md",
+    "output/07_RAG_Pipeline_Design.md"
+   ],
+   "sections": [
+    {
+     "heading": "Classify the failure before you fix it",
+     "heading_vi": "Phân loại lỗi trước khi sửa",
+     "body": "Instrumentation tells you a metric moved; diagnosis tells you what kind of failure moved it. The course failure taxonomy names classes that call for different fixes. A prompt failure means the instruction was ambiguous or underspecified and the model filled the gap; the fix is in the prompt, not the model. A hallucination is confident, fluent content not grounded in the input or a reliable source; the fix is grounding through retrieval, tool use or verification, and stronger instruction will not resolve it. A model mismatch means the chosen tier is wrong for the task or was swapped without re-evaluation; the fix is model selection, gated by an eval. In orchestrator-workers systems, a recoverable subagent failure (retry or flag) looks different from an unrecoverable orchestrator failure, and attribution requires a trace spanning both.\n\nThe most useful diagnostic question is: which variable just changed? Prompt version, model version, documents or index, input distribution, or a tool dependency. The official sample question illustrates it: a RAG system returns confident but incorrect answers after a document refresh while latency and model version are unchanged, so the first place to look is the retrieval and indexing step returning irrelevant or stale chunks.",
+     "body_vi": "Instrumentation cho bạn biết một metric đã thay đổi; chẩn đoán cho biết loại lỗi nào làm nó thay đổi. Failure taxonomy (phân loại lỗi) của khóa học nêu các nhóm lỗi đòi hỏi cách sửa khác nhau. Prompt failure nghĩa là chỉ dẫn mơ hồ hoặc thiếu cụ thể và model tự lấp chỗ trống; cách sửa nằm ở prompt, không phải ở model. Hallucination là nội dung trôi chảy, tự tin nhưng không dựa trên input hay nguồn đáng tin; cách sửa là grounding (neo vào nguồn) thông qua retrieval, tool use hoặc kiểm chứng, và chỉ dẫn mạnh hơn sẽ không giải quyết được. Model mismatch nghĩa là tier được chọn không phù hợp với tác vụ hoặc bị đổi mà không eval lại; cách sửa là chọn lại model, có cổng eval. Trong hệ thống orchestrator-workers, lỗi subagent có thể khôi phục (retry hoặc gắn cờ) trông khác với lỗi orchestrator không thể khôi phục, và việc quy nguyên nhân cần một trace bao trùm cả hai.\n\nCâu hỏi chẩn đoán hữu ích nhất là: biến số nào vừa thay đổi? Phiên bản prompt, phiên bản model, tài liệu hoặc index, phân phối input, hay một tool phụ thuộc. Câu hỏi mẫu chính thức minh họa điều này: một hệ thống RAG trả lời tự tin nhưng sai sau khi refresh tài liệu trong khi latency và phiên bản model không đổi, nên nơi cần xem đầu tiên là bước retrieval và indexing đang trả về chunk không liên quan hoặc cũ.",
+     "bullets": []
+    },
+    {
+     "heading": "Failure modes by architecture type",
+     "heading_vi": "Failure mode theo loại kiến trúc",
+     "body": "Each architecture has its own first point of failure. Agents break first through unbounded tool use and growing context: set per-turn token budgets, maximum tool-call counts and explicit stopping criteria, constrain the tool set, and eval stopping behavior. RAG breaks first through retrieval quality drift when documents are added or removed without reindexing, when query and document representations fall out of alignment, or when refresh schedules create staleness for live-state queries: keep retrieval precision and recall in the eval loop and separate live-state queries (tool calls) from static knowledge (RAG). Document-processing pipelines break when there is no exception path for low-confidence extractions: add confidence scoring and route low-confidence items to human review. Orchestrator-workers break when a dropped subagent fails silently at synthesis: use a shared trace ID and reconcile coverage so results equal units submitted.\n\nEval-related failures are also diagnosable. An eval that passes while production fails on a new input class points to an unrepresentative golden dataset; an eval that passes after a prompt change while the new behavior is wrong points to an out-of-date eval set. A judge that reports high pass rates while experts find fabrications points to an uncalibrated judge.",
+     "body_vi": "Mỗi kiến trúc có điểm gãy đầu tiên riêng. Agent gãy trước tiên do dùng tool không giới hạn và context phình to: đặt token budget cho mỗi lượt, số lần gọi tool tối đa và stopping criteria (tiêu chí dừng) rõ ràng, thu hẹp bộ tool, và eval hành vi dừng. RAG gãy trước tiên do retrieval quality drift (suy giảm chất lượng truy xuất) khi tài liệu được thêm hoặc xóa mà không reindex, khi biểu diễn của truy vấn và tài liệu lệch nhau, hoặc khi lịch refresh gây dữ liệu cũ cho truy vấn live-state: giữ retrieval precision và recall trong vòng eval và tách truy vấn live-state (tool call) khỏi kiến thức tĩnh (RAG). Pipeline xử lý tài liệu gãy khi không có đường ngoại lệ cho các trích xuất có confidence thấp: thêm confidence scoring và chuyển các mục confidence thấp sang human review. Orchestrator-workers gãy khi một subagent bị rớt thất bại âm thầm ở bước tổng hợp: dùng shared trace ID và đối soát độ bao phủ để số kết quả bằng số đơn vị đã giao.\n\nCác lỗi liên quan đến eval cũng chẩn đoán được. Eval pass trong khi production lỗi trên một nhóm input mới cho thấy golden dataset không đại diện; eval pass sau khi đổi prompt trong khi hành vi mới sai cho thấy eval set đã lỗi thời. Judge báo tỉ lệ pass cao trong khi chuyên gia phát hiện nội dung bịa đặt cho thấy judge chưa được calibrate.",
+     "bullets": []
+    },
+    {
+     "heading": "Separating drift from updates",
+     "heading_vi": "Phân biệt drift với cập nhật",
+     "body": "When a metric moves, the instrumentation should distinguish three causes with different mitigations: model drift (the model's behavior on stable inputs changed), data drift (the input distribution changed) and model update effects (the model version changed and behaves differently on existing inputs). Mixing them up produces the wrong fix. This is why model versions are pinned in configuration, version identifiers are recorded on every trace, and a version-update runbook runs the eval suite before rollout.\n\nAlso check for apparent wins that disappear: a gain measured on a tiny sample that later regresses is noise, not drift.",
+     "body_vi": "Khi một metric thay đổi, instrumentation cần phân biệt được ba nguyên nhân với cách khắc phục khác nhau: model drift (hành vi của model trên input ổn định đã thay đổi), data drift (phân phối input đã thay đổi) và model update effect (phiên bản model đã đổi và hành xử khác trên input cũ). Nhầm lẫn chúng sẽ dẫn đến cách sửa sai. Đây là lý do phiên bản model được pin (cố định) trong cấu hình, mã phiên bản được ghi trên mọi trace, và runbook nâng cấp phiên bản chạy eval suite trước khi rollout.\n\nCũng cần cảnh giác với những kết quả thắng rồi biến mất: mức cải thiện đo trên một mẫu rất nhỏ rồi sau đó tụt lại là nhiễu, không phải drift.",
+     "bullets": []
+    }
+   ],
+   "table": {
+    "caption": "Failure taxonomy: symptom and correct fix",
+    "caption_vi": "Phân loại lỗi: triệu chứng và cách sửa đúng",
+    "headers": [
+     "Failure class",
+     "Typical symptom",
+     "Correct fix",
+     "Wrong fix"
+    ],
+    "headers_vi": [
+     "Loại lỗi",
+     "Triệu chứng điển hình",
+     "Cách sửa đúng",
+     "Cách sửa sai"
+    ],
+    "rows": [
+     [
+      "Prompt failure",
+      "Consistent wrong pattern where instructions are vague",
+      "Clarify prompt, add schema/examples, re-run eval",
+      "Bigger model"
+     ],
+     [
+      "Hallucination",
+      "Fluent, confident content not in input or source",
+      "Grounding: retrieval, tool call, verifier",
+      "Adding 'do not make things up'"
+     ],
+     [
+      "Model mismatch",
+      "Quality drop after tier/version swap without re-eval",
+      "Reselect model, gated by eval",
+      "Endless prompt rewrites"
+     ],
+     [
+      "Retrieval failure",
+      "Wrong answers after document refresh, model unchanged",
+      "Inspect retrieved chunks, fix index, reindex",
+      "Change model or temperature"
+     ],
+     [
+      "Orchestrator-workers",
+      "Synthesized report silently missing parts",
+      "Shared trace ID, reconcile coverage",
+      "Read orchestrator logs only"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Classify first: prompt failure, hallucination, model mismatch, retrieval failure, or orchestrator-workers failure.",
+     "vi": "Phân loại trước: prompt failure, hallucination, model mismatch, retrieval failure hoặc lỗi orchestrator-workers."
+    },
+    {
+     "en": "Hallucination is fixed by grounding, never by stronger instruction alone.",
+     "vi": "Hallucination được sửa bằng grounding, không bao giờ chỉ bằng chỉ dẫn mạnh hơn."
+    },
+    {
+     "en": "Prompt failure is fixed in the prompt; model mismatch by reselecting the model behind an eval gate.",
+     "vi": "Prompt failure sửa ở prompt; model mismatch sửa bằng chọn lại model qua cổng eval."
+    },
+    {
+     "en": "Ask which variable changed; a document refresh with unchanged model points to retrieval.",
+     "vi": "Hỏi biến số nào đã thay đổi; refresh tài liệu mà model không đổi thì nghi retrieval."
+    },
+    {
+     "en": "Distinguish model drift, data drift and model update effects; each has a different mitigation.",
+     "vi": "Phân biệt model drift, data drift và model update effect; mỗi loại có cách khắc phục khác nhau."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "Options that eliminate the triggering variable win; options not triggered by the change (weights silently changed, context window shrank) are distractors.",
+     "vi": "Phương án nhắm vào biến số kích hoạt sẽ đúng; phương án không bị kích hoạt bởi thay đổi đó (trọng số âm thầm đổi, context window bị thu nhỏ) là distractor."
+    },
+    {
+     "en": "'Upgrade to a bigger model' is rarely the fix for a prompt or retrieval problem.",
+     "vi": "'Nâng lên model lớn hơn' hiếm khi là cách sửa cho vấn đề prompt hoặc retrieval."
+    },
+    {
+     "en": "Agent cost spikes on a few requests point to missing budgets and stopping criteria, not to a cheaper model.",
+     "vi": "Chi phí agent tăng vọt ở một vài request cho thấy thiếu budget và stopping criteria, không phải cần model rẻ hơn."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Prompt failure",
+     "en": "An ambiguous or underspecified instruction that the model filled in on its own; fixed in the prompt.",
+     "vi": "Chỉ dẫn mơ hồ hoặc thiếu cụ thể khiến model tự lấp chỗ trống; sửa ở prompt."
+    },
+    {
+     "term": "Hallucination",
+     "en": "Confident, fluent output not grounded in the input or a reliable source; fixed by grounding.",
+     "vi": "Output trôi chảy, tự tin nhưng không dựa trên input hoặc nguồn đáng tin; sửa bằng grounding."
+    },
+    {
+     "term": "Model mismatch",
+     "en": "A model tier wrong for the task, or swapped without re-evaluation; fixed by eval-gated model selection.",
+     "vi": "Model tier không phù hợp với tác vụ, hoặc bị đổi mà không eval lại; sửa bằng chọn model qua cổng eval."
+    },
+    {
+     "term": "Retrieval quality drift",
+     "en": "Gradual degradation of RAG retrieval when the index falls out of sync with documents or queries.",
+     "vi": "Suy giảm dần chất lượng truy xuất của RAG khi index lệch khỏi tài liệu hoặc truy vấn."
+    },
+    {
+     "term": "Data drift",
+     "en": "A change in the input distribution reaching the system.",
+     "vi": "Sự thay đổi phân phối input đi vào hệ thống."
+    },
+    {
+     "term": "Model update effects",
+     "en": "Behavior changes caused by a new model version on existing inputs.",
+     "vi": "Thay đổi hành vi do phiên bản model mới trên các input cũ."
+    }
+   ]
+  },
+  {
+   "id": "d4-t5",
+   "objective": "Optimize token usage, latency, and cost-performance trade-offs",
+   "title": "Optimizing token usage, latency and cost",
+   "title_vi": "Tối ưu token, latency và chi phí",
+   "sources": [
+    "output_2/03_POC_to_Production.md",
+    "output_2/04_Sizing_and_Feasibility.md",
+    "output_2/09_Supplement_Integration_Mechanisms_and_Optimization.md",
+    "output/08_Model_Context_Strategy.md"
+   ],
+   "sections": [
+    {
+     "heading": "Model cost and latency before you build",
+     "heading_vi": "Mô hình hóa chi phí và latency trước khi xây",
+     "body": "A POC running 10 to 50 requests a day hides cost, latency, reliability and failure modes. Sizing produces a cost model before code from four inputs: call volume (from the business owner, not a sample dataset), token budget per request (input plus output, modeled as a distribution, not an average), model tier, and sensitivity parameters. Token distributions are usually skewed: a tail of long requests can consume a disproportionate share; in the course postmortem the long documents consumed 80% of token spend, and averages can understate cost by a factor of two or three. Monthly cost is volume times input tokens at the input rate plus output tokens at the output rate, using the cache read rate for cached input. Then run sensitivity: what if volume doubles or the distribution shifts to the tail?\n\nLatency targets use p95 under concurrent load, not single-request median. Raw demo costs presented without extrapolation to production volume and error bounds are where risk lives.",
+     "body_vi": "Một POC chạy 10 đến 50 request mỗi ngày che giấu chi phí, latency, độ tin cậy và failure mode. Sizing (định cỡ) tạo ra mô hình chi phí trước khi viết code từ bốn đầu vào: call volume (lấy từ business owner, không phải từ dataset mẫu), token budget mỗi request (input cộng output, mô hình hóa dưới dạng phân phối, không phải trung bình), model tier và các tham số sensitivity (độ nhạy). Phân phối token thường bị lệch: một phần đuôi gồm các request dài có thể tiêu tốn tỉ lệ không cân xứng; trong postmortem của khóa học, các tài liệu dài chiếm 80% chi phí token, và dùng trung bình có thể đánh giá thấp chi phí từ hai đến ba lần. Chi phí tháng bằng volume nhân input token theo giá input cộng output token theo giá output, dùng giá cache read cho input được cache. Sau đó chạy sensitivity: nếu volume tăng gấp đôi hoặc phân phối dịch về phía đuôi thì sao?\n\nMục tiêu latency dùng p95 dưới tải đồng thời, không phải median của từng request riêng lẻ. Trình bày chi phí demo thô mà không ngoại suy theo volume production và khoảng sai số chính là nơi rủi ro nằm.",
+     "bullets": []
+    },
+    {
+     "heading": "The optimization levers",
+     "heading_vi": "Các đòn bẩy tối ưu",
+     "body": "Prompt caching is the most effective cost and latency lever when the system prompt is long and stable: the processed prompt prefix is reused so it is not reprocessed, and savings scale with prefix length and reuse frequency. Put static content first and dynamic content last; caching needs explicit cache_control markers, cache writes cost more than standard input, and the default TTL is 5 minutes, so sparse workloads may not benefit. If cached content must reflect live state, caching creates a consistency window. The response is identical to what you would get without caching.\n\nOther levers: the Batch API gives a large discount (for example 50%) when the SLA permits asynchronous processing, after checking BAA and compliance coverage for regulated data. Model routing sends simple requests to a smaller tier and complex ones to a larger tier, with every branch evaluated. Streaming reduces perceived latency (time to first visible token) but not total time or cost. Capping output with max_tokens and concise formats cuts output cost and latency; watch stop_reason for truncation. Context optimization (sensible retrieval top-k, summarizing history, progressive discovery, removing unused tools) reduces input tokens. Extended thinking adds billed output tokens and latency, so enable it only for a measured accuracy gap, never on a routing classifier.",
+     "body_vi": "Prompt caching là đòn bẩy chi phí và latency hiệu quả nhất khi system prompt dài và ổn định: phần prefix của prompt đã xử lý được tái sử dụng nên không phải xử lý lại, và mức tiết kiệm tăng theo độ dài prefix và tần suất tái sử dụng. Đặt nội dung tĩnh trước, nội dung động sau; caching cần các marker cache_control tường minh, cache write đắt hơn input thường, và TTL mặc định là 5 phút, nên workload thưa thớt có thể không được lợi. Nếu nội dung được cache cần phản ánh live state (trạng thái thời gian thực), caching tạo ra một cửa sổ không nhất quán. Phản hồi nhận được giống hệt như khi không dùng caching.\n\nCác đòn bẩy khác: Batch API giảm giá đáng kể (ví dụ 50%) khi SLA cho phép xử lý bất đồng bộ, sau khi kiểm tra BAA và cấu hình compliance cho dữ liệu được quản lý. Model routing gửi request đơn giản tới tier nhỏ hơn và request phức tạp tới tier lớn hơn, với mọi nhánh đều được eval. Streaming giảm latency cảm nhận (thời gian tới token đầu tiên hiển thị) nhưng không giảm tổng thời gian hay chi phí. Giới hạn output bằng max_tokens và định dạng ngắn gọn giảm chi phí output và latency; theo dõi stop_reason để phát hiện bị cắt cụt. Tối ưu context (top-k retrieval hợp lý, tóm tắt lịch sử, progressive discovery, gỡ tool không dùng) giảm input token. Extended thinking thêm output token tính phí và latency, nên chỉ bật khi có khoảng cách độ chính xác đo được, không bao giờ bật cho bộ phân loại định tuyến.",
+     "bullets": [
+      {
+       "en": "Long stable prefix reused across many requests: prompt caching.",
+       "vi": "Prefix dài, ổn định, dùng lại qua nhiều request: prompt caching."
+      },
+      {
+       "en": "Non-urgent bulk work: Batch API.",
+       "vi": "Công việc hàng loạt không gấp: Batch API."
+      },
+      {
+       "en": "Users complain about waiting to see text: streaming.",
+       "vi": "Người dùng phàn nàn phải chờ mới thấy chữ: streaming."
+      },
+      {
+       "en": "Mixed simple and complex traffic: eval-gated model routing.",
+       "vi": "Traffic lẫn đơn giản và phức tạp: model routing có cổng eval."
+      }
+     ]
+    },
+    {
+     "heading": "Per-step model selection and disciplined optimization",
+     "heading_vi": "Chọn model theo từng bước và tối ưu có kỷ luật",
+     "body": "Start with Sonnet; move up to Opus only when an eval shows Sonnet misses the quality bar, and down to Haiku only when an eval confirms the trade-off is acceptable. Not choosing a model is equivalent to choosing the most expensive one: in the course case, defaulting every call to Opus (with extended thinking on a routing classifier) produced a 7x cost overrun and 2.3 s median latency against an 800 ms target, with no CSAT gain. Building a per-step eval and routing the classifier to Haiku, mid-pipeline summarization to Sonnet, and keeping Opus only on final composition cut cost 71% and latency to 940 ms with unchanged CSAT.\n\nMonolithic context is a silent budget killer: a conversation that starts at 4,000 tokens can carry 80,000 by turn 30. Progressive context and compaction keep it bounded. The disciplined process: establish a baseline on the eval suite, find the biggest cost driver, apply one lever, re-run the eval against guardrails, then A/B or shadow test user-facing changes and document the justification.",
+     "body_vi": "Bắt đầu với Sonnet; chỉ nâng lên Opus khi eval cho thấy Sonnet không đạt ngưỡng chất lượng, và chỉ hạ xuống Haiku khi eval xác nhận đánh đổi là chấp nhận được. Không chọn model tương đương với chọn model đắt nhất: trong case của khóa học, mặc định mọi lời gọi dùng Opus (kèm extended thinking trên một bộ phân loại định tuyến) gây vượt chi phí 7 lần và latency median 2,3 giây so với mục tiêu 800 ms, mà CSAT không tăng. Xây eval theo từng bước rồi định tuyến bộ phân loại sang Haiku, bước tóm tắt giữa pipeline sang Sonnet, và chỉ giữ Opus cho bước soạn câu trả lời cuối đã giảm chi phí 71% và latency còn 940 ms với CSAT không đổi.\n\nMonolithic context (context nguyên khối) là kẻ giết ngân sách thầm lặng: một hội thoại bắt đầu với 4.000 token có thể mang 80.000 token ở lượt thứ 30. Progressive context và compaction (nén ngữ cảnh) giữ nó trong giới hạn. Quy trình có kỷ luật: lập baseline trên eval suite, tìm driver chi phí lớn nhất, áp dụng một đòn bẩy, chạy lại eval so với guardrail, sau đó A/B hoặc shadow test các thay đổi ảnh hưởng người dùng và ghi lại lý do.",
+     "bullets": []
+    }
+   ],
+   "table": {
+    "caption": "Optimization levers and their main effect",
+    "caption_vi": "Các đòn bẩy tối ưu và tác động chính",
+    "headers": [
+     "Lever",
+     "Main effect",
+     "Watch out for"
+    ],
+    "headers_vi": [
+     "Đòn bẩy",
+     "Tác động chính",
+     "Cần lưu ý"
+    ],
+    "rows": [
+     [
+      "Prompt caching",
+      "Lower input cost and time to first token",
+      "Needs reuse within TTL; live-state consistency"
+     ],
+     [
+      "Batch API",
+      "Large cost reduction",
+      "Only when SLA allows async; check BAA"
+     ],
+     [
+      "Model routing",
+      "Lower average cost",
+      "Every branch and the router must pass eval"
+     ],
+     [
+      "Streaming",
+      "Lower perceived latency",
+      "No change to total time or cost"
+     ],
+     [
+      "max_tokens / concise output",
+      "Lower output cost and latency",
+      "Truncation; monitor stop_reason"
+     ],
+     [
+      "Extended thinking",
+      "Higher accuracy on hard reasoning",
+      "Billed as output tokens, adds latency"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Size from real volume and the token distribution, then run sensitivity analysis.",
+     "vi": "Định cỡ từ volume thật và phân phối token, rồi chạy sensitivity analysis."
+    },
+    {
+     "en": "Find the dominant cost driver first and apply the lever that targets it.",
+     "vi": "Tìm driver chi phí lớn nhất trước và áp dụng đòn bẩy nhắm vào nó."
+    },
+    {
+     "en": "Static content first plus cache_control gives cacheable prefixes; TTL and write cost matter.",
+     "vi": "Nội dung tĩnh đặt trước cộng cache_control tạo prefix cache được; TTL và chi phí ghi cache là quan trọng."
+    },
+    {
+     "en": "Choose the smallest tier that passes the eval per pipeline step; not choosing defaults to the most expensive.",
+     "vi": "Chọn tier nhỏ nhất đạt eval cho từng bước pipeline; không chọn nghĩa là mặc định dùng tier đắt nhất."
+    },
+    {
+     "en": "Streaming improves perceived latency only; Batch only fits asynchronous SLAs.",
+     "vi": "Streaming chỉ cải thiện latency cảm nhận; Batch chỉ phù hợp SLA bất đồng bộ."
+    },
+    {
+     "en": "Enable extended thinking only for a measured accuracy gap after prompt work.",
+     "vi": "Chỉ bật extended thinking khi có khoảng cách độ chính xác đo được sau khi đã cải thiện prompt."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "Same long system prompt on every request with cost and latency concerns: static first and enable prompt caching.",
+     "vi": "Cùng system prompt dài trên mọi request, lo ngại cả cost và latency: đặt phần tĩnh trước và bật prompt caching."
+    },
+    {
+     "en": "Distractors: truncating needed context, switching to the smallest model regardless of fit, raising max_tokens for quality, always using Opus.",
+     "vi": "Distractor: cắt bỏ ngữ cảnh cần thiết, đổi sang model nhỏ nhất bất kể phù hợp, tăng max_tokens để tăng chất lượng, luôn dùng Opus."
+    },
+    {
+     "en": "A correct downgrade answer always includes an eval proving quality holds.",
+     "vi": "Đáp án hạ tier đúng luôn kèm eval chứng minh chất lượng được giữ."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Prompt caching",
+     "en": "Reusing a processed, stable prompt prefix across requests to cut input cost and latency; the response is unchanged.",
+     "vi": "Tái sử dụng prefix prompt ổn định đã xử lý qua các request để giảm chi phí input và latency; phản hồi không thay đổi."
+    },
+    {
+     "term": "Cache TTL",
+     "en": "How long a cached prefix lives; 5 minutes by default, so requests spaced further apart do not get consistent savings.",
+     "vi": "Thời gian sống của prefix được cache; mặc định 5 phút, nên request cách nhau lâu hơn sẽ không được tiết kiệm ổn định."
+    },
+    {
+     "term": "Batch API",
+     "en": "Asynchronous bulk processing at a discounted price, for workloads whose SLA allows delayed results.",
+     "vi": "Xử lý hàng loạt bất đồng bộ với giá chiết khấu, cho workload có SLA cho phép trả kết quả trễ."
+    },
+    {
+     "term": "Model routing",
+     "en": "Sending each request to the tier it needs, with every branch validated by eval.",
+     "vi": "Gửi mỗi request tới tier nó cần, với mọi nhánh được kiểm chứng bằng eval."
+    },
+    {
+     "term": "Sensitivity analysis",
+     "en": "Testing how the cost model changes if volume or the token distribution shifts.",
+     "vi": "Kiểm tra mô hình chi phí thay đổi thế nào nếu volume hoặc phân phối token dịch chuyển."
+    },
+    {
+     "term": "Compaction",
+     "en": "Periodically summarizing accumulated context while preserving load-bearing details such as IDs, numbers and decisions.",
+     "vi": "Định kỳ tóm tắt context tích lũy nhưng giữ nguyên các chi tiết quan trọng như ID, con số và quyết định."
+    }
+   ]
+  },
+  {
+   "id": "d4-t6",
+   "objective": "Monitor system performance using logging and observability tools",
+   "title": "Logging and observability for production Claude systems",
+   "title_vi": "Logging và observability cho hệ thống Claude production",
+   "sources": [
+    "output_2/06_AB_Testing_and_Observability.md",
+    "output_2/05_Enterprise_Integration_Patterns.md",
+    "output_2/08_Production_Readiness_and_Wrapup.md",
+    "output_2/03_POC_to_Production.md"
+   ],
+   "sections": [
+    {
+     "heading": "What to log: request, response, context, outcome",
+     "heading_vi": "Log gì: request, response, context, outcome",
+     "body": "An LLM system does not crash when something goes wrong; it produces a subtly wrong response. Standard logging catches errors and timeouts but not a quietly incorrect answer with business consequences. A production Claude system should log four things: the request (model version, input token count, prompt identifier), the response (output token count, latency, stop reason), the context (user role, session ID, whether caching was applied), and the outcome (whether the downstream system accepted the output and any rejection signals). The outcome group is the only one that catches silent quality failures.\n\nLog metadata richly but handle sensitive content carefully: PII passed in the user message appears in plaintext in application request logs, and retroactive redaction is the most expensive data-handling fix. Security teams treat observability as the precondition for enabling agents: an agentic action that is taken but not logged is an action that cannot be allowed. A response passed to a downstream system with no logging at the integration layer is an invisible data path. In multi-tenant systems, separate API keys per tenant are required to attribute rate-limit breaches and isolate impact.",
+     "body_vi": "Hệ thống LLM không bị crash khi có sự cố; nó tạo ra một phản hồi sai một cách tinh vi. Logging tiêu chuẩn bắt được lỗi và timeout nhưng không bắt được một câu trả lời âm thầm sai có hậu quả kinh doanh. Một hệ thống Claude production nên log bốn thứ: request (phiên bản model, số input token, prompt identifier), response (số output token, latency, stop reason), context (vai trò người dùng, session ID, có áp dụng caching hay không) và outcome (hệ thống hạ nguồn có chấp nhận output không và các tín hiệu từ chối). Nhóm outcome là nhóm duy nhất bắt được lỗi chất lượng âm thầm.\n\nLog metadata đầy đủ nhưng xử lý nội dung nhạy cảm cẩn thận: PII đưa vào user message sẽ xuất hiện dạng plaintext trong request log của ứng dụng, và redaction hồi tố là cách sửa xử lý dữ liệu tốn kém nhất. Đội bảo mật coi observability là điều kiện tiên quyết để cho phép agent hoạt động: một hành động agentic được thực hiện mà không được log là hành động không thể được cho phép. Một phản hồi được chuyển tới hệ thống hạ nguồn mà không có log ở tầng tích hợp là một đường dữ liệu vô hình. Trong hệ thống multi-tenant, cần API key riêng cho từng tenant để quy được nguyên nhân khi vượt rate limit và cô lập tác động.",
+     "bullets": []
+    },
+    {
+     "heading": "Four layers of observability",
+     "heading_vi": "Bốn lớp observability",
+     "body": "Production observability answers four questions with four layers. What is the system doing? Request-level tracing: every request produces a trace with model, model version, input and output tokens, latency, stop reason and tool calls. How well is it performing? Metric aggregation: cost per request, latency p50 and p95, task success rate from a downstream acceptance signal, and error rate by type. When did it change? Anomaly detection: threshold alerts such as a cost spike above 150% of the 7-day average or p95 crossing the SLA; model drift is gradual and needs periodic distribution comparison rather than thresholds. Why did it change? Change attribution: distinguish model drift, data drift and model update effects.\n\nPer-request decomposition is critical: aggregate metrics can look healthy while a small fraction of requests consumes most of the budget and produces wrong outputs. In multi-agent systems, a shared trace ID across orchestrator and subagents makes failures attributable. For RAG, retrieval precision is logged per request and alerted on, because the boundary condition of many RAG designs is index coverage and freshness.",
+     "body_vi": "Observability production trả lời bốn câu hỏi bằng bốn lớp. Hệ thống đang làm gì? Request-level tracing: mỗi request tạo ra một trace gồm model, phiên bản model, input và output token, latency, stop reason và các tool call. Hoạt động tốt đến đâu? Metric aggregation (tổng hợp metric): cost mỗi request, latency p50 và p95, task success rate từ tín hiệu chấp nhận ở hạ nguồn, và tỉ lệ lỗi theo loại. Thay đổi khi nào? Anomaly detection (phát hiện bất thường): cảnh báo theo ngưỡng như chi phí tăng vọt trên 150% trung bình 7 ngày hoặc p95 vượt SLA; model drift diễn ra dần dần và cần so sánh phân phối định kỳ thay vì ngưỡng. Vì sao thay đổi? Change attribution (quy nguyên nhân thay đổi): phân biệt model drift, data drift và model update effect.\n\nPer-request decomposition (phân rã theo từng request) là then chốt: metric tổng hợp có thể trông khỏe trong khi một phần nhỏ request tiêu tốn phần lớn ngân sách và tạo output sai. Trong hệ thống multi-agent, một shared trace ID xuyên suốt orchestrator và subagent giúp quy được lỗi. Với RAG, retrieval precision được log theo từng request và đặt cảnh báo, vì boundary condition (điều kiện biên) của nhiều thiết kế RAG là độ bao phủ và độ mới của index.",
+     "bullets": []
+    },
+    {
+     "heading": "Build it at design time and connect it to the business",
+     "heading_vi": "Xây từ lúc thiết kế và kết nối với kinh doanh",
+     "body": "Observability added after the first incident means the root cause must be reconstructed from a system that was not set up to answer the question; building it correctly the first time is less complex than retroactive log reconstruction. The people who funded the deployment read a KPI dashboard, not traces, so build a translation layer at design time that maps technical metrics to business metrics: for a customer service agent, task success rate to first-contact resolution and latency to handle time. Without that mapping the first business review requires a retrospective reconstruction instead of a live query.\n\nObservability also feeds iteration: Discernment labels outputs as acceptable, needs revision or needs override, and those judgments flow back into the golden dataset and monitoring thresholds. Regulated deployments add constraint-specific logging, for example HIPAA logs capturing request, model version, user identity and data scope, and law-firm gateways producing an audit log the firm owns.",
+     "body_vi": "Observability được thêm vào sau sự cố đầu tiên nghĩa là nguyên nhân gốc phải được tái dựng từ một hệ thống không được thiết lập để trả lời câu hỏi đó; xây đúng ngay từ đầu ít phức tạp hơn việc tái dựng log hồi tố. Những người cấp vốn cho dự án đọc dashboard KPI chứ không đọc trace, vì vậy hãy xây translation layer từ lúc thiết kế để ánh xạ metric kỹ thuật sang metric kinh doanh: với agent chăm sóc khách hàng, task success rate ánh xạ sang first-contact resolution và latency sang handle time. Không có ánh xạ đó, buổi business review đầu tiên sẽ đòi hỏi tái dựng hồi tố thay vì chạy một truy vấn trực tiếp.\n\nObservability cũng nuôi vòng cải tiến: Discernment gắn nhãn output là chấp nhận được, cần sửa hoặc cần ghi đè, và các đánh giá đó chảy ngược vào golden dataset và các ngưỡng giám sát. Các triển khai trong ngành có quản lý bổ sung logging theo ràng buộc cụ thể, ví dụ log HIPAA ghi lại request, phiên bản model, danh tính người dùng và phạm vi dữ liệu, và gateway của công ty luật tạo audit log thuộc sở hữu của công ty.",
+     "bullets": []
+    }
+   ],
+   "table": {
+    "caption": "Four observability layers",
+    "caption_vi": "Bốn lớp observability",
+    "headers": [
+     "Question",
+     "Layer",
+     "Example"
+    ],
+    "headers_vi": [
+     "Câu hỏi",
+     "Lớp",
+     "Ví dụ"
+    ],
+    "rows": [
+     [
+      "What is the system doing?",
+      "Request-level tracing",
+      "Model version, tokens, latency, stop reason, tool calls per request"
+     ],
+     [
+      "How well is it performing?",
+      "Metric aggregation",
+      "Cost/request, p50/p95, task success, error rate by type"
+     ],
+     [
+      "When did it change?",
+      "Anomaly detection",
+      "Cost above 150% of 7-day average; p95 over SLA; distribution comparison"
+     ],
+     [
+      "Why did it change?",
+      "Change attribution",
+      "Model drift vs data drift vs model update effects"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Log request, response, context and outcome; outcome signals catch silent wrong answers.",
+     "vi": "Log request, response, context và outcome; tín hiệu outcome bắt được câu trả lời sai âm thầm."
+    },
+    {
+     "en": "Aggregate dashboards hide tail problems; add per-request decomposition.",
+     "vi": "Dashboard tổng hợp che giấu vấn đề ở phần đuôi; bổ sung per-request decomposition."
+    },
+    {
+     "en": "Alert on thresholds (cost vs 7-day average, p95 vs SLA) and compare distributions periodically for drift.",
+     "vi": "Cảnh báo theo ngưỡng (cost so với trung bình 7 ngày, p95 so với SLA) và so sánh phân phối định kỳ để phát hiện drift."
+    },
+    {
+     "en": "Record model, prompt and index versions on traces so changes can be attributed.",
+     "vi": "Ghi phiên bản model, prompt và index trên trace để quy được nguyên nhân thay đổi."
+    },
+    {
+     "en": "Use per-tenant API keys and shared trace IDs for attribution in multi-tenant and multi-agent systems.",
+     "vi": "Dùng API key riêng mỗi tenant và shared trace ID để quy nguyên nhân trong hệ thống multi-tenant và multi-agent."
+    },
+    {
+     "en": "Build instrumentation and the business translation layer at design time.",
+     "vi": "Xây instrumentation và translation layer sang kinh doanh ngay từ lúc thiết kế."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "'Averages look fine but the bill jumped' points to per-request decomposition and anomaly alerts.",
+     "vi": "'Trung bình trông ổn nhưng hóa đơn tăng vọt' gợi ý per-request decomposition và anomaly alert."
+    },
+    {
+     "en": "'Metric moved, what changed?' points to change attribution with versioned traces.",
+     "vi": "'Metric thay đổi, cái gì đã đổi?' gợi ý change attribution với trace có gắn phiên bản."
+    },
+    {
+     "en": "Prefer not logging sensitive content in plaintext over encrypting or cleaning logs later.",
+     "vi": "Ưu tiên không log nội dung nhạy cảm dạng plaintext hơn là mã hóa hoặc dọn log về sau."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Request-level tracing",
+     "en": "A per-request record of model, version, token counts, latency, stop reason and tool calls.",
+     "vi": "Bản ghi theo từng request gồm model, phiên bản, số token, latency, stop reason và tool call."
+    },
+    {
+     "term": "Per-request decomposition",
+     "en": "Breaking aggregate metrics down to individual requests, tenants or features to find the tail that drives cost or errors.",
+     "vi": "Phân rã metric tổng hợp xuống từng request, tenant hoặc tính năng để tìm phần đuôi gây chi phí hoặc lỗi."
+    },
+    {
+     "term": "Change attribution",
+     "en": "Distinguishing model drift, data drift and model update effects when a metric moves.",
+     "vi": "Phân biệt model drift, data drift và model update effect khi một metric thay đổi."
+    },
+    {
+     "term": "Stop reason",
+     "en": "The field showing why generation ended, e.g. reaching max_tokens, used to detect truncation.",
+     "vi": "Trường cho biết vì sao việc sinh dừng lại, ví dụ chạm max_tokens, dùng để phát hiện cắt cụt."
+    },
+    {
+     "term": "Translation layer",
+     "en": "The mapping from technical metrics to business KPIs such as first-contact resolution and handle time.",
+     "vi": "Ánh xạ từ metric kỹ thuật sang KPI kinh doanh như first-contact resolution và handle time."
+    },
+    {
+     "term": "Discernment",
+     "en": "The AI Fluency competency of judging outputs as acceptable, needs revision or needs override and feeding that back into evals.",
+     "vi": "Năng lực AI Fluency đánh giá output là chấp nhận được, cần sửa hoặc cần ghi đè và đưa kết quả trở lại eval."
+    }
+   ]
+  }
+ ]
+}

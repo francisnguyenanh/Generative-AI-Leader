@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài Học CCAR-P | Claude Certified Architect – Professional</title>
+  <meta name="description"
+    content="Bài học song ngữ Anh - Việt cho kỳ thi Claude Certified Architect – Professional (CCAR-P), sắp xếp theo 7 domain và các objective của Exam Guide.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/learn.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container header-content">
+      <a class="brand" href="#overview" title="Tổng quan kỳ thi CCAR-P">
+        <div class="brand-info">
+          <h1>CCAR-P · Bài học</h1>
+          <span>Claude Certified Architect – Professional</span>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <button type="button" class="btn-icon learn-menu-btn" id="menuToggleBtn" aria-label="Mở mục lục"
+          title="Mục lục">☰</button>
+
+        <a class="btn-learn-link" href="index.html?exam=ccarp" title="Làm 10 bộ đề thi thử CCAR-P">
+          📝 <span class="learn-link-text">Luyện đề</span>
+        </a>
+
+        <button type="button" class="btn-lang-toggle active" id="langToggleBtn" aria-label="Bật/Tắt dịch tiếng Việt"
+          title="Bật/Tắt hiển thị bản dịch tiếng Việt song ngữ">
+          <span class="lang-icon">🇻🇳</span>
+          <span class="lang-label" id="langToggleText">Dịch TV: Bật</span>
+        </button>
+
+        <button type="button" class="btn-icon" id="themeToggleBtn" aria-label="Chuyển giao diện sáng/tối"
+          title="Chuyển giao diện">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container learn-layout">
+    <aside class="learn-sidebar" id="learnSidebar" aria-label="Mục lục bài học">
+      <div class="learn-search">
+        <input type="search" id="searchInput" placeholder="Tìm bài học, thuật ngữ…" aria-label="Tìm bài học">
+      </div>
+      <div class="learn-progress" id="progressSummary"></div>
+      <nav class="learn-nav" id="learnNav"></nav>
+    </aside>
+    <div class="learn-backdrop" id="learnBackdrop"></div>
+
+    <main class="learn-main" id="learnMain">
+      <p class="learn-loading">Đang tải bài học…</p>
+    </main>
+  </div>
+
+  <script src="CCAR-P/lessons/lessons.js"></script>
+  <script src="CCAR-P/manifest.js"></script>
+  <script src="js/learn.js"></script>
+</body>
+
+</html>

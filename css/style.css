@@ -264,6 +264,41 @@ body {
   font-size: 1rem;
 }
 
+/* Link to study page */
+.btn-learn-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.4rem 0.8rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border-radius: var(--radius-full);
+  border: 1px solid var(--border-color);
+  background: var(--bg-surface);
+  color: var(--text-secondary);
+  text-decoration: none;
+  transition: all var(--transition-fast);
+}
+
+.btn-learn-link:hover {
+  background: var(--bg-surface-secondary);
+  border-color: var(--border-focus);
+  color: var(--text-primary);
+}
+
+.review-lesson-link {
+  display: inline-block;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-text);
+  text-decoration: none;
+}
+
+.review-lesson-link:hover {
+  text-decoration: underline;
+}
+
 /* Exam Timer Widget */
 .timer-widget {
   display: none; /* Shown during exam */
@@ -1426,6 +1461,10 @@ body.hide-translations .explanation-vi {
   }
 
   .brand-info span {
+    display: none;
+  }
+
+  .learn-link-text {
     display: none;
   }
 

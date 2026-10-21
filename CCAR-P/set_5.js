@@ -1,2155 +1,2462 @@
 window.QUIZ_DATA_CCARP_SET_5 = [
   {
     "id": 1,
-    "topic": "Claude Models, Prompting & Context Engineering (13%)",
-    "question": "A cross-functional team at an international retail chain plans to modernize ERP using store-level inventory updates, while maintaining subsecond checkout availability. The workload is assessed in rollout cohort 5 with 31 representative test cases. A reusable system prompt contains stable policies and a large reference handbook used across many sessions. Which optimization is appropriate?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Shuffle handbook sections on every request",
-        "text_vi": "Xáo trộn các phần sổ tay theo mọi yêu cầu"
-      },
-      {
-        "key": "B",
-        "text": "Drop safety rules to reduce token count",
-        "text_vi": "Bỏ các quy tắc an toàn để giảm số lượng mã thông báo"
-      },
-      {
-        "key": "C",
-        "text": "Place reusable stable content in a cache-eligible prompt prefix and monitor cache hits",
-        "text_vi": "Đặt nội dung ổn định có thể sử dụng lại vào tiền tố prompt đủ điều kiện vào bộ đệm và theo dõi các lần truy cập bộ đệm"
-      },
-      {
-        "key": "D",
-        "text": "Repeat the whole handbook in every user message with random ordering",
-        "text_vi": "Lặp lại toàn bộ sổ tay trong mỗi tin nhắn của người dùng với thứ tự ngẫu nhiên"
-      }
-    ],
-    "answer": [
-      "C"
-    ],
-    "explanation": "Prompt caching helps when eligible prefix content is reused consistently.",
-    "question_vi": "Một nhóm đa chức năng tại một chuỗi bán lẻ quốc tế có kế hoạch hiện đại hóa ERP bằng cách sử dụng các bản cập nhật hàng tồn kho ở cấp độ cửa hàng, trong khi vẫn duy trì khả năng thanh toán dưới giây. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 31 trường hợp thử nghiệm đại diện. system prompt có thể tái sử dụng chứa các chính sách ổn định và sổ tay tham khảo lớn được sử dụng trong nhiều phiên. Tối ưu hóa nào là phù hợp?",
-    "explanation_vi": "Bộ nhớ đệm nhắc nhở sẽ hữu ích khi nội dung tiền tố đủ điều kiện được sử dụng lại một cách nhất quán."
-  },
-  {
-    "id": 2,
     "topic": "Stakeholder Communication & Lifecycle Management (14%)",
-    "question": "The architecture board of a logistics provider evaluates cross-border shipment exceptions workflows in transport management system, prioritizing intermittent connectivity. The workload is assessed in rollout cohort 5 with 30 representative test cases. An architecture review board asks why the team chose RAG instead of fine-tuning. What is the best explanation?",
+    "objective": "Support lifecycle phases (discovery, design, handoff, monitoring, iteration)",
+    "lessonId": "d6-t5",
+    "question": "A SaaS HR platform's assistant has run in production for a year using the direct API. A large new customer in Germany now requires that its employee data be processed in-country, a constraint that did not exist at discovery. Prompt or data fixes cannot satisfy it. How should the Architect treat this in lifecycle terms?",
+    "question_vi": "Trợ lý của một nền tảng HR SaaS đã chạy production một năm bằng direct API. Một khách hàng lớn mới tại Đức giờ yêu cầu dữ liệu nhân viên của họ phải được xử lý trong nước, một constraint chưa tồn tại lúc discovery. Sửa prompt hay dữ liệu không thể đáp ứng điều này. Architect nên xử lý việc này thế nào theo góc nhìn vòng đời?",
     "type": "single",
+    "selectCount": 1,
     "options": [
       {
         "key": "A",
-        "text": "State that fine-tuning cannot ever work",
-        "text_vi": "Nói rõ rằng việc tinh chỉnh (fine-tuning) không bao giờ có thể hoạt động được"
+        "text": "As a re-architecture that returns to design: a tradeoff package with reversal cost, new decision records and updated routing and governance.",
+        "text_vi": "Như một lần re-architect quay lại pha design: một tradeoff package kèm reversal cost, decision record mới và cập nhật routing cùng governance."
       },
       {
         "key": "B",
-        "text": "Say RAG is always superior to all alternatives",
-        "text_vi": "Nói RAG luôn vượt trội hơn tất cả các lựa chọn thay thế"
+        "text": "As routine iteration: switch the German customer's traffic to a regional route this week and update the runbook afterwards.",
+        "text_vi": "Như một lần iterate thông thường: chuyển lưu lượng của khách hàng Đức sang một route khu vực trong tuần này và cập nhật runbook sau."
       },
       {
         "key": "C",
-        "text": "Show only a prompt screenshot",
-        "text_vi": "Chỉ hiển thị ảnh chụp màn hình nhanh chóng"
+        "text": "As a monitoring issue: add a residency alert and wait to see whether any German data leaves the country.",
+        "text_vi": "Như một vấn đề monitoring: thêm alert residency và chờ xem có dữ liệu Đức nào rời khỏi nước không."
       },
       {
         "key": "D",
-        "text": "Compare freshness, provenance, maintenance, cost, security, and measured task quality",
-        "text_vi": "So sánh độ mới, xuất xứ, bảo trì, chi phí, bảo mật và chất lượng nhiệm vụ được đo lường"
-      }
-    ],
-    "answer": [
-      "D"
-    ],
-    "explanation": "Stakeholder decisions require a contextual evaluation of alternatives.",
-    "question_vi": "Hội đồng kiến ​​trúc của nhà cung cấp dịch vụ hậu cần đánh giá các quy trình ngoại lệ đối với lô hàng xuyên biên giới trong hệ thống quản lý vận tải, ưu tiên kết nối không liên tục. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 30 trường hợp thử nghiệm đại diện. Hội đồng đánh giá kiến ​​trúc hỏi tại sao nhóm lại chọn RAG thay vì tinh chỉnh (fine-tuning). Giải thích tốt nhất là gì?",
-    "explanation_vi": "Các quyết định của các bên liên quan đòi hỏi phải đánh giá theo ngữ cảnh của các lựa chọn thay thế."
-  },
-  {
-    "id": 3,
-    "topic": "Stakeholder Communication & Lifecycle Management (14%)",
-    "question": "A senior architect advising a public university considers a Claude workflow around student service inquiries and campus management platform with strict student data access. The workload is assessed in rollout cohort 5 with 31 representative test cases. A project has accuracy SLOs but no owner for escalation when quality drops. What must be defined?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "A longer marketing tagline",
-        "text_vi": "Khẩu hiệu tiếp thị dài hơn"
-      },
-      {
-        "key": "B",
-        "text": "Named service owners, operational response thresholds, and incident escalation responsibilities",
-        "text_vi": "Chủ sở hữu dịch vụ được chỉ định, ngưỡng phản hồi vận hành và trách nhiệm báo cáo sự cố"
-      },
-      {
-        "key": "C",
-        "text": "A larger context window",
-        "text_vi": "cửa sổ ngữ cảnh (context window) lớn hơn"
-      },
-      {
-        "key": "D",
-        "text": "A new name for the assistant",
-        "text_vi": "Tên mới cho trợ lý"
-      }
-    ],
-    "answer": [
-      "B"
-    ],
-    "explanation": "Lifecycle governance requires accountable owners and response procedures.",
-    "question_vi": "Một kiến ​​trúc sư cấp cao tư vấn cho một trường đại học công lập đang xem xét quy trình làm việc của Claude xoay quanh các yêu cầu về dịch vụ sinh viên và nền tảng quản lý khuôn viên trường với quyền truy cập dữ liệu sinh viên nghiêm ngặt. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 31 trường hợp thử nghiệm đại diện. Một dự án có SLO chính xác nhưng không có chủ sở hữu để báo cáo khi chất lượng giảm xuống. Điều gì phải được xác định?",
-    "explanation_vi": "Quản trị vòng đời yêu cầu chủ sở hữu có trách nhiệm và quy trình phản hồi."
-  },
-  {
-    "id": 4,
-    "topic": "Developer Productivity & Operational Enablement (7%)",
-    "question": "An incident review at a regional hospital network focuses on AI handling of patient discharge letters in the clinical records system; stakeholders insist on strict clinical authorization. The workload is assessed in rollout cohort 5 with 27 representative test cases. A CI pipeline invokes Claude to propose code changes. What is the strongest merge gate?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "An AI-generated statement that tests passed",
-        "text_vi": "Một tuyên bố do AI tạo ra rằng các bài kiểm tra đã vượt qua"
-      },
-      {
-        "key": "B",
-        "text": "A green text badge produced by the same model",
-        "text_vi": "Huy hiệu văn bản màu xanh lá cây được sản xuất bởi cùng một mẫu"
-      },
-      {
-        "key": "C",
-        "text": "A verified test suite, code-owner review, dependency checks, and protected branches",
-        "text_vi": "Bộ kiểm tra đã được xác minh, đánh giá của chủ sở hữu mã, kiểm tra phụ thuộc và các nhánh được bảo vệ"
-      },
-      {
-        "key": "D",
-        "text": "Skipping CI when diffs are small",
-        "text_vi": "Bỏ qua CI khi chênh lệch nhỏ"
-      }
-    ],
-    "answer": [
-      "C"
-    ],
-    "explanation": "Automated assistance should feed existing verified software controls.",
-    "question_vi": "Đánh giá sự cố tại mạng lưới bệnh viện khu vực tập trung vào việc xử lý AI thư xuất viện của bệnh nhân trong hệ thống hồ sơ lâm sàng; các bên liên quan nhấn mạnh vào sự cho phép lâm sàng nghiêm ngặt. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 27 trường hợp thử nghiệm đại diện. Quy trình CI gọi Claude để đề xuất thay đổi mã. Cổng hợp nhất mạnh nhất là gì?",
-    "explanation_vi": "Hỗ trợ tự động sẽ cung cấp các điều khiển phần mềm đã được xác minh hiện có."
-  },
-  {
-    "id": 5,
-    "topic": "Integration (19%)",
-    "question": "A regulated delivery team at an insurance carrier is integrating policy and claim files into claims processing platform; its operational mandate includes regulated evidence retention. The workload is assessed in rollout cohort 5 with 35 representative test cases. A customer asks a knowledge assistant to cite only current product manuals. Which retrieval pipeline helps?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Mix outdated drafts and current manuals in one untagged collection",
-        "text_vi": "Trộn các bản nháp lỗi thời và hướng dẫn sử dụng hiện tại trong một bộ sưu tập không được gắn thẻ"
-      },
-      {
-        "key": "B",
-        "text": "Index versioned approved manuals with metadata filters and source citations",
-        "text_vi": "Hướng dẫn sử dụng được phê duyệt theo phiên bản được lập chỉ mục với các bộ lọc siêu dữ liệu và trích dẫn nguồn"
-      },
-      {
-        "key": "C",
-        "text": "Ask Claude to recall manual page numbers from memory",
-        "text_vi": "Yêu cầu Claude nhớ lại số trang trong sách hướng dẫn sử dụng"
-      },
-      {
-        "key": "D",
-        "text": "Use only high-temperature generation",
-        "text_vi": "Chỉ sử dụng thế hệ nhiệt độ cao"
-      }
-    ],
-    "answer": [
-      "B"
-    ],
-    "explanation": "Version-aware retrieval and provenance reduce stale and ungrounded answers.",
-    "question_vi": "Nhóm phân phối được quản lý tại một hãng bảo hiểm đang tích hợp các hồ sơ chính sách và yêu cầu bồi thường vào nền tảng xử lý yêu cầu bồi thường; nhiệm vụ hoạt động của nó bao gồm việc lưu giữ bằng chứng theo quy định. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 35 trường hợp thử nghiệm đại diện. Một khách hàng yêu cầu trợ lý kiến ​​thức chỉ trích dẫn các hướng dẫn sử dụng sản phẩm hiện tại. Đường dẫn truy xuất nào giúp ích?",
-    "explanation_vi": "Việc truy xuất và xuất xứ nhận biết phiên bản làm giảm các câu trả lời cũ và không có căn cứ."
-  },
-  {
-    "id": 6,
-    "topic": "Claude Models, Prompting & Context Engineering (13%)",
-    "question": "At a Japanese manufacturing group, an AI pilot processes quality-inspection records from the factory MES; mandatory operator sign-off is a non-negotiable requirement. The workload is assessed in rollout cohort 5 with 30 representative test cases. A chat assistant has many simple requests but occasional complex investigations. How should models be selected?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Always use the largest model for every request",
-        "text_vi": "Luôn sử dụng mô hình lớn nhất cho mọi yêu cầu"
-      },
-      {
-        "key": "B",
-        "text": "Always use the cheapest model without testing",
-        "text_vi": "Luôn sử dụng mẫu rẻ nhất mà không cần thử nghiệm"
-      },
-      {
-        "key": "C",
-        "text": "Route tasks using quality and latency tests, using a faster model for routine work and a stronger model when needed",
-        "text_vi": "Định tuyến các nhiệm vụ bằng cách sử dụng các bài kiểm tra chất lượng và độ trễ, sử dụng mô hình nhanh hơn cho công việc thường ngày và mô hình mạnh hơn khi cần"
-      },
-      {
-        "key": "D",
-        "text": "Switch models randomly to balance traffic",
-        "text_vi": "Chuyển đổi mô hình ngẫu nhiên để cân bằng lưu lượng"
-      }
-    ],
-    "answer": [
-      "C"
-    ],
-    "explanation": "Model choice is a measured trade-off among quality, latency, cost, and task complexity.",
-    "question_vi": "Tại một nhóm sản xuất Nhật Bản, một dự án thí điểm AI (AI pilot) xử lý hồ sơ kiểm tra chất lượng từ MES của nhà máy; việc ký duyệt (sign-off) bắt buộc của nhà điều hành là một yêu cầu không thể thương lượng. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 30 trường hợp thử nghiệm đại diện. Trợ lý trò chuyện có nhiều yêu cầu đơn giản nhưng đôi khi lại có những cuộc điều tra phức tạp. Nên lựa chọn mô hình như thế nào?",
-    "explanation_vi": "Lựa chọn mô hình là sự đánh đổi được đo lường giữa chất lượng, độ trễ, chi phí và độ phức tạp của nhiệm vụ."
-  },
-  {
-    "id": 7,
-    "topic": "Integration (19%)",
-    "question": "At a Japanese manufacturing group, an AI pilot processes quality-inspection records from the factory MES; mandatory operator sign-off is a non-negotiable requirement. The workload is assessed in rollout cohort 5 with 29 representative test cases. An MCP tool server is hosted by a third party. What must architects review before enabling it?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Only the UI screenshot",
-        "text_vi": "Chỉ ảnh chụp màn hình giao diện người dùng"
-      },
-      {
-        "key": "B",
-        "text": "Trust boundary, authentication, permissions, data egress, and tool behavior",
-        "text_vi": "Ranh giới tin cậy, xác thực, quyền, đầu ra dữ liệu và hành vi của công cụ"
-      },
-      {
-        "key": "C",
-        "text": "Only the number of available tool names",
-        "text_vi": "Chỉ số lượng tên công cụ có sẵn"
-      },
-      {
-        "key": "D",
-        "text": "Whether the service name contains AI",
-        "text_vi": "Tên dịch vụ có chứa AI hay không"
-      }
-    ],
-    "answer": [
-      "B"
-    ],
-    "explanation": "MCP standardizes tool connectivity, not trust, authorization, or vendor risk.",
-    "question_vi": "Tại một nhóm sản xuất Nhật Bản, một dự án thí điểm AI (AI pilot) xử lý hồ sơ kiểm tra chất lượng từ MES của nhà máy; việc ký duyệt (sign-off) bắt buộc của nhà điều hành là một yêu cầu không thể thương lượng. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 29 trường hợp thử nghiệm đại diện. Máy chủ công cụ MCP được lưu trữ bởi bên thứ ba. Kiến trúc sư phải xem xét những gì trước khi kích hoạt nó?",
-    "explanation_vi": "MCP tiêu chuẩn hóa khả năng kết nối của công cụ, không phải sự tin cậy, ủy quyền hoặc rủi ro của nhà cung cấp."
-  },
-  {
-    "id": 8,
-    "topic": "Evaluation, Testing & Optimization (16%)",
-    "question": "At scale, a B2B software vendor expects Claude to support customer support platform users working with support and incident tickets, without compromising multi-tenant isolation. The workload is assessed in rollout cohort 5 with 26 representative test cases. A pilot reports 95% accuracy on easy examples, but production users complain about complex cases. What should evaluation change?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Build a representative stratified test set including edge cases and critical failure modes",
-        "text_vi": "Xây dựng bộ thử nghiệm phân tầng đại diện bao gồm các trường hợp đặc biệt và các dạng lỗi nghiêm trọng"
-      },
-      {
-        "key": "B",
-        "text": "Replace evaluation with one executive demo",
-        "text_vi": "Thay thế đánh giá bằng một bản demo điều hành"
-      },
-      {
-        "key": "C",
-        "text": "Use only the easy examples because they are reproducible",
-        "text_vi": "Chỉ sử dụng những ví dụ dễ dàng vì chúng có thể tái sử dụng được"
-      },
-      {
-        "key": "D",
-        "text": "Track only tokens per second",
-        "text_vi": "Chỉ theo dõi mã thông báo mỗi giây"
+        "text": "As out of scope: decline the requirement, since the architecture was approved before the customer joined.",
+        "text_vi": "Như ngoài phạm vi: từ chối yêu cầu, vì kiến trúc đã được phê duyệt trước khi khách hàng tham gia."
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Representative, risk-weighted evaluation prevents misleading averages.",
-    "question_vi": "Ở quy mô lớn, một nhà cung cấp phần mềm B2B kỳ vọng Claude sẽ hỗ trợ người dùng nền tảng hỗ trợ khách hàng làm việc với các phiếu hỗ trợ và sự cố mà không ảnh hưởng đến sự cô lập của nhiều bên thuê. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 26 trường hợp thử nghiệm đại diện. Một thí điểm (pilot) báo cáo độ chính xác 95% đối với các ví dụ dễ dàng, nhưng người dùng sản xuất lại phàn nàn về các trường hợp phức tạp. Đánh giá nên thay đổi điều gì?",
-    "explanation_vi": "Đánh giá mang tính đại diện, theo trọng số rủi ro sẽ ngăn ngừa việc lấy giá trị trung bình sai lệch."
+    "explanation": "A new foundational constraint such as a residency requirement is the course's trigger for re-architecture rather than iteration, and re-architecture is itself a tradeoff to bring to the stakeholder, recorded in new decision records with routing and governance updated. Switching routes ad hoc skips the decision and documentation. Declining ignores a legitimate business requirement, and an alert only detects violations instead of preventing them.",
+    "explanation_vi": "Một constraint nền tảng mới như yêu cầu residency là trigger của khóa học cho re-architect thay vì iterate, và bản thân re-architect là một tradeoff phải đưa lên stakeholder, ghi trong decision record mới kèm cập nhật routing và governance. Đổi route tùy tiện bỏ qua bước quyết định và tài liệu. Từ chối là bỏ qua một yêu cầu kinh doanh chính đáng, và alert chỉ phát hiện vi phạm thay vì ngăn chặn.",
+    "source": "output_4/04_Feedback_Loops_and_SLAs.md"
   },
   {
-    "id": 9,
+    "id": 2,
     "topic": "Solution Design & Architecture (17%)",
-    "question": "A senior architect advising a public university considers a Claude workflow around student service inquiries and campus management platform with strict student data access. The workload is assessed in rollout cohort 5 with 26 representative test cases. A review pipeline must classify, extract fields, and then route each document. The stages and routing rules are stable. What should the architect select?",
-    "type": "single",
+    "objective": "Apply decomposition techniques for complex problem solving",
+    "lessonId": "d1-t5",
+    "question": "A bank wants an AI assistant for credit-card applications: (1) read scanned PDF applications, (2) score credit with the existing scoring model, (3) set the credit limit, (4) draft the decision letter. Limits follow a rules table; exceptions and large limits need judgment. Which two assignments belong in the design? (Choose TWO.)",
+    "question_vi": "Một ngân hàng muốn trợ lý AI cho quy trình mở thẻ tín dụng: (1) đọc đơn PDF scan, (2) chấm điểm tín dụng bằng mô hình scoring hiện có, (3) đặt hạn mức tín dụng, (4) soạn thư quyết định. Hạn mức theo bảng quy tắc; ngoại lệ và hạn mức lớn cần phán đoán. Hai phân công nào thuộc về thiết kế? (Chọn HAI đáp án.)",
+    "type": "multiple",
+    "selectCount": 2,
     "options": [
       {
         "key": "A",
-        "text": "Independent agents that negotiate an answer without a shared state",
-        "text_vi": "Các đại lý độc lập đàm phán câu trả lời mà không có trạng thái chung"
+        "text": "Claude sets every credit limit, with a person notified of the limit only when the applicant complains.",
+        "text_vi": "Claude đặt mọi hạn mức tín dụng, với người chỉ được thông báo hạn mức khi người nộp đơn khiếu nại."
       },
       {
         "key": "B",
-        "text": "An orchestrated pipeline of specialized deterministic stages and targeted Claude calls",
-        "text_vi": "Một hệ thống được sắp xếp gồm các giai đoạn xác định chuyên biệt và các cuộc gọi Claude có mục tiêu"
+        "text": "Claude computes the credit score from the applicant's data, since the model can weigh many factors holistically.",
+        "text_vi": "Claude tính điểm tín dụng từ dữ liệu người nộp đơn, vì model có thể cân nhắc nhiều yếu tố một cách tổng thể."
       },
       {
         "key": "C",
-        "text": "An unrestricted loop that continues until it feels complete",
-        "text_vi": "Một vòng lặp không hạn chế tiếp tục cho đến khi cảm thấy hoàn thành"
+        "text": "A human re-keys each scanned application into the system, since text extraction from scans is too risky for a model.",
+        "text_vi": "Một người nhập lại từng đơn scan vào hệ thống, vì trích văn bản từ bản scan quá rủi ro với model."
       },
       {
         "key": "D",
-        "text": "One long prompt that also directly writes to all downstream systems",
-        "text_vi": "Một prompt dài cũng ghi trực tiếp vào tất cả các hệ thống hạ nguồn"
+        "text": "The existing scoring model and rules table determine score and standard limits; exceptions and large limits go to a human.",
+        "text_vi": "Mô hình scoring hiện có và bảng quy tắc xác định điểm và hạn mức tiêu chuẩn; ngoại lệ và hạn mức lớn chuyển cho người."
+      },
+      {
+        "key": "E",
+        "text": "Claude reads the application and drafts the decision letter.",
+        "text_vi": "Claude đọc đơn và soạn thư quyết định."
+      }
+    ],
+    "answer": [
+      "D",
+      "E"
+    ],
+    "explanation": "Reading applications and drafting letters are language tasks for Claude, while scoring and limits are existing deterministic, accountable systems with exceptions retained by humans. Having Claude compute scores or set limits puts rules into a probabilistic component, and having people re-key scans discards Claude's strength at reading documents.",
+    "explanation_vi": "Đọc đơn và soạn thư là tác vụ ngôn ngữ của Claude, còn chấm điểm và hạn mức là các hệ thống deterministic hiện có, có trách nhiệm, với ngoại lệ do người giữ. Để Claude tính điểm hay đặt hạn mức đưa quy tắc vào thành phần xác suất, và để người nhập lại bản scan là bỏ thế mạnh đọc tài liệu của Claude.",
+    "source": "output/04_Decomposition.md"
+  },
+  {
+    "id": 3,
+    "topic": "Solution Design & Architecture (17%)",
+    "objective": "Apply decomposition techniques for complex problem solving",
+    "lessonId": "d1-t5",
+    "question": "A property insurer's repair-estimate assistant must answer 'what does this customer's current policy cover for water damage?'. The coverage table is updated monthly by the policy team, and wrong answers create legal exposure. The architect is assigning this step. Which assignment and mechanism is correct?",
+    "question_vi": "Trợ lý ước tính sửa chữa của một công ty bảo hiểm tài sản phải trả lời 'hợp đồng hiện tại của khách hàng này bảo hiểm gì cho thiệt hại do nước?'. Bảng coverage được đội chính sách cập nhật hằng tháng, và trả lời sai tạo rủi ro pháp lý. Architect đang gán bước này. Cách gán và cơ chế nào đúng?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "Claude answers from its training knowledge of typical home-insurance policies, adding a disclaimer to every response.",
+        "text_vi": "Claude trả lời từ kiến thức huấn luyện về hợp đồng bảo hiểm nhà điển hình, thêm tuyên bố miễn trừ vào mọi phản hồi."
+      },
+      {
+        "key": "B",
+        "text": "Existing system: query the live coverage data via a tool call or MCP server, and let Claude explain the result.",
+        "text_vi": "Hệ thống hiện có: truy vấn dữ liệu coverage live qua tool call hoặc MCP server, và để Claude giải thích kết quả."
+      },
+      {
+        "key": "C",
+        "text": "A human adjuster answers every coverage question manually, since coverage interpretation is a legal judgment.",
+        "text_vi": "Adjuster là người trả lời mọi câu hỏi coverage thủ công, vì diễn giải coverage là phán đoán pháp lý."
+      },
+      {
+        "key": "D",
+        "text": "Claude answers from a policy summary pasted into the system prompt once, refreshed when staff remember to update it.",
+        "text_vi": "Claude trả lời từ bản tóm tắt chính sách dán một lần vào system prompt, được cập nhật khi nhân viên nhớ."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Stable stages benefit from explicit orchestration, testability, and controlled model use.",
-    "question_vi": "Một kiến ​​trúc sư cấp cao tư vấn cho một trường đại học công lập đang xem xét quy trình làm việc của Claude xoay quanh các yêu cầu về dịch vụ sinh viên và nền tảng quản lý khuôn viên trường với quyền truy cập dữ liệu sinh viên nghiêm ngặt. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 26 trường hợp thử nghiệm đại diện. Quy trình đánh giá phải phân loại, trích xuất các trường rồi định tuyến từng tài liệu. Các giai đoạn và quy tắc định tuyến ổn định. Kiến trúc sư nên chọn gì?",
-    "explanation_vi": "Các giai đoạn ổn định được hưởng lợi từ việc phối hợp rõ ràng, khả năng kiểm tra và sử dụng mô hình được kiểm soát."
+    "explanation": "Coverage tables change and the model cannot know when its knowledge went stale, so the authoritative answer must come from the system holding live coverage data, retrieved through tool use or MCP, with Claude doing the language work of explanation. Training knowledge and a pasted summary both go stale silently, and a human on every question removes the value of automation for a lookup.",
+    "explanation_vi": "Bảng coverage thay đổi và model không thể biết khi nào kiến thức của nó đã lỗi thời, nên câu trả lời có thẩm quyền phải đến từ hệ thống giữ dữ liệu coverage live, lấy qua tool use hoặc MCP, với Claude làm việc ngôn ngữ là giải thích. Kiến thức huấn luyện và bản tóm tắt dán sẵn đều lỗi thời trong im lặng, và người xử lý mọi câu hỏi làm mất giá trị tự động hóa cho một tra cứu.",
+    "source": "output/04_Decomposition.md"
   },
   {
-    "id": 10,
-    "topic": "Solution Design & Architecture (17%)",
-    "question": "An incident review at a regional hospital network focuses on AI handling of patient discharge letters in the clinical records system; stakeholders insist on strict clinical authorization. The workload is assessed in rollout cohort 5 with 33 representative test cases. Which TWO controls are most important for secure and accountable operation of this workflow? (Choose TWO.)",
+    "id": 4,
+    "topic": "Evaluation, Testing & Optimization (16%)",
+    "objective": "Conduct A/B testing and iterative improvements",
+    "lessonId": "d4-t3",
+    "question": "A retail bank's chatbot team ran a new prompt on 60 sessions and the old prompt on 60 sessions, then compared resolution rate because it moved in the right direction; other metrics did not. Two weeks after rollout the gain disappeared. In the post-review, which TWO were genuine flaws in how the experiment was run? (Choose TWO.)",
+    "question_vi": "Team chatbot của một ngân hàng bán lẻ chạy prompt mới trên 60 phiên và prompt cũ trên 60 phiên, rồi so sánh tỉ lệ giải quyết vì chỉ số này dịch chuyển đúng hướng; các metric khác thì không. Hai tuần sau khi triển khai, mức cải thiện biến mất. Trong buổi rà soát, HAI điểm nào là lỗi thực sự trong cách chạy thí nghiệm? (Chọn HAI đáp án.)",
     "type": "multiple",
+    "selectCount": 2,
     "options": [
       {
         "key": "A",
-        "text": "Ask Claude to mentally calculate every shortest path",
-        "text_vi": "Yêu cầu Claude tính nhẩm mọi con đường ngắn nhất"
+        "text": "The sample was too small to separate a real effect from noise",
+        "text_vi": "Cỡ mẫu quá nhỏ để tách hiệu ứng thật khỏi nhiễu"
       },
       {
         "key": "B",
-        "text": "Keep a durable evidence trail linking inputs, proposed outcomes, and applied versions",
-        "text_vi": "Lưu giữ dấu vết bằng chứng lâu dài liên kết đầu vào, kết quả đề xuất và các phiên bản áp dụng"
+        "text": "The model drifted during the two weeks after rollout",
+        "text_vi": "Model đã drift trong hai tuần sau khi triển khai"
       },
       {
         "key": "C",
-        "text": "Define the authoritative decision and approval boundary outside the model",
-        "text_vi": "Xác định ranh giới quyết định và phê duyệt có thẩm quyền ngoài mô hình"
+        "text": "The experiment ran too long and diluted the effect",
+        "text_vi": "Thí nghiệm chạy quá lâu làm loãng hiệu ứng"
       },
       {
         "key": "D",
-        "text": "Use prompt temperature zero as proof of optimality",
-        "text_vi": "Sử dụng nhiệt độ 0 ngay lập tức làm bằng chứng về sự tối ưu"
+        "text": "The test should have used Opus to reduce output variance",
+        "text_vi": "Thí nghiệm lẽ ra nên dùng Opus để giảm phương sai output"
+      },
+      {
+        "key": "E",
+        "text": "The primary metric was chosen after seeing the results",
+        "text_vi": "Primary metric được chọn sau khi xem kết quả"
+      }
+    ],
+    "answer": [
+      "A",
+      "E"
+    ],
+    "explanation": "The course lists an underpowered sample and a primary metric that was not pre-specified among the reasons such results are confirmation rather than evidence; the vanishing gain is noise regressing, not drift. A larger model does not fix experimental design, and running longer would have helped rather than hurt.",
+    "explanation_vi": "Khóa học liệt kê cỡ mẫu thiếu và primary metric không được định trước nằm trong các lý do khiến kết quả như vậy chỉ là xác nhận chứ không phải bằng chứng; mức cải thiện biến mất là nhiễu quay về giá trị thật, không phải drift. Model lớn hơn không sửa được thiết kế thí nghiệm, còn chạy lâu hơn sẽ có ích chứ không có hại.",
+    "source": "output_2/06_AB_Testing_and_Observability.md"
+  },
+  {
+    "id": 5,
+    "topic": "Stakeholder Communication & Lifecycle Management (14%)",
+    "objective": "Support lifecycle phases (discovery, design, handoff, monitoring, iteration)",
+    "lessonId": "d6-t5",
+    "question": "A bank is rolling out a branch-staff assistant region by region. Region 1 held all SLOs. Two weeks into Region 2, the quality pass rate has fallen below the SLO, linked to local product terminology, while Region 3 is scheduled to go live in five days. What should the Architect recommend?",
+    "question_vi": "Một ngân hàng đang triển khai trợ lý cho nhân viên chi nhánh theo từng khu vực. Khu vực 1 giữ được mọi SLO. Hai tuần sau khi triển khai Khu vực 2, tỉ lệ đạt chất lượng giảm dưới SLO, liên quan đến thuật ngữ sản phẩm địa phương, trong khi Khu vực 3 dự kiến go-live sau năm ngày. Architect nên khuyến nghị gì?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "Lower the quality SLO for Region 2 to reflect the local terminology challenge and continue.",
+        "text_vi": "Hạ SLO chất lượng cho Khu vực 2 để phản ánh thách thức thuật ngữ địa phương và tiếp tục."
+      },
+      {
+        "key": "B",
+        "text": "Proceed with Region 3 on schedule and fix Region 2 in parallel, since Region 1 proved the design works.",
+        "text_vi": "Tiến hành Khu vực 3 đúng lịch và sửa Khu vực 2 song song, vì Khu vực 1 đã chứng minh thiết kế hoạt động."
+      },
+      {
+        "key": "C",
+        "text": "Pause the next step, diagnose and iterate on Region 2 (rolling back if needed), and advance only when SLOs hold.",
+        "text_vi": "Tạm dừng bước tiếp theo, chẩn đoán và iterate cho Khu vực 2 (rollback nếu cần), và chỉ tiến tiếp khi SLO được giữ."
+      },
+      {
+        "key": "D",
+        "text": "Roll back all regions, including Region 1, until a complete redesign has been delivered.",
+        "text_vi": "Rollback tất cả khu vực, kể cả Khu vực 1, cho đến khi có thiết kế lại hoàn chỉnh."
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "Phased rollout proceeds only while SLOs hold at each step, with rollback ready; a breach at step two means stopping expansion, diagnosing and iterating, which is the point of limiting blast radius. Proceeding anyway spreads the problem. Rolling back the healthy region is disproportionate, and lowering the SLO to fit the result abandons the commitment.",
+    "explanation_vi": "Phased rollout chỉ tiến tiếp khi SLO được giữ ở mỗi bước, có sẵn rollback; vi phạm ở bước hai nghĩa là dừng mở rộng, chẩn đoán và iterate, đó chính là mục đích của việc giới hạn phạm vi ảnh hưởng. Vẫn tiến tiếp sẽ lan rộng vấn đề. Rollback khu vực đang ổn là không tương xứng, và hạ SLO cho vừa kết quả là từ bỏ cam kết.",
+    "source": "output_4/10_Supplement_SLOs_Expectations_Handoff_and_Rollout.md"
+  },
+  {
+    "id": 6,
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Improve developer workflows using AI-assisted tooling",
+    "lessonId": "d7-t2",
+    "question": "A law firm's internal-tools team finds that pull requests containing Claude-generated code are hard to review: diffs are large, mix several purposes, and descriptions are pasted straight from Claude's output. The team wants practices that keep authors understanding their changes and reviewers able to judge them. Which TWO practices should the Architect recommend? (Choose TWO.)",
+    "question_vi": "Team công cụ nội bộ của một công ty luật thấy các pull request chứa code do Claude sinh rất khó review: diff lớn, trộn nhiều mục đích, và mô tả được dán thẳng từ output của Claude. Team muốn các thực hành giúp tác giả hiểu thay đổi của mình và reviewer có thể đánh giá chúng. Architect nên khuyến nghị HAI thực hành nào? (Chọn HAI đáp án.)",
+    "type": "multiple",
+    "selectCount": 2,
+    "options": [
+      {
+        "key": "A",
+        "text": "Label AI-assisted pull requests so reviewers can apply a lighter standard to them.",
+        "text_vi": "Gắn nhãn pull request có AI hỗ trợ để reviewer áp dụng tiêu chuẩn nhẹ hơn."
+      },
+      {
+        "key": "B",
+        "text": "Ask Claude to work in small steps so each pull request has one purpose and a small diff.",
+        "text_vi": "Yêu cầu Claude làm từng bước nhỏ để mỗi pull request có một mục đích và diff nhỏ."
+      },
+      {
+        "key": "C",
+        "text": "Require authors to write the pull request description in their own words.",
+        "text_vi": "Yêu cầu tác giả tự viết mô tả pull request bằng lời của chính mình."
+      },
+      {
+        "key": "D",
+        "text": "Batch AI-assisted changes into one larger weekly pull request to reduce review overhead.",
+        "text_vi": "Gom các thay đổi có AI hỗ trợ thành một pull request lớn hằng tuần để giảm công review."
+      },
+      {
+        "key": "E",
+        "text": "Let Claude approve its own pull request whenever all tests are green.",
+        "text_vi": "Để Claude tự approve pull request của chính nó mỗi khi tất cả tests xanh."
       }
     ],
     "answer": [
       "B",
       "C"
     ],
-    "explanation": "Both controls are necessary: define the authoritative decision and approval boundary outside the model; and keep a durable evidence trail linking inputs, proposed outcomes, and applied versions. Model instructions alone do not substitute for enforceable controls.",
-    "question_vi": "Đánh giá sự cố tại mạng lưới bệnh viện khu vực tập trung vào việc xử lý AI thư xuất viện của bệnh nhân trong hệ thống hồ sơ lâm sàng; các bên liên quan nhấn mạnh vào sự cho phép lâm sàng nghiêm ngặt. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 33 trường hợp thử nghiệm đại diện. HAI biện pháp kiểm soát nào là quan trọng nhất để vận hành quy trình công việc này một cách an toàn và có trách nhiệm? (Chọn HAI.)",
-    "explanation_vi": "Cả hai biện pháp kiểm soát đều cần thiết: xác định ranh giới phê duyệt và quyết định có thẩm quyền bên ngoài mô hình; và lưu giữ dấu vết bằng chứng lâu dài liên kết các đầu vào, kết quả được đề xuất và các phiên bản được áp dụng. Chỉ hướng dẫn mô hình không thể thay thế cho các biện pháp kiểm soát có thể thực thi được."
+    "explanation": "Small single-purpose diffs keep review meaningful instead of skimmed, and authors writing the description in their own words forces the understanding that the human-understanding dimension requires. Larger batched pull requests make skimming worse, an AI-assisted label is for directing attention, not for lowering the bar since AI code is held to the same standard, and self-approval turns AI output into a verdict.",
+    "explanation_vi": "Diff nhỏ, mỗi PR một mục đích giúp review thực chất thay vì đọc lướt, và việc tác giả tự viết mô tả bằng lời của mình buộc họ phải hiểu thay đổi, đúng điều chiều human understanding yêu cầu. Gom thành pull request lớn khiến việc đọc lướt tệ hơn, nhãn AI-assisted là để hướng sự chú ý chứ không phải để hạ chuẩn vì code AI được giữ cùng tiêu chuẩn, còn tự approve biến output của AI thành phán quyết.",
+    "source": "output_5/03_Developer_Workflows_and_Verification.md"
+  },
+  {
+    "id": 7,
+    "topic": "Governance, Safety & Risk Management (14%)",
+    "objective": "Implement guardrails and safety controls",
+    "lessonId": "d5-t1",
+    "question": "A bank's platform team rolls out Claude Code to 80 developers. Two rules are non-negotiable: a secrets scanner must run before any commit, and nobody may push directly to the main branch. A tech lead has added both rules to the repository's CLAUDE.md and considers the rollout complete. What is the architect's best recommendation?",
+    "question_vi": "Đội platform của một ngân hàng triển khai Claude Code cho 80 lập trình viên. Có hai quy tắc bắt buộc: trình quét secrets phải chạy trước mọi commit, và không ai được push trực tiếp lên nhánh main. Một tech lead đã thêm cả hai quy tắc vào CLAUDE.md của repository và coi việc triển khai là xong. Khuyến nghị tốt nhất của architect là gì?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "Delegate both checks to a subagent with a restricted tool list that reviews every commit.",
+        "text_vi": "Giao cả hai kiểm tra cho một subagent có danh sách tool bị giới hạn để review mọi commit."
+      },
+      {
+        "key": "B",
+        "text": "Keep the rules in CLAUDE.md and add a skill that reminds Claude of them before each commit.",
+        "text_vi": "Giữ các quy tắc trong CLAUDE.md và thêm một skill nhắc Claude về chúng trước mỗi commit."
+      },
+      {
+        "key": "C",
+        "text": "Run sessions in bypassPermissions mode so the CI pipeline becomes the single enforcement point.",
+        "text_vi": "Chạy các session ở chế độ bypassPermissions để CI pipeline trở thành điểm enforce duy nhất."
+      },
+      {
+        "key": "D",
+        "text": "Enforce them with a hook that runs the scanner and a permission rule that blocks pushes to main.",
+        "text_vi": "Enforce chúng bằng một hook chạy trình quét và một permission rule chặn push lên main."
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "Guarantees that must not be skipped belong in governing layers: hooks act as deterministic lifecycle gates and permission rules govern what the agent may touch, whereas CLAUDE.md and skills only shape what it knows and does. bypassPermissions skips all checks and is meant only for isolated containers or CI. A subagent is still probabilistic, which is the weakest place for a must-hold rule.",
+    "explanation_vi": "Những đảm bảo không được bỏ qua thuộc về các lớp governing: hook là gate deterministic theo vòng đời và permission rule quy định agent được chạm vào đâu, còn CLAUDE.md và skill chỉ định hình agent biết gì và làm gì. bypassPermissions bỏ qua mọi kiểm tra và chỉ dành cho container hoặc CI cô lập. Subagent vẫn mang tính xác suất, là nơi yếu nhất để đặt một quy tắc bắt buộc phải đúng.",
+    "source": "output/10_Entry_Points_Governance.md"
+  },
+  {
+    "id": 8,
+    "topic": "Governance, Safety & Risk Management (14%)",
+    "objective": "Address ethical AI considerations (bias, fairness, transparency)",
+    "lessonId": "d5-t5",
+    "question": "A public employment service is drafting a responsibility matrix for its Claude-based job-matching assistant, splitting fairness duties between the model provider and the agency's architecture team. The provider's fairness evaluations were run before the model ever saw the agency's data. Which TWO duties belong to the agency's architect? (Choose TWO.)",
+    "question_vi": "Một dịch vụ việc làm công đang soạn ma trận trách nhiệm cho trợ lý ghép việc dùng Claude, phân chia nhiệm vụ fairness giữa nhà cung cấp model và đội kiến trúc của cơ quan. Các đánh giá fairness của nhà cung cấp được chạy trước khi model thấy dữ liệu của cơ quan. HAI nhiệm vụ nào thuộc về architect của cơ quan? (Chọn HAI đáp án.)",
+    "type": "multiple",
+    "selectCount": 2,
+    "options": [
+      {
+        "key": "A",
+        "text": "Logging prompt, retrieved context, output and routing so each match can be reconstructed.",
+        "text_vi": "Log prompt, context truy xuất, output và routing để mỗi lần ghép việc có thể được tái dựng."
+      },
+      {
+        "key": "B",
+        "text": "Publishing the model's general-purpose fairness benchmark results.",
+        "text_vi": "Công bố kết quả benchmark fairness đa dụng của model."
+      },
+      {
+        "key": "C",
+        "text": "Revising the constitution's priority order for public-sector deployments.",
+        "text_vi": "Chỉnh sửa thứ tự ưu tiên của constitution cho các deployment khu vực công."
+      },
+      {
+        "key": "D",
+        "text": "Monitoring the job-listing corpus for over- or under-representation of groups.",
+        "text_vi": "Giám sát corpus tin tuyển dụng để phát hiện việc đại diện quá nhiều hoặc quá ít các nhóm."
+      },
+      {
+        "key": "E",
+        "text": "Running bias evaluations during the model's pretraining and alignment.",
+        "text_vi": "Chạy đánh giá bias trong quá trình pretraining và alignment của model."
+      }
+    ],
+    "answer": [
+      "A",
+      "D"
+    ],
+    "explanation": "The vendor owns the model's training-time evaluations, while the architect owns everything assembled around it, including the corpus as an injection point and decision logging that lets each outcome be explained and its source proven. Pretraining evaluations, the constitution and the model's general benchmarks are on the provider's side and outside the agency's control.",
+    "explanation_vi": "Nhà cung cấp sở hữu các đánh giá thời huấn luyện của model, còn architect sở hữu mọi thứ được ghép quanh model, gồm corpus như một injection point và decision logging giúp giải thích từng kết quả và chứng minh nguồn gốc của nó. Đánh giá khi pretraining, constitution và benchmark chung của model thuộc phía nhà cung cấp và nằm ngoài tầm kiểm soát của cơ quan.",
+    "source": "output_3/04_Fairness_and_Accountability.md"
+  },
+  {
+    "id": 9,
+    "topic": "Stakeholder Communication & Lifecycle Management (14%)",
+    "objective": "Support lifecycle phases (discovery, design, handoff, monitoring, iteration)",
+    "lessonId": "d6-t5",
+    "question": "An investment platform documented its control register thoroughly at design time. Eight months into production, an auditor finds that several evidence links are stale: a model version, a logging configuration and a retention setting have all changed since launch. Which lifecycle mechanism should have kept the register current?",
+    "question_vi": "Một nền tảng đầu tư đã tài liệu hóa control register rất kỹ ở thời điểm thiết kế. Sau tám tháng vận hành production, một kiểm toán viên phát hiện nhiều liên kết bằng chứng đã lỗi thời: phiên bản model, cấu hình logging và thiết lập lưu trữ đều đã thay đổi kể từ launch. Cơ chế vòng đời nào lẽ ra phải giữ cho register luôn hiện hành?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "The governance table in the monitoring phase, with scheduled checkpoints and owners that refresh control evidence as the system changes.",
+        "text_vi": "Governance table trong pha monitoring, với checkpoint theo lịch và owner làm mới bằng chứng control khi hệ thống thay đổi."
+      },
+      {
+        "key": "B",
+        "text": "The original design review, which should have anticipated every configuration change in advance.",
+        "text_vi": "Buổi review thiết kế ban đầu, lẽ ra đã phải lường trước mọi thay đổi cấu hình."
+      },
+      {
+        "key": "C",
+        "text": "The outcome document, whose auditable control field records the current state of each control.",
+        "text_vi": "Outcome document, có trường control kiểm chứng ghi lại trạng thái hiện tại của từng control."
+      },
+      {
+        "key": "D",
+        "text": "A complete rewrite of the control register before each annual audit, led by the compliance team.",
+        "text_vi": "Viết lại toàn bộ control register trước mỗi đợt audit hàng năm, do đội compliance chủ trì."
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "The course links the phases: the feedback-loop governance table keeps the compliance controls captured in the register current as the deployment runs, via triggers, owners and scheduled checkpoints. An annual rewrite leaves long gaps where evidence is stale. No design review can anticipate every change, and the outcome document's control field supports a business comparison, not the full control register.",
+    "explanation_vi": "Khóa học liên kết các pha: governance table của feedback loop giữ cho các control compliance trong register luôn hiện hành khi hệ thống chạy, thông qua trigger, owner và checkpoint theo lịch. Viết lại hàng năm để lại khoảng trống dài khi bằng chứng đã cũ. Không buổi review thiết kế nào lường trước được mọi thay đổi, và trường control của outcome document hỗ trợ phép so sánh kinh doanh, không phải toàn bộ control register.",
+    "source": "output_4/01_Module_Introduction.md"
+  },
+  {
+    "id": 10,
+    "topic": "Integration (19%)",
+    "objective": "Evaluate tool/agent configuration for capability bloat",
+    "lessonId": "d3-t1",
+    "question": "A logistics company's support agent has two tools, find_shipment and lookup_package, built by different teams. Both accept a tracking number and return similar data, and their descriptions are nearly identical. Traces show the model alternating between them and sometimes calling both. Which change best follows the course's audit guidance?",
+    "question_vi": "Agent hỗ trợ của một công ty logistics có hai tool, find_shipment và lookup_package, do hai đội khác nhau xây. Cả hai đều nhận mã vận đơn và trả về dữ liệu tương tự, và mô tả của chúng gần như giống hệt nhau. Trace cho thấy model luân phiên giữa hai tool và đôi khi gọi cả hai. Thay đổi nào tuân theo hướng dẫn audit của khóa học tốt nhất?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "Upgrade the model tier so it can tell the two tools apart more reliably.",
+        "text_vi": "Nâng tier model để nó phân biệt hai tool một cách đáng tin cậy hơn."
+      },
+      {
+        "key": "B",
+        "text": "Consolidate them into one clearly described tool so functions no longer overlap.",
+        "text_vi": "Hợp nhất chúng thành một tool có mô tả rõ ràng để chức năng không còn chồng lấn."
+      },
+      {
+        "key": "C",
+        "text": "Keep both tools and cache their responses so duplicate calls cost less.",
+        "text_vi": "Giữ cả hai tool và cache phản hồi của chúng để các lời gọi trùng lặp tốn ít chi phí hơn."
+      },
+      {
+        "key": "D",
+        "text": "Keep both tools and add a rule telling the model to always call find_shipment first.",
+        "text_vi": "Giữ cả hai tool và thêm quy tắc yêu cầu model luôn gọi find_shipment trước."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "The audit checklist requires clear tool descriptions without overlapping functions, because overlapping tools with vague descriptions make the model choose wrongly or call redundantly. An ordering rule patches the symptom while leaving duplicate capability and token cost. Caching responses hides the cost of redundant calls rather than removing them, and a larger tier pays more to work around a configuration defect.",
+    "explanation_vi": "Checklist audit yêu cầu mô tả tool rõ ràng và không trùng lặp chức năng, vì tool chồng lấn với mô tả mơ hồ khiến model chọn sai hoặc gọi thừa. Quy tắc thứ tự chỉ vá triệu chứng trong khi vẫn giữ năng lực trùng lặp và chi phí token. Cache phản hồi che giấu chi phí của lời gọi thừa thay vì loại bỏ chúng, còn tier lớn hơn trả nhiều tiền hơn để lách một lỗi cấu hình.",
+    "source": "output_2/09_Supplement_Integration_Mechanisms_and_Optimization.md"
   },
   {
     "id": 11,
     "topic": "Integration (19%)",
-    "question": "The architecture board of a logistics provider evaluates cross-border shipment exceptions workflows in transport management system, prioritizing intermittent connectivity. The workload is assessed in rollout cohort 5 with 33 representative test cases. Which TWO controls are most important for secure and accountable operation of this workflow? (Choose TWO.)",
-    "type": "multiple",
+    "objective": "Apply retrieval strategies matched to data shape and query pattern",
+    "lessonId": "d3-t6",
+    "question": "A specialty insurer's underwriters want an assistant that answers questions using the company's proprietary underwriting guidelines, about 600 pages that change a few times a year and are not in any model's training data. A vendor suggests fine-tuning; another suggests a larger context window and pasting the guidelines into every request. What is the most appropriate approach?",
+    "question_vi": "Chuyên viên thẩm định của một công ty bảo hiểm chuyên biệt muốn trợ lý trả lời câu hỏi dựa trên hướng dẫn thẩm định độc quyền của công ty, khoảng 600 trang, thay đổi vài lần mỗi năm và không có trong dữ liệu huấn luyện của bất kỳ model nào. Một nhà cung cấp gợi ý fine-tune; một nhà cung cấp khác gợi ý dùng context window lớn hơn và dán hướng dẫn vào mọi request. Cách tiếp cận phù hợp nhất là gì?",
+    "type": "single",
+    "selectCount": 1,
     "options": [
       {
         "key": "A",
-        "text": "Enforce least-privilege authorization in the tool-execution service",
-        "text_vi": "Thực thi ủy quyền có đặc quyền tối thiểu trong dịch vụ thực thi công cụ"
+        "text": "Paste all 600 pages into every request, because the window can hold them.",
+        "text_vi": "Dán toàn bộ 600 trang vào mọi request, vì cửa sổ chứa được."
       },
       {
         "key": "B",
-        "text": "Record only final user-visible responses",
-        "text_vi": "Chỉ ghi lại phản hồi cuối cùng mà người dùng có thể nhìn thấy"
+        "text": "Fine-tune a model on the guidelines, since proprietary knowledge must be learned into the weights.",
+        "text_vi": "Fine-tune một model trên hướng dẫn, vì tri thức độc quyền phải được học vào trọng số."
       },
       {
         "key": "C",
-        "text": "Record correlated, redacted audit evidence for every external action",
-        "text_vi": "Ghi lại bằng chứng kiểm toán tương quan, được biên tập lại cho mọi hành động bên ngoài"
+        "text": "Bring the knowledge into context with RAG over the guidelines, reindexing when they change.",
+        "text_vi": "Đưa tri thức vào context bằng RAG trên bộ hướng dẫn, reindex khi chúng thay đổi."
       },
       {
         "key": "D",
-        "text": "Give every service a unique uncorrelated log format",
-        "text_vi": "Cung cấp cho mỗi dịch vụ một định dạng nhật ký không tương quan duy nhất"
+        "text": "Rely on the model's general insurance knowledge and add caveats to answers.",
+        "text_vi": "Dựa vào tri thức bảo hiểm chung của model và thêm lưu ý vào câu trả lời."
       }
     ],
     "answer": [
-      "A",
       "C"
     ],
-    "explanation": "Both controls are necessary: enforce least-privilege authorization in the tool-execution service; and record correlated, redacted audit evidence for every external action. Model instructions alone do not substitute for enforceable controls.",
-    "question_vi": "Hội đồng kiến ​​trúc của nhà cung cấp dịch vụ hậu cần đánh giá các quy trình ngoại lệ đối với lô hàng xuyên biên giới trong hệ thống quản lý vận tải, ưu tiên kết nối không liên tục. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 33 trường hợp thử nghiệm đại diện. HAI biện pháp kiểm soát nào là quan trọng nhất để vận hành quy trình công việc này một cách an toàn và có trách nhiệm? (Chọn HAI.)",
-    "explanation_vi": "Cả hai biện pháp kiểm soát đều cần thiết: thực thi ủy quyền có đặc quyền tối thiểu trong dịch vụ thực thi công cụ; và ghi lại bằng chứng kiểm toán tương quan, được biên tập lại cho mọi hành động bên ngoài. Chỉ hướng dẫn mô hình không thể thay thế cho các biện pháp kiểm soát có thể thực thi được."
+    "explanation": "Proprietary knowledge missing from training data is a knowledge gap, and the course's control is to bring that knowledge into context through RAG for stable or slowly changing material, which is easier to update than a fine-tuned model. Pasting everything treats the window as a target and pays for all pages on every request. General knowledge cannot contain the firm's own guidelines.",
+    "explanation_vi": "Tri thức độc quyền không có trong dữ liệu huấn luyện là một khoảng trống tri thức, và biện pháp của khóa học là đưa tri thức đó vào context qua RAG cho tài liệu ổn định hoặc thay đổi chậm, vốn dễ cập nhật hơn một model đã fine-tune. Dán tất cả là coi cửa sổ là mục tiêu và trả tiền cho mọi trang ở mọi request. Tri thức chung không thể chứa hướng dẫn riêng của công ty.",
+    "source": "output_2/04_Sizing_and_Feasibility.md"
   },
   {
     "id": 12,
-    "topic": "Integration (19%)",
-    "question": "A pilot retrospective at an energy utility identifies concerns in asset operations platform processing maintenance incident reports, where high operational safety impact applies. The workload is assessed in rollout cohort 5 with 26 representative test cases. A tool call times out after creating a ticket, and the agent retries. What prevents duplicate tickets?",
+    "topic": "Solution Design & Architecture (17%)",
+    "objective": "Align solutions to business value pillars (efficiency, transformation, productivity, cost, performance SLAs)",
+    "lessonId": "d1-t6",
+    "question": "Ninety days after launch, a retail assistant costs seven times the model, median latency on the user path is 2.3 seconds against an 800 ms target, and satisfaction has not moved. Every call uses the strongest tier, and extended thinking is on for the intent classifier. What best recovers the cost and latency value pillars?",
+    "question_vi": "Chín mươi ngày sau launch, một trợ lý bán lẻ tốn gấp bảy lần mô hình dự tính, latency trung vị trên đường người dùng là 2,3 giây so với mục tiêu 800 ms, và mức hài lòng không đổi. Mọi lời gọi dùng tier mạnh nhất, và extended thinking được bật cho intent classifier. Điều gì khôi phục tốt nhất các trụ cột chi phí và latency?",
     "type": "single",
+    "selectCount": 1,
     "options": [
       {
         "key": "A",
-        "text": "Create a second ticket and later ask the agent to compare",
-        "text_vi": "Tạo một vé thứ hai và sau đó yêu cầu đại lý so sánh"
+        "text": "Add more caching to every call without changing any model tier, since cost is mainly a caching problem.",
+        "text_vi": "Thêm caching cho mọi lời gọi mà không đổi tier model nào, vì chi phí chủ yếu là vấn đề caching."
       },
       {
         "key": "B",
-        "text": "Use an idempotency key and persist operation outcomes for safe retries",
-        "text_vi": "Sử dụng khóa tạm thời và duy trì kết quả hoạt động để thử lại an toàn"
+        "text": "Keep the current setup and renegotiate the SLA, because the quality gain justifies the higher spend.",
+        "text_vi": "Giữ cấu hình hiện tại và đàm phán lại SLA, vì lợi ích chất lượng biện minh cho chi tiêu cao hơn."
       },
       {
         "key": "C",
-        "text": "Disable all retries permanently",
-        "text_vi": "Vô hiệu hóa vĩnh viễn tất cả các lần thử lại"
+        "text": "Downgrade every step to the smallest tier at once and watch satisfaction scores for signs of regression.",
+        "text_vi": "Hạ mọi bước xuống tier nhỏ nhất ngay và theo dõi điểm hài lòng để tìm dấu hiệu regression."
       },
       {
         "key": "D",
-        "text": "Tell Claude to avoid duplicates in its system prompt",
-        "text_vi": "Nói với Claude để tránh trùng lặp trong system prompt của nó"
+        "text": "Build per-step evals, then move the classifier to a faster tier and keep the top tier only where evals justify it.",
+        "text_vi": "Xây eval theo từng bước, rồi chuyển classifier sang tier nhanh hơn và chỉ giữ tier cao nhất nơi eval biện minh."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": "Idempotency and durable operation tracking handle uncertain outcomes safely.",
-    "question_vi": "Một cuộc hồi cứu thí điểm tại một công ty năng lượng xác định các mối lo ngại trong nền tảng vận hành tài sản xử lý các báo cáo sự cố bảo trì, trong đó áp dụng tác động an toàn vận hành cao. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 26 trường hợp thử nghiệm đại diện. Cuộc gọi công cụ hết thời gian chờ sau khi tạo phiếu và tổng đài viên sẽ thử lại. Điều gì ngăn ngừa vé trùng lặp?",
-    "explanation_vi": "Tính bình thường và theo dõi hoạt động lâu dài xử lý các kết quả không chắc chắn một cách an toàn."
+    "explanation": "Per-step tiering defended by evals recovered a 71 percent cost reduction and sub-second latency in the course case, with extended thinking removed from a classifier that needed no reasoning. Caching alone leaves the tier problem, a blanket downgrade without evals is a reflexive swap, and satisfaction has not improved so the extra spend delivers no value.",
+    "explanation_vi": "Phân tier theo từng bước được bảo vệ bằng eval đã khôi phục mức giảm chi phí 71 phần trăm và latency dưới một giây trong ca của khóa học, cùng việc bỏ extended thinking khỏi một classifier không cần suy luận. Chỉ caching vẫn để lại vấn đề tier, hạ cấp đồng loạt không có eval là đổi model phản xạ, và mức hài lòng không cải thiện nên chi tiêu thêm không tạo giá trị.",
+    "source": "output/08_Model_Context_Strategy.md"
   },
   {
     "id": 13,
-    "topic": "Solution Design & Architecture (17%)",
-    "question": "A cross-functional team at an international retail chain plans to modernize ERP using store-level inventory updates, while maintaining subsecond checkout availability. The workload is assessed in rollout cohort 5 with 32 representative test cases. A customer journey has independent extraction and translation tasks after an upload. Which orchestration reduces latency without losing control?",
+    "topic": "Evaluation, Testing & Optimization (16%)",
+    "objective": "Optimize token usage, latency, and cost-performance trade-offs",
+    "lessonId": "d4-t5",
+    "question": "A bank classifies about 90,000 inbound trade-finance documents each night; results are needed by 7 a.m. for the operations team. The workload currently runs through the standard synchronous API, and costs are above budget. The documents do not contain health data. Which change best reduces cost while meeting the SLA?",
+    "question_vi": "Một ngân hàng phân loại khoảng 90.000 tài liệu tài trợ thương mại gửi đến mỗi đêm; kết quả cần có trước 7 giờ sáng cho đội vận hành. Workload hiện chạy qua API đồng bộ tiêu chuẩn, và chi phí vượt ngân sách. Các tài liệu không chứa dữ liệu y tế. Thay đổi nào giảm chi phí tốt nhất trong khi vẫn đáp ứng SLA?",
     "type": "single",
+    "selectCount": 1,
     "options": [
       {
         "key": "A",
-        "text": "Run independent stages in parallel, then join validated outputs before dependent steps",
-        "text_vi": "Chạy song song các giai đoạn độc lập, sau đó nối các đầu ra đã được xác thực trước các bước phụ thuộc"
+        "text": "Move the nightly job to the Batch API, since the SLA allows asynchronous processing",
+        "text_vi": "Chuyển job hằng đêm sang Batch API, vì SLA cho phép xử lý bất đồng bộ"
       },
       {
         "key": "B",
-        "text": "Run every task serially even when independent",
-        "text_vi": "Chạy mọi tác vụ một cách tuần tự ngay cả khi độc lập"
+        "text": "Process only a random sample of documents each night",
+        "text_vi": "Chỉ xử lý một mẫu ngẫu nhiên tài liệu mỗi đêm"
       },
       {
         "key": "C",
-        "text": "Skip output validation to minimize latency",
-        "text_vi": "Bỏ qua xác thực đầu ra để giảm thiểu độ trễ"
+        "text": "Switch to Opus to reduce the number of misclassifications",
+        "text_vi": "Chuyển sang Opus để giảm số lần phân loại sai"
       },
       {
         "key": "D",
-        "text": "Let two agents modify the same record concurrently without locking",
-        "text_vi": "Cho phép hai tác nhân sửa đổi cùng một bản ghi mà không cần khóa"
+        "text": "Enable streaming so documents are processed faster",
+        "text_vi": "Bật streaming để tài liệu được xử lý nhanh hơn"
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Parallelize independent work and synchronize before state-changing operations.",
-    "question_vi": "Một nhóm đa chức năng tại một chuỗi bán lẻ quốc tế có kế hoạch hiện đại hóa ERP bằng cách sử dụng các bản cập nhật hàng tồn kho ở cấp độ cửa hàng, trong khi vẫn duy trì khả năng thanh toán dưới giây. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 32 trường hợp thử nghiệm đại diện. Hành trình của khách hàng có các tác vụ trích xuất và dịch độc lập sau khi tải lên. Sự phối hợp nào làm giảm độ trễ mà không mất kiểm soát?",
-    "explanation_vi": "Song song hóa công việc độc lập và đồng bộ hóa trước các hoạt động thay đổi trạng thái."
+    "explanation": "The course models the Batch API as a cost alternative, for example a 50% reduction, for any workload whose SLA permits asynchronous processing, and an overnight job with a morning deadline fits. Streaming affects perceived latency only, Opus raises cost, and sampling abandons the requirement to classify every document.",
+    "explanation_vi": "Khóa học mô hình hóa Batch API như một phương án chi phí, ví dụ giảm 50%, cho mọi workload có SLA cho phép xử lý bất đồng bộ, và một job qua đêm với hạn chót buổi sáng là phù hợp. Streaming chỉ ảnh hưởng latency cảm nhận, Opus làm tăng chi phí, còn lấy mẫu là bỏ yêu cầu phân loại mọi tài liệu.",
+    "source": "output_2/04_Sizing_and_Feasibility.md"
   },
   {
     "id": 14,
-    "topic": "Stakeholder Communication & Lifecycle Management (14%)",
-    "question": "During a production-readiness review at a government procurement office, the architects examine purchase approval records connected to the procurement workflow, with formal reviewer approval. The workload is assessed in rollout cohort 5 with 25 representative test cases. An executive asks for an AI system without a clear success definition. What is the architect's first step?",
+    "topic": "Claude Models, Prompting & Context Engineering (13%)",
+    "objective": "Implement prompt reuse strategies (caching, modular prompts, Skills)",
+    "lessonId": "d2-t5",
+    "question": "An online grocer caches a large prefix that includes the system prompt and a price-and-stock table refreshed every minute from inventory. Customers sometimes receive prices that changed several minutes earlier. Cost savings from caching are significant. How should the prompt be restructured?",
+    "question_vi": "Một cửa hàng tạp hóa trực tuyến cache một prefix lớn gồm system prompt và một bảng giá-và-tồn-kho được làm mới mỗi phút từ hệ thống kho. Khách hàng đôi khi nhận được giá đã thay đổi từ vài phút trước. Khoản tiết kiệm nhờ caching là đáng kể. Prompt nên được cấu trúc lại thế nào?",
     "type": "single",
+    "selectCount": 1,
     "options": [
       {
         "key": "A",
-        "text": "Promise full automation without a pilot",
-        "text_vi": "Hứa hẹn tự động hóa hoàn toàn mà không cần thí điểm (pilot)"
+        "text": "Add an instruction telling the model to warn customers that prices may be out of date.",
+        "text_vi": "Thêm chỉ dẫn yêu cầu model cảnh báo khách hàng rằng giá có thể đã cũ."
       },
       {
         "key": "B",
-        "text": "Run structured discovery to define users, decisions, baseline metrics, constraints, and ownership",
-        "text_vi": "Chạy khám phá có cấu trúc để xác định người dùng, quyết định, số liệu cơ bản, ràng buộc và quyền sở hữu"
+        "text": "Keep the stable instructions cached and fetch live price and stock via a tool call in the dynamic part.",
+        "text_vi": "Giữ phần chỉ dẫn ổn định được cache và lấy giá và tồn kho live qua tool call ở phần động."
       },
       {
         "key": "C",
-        "text": "Choose the largest Claude model immediately",
-        "text_vi": "Chọn ngay mẫu Claude lớn nhất"
+        "text": "Disable caching entirely so that every request rebuilds the full prompt with fresh prices and stock levels.",
+        "text_vi": "Tắt hoàn toàn caching để mọi request dựng lại toàn bộ prompt với giá mới và mức tồn kho."
       },
       {
         "key": "D",
-        "text": "Build the dashboard before interviewing operators",
-        "text_vi": "Xây dựng bảng điều khiển trước khi phỏng vấn người vận hành"
+        "text": "Shorten the TTL so that stale prices expire sooner from the cached prefix.",
+        "text_vi": "Rút ngắn TTL để giá cũ hết hạn sớm hơn khỏi prefix được cache."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Discovery should tie the solution to a measurable business problem and known constraints.",
-    "question_vi": "Trong quá trình đánh giá mức độ sẵn sàng sản xuất tại văn phòng mua sắm của chính phủ, các kiến ​​trúc sư kiểm tra hồ sơ phê duyệt mua hàng được kết nối với quy trình mua sắm với sự chấp thuận của người đánh giá chính thức. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 25 trường hợp thử nghiệm đại diện. Một giám đốc điều hành yêu cầu một hệ thống AI mà không có định nghĩa thành công rõ ràng. Bước đầu tiên của kiến ​​trúc sư là gì?",
-    "explanation_vi": "Việc khám phá phải gắn giải pháp với một vấn đề kinh doanh có thể đo lường được và những hạn chế đã biết."
+    "explanation": "When cached content needs to reflect live state, caching creates a consistency window; the course separates live data into the dynamic part of the prompt, fetched through a tool call, while the stable prefix stays cached. Disabling caching gives up the savings on content that genuinely is static, adjusting TTL cannot guarantee freshness, and a warning instruction accepts wrong prices rather than fixing them.",
+    "explanation_vi": "Khi nội dung được cache cần phản ánh trạng thái live, caching tạo ra một cửa sổ không nhất quán; course tách dữ liệu live vào phần động của prompt, lấy qua tool call, trong khi prefix ổn định vẫn được cache. Tắt caching là từ bỏ khoản tiết kiệm trên phần nội dung thực sự tĩnh, điều chỉnh TTL không thể đảm bảo tính cập nhật, còn chỉ dẫn cảnh báo là chấp nhận giá sai thay vì sửa nó.",
+    "source": "output_2/03_POC_to_Production.md"
   },
   {
     "id": 15,
-    "topic": "Evaluation, Testing & Optimization (16%)",
-    "question": "A senior architect advising a public university considers a Claude workflow around student service inquiries and campus management platform with strict student data access. The workload is assessed in rollout cohort 5 with 33 representative test cases. Which TWO controls are most important for secure and accountable operation of this workflow? (Choose TWO.)",
-    "type": "multiple",
-    "options": [
-      {
-        "key": "A",
-        "text": "Track operational guardrails such as high-severity failures and tail latency",
-        "text_vi": "Theo dõi các biện pháp bảo vệ vận hành như lỗi ở mức độ nghiêm trọng cao và độ trễ ở đuôi"
-      },
-      {
-        "key": "B",
-        "text": "Ignore legitimate requests permanently",
-        "text_vi": "Bỏ qua các yêu cầu hợp pháp vĩnh viễn"
-      },
-      {
-        "key": "C",
-        "text": "Evaluate task correctness using representative held-out scenarios",
-        "text_vi": "Đánh giá tính chính xác của nhiệm vụ bằng cách sử dụng các kịch bản được tổ chức đại diện"
-      },
-      {
-        "key": "D",
-        "text": "Disable all safety checks globally",
-        "text_vi": "Vô hiệu hóa tất cả các kiểm tra an toàn trên toàn cầu"
-      }
-    ],
-    "answer": [
-      "A",
-      "C"
-    ],
-    "explanation": "Both controls are necessary: evaluate task correctness using representative held-out scenarios; and track operational guardrails such as high-severity failures and tail latency. Model instructions alone do not substitute for enforceable controls.",
-    "question_vi": "Một kiến ​​trúc sư cấp cao tư vấn cho một trường đại học công lập đang xem xét quy trình làm việc của Claude xoay quanh các yêu cầu về dịch vụ sinh viên và nền tảng quản lý khuôn viên trường với quyền truy cập dữ liệu sinh viên nghiêm ngặt. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 33 trường hợp thử nghiệm đại diện. HAI biện pháp kiểm soát nào là quan trọng nhất để vận hành quy trình công việc này một cách an toàn và có trách nhiệm? (Chọn HAI.)",
-    "explanation_vi": "Cả hai biện pháp kiểm soát đều cần thiết: đánh giá tính chính xác của nhiệm vụ bằng cách sử dụng các kịch bản được đưa ra mang tính đại diện; và theo dõi các rào cản vận hành như lỗi ở mức độ nghiêm trọng cao và độ trễ ở đuôi. Chỉ hướng dẫn mô hình không thể thay thế cho các biện pháp kiểm soát có thể thực thi được."
-  },
-  {
-    "id": 16,
-    "topic": "Evaluation, Testing & Optimization (16%)",
-    "question": "An incident review at a regional hospital network focuses on AI handling of patient discharge letters in the clinical records system; stakeholders insist on strict clinical authorization. The workload is assessed in rollout cohort 5 with 30 representative test cases. Latency is high but Claude generation is only 35% of total request time. What should optimization target first?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Change model sampling without measuring latency",
-        "text_vi": "Thay đổi lấy mẫu mô hình mà không đo độ trễ"
-      },
-      {
-        "key": "B",
-        "text": "Reduce answer quality until customers stop using the app",
-        "text_vi": "Giảm chất lượng câu trả lời cho đến khi khách hàng ngừng sử dụng ứng dụng"
-      },
-      {
-        "key": "C",
-        "text": "Trace end-to-end latency and prioritize the largest retrieval, queue, and tool bottlenecks",
-        "text_vi": "Theo dõi độ trễ từ đầu đến cuối và ưu tiên các tắc nghẽn truy xuất, hàng đợi và công cụ lớn nhất"
-      },
-      {
-        "key": "D",
-        "text": "Optimize only model tokens because tools cannot cause latency",
-        "text_vi": "Chỉ tối ưu hóa mã thông báo mô hình vì các công cụ không thể gây ra độ trễ"
-      }
-    ],
-    "answer": [
-      "C"
-    ],
-    "explanation": "Tracing identifies the dominant bottlenecks across the whole request path.",
-    "question_vi": "Đánh giá sự cố tại mạng lưới bệnh viện khu vực tập trung vào việc xử lý AI thư xuất viện của bệnh nhân trong hệ thống hồ sơ lâm sàng; các bên liên quan nhấn mạnh vào sự cho phép lâm sàng nghiêm ngặt. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 30 trường hợp thử nghiệm đại diện. Độ trễ cao nhưng việc tạo Claude chỉ chiếm 35% tổng thời gian yêu cầu. Mục tiêu tối ưu hóa nên là gì đầu tiên?",
-    "explanation_vi": "Việc theo dõi xác định các điểm nghẽn chủ yếu trên toàn bộ đường dẫn yêu cầu."
-  },
-  {
-    "id": 17,
     "topic": "Stakeholder Communication & Lifecycle Management (14%)",
-    "question": "A pilot retrospective at an energy utility identifies concerns in asset operations platform processing maintenance incident reports, where high operational safety impact applies. The workload is assessed in rollout cohort 5 with 33 representative test cases. Which TWO controls are most important for secure and accountable operation of this workflow? (Choose TWO.)",
+    "objective": "Support lifecycle phases (discovery, design, handoff, monitoring, iteration)",
+    "lessonId": "d6-t5",
+    "question": "Five weeks after launching a home-care agency's visit-note assistant, the CFO asks for the deployment's value to decide on expansion. A baseline of note-completion time was measured before launch, but there is not yet enough post-launch data. The authorization log is the planned control. Which two actions are appropriate now? (Choose TWO.)",
+    "question_vi": "Năm tuần sau khi launch trợ lý ghi chú thăm khám của một công ty chăm sóc tại nhà, CFO hỏi giá trị của hệ thống để quyết định mở rộng. Baseline thời gian hoàn thành ghi chú đã được đo trước launch, nhưng chưa có đủ dữ liệu sau launch. Log phê duyệt là control đã được lên kế hoạch. Hai hành động nào là phù hợp lúc này? (Chọn HAI đáp án.)",
     "type": "multiple",
+    "selectCount": 2,
     "options": [
       {
         "key": "A",
-        "text": "Only the number of API calls made",
-        "text_vi": "Chỉ số lượng lệnh gọi API được thực hiện"
+        "text": "Recommend expansion now, since the system has been stable since launch and staff feedback is positive.",
+        "text_vi": "Khuyến nghị mở rộng ngay, vì hệ thống ổn định từ khi launch và phản hồi của nhân viên tích cực."
       },
       {
         "key": "B",
-        "text": "Agree on a monitoring and escalation plan for post-launch failures",
-        "text_vi": "Thống nhất về kế hoạch giám sát và báo cáo đối với các lỗi sau khi ra mắt"
+        "text": "Name the measurement owner and confirm that the authorization log is recording as intended.",
+        "text_vi": "Chỉ định owner đo lường và xác nhận log phê duyệt đang ghi nhận như dự định."
       },
       {
         "key": "C",
-        "text": "Only a successful demo recording",
-        "text_vi": "Chỉ ghi bản demo thành công"
+        "text": "Present request volume, latency and uptime as evidence that the deployment is delivering value.",
+        "text_vi": "Trình bày volume request, latency và uptime như bằng chứng hệ thống đang tạo ra giá trị."
       },
       {
         "key": "D",
-        "text": "Define documented acceptance criteria and named decision owners",
-        "text_vi": "Xác định tiêu chí chấp nhận được ghi lại và chủ sở hữu quyết định được đặt tên"
+        "text": "Schedule completion of the outcome document at a defined post-launch milestone and tell the CFO when.",
+        "text_vi": "Lên lịch hoàn thành outcome document tại một mốc sau launch đã xác định và cho CFO biết thời điểm."
+      },
+      {
+        "key": "E",
+        "text": "Extrapolate the five weeks of data to a full-year saving and present it as the final result.",
+        "text_vi": "Ngoại suy dữ liệu năm tuần thành khoản tiết kiệm cả năm và trình bày như kết quả cuối cùng."
       }
     ],
     "answer": [
       "B",
       "D"
     ],
-    "explanation": "Both controls are necessary: define documented acceptance criteria and named decision owners; and agree on a monitoring and escalation plan for post-launch failures. Model instructions alone do not substitute for enforceable controls.",
-    "question_vi": "Một cuộc hồi cứu thí điểm tại một công ty năng lượng xác định các mối lo ngại trong nền tảng vận hành tài sản xử lý các báo cáo sự cố bảo trì, trong đó áp dụng tác động an toàn vận hành cao. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 33 trường hợp thử nghiệm đại diện. HAI biện pháp kiểm soát nào là quan trọng nhất để vận hành quy trình công việc này một cách an toàn và có trách nhiệm? (Chọn HAI.)",
-    "explanation_vi": "Cả hai biện pháp kiểm soát đều cần thiết: xác định các tiêu chí chấp nhận được ghi lại bằng văn bản và nêu tên các chủ sở hữu quyết định; và thống nhất về kế hoạch giám sát và báo cáo đối với các lỗi sau khi phóng. Chỉ hướng dẫn mô hình không thể thay thế cho các biện pháp kiểm soát có thể thực thi được."
+    "explanation": "As in the course's Decision 7, the expansion gate is the outcome document, which is not yet satisfied; the right move is to name the measurement owner, confirm the control is logging and schedule completion at a defined milestone, giving the CFO an honest plan. Extrapolating turns a projection into an assertion, operational metrics are not business outcomes, and recommending expansion moves phases before the gate is met.",
+    "explanation_vi": "Giống Decision 7 của khóa học, gate mở rộng là outcome document, hiện chưa đạt; bước đúng là chỉ định owner đo lường, xác nhận control đang ghi và lên lịch hoàn thành tại một mốc xác định, đưa cho CFO một kế hoạch trung thực. Ngoại suy biến một dự đoán thành lời khẳng định, metric vận hành không phải kết quả kinh doanh, và khuyến nghị mở rộng là chuyển pha khi gate chưa đạt.",
+    "source": "output_4/07_Cumulative_Regulated_Deployment.md"
+  },
+  {
+    "id": 16,
+    "topic": "Governance, Safety & Risk Management (14%)",
+    "objective": "Implement guardrails and safety controls",
+    "lessonId": "d5-t1",
+    "question": "A government benefits portal uses a judge model to screen citizen messages for attempts to manipulate the eligibility assistant. A researcher shows that rephrasing the attack as a hypothetical story slips past the judge every time. The team proposes replacing the judge with an even larger model. What is the better response?",
+    "question_vi": "Một cổng trợ cấp của chính phủ dùng judge model để screen tin nhắn của người dân nhằm phát hiện ý đồ thao túng trợ lý xét đủ điều kiện. Một nhà nghiên cứu chứng minh rằng viết lại cuộc tấn công dưới dạng một câu chuyện giả định luôn lọt qua judge. Đội đề xuất thay judge bằng một model còn lớn hơn. Phản hồi tốt hơn là gì?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "Lower the judge's threshold until the hypothetical-story phrasing is blocked as well.",
+        "text_vi": "Hạ ngưỡng của judge cho đến khi cách diễn đạt câu chuyện giả định cũng bị chặn."
+      },
+      {
+        "key": "B",
+        "text": "Replace the judge with the larger model and retest it against the hypothetical-story attack.",
+        "text_vi": "Thay judge bằng model lớn hơn và test lại với kiểu tấn công câu chuyện giả định."
+      },
+      {
+        "key": "C",
+        "text": "Chain deterministic checks and downstream authorization with the judge, so each covers the others' gaps.",
+        "text_vi": "Xếp nối tiếp kiểm tra deterministic và authorization phía sau cùng với judge, để mỗi lớp che lỗ hổng của lớp khác."
+      },
+      {
+        "key": "D",
+        "text": "Remove the judge and rely on a regex blocklist, since deterministic rules cannot be persuaded.",
+        "text_vi": "Bỏ judge và dựa vào blocklist regex, vì quy tắc deterministic không thể bị thuyết phục."
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "Model-based classifiers can always be evaded by some phrasing, and deterministic rules are brittle, so no single control catches everything; the course's answer is to deploy controls in series and deliberately cover each one's blind spot. A larger judge or a lower threshold keeps a single evadable control, and a regex alone misses anything it did not anticipate.",
+    "explanation_vi": "Classifier model-based luôn có thể bị lách bằng một cách diễn đạt nào đó, còn quy tắc deterministic thì giòn, nên không control đơn lẻ nào bắt được mọi thứ; đáp án của khóa học là triển khai các control nối tiếp và che có chủ đích điểm mù của từng cái. Judge lớn hơn hay ngưỡng thấp hơn vẫn chỉ là một control đơn lẻ có thể bị lách, còn chỉ dùng regex thì bỏ sót mọi thứ không lường trước.",
+    "source": "output_3/03_Guardrails_and_Failure_Modes.md"
+  },
+  {
+    "id": 17,
+    "topic": "Claude Models, Prompting & Context Engineering (13%)",
+    "objective": "Implement prompt reuse strategies (caching, modular prompts, Skills)",
+    "lessonId": "d2-t5",
+    "question": "A retailer wants the same CRM lookup tools available to sales staff in Claude.ai, to engineers in Claude Code, and to an internal service app. An engineer proposes packaging the CRM access as a Skill so it can be 'reused everywhere'. What should the architect recommend?",
+    "question_vi": "Một nhà bán lẻ muốn cùng bộ tool tra cứu CRM có sẵn cho nhân viên bán hàng trong Claude.ai, cho kỹ sư trong Claude Code, và cho một ứng dụng dịch vụ nội bộ. Một kỹ sư đề xuất đóng gói quyền truy cập CRM thành Skill để có thể 'tái sử dụng khắp nơi'. Architect nên khuyến nghị gì?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "Separate tool-use code written into each of the three clients independently.",
+        "text_vi": "Code tool use riêng được viết độc lập trong từng client trong ba client."
+      },
+      {
+        "key": "B",
+        "text": "A Skill, since any reusable capability should be packaged as a versioned Skill.",
+        "text_vi": "Một Skill, vì mọi năng lực tái sử dụng đều nên được đóng gói thành Skill có version."
+      },
+      {
+        "key": "C",
+        "text": "A prompt template containing CRM field descriptions shared across the clients.",
+        "text_vi": "Một prompt template chứa mô tả các trường CRM dùng chung giữa các client."
+      },
+      {
+        "key": "D",
+        "text": "An MCP server for the CRM tools, connected from all three clients.",
+        "text_vi": "Một MCP server cho các tool CRM, được kết nối từ cả ba client."
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "Skills package a procedure (instructions plus scripts); MCP connects tools and data so that multiple Claude clients reach the same entry point, built once and connected everywhere. Writing tool use separately in each client duplicates effort and drifts, and a prompt template supplies no data access at all.",
+    "explanation_vi": "Skill đóng gói một quy trình (hướng dẫn cộng script); MCP kết nối tool và dữ liệu để nhiều Claude client cùng truy cập một entry point, xây một lần và kết nối khắp nơi. Viết tool use riêng trong từng client là lặp lại công sức và dễ trôi lệch, còn một prompt template hoàn toàn không cung cấp quyền truy cập dữ liệu.",
+    "source": "output/03_Platform_Map_Primitives.md"
   },
   {
     "id": 18,
-    "topic": "Integration (19%)",
-    "question": "A cross-functional team at an international retail chain plans to modernize ERP using store-level inventory updates, while maintaining subsecond checkout availability. The workload is assessed in rollout cohort 5 with 30 representative test cases. A search index contains documents for several customers. How should retrieval enforce boundaries?",
+    "topic": "Solution Design & Architecture (17%)",
+    "objective": "Design end-to-end architectures (input → processing → output → feedback loops)",
+    "lessonId": "d1-t2",
+    "question": "A fashion retailer's customer assistant must apply 3,000 tokens of brand-voice guidelines and an output contract on every request; these change about twice a year. An engineer proposes chunking the guidelines into a vector index and retrieving the most relevant fragments per message. What is the better design for this content?",
+    "question_vi": "Trợ lý khách hàng của một nhà bán lẻ thời trang phải áp dụng 3.000 token hướng dẫn giọng thương hiệu và một output contract cho mọi request; nội dung này thay đổi khoảng hai lần mỗi năm. Một kỹ sư đề xuất chunk hướng dẫn vào vector index và truy hồi các đoạn liên quan nhất cho mỗi tin nhắn. Thiết kế tốt hơn cho nội dung này là gì?",
     "type": "single",
+    "selectCount": 1,
     "options": [
       {
         "key": "A",
-        "text": "Hide unauthorized citations after generation",
-        "text_vi": "Ẩn các trích dẫn trái phép sau khi tạo"
+        "text": "Place them in the system prompt ahead of dynamic content and enable prompt caching.",
+        "text_vi": "Đặt chúng trong system prompt trước nội dung động và bật prompt caching."
       },
       {
         "key": "B",
-        "text": "Retrieve everything then ask Claude not to mention unauthorized content",
-        "text_vi": "Lấy lại mọi thứ sau đó yêu cầu Claude không đề cập đến nội dung trái phép"
+        "text": "Retrieve the guidelines per message as proposed, because retrieval always reduces tokens compared with static context.",
+        "text_vi": "Truy hồi hướng dẫn cho mỗi tin nhắn như đề xuất, vì retrieval luôn giảm token so với context tĩnh."
       },
       {
         "key": "C",
-        "text": "Use semantic similarity as a permission check",
-        "text_vi": "Sử dụng sự tương đồng về ngữ nghĩa làm kiểm tra quyền"
+        "text": "Fine-tune a model on the guidelines so they no longer need to be sent with each request at all.",
+        "text_vi": "Fine-tune một model trên hướng dẫn để không cần gửi chúng kèm mỗi request nữa."
       },
       {
         "key": "D",
-        "text": "Apply tenant and document ACL filters before results enter model context",
-        "text_vi": "Áp dụng các bộ lọc ACL của đối tượng thuê và tài liệu trước khi kết quả đi vào ngữ cảnh mô hình"
+        "text": "Expose the guidelines through a tool the model can call whenever it decides that brand voice is relevant.",
+        "text_vi": "Cung cấp hướng dẫn qua một tool mà model có thể gọi bất cứ khi nào nó thấy giọng thương hiệu liên quan."
       }
     ],
     "answer": [
-      "D"
+      "A"
     ],
-    "explanation": "Authorization must precede retrieval exposure and be enforced by trusted search infrastructure.",
-    "question_vi": "Một nhóm đa chức năng tại một chuỗi bán lẻ quốc tế có kế hoạch hiện đại hóa ERP bằng cách sử dụng các bản cập nhật hàng tồn kho ở cấp độ cửa hàng, trong khi vẫn duy trì khả năng thanh toán dưới giây. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 30 trường hợp thử nghiệm đại diện. Chỉ mục tìm kiếm chứa tài liệu cho một số khách hàng. Việc truy xuất nên thực thi ranh giới như thế nào?",
-    "explanation_vi": "Việc ủy quyền phải diễn ra trước khi truy xuất và được thực thi bởi cơ sở hạ tầng tìm kiếm đáng tin cậy."
+    "explanation": "Small, stable instructions needed on every request belong in the system prompt, ordered before dynamic content so the prefix can be cached. Retrieving fragments risks omitting rules that must always apply, a tool call makes always-needed instructions optional, and fine-tuning locks the model version and is a last resort that does not fit content that changes twice a year.",
+    "explanation_vi": "Chỉ dẫn nhỏ, ổn định cần cho mọi request thuộc về system prompt, đặt trước nội dung động để phần prefix được cache. Truy hồi từng đoạn có nguy cơ bỏ sót quy tắc luôn phải áp dụng, tool call biến chỉ dẫn luôn cần thiết thành tùy chọn, còn fine-tuning khóa model version và là phương án cuối cùng, không phù hợp với nội dung thay đổi hai lần mỗi năm.",
+    "source": "output/06_Reference_Architectures.md"
   },
   {
     "id": 19,
-    "topic": "Integration (19%)",
-    "question": "A pilot retrospective at an energy utility identifies concerns in asset operations platform processing maintenance incident reports, where high operational safety impact applies. The workload is assessed in rollout cohort 5 with 36 representative test cases. An outbound tool receives a URL chosen from an untrusted document. What should the executor enforce?",
+    "topic": "Evaluation, Testing & Optimization (16%)",
+    "objective": "Optimize token usage, latency, and cost-performance trade-offs",
+    "lessonId": "d4-t5",
+    "question": "An online tutoring app's chat assistant has p95 latency of about 6 seconds for full answers. Students complain that they stare at a blank screen before anything appears. Answer quality and cost are within targets, and the product owner does not want to change the model or the content of answers. What change improves the experience most directly?",
+    "question_vi": "Trợ lý chat của một ứng dụng dạy kèm trực tuyến có latency p95 khoảng 6 giây cho câu trả lời đầy đủ. Học sinh phàn nàn phải nhìn màn hình trống trước khi có gì xuất hiện. Chất lượng câu trả lời và chi phí đều trong mục tiêu, và product owner không muốn đổi model hay nội dung câu trả lời. Thay đổi nào cải thiện trải nghiệm trực tiếp nhất?",
     "type": "single",
+    "selectCount": 1,
     "options": [
       {
         "key": "A",
-        "text": "Allowlisted destinations and network egress controls to reduce SSRF and exfiltration risk",
-        "text_vi": "Các đích đến trong danh sách được phép và các biện pháp kiểm soát lối ra mạng để giảm thiểu rủi ro SSRF và đánh cắp"
+        "text": "Downgrade to the smallest model without evaluation",
+        "text_vi": "Hạ xuống model nhỏ nhất mà không eval"
       },
       {
         "key": "B",
-        "text": "Fetch every URL if it is inside a PDF",
-        "text_vi": "Tìm nạp mọi URL nếu nó nằm trong tệp PDF"
+        "text": "Stream tokens to the interface as they are generated",
+        "text_vi": "Stream token lên giao diện ngay khi được sinh ra"
       },
       {
         "key": "C",
-        "text": "Use a longer tool description instead of network policies",
-        "text_vi": "Sử dụng mô tả công cụ dài hơn thay vì chính sách mạng"
+        "text": "Move requests to the Batch API",
+        "text_vi": "Chuyển request sang Batch API"
       },
       {
         "key": "D",
-        "text": "Grant model access to private network metadata endpoints",
-        "text_vi": "Cấp quyền truy cập mô hình vào các điểm cuối siêu dữ liệu mạng riêng"
-      }
-    ],
-    "answer": [
-      "A"
-    ],
-    "explanation": "Untrusted URLs must pass destination validation and egress policy.",
-    "question_vi": "Một cuộc hồi cứu thí điểm tại một công ty năng lượng xác định các mối lo ngại trong nền tảng vận hành tài sản xử lý các báo cáo sự cố bảo trì, trong đó áp dụng tác động an toàn vận hành cao. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 36 trường hợp thử nghiệm đại diện. Công cụ gửi đi sẽ nhận được URL được chọn từ một tài liệu không đáng tin cậy. Người thi hành nên thi hành những gì?",
-    "explanation_vi": "Các URL không đáng tin cậy phải vượt qua chính sách xác thực đích và đầu ra."
-  },
-  {
-    "id": 20,
-    "topic": "Claude Models, Prompting & Context Engineering (13%)",
-    "question": "An incident review at a regional hospital network focuses on AI handling of patient discharge letters in the clinical records system; stakeholders insist on strict clinical authorization. The workload is assessed in rollout cohort 5 with 32 representative test cases. A team needs structured invoice extraction and downstream software rejects malformed fields. What is the best prompting-plus-validation pattern?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Trust any valid-looking JSON as financially correct",
-        "text_vi": "Tin tưởng mọi JSON có vẻ hợp lệ đều chính xác về mặt tài chính"
-      },
-      {
-        "key": "B",
-        "text": "Provide a precise schema and examples, then validate types and business constraints server-side",
-        "text_vi": "Cung cấp lược đồ và ví dụ chính xác, sau đó xác thực các loại và ràng buộc kinh doanh phía máy chủ"
-      },
-      {
-        "key": "C",
-        "text": "Rely on temperature zero instead of validation",
-        "text_vi": "Dựa vào nhiệt độ bằng 0 thay vì xác nhận"
-      },
-      {
-        "key": "D",
-        "text": "Ask for attractive prose and parse it with assumptions",
-        "text_vi": "Yêu cầu văn xuôi hấp dẫn và phân tích nó bằng các giả định"
+        "text": "Raise max_tokens so answers are complete in one response",
+        "text_vi": "Nâng max_tokens để câu trả lời đầy đủ trong một phản hồi"
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Schema-oriented generation and server-side validation address different failure modes.",
-    "question_vi": "Đánh giá sự cố tại mạng lưới bệnh viện khu vực tập trung vào việc xử lý AI thư xuất viện của bệnh nhân trong hệ thống hồ sơ lâm sàng; các bên liên quan nhấn mạnh vào sự cho phép lâm sàng nghiêm ngặt. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 32 trường hợp thử nghiệm đại diện. Một nhóm cần trích xuất hóa đơn có cấu trúc và phần mềm tiếp theo sẽ từ chối các trường không đúng định dạng. Mẫu xác thực nhắc nhở cộng thêm tốt nhất là gì?",
-    "explanation_vi": "Việc tạo theo định hướng lược đồ và xác thực phía máy chủ giải quyết các chế độ lỗi khác nhau."
+    "explanation": "Streaming reduces perceived latency by showing the first tokens early without changing total generation time, cost or content, which matches the constraint. Batch processing is asynchronous and unsuitable for chat, a higher cap can make responses slower, and an unevaluated downgrade risks quality.",
+    "explanation_vi": "Streaming giảm latency cảm nhận bằng cách hiển thị token đầu tiên sớm mà không đổi tổng thời gian sinh, chi phí hay nội dung, đúng với ràng buộc. Xử lý theo lô là bất đồng bộ và không phù hợp với chat, giới hạn cao hơn có thể làm phản hồi chậm hơn, còn hạ tier không eval có rủi ro về chất lượng.",
+    "source": "output_2/09_Supplement_Integration_Mechanisms_and_Optimization.md"
   },
   {
-    "id": 21,
-    "topic": "Integration (19%)",
-    "question": "A senior architect advising a public university considers a Claude workflow around student service inquiries and campus management platform with strict student data access. The workload is assessed in rollout cohort 5 with 34 representative test cases. An enterprise API has a per-minute quota. How should the assistant workload respond to spikes?",
+    "id": 20,
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Improve developer workflows using AI-assisted tooling",
+    "lessonId": "d7-t2",
+    "question": "In a government tax agency's engineering team, key practices live only in senior engineers' heads: always use the repository pattern, every pull request needs a rollback migration, and API changes must update the OpenAPI spec. New hires using Claude Code produce code that ignores these practices unless a senior happens to review it. What should the Architect do?",
+    "question_vi": "Trong team kỹ thuật của một cơ quan thuế, các thực hành quan trọng chỉ nằm trong đầu kỹ sư senior: luôn dùng repository pattern, mọi pull request cần migration rollback, và thay đổi API phải cập nhật OpenAPI spec. Nhân viên mới dùng Claude Code tạo ra code bỏ qua các thực hành này trừ khi tình cờ có một senior review. Architect nên làm gì?",
     "type": "single",
+    "selectCount": 1,
     "options": [
       {
         "key": "A",
-        "text": "Create unlimited concurrent calls until the API rejects them",
-        "text_vi": "Tạo các cuộc gọi đồng thời không giới hạn cho đến khi API từ chối chúng"
+        "text": "Assign a senior engineer to pair with every new hire until they have absorbed the conventions personally.",
+        "text_vi": "Phân công một kỹ sư senior làm việc cặp với mỗi nhân viên mới cho đến khi họ tự thấm các quy ước."
       },
       {
         "key": "B",
-        "text": "Retry every rejected call instantly without jitter",
-        "text_vi": "Thử lại mọi cuộc gọi bị từ chối ngay lập tức mà không bị giật hình"
+        "text": "Switch new hires to a more capable model tier that is more likely to infer the conventions from the code.",
+        "text_vi": "Chuyển nhân viên mới sang model tier mạnh hơn để có khả năng tự suy ra quy ước từ code cao hơn."
       },
       {
         "key": "C",
-        "text": "Use rate limiting, queues, backpressure, and bounded concurrency",
-        "text_vi": "Sử dụng giới hạn tốc độ, hàng đợi, áp suất ngược và đồng thời giới hạn"
+        "text": "Encode the conventions in the project CLAUDE.md and repeated procedures as Skills or slash commands.",
+        "text_vi": "Mã hóa các quy ước vào CLAUDE.md của dự án và các quy trình lặp lại thành Skills hoặc slash commands."
       },
       {
         "key": "D",
-        "text": "Ask the model to use fewer words and ignore request rate",
-        "text_vi": "Yêu cầu người mẫu sử dụng ít từ hơn và bỏ qua tỷ lệ yêu cầu"
+        "text": "Require new hires to stop using Claude Code until they have worked on the codebase for six months.",
+        "text_vi": "Yêu cầu nhân viên mới ngừng dùng Claude Code cho đến khi họ đã làm việc với codebase được sáu tháng."
       }
     ],
     "answer": [
       "C"
     ],
-    "explanation": "Quotas require explicit traffic shaping and safe retry policies.",
-    "question_vi": "Một kiến ​​trúc sư cấp cao tư vấn cho một trường đại học công lập đang xem xét quy trình làm việc của Claude xoay quanh các yêu cầu về dịch vụ sinh viên và nền tảng quản lý khuôn viên trường với quyền truy cập dữ liệu sinh viên nghiêm ngặt. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 34 trường hợp thử nghiệm đại diện. API doanh nghiệp có hạn ngạch mỗi phút. Khối lượng công việc của trợ lý sẽ phản ứng như thế nào khi có mức tăng đột biến?",
-    "explanation_vi": "Hạn ngạch yêu cầu định hình lưu lượng truy cập rõ ràng và chính sách thử lại an toàn."
+    "explanation": "Integration is how team knowledge gets encoded: conventions and repeated procedures that live in people's heads become CLAUDE.md, Skills and project configuration that Claude applies consistently, so good practice travels with the tooling rather than depending on who is in the room. Pairing still depends on who is available, banning the tool forfeits its value, and a stronger model cannot reliably infer unwritten team rules.",
+    "explanation_vi": "Tích hợp là cách tri thức của team được mã hóa: các quy ước và quy trình lặp lại nằm trong đầu mọi người trở thành CLAUDE.md, Skills và cấu hình dự án mà Claude áp dụng nhất quán, nhờ đó thực hành tốt đi theo công cụ thay vì phụ thuộc vào việc ai đang có mặt. Làm việc cặp vẫn phụ thuộc vào việc ai rảnh, cấm dùng công cụ thì mất giá trị của nó, còn model mạnh hơn không thể suy ra một cách đáng tin cậy các quy tắc chưa được viết ra của team.",
+    "source": "output_5/03_Developer_Workflows_and_Verification.md"
   },
   {
-    "id": 22,
-    "topic": "Solution Design & Architecture (17%)",
-    "question": "The architecture board of a logistics provider evaluates cross-border shipment exceptions workflows in transport management system, prioritizing intermittent connectivity. The workload is assessed in rollout cohort 5 with 25 representative test cases. A claims platform must handle changing exceptions and unpredictable research across multiple tools. Which design best fits?",
+    "id": 21,
+    "topic": "Developer Productivity & Operational Enablement (7%)",
+    "objective": "Configure Claude tools and environments for teams (e.g., Claude Code)",
+    "lessonId": "d7-t1",
+    "question": "A hospital group's security office requires that Claude Code on every company laptop can never read .env files or the secrets/ directory, in any repository, and that individual developers cannot switch this restriction off. Several repositories are created each month by different teams. Which configuration meets the requirement?",
+    "question_vi": "Phòng bảo mật của một tập đoàn bệnh viện yêu cầu Claude Code trên mọi laptop của công ty không bao giờ được đọc tệp .env hoặc thư mục secrets/, trong bất kỳ repository nào, và từng developer không thể tự tắt hạn chế này. Mỗi tháng các team khác nhau tạo ra nhiều repository mới. Cấu hình nào đáp ứng yêu cầu?",
     "type": "single",
+    "selectCount": 1,
     "options": [
       {
         "key": "A",
-        "text": "An agent with unrestricted production database access",
-        "text_vi": "Một đại lý có quyền truy cập cơ sở dữ liệu sản xuất không hạn chế"
+        "text": "Add deny rules for these paths to each repository's checked-in .claude/settings.json file.",
+        "text_vi": "Thêm deny rule cho các đường dẫn này vào tệp .claude/settings.json được check-in của từng repository."
       },
       {
         "key": "B",
-        "text": "A scripted response for every possible exception",
-        "text_vi": "Phản hồi theo kịch bản cho mọi ngoại lệ có thể xảy ra"
+        "text": "Add a clear instruction never to read .env or secrets/ to the CLAUDE.md template used for new repositories.",
+        "text_vi": "Thêm một hướng dẫn rõ ràng không bao giờ đọc .env hoặc secrets/ vào mẫu CLAUDE.md dùng cho các repository mới."
       },
       {
         "key": "C",
-        "text": "A single static prompt with no tools",
-        "text_vi": "Một prompt tĩnh duy nhất không có công cụ"
+        "text": "Ask each developer to add the deny rules to their own user settings during onboarding.",
+        "text_vi": "Yêu cầu từng developer thêm deny rule vào user settings của chính họ trong buổi onboarding."
       },
       {
         "key": "D",
-        "text": "A bounded tool-using agent with explicit permissions, checkpoints, and a stopping condition",
-        "text_vi": "Tác nhân sử dụng công cụ bị giới hạn có quyền, điểm kiểm tra và điều kiện dừng rõ ràng"
+        "text": "Deploy deny rules for these paths through organization managed settings, which users cannot override.",
+        "text_vi": "Triển khai deny rule cho các đường dẫn này qua managed settings của tổ chức, thứ mà người dùng không thể ghi đè."
       }
     ],
     "answer": [
       "D"
     ],
-    "explanation": "Open-ended research can justify an agent, but its permissions and termination must remain bounded.",
-    "question_vi": "Hội đồng kiến ​​trúc của nhà cung cấp dịch vụ hậu cần đánh giá các quy trình ngoại lệ đối với lô hàng xuyên biên giới trong hệ thống quản lý vận tải, ưu tiên kết nối không liên tục. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 25 trường hợp thử nghiệm đại diện. Nền tảng xác nhận quyền sở hữu phải xử lý các trường hợp ngoại lệ luôn thay đổi và nghiên cứu không thể đoán trước trên nhiều công cụ. Thiết kế nào phù hợp nhất?",
-    "explanation_vi": "Nghiên cứu kết thúc mở có thể biện minh cho một tác nhân, nhưng các quyền và việc chấm dứt nó phải vẫn bị giới hạn."
+    "explanation": "Managed settings have the highest precedence and cannot be loosened by users, and deny rules are enforced deterministically regardless of the prompt, so they cover every repository and every machine. A CLAUDE.md line is advisory context, not enforcement; per-repository settings miss new repositories and can be edited by developers; user settings are under each developer's control.",
+    "explanation_vi": "Managed settings có độ ưu tiên cao nhất và người dùng không nới lỏng được, còn deny rule được cưỡng chế một cách tất định bất kể prompt, nên phủ được mọi repository và mọi máy. Một dòng trong CLAUDE.md chỉ là ngữ cảnh mang tính hướng dẫn, không phải cưỡng chế; settings theo từng repository bỏ sót repository mới và developer có thể sửa; user settings nằm trong quyền kiểm soát của từng developer.",
+    "source": "output_5/07_Supplement_Claude_Code_for_Teams.md"
+  },
+  {
+    "id": 22,
+    "topic": "Integration (19%)",
+    "objective": "Apply retrieval strategies matched to data shape and query pattern",
+    "lessonId": "d3-t6",
+    "question": "An architect is reviewing incident reports for several assistants. Each assistant shows normal latency and no error alarms, so the symptoms must be read from the content of the answers themselves. Which two symptoms most strongly indicate that retrieval is being used where a tool call to a system of record belongs? (Choose TWO.)",
+    "question_vi": "Một Architect đang review báo cáo sự cố của nhiều trợ lý. Mỗi trợ lý đều có latency bình thường và không có cảnh báo lỗi, nên các triệu chứng phải được đọc từ chính nội dung các câu trả lời. Hai triệu chứng nào cho thấy rõ nhất retrieval đang được dùng ở nơi lẽ ra phải là tool call tới system of record? (Chọn HAI đáp án.)",
+    "type": "multiple",
+    "selectCount": 2,
+    "options": [
+      {
+        "key": "A",
+        "text": "Summaries spanning many documents omit relevant sources.",
+        "text_vi": "Bản tóm tắt trên nhiều tài liệu bỏ sót các nguồn liên quan."
+      },
+      {
+        "key": "B",
+        "text": "Searches for exact part numbers return conceptually similar but wrong parts.",
+        "text_vi": "Tìm theo mã linh kiện chính xác trả về các linh kiện tương tự về khái niệm nhưng sai."
+      },
+      {
+        "key": "C",
+        "text": "Answers contradict what the transactional database currently shows.",
+        "text_vi": "Câu trả lời mâu thuẫn với những gì cơ sở dữ liệu giao dịch đang hiển thị."
+      },
+      {
+        "key": "D",
+        "text": "Retrieved passages often begin in the middle of a table.",
+        "text_vi": "Đoạn truy xuất thường bắt đầu ở giữa một bảng."
+      },
+      {
+        "key": "E",
+        "text": "Answers to the same question change after each index refresh.",
+        "text_vi": "Câu trả lời cho cùng một câu hỏi thay đổi sau mỗi lần refresh index."
+      }
+    ],
+    "answer": [
+      "C",
+      "E"
+    ],
+    "explanation": "The course lists the signature of retrieval applied to live state as stale chunks, results that shift with each index refresh and answers that contradict the database. Missing exact part numbers points to a dense-only index lacking sparse retrieval. Incomplete multi-document summaries are a synthesis limitation of top-k retrieval, and passages starting mid-table indicate a chunking problem.",
+    "explanation_vi": "Khóa học liệt kê dấu hiệu của việc dùng retrieval cho trạng thái live là chunk cũ, kết quả thay đổi theo mỗi lần refresh index và câu trả lời mâu thuẫn với cơ sở dữ liệu. Bỏ sót mã linh kiện chính xác chỉ ra index chỉ dense thiếu sparse retrieval. Bản tóm tắt nhiều tài liệu không đầy đủ là hạn chế tổng hợp của retrieval top-k, còn đoạn bắt đầu giữa bảng cho thấy vấn đề chunking.",
+    "source": "output/06_Reference_Architectures.md"
   },
   {
     "id": 23,
-    "topic": "Stakeholder Communication & Lifecycle Management (14%)",
-    "question": "At a Japanese manufacturing group, an AI pilot processes quality-inspection records from the factory MES; mandatory operator sign-off is a non-negotiable requirement. The workload is assessed in rollout cohort 5 with 26 representative test cases. A sales team promises 100% factual correctness from the assistant. What should the architect communicate?",
+    "topic": "Integration (19%)",
+    "objective": "Evaluate tool/agent configuration for capability bloat",
+    "lessonId": "d3-t1",
+    "question": "A telco is preparing a security review for its network-operations assistant, which currently has 22 connected tools. The reviewer asks the architect to describe the tool-audit method the team will apply before go-live. Which method best matches the course's least-privilege guidance?",
+    "question_vi": "Một công ty viễn thông đang chuẩn bị review bảo mật cho trợ lý vận hành mạng, hiện có 22 tool được kết nối. Người review yêu cầu Architect mô tả phương pháp audit tool mà đội sẽ áp dụng trước khi go-live. Phương pháp nào khớp nhất với hướng dẫn least privilege của khóa học?",
     "type": "single",
+    "selectCount": 1,
     "options": [
       {
         "key": "A",
-        "text": "Guarantee that citations eliminate every error",
-        "text_vi": "Đảm bảo rằng trích dẫn loại bỏ mọi lỗi"
+        "text": "Classify each tool as essential or merely convenient, remove out-of-scope ones and record each justification.",
+        "text_vi": "Phân loại từng tool là thiết yếu hay chỉ tiện lợi, gỡ các tool ngoài phạm vi và ghi lại lý do cho từng tool."
       },
       {
         "key": "B",
-        "text": "Repeat the promise to avoid conflict",
-        "text_vi": "Lặp lại lời hứa để tránh xung đột"
+        "text": "Keep every tool but tag each with a risk level so the model can weigh its choices.",
+        "text_vi": "Giữ mọi tool nhưng gắn nhãn mức rủi ro cho từng tool để model cân nhắc lựa chọn."
       },
       {
         "key": "C",
-        "text": "Explain measurable quality targets, residual risk, review controls, and an escalation path",
-        "text_vi": "Giải thích các mục tiêu chất lượng có thể đo lường được, rủi ro tồn tại, các biện pháp kiểm soát xem xét và lộ trình leo thang"
+        "text": "Rank tools by historical usage and keep the top twenty so rarely used ones are dropped.",
+        "text_vi": "Xếp hạng tool theo tần suất sử dụng và giữ hai mươi tool hàng đầu để loại các tool ít dùng."
       },
       {
         "key": "D",
-        "text": "Exclude hard cases from all reports without disclosure",
-        "text_vi": "Loại trừ các trường hợp khó khỏi tất cả các báo cáo mà không tiết lộ"
-      }
-    ],
-    "answer": [
-      "C"
-    ],
-    "explanation": "LLM systems need explicit acceptance thresholds and honest risk communication.",
-    "question_vi": "Tại một nhóm sản xuất Nhật Bản, một dự án thí điểm AI (AI pilot) xử lý hồ sơ kiểm tra chất lượng từ MES của nhà máy; việc ký duyệt (sign-off) bắt buộc của nhà điều hành là một yêu cầu không thể thương lượng. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 26 trường hợp thử nghiệm đại diện. Đội ngũ bán hàng hứa hẹn trợ lý sẽ cung cấp thông tin chính xác 100% về thực tế. Kiến trúc sư nên truyền đạt điều gì?",
-    "explanation_vi": "Hệ thống LLM cần ngưỡng chấp nhận rõ ràng và truyền đạt rủi ro trung thực."
-  },
-  {
-    "id": 24,
-    "topic": "Claude Models, Prompting & Context Engineering (13%)",
-    "question": "At scale, a B2B software vendor expects Claude to support customer support platform users working with support and incident tickets, without compromising multi-tenant isolation. The workload is assessed in rollout cohort 5 with 28 representative test cases. A Claude-powered product includes a long tool catalog but most tasks use only two tools. What is a defensible token optimization?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Remove all tool descriptions but retain tool calling",
-        "text_vi": "Xóa tất cả các mô tả công cụ nhưng vẫn giữ lại cách gọi công cụ"
-      },
-      {
-        "key": "B",
-        "text": "Expose task-relevant tool descriptions while keeping authorization checks server-side",
-        "text_vi": "Hiển thị các mô tả công cụ liên quan đến nhiệm vụ trong khi vẫn kiểm tra ủy quyền phía máy chủ"
-      },
-      {
-        "key": "C",
-        "text": "Let the model invent tool signatures",
-        "text_vi": "Hãy để mô hình phát minh ra chữ ký công cụ"
-      },
-      {
-        "key": "D",
-        "text": "Grant every tool to every user to avoid routing cost",
-        "text_vi": "Cấp mọi công cụ cho mọi người dùng để tránh chi phí định tuyến"
-      }
-    ],
-    "answer": [
-      "B"
-    ],
-    "explanation": "Reducing irrelevant context can improve efficiency without weakening permissions.",
-    "question_vi": "Ở quy mô lớn, một nhà cung cấp phần mềm B2B kỳ vọng Claude sẽ hỗ trợ người dùng nền tảng hỗ trợ khách hàng làm việc với các phiếu hỗ trợ và sự cố mà không ảnh hưởng đến sự cô lập của nhiều bên thuê. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 28 trường hợp thử nghiệm đại diện. Sản phẩm do Claude cung cấp bao gồm một danh mục công cụ dài nhưng hầu hết các tác vụ chỉ sử dụng hai công cụ. Tối ưu hóa mã thông báo có thể bảo vệ là gì?",
-    "explanation_vi": "Giảm bối cảnh không liên quan có thể cải thiện hiệu quả mà không làm suy yếu quyền."
-  },
-  {
-    "id": 25,
-    "topic": "Evaluation, Testing & Optimization (16%)",
-    "question": "For the next release, a multinational bank will connect Claude to core banking platform to work with corporate credit applications under auditable financial controls. The workload is assessed in rollout cohort 5 with 31 representative test cases. A new model lowers cost per token but increases retries due to invalid outputs. What cost metric matters?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Raw throughput regardless of correctness",
-        "text_vi": "Thông lượng thô bất kể tính chính xác"
-      },
-      {
-        "key": "B",
-        "text": "Number of available model names",
-        "text_vi": "Số lượng tên model có sẵn"
-      },
-      {
-        "key": "C",
-        "text": "Cost per successfully completed validated task including retries and human rework",
-        "text_vi": "Chi phí cho mỗi nhiệm vụ được xác thực đã hoàn thành thành công, bao gồm cả số lần thử lại và việc làm lại của con người"
-      },
-      {
-        "key": "D",
-        "text": "Sticker price per input token alone",
-        "text_vi": "Giá nhãn dán riêng cho mỗi mã thông báo đầu vào"
-      }
-    ],
-    "answer": [
-      "C"
-    ],
-    "explanation": "Total effective cost depends on quality, retries, and downstream correction.",
-    "question_vi": "Trong lần phát hành tiếp theo, một ngân hàng đa quốc gia sẽ kết nối Claude với nền tảng ngân hàng cốt lõi để hoạt động với các ứng dụng tín dụng doanh nghiệp dưới sự kiểm soát tài chính có thể kiểm toán được. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 31 trường hợp thử nghiệm đại diện. Mô hình mới giảm chi phí cho mỗi mã thông báo nhưng tăng số lần thử lại do kết quả đầu ra không hợp lệ. Số liệu chi phí nào quan trọng?",
-    "explanation_vi": "Tổng chi phí hiệu quả phụ thuộc vào chất lượng, số lần thử lại và hiệu chỉnh tiếp theo."
-  },
-  {
-    "id": 26,
-    "topic": "Governance, Safety & Risk Management (14%)",
-    "question": "For the next release, a multinational bank will connect Claude to core banking platform to work with corporate credit applications under auditable financial controls. The workload is assessed in rollout cohort 5 with 30 representative test cases. An internal policy update removes an employee's access to procurement files. What must remain authoritative?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "The model's previous conversation memory",
-        "text_vi": "Bộ nhớ cuộc trò chuyện trước đó của mô hình"
-      },
-      {
-        "key": "B",
-        "text": "The employee's claim that access was once approved",
-        "text_vi": "Tuyên bố của nhân viên rằng quyền truy cập đã được phê duyệt"
-      },
-      {
-        "key": "C",
-        "text": "Identity and data-access policy evaluated at tool and retrieval boundaries",
-        "text_vi": "Chính sách nhận dạng và truy cập dữ liệu được đánh giá ở ranh giới công cụ và truy xuất"
-      },
-      {
-        "key": "D",
-        "text": "A stale retrieved copy of the access list",
-        "text_vi": "Một bản sao được lấy ra cũ của danh sách truy cập"
-      }
-    ],
-    "answer": [
-      "C"
-    ],
-    "explanation": "Revocation must be enforced by trusted, up-to-date access-control systems.",
-    "question_vi": "Trong lần phát hành tiếp theo, một ngân hàng đa quốc gia sẽ kết nối Claude với nền tảng ngân hàng cốt lõi để hoạt động với các ứng dụng tín dụng doanh nghiệp dưới sự kiểm soát tài chính có thể kiểm toán được. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 30 trường hợp thử nghiệm đại diện. Bản cập nhật chính sách nội bộ sẽ loại bỏ quyền truy cập của nhân viên vào các tệp mua sắm. Điều gì phải có thẩm quyền?",
-    "explanation_vi": "Việc thu hồi phải được thực thi bởi các hệ thống kiểm soát truy cập cập nhật, đáng tin cậy."
-  },
-  {
-    "id": 27,
-    "topic": "Evaluation, Testing & Optimization (16%)",
-    "question": "A pilot retrospective at an energy utility identifies concerns in asset operations platform processing maintenance incident reports, where high operational safety impact applies. The workload is assessed in rollout cohort 5 with 25 representative test cases. A team considers reducing generated tokens to improve cost. What evidence should guide the change?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Measure task success and user satisfaction against cost and latency across representative tasks",
-        "text_vi": "Đo lường mức độ thành công của nhiệm vụ và sự hài lòng của người dùng so với chi phí và độ trễ trên các nhiệm vụ đại diện"
-      },
-      {
-        "key": "B",
-        "text": "Delete required caveats without testing",
-        "text_vi": "Xóa các cảnh báo cần thiết mà không cần kiểm tra"
-      },
-      {
-        "key": "C",
-        "text": "Assume shorter responses are always better",
-        "text_vi": "Giả sử phản hồi ngắn hơn luôn tốt hơn"
-      },
-      {
-        "key": "D",
-        "text": "Optimize only the longest prompts in the test set",
-        "text_vi": "Chỉ tối ưu hóa các prompt dài nhất trong bộ thử nghiệm"
+        "text": "Keep every tool but require two-person approval before any new tool is added later.",
+        "text_vi": "Giữ mọi tool nhưng yêu cầu hai người phê duyệt trước khi thêm bất kỳ tool mới nào sau này."
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Efficiency improvements must preserve required quality and task completion.",
-    "question_vi": "Một cuộc hồi cứu thí điểm tại một công ty năng lượng xác định các mối lo ngại trong nền tảng vận hành tài sản xử lý các báo cáo sự cố bảo trì, trong đó áp dụng tác động an toàn vận hành cao. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 25 trường hợp thử nghiệm đại diện. Một nhóm xem xét việc giảm số lượng token được tạo ra để cải thiện chi phí. Bằng chứng nào sẽ hướng dẫn sự thay đổi?",
-    "explanation_vi": "Cải tiến hiệu quả phải duy trì chất lượng cần thiết và hoàn thành nhiệm vụ."
+    "explanation": "The course instructs architects to audit the tool set like permissions: ask whether each tool is essential to the task or merely convenient, remove those out of scope and record the justification for each removal. Usage ranking can keep a frequently used but out-of-scope tool. Risk tags leave the decision to the model, and an approval process for future tools does nothing about the bloat already present.",
+    "explanation_vi": "Khóa học hướng dẫn Architect audit bộ tool như audit quyền: hỏi mỗi tool là thiết yếu cho nhiệm vụ hay chỉ tiện lợi, gỡ những tool ngoài phạm vi và ghi lại lý do cho mỗi lần gỡ. Xếp hạng theo tần suất có thể giữ lại một tool hay được dùng nhưng nằm ngoài phạm vi. Nhãn rủi ro để quyết định cho model, còn quy trình phê duyệt tool tương lai không xử lý được phần bloat đã có sẵn.",
+    "source": "output_2/05_Enterprise_Integration_Patterns.md"
   },
   {
-    "id": 28,
-    "topic": "Governance, Safety & Risk Management (14%)",
-    "question": "At a Japanese manufacturing group, an AI pilot processes quality-inspection records from the factory MES; mandatory operator sign-off is a non-negotiable requirement. The workload is assessed in rollout cohort 5 with 27 representative test cases. A team is deploying an AI assistant in a regulated organization. Which artifacts are most defensible?",
+    "id": 24,
+    "topic": "Evaluation, Testing & Optimization (16%)",
+    "objective": "Conduct A/B testing and iterative improvements",
+    "lessonId": "d4-t3",
+    "question": "A large online retailer's product Q&A assistant handles about 40,000 conversations a day. A prompt change has passed offline evals, a slightly worse answer for a small group of shoppers is an acceptable risk, and the team wants to know whether shoppers actually accept answers and stop asking follow-ups. Which validation approach fits best?",
+    "question_vi": "Trợ lý hỏi đáp sản phẩm của một nhà bán lẻ trực tuyến lớn xử lý khoảng 40.000 cuộc hội thoại mỗi ngày. Một thay đổi prompt đã pass offline eval, câu trả lời kém hơn một chút cho một nhóm nhỏ người mua là rủi ro chấp nhận được, và team muốn biết người mua có thực sự chấp nhận câu trả lời và ngừng hỏi tiếp hay không. Cách kiểm chứng nào phù hợp nhất?",
     "type": "single",
+    "selectCount": 1,
     "options": [
       {
         "key": "A",
-        "text": "A verbal commitment with no owners",
-        "text_vi": "Cam kết bằng lời nói không có chủ sở hữu"
+        "text": "Additional offline eval runs with a larger judge",
+        "text_vi": "Thêm các lần chạy offline eval với judge lớn hơn"
       },
       {
         "key": "B",
-        "text": "Documented data flows, access controls, retention rules, evaluations, approvals, and incident process",
-        "text_vi": "Luồng dữ liệu được ghi lại, kiểm soát truy cập, quy tắc lưu giữ, đánh giá, phê duyệt và quy trình sự cố"
+        "text": "A live A/B test with random, session-consistent assignment and a pre-set sample size",
+        "text_vi": "Một live A/B test với phân nhóm ngẫu nhiên, nhất quán theo session và cỡ mẫu đặt trước"
       },
       {
         "key": "C",
-        "text": "Only a screenshot of the assistant",
-        "text_vi": "Chỉ có một ảnh chụp màn hình của trợ lý"
+        "text": "Shadow testing, since it never exposes users",
+        "text_vi": "Shadow testing, vì nó không bao giờ để người dùng tiếp xúc"
       },
       {
         "key": "D",
-        "text": "A prompt stating 'we comply with regulations'",
-        "text_vi": "prompt nêu rõ 'chúng tôi tuân thủ các quy định'"
+        "text": "A full rollout compared against last month's metrics",
+        "text_vi": "Triển khai toàn bộ và so sánh với metric tháng trước"
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Governance needs verifiable controls, evidence, and operational accountability.",
-    "question_vi": "Tại một nhóm sản xuất Nhật Bản, một dự án thí điểm AI (AI pilot) xử lý hồ sơ kiểm tra chất lượng từ MES của nhà máy; việc ký duyệt (sign-off) bắt buộc của nhà điều hành là một yêu cầu không thể thương lượng. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 27 trường hợp thử nghiệm đại diện. Một nhóm đang triển khai trợ lý AI trong một tổ chức được quản lý. Những hiện vật nào có thể phòng thủ tốt nhất?",
-    "explanation_vi": "Quản trị cần có các biện pháp kiểm soát, bằng chứng có thể kiểm chứng và trách nhiệm giải trình trong hoạt động."
+    "explanation": "Live A/B testing fits when bounded exposure is acceptable and traffic is high enough to reach a meaningful sample, and it captures downstream signals such as acceptance and follow-ups. Shadow testing loses those signals, a before-and-after comparison has no concurrent control, and more offline evals cannot measure real user behavior.",
+    "explanation_vi": "Live A/B test phù hợp khi mức phơi nhiễm có giới hạn là chấp nhận được và traffic đủ cao để đạt cỡ mẫu có ý nghĩa, và nó nắm được tín hiệu hạ nguồn như chấp nhận câu trả lời và câu hỏi tiếp nối. Shadow testing mất những tín hiệu đó, so sánh trước và sau không có nhóm đối chứng đồng thời, còn thêm offline eval không đo được hành vi người dùng thật.",
+    "source": "output_2/06_AB_Testing_and_Observability.md"
   },
   {
-    "id": 29,
-    "topic": "Evaluation, Testing & Optimization (16%)",
-    "question": "At a Japanese manufacturing group, an AI pilot processes quality-inspection records from the factory MES; mandatory operator sign-off is a non-negotiable requirement. The workload is assessed in rollout cohort 5 with 28 representative test cases. Which TWO controls are most important for secure and accountable operation of this workflow? (Choose TWO.)",
-    "type": "multiple",
+    "id": 25,
+    "topic": "Claude Models, Prompting & Context Engineering (13%)",
+    "objective": "Implement prompt reuse strategies (caching, modular prompts, Skills)",
+    "lessonId": "d2-t5",
+    "question": "A bank's customer assistant sends a 6,000-token system prompt and a 4,000-token policy document on every request, followed by a short question. To personalize answers, the customer's name and login time are inserted at the very top of the system prompt. Prompt caching is enabled, but the hit rate is near zero. What is the fix?",
+    "question_vi": "Trợ lý khách hàng của một ngân hàng gửi system prompt 6.000 token và tài liệu chính sách 4.000 token ở mọi request, theo sau là một câu hỏi ngắn. Để cá nhân hóa câu trả lời, tên khách hàng và thời gian đăng nhập được chèn ở ngay đầu system prompt. Prompt caching đã được bật, nhưng tỷ lệ hit gần bằng 0. Cách sửa là gì?",
+    "type": "single",
+    "selectCount": 1,
     "options": [
       {
         "key": "A",
-        "text": "Ask the developers which prompt they like",
-        "text_vi": "Hỏi các nhà phát triển xem họ thích prompt nào"
+        "text": "Select the longest available cache TTL so entries survive between requests.",
+        "text_vi": "Chọn TTL cache dài nhất hiện có để các mục cache tồn tại giữa các request."
       },
       {
         "key": "B",
-        "text": "Change prompts and models at the same time with no control",
-        "text_vi": "Thay đổi prompt và mô hình cùng lúc mà không cần kiểm soát"
+        "text": "Truncate the policy document to 1,000 tokens so the prefix is easier to cache.",
+        "text_vi": "Cắt tài liệu chính sách còn 1.000 token để prefix dễ được cache hơn."
       },
       {
         "key": "C",
-        "text": "Evaluate task correctness using representative held-out scenarios",
-        "text_vi": "Đánh giá tính chính xác của nhiệm vụ bằng cách sử dụng các kịch bản được tổ chức đại diện"
+        "text": "Move the name and login time after the cache breakpoint and keep the fixed content first.",
+        "text_vi": "Chuyển tên và thời gian đăng nhập ra sau cache breakpoint và giữ nội dung cố định đứng đầu."
       },
       {
         "key": "D",
-        "text": "Track operational guardrails such as high-severity failures and tail latency",
-        "text_vi": "Theo dõi các biện pháp bảo vệ vận hành như lỗi ở mức độ nghiêm trọng cao và độ trễ ở đuôi"
+        "text": "Switch to a different model tier, since this model does not support prompt caching on system prompts.",
+        "text_vi": "Chuyển sang một model tier khác, vì model này không hỗ trợ prompt caching cho system prompt."
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "Caching matches on a byte-identical prefix, so any per-request value inside the prefix, such as a name or timestamp, causes a miss on every call; the fix is static before dynamic with the variable values after the breakpoint. A longer TTL cannot help when the prefix never repeats, truncating the policy discards needed context, and nothing suggests the model lacks caching support.",
+    "explanation_vi": "Caching khớp trên một prefix giống hệt từng byte, nên mọi giá trị thay đổi theo request nằm trong prefix, như tên hay timestamp, đều gây miss ở mọi lời gọi; cách sửa là tĩnh trước, động sau với các giá trị biến đổi nằm sau breakpoint. TTL dài hơn không giúp được khi prefix không bao giờ lặp lại, cắt tài liệu chính sách làm mất ngữ cảnh cần thiết, và không có dấu hiệu nào cho thấy model không hỗ trợ caching.",
+    "source": "output/09_Prompting_as_Architecture.md"
+  },
+  {
+    "id": 26,
+    "topic": "Evaluation, Testing & Optimization (16%)",
+    "objective": "Optimize token usage, latency, and cost-performance trade-offs",
+    "lessonId": "d4-t5",
+    "question": "A telco's ticket pipeline has a first step that classifies tickets into eight routing queues, with extended thinking enabled 'to be safe'. The classifier's accuracy meets its target, but the step adds noticeable latency and cost to every request. Later steps draft responses for complex billing disputes. How should extended thinking be configured?",
+    "question_vi": "Pipeline ticket của một nhà mạng có bước đầu phân loại ticket vào tám hàng đợi định tuyến, với extended thinking được bật 'cho chắc'. Độ chính xác của bộ phân loại đạt mục tiêu, nhưng bước này thêm latency và chi phí đáng kể cho mọi request. Các bước sau soạn phản hồi cho tranh chấp hóa đơn phức tạp. Extended thinking nên được cấu hình thế nào?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "Remove it from the dispute steps and keep it on the classifier",
+        "text_vi": "Bỏ nó khỏi các bước tranh chấp và giữ ở bộ phân loại"
+      },
+      {
+        "key": "B",
+        "text": "Keep it on everywhere, since it cannot hurt accuracy",
+        "text_vi": "Giữ bật ở mọi nơi, vì nó không thể làm hại độ chính xác"
+      },
+      {
+        "key": "C",
+        "text": "Enable it on every step and reduce max_tokens to compensate",
+        "text_vi": "Bật ở mọi bước và giảm max_tokens để bù lại"
+      },
+      {
+        "key": "D",
+        "text": "Disable it on the classifier, and enable it on later steps only if evals show a measured accuracy gap after prompt work",
+        "text_vi": "Tắt nó ở bộ phân loại, và chỉ bật ở các bước sau nếu eval cho thấy khoảng cách độ chính xác đo được sau khi đã cải thiện prompt"
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "Thinking tokens are billed as output and add latency, so the course says to run evals without extended thinking first and enable it only when a measured accuracy gap remains after prompt work; enabling it on a routing classifier is a named anti-pattern. 'It can't hurt' is the assumption the course rejects, and lowering max_tokens risks truncation without removing the waste.",
+    "explanation_vi": "Thinking token được tính như output và thêm latency, nên khóa học yêu cầu chạy eval không có extended thinking trước và chỉ bật khi vẫn còn khoảng cách độ chính xác đo được sau khi cải thiện prompt; bật nó cho bộ phân loại định tuyến là anti-pattern được nêu rõ. 'Không thể có hại' chính là giả định mà khóa học bác bỏ, còn giảm max_tokens có rủi ro bị cắt cụt mà không loại bỏ được lãng phí.",
+    "source": "output/08_Model_Context_Strategy.md"
+  },
+  {
+    "id": 27,
+    "topic": "Governance, Safety & Risk Management (14%)",
+    "objective": "Implement guardrails and safety controls",
+    "lessonId": "d5-t1",
+    "question": "A payments company wants its dispute agent to decide whether a chargeback reversal is permitted. An engineer proposes asking a second Claude call, 'Given this user and transaction, is this reversal allowed?', and executing if the answer is yes. Internal audit must later be able to explain why any single reversal was allowed. What should the architect require instead?",
+    "question_vi": "Một công ty thanh toán muốn agent xử lý khiếu nại quyết định một lệnh đảo chargeback có được phép không. Một kỹ sư đề xuất gọi thêm một lần Claude, 'Với người dùng và giao dịch này, việc đảo có được phép không?', và thực thi nếu câu trả lời là có. Sau này audit nội bộ phải giải thích được vì sao từng lệnh đảo được cho phép. Architect nên yêu cầu gì thay vào đó?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "A deterministic allowlist with identity and scope checks from the session that can be replayed.",
+        "text_vi": "Một allowlist deterministic kèm kiểm tra identity và scope lấy từ session, có thể phát lại được."
+      },
+      {
+        "key": "B",
+        "text": "Sampled human review of reversals each week to confirm the model's permission decisions.",
+        "text_vi": "Sampled review của con người với các lệnh đảo mỗi tuần để xác nhận quyết định cấp quyền của model."
+      },
+      {
+        "key": "C",
+        "text": "Use the most capable model for the second call and log its full reasoning for the auditors.",
+        "text_vi": "Dùng model mạnh nhất cho lần gọi thứ hai và log toàn bộ lập luận của nó cho auditor."
+      },
+      {
+        "key": "D",
+        "text": "Run the permission question three times and execute only when all three answers agree.",
+        "text_vi": "Hỏi câu về quyền ba lần và chỉ thực thi khi cả ba câu trả lời thống nhất."
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "Authorization must be a decision you can prove and replay, so it should be deterministic: an allowlist plus identity and scope taken from the authenticated session. A stronger model, logged reasoning or majority voting remain probabilistic and cannot be replayed with certainty. Weekly sampled review monitors the system after the fact and does not gate individual reversals.",
+    "explanation_vi": "Authorization phải là quyết định bạn chứng minh và phát lại được, nên nó phải deterministic: allowlist cộng identity và scope lấy từ session đã xác thực. Model mạnh hơn, log lập luận hay biểu quyết đa số vẫn mang tính xác suất và không thể phát lại một cách chắc chắn. Sampled review hằng tuần giám sát hệ thống sau sự việc và không chặn từng lệnh đảo.",
+    "source": "output_3/03_Guardrails_and_Failure_Modes.md"
+  },
+  {
+    "id": 28,
+    "topic": "Stakeholder Communication & Lifecycle Management (14%)",
+    "objective": "Support lifecycle phases (discovery, design, handoff, monitoring, iteration)",
+    "lessonId": "d6-t5",
+    "question": "A university library's research-assistant pilot has run for nine months with 200 users. Each quarterly review ends with 'let's keep piloting a bit longer.' No exit criteria were ever defined, and the sponsor is losing patience with the project. What should the Architect introduce?",
+    "question_vi": "Pilot trợ lý nghiên cứu của một thư viện đại học đã chạy chín tháng với 200 người dùng. Mỗi buổi review hàng quý đều kết thúc bằng 'hãy pilot thêm một chút nữa'. Chưa từng có tiêu chí kết thúc nào được xác định, và sponsor đang mất kiên nhẫn với dự án. Architect nên đưa ra điều gì?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "A recommendation to end the project, since a pilot that has not concluded in nine months has failed.",
+        "text_vi": "Khuyến nghị kết thúc dự án, vì một pilot chưa kết thúc sau chín tháng là đã thất bại."
+      },
+      {
+        "key": "B",
+        "text": "Explicit pilot exit criteria: eval acceptance results, cost forecast at production volume within envelope, and controls operating.",
+        "text_vi": "Tiêu chí kết thúc pilot tường minh: kết quả eval đạt acceptance, chi phí dự báo ở production volume trong envelope, và control đang hoạt động."
+      },
+      {
+        "key": "C",
+        "text": "A decision to expand to all students now, since nine months of operation is sufficient evidence.",
+        "text_vi": "Quyết định mở rộng cho toàn bộ sinh viên ngay, vì chín tháng vận hành là bằng chứng đủ."
+      },
+      {
+        "key": "D",
+        "text": "A user satisfaction survey, with expansion approved if most pilot users rate the assistant highly.",
+        "text_vi": "Một khảo sát mức độ hài lòng, phê duyệt mở rộng nếu phần lớn người dùng pilot đánh giá cao trợ lý."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "An open-ended pilot with no exit criteria is a recognised trap; the pilot gate is defined by meeting acceptance criteria on the eval, a production-volume cost forecast within the envelope and operating controls. Expanding or cancelling without a gate both decide on duration rather than evidence. Satisfaction surveys do not measure quality against acceptance criteria or cost at scale.",
+    "explanation_vi": "Một pilot không có hồi kết và không có tiêu chí kết thúc là cái bẫy đã được nhận diện; gate của pilot được xác định bởi việc đạt acceptance criteria trên eval, dự báo chi phí ở production volume trong envelope và control đang hoạt động. Mở rộng hay hủy bỏ khi không có gate đều là quyết định dựa trên thời gian thay vì bằng chứng. Khảo sát hài lòng không đo chất lượng theo acceptance criteria hay chi phí ở quy mô thật.",
+    "source": "output_4/10_Supplement_SLOs_Expectations_Handoff_and_Rollout.md"
+  },
+  {
+    "id": 29,
+    "topic": "Governance, Safety & Risk Management (14%)",
+    "objective": "Implement guardrails and safety controls",
+    "lessonId": "d5-t1",
+    "question": "A SaaS company's platform team audits a community skill that formats invoices as PDFs. The bundle contains an HTTP call to an unknown host that is not needed for formatting; everything else matches the stated purpose. The finance team needs the skill this quarter. Which audit outcome best follows the course's guidance?",
+    "question_vi": "Đội platform của một công ty SaaS audit một skill cộng đồng dùng để định dạng hóa đơn thành PDF. Bundle chứa một lời gọi HTTP tới một host lạ, không cần cho việc định dạng; mọi thứ khác khớp với mục đích khai báo. Đội tài chính cần skill này trong quý này. Kết quả audit nào phù hợp nhất với hướng dẫn của khóa học?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "Approve it with a system-prompt note telling Claude not to let the skill contact external hosts.",
+        "text_vi": "Approve kèm một ghi chú trong system prompt bảo Claude không để skill liên lạc host bên ngoài."
+      },
+      {
+        "key": "B",
+        "text": "Approve it, because the marketplace's automated scanning already vetted the bundle on upload.",
+        "text_vi": "Approve, vì cơ chế quét tự động của marketplace đã kiểm duyệt bundle khi tải lên."
+      },
+      {
+        "key": "C",
+        "text": "Record a remediate verdict: strip the call, run it sandboxed with least privilege, then re-audit.",
+        "text_vi": "Ghi verdict remediate: gỡ lời gọi đó, chạy trong sandbox với least privilege, rồi audit lại."
+      },
+      {
+        "key": "D",
+        "text": "Approve it, and rely on output monitoring to flag any unexpected network traffic at runtime.",
+        "text_vi": "Approve, và dựa vào output monitoring để gắn cờ mọi lưu lượng mạng bất thường lúc runtime."
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "An out-of-scope network call is a finding against the skill's stated purpose; a fixable problem gets a recorded remediate verdict (strip the call, sandbox, pin a safer version) followed by re-audit. Output monitoring only sees effects after the code has run. The course warns not to assume the platform screens skills for you, and a prompt note cannot constrain code that executes on invocation.",
+    "explanation_vi": "Một lời gọi mạng ngoài phạm vi là finding so với mục đích khai báo của skill; một vấn đề sửa được nhận verdict remediate được ghi lại (gỡ lời gọi, sandbox, pin phiên bản an toàn hơn) rồi audit lại. Output monitoring chỉ thấy hậu quả sau khi code đã chạy. Khóa học cảnh báo đừng giả định nền tảng đã quét skill giúp bạn, và một ghi chú trong prompt không ràng buộc được code thực thi ngay khi được gọi.",
+    "source": "output_3/03_Guardrails_and_Failure_Modes.md"
+  },
+  {
+    "id": 30,
+    "topic": "Solution Design & Architecture (17%)",
+    "objective": "Design end-to-end architectures (input → processing → output → feedback loops)",
+    "lessonId": "d1-t2",
+    "question": "An e-commerce platform combines a routing workflow for common customer intents with an agentic investigation loop for complex disputes. The team reports one overall eval score of 92 percent and plans to monitor only that number. They also suggest adding a third reference architecture 'in case new needs appear'. Which two statements reflect the course's guidance? (Choose TWO.)",
+    "question_vi": "Một nền tảng thương mại điện tử kết hợp routing workflow cho các intent phổ biến với một agentic investigation loop cho tranh chấp phức tạp. Đội báo cáo một điểm eval tổng 92 phần trăm và định chỉ theo dõi con số đó. Họ cũng đề xuất thêm một reference architecture thứ ba 'phòng khi có nhu cầu mới'. Hai phát biểu nào phản ánh đúng hướng dẫn của khóa học? (Chọn HAI đáp án.)",
+    "type": "multiple",
+    "selectCount": 2,
+    "options": [
+      {
+        "key": "A",
+        "text": "Adding more reference architectures reduces maintenance surface, because each component becomes simpler.",
+        "text_vi": "Thêm nhiều reference architecture làm giảm bề mặt bảo trì, vì mỗi thành phần trở nên đơn giản hơn."
+      },
+      {
+        "key": "B",
+        "text": "A single combined eval set is preferable, because it reflects the end-user experience across both parts.",
+        "text_vi": "Một eval set chung là tốt hơn, vì nó phản ánh trải nghiệm người dùng cuối trên cả hai phần."
+      },
+      {
+        "key": "C",
+        "text": "Combining patterns is justified when the parts break in different ways worth managing separately, not to defer an undecided design.",
+        "text_vi": "Kết hợp pattern là hợp lý khi các phần hỏng theo những cách khác nhau đáng quản lý riêng, không phải để trì hoãn một thiết kế chưa quyết."
+      },
+      {
+        "key": "D",
+        "text": "Each composed architecture needs its own eval set, because a healthy top-level score can mask a failing component.",
+        "text_vi": "Mỗi kiến trúc được kết hợp cần eval set riêng, vì điểm tổng tốt có thể che giấu một thành phần đang hỏng."
+      },
+      {
+        "key": "E",
+        "text": "A third architecture should be added now, since composing patterns early prevents expensive pivots later.",
+        "text_vi": "Nên thêm kiến trúc thứ ba ngay bây giờ, vì kết hợp pattern sớm giúp tránh pivot tốn kém về sau."
       }
     ],
     "answer": [
       "C",
       "D"
     ],
-    "explanation": "Both controls are necessary: evaluate task correctness using representative held-out scenarios; and track operational guardrails such as high-severity failures and tail latency. Model instructions alone do not substitute for enforceable controls.",
-    "question_vi": "Tại một nhóm sản xuất Nhật Bản, một dự án thí điểm AI (AI pilot) xử lý hồ sơ kiểm tra chất lượng từ MES của nhà máy; việc ký duyệt (sign-off) bắt buộc của nhà điều hành là một yêu cầu không thể thương lượng. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 28 trường hợp thử nghiệm đại diện. HAI biện pháp kiểm soát nào là quan trọng nhất để vận hành quy trình công việc này một cách an toàn và có trách nhiệm? (Chọn HAI.)",
-    "explanation_vi": "Cả hai biện pháp kiểm soát đều cần thiết: đánh giá tính chính xác của nhiệm vụ bằng cách sử dụng các kịch bản được đưa ra mang tính đại diện; và theo dõi các rào cản vận hành như lỗi ở mức độ nghiêm trọng cao và độ trễ ở đuôi. Chỉ hướng dẫn mô hình không thể thay thế cho các biện pháp kiểm soát có thể thực thi được."
-  },
-  {
-    "id": 30,
-    "topic": "Governance, Safety & Risk Management (14%)",
-    "question": "A regulated delivery team at an insurance carrier is integrating policy and claim files into claims processing platform; its operational mandate includes regulated evidence retention. The workload is assessed in rollout cohort 5 with 33 representative test cases. Which TWO controls are most important for secure and accountable operation of this workflow? (Choose TWO.)",
-    "type": "multiple",
-    "options": [
-      {
-        "key": "A",
-        "text": "Retain auditable evidence of reviews, exceptions, and privileged actions",
-        "text_vi": "Giữ lại bằng chứng có thể kiểm tra được về các đánh giá, ngoại lệ và hành động đặc quyền"
-      },
-      {
-        "key": "B",
-        "text": "Add a footnote saying 'AI generated' and assume that is sufficient",
-        "text_vi": "Thêm chú thích có nội dung 'AI được tạo' và cho rằng thế là đủ"
-      },
-      {
-        "key": "C",
-        "text": "Accept citations that look plausible",
-        "text_vi": "Chấp nhận các trích dẫn có vẻ hợp lý"
-      },
-      {
-        "key": "D",
-        "text": "Enforce access-control and data-handling policies independently of model prompts",
-        "text_vi": "Thực thi các chính sách kiểm soát truy cập và xử lý dữ liệu độc lập với prompt mô hình"
-      }
-    ],
-    "answer": [
-      "A",
-      "D"
-    ],
-    "explanation": "Both controls are necessary: enforce access-control and data-handling policies independently of model prompts; and retain auditable evidence of reviews, exceptions, and privileged actions. Model instructions alone do not substitute for enforceable controls.",
-    "question_vi": "Nhóm phân phối được quản lý tại một hãng bảo hiểm đang tích hợp các hồ sơ chính sách và yêu cầu bồi thường vào nền tảng xử lý yêu cầu bồi thường; nhiệm vụ hoạt động của nó bao gồm việc lưu giữ bằng chứng theo quy định. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 33 trường hợp thử nghiệm đại diện. HAI biện pháp kiểm soát nào là quan trọng nhất để vận hành quy trình công việc này một cách an toàn và có trách nhiệm? (Chọn HAI.)",
-    "explanation_vi": "Cả hai biện pháp kiểm soát đều cần thiết: thực thi các chính sách kiểm soát truy cập và xử lý dữ liệu một cách độc lập với prompt của mô hình; và lưu giữ bằng chứng có thể kiểm tra được về các đánh giá, ngoại lệ và hành động đặc quyền. Chỉ hướng dẫn mô hình không thể thay thế cho các biện pháp kiểm soát có thể thực thi được."
+    "explanation": "Each reference architecture carries its own eval contract, so composed systems need separate eval sets, and a second pattern is warranted only when the parts fail differently. A single combined score hides component failures, composing architectures roughly doubles the surface to maintain rather than reducing it, and adding a pattern for unknown future needs defers a design decision instead of applying a pattern.",
+    "explanation_vi": "Mỗi reference architecture mang eval contract riêng, nên hệ thống kết hợp cần eval set riêng, và một pattern thứ hai chỉ hợp lý khi các phần hỏng theo cách khác nhau. Một điểm tổng chung che giấu lỗi thành phần, kết hợp kiến trúc gần như nhân đôi bề mặt bảo trì chứ không giảm, còn thêm pattern cho nhu cầu tương lai chưa biết là trì hoãn quyết định thiết kế thay vì áp dụng pattern.",
+    "source": "output/06_Reference_Architectures.md"
   },
   {
     "id": 31,
-    "topic": "Governance, Safety & Risk Management (14%)",
-    "question": "During a production-readiness review at a government procurement office, the architects examine purchase approval records connected to the procurement workflow, with formal reviewer approval. The workload is assessed in rollout cohort 5 with 26 representative test cases. A clinical summarizer assists clinicians but must not autonomously change treatments. Which control fits?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Allow a patient prompt to override clinical authorization",
-        "text_vi": "Cho phép prompt của bệnh nhân ghi đè ủy quyền lâm sàng"
-      },
-      {
-        "key": "B",
-        "text": "Permit treatment changes when Claude reports high confidence",
-        "text_vi": "Cho phép thay đổi cách điều trị khi Claude báo cáo mức độ tin cậy cao"
-      },
-      {
-        "key": "C",
-        "text": "Require licensed human review before any clinical order is committed",
-        "text_vi": "Yêu cầu đánh giá của con người được cấp phép trước khi thực hiện bất kỳ lệnh lâm sàng nào"
-      },
-      {
-        "key": "D",
-        "text": "Hide uncertainty to preserve clinician trust",
-        "text_vi": "Che giấu sự không chắc chắn để duy trì niềm tin của bác sĩ lâm sàng"
-      }
-    ],
-    "answer": [
-      "C"
-    ],
-    "explanation": "High-impact decisions require accountable human review and clear decision authority.",
-    "question_vi": "Trong quá trình đánh giá mức độ sẵn sàng sản xuất tại văn phòng mua sắm của chính phủ, các kiến ​​trúc sư kiểm tra hồ sơ phê duyệt mua hàng được kết nối với quy trình mua sắm với sự chấp thuận của người đánh giá chính thức. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 26 trường hợp thử nghiệm đại diện. Trình tóm tắt lâm sàng hỗ trợ các bác sĩ lâm sàng nhưng không được tự động thay đổi phương pháp điều trị. Điều khiển nào phù hợp?",
-    "explanation_vi": "Các quyết định có tác động cao đòi hỏi sự xem xét có trách nhiệm của con người và thẩm quyền quyết định rõ ràng."
-  },
-  {
-    "id": 32,
-    "topic": "Integration (19%)",
-    "question": "An incident review at a regional hospital network focuses on AI handling of patient discharge letters in the clinical records system; stakeholders insist on strict clinical authorization. The workload is assessed in rollout cohort 5 with 31 representative test cases. An agent invokes a slow external CRM and users experience stalled requests. What is the best integration design?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Remove all trace IDs to save latency",
-        "text_vi": "Xóa tất cả ID theo dõi để tiết kiệm độ trễ"
-      },
-      {
-        "key": "B",
-        "text": "Retry indefinitely without a deadline",
-        "text_vi": "Thử lại vô thời hạn mà không có thời hạn"
-      },
-      {
-        "key": "C",
-        "text": "Increase output temperature",
-        "text_vi": "Tăng nhiệt độ đầu ra"
-      },
-      {
-        "key": "D",
-        "text": "Use deadlines, bounded retries with backoff, and a visible fallback or async continuation",
-        "text_vi": "Sử dụng thời hạn, số lần thử có giới hạn với thời gian chờ và dự phòng rõ ràng hoặc tiếp tục không đồng bộ"
-      }
-    ],
-    "answer": [
-      "D"
-    ],
-    "explanation": "External dependencies require timeouts, retry limits, and explicit degradation behavior.",
-    "question_vi": "Đánh giá sự cố tại mạng lưới bệnh viện khu vực tập trung vào việc xử lý AI thư xuất viện của bệnh nhân trong hệ thống hồ sơ lâm sàng; các bên liên quan nhấn mạnh vào sự cho phép lâm sàng nghiêm ngặt. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 31 trường hợp thử nghiệm đại diện. Một tác nhân gọi CRM bên ngoài chậm và người dùng gặp phải tình trạng yêu cầu bị đình trệ. Thiết kế tích hợp tốt nhất là gì?",
-    "explanation_vi": "Các phần phụ thuộc bên ngoài yêu cầu hết thời gian chờ, giới hạn thử lại và hành vi xuống cấp rõ ràng."
-  },
-  {
-    "id": 33,
-    "topic": "Developer Productivity & Operational Enablement (7%)",
-    "question": "At a Japanese manufacturing group, an AI pilot processes quality-inspection records from the factory MES; mandatory operator sign-off is a non-negotiable requirement. The workload is assessed in rollout cohort 5 with 25 representative test cases. An engineer uses an agent to refactor a security-sensitive module. What is a safe review pattern?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Merge without inspecting dependency changes",
-        "text_vi": "Hợp nhất mà không kiểm tra các thay đổi phụ thuộc"
-      },
-      {
-        "key": "B",
-        "text": "Approve because the patch has many lines",
-        "text_vi": "Phê duyệt vì bản vá có nhiều dòng"
-      },
-      {
-        "key": "C",
-        "text": "Give the agent unrestricted credentials",
-        "text_vi": "Cung cấp cho đại lý thông tin xác thực không hạn chế"
-      },
-      {
-        "key": "D",
-        "text": "Constrain file scope, require tests, inspect diffs, and obtain independent security review",
-        "text_vi": "Giới hạn phạm vi tệp, yêu cầu kiểm tra, kiểm tra sự khác biệt và nhận được đánh giá bảo mật độc lập"
-      }
-    ],
-    "answer": [
-      "D"
-    ],
-    "explanation": "Coding agents accelerate edits but do not transfer accountability for secure changes.",
-    "question_vi": "Tại một nhóm sản xuất Nhật Bản, một dự án thí điểm AI (AI pilot) xử lý hồ sơ kiểm tra chất lượng từ MES của nhà máy; việc ký duyệt (sign-off) bắt buộc của nhà điều hành là một yêu cầu không thể thương lượng. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 25 trường hợp thử nghiệm đại diện. Một kỹ sư sử dụng tác nhân để cấu trúc lại mô-đun nhạy cảm về bảo mật. Mô hình đánh giá an toàn là gì?",
-    "explanation_vi": "Tác nhân mã hóa tăng tốc chỉnh sửa nhưng không chuyển giao trách nhiệm giải trình cho những thay đổi an toàn."
-  },
-  {
-    "id": 34,
-    "topic": "Governance, Safety & Risk Management (14%)",
-    "question": "The architecture board of a logistics provider evaluates cross-border shipment exceptions workflows in transport management system, prioritizing intermittent connectivity. The workload is assessed in rollout cohort 5 with 31 representative test cases. A financial assistant proposes changes to an approval threshold. Which audit linkage is critical?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "The exact proposed diff, source revision, approver identity, and executed version",
-        "text_vi": "Khác biệt được đề xuất chính xác, bản sửa đổi nguồn, danh tính người phê duyệt và phiên bản được thực thi"
-      },
-      {
-        "key": "B",
-        "text": "Only the prompt title",
-        "text_vi": "Chỉ có tiêu đề gợi ý"
-      },
-      {
-        "key": "C",
-        "text": "Only a numeric confidence score",
-        "text_vi": "Chỉ có điểm tin cậy bằng số"
-      },
-      {
-        "key": "D",
-        "text": "Only the model name without artifact versions",
-        "text_vi": "Chỉ có tên mẫu máy không có phiên bản tạo tác"
-      }
-    ],
-    "answer": [
-      "A"
-    ],
-    "explanation": "Change governance requires immutable linkage from proposal through authorization to applied artifact.",
-    "question_vi": "Hội đồng kiến ​​trúc của nhà cung cấp dịch vụ hậu cần đánh giá các quy trình ngoại lệ đối với lô hàng xuyên biên giới trong hệ thống quản lý vận tải, ưu tiên kết nối không liên tục. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 31 trường hợp thử nghiệm đại diện. Một trợ lý tài chính đề xuất những thay đổi đối với ngưỡng phê duyệt. Mối liên kết kiểm toán nào là quan trọng?",
-    "explanation_vi": "Quản trị thay đổi yêu cầu mối liên kết bất biến từ đề xuất thông qua ủy quyền đến tạo phẩm được áp dụng."
-  },
-  {
-    "id": 35,
-    "topic": "Evaluation, Testing & Optimization (16%)",
-    "question": "A regulated delivery team at an insurance carrier is integrating policy and claim files into claims processing platform; its operational mandate includes regulated evidence retention. The workload is assessed in rollout cohort 5 with 34 representative test cases. An online A/B test shows higher conversion but also more unapproved external actions. What should leadership do?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Evaluate only the most recent ten requests",
-        "text_vi": "Chỉ đánh giá mười yêu cầu gần đây nhất"
-      },
-      {
-        "key": "B",
-        "text": "Ignore unapproved actions if no complaint was filed",
-        "text_vi": "Bỏ qua các hành động không được chấp thuận nếu không có khiếu nại nào được gửi"
-      },
-      {
-        "key": "C",
-        "text": "Treat unsafe-action rate as a release guardrail and halt or roll back the experiment",
-        "text_vi": "Coi tỷ lệ hành động không an toàn như một rào cản giải phóng và tạm dừng hoặc lùi thử nghiệm"
-      },
-      {
-        "key": "D",
-        "text": "Ship because conversion increased",
-        "text_vi": "Giao hàng vì chuyển đổi tăng lên"
-      }
-    ],
-    "answer": [
-      "C"
-    ],
-    "explanation": "Safety and authorization guardrails constrain business metric optimization.",
-    "question_vi": "Nhóm phân phối được quản lý tại một hãng bảo hiểm đang tích hợp các hồ sơ chính sách và yêu cầu bồi thường vào nền tảng xử lý yêu cầu bồi thường; nhiệm vụ hoạt động của nó bao gồm việc lưu giữ bằng chứng theo quy định. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 34 trường hợp thử nghiệm đại diện. Thử nghiệm A/B trực tuyến cho thấy tỷ lệ chuyển đổi cao hơn nhưng cũng có nhiều hành động bên ngoài không được phê duyệt hơn. Lãnh đạo nên làm gì?",
-    "explanation_vi": "Các biện pháp bảo vệ an toàn và ủy quyền hạn chế việc tối ưu hóa số liệu kinh doanh."
-  },
-  {
-    "id": 36,
     "topic": "Claude Models, Prompting & Context Engineering (13%)",
-    "question": "A senior architect advising a public university considers a Claude workflow around student service inquiries and campus management platform with strict student data access. The workload is assessed in rollout cohort 5 with 25 representative test cases. An application must quote exact legal clauses with page references. Which context representation is preferable?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Provide uncited paraphrases as legal proof",
-        "text_vi": "Cung cấp các diễn giải không được trích dẫn làm bằng chứng pháp lý"
-      },
-      {
-        "key": "B",
-        "text": "Use a high-confidence adjective in every answer",
-        "text_vi": "Sử dụng tính từ có độ tin cậy cao trong mọi câu trả lời"
-      },
-      {
-        "key": "C",
-        "text": "Ask the model to invent line numbers for convenience",
-        "text_vi": "Yêu cầu người mẫu phát minh ra số dòng cho tiện"
-      },
-      {
-        "key": "D",
-        "text": "Retrieve bounded source passages with stable document and page identifiers",
-        "text_vi": "Truy xuất các đoạn nguồn bị giới hạn với số nhận dạng trang và tài liệu ổn định"
-      }
-    ],
-    "answer": [
-      "D"
-    ],
-    "explanation": "Source traceability requires real locators and evidence-linked quotations.",
-    "question_vi": "Một kiến ​​trúc sư cấp cao tư vấn cho một trường đại học công lập đang xem xét quy trình làm việc của Claude xoay quanh các yêu cầu về dịch vụ sinh viên và nền tảng quản lý khuôn viên trường với quyền truy cập dữ liệu sinh viên nghiêm ngặt. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 25 trường hợp thử nghiệm đại diện. Một ứng dụng phải trích dẫn các điều khoản pháp lý chính xác với các trang tham khảo. Đại diện bối cảnh nào là thích hợp hơn?",
-    "explanation_vi": "Truy xuất nguồn gốc đòi hỏi phải có người định vị thực tế và trích dẫn liên kết với bằng chứng."
-  },
-  {
-    "id": 37,
-    "topic": "Governance, Safety & Risk Management (14%)",
-    "question": "A senior architect advising a public university considers a Claude workflow around student service inquiries and campus management platform with strict student data access. The workload is assessed in rollout cohort 5 with 32 representative test cases. A team tests an agent against malicious documents. What would make the red-team exercise meaningful?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Exclude realistic tool and credential access from tests",
-        "text_vi": "Loại trừ công cụ thực tế và quyền truy cập thông tin xác thực khỏi các bài kiểm tra"
-      },
-      {
-        "key": "B",
-        "text": "Test cross-boundary instruction attacks and verify that enforced policies block privileged actions",
-        "text_vi": "Kiểm tra các cuộc tấn công hướng dẫn xuyên biên giới và xác minh rằng các chính sách được thực thi sẽ chặn các hành động đặc quyền"
-      },
-      {
-        "key": "C",
-        "text": "Evaluate only grammatical correctness",
-        "text_vi": "Chỉ đánh giá tính đúng ngữ pháp"
-      },
-      {
-        "key": "D",
-        "text": "Ask the agent whether it would be safe",
-        "text_vi": "Hỏi đại lý xem nó có an toàn không"
-      }
-    ],
-    "answer": [
-      "B"
-    ],
-    "explanation": "Threat-informed tests must exercise actual trust boundaries and enforcement mechanisms.",
-    "question_vi": "Một kiến ​​trúc sư cấp cao tư vấn cho một trường đại học công lập đang xem xét quy trình làm việc của Claude xoay quanh các yêu cầu về dịch vụ sinh viên và nền tảng quản lý khuôn viên trường với quyền truy cập dữ liệu sinh viên nghiêm ngặt. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 32 trường hợp thử nghiệm đại diện. Một nhóm kiểm tra một tác nhân trước các tài liệu độc hại. Điều gì làm cho cuộc tập trận của đội đỏ có ý nghĩa?",
-    "explanation_vi": "Các thử nghiệm nhận biết mối đe dọa phải thực hiện các ranh giới tin cậy thực tế và cơ chế thực thi."
-  },
-  {
-    "id": 38,
-    "topic": "Evaluation, Testing & Optimization (16%)",
-    "question": "During a production-readiness review at a government procurement office, the architects examine purchase approval records connected to the procurement workflow, with formal reviewer approval. The workload is assessed in rollout cohort 5 with 27 representative test cases. A RAG assistant cites sources that do not support its claims. What metric should be evaluated?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Claim-level groundedness against retrieved evidence",
-        "text_vi": "Căn cứ ở cấp độ yêu cầu bồi thường đối với bằng chứng được truy xuất"
-      },
-      {
-        "key": "B",
-        "text": "Only similarity between the user prompt and query embedding",
-        "text_vi": "Chỉ có sự giống nhau giữa prompt của người dùng và việc nhúng truy vấn"
-      },
-      {
-        "key": "C",
-        "text": "Only whether the response is fluent",
-        "text_vi": "Chỉ liệu câu trả lời có trôi chảy hay không"
-      },
-      {
-        "key": "D",
-        "text": "Only output length",
-        "text_vi": "Chỉ có chiều dài đầu ra"
-      }
-    ],
-    "answer": [
-      "A"
-    ],
-    "explanation": "Citations are meaningful only when the cited passages support the claims.",
-    "question_vi": "Trong quá trình đánh giá mức độ sẵn sàng sản xuất tại văn phòng mua sắm của chính phủ, các kiến ​​trúc sư kiểm tra hồ sơ phê duyệt mua hàng được kết nối với quy trình mua sắm với sự chấp thuận của người đánh giá chính thức. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 27 trường hợp thử nghiệm đại diện. Trợ lý của RAG trích dẫn các nguồn không hỗ trợ cho tuyên bố của mình. Số liệu nào cần được đánh giá?",
-    "explanation_vi": "Các trích dẫn chỉ có ý nghĩa khi các đoạn trích dẫn hỗ trợ cho các tuyên bố."
-  },
-  {
-    "id": 39,
-    "topic": "Stakeholder Communication & Lifecycle Management (14%)",
-    "question": "A regulated delivery team at an insurance carrier is integrating policy and claim files into claims processing platform; its operational mandate includes regulated evidence retention. The workload is assessed in rollout cohort 5 with 32 representative test cases. A pilot demonstrates productivity gains but workers spend more time correcting outputs. What should be reported?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Only number of requests generated",
-        "text_vi": "Chỉ có số lượng yêu cầu được tạo"
-      },
-      {
-        "key": "B",
-        "text": "Net operational benefit, including review and rework time, with representative user feedback",
-        "text_vi": "Lợi ích hoạt động ròng, bao gồm thời gian xem xét và làm lại, với phản hồi đại diện của người dùng"
-      },
-      {
-        "key": "C",
-        "text": "Only number of features deployed",
-        "text_vi": "Chỉ có số tính năng được triển khai"
-      },
-      {
-        "key": "D",
-        "text": "Only average output length",
-        "text_vi": "Chỉ có chiều dài đầu ra trung bình"
-      }
-    ],
-    "answer": [
-      "B"
-    ],
-    "explanation": "Business value includes complete workflow cost and human effort.",
-    "question_vi": "Nhóm phân phối được quản lý tại một hãng bảo hiểm đang tích hợp các hồ sơ chính sách và yêu cầu bồi thường vào nền tảng xử lý yêu cầu bồi thường; nhiệm vụ hoạt động của nó bao gồm việc lưu giữ bằng chứng theo quy định. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 32 trường hợp thử nghiệm đại diện. Một thí điểm cho thấy năng suất tăng nhưng công nhân lại mất nhiều thời gian hơn để điều chỉnh kết quả đầu ra. Cần báo cáo những gì?",
-    "explanation_vi": "Giá trị kinh doanh bao gồm toàn bộ chi phí của quy trình làm việc và nỗ lực của con người."
-  },
-  {
-    "id": 40,
-    "topic": "Stakeholder Communication & Lifecycle Management (14%)",
-    "question": "For the next release, a multinational bank will connect Claude to core banking platform to work with corporate credit applications under auditable financial controls. The workload is assessed in rollout cohort 5 with 29 representative test cases. A customer requests an architecture change during a regulated pilot. What should happen?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Ask Claude to sign off for all stakeholders",
-        "text_vi": "Yêu cầu Claude phê duyệt cho tất cả các bên liên quan"
-      },
-      {
-        "key": "B",
-        "text": "Apply it without revisiting risk controls",
-        "text_vi": "Áp dụng nó mà không cần xem lại các biện pháp kiểm soát rủi ro"
-      },
-      {
-        "key": "C",
-        "text": "Implement it silently to keep momentum",
-        "text_vi": "Âm thầm thực hiện để giữ đà"
-      },
-      {
-        "key": "D",
-        "text": "Capture the change request, impact analysis, approval, updated tests, and versioned decision record",
-        "text_vi": "Nắm bắt yêu cầu thay đổi, phân tích tác động, phê duyệt, kiểm tra cập nhật và hồ sơ quyết định theo phiên bản"
-      }
-    ],
-    "answer": [
-      "D"
-    ],
-    "explanation": "Change management preserves agreement, compliance, and traceability.",
-    "question_vi": "Trong lần phát hành tiếp theo, một ngân hàng đa quốc gia sẽ kết nối Claude với nền tảng ngân hàng cốt lõi để hoạt động với các ứng dụng tín dụng doanh nghiệp dưới sự kiểm soát tài chính có thể kiểm toán được. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 29 trường hợp thử nghiệm đại diện. Khách hàng yêu cầu thay đổi kiến ​​trúc trong quá trình thí điểm được quản lý. Điều gì sẽ xảy ra?",
-    "explanation_vi": "Quản lý thay đổi duy trì thỏa thuận, tuân thủ và truy xuất nguồn gốc."
-  },
-  {
-    "id": 41,
-    "topic": "Integration (19%)",
-    "question": "During a production-readiness review at a government procurement office, the architects examine purchase approval records connected to the procurement workflow, with formal reviewer approval. The workload is assessed in rollout cohort 5 with 28 representative test cases. Which TWO controls are most important for secure and accountable operation of this workflow? (Choose TWO.)",
+    "objective": "Implement prompt reuse strategies (caching, modular prompts, Skills)",
+    "lessonId": "d2-t5",
+    "question": "An insurer must summarize 150,000 claim notes every night, with results needed by the start of the next business day. Every request begins with the same 6,000-token instruction block followed by one note. The data is not subject to special compliance restrictions. Which two cost levers are most appropriate? (Choose TWO.)",
+    "question_vi": "Một công ty bảo hiểm phải tóm tắt 150.000 ghi chú bồi thường mỗi đêm, kết quả cần có trước khi ngày làm việc tiếp theo bắt đầu. Mọi request bắt đầu bằng cùng một khối chỉ dẫn 6.000 token theo sau là một ghi chú. Dữ liệu không chịu hạn chế compliance đặc biệt nào. Hai đòn bẩy chi phí nào phù hợp nhất? (Chọn HAI đáp án.)",
     "type": "multiple",
+    "selectCount": 2,
     "options": [
       {
         "key": "A",
-        "text": "Enforce least-privilege authorization in the tool-execution service",
-        "text_vi": "Thực thi ủy quyền có đặc quyền tối thiểu trong dịch vụ thực thi công cụ"
+        "text": "Cache the static instruction block using explicit cache_control markers.",
+        "text_vi": "Cache khối chỉ dẫn tĩnh bằng cache_control marker tường minh."
       },
       {
         "key": "B",
-        "text": "One free-text field that the model interprets as the transaction",
-        "text_vi": "Một trường văn bản tự do mà mô hình hiểu là giao dịch"
+        "text": "Stream each response to reduce the token cost of every summary.",
+        "text_vi": "Stream từng response để giảm chi phí token của mỗi bản tóm tắt."
       },
       {
         "key": "C",
-        "text": "A prompt asking the model to confirm it is certain",
-        "text_vi": "prompt yêu cầu mô hình xác nhận rằng nó chắc chắn"
+        "text": "Raise max_tokens so that no summary ever needs to be regenerated.",
+        "text_vi": "Tăng max_tokens để không bản tóm tắt nào phải sinh lại."
       },
       {
         "key": "D",
-        "text": "Record correlated, redacted audit evidence for every external action",
-        "text_vi": "Ghi lại bằng chứng kiểm toán tương quan, được biên tập lại cho mọi hành động bên ngoài"
+        "text": "Process the notes through the Batch API, since the SLA allows asynchronous work.",
+        "text_vi": "Xử lý ghi chú qua Batch API, vì SLA cho phép xử lý bất đồng bộ."
+      },
+      {
+        "key": "E",
+        "text": "Enable extended thinking to make summaries more complete on first pass.",
+        "text_vi": "Bật extended thinking để bản tóm tắt đầy đủ hơn ngay lần đầu."
       }
     ],
     "answer": [
       "A",
       "D"
     ],
-    "explanation": "Both controls are necessary: enforce least-privilege authorization in the tool-execution service; and record correlated, redacted audit evidence for every external action. Model instructions alone do not substitute for enforceable controls.",
-    "question_vi": "Trong quá trình đánh giá mức độ sẵn sàng sản xuất tại văn phòng mua sắm của chính phủ, các kiến ​​trúc sư kiểm tra hồ sơ phê duyệt mua hàng được kết nối với quy trình mua sắm với sự chấp thuận của người đánh giá chính thức. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 28 trường hợp thử nghiệm đại diện. HAI biện pháp kiểm soát nào là quan trọng nhất để vận hành quy trình công việc này một cách an toàn và có trách nhiệm? (Chọn HAI.)",
-    "explanation_vi": "Cả hai biện pháp kiểm soát đều cần thiết: thực thi ủy quyền có đặc quyền tối thiểu trong dịch vụ thực thi công cụ; và ghi lại bằng chứng kiểm toán tương quan, được biên tập lại cho mọi hành động bên ngoài. Chỉ hướng dẫn mô hình không thể thay thế cho các biện pháp kiểm soát có thể thực thi được."
+    "explanation": "An overnight SLA permits asynchronous processing, which the course models as a substantial Batch API discount, and a long identical prefix reused across many requests is the classic prompt-caching case when marked with cache_control. Streaming improves perceived latency but not token cost, raising max_tokens can only increase output cost, and extended thinking adds billed output tokens without evidence of need.",
+    "explanation_vi": "SLA qua đêm cho phép xử lý bất đồng bộ, mà course mô hình hóa như một mức giảm giá đáng kể của Batch API, và một prefix dài giống hệt nhau được tái sử dụng qua nhiều request là trường hợp prompt caching kinh điển khi được đánh dấu bằng cache_control. Streaming cải thiện latency cảm nhận nhưng không giảm chi phí token, tăng max_tokens chỉ có thể làm tăng chi phí output, còn extended thinking thêm output token tính phí khi chưa có bằng chứng cần thiết.",
+    "source": "output_2/04_Sizing_and_Feasibility.md"
+  },
+  {
+    "id": 32,
+    "topic": "Claude Models, Prompting & Context Engineering (13%)",
+    "objective": "Implement prompt reuse strategies (caching, modular prompts, Skills)",
+    "lessonId": "d2-t5",
+    "question": "An insurer's compliance officer objects to enabling prompt caching on the claims-explanation assistant, arguing that customers might receive another customer's cached answer or a stale response. The prefix contains only the system prompt and policy wording. How should the architect respond?",
+    "question_vi": "Cán bộ compliance của một công ty bảo hiểm phản đối việc bật prompt caching cho trợ lý giải thích bồi thường, với lập luận khách hàng có thể nhận được câu trả lời được cache của khách hàng khác hoặc một response đã cũ. Prefix chỉ chứa system prompt và câu chữ chính sách. Architect nên phản hồi thế nào?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "Agree, and set the shortest TTL so any cached answer expires before it can be reused.",
+        "text_vi": "Đồng ý, và đặt TTL ngắn nhất để mọi câu trả lời được cache hết hạn trước khi có thể bị dùng lại."
+      },
+      {
+        "key": "B",
+        "text": "Explain that caching is safe because responses are encrypted before being stored.",
+        "text_vi": "Giải thích rằng caching an toàn vì response được mã hóa trước khi lưu."
+      },
+      {
+        "key": "C",
+        "text": "Agree, and limit caching to anonymous users so cached answers never contain personal data or account data.",
+        "text_vi": "Đồng ý, và giới hạn caching cho người dùng ẩn danh để câu trả lời được cache không bao giờ chứa dữ liệu cá nhân hay dữ liệu tài khoản."
+      },
+      {
+        "key": "D",
+        "text": "Explain that the cached item is the prompt prefix; each response is still generated fresh per request.",
+        "text_vi": "Giải thích rằng thứ được cache là prefix của prompt; mỗi response vẫn được sinh mới cho từng request."
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "The course is explicit that what is stored is the prompt prefix, not the response; responses are still generated fresh, so content is the same as without caching. Restricting users or shortening TTL addresses a risk that does not exist for a static prefix, and encryption of stored responses is irrelevant because responses are not what is cached. The real consistency risk arises only when live state sits in the cached prefix.",
+    "explanation_vi": "Course nói rõ thứ được lưu là prefix của prompt, không phải response; response vẫn được sinh mới, nên nội dung giống như khi không cache. Giới hạn người dùng hay rút ngắn TTL là xử lý một rủi ro không tồn tại với prefix tĩnh, còn mã hóa response đã lưu là không liên quan vì response không phải thứ được cache. Rủi ro nhất quán thực sự chỉ phát sinh khi trạng thái live nằm trong prefix được cache.",
+    "source": "output_2/03_POC_to_Production.md"
+  },
+  {
+    "id": 33,
+    "topic": "Integration (19%)",
+    "objective": "Evaluate tool/agent configuration for capability bloat",
+    "lessonId": "d3-t1",
+    "question": "A law firm's intake agent reads inbound emails from prospective clients and drafts summaries for paralegals. It also holds a forward_email tool that can send to any external address, added so the agent could 'route things faster'. A red-team email containing hidden instructions caused the agent to forward a confidential memo outside the firm. What is the best remediation?",
+    "question_vi": "Agent tiếp nhận của một công ty luật đọc email gửi đến từ khách hàng tiềm năng và soạn bản tóm tắt cho trợ lý luật sư. Agent còn có tool forward_email có thể gửi tới bất kỳ địa chỉ bên ngoài nào, được thêm vào để agent 'chuyển việc nhanh hơn'. Một email red-team chứa chỉ dẫn ẩn đã khiến agent chuyển tiếp một bản ghi nhớ mật ra ngoài công ty. Biện pháp khắc phục tốt nhất là gì?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "Remove the unrestricted forwarding tool; if routing is needed, allow only internal recipients via a constrained tool.",
+        "text_vi": "Gỡ tool chuyển tiếp không giới hạn; nếu cần định tuyến, chỉ cho phép người nhận nội bộ qua một tool bị ràng buộc."
+      },
+      {
+        "key": "B",
+        "text": "Switch to a larger model that is more resistant to instructions embedded in documents, tracked through the usual ticketing process.",
+        "text_vi": "Chuyển sang model lớn hơn, có khả năng chống lại chỉ dẫn nhúng trong tài liệu tốt hơn, được theo dõi qua quy trình ticket thông thường."
+      },
+      {
+        "key": "C",
+        "text": "Keep the tool and archive every forwarded message so that compliance can review it monthly.",
+        "text_vi": "Giữ tool và lưu trữ mọi thư được chuyển tiếp để bộ phận compliance review hằng tháng."
+      },
+      {
+        "key": "D",
+        "text": "Add a system-prompt instruction telling the agent to ignore any instructions found inside emails.",
+        "text_vi": "Thêm chỉ dẫn vào system prompt yêu cầu agent bỏ qua mọi chỉ dẫn nằm trong email."
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "Unused or overly broad tools are exactly what injected instructions exploit, so removing the unrestricted send capability, or narrowing it to constrained internal recipients, removes the path the attack used. A prompt instruction and a larger model both rely on the model to hold the line, which the course rejects as a security boundary. Monthly archive review is detective and the memo has already left the firm.",
+    "explanation_vi": "Tool thừa hoặc quá rộng chính là thứ mà chỉ dẫn bị chèn lợi dụng, nên gỡ năng lực gửi không giới hạn, hoặc thu hẹp thành người nhận nội bộ có ràng buộc, sẽ loại bỏ con đường mà cuộc tấn công đã dùng. Chỉ dẫn trong prompt và model lớn hơn đều dựa vào model để giữ ranh giới, điều mà khóa học bác bỏ với tư cách ranh giới bảo mật. Review lưu trữ hằng tháng là biện pháp phát hiện và bản ghi nhớ đã rời khỏi công ty.",
+    "source": "output/14_Supplement_Integration_Security_Observability.md"
+  },
+  {
+    "id": 34,
+    "topic": "Stakeholder Communication & Lifecycle Management (14%)",
+    "objective": "Support lifecycle phases (discovery, design, handoff, monitoring, iteration)",
+    "lessonId": "d6-t5",
+    "question": "After an impressive executive demo, a manufacturing group's CEO wants to extend its supplier-query assistant from one plant to all European plants. The deployment has run for five months; volume, latency and error-rate dashboards look healthy, but no before-and-after business metric or measurement owner exists. What gates the expansion decision?",
+    "question_vi": "Sau một buổi demo ấn tượng cho lãnh đạo, CEO của một tập đoàn sản xuất muốn mở rộng trợ lý tra cứu nhà cung cấp từ một nhà máy sang tất cả nhà máy ở châu Âu. Hệ thống đã chạy năm tháng; dashboard volume, latency và error rate trông tốt, nhưng chưa có business metric before-and-after hay owner đo lường. Điều gì là gate cho quyết định mở rộng?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "The successful executive demo, which shows leadership confidence in the assistant's capabilities.",
+        "text_vi": "Buổi demo thành công cho lãnh đạo, cho thấy sự tin tưởng của lãnh đạo vào năng lực của trợ lý."
+      },
+      {
+        "key": "B",
+        "text": "A completed outcome document with a before-and-after business metric, an auditable control and a measurement owner.",
+        "text_vi": "Một outcome document hoàn chỉnh với business metric before-and-after, control kiểm chứng được và owner đo lường."
+      },
+      {
+        "key": "C",
+        "text": "A signed budget approval from the European plants for their share of the inference costs.",
+        "text_vi": "Phê duyệt ngân sách có chữ ký từ các nhà máy châu Âu cho phần chi phí inference của họ."
+      },
+      {
+        "key": "D",
+        "text": "Five months of stable operational metrics, which demonstrate the system is production-ready.",
+        "text_vi": "Năm tháng metric vận hành ổn định, chứng minh hệ thống đã sẵn sàng cho production."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "In the course's lifecycle, the outcome document with before-and-after metric, auditable control and measurement owner gates the expansion decision. A demo creates interest but is not evidence of value, and operational metrics show the system runs, not what it is worth. Budget approval is necessary for spending but does not establish that expansion is justified.",
+    "explanation_vi": "Trong vòng đời của khóa học, outcome document với metric before-and-after, control kiểm chứng được và owner đo lường là gate cho quyết định mở rộng. Demo tạo hứng thú nhưng không phải bằng chứng giá trị, và metric vận hành cho thấy hệ thống chạy, không cho thấy nó đáng giá bao nhiêu. Phê duyệt ngân sách cần thiết cho việc chi tiêu nhưng không chứng minh việc mở rộng là xứng đáng.",
+    "source": "output_4/07_Cumulative_Regulated_Deployment.md"
+  },
+  {
+    "id": 35,
+    "topic": "Claude Models, Prompting & Context Engineering (13%)",
+    "objective": "Implement prompt reuse strategies (caching, modular prompts, Skills)",
+    "lessonId": "d2-t5",
+    "question": "An engineering org's CLAUDE.md has grown to include 40 detailed procedures (migrations, release steps, incident runbooks), all loaded into every Claude Code session. Sessions start with a large context and developers report the agent mixing up procedures. Most tasks use none or one of them. What should the architect recommend?",
+    "question_vi": "CLAUDE.md của một tổ chức kỹ thuật đã phình to tới 40 quy trình chi tiết (migration, các bước release, runbook xử lý sự cố), tất cả được nạp vào mọi phiên Claude Code. Các phiên bắt đầu với context lớn và lập trình viên báo cáo agent nhầm lẫn giữa các quy trình. Phần lớn tác vụ không dùng hoặc chỉ dùng một quy trình. Architect nên khuyến nghị gì?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "Move to a model tier with a larger context window so all procedures fit comfortably side by side.",
+        "text_vi": "Chuyển sang model tier có context window lớn hơn để mọi quy trình vừa thoải mái cạnh nhau."
+      },
+      {
+        "key": "B",
+        "text": "Convert the procedures into hooks so they run automatically on every session start.",
+        "text_vi": "Chuyển các quy trình thành hook để chúng tự động chạy ở mỗi lần bắt đầu phiên."
+      },
+      {
+        "key": "C",
+        "text": "Package the procedures as Skills, so only short metadata loads until a procedure is relevant.",
+        "text_vi": "Đóng gói các quy trình thành Skill, để chỉ metadata ngắn được nạp cho đến khi quy trình liên quan."
+      },
+      {
+        "key": "D",
+        "text": "Split CLAUDE.md into several files that are all still loaded at session start.",
+        "text_vi": "Tách CLAUDE.md thành nhiều file nhưng tất cả vẫn được nạp khi bắt đầu phiên."
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "CLAUDE.md is persistent context loaded every session and suits standing conventions; repeatable procedures belong in Skills, which Claude Code invokes on demand, keeping only the name and description in context through progressive disclosure. Splitting files still loads everything, a bigger window keeps the noise and cost, and hooks are deterministic governance gates, not a way to package on-demand procedures.",
+    "explanation_vi": "CLAUDE.md là context cố định được nạp mỗi phiên và phù hợp với các quy ước thường trực; các quy trình lặp lại thuộc về Skill, được Claude Code gọi khi cần, chỉ giữ name và description trong context nhờ progressive disclosure. Tách file vẫn nạp mọi thứ, window lớn hơn vẫn giữ nhiễu và chi phí, còn hook là cổng quản trị tất định, không phải cách đóng gói quy trình theo nhu cầu.",
+    "source": "output/10_Entry_Points_Governance.md"
+  },
+  {
+    "id": 36,
+    "topic": "Solution Design & Architecture (17%)",
+    "objective": "Design end-to-end architectures (input → processing → output → feedback loops)",
+    "lessonId": "d1-t2",
+    "question": "A telecom operator's assistant classifies customer intent, then sends billing questions to a tariff-document index, technical issues to a troubleshooting knowledge base, and plan changes to a transactional API. Customers threatening to cancel or reporting suspected fraud still receive automated answers, and complaints about this are rising. Which component is missing from this triage reference architecture?",
+    "question_vi": "Trợ lý của một nhà mạng phân loại intent của khách hàng, rồi chuyển câu hỏi cước tới index tài liệu biểu giá, sự cố kỹ thuật tới knowledge base xử lý sự cố, và yêu cầu đổi gói tới API giao dịch. Khách hàng dọa hủy dịch vụ hoặc báo nghi ngờ gian lận vẫn nhận câu trả lời tự động, và khiếu nại về điều này đang tăng. Thành phần nào đang thiếu trong reference architecture triage này?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "A larger retrieval index that merges tariff documents and troubleshooting articles into one corpus for all intents.",
+        "text_vi": "Một index retrieval lớn hơn gộp tài liệu biểu giá và bài xử lý sự cố thành một kho chung cho mọi intent."
+      },
+      {
+        "key": "B",
+        "text": "A second intent classifier that votes with the first one, so that ambiguous messages are classified more accurately.",
+        "text_vi": "Một intent classifier thứ hai bỏ phiếu cùng classifier đầu, để tin nhắn mơ hồ được phân loại chính xác hơn."
+      },
+      {
+        "key": "C",
+        "text": "An agent loop that replaces the routing workflow, letting the model decide which backends each customer needs.",
+        "text_vi": "Một agent loop thay thế routing workflow, để model tự quyết backend nào mỗi khách hàng cần."
+      },
+      {
+        "key": "D",
+        "text": "An escalation path that routes high-consequence intents such as fraud reports and cancellations to a human agent.",
+        "text_vi": "Một đường leo thang chuyển các intent hậu quả cao như báo gian lận và hủy dịch vụ tới nhân viên."
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "The customer-service triage reference architecture classifies intent and routes to knowledge retrieval, transactional APIs and a human layer for high-consequence cases; the missing piece here is the escalation path to a person. A voting classifier improves classification but still sends these cases to automation, replacing a measured routed workflow with an agent is a named failure mode, and merging indexes does not address escalation.",
+    "explanation_vi": "Reference architecture triage chăm sóc khách hàng phân loại intent rồi route tới retrieval tri thức, API giao dịch và một lớp con người cho các ca hậu quả cao; mảnh còn thiếu ở đây là đường leo thang tới người. Classifier bỏ phiếu cải thiện phân loại nhưng vẫn đưa các ca này vào tự động hóa, thay routed workflow đã đo bằng agent là một failure mode được nêu tên, còn gộp index không giải quyết việc leo thang.",
+    "source": "output/06_Reference_Architectures.md"
+  },
+  {
+    "id": 37,
+    "topic": "Evaluation, Testing & Optimization (16%)",
+    "objective": "Define evaluation metrics (accuracy, latency, cost, safety, security)",
+    "lessonId": "d4-t1",
+    "question": "A pharmacy chain's Claude assistant answers refill questions and must never reveal one patient's prescriptions to another. The compliance team proposes measuring this by having pharmacists review a random 5% of conversations each month. The architect wants a metric that can run on every release candidate before deployment. What should the architect propose?",
+    "question_vi": "Trợ lý Claude của một chuỗi nhà thuốc trả lời câu hỏi về cấp lại thuốc và không bao giờ được tiết lộ đơn thuốc của bệnh nhân này cho bệnh nhân khác. Nhóm compliance đề xuất đo yêu cầu này bằng cách để dược sĩ review ngẫu nhiên 5% cuộc hội thoại mỗi tháng. Architect muốn một metric có thể chạy trên mọi bản release candidate trước khi triển khai. Architect nên đề xuất gì?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "A code-based eval on a test set mixing similar patients, counting responses that contain another patient's identifiers, target zero",
+        "text_vi": "Eval bằng code trên test set trộn các bệnh nhân tương tự, đếm số phản hồi chứa identifier của bệnh nhân khác, mục tiêu bằng không"
+      },
+      {
+        "key": "B",
+        "text": "An LLM judge rating each response's privacy from 1 to 10",
+        "text_vi": "Một LLM judge chấm mức độ riêng tư của mỗi phản hồi từ 1 đến 10"
+      },
+      {
+        "key": "C",
+        "text": "A system prompt rule against disclosure, counted as passed if present",
+        "text_vi": "Một quy tắc trong system prompt cấm tiết lộ, được tính là pass nếu có mặt"
+      },
+      {
+        "key": "D",
+        "text": "Keep the monthly 5% pharmacist review as the only security metric",
+        "text_vi": "Giữ việc dược sĩ review 5% hằng tháng làm metric bảo mật duy nhất"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "Like the insurer exercise, cross-patient leakage is checkable deterministically by scanning outputs for identifiers that do not belong to the request, and a test set that deliberately mixes similar records exercises the risk before release. Monthly sampled review is detective and post-deployment, a free-form judge score adds inconsistency to a deterministic check, and the presence of an instruction is not evidence of behavior.",
+    "explanation_vi": "Giống bài tập bảo hiểm, rò rỉ chéo giữa bệnh nhân kiểm tra được một cách tất định bằng cách quét output tìm identifier không thuộc request, và một test set cố ý trộn các hồ sơ tương tự sẽ thử thách rủi ro này trước khi phát hành. Review lấy mẫu hằng tháng mang tính phát hiện và diễn ra sau triển khai, điểm judge tự do thêm thiếu nhất quán cho một kiểm tra tất định, còn sự hiện diện của một chỉ dẫn không phải là bằng chứng về hành vi.",
+    "source": "output_2/07_Exercise_Evaluation_Framework.md"
+  },
+  {
+    "id": 38,
+    "topic": "Stakeholder Communication & Lifecycle Management (14%)",
+    "objective": "Support lifecycle phases (discovery, design, handoff, monitoring, iteration)",
+    "lessonId": "d6-t5",
+    "question": "A shipping line's Architect wants to verify, before leaving, that the handoff package for a port-scheduling assistant passes the completeness test. The internal team includes a capable Architect who was not involved in the project. How should the test be run in practice?",
+    "question_vi": "Architect của một hãng tàu biển muốn kiểm chứng, trước khi rời đi, rằng gói bàn giao cho trợ lý lập lịch cảng vượt qua completeness test. Đội nội bộ có một Architect có năng lực không tham gia dự án. Nên tiến hành phép thử này trên thực tế thế nào?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "Ask that Architect to read the package and confirm they find it clear and well organised.",
+        "text_vi": "Đề nghị Architect đó đọc gói tài liệu và xác nhận họ thấy nó rõ ràng, có tổ chức tốt."
+      },
+      {
+        "key": "B",
+        "text": "Give that Architect only the package and ask them to describe how they would make a specific change, such as altering the context strategy, safely.",
+        "text_vi": "Chỉ đưa cho Architect đó gói tài liệu và đề nghị họ mô tả cách thực hiện một thay đổi cụ thể, như đổi context strategy, một cách an toàn."
+      },
+      {
+        "key": "C",
+        "text": "Have the sponsor sign a checklist confirming that all required documents are present in the package.",
+        "text_vi": "Để sponsor ký một checklist xác nhận mọi tài liệu bắt buộc đều có trong gói."
+      },
+      {
+        "key": "D",
+        "text": "Walk that Architect through the package in a two-hour session and answer their questions live.",
+        "text_vi": "Hướng dẫn Architect đó qua gói tài liệu trong buổi hai giờ và trả lời trực tiếp các câu hỏi của họ."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "The completeness test asks whether a competent Architect who was not in the room can make a safe change after reading the document; asking them to plan a concrete change reveals whether load-bearing decisions are recognisable from the documents alone. A clarity opinion or a signed checklist does not test safe change. A live walkthrough supplies the missing rationale verbally, which is exactly what will be lost when the Architect leaves.",
+    "explanation_vi": "Completeness test hỏi liệu một Architect có năng lực không có mặt trong phòng có thể thực hiện thay đổi an toàn sau khi đọc tài liệu không; yêu cầu họ lên kế hoạch cho một thay đổi cụ thể cho thấy các quyết định load-bearing có nhận ra được chỉ từ tài liệu hay không. Ý kiến về độ rõ ràng hay checklist có chữ ký không kiểm tra được khả năng thay đổi an toàn. Buổi hướng dẫn trực tiếp cung cấp lý do còn thiếu bằng lời, chính là thứ sẽ mất khi Architect rời đi.",
+    "source": "output_4/10_Supplement_SLOs_Expectations_Handoff_and_Rollout.md"
+  },
+  {
+    "id": 39,
+    "topic": "Evaluation, Testing & Optimization (16%)",
+    "objective": "Optimize token usage, latency, and cost-performance trade-offs",
+    "lessonId": "d4-t5",
+    "question": "A SaaS company's operations agent is configured with 80 tools, but traces show each request uses only two or three. Every request spends a large share of input tokens on tool definitions, and the agent sometimes picks overlapping tools incorrectly. Which TWO changes best optimize token usage and accuracy? (Choose TWO.)",
+    "question_vi": "Agent vận hành của một công ty SaaS được cấu hình 80 tool, nhưng trace cho thấy mỗi request chỉ dùng hai hoặc ba. Mỗi request tốn một phần lớn input token cho định nghĩa tool, và agent đôi khi chọn sai giữa các tool chồng chéo. HAI thay đổi nào tối ưu tốt nhất việc dùng token và độ chính xác? (Chọn HAI đáp án.)",
+    "type": "multiple",
+    "selectCount": 2,
+    "options": [
+      {
+        "key": "A",
+        "text": "Load tool definitions progressively, only when relevant to the request",
+        "text_vi": "Nạp định nghĩa tool theo kiểu progressive, chỉ khi liên quan đến request"
+      },
+      {
+        "key": "B",
+        "text": "Raise max_tokens so the agent has room to reason about tools",
+        "text_vi": "Nâng max_tokens để agent có không gian suy luận về tool"
+      },
+      {
+        "key": "C",
+        "text": "Upgrade to the largest model so it chooses tools more reliably",
+        "text_vi": "Nâng lên model lớn nhất để chọn tool đáng tin cậy hơn"
+      },
+      {
+        "key": "D",
+        "text": "Add longer descriptions to all 80 tools to reduce confusion",
+        "text_vi": "Thêm mô tả dài hơn cho cả 80 tool để giảm nhầm lẫn"
+      },
+      {
+        "key": "E",
+        "text": "Remove out-of-scope tools and merge or narrow overlapping ones",
+        "text_vi": "Gỡ các tool ngoài phạm vi và gộp hoặc thu hẹp các tool chồng chéo"
+      }
+    ],
+    "answer": [
+      "A",
+      "E"
+    ],
+    "explanation": "Tool definitions consume tokens on every request, and overlapping tools degrade selection; trimming the tool set and loading tools on demand through progressive discovery reduce input tokens and noise. A bigger model costs more without removing the cause, a higher output cap does not touch input tokens, and longer descriptions on 80 tools add even more tokens.",
+    "explanation_vi": "Định nghĩa tool tiêu tốn token ở mọi request, và tool chồng chéo làm giảm chất lượng lựa chọn; thu gọn bộ tool và nạp tool theo nhu cầu qua progressive discovery giảm input token và nhiễu. Model lớn hơn tốn hơn mà không loại bỏ nguyên nhân, giới hạn output cao hơn không chạm tới input token, còn mô tả dài hơn cho 80 tool lại thêm nhiều token hơn nữa.",
+    "source": "output_2/09_Supplement_Integration_Mechanisms_and_Optimization.md"
+  },
+  {
+    "id": 40,
+    "topic": "Solution Design & Architecture (17%)",
+    "objective": "Design end-to-end architectures (input → processing → output → feedback loops)",
+    "lessonId": "d1-t2",
+    "question": "An industrial-parts manufacturer runs a pipeline that OCRs supplier invoices, extracts fields against a schema with Claude and posts them to the ERP. Finance found duplicate and mis-keyed postings, all from scanned invoices where the total-amount field had low extraction confidence. Every document currently follows the same path. Which reference-architecture defect is present, and what is the fix?",
+    "question_vi": "Một nhà sản xuất linh kiện công nghiệp vận hành pipeline OCR hóa đơn nhà cung cấp, dùng Claude trích xuất trường theo schema và ghi vào ERP. Bộ phận tài chính phát hiện các bút toán trùng và nhập sai, đều từ hóa đơn scan có trường tổng tiền với độ tin cậy trích xuất thấp. Hiện mọi tài liệu đi cùng một đường. Lỗi reference architecture nào đang hiện diện và cách sửa là gì?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "Missing retrieval: add RAG over historical invoices so the model can compare totals against similar past documents.",
+        "text_vi": "Thiếu retrieval: thêm RAG trên hóa đơn cũ để model so sánh tổng tiền với các tài liệu tương tự trước đây."
+      },
+      {
+        "key": "B",
+        "text": "Model too small: upgrade the extraction step to the most capable model tier for every invoice in the pipeline.",
+        "text_vi": "Model quá nhỏ: nâng bước trích xuất lên tier model mạnh nhất cho mọi hóa đơn trong pipeline."
+      },
+      {
+        "key": "C",
+        "text": "No exception path: route low-confidence or validation-failing extractions to human review, with an evaluator pass.",
+        "text_vi": "Không có exception path: chuyển các trích xuất low-confidence hoặc không qua validation tới human review, kèm một lượt evaluator."
+      },
+      {
+        "key": "D",
+        "text": "Missing autonomy: let an agent decide for each invoice whether and when it should be posted to the ERP.",
+        "text_vi": "Thiếu tự chủ: để một agent quyết định với mỗi hóa đơn có nên ghi vào ERP hay không và khi nào."
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "Document processing pipelines go wrong when low-confidence extractions travel the same path as clean documents with no human gate; an exception path plus an evaluator check is the documented remedy. Retrieval over old invoices does not validate the current one, giving an agent posting authority increases autonomy over a consequential write, and a bigger model may help but does not replace the exception path.",
+    "explanation_vi": "Document processing pipeline hỏng khi các trích xuất low-confidence đi chung đường với tài liệu sạch mà không có human gate; exception path cộng kiểm tra evaluator là biện pháp được tài liệu hóa. Retrieval trên hóa đơn cũ không validate được hóa đơn hiện tại, trao quyền ghi cho agent làm tăng tự chủ ở một hành động ghi có hậu quả, còn model lớn hơn có thể giúp nhưng không thay thế exception path.",
+    "source": "output/06_Reference_Architectures.md"
+  },
+  {
+    "id": 41,
+    "topic": "Solution Design & Architecture (17%)",
+    "objective": "Align solutions to business value pillars (efficiency, transformation, productivity, cost, performance SLAs)",
+    "lessonId": "d1-t6",
+    "question": "A professional-services firm estimates a Claude briefing assistant's payback in 5 months, using the sizing model's monthly run cost and the build cost. Reviewers ask how reliable the 5-month figure is if volume comes in at 60 percent of forecast or review time per briefing is 20 minutes instead of 10. What should the architect add?",
+    "question_vi": "Một công ty dịch vụ chuyên nghiệp ước tính thời gian hoàn vốn của trợ lý soạn bản tóm lược dùng Claude là 5 tháng, dựa trên run cost hằng tháng của mô hình sizing và chi phí build. Reviewer hỏi con số 5 tháng đáng tin đến đâu nếu volume chỉ đạt 60 phần trăm dự báo hoặc thời gian review mỗi bản là 20 phút thay vì 10. Architect nên bổ sung gì?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "A rounded payback of 'about half a year', which communicates the uncertainty without further calculation.",
+        "text_vi": "Một payback làm tròn 'khoảng nửa năm', truyền đạt sự bất định mà không cần tính toán thêm."
+      },
+      {
+        "key": "B",
+        "text": "A switch to the average of past similar projects at other companies, replacing the project's own sizing figures.",
+        "text_vi": "Chuyển sang trung bình của các dự án tương tự trước đây ở công ty khác, thay cho số liệu sizing của chính dự án."
+      },
+      {
+        "key": "C",
+        "text": "A statement that the model's quality is high enough that volume and review time will not realistically change.",
+        "text_vi": "Một tuyên bố rằng chất lượng model đủ cao nên volume và thời gian review sẽ không thay đổi trong thực tế."
+      },
+      {
+        "key": "D",
+        "text": "A sensitivity analysis showing how payback moves under those changed volume and gain-per-task assumptions.",
+        "text_vi": "Phân tích sensitivity cho thấy payback thay đổi thế nào theo các giả định về volume và lợi ích mỗi tác vụ đã thay đổi."
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "The ROI mapping must state the payback period with sensitivity so decisions do not rest on a single optimistic scenario. A claim that assumptions will not change, rounding the number and replacing project data with outside averages do not show how the result moves when volume or gain-per-task assumptions are wrong.",
+    "explanation_vi": "Ánh xạ ROI phải nêu payback period kèm sensitivity để quyết định không dựa trên một kịch bản lạc quan duy nhất. Tuyên bố giả định không đổi, làm tròn con số và thay dữ liệu dự án bằng trung bình bên ngoài đều không cho thấy kết quả dịch chuyển thế nào khi giả định về volume hay lợi ích mỗi tác vụ sai.",
+    "source": "output_2/04_Sizing_and_Feasibility.md"
   },
   {
     "id": 42,
     "topic": "Governance, Safety & Risk Management (14%)",
-    "question": "A cross-functional team at an international retail chain plans to modernize ERP using store-level inventory updates, while maintaining subsecond checkout availability. The workload is assessed in rollout cohort 5 with 28 representative test cases. Which TWO controls are most important for secure and accountable operation of this workflow? (Choose TWO.)",
-    "type": "multiple",
+    "objective": "Implement guardrails and safety controls",
+    "lessonId": "d5-t1",
+    "question": "A fintech's Claude-powered statement assistant returns JSON to a mobile app. Security requires that no response ever contains the field account_number and that every response matches the published schema. The team plans to add a judge model that reads each response and scores whether it 'looks safe'. What is the better control for this specific requirement?",
+    "question_vi": "Trợ lý sao kê dùng Claude của một công ty fintech trả JSON về ứng dụng di động. Bộ phận bảo mật yêu cầu không response nào được chứa trường account_number và mọi response phải khớp schema đã công bố. Đội dự định thêm một judge model đọc từng response và chấm xem nó có 'trông an toàn' không. Control nào tốt hơn cho yêu cầu cụ thể này?",
+    "type": "single",
+    "selectCount": 1,
     "options": [
       {
         "key": "A",
-        "text": "Retain auditable evidence of reviews, exceptions, and privileged actions",
-        "text_vi": "Giữ lại bằng chứng có thể kiểm tra được về các đánh giá, ngoại lệ và hành động đặc quyền"
+        "text": "A deterministic output validator that enforces the schema and rejects any forbidden field.",
+        "text_vi": "Một validator output deterministic enforce schema và từ chối mọi trường bị cấm."
       },
       {
         "key": "B",
-        "text": "Enforce access-control and data-handling policies independently of model prompts",
-        "text_vi": "Thực thi các chính sách kiểm soát truy cập và xử lý dữ liệu độc lập với prompt mô hình"
+        "text": "The planned judge model, tuned with few-shot examples of responses that leak account numbers.",
+        "text_vi": "Judge model như dự định, được tinh chỉnh bằng ví dụ few-shot về các response làm lộ số tài khoản."
       },
       {
         "key": "C",
-        "text": "Delete only the visible chat bubble",
-        "text_vi": "Chỉ xóa bong bóng trò chuyện hiển thị"
+        "text": "A system-prompt rule that forbids the account_number field, reinforced with structured output.",
+        "text_vi": "Một quy tắc trong system prompt cấm trường account_number, củng cố thêm bằng structured output."
       },
       {
         "key": "D",
-        "text": "Assume embeddings contain no privacy-sensitive information",
-        "text_vi": "Giả sử các phần nhúng không chứa thông tin nhạy cảm về quyền riêng tư"
+        "text": "An input classifier that blocks user requests mentioning account numbers before the model call.",
+        "text_vi": "Một classifier ở input chặn các request của người dùng có nhắc tới số tài khoản trước lời gọi model."
       }
     ],
     "answer": [
-      "A",
-      "B"
+      "A"
     ],
-    "explanation": "Both controls are necessary: enforce access-control and data-handling policies independently of model prompts; and retain auditable evidence of reviews, exceptions, and privileged actions. Model instructions alone do not substitute for enforceable controls.",
-    "question_vi": "Một nhóm đa chức năng tại một chuỗi bán lẻ quốc tế có kế hoạch hiện đại hóa ERP bằng cách sử dụng các bản cập nhật hàng tồn kho ở cấp độ cửa hàng, trong khi vẫn duy trì khả năng thanh toán dưới giây. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 28 trường hợp thử nghiệm đại diện. HAI biện pháp kiểm soát nào là quan trọng nhất để vận hành quy trình công việc này một cách an toàn và có trách nhiệm? (Chọn HAI.)",
-    "explanation_vi": "Cả hai biện pháp kiểm soát đều cần thiết: thực thi các chính sách kiểm soát truy cập và xử lý dữ liệu một cách độc lập với prompt của mô hình; và lưu giữ bằng chứng có thể kiểm tra được về các đánh giá, ngoại lệ và hành động đặc quyền. Chỉ hướng dẫn mô hình không thể thay thế cho các biện pháp kiểm soát có thể thực thi được."
+    "explanation": "A known forbidden field and a schema are crisp rules that a deterministic validator catches with certainty and cannot be talked out of. A judge model is for qualities needing language understanding and can be evaded. Input screening does not inspect what the model produces, and a prompt rule steers rather than enforces.",
+    "explanation_vi": "Một trường bị cấm đã biết và một schema là quy tắc rõ ràng mà validator deterministic bắt được chắc chắn và không thể bị thuyết phục. Judge model dành cho những phẩm chất cần hiểu ngôn ngữ và có thể bị lách. Input screening không kiểm tra những gì model tạo ra, còn quy tắc trong prompt chỉ định hướng chứ không enforce.",
+    "source": "output_3/03_Guardrails_and_Failure_Modes.md"
   },
   {
     "id": 43,
     "topic": "Claude Models, Prompting & Context Engineering (13%)",
-    "question": "During a production-readiness review at a government procurement office, the architects examine purchase approval records connected to the procurement workflow, with formal reviewer approval. The workload is assessed in rollout cohort 5 with 29 representative test cases. A prompt update improves average quality but hurts a critical small subgroup. What should the release decision be?",
+    "objective": "Implement prompt reuse strategies (caching, modular prompts, Skills)",
+    "lessonId": "d2-t5",
+    "question": "An accounting firm's platform team mandates prompt caching on every prompt. One prompt generates quarterly board commentary: it is called about four times a month, at irregular times, with a 1,200-token fixed prefix. The team asks whether caching should be enabled for it too. What is the best answer?",
+    "question_vi": "Đội nền tảng của một công ty kế toán bắt buộc bật prompt caching cho mọi prompt. Một prompt tạo bình luận quý cho hội đồng quản trị: được gọi khoảng bốn lần mỗi tháng, vào thời điểm không cố định, với prefix cố định 1.200 token. Đội hỏi có nên bật caching cho prompt này không. Câu trả lời tốt nhất là gì?",
     "type": "single",
+    "selectCount": 1,
     "options": [
       {
         "key": "A",
-        "text": "Increase tokens without retesting",
-        "text_vi": "Tăng mã thông báo mà không cần kiểm tra lại"
+        "text": "Yes, after converting the prompt into a Skill, which makes caching more effective for rare calls.",
+        "text_vi": "Có, sau khi chuyển prompt thành Skill, việc này giúp caching hiệu quả hơn với lời gọi hiếm."
       },
       {
         "key": "B",
-        "text": "Ship because aggregate accuracy improved",
-        "text_vi": "Giao hàng vì độ chính xác tổng hợp được cải thiện"
+        "text": "Probably not: with rare calls and a small prefix, write overhead may exceed any savings.",
+        "text_vi": "Có lẽ không: với lời gọi hiếm và prefix nhỏ, chi phí ghi có thể vượt quá mọi khoản tiết kiệm."
       },
       {
         "key": "C",
-        "text": "Block release until subgroup regression is understood and guardrails pass",
-        "text_vi": "Chặn phát hành cho đến khi hiểu được hồi quy nhóm con và vượt qua các rào cản"
+        "text": "Yes, because caching only ever reduces cost and latency for any prompt.",
+        "text_vi": "Có, vì caching luôn chỉ giảm chi phí và latency cho mọi prompt."
       },
       {
         "key": "D",
-        "text": "Ignore the subgroup because it is small",
-        "text_vi": "Bỏ qua nhóm con vì nó nhỏ"
-      }
-    ],
-    "answer": [
-      "C"
-    ],
-    "explanation": "Prompt changes must meet risk-sensitive acceptance thresholds, not only averages.",
-    "question_vi": "Trong quá trình đánh giá mức độ sẵn sàng sản xuất tại văn phòng mua sắm của chính phủ, các kiến ​​trúc sư kiểm tra hồ sơ phê duyệt mua hàng được kết nối với quy trình mua sắm với sự chấp thuận của người đánh giá chính thức. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 29 trường hợp thử nghiệm đại diện. Một bản cập nhật kịp thời sẽ cải thiện chất lượng trung bình nhưng lại gây tổn hại cho một nhóm nhỏ quan trọng. Quyết định phát hành nên như thế nào?",
-    "explanation_vi": "Những thay đổi kịp thời phải đáp ứng các ngưỡng chấp nhận nhạy cảm với rủi ro chứ không chỉ ở mức trung bình."
-  },
-  {
-    "id": 44,
-    "topic": "Claude Models, Prompting & Context Engineering (13%)",
-    "question": "A pilot retrospective at an energy utility identifies concerns in asset operations platform processing maintenance incident reports, where high operational safety impact applies. The workload is assessed in rollout cohort 5 with 27 representative test cases. An AI workflow must handle multilingual requests with stable internal category labels. What should the design enforce?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Separate language-specific interpretation from a canonical validated category schema",
-        "text_vi": "Tách cách diễn giải theo ngôn ngữ cụ thể khỏi lược đồ danh mục được xác thực chuẩn"
-      },
-      {
-        "key": "B",
-        "text": "Trust natural-language synonyms as valid database enum values",
-        "text_vi": "Tin tưởng các từ đồng nghĩa trong ngôn ngữ tự nhiên làm giá trị enum cơ sở dữ liệu hợp lệ"
-      },
-      {
-        "key": "C",
-        "text": "Translate customer identifiers and treat them as new keys",
-        "text_vi": "Dịch mã định danh khách hàng và coi chúng là khóa mới"
-      },
-      {
-        "key": "D",
-        "text": "Create different arbitrary output fields for each language",
-        "text_vi": "Tạo các trường đầu ra tùy ý khác nhau cho từng ngôn ngữ"
-      }
-    ],
-    "answer": [
-      "A"
-    ],
-    "explanation": "Canonical schemas allow multilingual interactions without corrupting downstream contracts.",
-    "question_vi": "Một cuộc hồi cứu thí điểm tại một công ty năng lượng xác định các mối lo ngại trong nền tảng vận hành tài sản xử lý các báo cáo sự cố bảo trì, trong đó áp dụng tác động an toàn vận hành cao. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 27 trường hợp thử nghiệm đại diện. Quy trình làm việc AI phải xử lý các yêu cầu đa ngôn ngữ với nhãn danh mục nội bộ ổn định. Thiết kế nên thực thi những gì?",
-    "explanation_vi": "Các lược đồ chuẩn cho phép tương tác đa ngôn ngữ mà không làm hỏng các hợp đồng ở hạ nguồn."
-  },
-  {
-    "id": 45,
-    "topic": "Solution Design & Architecture (17%)",
-    "question": "For the next release, a multinational bank will connect Claude to core banking platform to work with corporate credit applications under auditable financial controls. The workload is assessed in rollout cohort 5 with 34 representative test cases. A finance assistant will eventually make tool calls that can transfer funds. Which boundary is most important?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "A server-side policy and approval gate that independently authorizes each transaction",
-        "text_vi": "Chính sách phía máy chủ và cổng phê duyệt cho phép độc lập mỗi giao dịch"
-      },
-      {
-        "key": "B",
-        "text": "A confidence threshold supplied by the model",
-        "text_vi": "Ngưỡng tin cậy được cung cấp bởi mô hình"
-      },
-      {
-        "key": "C",
-        "text": "A high-priority user prompt saying transfers must be safe",
-        "text_vi": "prompt người dùng có mức độ ưu tiên cao cho biết quá trình chuyển tiền phải an toàn"
-      },
-      {
-        "key": "D",
-        "text": "A two-agent consensus that automatically transfers money",
-        "text_vi": "Sự đồng thuận của hai đại lý tự động chuyển tiền"
-      }
-    ],
-    "answer": [
-      "A"
-    ],
-    "explanation": "High-impact external actions require independent authorization, not just model intention.",
-    "question_vi": "Trong lần phát hành tiếp theo, một ngân hàng đa quốc gia sẽ kết nối Claude với nền tảng ngân hàng cốt lõi để hoạt động với các ứng dụng tín dụng doanh nghiệp dưới sự kiểm soát tài chính có thể kiểm toán được. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 34 trường hợp thử nghiệm đại diện. Trợ lý tài chính cuối cùng sẽ thực hiện các cuộc gọi công cụ có thể chuyển tiền. Ranh giới nào là quan trọng nhất?",
-    "explanation_vi": "Các hành động bên ngoài có tác động cao cần có sự cho phép độc lập chứ không chỉ là ý định mẫu."
-  },
-  {
-    "id": 46,
-    "topic": "Integration (19%)",
-    "question": "For the next release, a multinational bank will connect Claude to core banking platform to work with corporate credit applications under auditable financial controls. The workload is assessed in rollout cohort 5 with 32 representative test cases. A service streams model responses while a downstream financial tool may still fail. What should the UI avoid?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Showing incremental non-binding text",
-        "text_vi": "Hiển thị văn bản không ràng buộc gia tăng"
-      },
-      {
-        "key": "B",
-        "text": "Providing a retriable error message",
-        "text_vi": "Cung cấp thông báo lỗi có thể truy xuất được"
-      },
-      {
-        "key": "C",
-        "text": "Presenting a proposed action as completed before the tool returns verified success",
-        "text_vi": "Trình bày một hành động được đề xuất như đã hoàn thành trước khi công cụ trả về thành công đã được xác minh"
-      },
-      {
-        "key": "D",
-        "text": "Displaying a pending action state",
-        "text_vi": "Hiển thị trạng thái hành động đang chờ xử lý"
-      }
-    ],
-    "answer": [
-      "C"
-    ],
-    "explanation": "Streaming generated text is not evidence that an external action committed.",
-    "question_vi": "Trong lần phát hành tiếp theo, một ngân hàng đa quốc gia sẽ kết nối Claude với nền tảng ngân hàng cốt lõi để hoạt động với các ứng dụng tín dụng doanh nghiệp dưới sự kiểm soát tài chính có thể kiểm toán được. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 32 trường hợp thử nghiệm đại diện. Một dịch vụ truyền tải các phản hồi theo mô hình trong khi công cụ tài chính hạ nguồn vẫn có thể bị lỗi. Giao diện người dùng nên tránh những gì?",
-    "explanation_vi": "Truyền phát văn bản được tạo không phải là bằng chứng cho thấy một hành động bên ngoài đã được thực hiện."
-  },
-  {
-    "id": 47,
-    "topic": "Claude Models, Prompting & Context Engineering (13%)",
-    "question": "A regulated delivery team at an insurance carrier is integrating policy and claim files into claims processing platform; its operational mandate includes regulated evidence retention. The workload is assessed in rollout cohort 5 with 26 representative test cases. For a repetitive support task, prompt caching shows almost no hits. What is the first thing to inspect?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Whether the model seems friendly",
-        "text_vi": "Liệu người mẫu có vẻ thân thiện hay không"
-      },
-      {
-        "key": "B",
-        "text": "Whether stable cached prefixes are actually identical and eligible across requests",
-        "text_vi": "Liệu các tiền tố được lưu trong bộ nhớ đệm ổn định có thực sự giống nhau và đủ điều kiện trong các yêu cầu hay không"
-      },
-      {
-        "key": "C",
-        "text": "Whether tool results are always different even when not part of the prefix",
-        "text_vi": "Liệu kết quả của công cụ có luôn khác nhau ngay cả khi không phải là một phần của tiền tố"
-      },
-      {
-        "key": "D",
-        "text": "Whether the customer uses mobile browsers",
-        "text_vi": "Liệu khách hàng có sử dụng trình duyệt di động hay không"
+        "text": "Yes, with the longest TTL available so that each call is guaranteed to hit.",
+        "text_vi": "Có, với TTL dài nhất hiện có để mỗi lời gọi chắc chắn hit."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Cache effectiveness depends on eligible repeated content and request construction.",
-    "question_vi": "Nhóm phân phối được quản lý tại một hãng bảo hiểm đang tích hợp các hồ sơ chính sách và yêu cầu bồi thường vào nền tảng xử lý yêu cầu bồi thường; nhiệm vụ hoạt động của nó bao gồm việc lưu giữ bằng chứng theo quy định. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 26 trường hợp thử nghiệm đại diện. Đối với tác vụ hỗ trợ lặp đi lặp lại, bộ nhớ đệm nhanh chóng hầu như không hiển thị lần truy cập nào. Điều đầu tiên cần kiểm tra là gì?",
-    "explanation_vi": "Hiệu quả của bộ đệm phụ thuộc vào nội dung lặp lại đủ điều kiện và yêu cầu xây dựng."
+    "explanation": "Cache writes cost more than standard input, so if a prompt is called infrequently or its fixed portion is small, caching can cost more than it saves; the course calls caching a design decision, not a default to switch on everywhere. Even a long TTL does not span weeks between irregular calls and costs more to write, and packaging as a Skill does not change cache economics.",
+    "explanation_vi": "Ghi cache tốn hơn input thường, nên nếu một prompt được gọi không thường xuyên hoặc phần cố định nhỏ, caching có thể tốn hơn số tiền nó tiết kiệm; course gọi caching là một quyết định thiết kế, không phải mặc định bật ở mọi nơi. Ngay cả TTL dài cũng không kéo dài qua nhiều tuần giữa các lời gọi không đều và còn tốn hơn khi ghi, còn đóng gói thành Skill không thay đổi bài toán kinh tế của cache.",
+    "source": "output/09_Prompting_as_Architecture.md"
   },
   {
-    "id": 48,
-    "topic": "Governance, Safety & Risk Management (14%)",
-    "question": "An incident review at a regional hospital network focuses on AI handling of patient discharge letters in the clinical records system; stakeholders insist on strict clinical authorization. The workload is assessed in rollout cohort 5 with 29 representative test cases. A model's output contains sensitive identifiers in logs. What is the strongest preventive control?",
+    "id": 44,
+    "topic": "Integration (19%)",
+    "objective": "Evaluate accuracy-latency trade-offs and justify configuration decisions",
+    "lessonId": "d3-t3",
+    "question": "A payments company needs to classify each incoming merchant support message into one of six queues with a user-visible deadline under one second at high volume. The steps are fully known and the output is easily verified. A team member proposes an autonomous agent that can explore tools before deciding. What is the best recommendation?",
+    "question_vi": "Một công ty thanh toán cần phân loại mỗi tin nhắn hỗ trợ của merchant vào một trong sáu hàng đợi, với hạn chót người dùng nhìn thấy dưới một giây ở khối lượng lớn. Các bước đã hoàn toàn xác định và output dễ kiểm chứng. Một thành viên đề xuất một agent tự hành có thể khám phá tool trước khi quyết định. Khuyến nghị tốt nhất là gì?",
     "type": "single",
+    "selectCount": 1,
     "options": [
       {
         "key": "A",
-        "text": "Classify and redact sensitive fields before telemetry capture and restrict log access",
-        "text_vi": "Phân loại và sắp xếp lại các trường nhạy cảm trước khi thu thập dữ liệu đo từ xa và hạn chế quyền truy cập nhật ký"
+        "text": "Use a two-model evaluator-optimizer loop so every label is double-checked before routing.",
+        "text_vi": "Dùng vòng evaluator-optimizer hai model để mọi nhãn được kiểm tra hai lần trước khi định tuyến."
       },
       {
         "key": "B",
-        "text": "Ask the model not to notice identifiers",
-        "text_vi": "Yêu cầu người mẫu không để ý đến số nhận dạng"
+        "text": "Adopt the agent, since autonomy lets it handle unforeseen message types more accurately.",
+        "text_vi": "Áp dụng agent, vì tính tự chủ giúp nó xử lý chính xác hơn các loại tin nhắn chưa lường trước."
       },
       {
         "key": "C",
-        "text": "Use a longer retention period for sensitive fields",
-        "text_vi": "Sử dụng thời gian lưu giữ lâu hơn cho các trường nhạy cảm"
+        "text": "Use a single augmented call that returns a queue label, the lowest-latency, fewest-token pattern.",
+        "text_vi": "Dùng một lời gọi augmented duy nhất trả về nhãn hàng đợi, là pattern có latency thấp nhất và ít token nhất."
       },
       {
         "key": "D",
-        "text": "Store all content indefinitely for debugging",
-        "text_vi": "Lưu trữ tất cả nội dung vô thời hạn để gỡ lỗi"
+        "text": "Adopt the agent but cap it at five turns so the latency stays bounded.",
+        "text_vi": "Áp dụng agent nhưng giới hạn năm lượt để latency có giới hạn."
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "For a bounded, verifiable task with a hard latency deadline and high volume, the augmented LLM pattern is fastest and uses the fewest tokens, while an agent's runtime is open-ended and must be budgeted for the worst case. Capping turns still pays agent overhead for flexibility the task does not need. An evaluator-optimizer loop roughly doubles cost and latency without evidence it is required.",
+    "explanation_vi": "Với một tác vụ có giới hạn, kiểm chứng được, hạn chót latency cứng và khối lượng lớn, pattern augmented LLM nhanh nhất và dùng ít token nhất, trong khi runtime của agent là mở và phải lập ngân sách cho trường hợp xấu nhất. Giới hạn số lượt vẫn phải trả chi phí agent cho sự linh hoạt mà tác vụ không cần. Vòng evaluator-optimizer làm chi phí và latency tăng gần gấp đôi mà không có bằng chứng là cần thiết.",
+    "source": "output/05_Pattern_Selection.md"
+  },
+  {
+    "id": 45,
+    "topic": "Stakeholder Communication & Lifecycle Management (14%)",
+    "objective": "Support lifecycle phases (discovery, design, handoff, monitoring, iteration)",
+    "lessonId": "d6-t5",
+    "question": "A legal-aid organisation's intake assistant has an approved design: the sponsor made an informed decision on the main tradeoffs, including reversal cost. However, no one has yet agreed what quality level on the evaluation set counts as acceptable. The team wants to start the pilot next week. What should the Architect say?",
+    "question_vi": "Trợ lý tiếp nhận hồ sơ của một tổ chức trợ giúp pháp lý đã có thiết kế được phê duyệt: sponsor đã ra quyết định có hiểu biết về các tradeoff chính, kể cả reversal cost. Tuy nhiên chưa ai thống nhất mức chất lượng nào trên bộ eval được coi là chấp nhận được. Đội muốn bắt đầu pilot vào tuần sau. Architect nên nói gì?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "Start the pilot with an industry-standard 90 percent threshold and adjust it later if needed.",
+        "text_vi": "Bắt đầu pilot với ngưỡng tiêu chuẩn ngành 90% và điều chỉnh sau nếu cần."
+      },
+      {
+        "key": "B",
+        "text": "Skip the pilot and go to phased rollout, since the design decision has already been approved.",
+        "text_vi": "Bỏ qua pilot và chuyển sang phased rollout, vì quyết định thiết kế đã được phê duyệt."
+      },
+      {
+        "key": "C",
+        "text": "Start the pilot and let the acceptance threshold emerge from whatever quality the pilot achieves.",
+        "text_vi": "Bắt đầu pilot và để ngưỡng chấp nhận hình thành từ mức chất lượng mà pilot đạt được."
+      },
+      {
+        "key": "D",
+        "text": "The design gate is not fully met; fix the eval acceptance criteria with the stakeholder before the pilot begins.",
+        "text_vi": "Gate của design chưa đạt đầy đủ; chốt eval acceptance criteria với stakeholder trước khi pilot bắt đầu."
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "The design phase exits when the stakeholder has made an informed decision and the eval acceptance criteria are fixed; the pilot gate then checks results against those criteria, and the quality SLA traces to them. Deriving the threshold from pilot results makes the pilot unable to fail. A generic industry figure does not trace to this use case, and skipping the pilot removes the quality and cost check.",
+    "explanation_vi": "Pha design kết thúc khi stakeholder đã ra quyết định có hiểu biết và eval acceptance criteria đã được chốt; gate của pilot sau đó kiểm tra kết quả theo các tiêu chí đó, và quality SLA truy về chúng. Suy ra ngưỡng từ kết quả pilot khiến pilot không thể thất bại. Một con số chung của ngành không truy về use case này, và bỏ qua pilot là loại bỏ bước kiểm tra chất lượng và chi phí.",
+    "source": "output_4/10_Supplement_SLOs_Expectations_Handoff_and_Rollout.md"
+  },
+  {
+    "id": 46,
+    "topic": "Solution Design & Architecture (17%)",
+    "objective": "Align solutions to business value pillars (efficiency, transformation, productivity, cost, performance SLAs)",
+    "lessonId": "d1-t6",
+    "question": "A tax-advisory firm wants Claude to answer client questions about each client's current account position. Two sponsors disagree about the value claim: one says 'it will cut costs', another says 'it will improve our response SLA'. The architect must prepare a value statement the budget holder can defend. Which approach is best?",
+    "question_vi": "Một công ty tư vấn thuế muốn Claude trả lời câu hỏi của khách hàng về tình trạng tài khoản hiện tại của từng khách. Hai sponsor bất đồng về tuyên bố giá trị: một người nói 'nó sẽ cắt giảm chi phí', người kia nói 'nó sẽ cải thiện SLA phản hồi'. Architect phải chuẩn bị một value statement mà người nắm ngân sách bảo vệ được. Cách nào tốt nhất?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "Choose the pillar the budget holder cares most about and quantify it against a baseline.",
+        "text_vi": "Chọn trụ cột người nắm ngân sách quan tâm nhất và định lượng nó so với baseline."
+      },
+      {
+        "key": "B",
+        "text": "Defer the value statement until the system has run for a year and sufficient usage data is available.",
+        "text_vi": "Hoãn value statement đến khi hệ thống chạy một năm và có đủ dữ liệu sử dụng."
+      },
+      {
+        "key": "C",
+        "text": "Avoid naming pillars and describe the value qualitatively as improved client experience across the firm.",
+        "text_vi": "Tránh gọi tên trụ cột và mô tả giá trị định tính là trải nghiệm khách hàng được cải thiện trên toàn công ty."
+      },
+      {
+        "key": "D",
+        "text": "Claim both pillars at once with broad language, so that every stakeholder sees their priority reflected.",
+        "text_vi": "Tuyên bố cả hai trụ cột cùng lúc bằng ngôn ngữ rộng, để mọi stakeholder thấy ưu tiên của mình được phản ánh."
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Privacy-safe observability minimizes data collection and limits access.",
-    "question_vi": "Đánh giá sự cố tại mạng lưới bệnh viện khu vực tập trung vào việc xử lý AI thư xuất viện của bệnh nhân trong hệ thống hồ sơ lâm sàng; các bên liên quan nhấn mạnh vào sự cho phép lâm sàng nghiêm ngặt. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 29 trường hợp thử nghiệm đại diện. Đầu ra của mô hình chứa các mã định danh nhạy cảm trong nhật ký. Kiểm soát phòng ngừa mạnh nhất là gì?",
-    "explanation_vi": "Khả năng quan sát an toàn về quyền riêng tư giúp giảm thiểu việc thu thập dữ liệu và hạn chế quyền truy cập."
+    "explanation": "Each use case should have one primary pillar chosen by what the sponsor cares about most, with every ROI claim mapped to it and quantified against a baseline measured beforehand. Claiming everything is unpersuasive, qualitative wording cannot be audited, and deferring the statement leaves no baseline to compare against.",
+    "explanation_vi": "Mỗi use case nên có một trụ cột chính chọn theo điều sponsor quan tâm nhất, với mọi tuyên bố ROI được gắn vào nó và định lượng so với baseline đo từ trước. Tuyên bố tất cả thì không thuyết phục, câu chữ định tính không kiểm toán được, và hoãn value statement khiến không còn baseline để so sánh.",
+    "source": "output_2/04_Sizing_and_Feasibility.md"
+  },
+  {
+    "id": 47,
+    "topic": "Integration (19%)",
+    "objective": "Evaluate accuracy-latency trade-offs and justify configuration decisions",
+    "lessonId": "d3-t3",
+    "question": "A telecom support agent handles 50,000 requests per month. Each request carries a stable 5,000-token system prompt plus about 300 tokens of user input and produces about 400 output tokens. The configuration misses both a cost ceiling and a 3-second p95 target. Which lever does the most work toward meeting both?",
+    "question_vi": "Một agent hỗ trợ viễn thông xử lý 50.000 request mỗi tháng. Mỗi request mang theo một system prompt ổn định 5.000 token cộng khoảng 300 token input của người dùng và sinh ra khoảng 400 output token. Cấu hình hiện tại không đạt cả trần chi phí lẫn mục tiêu p95 3 giây. Đòn bẩy nào đóng góp nhiều nhất để đạt cả hai?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "Truncate the system prompt to its first 1,000 tokens to shrink every request.",
+        "text_vi": "Cắt system prompt xuống 1.000 token đầu tiên để thu nhỏ mọi request."
+      },
+      {
+        "key": "B",
+        "text": "Place the stable system prompt first and enable prompt caching for it.",
+        "text_vi": "Đặt system prompt ổn định lên trước và bật prompt caching cho nó."
+      },
+      {
+        "key": "C",
+        "text": "Raise the max_tokens cap so that responses have more headroom for quality.",
+        "text_vi": "Tăng giới hạn max_tokens để câu trả lời có thêm dư địa cho chất lượng."
+      },
+      {
+        "key": "D",
+        "text": "Switch to Opus, because the most capable model is the safest way to meet targets.",
+        "text_vi": "Chuyển sang Opus, vì model mạnh nhất là cách an toàn nhất để đạt mục tiêu."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "About 94% of each request's input is the identical 5,000-token prefix, so caching it targets the dominant cost driver and also cuts time-to-first-token. Opus is the most expensive and typically slowest tier, working against both targets. Raising max_tokens only allows longer, costlier output, and truncating the system prompt discards instructions the agent needs.",
+    "explanation_vi": "Khoảng 94% input của mỗi request là prefix 5.000 token giống hệt nhau, nên cache nó nhắm đúng driver chi phí lớn nhất và đồng thời giảm time-to-first-token. Opus là tier đắt nhất và thường chậm nhất, đi ngược cả hai mục tiêu. Tăng max_tokens chỉ cho phép output dài và tốn kém hơn, còn cắt system prompt làm mất chỉ dẫn mà agent cần.",
+    "source": "output_2/03_POC_to_Production.md"
+  },
+  {
+    "id": 48,
+    "topic": "Claude Models, Prompting & Context Engineering (13%)",
+    "objective": "Implement prompt reuse strategies (caching, modular prompts, Skills)",
+    "lessonId": "d2-t5",
+    "question": "A government agency's caseworker assistant sends an identical 9,000-token guidance prefix on every one of about 30,000 daily requests. The engineering lead turned on 'caching' in a gateway setting and assumed the API would detect the repeated prefix automatically. A month later, usage shows no cache reads at all. What is the most likely gap?",
+    "question_vi": "Trợ lý cán bộ xử lý hồ sơ của một cơ quan nhà nước gửi một prefix hướng dẫn 9.000 token giống hệt nhau ở mỗi request trong khoảng 30.000 request mỗi ngày. Trưởng nhóm kỹ thuật đã bật 'caching' trong một thiết lập gateway và giả định API sẽ tự phát hiện prefix lặp lại. Một tháng sau, usage cho thấy hoàn toàn không có cache read. Lỗ hổng khả dĩ nhất là gì?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "The model tier in use only supports caching for responses, not for prompts.",
+        "text_vi": "Model tier đang dùng chỉ hỗ trợ caching cho response, không cho prompt."
+      },
+      {
+        "key": "B",
+        "text": "The prefix is too large to cache, so it must be split into smaller prompts.",
+        "text_vi": "Prefix quá lớn để cache, nên phải tách thành các prompt nhỏ hơn."
+      },
+      {
+        "key": "C",
+        "text": "The requests carry no explicit cache_control markers, so no prefix is being cached.",
+        "text_vi": "Các request không mang cache_control marker tường minh, nên không có prefix nào được cache."
+      },
+      {
+        "key": "D",
+        "text": "The request volume is too high, which causes the cache to be evicted constantly.",
+        "text_vi": "Volume request quá cao, khiến cache liên tục bị loại bỏ."
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "The course states that caching requires explicit cache_control markers in the request; it does not happen on its own. A large prefix reused at high frequency is the ideal caching case rather than a problem, high volume within the TTL keeps entries warm, and caching applies to prompt prefixes, not responses.",
+    "explanation_vi": "Course nêu rằng caching yêu cầu cache_control marker tường minh trong request; nó không tự xảy ra. Một prefix lớn được tái sử dụng với tần suất cao là trường hợp lý tưởng cho caching chứ không phải vấn đề, volume cao trong TTL giữ các mục cache luôn ấm, và caching áp dụng cho prefix của prompt chứ không phải response.",
+    "source": "output_2/04_Sizing_and_Feasibility.md"
   },
   {
     "id": 49,
     "topic": "Integration (19%)",
-    "question": "A regulated delivery team at an insurance carrier is integrating policy and claim files into claims processing platform; its operational mandate includes regulated evidence retention. The workload is assessed in rollout cohort 5 with 25 representative test cases. An internal assistant accesses HR records using an employee's SSO identity. How should authorization be enforced?",
+    "objective": "Analyze observability challenges and select monitoring strategies at scale",
+    "lessonId": "d3-t4",
+    "question": "During an audit of a lender's disbursement workflow, the auditor asked which model version produced a specific approval recommendation. Traces showed the configuration used a 'latest' alias, and the underlying version had rolled forward two weeks earlier without re-validation. Which practice addresses this observability and governance gap?",
+    "question_vi": "Trong một cuộc kiểm toán workflow giải ngân của một bên cho vay, kiểm toán viên hỏi phiên bản model nào đã tạo ra một khuyến nghị phê duyệt cụ thể. Trace cho thấy cấu hình dùng alias 'latest', và phiên bản thực sự bên dưới đã tự nâng lên hai tuần trước mà không được xác nhận lại. Thực hành nào xử lý lỗ hổng observability và quản trị này?",
     "type": "single",
+    "selectCount": 1,
     "options": [
       {
         "key": "A",
-        "text": "Issue scoped credentials server-side and check the user's entitlement on every data/tool request",
-        "text_vi": "Cấp thông tin xác thực có phạm vi phía máy chủ và kiểm tra quyền của người dùng đối với mọi yêu cầu dữ liệu/công cụ"
+        "text": "Increase the trace retention period so older versions can be identified later.",
+        "text_vi": "Tăng thời gian lưu trace để có thể xác định các phiên bản cũ sau này."
       },
       {
         "key": "B",
-        "text": "Ask users to type their role into the prompt",
-        "text_vi": "Yêu cầu người dùng nhập vai trò của họ vào prompt"
+        "text": "Keep the alias but add a note to the runbook reminding engineers to check versions monthly, configured once and applied across every environment.",
+        "text_vi": "Giữ alias nhưng thêm ghi chú vào runbook nhắc kỹ sư kiểm tra phiên bản hằng tháng, cấu hình một lần và áp dụng cho mọi môi trường."
       },
       {
         "key": "C",
-        "text": "Store all HR records in a globally readable context window",
-        "text_vi": "Lưu trữ tất cả hồ sơ nhân sự trong cửa sổ ngữ cảnh (context window) có thể đọc được trên toàn cầu"
+        "text": "Switch to the largest model so that version changes have less effect on outputs.",
+        "text_vi": "Chuyển sang model lớn nhất để thay đổi phiên bản ít ảnh hưởng tới output hơn."
       },
       {
         "key": "D",
-        "text": "Give the model a shared HR administrator token",
-        "text_vi": "Cung cấp cho mô hình mã thông báo quản trị viên nhân sự được chia sẻ"
+        "text": "Pin explicit model versions in configuration, record the version on every trace, and re-run the eval before any version update.",
+        "text_vi": "Pin phiên bản model cụ thể trong cấu hình, ghi phiên bản vào mọi trace, và chạy lại eval trước mọi lần cập nhật phiên bản."
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "Model version pinning is an operational discipline: pin versions, monitor deprecations, keep a version-update runbook, and record the version on traces so change attribution and audits can answer which model ran. A monthly reminder still lets the alias roll forward silently. Longer retention keeps traces that never recorded the resolved version, and model size does not stop versions from changing.",
+    "explanation_vi": "Pin phiên bản model là một kỷ luật vận hành: pin phiên bản, theo dõi thông báo ngừng hỗ trợ, có runbook cập nhật phiên bản, và ghi phiên bản vào trace để change attribution và kiểm toán trả lời được model nào đã chạy. Lời nhắc hằng tháng vẫn để alias tự nâng một cách âm thầm. Lưu lâu hơn vẫn là những trace chưa từng ghi phiên bản thực tế, còn kích thước model không ngăn được việc phiên bản thay đổi.",
+    "source": "output/05_Pattern_Selection.md"
+  },
+  {
+    "id": 50,
+    "topic": "Governance, Safety & Risk Management (14%)",
+    "objective": "Implement guardrails and safety controls",
+    "lessonId": "d5-t1",
+    "question": "A telco's self-built prompt-injection classifier sits in front of an agent that can change customer plans and apply account credits. During evening peaks the classifier times out on about 15% of requests; the code catches the exception and forwards the request to the agent so latency SLAs are met. Dashboards stay green. What should the architect change?",
+    "question_vi": "Classifier chống prompt injection do một nhà mạng tự xây đặt trước một agent có thể đổi gói cước và cộng tiền vào tài khoản khách hàng. Vào giờ cao điểm buổi tối, classifier timeout ở khoảng 15% request; code bắt exception và chuyển request tiếp cho agent để đạt SLA về độ trễ. Dashboard vẫn xanh. Architect nên thay đổi gì?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "Make the classifier fail closed for this flow, and log and alert on every failed or blocked gate.",
+        "text_vi": "Cho classifier fail closed với luồng này, đồng thời log và cảnh báo mọi gate bị lỗi hoặc bị chặn."
+      },
+      {
+        "key": "B",
+        "text": "Move the classifier after the agent's tool calls so it no longer adds latency to the request path.",
+        "text_vi": "Chuyển classifier ra sau các tool call của agent để nó không còn thêm độ trễ vào đường đi request."
+      },
+      {
+        "key": "C",
+        "text": "Retry the classifier indefinitely until it responds, so no request is ever forwarded unscreened.",
+        "text_vi": "Gọi lại classifier vô hạn lần cho đến khi nó phản hồi, để không request nào bị chuyển đi khi chưa screen."
+      },
+      {
+        "key": "D",
+        "text": "Keep forwarding on timeout, since Anthropic's built-in safety controls still screen every request.",
+        "text_vi": "Tiếp tục chuyển tiếp khi timeout, vì control an toàn tích hợp của Anthropic vẫn screen mọi request."
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Identity and per-request permissions must be enforced by trusted services, not natural-language claims.",
-    "question_vi": "Nhóm phân phối được quản lý tại một hãng bảo hiểm đang tích hợp các hồ sơ chính sách và yêu cầu bồi thường vào nền tảng xử lý yêu cầu bồi thường; nhiệm vụ hoạt động của nó bao gồm việc lưu giữ bằng chứng theo quy định. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 25 trường hợp thử nghiệm đại diện. Trợ lý nội bộ truy cập hồ sơ nhân sự bằng cách sử dụng danh tính SSO của nhân viên. Việc ủy ​​quyền nên được thực thi như thế nào?",
-    "explanation_vi": "Quyền nhận dạng và quyền theo yêu cầu phải được thực thi bởi các dịch vụ đáng tin cậy chứ không phải các xác nhận ngôn ngữ tự nhiên."
+    "explanation": "The operator-built guardrail is silently failing open on a flow with account side effects, which gives the appearance of protection with none of the function; the deliberate choice is fail closed with every failed gate logged. Anthropic's built-in controls do not know this telco's domain policy and are separate from operator guardrails. Placing the screen after tool calls checks too late, and infinite retries are not a defined failure direction and can stall the system.",
+    "explanation_vi": "Guardrail do operator xây đang âm thầm fail open trên một luồng có side effect lên tài khoản, tạo vẻ được bảo vệ mà không có chức năng nào; lựa chọn có chủ đích là fail closed và log mọi gate bị lỗi. Control tích hợp của Anthropic không biết domain policy của nhà mạng này và tách biệt với guardrail của operator. Đặt screening sau tool call là kiểm tra quá muộn, còn retry vô hạn không phải là một hướng thất bại được xác định và có thể làm treo hệ thống.",
+    "source": "output_3/03_Guardrails_and_Failure_Modes.md"
   },
   {
-    "id": 50,
+    "id": 51,
     "topic": "Evaluation, Testing & Optimization (16%)",
-    "question": "The architecture board of a logistics provider evaluates cross-border shipment exceptions workflows in transport management system, prioritizing intermittent connectivity. The workload is assessed in rollout cohort 5 with 32 representative test cases. A prompt evaluation uses the same 50 examples repeatedly during tuning. Which risk arises?",
+    "objective": "Define evaluation metrics (accuracy, latency, cost, safety, security)",
+    "lessonId": "d4-t1",
+    "question": "A logistics company extracts consignee name, shipment date and declared value from customs forms. Ground-truth values exist for 4,000 historical forms, but dates appear in several formats and currency values sometimes include symbols. Early runs flag many 'errors' that are only formatting differences. How should the accuracy metric be defined?",
+    "question_vi": "Một công ty logistics trích tên người nhận, ngày gửi hàng và giá trị khai báo từ tờ khai hải quan. Có giá trị chuẩn cho 4.000 tờ khai lịch sử, nhưng ngày xuất hiện ở nhiều định dạng và giá trị tiền đôi khi kèm ký hiệu. Các lần chạy đầu gắn cờ nhiều 'lỗi' mà thực chất chỉ là khác biệt định dạng. Metric accuracy nên được định nghĩa thế nào?",
     "type": "single",
+    "selectCount": 1,
     "options": [
       {
         "key": "A",
-        "text": "Cache keys are guaranteed to stop working",
-        "text_vi": "Khóa bộ đệm được đảm bảo ngừng hoạt động"
+        "text": "Switch to an LLM judge so formatting differences are tolerated",
+        "text_vi": "Chuyển sang LLM judge để chấp nhận khác biệt định dạng"
       },
       {
         "key": "B",
-        "text": "Overfitting the prompt to the test set; keep a separate final holdout set",
-        "text_vi": "Trang bị quá nhiều prompt cho tập kiểm tra; giữ một bộ giữ cuối cùng riêng biệt"
+        "text": "Normalize dates and amounts, then exact-match each field against ground truth and report per field",
+        "text_vi": "Chuẩn hóa ngày và số tiền, rồi so khớp exact từng trường với giá trị chuẩn và báo cáo theo từng trường"
       },
       {
         "key": "C",
-        "text": "The prompts become physically smaller",
-        "text_vi": "prompt trở nên nhỏ hơn về mặt vật lý"
+        "text": "Lower the threshold to absorb the formatting mismatches",
+        "text_vi": "Hạ ngưỡng để hấp thụ các sai lệch định dạng"
       },
       {
         "key": "D",
-        "text": "The model automatically learns those examples through permanent training",
-        "text_vi": "Mô hình tự động học các ví dụ đó thông qua đào tạo thường xuyên"
+        "text": "Ask reviewers to grade a sample of forms by hand instead",
+        "text_vi": "Yêu cầu người review chấm thủ công một mẫu tờ khai thay thế"
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Repeated tuning on test data biases the measured estimate of generalization.",
-    "question_vi": "Hội đồng kiến ​​trúc của nhà cung cấp dịch vụ hậu cần đánh giá các quy trình ngoại lệ đối với lô hàng xuyên biên giới trong hệ thống quản lý vận tải, ưu tiên kết nối không liên tục. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 32 trường hợp thử nghiệm đại diện. Đánh giá nhanh chóng sử dụng lặp đi lặp lại 50 mẫu giống nhau trong quá trình điều chỉnh. Rủi ro nào phát sinh?",
-    "explanation_vi": "Việc điều chỉnh lặp đi lặp lại trên dữ liệu thử nghiệm sẽ làm sai lệch ước tính tổng quát hóa đo được."
-  },
-  {
-    "id": 51,
-    "topic": "Solution Design & Architecture (17%)",
-    "question": "A pilot retrospective at an energy utility identifies concerns in asset operations platform processing maintenance incident reports, where high operational safety impact applies. The workload is assessed in rollout cohort 5 with 28 representative test cases. Which TWO controls are most important for secure and accountable operation of this workflow? (Choose TWO.)",
-    "type": "multiple",
-    "options": [
-      {
-        "key": "A",
-        "text": "Allow agents to pass unrestricted free-form commands",
-        "text_vi": "Cho phép các tác nhân truyền các lệnh dạng tự do không hạn chế"
-      },
-      {
-        "key": "B",
-        "text": "Add agents until each has fewer than ten prompt lines",
-        "text_vi": "Thêm nhân viên hỗ trợ cho đến khi mỗi nhân viên có ít hơn 10 dòng nhắc nhở"
-      },
-      {
-        "key": "C",
-        "text": "Define the authoritative decision and approval boundary outside the model",
-        "text_vi": "Xác định ranh giới quyết định và phê duyệt có thẩm quyền ngoài mô hình"
-      },
-      {
-        "key": "D",
-        "text": "Keep a durable evidence trail linking inputs, proposed outcomes, and applied versions",
-        "text_vi": "Lưu giữ dấu vết bằng chứng lâu dài liên kết đầu vào, kết quả đề xuất và các phiên bản áp dụng"
-      }
-    ],
-    "answer": [
-      "C",
-      "D"
-    ],
-    "explanation": "Both controls are necessary: define the authoritative decision and approval boundary outside the model; and keep a durable evidence trail linking inputs, proposed outcomes, and applied versions. Model instructions alone do not substitute for enforceable controls.",
-    "question_vi": "Một cuộc hồi cứu thí điểm tại một công ty năng lượng xác định các mối lo ngại trong nền tảng vận hành tài sản xử lý các báo cáo sự cố bảo trì, trong đó áp dụng tác động an toàn vận hành cao. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 28 trường hợp thử nghiệm đại diện. HAI biện pháp kiểm soát nào là quan trọng nhất để vận hành quy trình công việc này một cách an toàn và có trách nhiệm? (Chọn HAI.)",
-    "explanation_vi": "Cả hai biện pháp kiểm soát đều cần thiết: xác định ranh giới phê duyệt và quyết định có thẩm quyền bên ngoài mô hình; và lưu giữ dấu vết bằng chứng lâu dài liên kết các đầu vào, kết quả được đề xuất và các phiên bản được áp dụng. Chỉ hướng dẫn mô hình không thể thay thế cho các biện pháp kiểm soát có thể thực thi được."
+    "explanation": "With known values, field accuracy is a code-based eval; normalizing formats before exact matching and reporting per field keeps it deterministic, cheap and diagnostic. Moving to a judge adds cost and inconsistency to a deterministic check, lowering the threshold hides real errors along with formatting noise, and manual grading does not scale.",
+    "explanation_vi": "Khi đã có giá trị chuẩn, accuracy của trường là code-based eval; chuẩn hóa định dạng trước khi so khớp exact và báo cáo theo từng trường giúp phép đo tất định, rẻ và dễ chẩn đoán. Chuyển sang judge thêm chi phí và thiếu nhất quán cho kiểm tra tất định, hạ ngưỡng che giấu lỗi thật cùng với nhiễu định dạng, còn chấm thủ công không scale được.",
+    "source": "output_2/07_Exercise_Evaluation_Framework.md"
   },
   {
     "id": 52,
-    "topic": "Stakeholder Communication & Lifecycle Management (14%)",
-    "question": "An incident review at a regional hospital network focuses on AI handling of patient discharge letters in the clinical records system; stakeholders insist on strict clinical authorization. The workload is assessed in rollout cohort 5 with 28 representative test cases. Which TWO controls are most important for secure and accountable operation of this workflow? (Choose TWO.)",
+    "topic": "Integration (19%)",
+    "objective": "Evaluate accuracy-latency trade-offs and justify configuration decisions",
+    "lessonId": "d3-t3",
+    "question": "An e-commerce ticket assistant runs Sonnet for every ticket: 94% accuracy, p95 4.1 seconds. Analysis shows 70% of tickets are simple order-status questions, and every request repeats a 4,000-token returns policy. The team wants lower cost and latency without losing quality. Which two changes are most appropriate? (Choose TWO.)",
+    "question_vi": "Trợ lý ticket của một sàn thương mại điện tử chạy Sonnet cho mọi ticket: độ chính xác 94%, p95 4,1 giây. Phân tích cho thấy 70% ticket là câu hỏi trạng thái đơn hàng đơn giản, và mọi request đều lặp lại chính sách đổi trả 4.000 token. Đội muốn giảm chi phí và latency mà không mất chất lượng. Hai thay đổi nào phù hợp nhất? (Chọn HAI đáp án.)",
     "type": "multiple",
+    "selectCount": 2,
     "options": [
       {
         "key": "A",
-        "text": "A list of prompt adjectives",
-        "text_vi": "Danh sách các tính từ gợi ý"
+        "text": "Move all tickets to Opus so that accuracy rises enough to justify the cost.",
+        "text_vi": "Chuyển mọi ticket sang Opus để độ chính xác tăng đủ bù chi phí."
       },
       {
         "key": "B",
-        "text": "Agree on a monitoring and escalation plan for post-launch failures",
-        "text_vi": "Thống nhất về kế hoạch giám sát và báo cáo đối với các lỗi sau khi ra mắt"
+        "text": "Route simple order-status tickets to Haiku with an order-lookup tool after an eval confirms quality, keeping complex complaints on Sonnet.",
+        "text_vi": "Định tuyến ticket trạng thái đơn đơn giản tới Haiku kèm tool tra đơn sau khi eval xác nhận chất lượng, giữ khiếu nại phức tạp trên Sonnet."
       },
       {
         "key": "C",
-        "text": "Define documented acceptance criteria and named decision owners",
-        "text_vi": "Xác định tiêu chí chấp nhận được ghi lại và chủ sở hữu quyết định được đặt tên"
+        "text": "Place the 4,000-token policy in a stable prefix and enable prompt caching.",
+        "text_vi": "Đặt chính sách 4.000 token vào một prefix ổn định và bật prompt caching."
       },
       {
         "key": "D",
-        "text": "Additional decorative slides",
-        "text_vi": "Các slide trang trí bổ sung"
+        "text": "Raise max_tokens so complex complaints receive more complete answers.",
+        "text_vi": "Tăng max_tokens để khiếu nại phức tạp nhận được câu trả lời đầy đủ hơn."
+      },
+      {
+        "key": "E",
+        "text": "Process live chat tickets through the Batch API to obtain the batch discount.",
+        "text_vi": "Xử lý ticket chat trực tiếp qua Batch API để được giảm giá theo lô."
       }
     ],
     "answer": [
       "B",
       "C"
     ],
-    "explanation": "Both controls are necessary: define documented acceptance criteria and named decision owners; and agree on a monitoring and escalation plan for post-launch failures. Model instructions alone do not substitute for enforceable controls.",
-    "question_vi": "Đánh giá sự cố tại mạng lưới bệnh viện khu vực tập trung vào việc xử lý AI thư xuất viện của bệnh nhân trong hệ thống hồ sơ lâm sàng; các bên liên quan nhấn mạnh vào sự cho phép lâm sàng nghiêm ngặt. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 28 trường hợp thử nghiệm đại diện. HAI biện pháp kiểm soát nào là quan trọng nhất để vận hành quy trình công việc này một cách an toàn và có trách nhiệm? (Chọn HAI.)",
-    "explanation_vi": "Cả hai biện pháp kiểm soát đều cần thiết: xác định các tiêu chí chấp nhận được ghi lại bằng văn bản và nêu tên các chủ sở hữu quyết định; và thống nhất về kế hoạch giám sát và báo cáo đối với các lỗi sau khi phóng. Chỉ hướng dẫn mô hình không thể thay thế cho các biện pháp kiểm soát có thể thực thi được."
+    "explanation": "Routing the large simple segment to a smaller tier with a tool, once the eval confirms it, lowers average cost and latency, and caching the repeated policy prefix cuts input cost and time-to-first-token; the course's worked example combines exactly these. Opus raises cost and latency. Batch processing is asynchronous and unsuitable for live chat, and a larger output budget adds generation time and cost.",
+    "explanation_vi": "Định tuyến nhóm ticket đơn giản chiếm phần lớn tới tier nhỏ hơn kèm tool, sau khi eval xác nhận, giúp giảm chi phí và latency trung bình, còn cache prefix chính sách lặp lại giảm chi phí input và time-to-first-token; ví dụ mẫu của khóa học kết hợp đúng hai điều này. Opus làm tăng chi phí và latency. Xử lý theo lô là bất đồng bộ và không phù hợp cho chat trực tiếp, còn ngân sách output lớn hơn làm tăng thời gian sinh và chi phí.",
+    "source": "output_2/09_Supplement_Integration_Mechanisms_and_Optimization.md"
   },
   {
     "id": 53,
-    "topic": "Solution Design & Architecture (17%)",
-    "question": "During a production-readiness review at a government procurement office, the architects examine purchase approval records connected to the procurement workflow, with formal reviewer approval. The workload is assessed in rollout cohort 5 with 30 representative test cases. A call-center summarizer must produce low-latency summaries with no external actions. What is the simplest suitable design?",
+    "topic": "Integration (19%)",
+    "objective": "Apply retrieval strategies matched to data shape and query pattern",
+    "lessonId": "d3-t6",
+    "question": "A supermarket chain's shopping assistant told customers an item was in stock when it had sold out that morning. Inventory levels are exported into the vector index every six hours. Latency is normal and there are no errors. Which change is most appropriate?",
+    "question_vi": "Trợ lý mua sắm của một chuỗi siêu thị báo khách hàng rằng một mặt hàng còn hàng trong khi nó đã bán hết từ sáng. Mức tồn kho được xuất vào vector index mỗi sáu giờ. Latency bình thường và không có lỗi. Thay đổi nào phù hợp nhất?",
     "type": "single",
+    "selectCount": 1,
     "options": [
       {
         "key": "A",
-        "text": "A single bounded Claude request with schema validation and fallback",
-        "text_vi": "Một yêu cầu Claude giới hạn duy nhất có xác thực và dự phòng lược đồ"
+        "text": "Shorten the index refresh interval to every 15 minutes.",
+        "text_vi": "Rút ngắn chu kỳ refresh index xuống 15 phút một lần."
       },
       {
         "key": "B",
-        "text": "A browser automation agent that searches the web",
-        "text_vi": "Một tác nhân tự động hóa trình duyệt tìm kiếm trên web"
+        "text": "Raise the similarity threshold so only the closest matching chunk is used.",
+        "text_vi": "Tăng ngưỡng similarity để chỉ dùng chunk khớp gần nhất."
       },
       {
         "key": "C",
-        "text": "An autonomous multi-agent system with external tools",
-        "text_vi": "Một hệ thống đa tác nhân tự trị với các công cụ bên ngoài"
+        "text": "Replace inventory retrieval with a tool call to the inventory service.",
+        "text_vi": "Thay việc truy xuất tồn kho bằng một tool call tới dịch vụ tồn kho."
       },
       {
         "key": "D",
-        "text": "A reinforcement-learning retraining pipeline for every call",
-        "text_vi": "Một quy trình đào tạo lại học tập tăng cường cho mọi cuộc gọi"
+        "text": "Switch to a more accurate embedding model for the inventory chunks.",
+        "text_vi": "Chuyển sang embedding model chính xác hơn cho các chunk tồn kho."
       }
     ],
     "answer": [
-      "A"
+      "C"
     ],
-    "explanation": "Prefer the least complex architecture that meets the measurable requirements.",
-    "question_vi": "Trong quá trình đánh giá mức độ sẵn sàng sản xuất tại văn phòng mua sắm của chính phủ, các kiến ​​trúc sư kiểm tra hồ sơ phê duyệt mua hàng được kết nối với quy trình mua sắm với sự chấp thuận của người đánh giá chính thức. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 30 trường hợp thử nghiệm đại diện. Trình tóm tắt của trung tâm cuộc gọi phải tạo ra các bản tóm tắt có độ trễ thấp mà không có tác động bên ngoài. Thiết kế phù hợp đơn giản nhất là gì?",
-    "explanation_vi": "Ưu tiên kiến trúc ít phức tạp nhất, đáp ứng các yêu cầu có thể đo lường được."
+    "explanation": "Inventory is live state owned by a system of record, so the fix is to call that system directly; the course states that a better embedding model or a shorter refresh interval will not fix retrieval applied to live state. A 15-minute refresh still serves snapshots, a new embedding model measures similarity rather than currency, and a higher threshold cannot tell which snapshot is current.",
+    "explanation_vi": "Tồn kho là trạng thái live do system of record sở hữu, nên cách sửa là gọi trực tiếp hệ thống đó; khóa học nêu rằng embedding model tốt hơn hay chu kỳ refresh ngắn hơn không sửa được việc dùng retrieval cho trạng thái live. Refresh 15 phút vẫn phục vụ snapshot, embedding model mới đo độ tương đồng chứ không đo tính hiện hành, và ngưỡng cao hơn không biết snapshot nào là hiện tại.",
+    "source": "output/06_Reference_Architectures.md"
   },
   {
     "id": 54,
-    "topic": "Governance, Safety & Risk Management (14%)",
-    "question": "At scale, a B2B software vendor expects Claude to support customer support platform users working with support and incident tickets, without compromising multi-tenant isolation. The workload is assessed in rollout cohort 5 with 25 representative test cases. A retrieved policy document tells an agent to email confidential data to an outside address. What should the system do?",
+    "topic": "Solution Design & Architecture (17%)",
+    "objective": "Apply decomposition techniques for complex problem solving",
+    "lessonId": "d1-t5",
+    "question": "A regional logistics partner wants an assistant that, for each shipping exception, reads the carrier's free-text note, decides whether the shipment qualifies for an automatic refund under the partner's published policy, looks up the customer's contract tier, drafts a notification, and issues the refund. Which assignment of owners is best?",
+    "question_vi": "Một partner logistics khu vực muốn trợ lý, với mỗi ngoại lệ vận chuyển, đọc ghi chú tự do của hãng vận chuyển, quyết định lô hàng có đủ điều kiện hoàn tiền tự động theo chính sách đã công bố của partner không, tra cấp hợp đồng của khách, soạn thông báo và thực hiện hoàn tiền. Cách gán owner nào tốt nhất?",
     "type": "single",
+    "selectCount": 1,
     "options": [
       {
         "key": "A",
-        "text": "Ask Claude to determine whether the recipient seems friendly",
-        "text_vi": "Yêu cầu Claude xác định xem người nhận có thân thiện không"
+        "text": "Claude reads the note and decides eligibility using the policy text in its prompt; the payment system issues the refund unattended.",
+        "text_vi": "Claude đọc ghi chú và quyết định đủ điều kiện bằng văn bản chính sách trong prompt; hệ thống thanh toán hoàn tiền không giám sát."
       },
       {
         "key": "B",
-        "text": "Treat the instruction as prompt injection and block unauthorized egress",
-        "text_vi": "Hãy coi hướng dẫn là tiêm nhắc và chặn lối ra trái phép"
+        "text": "Claude reads the note, decides refund eligibility, drafts the notification and issues the refund; systems only look up the tier.",
+        "text_vi": "Claude đọc ghi chú, quyết định đủ điều kiện hoàn tiền, soạn thông báo và hoàn tiền; hệ thống chỉ tra cấp hợp đồng."
       },
       {
         "key": "C",
-        "text": "Remove audit logs and continue",
-        "text_vi": "Xóa nhật ký kiểm tra và tiếp tục"
+        "text": "A human reads every note and decides eligibility; Claude drafts the notification and issues the refund automatically.",
+        "text_vi": "Người đọc mọi ghi chú và quyết định đủ điều kiện; Claude soạn thông báo và tự động hoàn tiền."
       },
       {
         "key": "D",
-        "text": "Send data because the instruction came from a document",
-        "text_vi": "Gửi dữ liệu vì hướng dẫn đến từ một tài liệu"
+        "text": "Claude reads and drafts; a rule engine decides eligibility; the CRM supplies the tier; a human approves before payment executes.",
+        "text_vi": "Claude đọc và soạn; rule engine quyết định đủ điều kiện; CRM cung cấp cấp hợp đồng; người duyệt trước khi thanh toán thực thi."
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": "Retrieved content is untrusted; independent authorization must prevent exfiltration.",
-    "question_vi": "Ở quy mô lớn, một nhà cung cấp phần mềm B2B kỳ vọng Claude sẽ hỗ trợ người dùng nền tảng hỗ trợ khách hàng làm việc với các phiếu hỗ trợ và sự cố mà không ảnh hưởng đến sự cô lập của nhiều bên thuê. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 25 trường hợp thử nghiệm đại diện. Một tài liệu chính sách được truy xuất sẽ yêu cầu một đại lý gửi dữ liệu bí mật qua email đến một địa chỉ bên ngoài. Hệ thống nên làm gì?",
-    "explanation_vi": "Nội dung được truy xuất không đáng tin cậy; ủy quyền độc lập phải ngăn chặn việc rò rỉ."
+    "explanation": "Reading free text and drafting are language work for Claude, a published policy is a deterministic rule that belongs to the rule engine, the contract tier lives in a system of record, and moving money is hard to reverse and needs accountable human approval. Giving Claude the policy decision or letting refunds run unattended hands rules and irreversible actions to a probabilistic component, while a human doing all the reading wastes Claude's strength.",
+    "explanation_vi": "Đọc văn bản tự do và soạn thảo là việc ngôn ngữ của Claude, chính sách đã công bố là quy tắc deterministic thuộc rule engine, cấp hợp đồng nằm trong system of record, và chuyển tiền khó đảo ngược cần người duyệt có trách nhiệm. Giao quyết định chính sách cho Claude hay để hoàn tiền chạy không giám sát là trao quy tắc và hành động không đảo ngược cho thành phần xác suất, còn người đọc tất cả là lãng phí thế mạnh của Claude.",
+    "source": "output/04_Decomposition.md"
   },
   {
     "id": 55,
-    "topic": "Solution Design & Architecture (17%)",
-    "question": "The architecture board of a logistics provider evaluates cross-border shipment exceptions workflows in transport management system, prioritizing intermittent connectivity. The workload is assessed in rollout cohort 5 with 35 representative test cases. A product team is choosing between RAG and fine-tuning for rapidly changing policy text. Which approach best matches the freshness requirement?",
+    "topic": "Evaluation, Testing & Optimization (16%)",
+    "objective": "Conduct A/B testing and iterative improvements",
+    "lessonId": "d4-t3",
+    "question": "An insurer evaluated moving its claims-document extraction from Sonnet to Haiku. The rollback rule, set in advance, rejects the migration if any document type scores below 0.85. Haiku averaged 0.86, but medical invoices scored 0.71 and police reports 0.74; all other types were within tolerance. What is the best next step?",
+    "question_vi": "Một công ty bảo hiểm đánh giá việc chuyển trích xuất tài liệu claim từ Sonnet sang Haiku. Quy tắc rollback đặt trước sẽ từ chối việc chuyển nếu bất kỳ loại tài liệu nào dưới 0,85. Haiku đạt trung bình 0,86, nhưng hóa đơn y tế được 0,71 và biên bản cảnh sát 0,74; các loại còn lại đều trong mức cho phép. Bước tiếp theo tốt nhất là gì?",
     "type": "single",
+    "selectCount": 1,
     "options": [
       {
         "key": "A",
-        "text": "Retrieval of current, access-controlled policy documents with grounded responses",
-        "text_vi": "Truy xuất các tài liệu chính sách hiện tại, được kiểm soát quyền truy cập với các câu trả lời có đối chiếu căn cứ (grounded responses)"
+        "text": "Reject the full migration and route medical invoices and police reports to Sonnet, the rest to Haiku",
+        "text_vi": "Từ chối chuyển toàn bộ và định tuyến hóa đơn y tế cùng biên bản cảnh sát sang Sonnet, phần còn lại sang Haiku"
       },
       {
         "key": "B",
-        "text": "Fine-tune a model every morning as the only source of truth",
-        "text_vi": "tinh chỉnh (fine-tuning) mô hình mỗi sáng như nguồn thông tin chuẩn duy nhất (single source of truth)"
+        "text": "Lower the per-type threshold to 0.70 so the migration passes",
+        "text_vi": "Hạ ngưỡng theo loại xuống 0,70 để việc chuyển được thông qua"
       },
       {
         "key": "C",
-        "text": "Increase temperature to account for new policies",
-        "text_vi": "Tăng nhiệt độ để đáp ứng các chính sách mới"
+        "text": "Abandon the cost initiative and keep everything on Sonnet",
+        "text_vi": "Từ bỏ sáng kiến giảm chi phí và giữ toàn bộ trên Sonnet"
       },
       {
         "key": "D",
-        "text": "Put all historical versions in the system prompt permanently",
-        "text_vi": "Đặt vĩnh viễn tất cả các phiên bản lịch sử vào system prompt"
+        "text": "Approve the migration, since the overall average exceeds 0.85",
+        "text_vi": "Phê duyệt việc chuyển, vì điểm trung bình tổng vượt 0,85"
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Current knowledge is more effectively supplied via retrieval than embedded through frequent retraining.",
-    "question_vi": "Hội đồng kiến ​​trúc của nhà cung cấp dịch vụ hậu cần đánh giá các quy trình ngoại lệ đối với lô hàng xuyên biên giới trong hệ thống quản lý vận tải, ưu tiên kết nối không liên tục. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 35 trường hợp thử nghiệm đại diện. Nhóm sản phẩm đang lựa chọn giữa RAG và tinh chỉnh (fine-tuning) để văn bản chính sách thay đổi nhanh chóng. Cách tiếp cận nào phù hợp nhất với yêu cầu về tính cập nhật mới nhất (freshness)?",
-    "explanation_vi": "Kiến thức hiện tại được cung cấp thông qua việc truy hồi hiệu quả hơn là được đưa vào thông qua đào tạo lại thường xuyên."
+    "explanation": "In the course case, the pre-set rollback criterion rejected the full migration, and the per-type scores revealed a partial migration: route the failing types to Sonnet via the existing classifier and the rest to Haiku, cutting cost without taking the regression. Approving on the average ignores the criterion, lowering the threshold renegotiates after the data, and abandoning the effort wastes the option the eval surfaced.",
+    "explanation_vi": "Trong case của khóa học, rollback criterion đặt trước đã từ chối việc chuyển toàn bộ, và điểm theo loại đã mở ra phương án chuyển một phần: định tuyến các loại không đạt sang Sonnet qua bộ phân loại sẵn có và phần còn lại sang Haiku, giảm chi phí mà không chịu regression. Phê duyệt theo điểm trung bình bỏ qua tiêu chí, hạ ngưỡng là đàm phán lại sau khi có dữ liệu, còn từ bỏ là lãng phí phương án mà eval đã chỉ ra.",
+    "source": "output/08_Model_Context_Strategy.md"
   },
   {
     "id": 56,
-    "topic": "Evaluation, Testing & Optimization (16%)",
-    "question": "A cross-functional team at an international retail chain plans to modernize ERP using store-level inventory updates, while maintaining subsecond checkout availability. The workload is assessed in rollout cohort 5 with 29 representative test cases. A Claude app occasionally makes catastrophic mistakes on high-value accounts. Which metric deserves priority?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Maximum theoretical context length",
-        "text_vi": "Độ dài bối cảnh lý thuyết tối đa"
-      },
-      {
-        "key": "B",
-        "text": "Average satisfaction alone",
-        "text_vi": "Chỉ riêng mức độ hài lòng trung bình"
-      },
-      {
-        "key": "C",
-        "text": "Number of tokens per response alone",
-        "text_vi": "Số lượng mã thông báo cho mỗi phản hồi"
-      },
-      {
-        "key": "D",
-        "text": "Severity-weighted failure rate and high-risk case recall, alongside average quality",
-        "text_vi": "Tỷ lệ thất bại được đánh giá theo mức độ nghiêm trọng và việc thu hồi trường hợp có rủi ro cao, bên cạnh chất lượng trung bình"
-      }
-    ],
-    "answer": [
-      "D"
-    ],
-    "explanation": "High-severity failure modes demand explicit measurement and acceptance thresholds.",
-    "question_vi": "Một nhóm đa chức năng tại một chuỗi bán lẻ quốc tế có kế hoạch hiện đại hóa ERP bằng cách sử dụng các bản cập nhật hàng tồn kho ở cấp độ cửa hàng, trong khi vẫn duy trì khả năng thanh toán dưới giây. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 29 trường hợp thử nghiệm đại diện. Ứng dụng Claude đôi khi mắc phải những sai lầm nghiêm trọng đối với các tài khoản có giá trị cao. Số liệu nào xứng đáng được ưu tiên?",
-    "explanation_vi": "Các dạng hư hỏng ở mức độ nghiêm trọng cao yêu cầu ngưỡng chấp nhận và đo lường rõ ràng."
-  },
-  {
-    "id": 57,
-    "topic": "Solution Design & Architecture (17%)",
-    "question": "At scale, a B2B software vendor expects Claude to support customer support platform users working with support and incident tickets, without compromising multi-tenant isolation. The workload is assessed in rollout cohort 5 with 29 representative test cases. A data analyst assistant can propose SQL, but production query costs are unpredictable. What is the safest execution pattern?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "Run all queries on the primary write database",
-        "text_vi": "Chạy tất cả các truy vấn trên cơ sở dữ liệu ghi chính"
-      },
-      {
-        "key": "B",
-        "text": "Execute any SQL if Claude includes an explanation",
-        "text_vi": "Thực thi bất kỳ lệnh SQL nào nếu Claude đưa ra lời giải thích"
-      },
-      {
-        "key": "C",
-        "text": "Give Claude database administrator credentials",
-        "text_vi": "Cung cấp thông tin xác thực của quản trị viên cơ sở dữ liệu Claude"
-      },
-      {
-        "key": "D",
-        "text": "Validate generated SQL against a read-only allowlist and cost limits before execution",
-        "text_vi": "Xác thực SQL được tạo dựa trên danh sách cho phép chỉ đọc và giới hạn chi phí trước khi thực thi"
-      }
-    ],
-    "answer": [
-      "D"
-    ],
-    "explanation": "Generated SQL is untrusted and must pass deterministic validation and resource limits.",
-    "question_vi": "Ở quy mô lớn, một nhà cung cấp phần mềm B2B kỳ vọng Claude sẽ hỗ trợ người dùng nền tảng hỗ trợ khách hàng làm việc với các phiếu hỗ trợ và sự cố mà không ảnh hưởng đến sự cô lập của nhiều bên thuê. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 29 trường hợp thử nghiệm đại diện. Trợ lý phân tích dữ liệu có thể đề xuất SQL, nhưng chi phí truy vấn sản xuất là không thể đoán trước. Mẫu thực thi an toàn nhất là gì?",
-    "explanation_vi": "SQL được tạo không đáng tin cậy và phải vượt qua giới hạn tài nguyên và xác thực xác định."
-  },
-  {
-    "id": 58,
     "topic": "Developer Productivity & Operational Enablement (7%)",
-    "question": "A cross-functional team at an international retail chain plans to modernize ERP using store-level inventory updates, while maintaining subsecond checkout availability. The workload is assessed in rollout cohort 5 with 26 representative test cases. A team wants to standardize developer agent tool permissions. What should be documented?",
+    "objective": "Support debugging and operational issue resolution",
+    "lessonId": "d7-t3",
+    "question": "A city government's citizen-services assistant kept green uptime and error-rate dashboards for a whole quarter while answer quality slowly declined; the cause, a growing corpus that the index had not kept pace with, was found only at the quarterly business review. Leadership asks how to catch this kind of problem the day it starts. What should the Architect add?",
+    "question_vi": "Trợ lý dịch vụ công dân của một chính quyền thành phố giữ dashboard uptime và tỷ lệ lỗi xanh suốt cả quý trong khi chất lượng câu trả lời giảm dần; nguyên nhân, một corpus tăng nhanh hơn khả năng theo kịp của index, chỉ được phát hiện ở buổi review kinh doanh hằng quý. Ban lãnh đạo hỏi làm sao bắt được loại vấn đề này ngay ngày nó bắt đầu. Architect nên bổ sung gì?",
     "type": "single",
+    "selectCount": 1,
     "options": [
       {
         "key": "A",
-        "text": "Only tool icons",
-        "text_vi": "Chỉ có biểu tượng công cụ"
+        "text": "Additional CPU, memory and uptime alerts with tighter thresholds on the existing dashboards.",
+        "text_vi": "Thêm cảnh báo CPU, memory và uptime với ngưỡng chặt hơn trên các dashboard hiện có."
       },
       {
         "key": "B",
-        "text": "Only the agent's preferred writing style",
-        "text_vi": "Chỉ phong cách viết ưa thích của đại lý"
+        "text": "Scheduled evals with alert thresholds, plus a runbook entry for gradual quality decline.",
+        "text_vi": "Eval định kỳ có ngưỡng cảnh báo, kèm một entry runbook cho trường hợp chất lượng giảm dần."
       },
       {
         "key": "C",
-        "text": "Only the number of installed extensions",
-        "text_vi": "Chỉ số lượng tiện ích mở rộng được cài đặt"
+        "text": "Full request logging retained for a year so the next quarterly review has more data to analyze.",
+        "text_vi": "Ghi log đầy đủ mọi request và lưu một năm để buổi review hằng quý tới có nhiều dữ liệu phân tích hơn."
       },
       {
         "key": "D",
-        "text": "Allowed tools, environments, approval boundaries, secrets handling, and exception process",
-        "text_vi": "Các công cụ, môi trường, ranh giới phê duyệt, xử lý bí mật và quy trình ngoại lệ được phép"
-      }
-    ],
-    "answer": [
-      "D"
-    ],
-    "explanation": "Tool policy must be explicit and enforced by environment controls.",
-    "question_vi": "Một nhóm đa chức năng tại một chuỗi bán lẻ quốc tế có kế hoạch hiện đại hóa ERP bằng cách sử dụng các bản cập nhật hàng tồn kho ở cấp độ cửa hàng, trong khi vẫn duy trì khả năng thanh toán dưới giây. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 26 trường hợp thử nghiệm đại diện. Một nhóm muốn chuẩn hóa các quyền đối với công cụ tác nhân dành cho nhà phát triển. Những gì cần được ghi lại?",
-    "explanation_vi": "Chính sách công cụ phải rõ ràng và được thực thi bởi các biện pháp kiểm soát môi trường."
-  },
-  {
-    "id": 59,
-    "topic": "Solution Design & Architecture (17%)",
-    "question": "At a Japanese manufacturing group, an AI pilot processes quality-inspection records from the factory MES; mandatory operator sign-off is a non-negotiable requirement. The workload is assessed in rollout cohort 5 with 31 representative test cases. A regulatory workflow needs reproducible evidence for every accepted AI suggestion. Which component is essential?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "A dashboard showing only aggregate token usage",
-        "text_vi": "Trang tổng quan chỉ hiển thị mức sử dụng mã thông báo tổng hợp"
-      },
-      {
-        "key": "B",
-        "text": "An immutable evidence and decision log linking inputs, model output, approver, and applied version",
-        "text_vi": "Bằng chứng bất biến và nhật ký quyết định liên kết đầu vào, đầu ra mô hình, người phê duyệt và phiên bản ứng dụng"
-      },
-      {
-        "key": "C",
-        "text": "A prompt that asks Claude to remember all prior decisions",
-        "text_vi": "prompt yêu cầu Claude ghi nhớ tất cả các quyết định trước đó"
-      },
-      {
-        "key": "D",
-        "text": "A weekly email with no artifact identifiers",
-        "text_vi": "Email hàng tuần không có số nhận dạng giả"
+        "text": "A move from quarterly to semi-annual business reviews so that trends become easier to see.",
+        "text_vi": "Chuyển từ review kinh doanh hằng quý sang nửa năm một lần để xu hướng dễ thấy hơn."
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Auditability requires durable, version-linked evidence separate from the model's conversation context.",
-    "question_vi": "Tại một nhóm sản xuất Nhật Bản, một dự án thí điểm AI (AI pilot) xử lý hồ sơ kiểm tra chất lượng từ MES của nhà máy; việc ký duyệt (sign-off) bắt buộc của nhà điều hành là một yêu cầu không thể thương lượng. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 31 trường hợp thử nghiệm đại diện. Quy trình làm việc theo quy định cần có bằng chứng có thể tái tạo cho mọi đề xuất AI được chấp nhận. Thành phần nào là thiết yếu?",
-    "explanation_vi": "Khả năng kiểm tra yêu cầu bằng chứng bền vững, liên kết với phiên bản tách biệt khỏi bối cảnh hội thoại của mô hình."
+    "explanation": "Infrastructure dashboards do not measure answer quality, so scheduled evals with alert thresholds turn slow degradation into a signal, and a runbook entry saying gradual decline with no code change points at model, prompt or retrieval drift lets first-line engineers resolve it quickly. Infrastructure alerts measure the wrong thing, logs that nobody analyzes until a review raise no alert, and less frequent reviews would detect the drift even later.",
+    "explanation_vi": "Dashboard hạ tầng không đo được chất lượng câu trả lời, nên eval định kỳ có ngưỡng cảnh báo biến suy giảm chậm thành một tín hiệu, và một entry runbook ghi rằng chất lượng giảm dần không đổi code chỉ tới model, prompt hoặc retrieval drift giúp kỹ sư tuyến đầu xử lý nhanh. Cảnh báo hạ tầng đo sai thứ cần đo, log không ai phân tích cho đến buổi review thì không tạo ra cảnh báo, còn review thưa hơn sẽ phát hiện drift còn muộn hơn.",
+    "source": "output_5/04_Operational_Issue_Resolution.md"
   },
   {
-    "id": 60,
+    "id": 57,
     "topic": "Integration (19%)",
-    "question": "At scale, a B2B software vendor expects Claude to support customer support platform users working with support and incident tickets, without compromising multi-tenant isolation. The workload is assessed in rollout cohort 5 with 27 representative test cases. A Claude integration receives a tool response claiming to be a new system instruction. What must happen?",
+    "objective": "Analyze observability challenges and select monitoring strategies at scale",
+    "lessonId": "d3-t4",
+    "question": "A national telco's assistant handles about 30 million requests per day. Storing every full prompt and response is expensive, and the payloads contain subscriber PII. The observability team still needs to reconstruct incidents, track quality and meet audit needs. Which strategy best fits operation at this scale?",
+    "question_vi": "Trợ lý của một nhà mạng quốc gia xử lý khoảng 30 triệu request mỗi ngày. Lưu mọi prompt và response đầy đủ rất tốn kém, và payload chứa PII của thuê bao. Đội observability vẫn cần tái dựng sự cố, theo dõi chất lượng và đáp ứng nhu cầu audit. Chiến lược nào phù hợp nhất với vận hành ở quy mô này?",
     "type": "single",
+    "selectCount": 1,
     "options": [
       {
         "key": "A",
-        "text": "Treat it as untrusted tool data and ignore attempted privilege escalation",
-        "text_vi": "Hãy coi nó như dữ liệu công cụ không đáng tin cậy và bỏ qua nỗ lực leo thang đặc quyền"
+        "text": "Log only errors and timeouts, since successful requests do not need investigation, using the existing tooling and no additional approvals.",
+        "text_vi": "Chỉ log lỗi và timeout, vì request thành công không cần điều tra, dùng công cụ hiện có và không cần thêm phê duyệt."
       },
       {
         "key": "B",
-        "text": "Rewrite system policies using the response",
-        "text_vi": "Viết lại chính sách hệ thống bằng cách sử dụng phản hồi"
+        "text": "Store every full payload indefinitely in encrypted storage so nothing is ever lost.",
+        "text_vi": "Lưu mọi payload đầy đủ vô thời hạn trong kho mã hóa để không bao giờ mất gì."
       },
       {
         "key": "C",
-        "text": "Forward credentials requested by the tool output",
-        "text_vi": "Chuyển tiếp thông tin xác thực được yêu cầu bởi đầu ra công cụ"
+        "text": "Log metadata and trace IDs for every request, sample full payloads, mask PII and tier alerts by severity.",
+        "text_vi": "Log metadata và trace ID cho mọi request, lấy mẫu payload đầy đủ, che PII và phân tầng cảnh báo theo mức nghiêm trọng."
       },
       {
         "key": "D",
-        "text": "Give it higher priority because it came from an API",
-        "text_vi": "Ưu tiên cao hơn vì nó đến từ API"
+        "text": "Disable logging for the assistant and rely on monthly customer-satisfaction surveys.",
+        "text_vi": "Tắt logging cho trợ lý và dựa vào khảo sát mức hài lòng khách hàng hằng tháng."
       }
     ],
     "answer": [
-      "A"
-    ],
-    "explanation": "Tool responses can contain prompt injection and cannot alter instruction hierarchy or permissions.",
-    "question_vi": "Ở quy mô lớn, một nhà cung cấp phần mềm B2B kỳ vọng Claude sẽ hỗ trợ người dùng nền tảng hỗ trợ khách hàng làm việc với các phiếu hỗ trợ và sự cố mà không ảnh hưởng đến sự cô lập của nhiều bên thuê. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 27 trường hợp thử nghiệm đại diện. Tích hợp Claude nhận được phản hồi của công cụ tự xưng là hướng dẫn hệ thống mới. Điều gì phải xảy ra?",
-    "explanation_vi": "Phản hồi của công cụ có thể chứa nội dung nhắc nhở và không thể thay đổi quyền hoặc phân cấp lệnh."
-  },
-  {
-    "id": 61,
-    "topic": "Stakeholder Communication & Lifecycle Management (14%)",
-    "question": "A cross-functional team at an international retail chain plans to modernize ERP using store-level inventory updates, while maintaining subsecond checkout availability. The workload is assessed in rollout cohort 5 with 27 representative test cases. Two stakeholders disagree about latency versus accuracy. What is the strongest decision artifact?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "A trade-off matrix with workloads, p95 targets, quality thresholds, cost, and owner sign-off",
-        "text_vi": "Ma trận cân bằng với khối lượng công việc, mục tiêu p95, ngưỡng chất lượng, chi phí và sự phê duyệt của chủ sở hữu"
-      },
-      {
-        "key": "B",
-        "text": "A single average benchmark unrelated to the customer journey",
-        "text_vi": "Một điểm chuẩn trung bình duy nhất không liên quan đến hành trình của khách hàng"
-      },
-      {
-        "key": "C",
-        "text": "An undocumented personal preference",
-        "text_vi": "Sở thích cá nhân không có giấy tờ"
-      },
-      {
-        "key": "D",
-        "text": "A model leaderboard alone",
-        "text_vi": "Chỉ có một bảng xếp hạng kiểu mẫu"
-      }
-    ],
-    "answer": [
-      "A"
-    ],
-    "explanation": "Documented trade-offs allow stakeholders to choose based on explicit constraints.",
-    "question_vi": "Một nhóm đa chức năng tại một chuỗi bán lẻ quốc tế có kế hoạch hiện đại hóa ERP bằng cách sử dụng các bản cập nhật hàng tồn kho ở cấp độ cửa hàng, trong khi vẫn duy trì khả năng thanh toán dưới giây. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 27 trường hợp thử nghiệm đại diện. Hai bên liên quan không đồng ý về độ trễ so với độ chính xác. Tạo tác quyết định mạnh mẽ nhất là gì?",
-    "explanation_vi": "Sự đánh đổi được ghi lại bằng văn bản cho phép các bên liên quan lựa chọn dựa trên các ràng buộc rõ ràng."
-  },
-  {
-    "id": 62,
-    "topic": "Developer Productivity & Operational Enablement (7%)",
-    "question": "For the next release, a multinational bank will connect Claude to core banking platform to work with corporate credit applications under auditable financial controls. The workload is assessed in rollout cohort 5 with 28 representative test cases. Which TWO controls are most important for secure and accountable operation of this workflow? (Choose TWO.)",
-    "type": "multiple",
-    "options": [
-      {
-        "key": "A",
-        "text": "Constrain coding-agent credentials and use protected deployment gates",
-        "text_vi": "Hạn chế thông tin xác thực tác nhân mã hóa và sử dụng các cổng triển khai được bảo vệ"
-      },
-      {
-        "key": "B",
-        "text": "Treat the agent as the incident commander",
-        "text_vi": "Đối xử với người đại diện như người chỉ huy sự cố"
-      },
-      {
-        "key": "C",
-        "text": "Require reviewed code changes and repeatable automated tests",
-        "text_vi": "Yêu cầu thay đổi mã được xem xét và kiểm tra tự động lặp lại"
-      },
-      {
-        "key": "D",
-        "text": "Execute every suggested command immediately",
-        "text_vi": "Thực hiện mọi lệnh được đề xuất ngay lập tức"
-      }
-    ],
-    "answer": [
-      "A",
       "C"
     ],
-    "explanation": "Both controls are necessary: require reviewed code changes and repeatable automated tests; and constrain coding-agent credentials and use protected deployment gates. Model instructions alone do not substitute for enforceable controls.",
-    "question_vi": "Trong lần phát hành tiếp theo, một ngân hàng đa quốc gia sẽ kết nối Claude với nền tảng ngân hàng cốt lõi để hoạt động với các ứng dụng tín dụng doanh nghiệp dưới sự kiểm soát tài chính có thể kiểm toán được. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 28 trường hợp thử nghiệm đại diện. HAI biện pháp kiểm soát nào là quan trọng nhất để vận hành quy trình công việc này một cách an toàn và có trách nhiệm? (Chọn HAI.)",
-    "explanation_vi": "Cả hai biện pháp kiểm soát đều cần thiết: yêu cầu xem xét các thay đổi mã và kiểm tra tự động lặp lại; và hạn chế thông tin xác thực tác nhân mã hóa cũng như sử dụng các cổng triển khai được bảo vệ. Chỉ hướng dẫn mô hình không thể thay thế cho các biện pháp kiểm soát có thể thực thi được."
+    "explanation": "At scale the course recommends sampling rather than storing every full payload, masking PII in logs, tiering alerts by severity and linking metrics to versions, while traces keep every request reconstructable at the metadata level. Keeping all payloads forever multiplies cost and PII exposure. Error-only logging misses silently wrong answers, and surveys cannot reconstruct incidents or satisfy audit.",
+    "explanation_vi": "Ở quy mô lớn, khóa học khuyến nghị lấy mẫu thay vì lưu mọi payload đầy đủ, che PII trong log, phân tầng cảnh báo theo mức nghiêm trọng và liên kết metric với phiên bản, trong khi trace giữ cho mọi request có thể tái dựng ở mức metadata. Giữ mọi payload mãi mãi nhân chi phí và phơi nhiễm PII lên. Chỉ log lỗi sẽ bỏ sót câu trả lời sai âm thầm, còn khảo sát không thể tái dựng sự cố hay đáp ứng audit.",
+    "source": "output/14_Supplement_Integration_Security_Observability.md"
   },
   {
-    "id": 63,
-    "topic": "Solution Design & Architecture (17%)",
-    "question": "A regulated delivery team at an insurance carrier is integrating policy and claim files into claims processing platform; its operational mandate includes regulated evidence retention. The workload is assessed in rollout cohort 5 with 27 representative test cases. An AI assistant drafts contract changes but only lawyers may authorize binding language. Where should authority sit?",
+    "id": 58,
+    "topic": "Stakeholder Communication & Lifecycle Management (14%)",
+    "objective": "Support lifecycle phases (discovery, design, handoff, monitoring, iteration)",
+    "lessonId": "d6-t5",
+    "question": "A health insurer's member-letter assistant ran a three-month pilot at 3,000 letters a month and met its eval acceptance criteria; monthly spend was well within the budget envelope. Production is expected to generate about 250,000 letters a month. The sponsor wants to sign off the pilot gate today. What must the Architect check first?",
+    "question_vi": "Trợ lý soạn thư thành viên của một công ty bảo hiểm y tế đã chạy pilot ba tháng với 3.000 thư mỗi tháng và đạt eval acceptance criteria; chi tiêu hàng tháng nằm thoải mái trong budget envelope. Production dự kiến tạo khoảng 250.000 thư mỗi tháng. Sponsor muốn ký duyệt gate pilot hôm nay. Architect phải kiểm tra điều gì trước tiên?",
     "type": "single",
+    "selectCount": 1,
     "options": [
       {
         "key": "A",
-        "text": "In the model's self-reported confidence score",
-        "text_vi": "Trong điểm tự tin tự báo cáo của người mẫu"
+        "text": "That the pilot ran for at least six months, which is the minimum for a reliable quality signal.",
+        "text_vi": "Rằng pilot đã chạy ít nhất sáu tháng, mức tối thiểu cho một tín hiệu chất lượng đáng tin cậy."
       },
       {
         "key": "B",
-        "text": "In the system prompt stating that the model should be careful",
-        "text_vi": "Trong system prompt nêu rõ rằng mô hình nên cẩn thận"
+        "text": "That the outcome document with before-and-after business metrics has been completed and audited.",
+        "text_vi": "Rằng outcome document với business metric before-and-after đã được hoàn thành và kiểm toán."
       },
       {
         "key": "C",
-        "text": "In a post-hoc notification after publication",
-        "text_vi": "Trong một thông báo hậu kỳ sau khi xuất bản"
+        "text": "That the pilot users would recommend the assistant to colleagues in other departments.",
+        "text_vi": "Rằng người dùng pilot sẽ giới thiệu trợ lý cho đồng nghiệp ở các phòng ban khác."
       },
       {
         "key": "D",
-        "text": "In an approval service that validates the exact draft version before publishing",
-        "text_vi": "Trong dịch vụ phê duyệt xác thực phiên bản dự thảo chính xác trước khi xuất bản"
+        "text": "That cost forecast at production volume, not pilot volume, still fits within the agreed envelope.",
+        "text_vi": "Rằng chi phí dự báo ở production volume, không phải volume pilot, vẫn nằm trong envelope đã thống nhất."
       }
     ],
     "answer": [
       "D"
     ],
-    "explanation": "The authorization boundary must be external to model-generated text and tied to the reviewed artifact.",
-    "question_vi": "Nhóm phân phối được quản lý tại một hãng bảo hiểm đang tích hợp các hồ sơ chính sách và yêu cầu bồi thường vào nền tảng xử lý yêu cầu bồi thường; nhiệm vụ hoạt động của nó bao gồm việc lưu giữ bằng chứng theo quy định. Khối lượng công việc được đánh giá trong nhóm triển khai 5 với 27 trường hợp thử nghiệm đại diện. Trợ lý AI soạn thảo các thay đổi trong hợp đồng nhưng chỉ luật sư mới có thể ủy quyền cho ngôn ngữ ràng buộc. Quyền lực nên ngồi ở đâu?",
-    "explanation_vi": "Ranh giới ủy quyền phải nằm ngoài văn bản do mô hình tạo và gắn với tạo phẩm được xem xét."
+    "explanation": "The pilot gate requires meeting acceptance criteria, controls operating and a cost forecast at production volume within the envelope; pilots are not representative of volume, which here is roughly eighty times larger. A fixed six-month minimum is not in the material, and user enthusiasm is not a gate. The outcome document gates the later expansion decision, not the pilot exit.",
+    "explanation_vi": "Gate của pilot yêu cầu đạt acceptance criteria, control hoạt động và chi phí dự báo ở production volume nằm trong envelope; pilot không đại diện cho volume, ở đây lớn hơn khoảng tám mươi lần. Mức tối thiểu sáu tháng cố định không có trong tài liệu, và sự hào hứng của người dùng không phải là gate. Outcome document là gate cho quyết định mở rộng sau này, không phải cho việc kết thúc pilot.",
+    "source": "output_4/10_Supplement_SLOs_Expectations_Handoff_and_Rollout.md"
+  },
+  {
+    "id": 59,
+    "topic": "Governance, Safety & Risk Management (14%)",
+    "objective": "Address ethical AI considerations (bias, fairness, transparency)",
+    "lessonId": "d5-t5",
+    "question": "A recruitment-platform vendor is preparing a bias test plan for its Claude-based CV screener before selling it to enterprise clients. The team has limited time and wants techniques that actually detect unequal treatment in this system. Which TWO practices should be in the plan? (Choose TWO.)",
+    "question_vi": "Một nhà cung cấp nền tảng tuyển dụng đang chuẩn bị kế hoạch kiểm thử bias cho công cụ sàng lọc CV dùng Claude trước khi bán cho khách hàng doanh nghiệp. Đội có ít thời gian và muốn các kỹ thuật thực sự phát hiện được đối xử bất bình đẳng trong hệ thống này. HAI thực hành nào nên có trong kế hoạch? (Chọn HAI đáp án.)",
+    "type": "multiple",
+    "selectCount": 2,
+    "options": [
+      {
+        "key": "A",
+        "text": "Removing the gender field and treating the screener as fair once it is gone.",
+        "text_vi": "Loại bỏ trường giới tính và coi công cụ sàng lọc là công bằng khi trường đó đã mất."
+      },
+      {
+        "key": "B",
+        "text": "Citing the model vendor's published bias benchmark in the sales documentation.",
+        "text_vi": "Trích dẫn benchmark bias mà nhà cung cấp model công bố trong tài liệu bán hàng."
+      },
+      {
+        "key": "C",
+        "text": "Setting a single overall accuracy target of 95% on a held-out CV set.",
+        "text_vi": "Đặt một mục tiêu accuracy tổng 95% trên một bộ CV giữ lại để kiểm thử."
+      },
+      {
+        "key": "D",
+        "text": "Counterfactual tests that change only names or proxies and check if outcomes change.",
+        "text_vi": "Counterfactual test chỉ đổi tên hoặc proxy và kiểm tra kết quả có thay đổi không."
+      },
+      {
+        "key": "E",
+        "text": "Disaggregated evaluation of pass rates and error rates per subgroup.",
+        "text_vi": "Disaggregated evaluation tỷ lệ đạt và tỷ lệ lỗi theo từng subgroup."
+      }
+    ],
+    "answer": [
+      "D",
+      "E"
+    ],
+    "explanation": "Disaggregated evaluation exposes harm concentrated in one subgroup, and counterfactual testing reveals whether a sensitive attribute or proxy changes the outcome for an otherwise identical case. A vendor benchmark does not test this system's corpus, prompts or routing, dropping one field leaves proxies in place, and an overall accuracy target can be met while one group is harmed.",
+    "explanation_vi": "Disaggregated evaluation làm lộ ra tác hại dồn vào một subgroup, và counterfactual testing cho biết một thuộc tính nhạy cảm hoặc proxy có làm thay đổi kết quả của một ca giống hệt hay không. Benchmark của nhà cung cấp không kiểm tra corpus, prompt hay routing của hệ thống này, bỏ một trường vẫn để lại proxy, và mục tiêu accuracy tổng có thể đạt được trong khi một nhóm bị thiệt hại.",
+    "source": "output_3/04_Fairness_and_Accountability.md"
+  },
+  {
+    "id": 60,
+    "topic": "Solution Design & Architecture (17%)",
+    "objective": "Apply decomposition techniques for complex problem solving",
+    "lessonId": "d1-t5",
+    "question": "A bank's operations team gives Claude a 600-page policy manual plus six months of case notes in a single request and asks for a one-line decision per case. The request is rejected before any output is generated with a message that the prompt is too long. What does this indicate, and what decomposition response is appropriate?",
+    "question_vi": "Đội vận hành của một ngân hàng đưa cho Claude một sổ tay chính sách 600 trang cùng ghi chú ca của sáu tháng trong một request và yêu cầu một dòng quyết định cho mỗi ca. Request bị từ chối trước khi tạo bất kỳ output nào với thông báo prompt quá dài. Điều này cho thấy gì và phản ứng decomposition nào phù hợp?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "The request exceeded the window; split the work into units and load only needed policy sections per unit.",
+        "text_vi": "Request vượt window; chia công việc thành các đơn vị và chỉ nạp các mục chính sách cần cho mỗi đơn vị."
+      },
+      {
+        "key": "B",
+        "text": "The model is refusing for safety reasons, so the team should rephrase the request to remove sensitive wording.",
+        "text_vi": "Model từ chối vì lý do an toàn, nên đội cần diễn đạt lại request để bỏ từ ngữ nhạy cảm."
+      },
+      {
+        "key": "C",
+        "text": "The model reached its output limit and truncated the answer, so the team should raise the maximum output tokens.",
+        "text_vi": "Model chạm giới hạn output và cắt câu trả lời, nên đội cần tăng số token output tối đa."
+      },
+      {
+        "key": "D",
+        "text": "A transient server error occurred, so the team should retry the identical request after a short delay.",
+        "text_vi": "Đã xảy ra lỗi máy chủ tạm thời, nên đội cần retry request giống hệt sau một khoảng ngắn."
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "An oversized request is rejected before generation, which is the working-memory edge, and the design response is to decompose into units with progressive loading or chunking rather than sending everything at once. A truncated generation, a safety refusal and a transient error are different failures that do not match the described rejection.",
+    "explanation_vi": "Request quá cỡ bị từ chối trước khi sinh, đó là biên của working memory, và phản ứng thiết kế là phân rã thành các đơn vị với progressive loading hoặc chunking thay vì gửi mọi thứ cùng lúc. Sinh bị cắt, từ chối vì an toàn và lỗi tạm thời là các lỗi khác không khớp với việc từ chối được mô tả.",
+    "source": "output/02_How_Claude_Behaves.md"
+  },
+  {
+    "id": 61,
+    "topic": "Integration (19%)",
+    "objective": "Analyze observability challenges and select monitoring strategies at scale",
+    "lessonId": "d3-t4",
+    "question": "A B2B lending platform passes Claude-generated credit memo summaries straight into its loan-origination system. Request and response metadata are logged, but nothing records whether the downstream system accepted, corrected or rejected each summary. Underwriters say some summaries are quietly wrong. Which logging gap matters most?",
+    "question_vi": "Một nền tảng cho vay B2B chuyển thẳng bản tóm tắt hồ sơ tín dụng do Claude tạo vào hệ thống khởi tạo khoản vay. Metadata của request và response được log, nhưng không có gì ghi nhận hệ thống hạ nguồn đã chấp nhận, sửa hay từ chối từng bản tóm tắt. Chuyên viên thẩm định cho biết một số bản tóm tắt sai một cách âm thầm. Lỗ hổng logging nào quan trọng nhất?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "Infrastructure logging: CPU and memory of the servers hosting the integration.",
+        "text_vi": "Log hạ tầng: CPU và bộ nhớ của các máy chủ chạy phần tích hợp."
+      },
+      {
+        "key": "B",
+        "text": "Outcome logging: whether the downstream system accepted the output and any rejection or correction signals.",
+        "text_vi": "Log outcome: hệ thống hạ nguồn có chấp nhận output không và các tín hiệu từ chối hoặc chỉnh sửa."
+      },
+      {
+        "key": "C",
+        "text": "Response logging: storing the complete summary text indefinitely for every request, tracked through the usual ticketing process.",
+        "text_vi": "Log response: lưu toàn bộ văn bản tóm tắt vô thời hạn cho mọi request, được theo dõi qua quy trình ticket thông thường."
+      },
+      {
+        "key": "D",
+        "text": "Request logging: more detail on input token counts per section of the credit file.",
+        "text_vi": "Log request: thêm chi tiết về số input token theo từng phần của hồ sơ tín dụng."
+      }
+    ],
+    "answer": [
+      "B"
+    ],
+    "explanation": "LLM systems fail by producing subtly wrong output rather than crashing, and the outcome group, downstream acceptance and rejection signals, is the only log category that catches quietly incorrect results; an unlogged downstream path is invisible. More input-token detail and server metrics describe load, not correctness. Storing full text forever adds data-handling risk without measuring whether the output was right.",
+    "explanation_vi": "Hệ thống LLM thất bại bằng cách tạo output sai tinh vi thay vì sập, và nhóm outcome, tức tín hiệu chấp nhận và từ chối ở hạ nguồn, là nhóm log duy nhất bắt được kết quả sai âm thầm; một đường hạ nguồn không được log là vô hình. Thêm chi tiết input token và metric máy chủ mô tả tải chứ không mô tả tính đúng. Lưu toàn văn mãi mãi làm tăng rủi ro xử lý dữ liệu mà không đo được output có đúng không.",
+    "source": "output_2/05_Enterprise_Integration_Patterns.md"
+  },
+  {
+    "id": 62,
+    "topic": "Governance, Safety & Risk Management (14%)",
+    "objective": "Implement guardrails and safety controls",
+    "lessonId": "d5-t1",
+    "question": "A manufacturer's maintenance assistant uses RAG over supplier manuals uploaded by third-party vendors and can open work orders through a tool. A jailbreak classifier screens every technician message. A red team plants text in one manual telling the assistant to open urgent work orders for a competitor's parts, and the assistant complies. Which control most directly closes this vector?",
+    "question_vi": "Trợ lý bảo trì của một nhà sản xuất dùng RAG trên các sổ tay do nhà cung cấp bên thứ ba tải lên và có thể mở work order qua một tool. Một classifier chống jailbreak screen mọi tin nhắn của kỹ thuật viên. Đội red team cài vào một sổ tay đoạn văn bảo trợ lý mở work order khẩn cho linh kiện của đối thủ, và trợ lý làm theo. Control nào đóng vector này trực tiếp nhất?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "Raise the sensitivity threshold of the jailbreak classifier applied to technician messages.",
+        "text_vi": "Tăng ngưỡng nhạy của classifier chống jailbreak áp dụng cho tin nhắn của kỹ thuật viên."
+      },
+      {
+        "key": "B",
+        "text": "Add a system-prompt line telling Claude to ignore any instructions found inside supplier manuals.",
+        "text_vi": "Thêm một dòng vào system prompt bảo Claude bỏ qua mọi chỉ dẫn nằm trong sổ tay nhà cung cấp."
+      },
+      {
+        "key": "C",
+        "text": "Screen retrieved manual content before it is appended to the context, and authorize the work-order tool.",
+        "text_vi": "Screen nội dung sổ tay được truy xuất trước khi append vào context, và authorize tool work order."
+      },
+      {
+        "key": "D",
+        "text": "Switch to a larger model that is better at recognizing instructions embedded in documents.",
+        "text_vi": "Chuyển sang model lớn hơn, giỏi hơn trong việc nhận ra chỉ dẫn được nhúng trong tài liệu."
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "This is indirect prompt injection: the instruction arrives through retrieved content after user-input screening has already passed the request, so the control is screening retrieved content before it enters the context, with tool authorization as the last line of defense. Tuning the user-message classifier works at the wrong point. A prompt line is a helpful mitigation but not a security boundary, and a larger model is not a control.",
+    "explanation_vi": "Đây là indirect prompt injection: chỉ dẫn đến qua nội dung truy xuất sau khi input screening đã cho request đi qua, nên control là screen nội dung truy xuất trước khi vào context, với tool authorization làm lớp phòng thủ cuối. Chỉnh classifier trên tin nhắn người dùng là tác động sai điểm. Một dòng prompt là biện pháp giảm nhẹ hữu ích nhưng không phải ranh giới bảo mật, còn model lớn hơn không phải là control.",
+    "source": "output_3/03_Guardrails_and_Failure_Modes.md"
+  },
+  {
+    "id": 63,
+    "topic": "Evaluation, Testing & Optimization (16%)",
+    "objective": "Define evaluation metrics (accuracy, latency, cost, safety, security)",
+    "lessonId": "d4-t1",
+    "question": "A telco is defining the cost metric for a Claude agent that handles billing disputes. Finance proposes tracking 'average cost per conversation' from the pilot. Most disputes are short, but a minority include long account histories and attachments, and the pilot sample contained none of these. What cost metric definition should the architect put in the eval and monitoring framework?",
+    "question_vi": "Một nhà mạng đang định nghĩa metric chi phí cho agent Claude xử lý tranh chấp hóa đơn. Bộ phận tài chính đề xuất theo dõi 'chi phí trung bình mỗi cuộc hội thoại' từ giai đoạn pilot. Phần lớn tranh chấp ngắn, nhưng một số ít kèm lịch sử tài khoản dài và file đính kèm, và mẫu pilot không có trường hợp nào như vậy. Architect nên đưa định nghĩa metric chi phí nào vào khung eval và giám sát?",
+    "type": "single",
+    "selectCount": 1,
+    "options": [
+      {
+        "key": "A",
+        "text": "Total monthly invoice compared with the budget at month end",
+        "text_vi": "Tổng hóa đơn hàng tháng so với ngân sách vào cuối tháng"
+      },
+      {
+        "key": "B",
+        "text": "Pilot average cost per conversation multiplied by forecast volume",
+        "text_vi": "Chi phí trung bình mỗi hội thoại của pilot nhân với volume dự báo"
+      },
+      {
+        "key": "C",
+        "text": "Cost per conversation estimated by a judge model reading each transcript",
+        "text_vi": "Chi phí mỗi hội thoại do một judge model ước tính khi đọc từng transcript"
+      },
+      {
+        "key": "D",
+        "text": "Per-request cost from input, cached and output tokens and tier, tracked as a distribution including the tail",
+        "text_vi": "Chi phí mỗi request từ token input, token cache, token output và tier, theo dõi dạng phân phối bao gồm phần đuôi"
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "Cost is a numeric value derived from tokens, tier and caching, so it is a code-based metric, and the course warns that skewed token distributions make averages understate cost, often by two or three times. Multiplying a pilot average that excludes long cases repeats that error, a month-end invoice is too late and too coarse to locate the tail, and a judge estimate adds interpretation to something computable.",
+    "explanation_vi": "Chi phí là giá trị số tính từ token, tier và caching, nên là metric dựa trên code, và khóa học cảnh báo phân phối token bị lệch khiến số trung bình đánh giá thấp chi phí, thường từ hai đến ba lần. Nhân trung bình pilot vốn không có case dài lặp lại đúng lỗi đó, hóa đơn cuối tháng quá muộn và quá thô để tìm ra phần đuôi, còn ước tính bằng judge thêm diễn giải cho thứ vốn tính được.",
+    "source": "output_2/03_POC_to_Production.md"
   }
 ];
