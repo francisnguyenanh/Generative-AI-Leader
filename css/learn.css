@@ -15,6 +15,18 @@
   display: none;
 }
 
+.learn-backdrop {
+  display: none;
+}
+
+.learn-sidebar {
+  grid-column: 1;
+}
+
+.learn-main {
+  grid-column: 2;
+}
+
 /* Sidebar */
 .learn-sidebar {
   position: sticky;
@@ -605,7 +617,11 @@ body.hide-translations .page-title-vi {
 /* Responsive */
 @media (max-width: 900px) {
   .learn-layout {
-    grid-template-columns: 1fr;
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .learn-main {
+    grid-column: 1;
   }
 
   .learn-menu-btn {
