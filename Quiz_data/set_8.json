@@ -2,2041 +2,2179 @@
   {
     "id": 1,
     "topic": "Generative AI Fundamentals (30%)",
-    "question": "What does 'Perplexity' measure in the context of Language Models?",
+    "question": "A media company's marketing team wants one AI model that can look at a product photo and a short written brief, then draft a caption and social posts. Which type of model fits this need BEST?",
+    "question_vi": "Nhóm marketing của một công ty truyền thông muốn một mô hình AI vừa xem được ảnh sản phẩm, vừa đọc bản brief ngắn rồi soạn caption và bài đăng mạng xã hội. Loại mô hình nào phù hợp NHẤT?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "The model's emotional intelligence.",
-        "text_vi": "Trí tuệ cảm xúc của người mẫu."
+        "text": "A text-only large language model trained on written documents",
+        "text_vi": "Một mô hình ngôn ngữ lớn chỉ xử lý văn bản, huấn luyện trên tài liệu viết"
       },
       {
         "key": "B",
-        "text": "How well the model predicts a sample; a lower perplexity indicates the model is less 'surprised' by the text and thus better at predicting it.",
-        "text_vi": "Mô hình dự đoán mẫu tốt đến mức nào; mức độ bối rối thấp hơn cho thấy mô hình ít bị văn bản 'ngạc nhiên' hơn và do đó dự đoán nó tốt hơn."
+        "text": "A classification model trained to sort photos into fixed categories",
+        "text_vi": "Một mô hình phân loại được huấn luyện để xếp ảnh vào các nhóm cố định"
       },
       {
         "key": "C",
-        "text": "The time it takes to generate a response.",
-        "text_vi": "Thời gian cần thiết để tạo ra phản hồi."
+        "text": "A rules engine in which writers pre-define every caption template",
+        "text_vi": "Một công cụ luật trong đó biên tập viên định nghĩa trước mọi mẫu caption"
       },
       {
         "key": "D",
-        "text": "The number of layers in the model.",
-        "text_vi": "Số lớp trong mô hình"
+        "text": "A multimodal foundation model that understands both images and text",
+        "text_vi": "Một foundation model đa phương thức hiểu được cả hình ảnh và văn bản"
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": "Correct: How well the model predicts a sample; a lower perplexity indicates the model is less 'surprised' by the text and thus better at predicting it. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "'Sự bối rối' đo lường điều gì trong bối cảnh Mô hình ngôn ngữ?",
-    "explanation_vi": "Đúng: Mô hình dự đoán mẫu tốt đến mức nào; mức độ bối rối thấp hơn cho thấy mô hình ít bị văn bản 'ngạc nhiên' hơn và do đó dự đoán nó tốt hơn. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "A multimodal foundation model can take several data types, such as images and text, as input and generate new content from them. A text-only LLM cannot interpret the photo, and a classifier only labels images instead of writing captions.",
+    "explanation_vi": "Foundation model đa phương thức nhận nhiều loại dữ liệu như ảnh và văn bản làm đầu vào rồi tạo nội dung mới. LLM chỉ xử lý văn bản không đọc được ảnh, còn mô hình phân loại chỉ gán nhãn ảnh chứ không viết caption.",
+    "lessonId": "d1-t1",
+    "objective": "1.1 Core gen AI concepts"
   },
   {
     "id": 2,
     "topic": "Generative AI Fundamentals (30%)",
-    "question": "Which of the following best describes 'Artificial General Intelligence' (AGI) as opposed to 'Artificial Narrow Intelligence' (ANI)?",
+    "question": "Which statement best describes how generative AI relates to machine learning?",
+    "question_vi": "Phát biểu nào mô tả đúng nhất mối quan hệ giữa generative AI và machine learning?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "AGI only works on structured data.",
-        "text_vi": "AGI chỉ hoạt động trên dữ liệu có cấu trúc."
+        "text": "Generative AI is the broad field that contains all of AI and machine learning",
+        "text_vi": "Generative AI là lĩnh vực rộng bao trùm toàn bộ AI và machine learning"
       },
       {
         "key": "B",
-        "text": "AGI is a specific Google Cloud product.",
-        "text_vi": "AGI là một sản phẩm cụ thể của Google Cloud."
+        "text": "Generative AI replaces machine learning with hand-written rules for each answer",
+        "text_vi": "Generative AI thay thế machine learning bằng các luật viết tay cho từng câu trả lời"
       },
       {
         "key": "C",
-        "text": "AGI can only play chess.",
-        "text_vi": "AGI chỉ có thể chơi cờ."
+        "text": "Generative AI only analyzes existing data and cannot produce anything new",
+        "text_vi": "Generative AI chỉ phân tích dữ liệu có sẵn và không thể tạo ra thứ gì mới"
       },
       {
         "key": "D",
-        "text": "AGI refers to a machine that can understand, learn, and apply its intelligence broadly across a wide range of tasks at or above human level, whereas ANI is specialized for single tasks (like current LLMs).",
-        "text_vi": "AGI đề cập đến một cỗ máy có thể hiểu, học hỏi và áp dụng trí thông minh của nó một cách rộng rãi cho nhiều nhiệm vụ ở cấp độ con người hoặc cao hơn, trong khi ANI chuyên dùng cho các nhiệm vụ đơn lẻ (như LLM hiện tại)."
+        "text": "Generative AI is a kind of machine learning application that creates new content such as text, images or code",
+        "text_vi": "Generative AI là một ứng dụng của machine learning có khả năng tạo nội dung mới như văn bản, hình ảnh hoặc code"
       }
     ],
     "answer": [
       "D"
     ],
-    "explanation": "Correct: AGI refers to a machine that can understand, learn, and apply its intelligence broadly across a wide range of tasks at or above human level, whereas ANI is specialized for single tasks (like current LLMs). Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Điều nào sau đây mô tả đúng nhất về 'Trí tuệ tổng hợp nhân tạo' (AGI) trái ngược với 'Trí tuệ nhân tạo hẹp' (ANI)?",
-    "explanation_vi": "Đúng: AGI đề cập đến một cỗ máy có thể hiểu, học hỏi và áp dụng trí thông minh của nó một cách rộng rãi cho nhiều nhiệm vụ ở cấp độ con người hoặc cao hơn, trong khi ANI chuyên dùng cho các nhiệm vụ đơn lẻ (như LLM hiện tại). Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "AI is the broad field, machine learning is a subfield, and gen AI is an ML application that generates new content using foundation models. It does not rely on hand-written rules, and creating new content is exactly what distinguishes it.",
+    "explanation_vi": "AI là lĩnh vực rộng, machine learning là nhánh con, còn gen AI là ứng dụng ML tạo nội dung mới bằng foundation model. Gen AI không dựa trên luật viết tay, và việc tạo nội dung mới chính là điểm khác biệt của nó.",
+    "lessonId": "d1-t1",
+    "objective": "1.1 Core gen AI concepts"
   },
   {
     "id": 3,
     "topic": "Generative AI Fundamentals (30%)",
-    "question": "In Word2Vec, what is the difference between the 'Continuous Bag of Words' (CBOW) and 'Skip-Gram' architectures?",
+    "question": "A retail team finds that a general-purpose model gives generic answers to its product questions. Without retraining the model, they rewrite their requests to add context, a clear role and the desired format, and the answers improve. What is this practice called?",
+    "question_vi": "Một nhóm bán lẻ thấy mô hình đa dụng trả lời câu hỏi về sản phẩm quá chung chung. Không huấn luyện lại mô hình, họ viết lại yêu cầu với thêm ngữ cảnh, vai trò rõ ràng và định dạng mong muốn, và câu trả lời tốt hơn. Cách làm này gọi là gì?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "CBOW generates images; Skip-Gram generates text.",
-        "text_vi": "CBOW tạo ra hình ảnh; Skip-Gram tạo văn bản."
+        "text": "Fine-tuning the model on retail data",
+        "text_vi": "Fine-tuning mô hình trên dữ liệu bán lẻ"
       },
       {
         "key": "B",
-        "text": "There is no difference.",
-        "text_vi": "Không có sự khác biệt."
+        "text": "Training a new foundation model from scratch",
+        "text_vi": "Huấn luyện một foundation model mới từ đầu"
       },
       {
         "key": "C",
-        "text": "CBOW predicts a target word given its context; Skip-Gram predicts the context given a target word.",
-        "text_vi": "CBOW dự đoán một từ mục tiêu dựa trên ngữ cảnh của nó; Skip-Gram dự đoán ngữ cảnh của từ mục tiêu."
+        "text": "Data annotation of the product catalog",
+        "text_vi": "Gán nhãn dữ liệu cho danh mục sản phẩm"
       },
       {
         "key": "D",
-        "text": "CBOW uses CPUs; Skip-Gram uses TPUs.",
-        "text_vi": "CBOW sử dụng CPU; Skip-Gram sử dụng TPU."
+        "text": "Prompt engineering",
+        "text_vi": "Prompt engineering"
       }
     ],
     "answer": [
-      "C"
+      "D"
     ],
-    "explanation": "Correct: CBOW predicts a target word given its context; Skip-Gram predicts the context given a target word. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Trong Word2Vec, sự khác biệt giữa kiến ​​trúc 'Túi từ liên tục' (CBOW) và 'Skip-Gram' là gì?",
-    "explanation_vi": "Đúng: CBOW dự đoán từ mục tiêu dựa trên ngữ cảnh của nó; Skip-Gram dự đoán ngữ cảnh của từ mục tiêu. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Prompt engineering improves results by changing only the input, so no retraining is required. Fine-tuning and training from scratch change the model itself, and annotation prepares labeled data rather than improving prompts.",
+    "explanation_vi": "Prompt engineering cải thiện kết quả chỉ bằng cách thay đổi đầu vào nên không cần huấn luyện lại. Fine-tuning và huấn luyện từ đầu làm thay đổi chính mô hình, còn gán nhãn chỉ chuẩn bị dữ liệu chứ không cải thiện prompt.",
+    "lessonId": "d1-t1",
+    "objective": "1.1 Core gen AI concepts"
   },
   {
     "id": 4,
     "topic": "Generative AI Fundamentals (30%)",
-    "question": "What is the 'Vanishing Gradient Problem' in deep neural networks?",
+    "question": "An insurer has years of claim records, each already marked 'fraudulent' or 'legitimate', and wants a model that flags suspicious new claims. Which machine learning approach fits BEST?",
+    "question_vi": "Một công ty bảo hiểm có nhiều năm hồ sơ bồi thường, mỗi hồ sơ đã được đánh dấu 'gian lận' hoặc 'hợp lệ', và muốn một mô hình gắn cờ các hồ sơ mới đáng ngờ. Hướng tiếp cận machine learning nào phù hợp NHẤT?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "When gradients become exceedingly small as they backpropagate through deep layers, effectively stopping the early layers from learning.",
-        "text_vi": "Khi độ dốc trở nên cực kỳ nhỏ khi chúng truyền ngược qua các lớp sâu, điều này sẽ ngăn chặn việc học của các lớp đầu một cách hiệu quả."
+        "text": "Unsupervised learning, because it discovers groups in data without any labels",
+        "text_vi": "Unsupervised learning, vì nó tìm ra các nhóm trong dữ liệu mà không cần nhãn"
       },
       {
         "key": "B",
-        "text": "When the training data disappears.",
-        "text_vi": "Khi dữ liệu huấn luyện biến mất."
+        "text": "Reinforcement learning, because the model learns from rewards in a simulated environment",
+        "text_vi": "Reinforcement learning, vì mô hình học từ phần thưởng trong một môi trường mô phỏng"
       },
       {
         "key": "C",
-        "text": "When the cloud server loses power.",
-        "text_vi": "Khi máy chủ đám mây mất điện."
+        "text": "Supervised learning, because the historical data is labeled with the correct outcome",
+        "text_vi": "Supervised learning, vì dữ liệu lịch sử đã được gán nhãn kết quả đúng"
       },
       {
         "key": "D",
-        "text": "When the model generates blank images.",
-        "text_vi": "Khi mô hình tạo ra hình ảnh trống."
+        "text": "Rule-based automation, because no learning from past data is needed",
+        "text_vi": "Tự động hóa dựa trên luật, vì không cần học từ dữ liệu quá khứ"
       }
     ],
     "answer": [
-      "A"
+      "C"
     ],
-    "explanation": "Correct: When gradients become exceedingly small as they backpropagate through deep layers, effectively stopping the early layers from learning. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "'Vấn đề độ dốc biến mất' trong mạng lưới thần kinh sâu là gì?",
-    "explanation_vi": "Đúng: Khi độ dốc trở nên cực kỳ nhỏ khi chúng truyền ngược qua các lớp sâu, ngăn chặn việc học của các lớp đầu một cách hiệu quả. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Labeled examples of known outcomes are the signature of supervised learning. Unsupervised learning is for finding patterns when no labels exist, and reinforcement learning learns from rewards and penalties, not from labeled history.",
+    "explanation_vi": "Các ví dụ có nhãn kết quả đã biết là dấu hiệu của supervised learning. Unsupervised learning dùng khi không có nhãn để tìm mẫu, còn reinforcement learning học từ phần thưởng và hình phạt chứ không từ lịch sử có nhãn.",
+    "lessonId": "d1-t2",
+    "objective": "1.1 ML approaches and lifecycle"
   },
   {
     "id": 5,
     "topic": "Generative AI Fundamentals (30%)",
-    "question": "How does the 'Transformer' architecture solve the vanishing gradient problem found in older RNNs?",
+    "question": "A logistics company deployed a demand-forecasting model last year. Accuracy has slowly dropped as customer buying habits changed. Which part of the ML lifecycle should the team strengthen to catch and fix this?",
+    "question_vi": "Một công ty logistics đã triển khai mô hình dự báo nhu cầu từ năm ngoái. Độ chính xác giảm dần khi thói quen mua hàng của khách thay đổi. Nhóm nên tăng cường khâu nào của vòng đời ML để phát hiện và xử lý vấn đề này?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "By deleting the gradients.",
-        "text_vi": "Bằng cách xóa các gradient."
+        "text": "Data ingestion: collect more data once and keep the model unchanged",
+        "text_vi": "Thu nhận dữ liệu: thu thập thêm dữ liệu một lần và giữ nguyên mô hình"
       },
       {
         "key": "B",
-        "text": "By reducing the context window to 10 tokens.",
-        "text_vi": "Bằng cách giảm cửa sổ ngữ cảnh xuống còn 10 mã thông báo."
+        "text": "Model management: monitor for drift, then retrain or update the model",
+        "text_vi": "Quản lý mô hình: giám sát drift rồi huấn luyện lại hoặc cập nhật mô hình"
       },
       {
         "key": "C",
-        "text": "By using self-attention and residual connections, allowing gradients to flow more directly across long sequences without passing through sequential hidden states.",
-        "text_vi": "Bằng cách sử dụng các kết nối cơ chế tự chú ý (self-attention) và dư thừa, cho phép độ dốc truyền trực tiếp hơn qua các chuỗi dài mà không cần chuyển qua các trạng thái ẩn tuần tự."
+        "text": "Model deployment: move the model to a larger server to improve accuracy",
+        "text_vi": "Triển khai mô hình: chuyển mô hình sang máy chủ lớn hơn để tăng độ chính xác"
       },
       {
         "key": "D",
-        "text": "By using only one layer.",
-        "text_vi": "Bằng cách chỉ sử dụng một lớp."
+        "text": "Model selection: switch from supervised to reinforcement learning",
+        "text_vi": "Chọn mô hình: chuyển từ supervised sang reinforcement learning"
       }
     ],
     "answer": [
-      "C"
+      "B"
     ],
-    "explanation": "Correct: By using self-attention and residual connections, allowing gradients to flow more directly across long sequences without passing through sequential hidden states. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Kiến trúc 'Transformer' giải quyết vấn đề biến mất độ dốc được tìm thấy trong các RNN cũ như thế nào?",
-    "explanation_vi": "Đúng: Bằng cách sử dụng các kết nối cơ chế tự chú ý (self-attention) và dư thừa, cho phép các dải màu chuyển tiếp trực tiếp hơn qua các chuỗi dài mà không đi qua các trạng thái ẩn tuần tự. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Accuracy falling as real-world data changes is called drift, and it is handled in model management through monitoring and re-training. A bigger server or a one-time data pull does not address changing behavior.",
+    "explanation_vi": "Độ chính xác giảm khi dữ liệu thực tế thay đổi gọi là drift, và được xử lý ở khâu quản lý mô hình bằng giám sát và huấn luyện lại. Máy chủ lớn hơn hay thu thập dữ liệu một lần không giải quyết được việc hành vi thay đổi.",
+    "lessonId": "d1-t2",
+    "objective": "1.1 ML approaches and lifecycle"
   },
   {
     "id": 6,
     "topic": "Generative AI Fundamentals (30%)",
-    "question": "What is 'Active Learning' in machine learning?",
+    "question": "Which pairing correctly matches an ML lifecycle need with the Google Cloud capability on Agent Platform (formerly Vertex AI)?",
+    "question_vi": "Cặp nào ghép đúng nhu cầu trong vòng đời ML với năng lực của Google Cloud trên Agent Platform (trước đây là Vertex AI)?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Training a model without any data.",
-        "text_vi": "Đào tạo một mô hình mà không có bất kỳ dữ liệu nào."
+        "text": "Keeping versioned records of trained models: Feature Store",
+        "text_vi": "Lưu trữ phiên bản các mô hình đã huấn luyện: Feature Store"
       },
       {
         "key": "B",
-        "text": "Learning while disconnected from the internet.",
-        "text_vi": "Học trong khi ngắt kết nối internet."
+        "text": "Detecting that a deployed model's accuracy is drifting: Model Monitoring",
+        "text_vi": "Phát hiện độ chính xác của mô hình đã triển khai đang bị drift: Model Monitoring"
       },
       {
         "key": "C",
-        "text": "The model exercising physical robots.",
-        "text_vi": "Mô hình robot tập thể dục."
+        "text": "Browsing a catalog of Google, third-party and open models: Model Registry",
+        "text_vi": "Duyệt danh mục mô hình của Google, bên thứ ba và mã nguồn mở: Model Registry"
       },
       {
         "key": "D",
-        "text": "A semi-supervised approach where the algorithm actively queries a human expert to label specific, high-value data points that it finds most uncertain, reducing the total data needed.",
-        "text_vi": "Một cách tiếp cận bán giám sát trong đó thuật toán chủ động truy vấn chuyên gia con người để gắn nhãn các điểm dữ liệu cụ thể, có giá trị cao mà thuật toán thấy không chắc chắn nhất, giúp giảm tổng số dữ liệu cần thiết."
+        "text": "Automating repeatable ML workflows end to end: Model Garden",
+        "text_vi": "Tự động hóa quy trình ML lặp lại từ đầu đến cuối: Model Garden"
       }
     ],
     "answer": [
-      "D"
+      "B"
     ],
-    "explanation": "Correct: A semi-supervised approach where the algorithm actively queries a human expert to label specific, high-value data points that it finds most uncertain, reducing the total data needed. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "'Học tích cực' trong Học máy (Machine Learning) là gì?",
-    "explanation_vi": "Đúng: Một cách tiếp cận bán giám sát trong đó thuật toán chủ động truy vấn chuyên gia con người để gắn nhãn các điểm dữ liệu cụ thể, có giá trị cao mà thuật toán thấy không chắc chắn nhất, làm giảm tổng dữ liệu cần thiết. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Model Monitoring watches for drift, Model Registry handles versioning, Feature Store manages features, Model Garden is the model catalog, and Pipelines automates workflows. The wrong options each swap two of these tools.",
+    "explanation_vi": "Model Monitoring theo dõi drift, Model Registry quản lý phiên bản, Feature Store quản lý feature, Model Garden là danh mục mô hình, còn Pipelines tự động hóa quy trình. Các phương án sai đều ghép nhầm công cụ.",
+    "lessonId": "d1-t2",
+    "objective": "1.1 ML approaches and lifecycle"
   },
   {
     "id": 7,
     "topic": "Generative AI Fundamentals (30%)",
-    "question": "What is the primary function of the 'Discriminator' in a Generative Adversarial Network (GAN)?",
+    "question": "A bank wants gen AI to summarize 300-page loan agreements in a single request. Which model selection factor is MOST important for this requirement?",
+    "question_vi": "Một ngân hàng muốn dùng gen AI để tóm tắt các hợp đồng vay dài 300 trang chỉ trong một yêu cầu. Yếu tố chọn mô hình nào quan trọng NHẤT cho yêu cầu này?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "To generate the final image.",
-        "text_vi": "Để tạo ra hình ảnh cuối cùng."
+        "text": "Support for video output, because contracts are visual documents",
+        "text_vi": "Hỗ trợ đầu ra dạng video, vì hợp đồng là tài liệu trực quan"
       },
       {
         "key": "B",
-        "text": "To distinguish between real data from the training set and fake data produced by the Generator.",
-        "text_vi": "Để phân biệt dữ liệu thật từ tập huấn luyện và dữ liệu giả do Generator tạo ra."
+        "text": "A context window large enough to take in the whole document",
+        "text_vi": "Context window đủ lớn để chứa toàn bộ tài liệu"
       },
       {
         "key": "C",
-        "text": "To discriminate against certain users.",
-        "text_vi": "Để phân biệt đối xử với một số người dùng nhất định."
+        "text": "The lowest possible price per request, regardless of document length",
+        "text_vi": "Giá thấp nhất trên mỗi yêu cầu, bất kể độ dài tài liệu"
       },
       {
         "key": "D",
-        "text": "To translate text.",
-        "text_vi": "Để dịch văn bản."
+        "text": "A model name that matches the bank's existing brand guidelines",
+        "text_vi": "Tên mô hình khớp với hướng dẫn thương hiệu hiện có của ngân hàng"
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Correct: To distinguish between real data from the training set and fake data produced by the Generator. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Chức năng chính của 'Người phân biệt đối xử' trong Mạng đối thủ sáng tạo (GAN) là gì?",
-    "explanation_vi": "Đúng: Để phân biệt dữ liệu thật từ tập huấn luyện và dữ liệu giả do Generator tạo ra. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "The context window sets how much text a model can consider at once, so very long documents need a large one, though it adds compute cost. Video output, brand naming and price alone do not ensure the full contract is read.",
+    "explanation_vi": "Context window quyết định lượng văn bản mô hình xử lý cùng lúc, nên tài liệu rất dài cần cửa sổ lớn, dù tốn thêm chi phí tính toán. Đầu ra video, tên thương hiệu hay chỉ riêng giá không đảm bảo đọc được toàn bộ hợp đồng.",
+    "lessonId": "d1-t3",
+    "objective": "1.1 Choosing a foundation model"
   },
   {
     "id": 8,
     "topic": "Generative AI Fundamentals (30%)",
-    "question": "What does it mean if a model is 'Stochastic'?",
+    "question": "A SaaS startup with no ML team wants to try several Google, third-party and open models for a support feature before committing to one. Where should it start?",
+    "question_vi": "Một startup SaaS không có đội ML muốn thử nhiều mô hình của Google, bên thứ ba và mã nguồn mở cho tính năng hỗ trợ khách hàng trước khi chọn một mô hình. Nên bắt đầu ở đâu?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "It incorporates randomness, meaning it can produce different outputs for the same input depending on its random seed or temperature setting.",
-        "text_vi": "Nó kết hợp tính ngẫu nhiên, nghĩa là nó có thể tạo ra các đầu ra khác nhau cho cùng một đầu vào tùy thuộc vào cài đặt nhiệt độ hoặc hạt giống ngẫu nhiên."
+        "text": "AutoML on Agent Platform, which trains a new model on the startup's labeled data",
+        "text_vi": "AutoML trên Agent Platform, huấn luyện một mô hình mới trên dữ liệu đã gán nhãn của startup"
       },
       {
         "key": "B",
-        "text": "It can only process numbers.",
-        "text_vi": "Nó chỉ có thể xử lý số."
+        "text": "Model Garden on Agent Platform, which lets teams explore and deploy many models",
+        "text_vi": "Model Garden trên Agent Platform, nơi nhóm có thể khám phá và triển khai nhiều mô hình"
       },
       {
         "key": "C",
-        "text": "It is purely deterministic and always gives the same answer.",
-        "text_vi": "Nó hoàn toàn mang tính quyết định và luôn đưa ra cùng một câu trả lời."
+        "text": "Gemini Enterprise, which is a workplace assistant for employees",
+        "text_vi": "Gemini Enterprise, một trợ lý công việc dành cho nhân viên"
       },
       {
         "key": "D",
-        "text": "It is broken.",
-        "text_vi": "Nó bị hỏng."
+        "text": "Customer Engagement Suite, which runs a cloud contact center",
+        "text_vi": "Customer Engagement Suite, bộ công cụ vận hành contact center trên đám mây"
       }
     ],
     "answer": [
-      "A"
+      "B"
     ],
-    "explanation": "Correct: It incorporates randomness, meaning it can produce different outputs for the same input depending on its random seed or temperature setting. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Điều đó có nghĩa là gì nếu một mô hình là 'Stochastic'?",
-    "explanation_vi": "Đúng: Nó kết hợp tính ngẫu nhiên, nghĩa là nó có thể tạo ra các đầu ra khác nhau cho cùng một đầu vào tùy thuộc vào cài đặt nhiệt độ hoặc hạt giống ngẫu nhiên. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Model Garden is the catalog on Agent Platform for exploring and deploying Google, third-party and open models. AutoML builds a model from your own data rather than comparing existing ones, and the other two are end-user products.",
+    "explanation_vi": "Model Garden là danh mục trên Agent Platform để khám phá và triển khai mô hình của Google, bên thứ ba và mã nguồn mở. AutoML xây mô hình từ dữ liệu của bạn chứ không so sánh mô hình có sẵn, còn hai phương án còn lại là sản phẩm dành cho người dùng cuối.",
+    "lessonId": "d1-t3",
+    "objective": "1.1 Choosing a foundation model"
   },
   {
     "id": 9,
     "topic": "Generative AI Fundamentals (30%)",
-    "question": "Which term refers to the process of combining predictions from multiple different machine learning models to improve overall performance?",
+    "question": "Why might a company choose to fine-tune a pre-trained foundation model instead of using it as is?",
+    "question_vi": "Vì sao một công ty có thể chọn fine-tuning một foundation model đã huấn luyện sẵn thay vì dùng nguyên bản?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Quantization",
-        "text_vi": "Lượng tử hóa"
+        "text": "To give the model live, real-time access to today's news, market prices and other current events",
+        "text_vi": "Để mô hình truy cập trực tiếp theo thời gian thực tin tức, giá thị trường và các sự kiện hiện tại khác"
       },
       {
         "key": "B",
-        "text": "Model Pruning",
-        "text_vi": "Cắt tỉa mô hình"
+        "text": "To remove the need for security and privacy reviews of the model",
+        "text_vi": "Để loại bỏ nhu cầu rà soát bảo mật và quyền riêng tư của mô hình"
       },
       {
         "key": "C",
-        "text": "Single-shot learning",
-        "text_vi": "Học một lần"
+        "text": "To shrink the model so that it fits on any mobile phone",
+        "text_vi": "Để thu nhỏ mô hình sao cho chạy được trên mọi điện thoại di động"
       },
       {
         "key": "D",
-        "text": "Ensemble Learning",
-        "text_vi": "Học tập hòa tấu"
+        "text": "To adapt the model to a specific task, domain or writing style using the company's own examples",
+        "text_vi": "Để điều chỉnh mô hình cho một tác vụ, lĩnh vực hoặc văn phong cụ thể bằng các ví dụ của chính công ty"
       }
     ],
     "answer": [
       "D"
     ],
-    "explanation": "Correct: Ensemble Learning Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Thuật ngữ nào đề cập đến quá trình kết hợp các dự đoán từ nhiều mô hình Học máy (Machine Learning) khác nhau để cải thiện hiệu suất tổng thể?",
-    "explanation_vi": "Đúng: Ensemble Learning Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế thì không."
+    "explanation": "Fine-tuning further trains a pre-trained model so it performs better on a particular task or domain. It does not supply live facts (RAG or grounding does that) and it does not remove security obligations.",
+    "explanation_vi": "Fine-tuning huấn luyện thêm mô hình đã có để nó làm tốt hơn một tác vụ hoặc lĩnh vực cụ thể. Nó không cung cấp thông tin thời gian thực (đó là việc của RAG hoặc grounding) và không loại bỏ nghĩa vụ bảo mật.",
+    "lessonId": "d1-t3",
+    "objective": "1.1 Choosing a foundation model"
   },
   {
     "id": 10,
     "topic": "Generative AI Fundamentals (30%)",
-    "question": "What is 'Data Annotation'?",
+    "question": "A hospital group wants gen AI to summarize clinicians' free-text notes, scanned referral letters and recorded phone calls. How should a leader describe this data?",
+    "question_vi": "Một nhóm bệnh viện muốn dùng gen AI để tóm tắt ghi chú văn bản tự do của bác sĩ, thư giới thiệu được quét và các cuộc gọi được ghi âm. Lãnh đạo nên mô tả loại dữ liệu này như thế nào?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Writing comments in Python code.",
-        "text_vi": "Viết bình luận bằng mã Python."
+        "text": "Structured data, because everything originates from one hospital records system",
+        "text_vi": "Dữ liệu có cấu trúc, vì mọi thứ đều xuất phát từ một hệ thống hồ sơ của bệnh viện"
       },
       {
         "key": "B",
-        "text": "The process of manually or semi-automatically adding labels, tags, or metadata to raw data so it can be used for supervised machine learning.",
-        "text_vi": "Quá trình thêm nhãn, thẻ hoặc siêu dữ liệu theo cách thủ công hoặc bán tự động vào dữ liệu thô để có thể sử dụng dữ liệu đó cho hoạt động Học máy (Machine Learning) có giám sát."
+        "text": "Labeled data only, because clinicians wrote or reviewed every item",
+        "text_vi": "Chỉ là dữ liệu có nhãn, vì bác sĩ đã viết hoặc xem lại từng mục"
       },
       {
         "key": "C",
-        "text": "Deleting outliers.",
-        "text_vi": "Xóa các ngoại lệ."
+        "text": "Mostly unstructured data, which gen AI models are well suited to handle",
+        "text_vi": "Chủ yếu là dữ liệu phi cấu trúc, loại dữ liệu mà các mô hình gen AI xử lý rất tốt"
       },
       {
         "key": "D",
-        "text": "Encrypting a database.",
-        "text_vi": "Mã hóa cơ sở dữ liệu."
+        "text": "Unusable data, because gen AI needs rows and columns to work",
+        "text_vi": "Dữ liệu không dùng được, vì gen AI cần hàng và cột để hoạt động"
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": "Correct: The process of manually or semi-automatically adding labels, tags, or metadata to raw data so it can be used for supervised machine learning. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "'Chú thích dữ liệu' là gì?",
-    "explanation_vi": "Đúng: Quá trình thêm nhãn, thẻ hoặc siêu dữ liệu theo cách thủ công hoặc bán tự động vào dữ liệu thô để có thể sử dụng dữ liệu đó cho hoạt động Học máy (Machine Learning) có giám sát. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Free text, scans and audio do not fit a predefined table format, so they are unstructured, and most enterprise data is of this type. Gen AI is particularly good at working with it.",
+    "explanation_vi": "Văn bản tự do, ảnh quét và âm thanh không theo định dạng bảng định sẵn nên là dữ liệu phi cấu trúc, và phần lớn dữ liệu doanh nghiệp thuộc loại này. Gen AI đặc biệt giỏi xử lý loại dữ liệu đó.",
+    "lessonId": "d1-t4",
+    "objective": "1.2 Data types, quality and accessibility"
   },
   {
     "id": 11,
     "topic": "Generative AI Fundamentals (30%)",
-    "question": "Why is 'Batch Size' an important hyperparameter during model training?",
-    "type": "single",
+    "question": "A retailer wants to launch a personalization assistant, but its customer records contain duplicate profiles, missing fields and inconsistent formats. Which TWO actions would BEST improve data quality? (Select TWO.)",
+    "question_vi": "Một nhà bán lẻ muốn ra mắt trợ lý cá nhân hóa nhưng hồ sơ khách hàng có hồ sơ trùng lặp, thiếu trường dữ liệu và định dạng không nhất quán. Hai hành động nào cải thiện chất lượng dữ liệu TỐT NHẤT? (Chọn HAI.)",
+    "type": "multiple",
     "options": [
       {
         "key": "A",
-        "text": "It determines the number of training examples processed before the model updates its internal parameters, affecting memory usage and convergence stability.",
-        "text_vi": "Nó xác định số lượng mẫu huấn luyện được xử lý trước khi mô hình cập nhật các tham số bên trong, ảnh hưởng đến việc sử dụng bộ nhớ và độ ổn định hội tụ."
+        "text": "Remove duplicate profiles and standardize formats across systems",
+        "text_vi": "Loại bỏ hồ sơ trùng lặp và chuẩn hóa định dạng giữa các hệ thống"
       },
       {
         "key": "B",
-        "text": "It sets the maximum output length.",
-        "text_vi": "Nó đặt độ dài đầu ra tối đa."
+        "text": "Scrape extra posts from any public social media account",
+        "text_vi": "Thu thập thêm bài đăng từ bất kỳ tài khoản mạng xã hội công khai nào"
       },
       {
         "key": "C",
-        "text": "It controls the font size of the text.",
-        "text_vi": "Nó kiểm soát kích thước phông chữ của văn bản."
+        "text": "Fill in or flag missing fields such as addresses and consent status",
+        "text_vi": "Bổ sung hoặc đánh dấu các trường còn thiếu như địa chỉ và trạng thái đồng ý"
       },
       {
         "key": "D",
-        "text": "It dictates how many servers to buy.",
-        "text_vi": "Nó cho biết cần mua bao nhiêu máy chủ."
+        "text": "Convert every record into an image so the model can read it",
+        "text_vi": "Chuyển mọi bản ghi thành hình ảnh để mô hình có thể đọc"
+      },
+      {
+        "key": "E",
+        "text": "Choose a larger model, which makes clean data unnecessary",
+        "text_vi": "Chọn mô hình lớn hơn, điều này khiến dữ liệu sạch trở nên không cần thiết"
       }
     ],
     "answer": [
-      "A"
+      "A",
+      "C"
     ],
-    "explanation": "Correct: It determines the number of training examples processed before the model updates its internal parameters, affecting memory usage and convergence stability. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Tại sao 'Kích thước lô' là siêu thông số quan trọng trong quá trình đào tạo mô hình?",
-    "explanation_vi": "Đúng: Nó xác định số lượng mẫu huấn luyện được xử lý trước khi mô hình cập nhật các tham số bên trong của nó, ảnh hưởng đến việc sử dụng bộ nhớ và độ ổn định hội tụ. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Quality data is accurate, complete, consistent and relevant, so deduplicating, standardizing and fixing gaps address the problems described. A bigger model does not fix poor data, and scraping unrelated content hurts relevance.",
+    "explanation_vi": "Dữ liệu chất lượng phải chính xác, đầy đủ, nhất quán và liên quan, nên loại trùng, chuẩn hóa và lấp khoảng trống xử lý đúng vấn đề nêu ra. Mô hình lớn hơn không sửa được dữ liệu kém, và thu thập nội dung không liên quan làm giảm tính liên quan.",
+    "lessonId": "d1-t4",
+    "objective": "1.2 Data types, quality and accessibility"
   },
   {
     "id": 12,
     "topic": "Generative AI Fundamentals (30%)",
-    "question": "What is 'Cross-Entropy' in machine learning?",
+    "question": "An energy utility keeps equipment sensor history in a legacy system that can only be exported monthly, in an obscure file format, at a high cost per export. Which data issue is the company facing?",
+    "question_vi": "Một công ty điện lực lưu lịch sử cảm biến thiết bị trong hệ thống cũ chỉ xuất được hàng tháng, theo định dạng tệp ít phổ biến và chi phí mỗi lần xuất cao. Công ty đang gặp vấn đề dữ liệu nào?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "A type of genetic mutation.",
-        "text_vi": "Một loại đột biến gen."
+        "text": "Missing data labels that prevent any supervised learning",
+        "text_vi": "Thiếu nhãn dữ liệu khiến không thể thực hiện supervised learning"
       },
       {
         "key": "B",
-        "text": "A network routing protocol.",
-        "text_vi": "Một giao thức định tuyến mạng."
+        "text": "Model drift caused by changes in customer behavior",
+        "text_vi": "Model drift do hành vi khách hàng thay đổi"
       },
       {
         "key": "C",
-        "text": "A loss function widely used in classification tasks (and next-word prediction) that measures the difference between two probability distributions.",
-        "text_vi": "Hàm mất được sử dụng rộng rãi trong các nhiệm vụ phân loại (và dự đoán từ tiếp theo) để đo lường sự khác biệt giữa hai phân bố xác suất."
+        "text": "Hallucination caused by an overly high temperature setting",
+        "text_vi": "Hallucination do cài đặt temperature quá cao"
       },
       {
         "key": "D",
-        "text": "A method to decrypt data.",
-        "text_vi": "Một phương pháp giải mã dữ liệu."
+        "text": "Poor data accessibility: availability, cost and format limit how the data can be used",
+        "text_vi": "Khả năng truy cập dữ liệu kém: tính sẵn có, chi phí và định dạng hạn chế việc sử dụng dữ liệu"
       }
     ],
     "answer": [
-      "C"
+      "D"
     ],
-    "explanation": "Correct: A loss function widely used in classification tasks (and next-word prediction) that measures the difference between two probability distributions. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "'Cross-Entropy' trong Học máy (Machine Learning) là gì?",
-    "explanation_vi": "Đúng: Một hàm mất được sử dụng rộng rãi trong các nhiệm vụ phân loại (và dự đoán từ tiếp theo) để đo lường sự khác biệt giữa hai phân bố xác suất. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Data accessibility covers how available the data is, what it costs to obtain and in what format. The other options describe labeling, model behavior over time and output settings, which are not what the scenario describes.",
+    "explanation_vi": "Khả năng truy cập dữ liệu bao gồm mức độ sẵn có, chi phí để lấy và định dạng của dữ liệu. Các phương án khác nói về gán nhãn, hành vi mô hình theo thời gian và cài đặt đầu ra, không phải điều mô tả trong tình huống.",
+    "lessonId": "d1-t4",
+    "objective": "1.2 Data types, quality and accessibility"
   },
   {
     "id": 13,
     "topic": "Generative AI Fundamentals (30%)",
-    "question": "What does 'Early Stopping' prevent during the training of deep learning models?",
+    "question": "A city agency wants a citizen-services chatbot live within weeks and has no ML engineers. At which layer of the gen AI landscape should it mainly work?",
+    "question_vi": "Một cơ quan thành phố muốn có chatbot dịch vụ công dân hoạt động trong vài tuần và không có kỹ sư ML. Cơ quan nên chủ yếu làm việc ở tầng nào của bức tranh gen AI?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "The prompt being too short.",
-        "text_vi": "Lời nhắc quá ngắn."
+        "text": "Infrastructure, by building and operating its own cluster of GPUs and TPUs",
+        "text_vi": "Infrastructure, bằng cách tự xây dựng và vận hành cụm GPU và TPU của riêng mình"
       },
       {
         "key": "B",
-        "text": "Overfitting, by halting the training process when performance on a validation dataset begins to degrade, even if training accuracy is still improving.",
-        "text_vi": "Trang bị quá mức, bằng cách tạm dừng quá trình đào tạo khi hiệu suất trên tập dữ liệu xác thực bắt đầu giảm, ngay cả khi độ chính xác của quá trình đào tạo vẫn đang được cải thiện."
+        "text": "Models, by training a new foundation model on city data",
+        "text_vi": "Models, bằng cách huấn luyện một foundation model mới trên dữ liệu của thành phố"
       },
       {
         "key": "C",
-        "text": "Underfitting.",
-        "text_vi": "Không phù hợp."
+        "text": "Platforms, by writing custom code for every integration",
+        "text_vi": "Platforms, bằng cách viết code riêng cho từng tích hợp"
       },
       {
         "key": "D",
-        "text": "The server starting too quickly.",
-        "text_vi": "Máy chủ khởi động quá nhanh."
+        "text": "Applications, by adopting a ready-made product for faster adoption",
+        "text_vi": "Applications, bằng cách dùng sản phẩm có sẵn để triển khai nhanh hơn"
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": "Correct: Overfitting, by halting the training process when performance on a validation dataset begins to degrade, even if training accuracy is still improving. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "'Dừng sớm' ngăn cản điều gì trong quá trình đào tạo các mô hình deep learning?",
-    "explanation_vi": "Đúng: Trang bị quá mức, bằng cách tạm dừng quá trình đào tạo khi hiệu suất trên tập dữ liệu xác thực bắt đầu giảm, ngay cả khi độ chính xác của quá trình đào tạo vẫn đang được cải thiện. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Higher layers such as applications mean faster adoption with less effort, which suits a short timeline and no ML team. Lower layers give more control but require much more effort and expertise.",
+    "explanation_vi": "Các tầng cao như applications giúp triển khai nhanh với ít công sức hơn, phù hợp với thời hạn ngắn và không có đội ML. Các tầng thấp cho nhiều quyền kiểm soát hơn nhưng đòi hỏi nhiều công sức và chuyên môn hơn.",
+    "lessonId": "d1-t5",
+    "objective": "1.3 Layers of the gen AI landscape"
   },
   {
     "id": 14,
     "topic": "Generative AI Fundamentals (30%)",
-    "question": "In the context of multimodal models, what is 'Late Fusion'?",
+    "question": "Which statement best describes the trade-off between the layers of the gen AI landscape?",
+    "question_vi": "Phát biểu nào mô tả đúng nhất sự đánh đổi giữa các tầng của bức tranh gen AI?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Merging two companies.",
-        "text_vi": "Sáp nhập hai công ty."
+        "text": "Lower layers are quicker to adopt and need less effort than higher layers",
+        "text_vi": "Các tầng thấp áp dụng nhanh hơn và tốn ít công sức hơn các tầng cao"
       },
       {
         "key": "B",
-        "text": "Combining modalities at the very end of the network just before the final prediction, after processing them independently.",
-        "text_vi": "Kết hợp các phương thức ở cuối mạng ngay trước dự đoán cuối cùng, sau khi xử lý chúng một cách độc lập."
+        "text": "Every layer offers the same level of control, so only price differs",
+        "text_vi": "Mọi tầng đều cho cùng mức kiểm soát nên chỉ khác nhau về giá"
       },
       {
         "key": "C",
-        "text": "Combining data before sending it to the cloud.",
-        "text_vi": "Kết hợp dữ liệu trước khi gửi nó lên đám mây."
+        "text": "Higher layers are quicker to adopt but give less control, while lower layers give more control but need more effort",
+        "text_vi": "Các tầng cao dễ áp dụng nhanh hơn nhưng ít quyền kiểm soát, còn các tầng thấp cho nhiều quyền kiểm soát hơn nhưng tốn nhiều công sức hơn"
       },
       {
         "key": "D",
-        "text": "Generating video from text.",
-        "text_vi": "Tạo video từ văn bản."
+        "text": "Higher layers give the most control because the vendor manages nothing",
+        "text_vi": "Các tầng cao cho nhiều quyền kiểm soát nhất vì nhà cung cấp không quản lý gì"
       }
     ],
     "answer": [
       "C"
     ],
-    "explanation": "Correct: Combining data before sending it to the cloud. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Trong bối cảnh của các mô hình đa phương thức, 'Hợp nhất muộn' là gì?",
-    "explanation_vi": "Đúng: Kết hợp dữ liệu trước khi gửi lên đám mây. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "The five layers are infrastructure, models, platforms, agents and applications. Moving up gives faster time-to-value with less control, and moving down gives more control at the cost of more effort.",
+    "explanation_vi": "Năm tầng gồm infrastructure, models, platforms, agents và applications. Đi lên giúp nhanh ra giá trị hơn nhưng ít kiểm soát hơn, đi xuống cho nhiều kiểm soát hơn nhưng tốn công sức hơn.",
+    "lessonId": "d1-t5",
+    "objective": "1.3 Layers of the gen AI landscape"
   },
   {
     "id": 15,
     "topic": "Generative AI Fundamentals (30%)",
-    "question": "What is 'Regularization' used for?",
+    "question": "Which layer of the gen AI landscape lets a system pursue a goal by combining a model with tools such as search and databases?",
+    "question_vi": "Tầng nào trong bức tranh gen AI cho phép hệ thống theo đuổi mục tiêu bằng cách kết hợp mô hình với các công cụ như tìm kiếm và cơ sở dữ liệu?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Techniques (like L1/L2 penalty or Dropout) applied to a model to penalize complexity, thereby reducing overfitting and improving generalization.",
-        "text_vi": "Các kỹ thuật (như hình phạt L1/L2 hoặc Dropout) được áp dụng cho một mô hình để xử lý sự phức tạp, từ đó giảm việc trang bị quá mức và cải thiện tính khái quát hóa."
+        "text": "Agents",
+        "text_vi": "Agents"
       },
       {
         "key": "B",
-        "text": "To format HTML.",
-        "text_vi": "Để định dạng HTML."
+        "text": "Infrastructure",
+        "text_vi": "Infrastructure"
       },
       {
         "key": "C",
-        "text": "To schedule training jobs.",
-        "text_vi": "Để sắp xếp công việc đào tạo."
+        "text": "Models",
+        "text_vi": "Models"
       },
       {
         "key": "D",
-        "text": "To make all data perfectly regular.",
-        "text_vi": "Để làm cho tất cả dữ liệu hoàn toàn đều đặn."
+        "text": "Platforms",
+        "text_vi": "Platforms"
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Correct: Techniques (like L1/L2 penalty or Dropout) applied to a model to penalize complexity, thereby reducing overfitting and improving generalization. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "'Chính quy hóa' được sử dụng để làm gì?",
-    "explanation_vi": "Đúng: Các kỹ thuật (như hình phạt L1/L2 hoặc Bỏ học) được áp dụng cho một mô hình để xử phạt sự phức tạp, từ đó giảm bớt việc trang bị quá mức và cải thiện tính khái quát hóa. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Agents use inputs and available tools to pursue a goal. Platforms bridge models and agents with APIs and deployment tools, and models only produce predictions without acting on tools themselves.",
+    "explanation_vi": "Agents dùng đầu vào và các công cụ sẵn có để theo đuổi mục tiêu. Platforms kết nối models và agents bằng API và công cụ triển khai, còn models chỉ tạo ra dự đoán chứ không tự hành động với công cụ.",
+    "lessonId": "d1-t5",
+    "objective": "1.3 Layers of the gen AI landscape"
   },
   {
     "id": 16,
     "topic": "Generative AI Fundamentals (30%)",
-    "question": "What does 'BLEURT' evaluate?",
+    "question": "A film studio wants to turn written scene descriptions into short video clips for early concept pitches. Which Google foundation model is designed for this?",
+    "question_vi": "Một hãng phim muốn biến mô tả cảnh bằng văn bản thành các clip video ngắn để trình bày ý tưởng ban đầu. Foundation model nào của Google được thiết kế cho việc này?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "The temperature of the TPU.",
-        "text_vi": "Nhiệt độ của TPU"
+        "text": "Veo",
+        "text_vi": "Veo"
       },
       {
         "key": "B",
-        "text": "The blueness of an image.",
-        "text_vi": "Màu xanh của một hình ảnh."
+        "text": "Imagen, which generates still images from text",
+        "text_vi": "Imagen, tạo ảnh tĩnh từ văn bản"
       },
       {
         "key": "C",
-        "text": "Database performance.",
-        "text_vi": "Hiệu suất cơ sở dữ liệu."
+        "text": "Gemma, a lightweight open model for text tasks",
+        "text_vi": "Gemma, một mô hình mã nguồn mở gọn nhẹ cho các tác vụ văn bản"
       },
       {
         "key": "D",
-        "text": "A machine learning-based evaluation metric for Natural Language Generation that correlates better with human judgment than n-gram metrics like BLEU.",
-        "text_vi": "Chỉ số đánh giá dựa trên máy học để tạo ngôn ngữ tự nhiên tương quan tốt hơn với phán đoán của con người so với các chỉ số n-gram như BLEU."
+        "text": "Speech-to-Text, which transcribes recorded audio",
+        "text_vi": "Speech-to-Text, chuyển âm thanh ghi âm thành văn bản"
       }
     ],
     "answer": [
-      "D"
+      "A"
     ],
-    "explanation": "Correct: A machine learning-based evaluation metric for Natural Language Generation that correlates better with human judgment than n-gram metrics like BLEU. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "'BLEURT' đánh giá điều gì?",
-    "explanation_vi": "Đúng: Chỉ số đánh giá dựa trên máy học cho Tạo ngôn ngữ tự nhiên tương quan tốt hơn với phán đoán của con người so với chỉ số n-gram như BLEU. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Veo generates video from text descriptions or still images. Imagen is the text-to-image model, and Gemma is a lightweight open model, so neither is built for video.",
+    "explanation_vi": "Veo tạo video từ mô tả văn bản hoặc ảnh tĩnh. Imagen là mô hình tạo ảnh từ văn bản, còn Gemma là mô hình mã nguồn mở gọn nhẹ, không cái nào được xây dựng cho video.",
+    "lessonId": "d1-t6",
+    "objective": "1.4 Google's foundation models"
   },
   {
     "id": 17,
     "topic": "Generative AI Fundamentals (30%)",
-    "question": "What is 'Unsupervised Learning'?",
+    "question": "A clinic network wants to download a Google model, customize it for a specialized task and run it on its own local hardware. Which model family fits BEST?",
+    "question_vi": "Một mạng lưới phòng khám muốn tải về một mô hình của Google, tùy biến cho một tác vụ chuyên biệt và chạy trên phần cứng cục bộ của riêng mình. Họ mô hình nào phù hợp NHẤT?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Allowing a child to use AI.",
-        "text_vi": "Cho phép trẻ sử dụng AI"
+        "text": "Veo, which generates video clips from text prompts",
+        "text_vi": "Veo, tạo các đoạn video từ prompt văn bản"
       },
       {
         "key": "B",
-        "text": "Training without a GPU.",
-        "text_vi": "Đào tạo không có GPU."
+        "text": "Gemma, Google's lightweight open models",
+        "text_vi": "Gemma, các mô hình mã nguồn mở gọn nhẹ của Google"
       },
       {
         "key": "C",
-        "text": "Training a model on data that has no explicit labels or target outcomes, forcing it to discover hidden patterns or groupings on its own.",
-        "text_vi": "Huấn luyện một mô hình trên dữ liệu không có nhãn hoặc kết quả mục tiêu rõ ràng, buộc nó phải tự khám phá các mẫu hoặc nhóm ẩn."
+        "text": "Imagen, which turns text prompts into still images",
+        "text_vi": "Imagen, biến prompt văn bản thành ảnh tĩnh"
       },
       {
         "key": "D",
-        "text": "Learning with a human teacher constantly correcting errors.",
-        "text_vi": "Học với một giáo viên con người liên tục sửa lỗi."
+        "text": "The Gemini app, a hosted consumer chat experience",
+        "text_vi": "Ứng dụng Gemini, trải nghiệm chat dành cho người dùng cá nhân chạy trên nền tảng được lưu trữ"
       }
     ],
     "answer": [
-      "C"
+      "B"
     ],
-    "explanation": "Correct: Training a model on data that has no explicit labels or target outcomes, forcing it to discover hidden patterns or groupings on its own. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "'Học tập không giám sát' là gì?",
-    "explanation_vi": "Đúng: Huấn luyện một mô hình trên dữ liệu không có nhãn hoặc kết quả mục tiêu rõ ràng, buộc nó phải tự khám phá các mẫu hoặc nhóm ẩn. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Gemma is Google's family of lightweight open models that teams can download, customize and run locally, which matches the clinic's needs. Veo creates video, Imagen creates still images, and the Gemini app is a hosted consumer chat product that cannot be downloaded.",
+    "explanation_vi": "Gemma là họ mô hình mã nguồn mở gọn nhẹ của Google mà các nhóm có thể tải về, tùy biến và chạy cục bộ, đúng với nhu cầu của phòng khám. Veo tạo video, Imagen tạo ảnh tĩnh, còn ứng dụng Gemini là sản phẩm chat dành cho người dùng cá nhân chạy trên nền tảng lưu trữ, không thể tải về.",
+    "lessonId": "d1-t6",
+    "objective": "1.4 Google's foundation models"
   },
   {
     "id": 18,
     "topic": "Generative AI Fundamentals (30%)",
-    "question": "Which type of bias occurs when a model performs worse on specific demographics because they were underrepresented in the training data?",
+    "question": "What is the main strength of Gemini models?",
+    "question_vi": "Điểm mạnh chính của các mô hình Gemini là gì?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Observer Bias",
-        "text_vi": "Người quan sát thiên vị"
+        "text": "Generating still images only, by gradually removing noise",
+        "text_vi": "Chỉ tạo ảnh tĩnh bằng cách loại nhiễu dần dần"
       },
       {
         "key": "B",
-        "text": "Representation Bias (or Historical Bias)",
-        "text_vi": "Xu hướng đại diện (hoặc xu hướng lịch sử)"
+        "text": "Multimodal understanding across text, images, audio, video and code, with conversation and content creation",
+        "text_vi": "Hiểu đa phương thức trên văn bản, hình ảnh, âm thanh, video và code, kèm hội thoại và tạo nội dung"
       },
       {
         "key": "C",
-        "text": "Automation Bias",
-        "text_vi": "Xu hướng tự động hóa"
+        "text": "Being a small open model that cannot handle images or audio",
+        "text_vi": "Là mô hình mã nguồn mở nhỏ không xử lý được hình ảnh hay âm thanh"
       },
       {
         "key": "D",
-        "text": "Confirmation Bias",
-        "text_vi": "Xu hướng xác nhận"
+        "text": "Converting speech to text as its single supported task",
+        "text_vi": "Chuyển giọng nói thành văn bản như tác vụ duy nhất được hỗ trợ"
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Correct: Representation Bias (or Historical Bias) Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Loại sai lệch nào xảy ra khi một mô hình hoạt động kém hơn đối với các nhóm nhân khẩu học cụ thể vì chúng được thể hiện không đúng mức trong dữ liệu đào tạo?",
-    "explanation_vi": "Đúng: Thành kiến đại diện (hoặc thành kiến lịch sử) Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Gemini is Google's multimodal family, able to understand and work across several data types for conversation, content creation and question answering. The other options describe Imagen, Gemma or a narrow speech API.",
+    "explanation_vi": "Gemini là họ mô hình đa phương thức của Google, hiểu và làm việc với nhiều loại dữ liệu cho hội thoại, tạo nội dung và trả lời câu hỏi. Các phương án còn lại mô tả Imagen, Gemma hoặc một API giọng nói hẹp.",
+    "lessonId": "d1-t6",
+    "objective": "1.4 Google's foundation models"
   },
   {
     "id": 19,
     "topic": "Google Cloud Gen AI Solutions (35%)",
-    "question": "Vertex AI Vector Search utilizes which highly efficient Google-developed algorithm for Approximate Nearest Neighbor (ANN) search?",
+    "question": "A bank wants to adopt gen AI, but its board worries about data privacy, governance and compliance. Which Google Cloud strength speaks MOST directly to this concern?",
+    "question_vi": "Một ngân hàng muốn áp dụng gen AI nhưng hội đồng quản trị lo ngại về quyền riêng tư dữ liệu, quản trị và tuân thủ. Thế mạnh nào của Google Cloud đáp ứng trực tiếp nhất mối lo này?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Bubble Sort",
-        "text_vi": "Sắp xếp bong bóng"
+        "text": "AI-optimized infrastructure with custom TPUs that speeds up large training jobs",
+        "text_vi": "Hạ tầng tối ưu cho AI với TPU tùy chỉnh giúp tăng tốc các tác vụ huấn luyện lớn"
       },
       {
         "key": "B",
-        "text": "PageRank",
-        "text_vi": "Xếp hạng trang"
+        "text": "An enterprise-ready AI platform with security, privacy and governance controls over the bank's data",
+        "text_vi": "Nền tảng AI sẵn sàng cho doanh nghiệp với các kiểm soát bảo mật, quyền riêng tư và quản trị đối với dữ liệu của ngân hàng"
       },
       {
         "key": "C",
-        "text": "Binary Search Tree",
-        "text_vi": "Cây tìm kiếm nhị phân"
+        "text": "Low-code and no-code tools that let non-developers build AI features",
+        "text_vi": "Công cụ low-code và no-code giúp người không phải lập trình viên xây dựng tính năng AI"
       },
       {
         "key": "D",
-        "text": "ScaNN (Scalable Nearest Neighbors)",
-        "text_vi": "ScaNN (Hàng xóm gần nhất có thể mở rộng)"
+        "text": "Gemini features built into Google's widely used consumer products",
+        "text_vi": "Các tính năng Gemini tích hợp trong những sản phẩm tiêu dùng được dùng rộng rãi của Google"
       }
     ],
     "answer": [
-      "D"
+      "B"
     ],
-    "explanation": "Correct: ScaNN (Scalable Nearest Neighbors) Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Vertex AI Vector Search sử dụng thuật toán hiệu quả cao nào do Google phát triển để tìm kiếm Hàng xóm gần nhất (ANN) gần đúng?",
-    "explanation_vi": "Đúng: ScaNN (Hàng xóm gần nhất có thể mở rộng) Xem lại lý do tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế thì không."
+    "explanation": "Enterprise-ready means responsible, secure, private, reliable and scalable, and it gives customers control over their data. TPUs, low-code tools and consumer integration are real strengths but they do not address governance and compliance worries.",
+    "explanation_vi": "Enterprise-ready nghĩa là có trách nhiệm, bảo mật, riêng tư, đáng tin cậy và có khả năng mở rộng, đồng thời cho khách hàng quyền kiểm soát dữ liệu. TPU, công cụ low-code và tích hợp sản phẩm tiêu dùng là thế mạnh thật nhưng không giải quyết mối lo về quản trị và tuân thủ.",
+    "lessonId": "d2-t1",
+    "objective": "2.1 Google Cloud's gen AI strengths"
   },
   {
     "id": 20,
     "topic": "Google Cloud Gen AI Solutions (35%)",
-    "question": "How can Google Cloud's 'Sensitive Data Protection' (formerly DLP) integrate with Gen AI workflows?",
+    "question": "How does Google Cloud's open approach benefit a company adopting gen AI?",
+    "question_vi": "Cách tiếp cận mở của Google Cloud mang lại lợi ích gì cho doanh nghiệp áp dụng gen AI?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "By inspecting and automatically redacting or de-identifying PII (Personally Identifiable Information) from prompts before they reach the LLM, and from outputs before they reach the user.",
-        "text_vi": "Bằng cách kiểm tra và tự động sắp xếp lại hoặc loại bỏ nhận dạng PII (Thông tin nhận dạng cá nhân) khỏi lời nhắc trước khi chúng đến LLM và từ đầu ra trước khi chúng đến tay người dùng."
+        "text": "The company receives every model's source code and training data for free",
+        "text_vi": "Doanh nghiệp nhận miễn phí mã nguồn và dữ liệu huấn luyện của mọi mô hình"
       },
       {
         "key": "B",
-        "text": "By generating credit card numbers.",
-        "text_vi": "Bằng cách tạo số thẻ tín dụng."
+        "text": "The company must standardize on a single Google model for all use cases",
+        "text_vi": "Doanh nghiệp phải chuẩn hóa trên một mô hình Google duy nhất cho mọi trường hợp sử dụng"
       },
       {
         "key": "C",
-        "text": "By blocking all internet traffic.",
-        "text_vi": "Bằng cách chặn tất cả lưu lượng truy cập internet."
+        "text": "The company can use first-party, third-party and open-source models and switch between them, which reduces vendor lock-in",
+        "text_vi": "Doanh nghiệp có thể dùng mô hình của Google, bên thứ ba và mã nguồn mở rồi chuyển đổi giữa chúng, giúp giảm phụ thuộc vào một nhà cung cấp"
       },
       {
         "key": "D",
-        "text": "It cannot be integrated.",
-        "text_vi": "Nó không thể được tích hợp."
+        "text": "The company no longer needs security or governance controls on its data",
+        "text_vi": "Doanh nghiệp không còn cần các kiểm soát bảo mật hay quản trị đối với dữ liệu"
       }
     ],
     "answer": [
-      "A"
+      "C"
     ],
-    "explanation": "Correct: By inspecting and automatically redacting or de-identifying PII (Personally Identifiable Information) from prompts before they reach the LLM, and from outputs before they reach the user. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Làm cách nào tính năng 'Bảo vệ dữ liệu nhạy cảm' (trước đây là DLP) của Google Cloud có thể tích hợp với quy trình làm việc của Gen AI?",
-    "explanation_vi": "Đúng: Bằng cách kiểm tra và tự động biên tập hoặc loại bỏ nhận dạng PII (Thông tin nhận dạng cá nhân) khỏi lời nhắc trước khi chúng đến LLM và từ đầu ra trước khi chúng đến tay người dùng. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "The open approach offers Google models alongside third-party and open-source ones, so teams can choose the best fit and avoid lock-in. It does not mean free source code or fewer governance duties.",
+    "explanation_vi": "Cách tiếp cận mở cung cấp mô hình của Google cùng mô hình bên thứ ba và mã nguồn mở, để các nhóm chọn mô hình phù hợp nhất và tránh bị khóa vào một nhà cung cấp. Nó không có nghĩa là mã nguồn miễn phí hay bớt nghĩa vụ quản trị.",
+    "lessonId": "d2-t1",
+    "objective": "2.1 Google Cloud's gen AI strengths"
   },
   {
     "id": 21,
     "topic": "Google Cloud Gen AI Solutions (35%)",
-    "question": "What is the primary difference between 'Gemini Ultra' and 'Gemini Pro'?",
+    "question": "A small retailer with no data scientists wants to add a gen AI feature to its online store. Which Google Cloud capability best helps it get started?",
+    "question_vi": "Một nhà bán lẻ nhỏ không có chuyên gia dữ liệu muốn thêm tính năng gen AI vào cửa hàng trực tuyến. Năng lực nào của Google Cloud giúp họ bắt đầu tốt nhất?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Ultra is Google's largest, most capable model for highly complex reasoning tasks, while Pro is optimized for scaling across a wide range of enterprise tasks.",
-        "text_vi": "Ultra là mô hình lớn nhất, có khả năng nhất của Google dành cho các tác vụ suy luận có độ phức tạp cao, trong khi Pro được tối ưu hóa để mở rộng quy mô trên nhiều tác vụ của doanh nghiệp."
+        "text": "Low-code and no-code tools, pre-trained models and APIs that democratize AI development",
+        "text_vi": "Các công cụ low-code và no-code, mô hình huấn luyện sẵn và API giúp dân chủ hóa việc phát triển AI"
       },
       {
         "key": "B",
-        "text": "Ultra is only for text, Pro is multimodal.",
-        "text_vi": "Ultra chỉ dành cho văn bản, Pro là đa phương thức."
+        "text": "Renting a dedicated TPU cluster so that the team can train its own foundation model from scratch",
+        "text_vi": "Thuê một cụm TPU riêng để nhóm tự huấn luyện foundation model từ đầu"
       },
       {
         "key": "C",
-        "text": "There is no difference.",
-        "text_vi": "Không có sự khác biệt."
+        "text": "Hiring a research team to design a custom neural network architecture",
+        "text_vi": "Tuyển một nhóm nghiên cứu để thiết kế kiến trúc mạng neural riêng"
       },
       {
         "key": "D",
-        "text": "Pro is free, Ultra is open-source.",
-        "text_vi": "Pro là miễn phí, Ultra là nguồn mở."
+        "text": "Collecting a huge labeled dataset before any prototype can begin",
+        "text_vi": "Thu thập một bộ dữ liệu có nhãn rất lớn trước khi bắt đầu bất kỳ nguyên mẫu nào"
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Correct: Ultra is Google's largest, most capable model for highly complex reasoning tasks, while Pro is optimized for scaling across a wide range of enterprise tasks. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Sự khác biệt chính giữa 'Gemini Ultra' và 'Gemini Pro' là gì?",
-    "explanation_vi": "Đúng: Ultra là mô hình lớn nhất, có khả năng nhất của Google cho các nhiệm vụ suy luận có độ phức tạp cao, trong khi Pro được tối ưu hóa để mở rộng quy mô trên nhiều nhiệm vụ của doanh nghiệp. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Google Cloud democratizes AI through low-code and no-code tools, pre-trained models and APIs, so small teams can build without deep ML expertise. The other options need heavy skills, time and budget.",
+    "explanation_vi": "Google Cloud dân chủ hóa AI qua công cụ low-code, no-code, mô hình huấn luyện sẵn và API, nên đội nhỏ có thể xây dựng mà không cần chuyên môn ML sâu. Các phương án khác đòi hỏi nhiều kỹ năng, thời gian và ngân sách.",
+    "lessonId": "d2-t1",
+    "objective": "2.1 Google Cloud's gen AI strengths"
   },
   {
     "id": 22,
     "topic": "Google Cloud Gen AI Solutions (35%)",
-    "question": "In Vertex AI, how can you compare the performance of a custom-tuned model against a base foundational model automatically?",
+    "question": "Which Google Cloud offering integrates hardware, networking and software that are designed to work together to train, tune and serve AI workloads?",
+    "question_vi": "Dịch vụ nào của Google Cloud tích hợp phần cứng, mạng và phần mềm được thiết kế đồng bộ để huấn luyện, tinh chỉnh và vận hành các khối lượng công việc AI?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "By asking the users.",
-        "text_vi": "Bằng cách hỏi người dùng."
+        "text": "AI Hypercomputer, which integrates hardware, networking and software to train, tune and serve AI",
+        "text_vi": "AI Hypercomputer, tích hợp phần cứng, mạng và phần mềm để huấn luyện, tinh chỉnh và vận hành AI"
       },
       {
         "key": "B",
-        "text": "By printing the results on paper.",
-        "text_vi": "Bằng cách in kết quả ra giấy."
+        "text": "Gemini Enterprise, which gives employees secure search and custom agents over company data and apps",
+        "text_vi": "Gemini Enterprise, cung cấp cho nhân viên tìm kiếm bảo mật và agent tùy chỉnh trên dữ liệu và ứng dụng của công ty"
       },
       {
         "key": "C",
-        "text": "By using the 'AutoSxS' (Automatic Side-by-Side) evaluation tool, which uses a stronger LLM as a judge to evaluate the two models' outputs.",
-        "text_vi": "Bằng cách sử dụng công cụ đánh giá 'AutoSxS' (Tự động song song), công cụ này sử dụng LLM mạnh hơn làm công cụ đánh giá để đánh giá kết quả đầu ra của hai mô hình."
+        "text": "Customer Engagement Suite, which supports conversations with customers",
+        "text_vi": "Customer Engagement Suite, hỗ trợ các cuộc hội thoại với khách hàng"
       },
       {
         "key": "D",
-        "text": "By counting the parameters.",
-        "text_vi": "Bằng cách đếm các tham số."
+        "text": "Gemini for Workspace, which adds AI features to Gmail and Docs",
+        "text_vi": "Gemini for Workspace, bổ sung tính năng AI vào Gmail và Docs"
       }
     ],
     "answer": [
-      "C"
+      "A"
     ],
-    "explanation": "Correct: By using the 'AutoSxS' (Automatic Side-by-Side) evaluation tool, which uses a stronger LLM as a judge to evaluate the two models' outputs. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Trong Vertex AI, làm cách nào bạn có thể tự động so sánh hiệu suất của mô hình được điều chỉnh tùy chỉnh với mô hình nền tảng cơ sở?",
-    "explanation_vi": "Đúng: Bằng cách sử dụng công cụ đánh giá 'AutoSxS' (Tự động cạnh nhau), công cụ này sử dụng LLM mạnh hơn làm công cụ đánh giá để đánh giá kết quả đầu ra của hai mô hình. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "AI Hypercomputer is Google Cloud's integrated infrastructure system for training, tuning and serving AI, including TPUs and GPUs. The other options are applications that sit at higher layers.",
+    "explanation_vi": "AI Hypercomputer là hệ thống hạ tầng tích hợp của Google Cloud để huấn luyện, tinh chỉnh và vận hành AI, bao gồm TPU và GPU. Các phương án còn lại là ứng dụng ở các tầng cao hơn.",
+    "lessonId": "d2-t2",
+    "objective": "2.1 AI-optimized infrastructure"
   },
   {
     "id": 23,
     "topic": "Google Cloud Gen AI Solutions (35%)",
-    "question": "What is a 'Vertex AI TensorBoard' instance used for?",
+    "question": "Why do business leaders hear about Google's TPUs when discussing gen AI?",
+    "question_vi": "Vì sao các lãnh đạo doanh nghiệp thường nghe nhắc đến TPU của Google khi bàn về gen AI?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Managing cloud billing.",
-        "text_vi": "Quản lý thanh toán trên đám mây."
+        "text": "TPUs are custom-designed Google chips built to run AI workloads efficiently at scale",
+        "text_vi": "TPU là chip do Google thiết kế riêng để chạy các khối lượng công việc AI hiệu quả ở quy mô lớn"
       },
       {
         "key": "B",
-        "text": "Visualizing machine learning experiments, tracking metrics like loss and accuracy, and profiling model execution to identify bottlenecks.",
-        "text_vi": "Trực quan hóa các thử nghiệm Học máy (Machine Learning), theo dõi các số liệu như mất mát và độ chính xác cũng như lập hồ sơ thực thi mô hình để xác định các điểm nghẽn."
+        "text": "TPUs are Google's open models that companies can download, customize and run in their own environments",
+        "text_vi": "TPU là các mô hình mở của Google mà doanh nghiệp có thể tải về, tùy biến và chạy trong môi trường riêng"
       },
       {
         "key": "C",
-        "text": "Playing chess against AI.",
-        "text_vi": "Chơi cờ với AI."
+        "text": "TPUs are prebuilt chat assistants that employees use in their email",
+        "text_vi": "TPU là các trợ lý chat dựng sẵn mà nhân viên dùng trong email"
       },
       {
         "key": "D",
-        "text": "Designing prompt UIs.",
-        "text_vi": "Thiết kế giao diện người dùng nhanh chóng."
+        "text": "TPUs are security tools that scan cloud projects for misconfigurations",
+        "text_vi": "TPU là công cụ bảo mật quét các dự án đám mây để tìm cấu hình sai"
       }
     ],
     "answer": [
-      "B"
+      "A"
     ],
-    "explanation": "Correct: Visualizing machine learning experiments, tracking metrics like loss and accuracy, and profiling model execution to identify bottlenecks. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Phiên bản 'Vertex AI TensorBoard' được dùng để làm gì?",
-    "explanation_vi": "Đúng: Trực quan hóa các thử nghiệm Học máy (Machine Learning), theo dõi các số liệu như độ mất mát và độ chính xác cũng như lập hồ sơ thực thi mô hình để xác định các điểm nghẽn. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "TPUs are Google's custom-designed AI chips and form part of its AI-optimized infrastructure alongside GPUs. They are hardware, not models, assistants or security tools.",
+    "explanation_vi": "TPU là chip AI do Google thiết kế riêng, thuộc hạ tầng tối ưu cho AI của Google cùng với GPU. Chúng là phần cứng, không phải mô hình, trợ lý hay công cụ bảo mật.",
+    "lessonId": "d2-t2",
+    "objective": "2.1 AI-optimized infrastructure"
   },
   {
     "id": 24,
     "topic": "Google Cloud Gen AI Solutions (35%)",
-    "question": "When building an AI Agent in Vertex AI, how does it interact with enterprise systems like ServiceNow or Jira?",
+    "question": "A manufacturer's factory cameras must flag product defects in real time. The plant has an unreliable internet connection and wants to keep images on site. Which approach fits BEST?",
+    "question_vi": "Camera trong nhà máy của một nhà sản xuất phải phát hiện lỗi sản phẩm theo thời gian thực. Nhà máy có kết nối internet không ổn định và muốn giữ hình ảnh tại chỗ. Cách tiếp cận nào phù hợp NHẤT?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "It reads the screen.",
-        "text_vi": "Nó đọc màn hình."
+        "text": "Edge AI that runs the model on devices close to the cameras",
+        "text_vi": "Edge AI chạy mô hình trên thiết bị đặt gần camera"
       },
       {
         "key": "B",
-        "text": "It guesses the data.",
-        "text_vi": "Nó đoán dữ liệu."
+        "text": "Sending every video frame to a hosted model in the cloud for analysis",
+        "text_vi": "Gửi từng khung hình video tới mô hình lưu trữ trên đám mây để phân tích"
       },
       {
         "key": "C",
-        "text": "By sending emails manually.",
-        "text_vi": "Bằng cách gửi email theo cách thủ công."
+        "text": "Reviewing the footage manually and uploading a weekly sample",
+        "text_vi": "Xem video thủ công và tải lên một mẫu hằng tuần"
       },
       {
         "key": "D",
-        "text": "By utilizing 'Extensions' or 'Tools' (Function Calling), allowing the agent to execute specific API calls to retrieve tickets or update records.",
-        "text_vi": "Bằng cách sử dụng 'Tiện ích mở rộng' hoặc 'Công cụ' (Gọi chức năng), cho phép tác nhân thực hiện các lệnh gọi API cụ thể để truy xuất vé hoặc cập nhật hồ sơ."
+        "text": "Using a larger cloud model that tolerates slow connections",
+        "text_vi": "Dùng mô hình đám mây lớn hơn có thể chịu được kết nối chậm"
       }
     ],
     "answer": [
-      "D"
+      "A"
     ],
-    "explanation": "Correct: By utilizing 'Extensions' or 'Tools' (Function Calling), allowing the agent to execute specific API calls to retrieve tickets or update records. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Khi xây dựng Tác nhân AI trong Vertex AI, nó tương tác với các hệ thống doanh nghiệp như ServiceNow hay Jira như thế nào?",
-    "explanation_vi": "Đúng: Bằng cách sử dụng 'Tiện ích mở rộng' hoặc 'Công cụ' (Gọi chức năng), cho phép tổng đài viên thực hiện các lệnh gọi API cụ thể để truy xuất vé hoặc cập nhật hồ sơ. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Edge AI runs near the data, which supports real-time responses, privacy and independence from connectivity. Sending all frames to the cloud depends on a reliable connection and moves the images off site.",
+    "explanation_vi": "Edge AI chạy gần nơi phát sinh dữ liệu, hỗ trợ phản hồi thời gian thực, quyền riêng tư và không phụ thuộc kết nối. Gửi mọi khung hình lên đám mây phụ thuộc vào kết nối ổn định và đưa hình ảnh ra khỏi nhà máy.",
+    "lessonId": "d2-t2",
+    "objective": "2.1 AI-optimized infrastructure"
   },
   {
     "id": 25,
     "topic": "Google Cloud Gen AI Solutions (35%)",
-    "question": "Which Google Cloud service offers a fully managed, serverless execution environment that is ideal for hosting lightweight, stateless Gen AI webhook fulfillments?",
+    "question": "A large company wants employees to securely search across internal drives, wikis and ticketing systems, and to build custom agents on top of that data. Which offering is the BEST fit?",
+    "question_vi": "Một công ty lớn muốn nhân viên tìm kiếm an toàn trên ổ đĩa nội bộ, wiki và hệ thống ticket, đồng thời xây dựng agent tùy chỉnh trên dữ liệu đó. Sản phẩm nào phù hợp NHẤT?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Cloud Functions (or Cloud Run)",
-        "text_vi": "Chức năng đám mây (hoặc Cloud Run)"
+        "text": "The Gemini app, the consumer chat experience for personal use",
+        "text_vi": "Ứng dụng Gemini, trải nghiệm chat dành cho người dùng cá nhân"
       },
       {
         "key": "B",
-        "text": "Cloud SQL",
-        "text_vi": "Đám mây SQL"
+        "text": "Gemini for Workspace, which assists inside Gmail, Docs and Meet",
+        "text_vi": "Gemini for Workspace, hỗ trợ ngay trong Gmail, Docs và Meet"
       },
       {
         "key": "C",
-        "text": "Compute Engine",
-        "text_vi": "Công cụ tính toán"
+        "text": "Gemini for Google Cloud, which assists developers and cloud operators",
+        "text_vi": "Gemini for Google Cloud, hỗ trợ lập trình viên và người vận hành đám mây"
       },
       {
         "key": "D",
-        "text": "Bare Metal",
-        "text_vi": "kim loại trần"
+        "text": "Gemini Enterprise (formerly Agentspace)",
+        "text_vi": "Gemini Enterprise (trước đây là Agentspace)"
       }
     ],
     "answer": [
-      "A"
+      "D"
     ],
-    "explanation": "Correct: Cloud Functions (or Cloud Run) Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Dịch vụ Google Cloud nào cung cấp môi trường thực thi không có máy chủ, được quản lý toàn phần, lý tưởng để lưu trữ các hoạt động thực hiện webhook Gen AI nhẹ, không trạng thái?",
-    "explanation_vi": "Đúng: Cloud Functions (hoặc Cloud Run) Xem lại lý do tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế thì không."
+    "explanation": "Gemini Enterprise provides custom search and agents over internal data, including multimodal search. Gemini for Workspace helps inside productivity apps, and Gemini for Google Cloud is aimed at developers and operators.",
+    "explanation_vi": "Gemini Enterprise cung cấp tìm kiếm và agent tùy chỉnh trên dữ liệu nội bộ, bao gồm tìm kiếm đa phương thức. Gemini for Workspace hỗ trợ bên trong ứng dụng năng suất, còn Gemini for Google Cloud nhắm tới lập trình viên và người vận hành.",
+    "lessonId": "d2-t3",
+    "objective": "2.2 Prebuilt gen AI offerings"
   },
   {
     "id": 26,
     "topic": "Google Cloud Gen AI Solutions (35%)",
-    "question": "An enterprise wants employees to discover information across authorized internal sources with conversational answers. What should leaders examine first?",
+    "question": "A university analyst uploads ten research reports and wants a summary and answers that come only from those documents, with citations. Which tool fits BEST?",
+    "question_vi": "Một nhà phân tích đại học tải lên mười báo cáo nghiên cứu và muốn có bản tóm tắt cùng câu trả lời chỉ lấy từ các tài liệu đó, kèm trích dẫn. Công cụ nào phù hợp NHẤT?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Public access to all private documents.",
-        "text_vi": "Quyền truy cập công khai vào tất cả các tài liệu riêng tư."
+        "text": "Grounding with Google Search, which brings in current public web information from across the internet",
+        "text_vi": "Grounding with Google Search, đưa vào thông tin web công khai hiện hành từ khắp internet"
       },
       {
         "key": "B",
-        "text": "An enterprise search experience with identity-aware access to approved sources.",
-        "text_vi": "Trải nghiệm tìm kiếm doanh nghiệp với quyền truy cập nhận dạng vào các nguồn đã được phê duyệt."
+        "text": "Gems, which are reusable assistants with saved instructions",
+        "text_vi": "Gems, các trợ lý tái sử dụng với hướng dẫn được lưu sẵn"
       },
       {
         "key": "C",
-        "text": "A standalone video-generation model.",
-        "text_vi": "Một mô hình tạo video độc lập."
+        "text": "Model Garden, which is a catalog for exploring and deploying models",
+        "text_vi": "Model Garden, một danh mục để khám phá và triển khai mô hình"
       },
       {
         "key": "D",
-        "text": "Cloud DNS as a semantic search engine.",
-        "text_vi": "Cloud DNS như một công cụ tìm kiếm ngữ nghĩa."
+        "text": "Gemini Notebook (formerly NotebookLM), which grounds its answers in the sources the user uploads",
+        "text_vi": "Gemini Notebook (trước đây là NotebookLM), neo câu trả lời vào các nguồn do người dùng tải lên"
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": "Enterprise search needs retrieval with identity-aware permissions.",
-    "question_vi": "Doanh nghiệp muốn nhân viên khám phá thông tin từ các nguồn nội bộ được ủy quyền bằng các câu trả lời đàm thoại. Lãnh đạo nên kiểm tra điều gì trước tiên?",
-    "explanation_vi": "Tìm kiếm doanh nghiệp cần truy xuất với quyền nhận dạng."
+    "explanation": "Gemini Notebook answers are grounded only in the sources the user provides, which fits a document-limited, cited summary. Google Search grounding pulls from the web instead, and Gems store instructions rather than documents.",
+    "explanation_vi": "Câu trả lời của Gemini Notebook chỉ dựa trên các nguồn người dùng cung cấp, phù hợp với bản tóm tắt giới hạn trong tài liệu và có trích dẫn. Grounding with Google Search lấy thông tin từ web, còn Gems lưu hướng dẫn chứ không lưu tài liệu.",
+    "lessonId": "d2-t3",
+    "objective": "2.2 Prebuilt gen AI offerings"
   },
   {
     "id": 27,
     "topic": "Google Cloud Gen AI Solutions (35%)",
-    "question": "How does 'BigQuery ML' handle the execution of Generative AI models (like Gemini) on large datasets?",
+    "question": "Which statement best describes Gemini for Google Workspace?",
+    "question_vi": "Phát biểu nào mô tả đúng nhất Gemini for Google Workspace?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "It does not support Gen AI.",
-        "text_vi": "Nó không hỗ trợ Gen AI."
+        "text": "It is a platform where developers train and deploy custom machine learning models",
+        "text_vi": "Đây là nền tảng nơi lập trình viên huấn luyện và triển khai các mô hình machine learning tùy chỉnh"
       },
       {
         "key": "B",
-        "text": "It converts BigQuery into a GPU.",
-        "text_vi": "Nó chuyển đổi BigQuery thành GPU."
+        "text": "It embeds gen AI into tools such as Gmail, Docs, Slides and Meet to help people draft, summarize and create",
+        "text_vi": "Nó tích hợp gen AI vào các công cụ như Gmail, Docs, Slides và Meet để giúp soạn thảo, tóm tắt và sáng tạo"
       },
       {
         "key": "C",
-        "text": "It downloads the data to your laptop first.",
-        "text_vi": "Nó tải dữ liệu xuống máy tính xách tay của bạn trước tiên."
+        "text": "It is a contact center product that coaches human agents during live calls",
+        "text_vi": "Đây là sản phẩm contact center hướng dẫn nhân viên tổng đài trong các cuộc gọi trực tiếp"
       },
       {
         "key": "D",
-        "text": "It allows you to call remote Vertex AI models directly via SQL functions (like ML.GENERATE_TEXT), processing massive amounts of data entirely within the data warehouse.",
-        "text_vi": "Nó cho phép bạn gọi trực tiếp các mô hình Vertex AI từ xa thông qua các hàm SQL (như ML.GENERATE_TEXT), xử lý lượng dữ liệu khổng lồ hoàn toàn trong kho dữ liệu."
+        "text": "It is a security service that monitors cloud projects for threats",
+        "text_vi": "Đây là dịch vụ bảo mật giám sát các dự án đám mây để phát hiện mối đe dọa"
       }
     ],
     "answer": [
-      "D"
+      "B"
     ],
-    "explanation": "Correct: It allows you to call remote Vertex AI models directly via SQL functions (like ML.GENERATE_TEXT), processing massive amounts of data entirely within the data warehouse. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "'BigQuery ML' xử lý việc thực thi các mô hình Generative AI (như Gemini) trên các tập dữ liệu lớn như thế nào?",
-    "explanation_vi": "Đúng: Nó cho phép bạn gọi trực tiếp các mô hình Vertex AI từ xa thông qua các hàm SQL (như ML.GENERATE_TEXT), xử lý lượng dữ liệu khổng lồ hoàn toàn trong kho dữ liệu. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Gemini for Workspace brings AI assistance into the productivity apps people already use. Building models is Agent Platform, coaching call agents is Agent Assist, and threat monitoring is Security Command Center.",
+    "explanation_vi": "Gemini for Workspace đưa hỗ trợ AI vào các ứng dụng năng suất mà mọi người đang dùng. Xây dựng mô hình là Agent Platform, hỗ trợ nhân viên tổng đài là Agent Assist, còn giám sát mối đe dọa là Security Command Center.",
+    "lessonId": "d2-t3",
+    "objective": "2.2 Prebuilt gen AI offerings"
   },
   {
     "id": 28,
     "topic": "Google Cloud Gen AI Solutions (35%)",
-    "question": "What is the primary benefit of deploying a model on Google Kubernetes Engine (GKE) instead of Vertex AI Endpoints?",
+    "question": "Writers at a travel company keep pasting the same tone-of-voice and formatting instructions into the Gemini app before every request. Which feature removes this repetition?",
+    "question_vi": "Các biên tập viên của một công ty du lịch cứ phải dán lại cùng hướng dẫn về giọng văn và định dạng vào ứng dụng Gemini trước mỗi yêu cầu. Tính năng nào giúp loại bỏ sự lặp lại này?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "GKE requires no configuration.",
-        "text_vi": "GKE không yêu cầu cấu hình."
+        "text": "Gems, which are personalized assistants that work like reusable prompt templates",
+        "text_vi": "Gems, các trợ lý được cá nhân hóa hoạt động như mẫu prompt dùng lại được"
       },
       {
         "key": "B",
-        "text": "GKE is always free.",
-        "text_vi": "GKE luôn miễn phí."
+        "text": "Gemini Notebook, which answers only from uploaded sources",
+        "text_vi": "Gemini Notebook, chỉ trả lời từ các nguồn đã tải lên"
       },
       {
         "key": "C",
-        "text": "GKE offers maximum granular control over the underlying infrastructure, networking, and container orchestration for highly customized or complex hybrid/multi-cloud deployments.",
-        "text_vi": "GKE cung cấp khả năng kiểm soát chi tiết tối đa đối với cơ sở hạ tầng, mạng và điều phối vùng chứa cơ bản để triển khai kết hợp/đa đám mây có tính tùy chỉnh cao hoặc phức tạp."
+        "text": "Fine-tuning a foundation model on all of the company's past articles and brand guides",
+        "text_vi": "Fine-tuning một foundation model trên toàn bộ bài viết cũ và hướng dẫn thương hiệu của công ty"
       },
       {
         "key": "D",
-        "text": "GKE only runs on CPUs.",
-        "text_vi": "GKE chỉ chạy trên CPU."
+        "text": "Agent Assist, which suggests replies to human support agents",
+        "text_vi": "Agent Assist, gợi ý câu trả lời cho nhân viên hỗ trợ"
       }
     ],
     "answer": [
-      "C"
+      "A"
     ],
-    "explanation": "Correct: GKE offers maximum granular control over the underlying infrastructure, networking, and container orchestration for highly customized or complex hybrid/multi-cloud deployments. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Lợi ích chính của việc triển khai mô hình trên Google Kubernetes Engine (GKE) thay vì Vertex AI Endpoints là gì?",
-    "explanation_vi": "Đúng: GKE cung cấp khả năng kiểm soát chi tiết tối đa đối với cơ sở hạ tầng, mạng và điều phối vùng chứa cơ bản để triển khai kết hợp/đa đám mây có tính tùy chỉnh cao hoặc phức tạp. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Gems let users save instructions as a custom assistant so they do not have to retype the same context each time. Fine-tuning would be heavy overkill for a formatting preference.",
+    "explanation_vi": "Gems cho phép lưu hướng dẫn thành một trợ lý riêng để không phải gõ lại cùng ngữ cảnh mỗi lần. Fine-tuning là quá nặng nề chỉ để áp dụng một ưu tiên về định dạng.",
+    "lessonId": "d2-t3",
+    "objective": "2.2 Prebuilt gen AI offerings"
   },
   {
     "id": 29,
     "topic": "Google Cloud Gen AI Solutions (35%)",
-    "question": "Which feature of Google Workspace allows users to use Gemini to create custom images directly within their presentations?",
+    "question": "A telecom company's human support agents struggle to find answers while customers wait on live calls. The company wants real-time suggested responses and knowledge snippets for its staff. Which Customer Engagement Suite capability fits?",
+    "question_vi": "Nhân viên hỗ trợ của một công ty viễn thông khó tìm câu trả lời trong khi khách hàng chờ trên cuộc gọi trực tiếp. Công ty muốn có gợi ý phản hồi và đoạn kiến thức theo thời gian thực cho nhân viên. Năng lực nào của Customer Engagement Suite phù hợp?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Google Docs 'Help me write'",
-        "text_vi": "Google Documents 'Giúp tôi viết'"
+        "text": "Agent Assist",
+        "text_vi": "Agent Assist"
       },
       {
         "key": "B",
-        "text": "Google Sheets 'Help me organize'",
-        "text_vi": "Google Trang tính 'Giúp tôi sắp xếp'"
+        "text": "Conversational Agents, which talk to customers without a human",
+        "text_vi": "Conversational Agents, trò chuyện với khách hàng mà không cần con người"
       },
       {
         "key": "C",
-        "text": "Google Meet transcripts",
-        "text_vi": "Bản chép lời trên Google Meet"
+        "text": "Conversational Insights, which analyzes completed conversations",
+        "text_vi": "Conversational Insights, phân tích các cuộc hội thoại đã hoàn tất"
       },
       {
         "key": "D",
-        "text": "Google Slides 'Help me visualize' (Generate images)",
-        "text_vi": "Google Slides 'Giúp tôi hình dung' (Tạo hình ảnh)"
+        "text": "Gemini Notebook, which summarizes documents users upload",
+        "text_vi": "Gemini Notebook, tóm tắt tài liệu do người dùng tải lên"
       }
     ],
     "answer": [
-      "D"
+      "A"
     ],
-    "explanation": "Correct: Google Slides 'Help me visualize' (Generate images) Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Tính năng nào của Google Workspace cho phép người dùng sử dụng Gemini để tạo hình ảnh tùy chỉnh ngay trong bản trình bày của họ?",
-    "explanation_vi": "Đúng: Google Slides 'Giúp tôi hình dung' (Tạo hình ảnh) Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Agent Assist supports human agents during live conversations. Conversational Agents face customers directly, and Conversational Insights reviews communications after the fact.",
+    "explanation_vi": "Agent Assist hỗ trợ nhân viên con người trong các cuộc hội thoại trực tiếp. Conversational Agents giao tiếp thẳng với khách hàng, còn Conversational Insights xem lại các cuộc trao đổi sau khi đã diễn ra.",
+    "lessonId": "d2-t4",
+    "objective": "2.3 Customer experience offerings"
   },
   {
     "id": 30,
     "topic": "Google Cloud Gen AI Solutions (35%)",
-    "question": "What is 'AutoML Vision' in Vertex AI used for?",
+    "question": "An online retailer wants a virtual agent that handles order-status and returns questions in chat around the clock, handing off to humans only when needed. Which offering should it use?",
+    "question_vi": "Một nhà bán lẻ trực tuyến muốn có một agent ảo xử lý câu hỏi về trạng thái đơn hàng và đổi trả qua chat suốt ngày đêm, chỉ chuyển cho con người khi cần. Nên dùng sản phẩm nào?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Training custom machine learning models to classify images or detect objects without writing specialized deep learning code.",
-        "text_vi": "Đào tạo các mô hình machine learning tùy chỉnh để phân loại hình ảnh hoặc phát hiện đối tượng mà không cần viết mã deep learning chuyên dụng."
+        "text": "Agent Assist, which helps staff during live conversations",
+        "text_vi": "Agent Assist, hỗ trợ nhân viên trong các cuộc hội thoại trực tiếp"
       },
       {
         "key": "B",
-        "text": "Generating text from images.",
-        "text_vi": "Tạo văn bản từ hình ảnh."
+        "text": "Conversational Insights, which finds themes in past conversations",
+        "text_vi": "Conversational Insights, tìm ra các chủ đề trong những cuộc hội thoại đã qua"
       },
       {
         "key": "C",
-        "text": "Translating text.",
-        "text_vi": "Dịch văn bản."
+        "text": "Conversational Agents in the Customer Engagement Suite",
+        "text_vi": "Conversational Agents trong Customer Engagement Suite"
       },
       {
         "key": "D",
-        "text": "Analyzing tabular data.",
-        "text_vi": "Phân tích dữ liệu dạng bảng."
+        "text": "Gemini for Workspace, which drafts emails and slides for employees",
+        "text_vi": "Gemini for Workspace, soạn email và slide cho nhân viên"
       }
     ],
     "answer": [
-      "A"
+      "C"
     ],
-    "explanation": "Correct: Training custom machine learning models to classify images or detect objects without writing specialized deep learning code. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "'Tầm nhìn AutoML' trong Vertex AI được sử dụng để làm gì?",
-    "explanation_vi": "Đúng: Huấn luyện các mô hình machine learning tùy chỉnh để phân loại hình ảnh hoặc phát hiện đối tượng mà không cần viết mã deep learning chuyên dụng. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Conversational Agents build customer-facing chatbots and virtual agents. Agent Assist supports humans rather than replacing the first line, and Insights analyzes data after conversations end.",
+    "explanation_vi": "Conversational Agents xây dựng chatbot và agent ảo giao tiếp trực tiếp với khách hàng. Agent Assist hỗ trợ con người chứ không thay thế tuyến đầu, còn Insights phân tích dữ liệu sau khi hội thoại kết thúc.",
+    "lessonId": "d2-t4",
+    "objective": "2.3 Customer experience offerings"
   },
   {
     "id": 31,
     "topic": "Google Cloud Gen AI Solutions (35%)",
-    "question": "How does Vertex AI Search handle access controls for internal enterprise documents?",
+    "question": "An e-commerce company wants Google-quality search and recommendations across its product catalog and help articles, using pre-built RAG, with minimal engineering effort. Which offering fits?",
+    "question_vi": "Một công ty thương mại điện tử muốn có tìm kiếm và gợi ý chất lượng như Google trên danh mục sản phẩm và bài viết hỗ trợ, dùng RAG dựng sẵn, với công sức kỹ thuật tối thiểu. Sản phẩm nào phù hợp?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "It deletes secure documents.",
-        "text_vi": "Nó xóa các tài liệu an toàn."
+        "text": "Conversational Insights, which analyzes customer communications",
+        "text_vi": "Conversational Insights, phân tích các cuộc trao đổi với khách hàng"
       },
       {
         "key": "B",
-        "text": "It uses a single password for everyone.",
-        "text_vi": "Nó sử dụng một mật khẩu duy nhất cho tất cả mọi người."
+        "text": "Imagen, which creates product images from text prompts",
+        "text_vi": "Imagen, tạo hình ảnh sản phẩm từ mô tả văn bản"
       },
       {
         "key": "C",
-        "text": "It respects Document-Level Security (DLS) or IAM permissions, ensuring users only see search results for documents they are authorized to access.",
-        "text_vi": "Nó tôn trọng các quyền của Bảo mật cấp độ tài liệu (DLS) hoặc IAM, đảm bảo người dùng chỉ nhìn thấy kết quả tìm kiếm cho những tài liệu mà họ được phép truy cập."
+        "text": "Agent Search (formerly Vertex AI Search) on Agent Platform",
+        "text_vi": "Agent Search (trước đây là Vertex AI Search) trên Agent Platform"
       },
       {
         "key": "D",
-        "text": "It makes all documents public.",
-        "text_vi": "Nó làm cho tất cả các tài liệu được công khai."
+        "text": "AI Hypercomputer, which provides infrastructure to train large models",
+        "text_vi": "AI Hypercomputer, cung cấp hạ tầng để huấn luyện mô hình lớn"
       }
     ],
     "answer": [
       "C"
     ],
-    "explanation": "Correct: It respects Document-Level Security (DLS) or IAM permissions, ensuring users only see search results for documents they are authorized to access. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Vertex AI Search xử lý các biện pháp kiểm soát quyền truy cập đối với tài liệu nội bộ doanh nghiệp như thế nào?",
-    "explanation_vi": "Đúng: Nó tôn trọng các quyền Bảo mật cấp độ tài liệu (DLS) hoặc IAM, đảm bảo người dùng chỉ nhìn thấy kết quả tìm kiếm cho những tài liệu mà họ được phép truy cập. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Agent Search provides enterprise search and recommendations with pre-built RAG, so teams get relevant results without building the retrieval pipeline. The other options do not provide search over a catalog.",
+    "explanation_vi": "Agent Search cung cấp tìm kiếm doanh nghiệp và gợi ý với RAG dựng sẵn, nên nhóm có kết quả liên quan mà không phải tự xây pipeline truy xuất. Các phương án khác không cung cấp tìm kiếm trên danh mục.",
+    "lessonId": "d2-t4",
+    "objective": "2.3 Customer experience offerings"
   },
   {
     "id": 32,
     "topic": "Google Cloud Gen AI Solutions (35%)",
-    "question": "Which Google Cloud database provides microsecond latency for serving ML features, acting as the underlying storage for Vertex AI Feature Store?",
+    "question": "A hotel group has thousands of recorded customer calls and chat logs. Leadership wants to automatically identify the most common complaint themes and sentiment. Which capability fits?",
+    "question_vi": "Một tập đoàn khách sạn có hàng nghìn cuộc gọi và nhật ký chat của khách đã ghi lại. Ban lãnh đạo muốn tự động xác định các chủ đề phàn nàn phổ biến nhất và cảm xúc của khách. Năng lực nào phù hợp?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Cloud Spanner",
-        "text_vi": "Cờ lê đám mây"
+        "text": "Agent Assist",
+        "text_vi": "Agent Assist"
       },
       {
         "key": "B",
-        "text": "Cloud Bigtable",
-        "text_vi": "Đám mây lớn"
+        "text": "Conversational Insights",
+        "text_vi": "Conversational Insights"
       },
       {
         "key": "C",
-        "text": "Firestore",
-        "text_vi": "lò sưởi"
+        "text": "Conversational Agents",
+        "text_vi": "Conversational Agents"
       },
       {
         "key": "D",
-        "text": "Cloud SQL",
-        "text_vi": "Đám mây SQL"
+        "text": "Gems, the reusable assistants in the Gemini app",
+        "text_vi": "Gems, các trợ lý tái sử dụng trong ứng dụng Gemini"
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Correct: Cloud Bigtable Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Cơ sở dữ liệu Google Cloud nào cung cấp độ trễ micro giây để phân phát các tính năng ML, đóng vai trò là bộ lưu trữ cơ bản cho Vertex AI Feature Store?",
-    "explanation_vi": "Đúng: Cloud Bigtable Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Conversational Insights analyzes customer communications to extract insights such as topics and sentiment. Agent Assist and Conversational Agents are used during live interactions rather than for mining past ones.",
+    "explanation_vi": "Conversational Insights phân tích các cuộc trao đổi với khách để rút ra thông tin như chủ đề và cảm xúc. Agent Assist và Conversational Agents được dùng trong lúc tương tác trực tiếp chứ không phải để khai thác các cuộc đã qua.",
+    "lessonId": "d2-t4",
+    "objective": "2.3 Customer experience offerings"
   },
   {
     "id": 33,
     "topic": "Google Cloud Gen AI Solutions (35%)",
-    "question": "What is the purpose of the 'Vertex AI SDK'?",
+    "question": "A health-tech startup has a small team with limited ML expertise and a set of labeled medical images. It needs a custom image classifier. Which option on Agent Platform fits BEST?",
+    "question_vi": "Một startup công nghệ y tế có nhóm nhỏ, ít chuyên môn ML và một bộ ảnh y tế đã gán nhãn. Họ cần một bộ phân loại ảnh tùy chỉnh. Lựa chọn nào trên Agent Platform phù hợp NHẤT?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "To manage Google Workspace licenses.",
-        "text_vi": "Để quản lý giấy phép Google Workspace."
+        "text": "AutoML, which builds a custom model from labeled data with little ML coding",
+        "text_vi": "AutoML, xây mô hình tùy chỉnh từ dữ liệu có nhãn với rất ít lập trình ML"
       },
       {
         "key": "B",
-        "text": "To write Java web apps.",
-        "text_vi": "Để viết các ứng dụng web Java."
+        "text": "Fully custom training with self-written code, which needs deep ML expertise",
+        "text_vi": "Huấn luyện tùy chỉnh hoàn toàn bằng code tự viết, đòi hỏi chuyên môn ML sâu"
       },
       {
         "key": "C",
-        "text": "To design cloud architectures.",
-        "text_vi": "Để thiết kế kiến trúc đám mây."
+        "text": "A Gemini for Workspace subscription for the clinicians",
+        "text_vi": "Gói đăng ký Gemini for Workspace cho các bác sĩ"
       },
       {
         "key": "D",
-        "text": "To programmatically build, train, deploy, and manage machine learning models and pipelines on Google Cloud using Python.",
-        "text_vi": "Để xây dựng, đào tạo, triển khai và quản lý các mô hình và quy trình machine learning trên Google Cloud theo chương trình bằng Python."
+        "text": "Conversational Agents to chat with patients about their scans",
+        "text_vi": "Conversational Agents để trò chuyện với bệnh nhân về ảnh chụp của họ"
       }
     ],
     "answer": [
-      "D"
+      "A"
     ],
-    "explanation": "Correct: To programmatically build, train, deploy, and manage machine learning models and pipelines on Google Cloud using Python. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Mục đích của 'Vertex AI SDK' là gì?",
-    "explanation_vi": "Đúng: Để xây dựng, đào tạo, triển khai và quản lý các mô hình và quy trình machine learning trên Google Cloud theo chương trình bằng Python. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "AutoML on Agent Platform trains a custom model from labeled data without requiring much ML coding, so it suits teams with limited expertise. Custom training offers more control but demands skills the team lacks.",
+    "explanation_vi": "AutoML trên Agent Platform huấn luyện mô hình tùy chỉnh từ dữ liệu có nhãn mà không cần nhiều lập trình ML, phù hợp với nhóm ít chuyên môn. Huấn luyện tùy chỉnh cho nhiều kiểm soát hơn nhưng đòi hỏi kỹ năng mà nhóm không có.",
+    "lessonId": "d2-t5",
+    "objective": "2.4 Building with Agent Platform"
   },
   {
     "id": 34,
     "topic": "Google Cloud Gen AI Solutions (35%)",
-    "question": "What capability does the 'Speech-to-Text' API provide in a Gen AI architecture?",
+    "question": "A developer wants to quickly experiment with prompts and the Gemini API for a prototype. Later, the production version will need enterprise governance and security. Which approach is BEST?",
+    "question_vi": "Một lập trình viên muốn thử nhanh các prompt và Gemini API cho bản nguyên mẫu. Sau này, bản chính thức sẽ cần quản trị và bảo mật cấp doanh nghiệp. Cách nào TỐT NHẤT?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "It converts spoken audio (like customer service calls) into written text, which can then be processed, summarized, or analyzed by an LLM.",
-        "text_vi": "Nó chuyển đổi âm thanh nói (như cuộc gọi dịch vụ khách hàng) thành văn bản bằng văn bản, sau đó có thể được LLM xử lý, tóm tắt hoặc phân tích."
+        "text": "Build the prototype in Agent Studio, then deploy the finished version to production in Google AI Studio",
+        "text_vi": "Làm nguyên mẫu trong Agent Studio, sau đó triển khai phiên bản hoàn chỉnh lên môi trường chính thức trong Google AI Studio"
       },
       {
         "key": "B",
-        "text": "It translates languages.",
-        "text_vi": "Nó dịch ngôn ngữ."
+        "text": "Prototype in Gemini Notebook and move to Gemini for Workspace for production",
+        "text_vi": "Làm nguyên mẫu trong Gemini Notebook và chuyển sang Gemini for Workspace cho chính thức"
       },
       {
         "key": "C",
-        "text": "It generates realistic human voices from text.",
-        "text_vi": "Nó tạo ra giọng nói thực tế của con người từ văn bản."
+        "text": "Skip prototyping and start with fully custom model training in production",
+        "text_vi": "Bỏ qua nguyên mẫu và bắt đầu ngay bằng huấn luyện mô hình tùy chỉnh trong môi trường chính thức"
       },
       {
         "key": "D",
-        "text": "It edits videos.",
-        "text_vi": "Nó chỉnh sửa video."
+        "text": "Prototype in Google AI Studio, then move to Agent Studio on Agent Platform for production",
+        "text_vi": "Làm nguyên mẫu trong Google AI Studio, sau đó chuyển sang Agent Studio trên Agent Platform cho môi trường chính thức"
       }
     ],
     "answer": [
-      "A"
+      "D"
     ],
-    "explanation": "Correct: It converts spoken audio (like customer service calls) into written text, which can then be processed, summarized, or analyzed by an LLM. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "API 'Chuyển giọng nói thành văn bản' cung cấp khả năng gì trong kiến ​​trúc AI thế hệ?",
-    "explanation_vi": "Đúng: Nó chuyển đổi âm thanh nói (như cuộc gọi dịch vụ khách hàng) thành văn bản bằng văn bản, sau đó có thể được LLM xử lý, tóm tắt hoặc phân tích. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Google AI Studio is meant for quick prototyping, while Agent Studio on Agent Platform is for production use with governance. The wrong options reverse the order or pick products that are not developer build tools.",
+    "explanation_vi": "Google AI Studio dành cho tạo nguyên mẫu nhanh, còn Agent Studio trên Agent Platform dành cho môi trường chính thức với quản trị. Các phương án sai đảo ngược thứ tự hoặc chọn sản phẩm không phải công cụ xây dựng cho lập trình viên.",
+    "lessonId": "d2-t5",
+    "objective": "2.4 Building with Agent Platform"
   },
   {
     "id": 35,
     "topic": "Google Cloud Gen AI Solutions (35%)",
-    "question": "If you need to deploy an open-source model like Llama 3 on Google Cloud, which service provides a one-click deployment experience?",
+    "question": "Which statement best describes Agent Platform (formerly Vertex AI)?",
+    "question_vi": "Phát biểu nào mô tả đúng nhất Agent Platform (trước đây là Vertex AI)?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Cloud DNS",
-        "text_vi": "DNS đám mây"
+        "text": "A productivity add-on that helps people write, summarize and organize emails in Gmail",
+        "text_vi": "Một tiện ích năng suất giúp mọi người viết, tóm tắt và sắp xếp email trong Gmail"
       },
       {
         "key": "B",
-        "text": "Vertex AI Model Garden",
-        "text_vi": "Vườn mô hình AI của Vertex"
+        "text": "A unified Google Cloud platform to build, tune, deploy and monitor models and agents",
+        "text_vi": "Một nền tảng thống nhất của Google Cloud để xây dựng, tinh chỉnh, triển khai và giám sát mô hình và agent"
       },
       {
         "key": "C",
-        "text": "Cloud Build",
-        "text_vi": "Xây dựng đám mây"
+        "text": "A cloud contact center product for routing customer calls",
+        "text_vi": "Một sản phẩm contact center đám mây để định tuyến cuộc gọi khách hàng"
       },
       {
         "key": "D",
-        "text": "Cloud Source Repositories",
-        "text_vi": "Kho lưu trữ nguồn đám mây"
+        "text": "A custom chip designed to accelerate neural network training",
+        "text_vi": "Một con chip tùy chỉnh được thiết kế để tăng tốc huấn luyện mạng neural"
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Correct: Vertex AI Model Garden Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Nếu bạn cần triển khai một mô hình nguồn mở như Llama 3 trên Google Cloud, dịch vụ nào cung cấp trải nghiệm triển khai chỉ bằng một cú nhấp chuột?",
-    "explanation_vi": "Đúng: Vertex AI Model Garden Xem lại lý do tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế thì không."
+    "explanation": "Agent Platform is Google Cloud's managed platform for building, tuning, deploying and monitoring models and agents, including Model Garden and Agent Studio. The other options describe Gemini for Workspace, CCaaS and TPUs.",
+    "explanation_vi": "Agent Platform là nền tảng được quản lý của Google Cloud để xây dựng, tinh chỉnh, triển khai và giám sát mô hình và agent, bao gồm Model Garden và Agent Studio. Các phương án khác mô tả Gemini for Workspace, CCaaS và TPU.",
+    "lessonId": "d2-t5",
+    "objective": "2.4 Building with Agent Platform"
   },
   {
     "id": 36,
     "topic": "Google Cloud Gen AI Solutions (35%)",
-    "question": "A compact model needs to learn a domain-specific output style, but GPU memory is limited. Which approach is worth evaluating?",
+    "question": "A bank wants an assistant that answers staff questions from its internal policy documents. It has limited engineering capacity and wants the fastest path. Which approach is MOST appropriate?",
+    "question_vi": "Một ngân hàng muốn có trợ lý trả lời câu hỏi của nhân viên dựa trên tài liệu chính sách nội bộ. Ngân hàng có ít nguồn lực kỹ thuật và muốn đi đường nhanh nhất. Cách nào phù hợp NHẤT?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Increase the maximum output length as a substitute for adaptation.",
-        "text_vi": "Tăng độ dài đầu ra tối đa để thay thế cho việc thích ứng."
+        "text": "Fine-tuning a model on the documents every time a policy changes",
+        "text_vi": "Fine-tuning mô hình trên tài liệu mỗi khi chính sách thay đổi"
       },
       {
         "key": "B",
-        "text": "Replace the task dataset with random text.",
-        "text_vi": "Thay thế tập dữ liệu nhiệm vụ bằng văn bản ngẫu nhiên."
+        "text": "Pre-built RAG with Agent Search over the internal documents",
+        "text_vi": "RAG dựng sẵn với Agent Search trên các tài liệu nội bộ"
       },
       {
         "key": "C",
-        "text": "Parameter-efficient fine-tuning that updates a relatively small subset of parameters.",
-        "text_vi": "tinh chỉnh (fine-tuning) tham số hiệu quả giúp cập nhật một tập hợp con tham số tương đối nhỏ."
+        "text": "Building every part of a custom retrieval pipeline from scratch",
+        "text_vi": "Tự xây từng thành phần của một pipeline truy xuất tùy chỉnh từ đầu"
       },
       {
         "key": "D",
-        "text": "Always update all original parameters regardless of constraints.",
-        "text_vi": "Luôn cập nhật tất cả các tham số ban đầu bất kể các ràng buộc."
+        "text": "Grounding with Google Search to retrieve answers from the open web",
+        "text_vi": "Grounding with Google Search để lấy câu trả lời từ web công khai"
       }
     ],
     "answer": [
-      "C"
+      "B"
     ],
-    "explanation": "PEFT approaches can lower resource demands when adapting pretrained models.",
-    "question_vi": "Một mô hình nhỏ gọn cần học kiểu đầu ra dành riêng cho miền, nhưng bộ nhớ GPU bị hạn chế. Cách tiếp cận nào đáng được đánh giá?",
-    "explanation_vi": "Phương pháp tiếp cận PEFT có thể làm giảm nhu cầu tài nguyên khi điều chỉnh các mô hình được huấn luyện trước."
+    "explanation": "Pre-built RAG with Agent Search gives answers grounded in the bank's own documents with little engineering. Repeated fine-tuning is slow and costly, a from-scratch pipeline is slower, and web grounding cannot see private policies.",
+    "explanation_vi": "RAG dựng sẵn với Agent Search cho câu trả lời dựa trên tài liệu của chính ngân hàng với ít công sức kỹ thuật. Fine-tuning lặp lại thì chậm và tốn kém, pipeline tự xây còn chậm hơn, và grounding web không thấy được chính sách nội bộ.",
+    "lessonId": "d2-t5",
+    "objective": "2.4 Building with Agent Platform"
   },
   {
     "id": 37,
     "topic": "Google Cloud Gen AI Solutions (35%)",
-    "question": "A company wants its assistant to answer up-to-date public facts and attribute them to external sources. Which mechanism is relevant?",
+    "question": "An insurer wants an agent to turn scanned claim forms into structured fields such as name, policy number and amount, without training a model. Which pre-built API fits?",
+    "question_vi": "Một công ty bảo hiểm muốn agent chuyển các biểu mẫu bồi thường được quét thành các trường có cấu trúc như tên, số hợp đồng và số tiền, mà không phải huấn luyện mô hình. API dựng sẵn nào phù hợp?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Provide a user persona instead of factual sources.",
-        "text_vi": "Cung cấp thông tin cá nhân người dùng thay vì các nguồn thực tế."
+        "text": "Speech-to-Text API",
+        "text_vi": "Speech-to-Text API"
       },
       {
         "key": "B",
-        "text": "Ground responses using a suitable web-search source and evaluate source support.",
-        "text_vi": "Phản hồi cơ bản bằng cách sử dụng nguồn tìm kiếm trên web phù hợp và đánh giá hỗ trợ nguồn."
+        "text": "Text-to-Speech API",
+        "text_vi": "Text-to-Speech API"
       },
       {
         "key": "C",
-        "text": "Turn off retrieval and cite guessed URLs.",
-        "text_vi": "Tắt truy xuất và trích dẫn các URL được đoán."
+        "text": "Document AI API",
+        "text_vi": "Document AI API"
       },
       {
         "key": "D",
-        "text": "Maximize temperature without checking evidence.",
-        "text_vi": "Tối đa hóa nhiệt độ mà không cần kiểm tra bằng chứng."
+        "text": "Cloud Video Intelligence API",
+        "text_vi": "Cloud Video Intelligence API"
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": "Web grounding can supply current external evidence for answers, subject to evaluation.",
-    "question_vi": "Một công ty muốn trợ lý của mình trả lời các thông tin công khai cập nhật và gán chúng cho các nguồn bên ngoài. Cơ chế nào phù hợp?",
-    "explanation_vi": "Nền tảng web có thể cung cấp bằng chứng bên ngoài hiện tại cho câu trả lời, tùy thuộc vào việc đánh giá."
+    "explanation": "Document AI extracts structured information from documents and forms. The speech APIs convert between audio and text, and Video Intelligence analyzes video content.",
+    "explanation_vi": "Document AI trích xuất thông tin có cấu trúc từ tài liệu và biểu mẫu. Các API giọng nói chuyển đổi giữa âm thanh và văn bản, còn Video Intelligence phân tích nội dung video.",
+    "lessonId": "d2-t6",
+    "objective": "2.5 Agents and tooling"
   },
   {
     "id": 38,
     "topic": "Google Cloud Gen AI Solutions (35%)",
-    "question": "In Dialogflow CX, what is a 'Flow'?",
+    "question": "What distinguishes a gen AI agent from a simple chatbot that only answers prompts?",
+    "question_vi": "Điều gì phân biệt một gen AI agent với chatbot đơn giản chỉ trả lời prompt?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "A modular building block used to group related conversational turns or topics together, enabling developers to build complex, multi-turn virtual agents.",
-        "text_vi": "Một khối xây dựng mô-đun được sử dụng để nhóm các lượt hoặc chủ đề hội thoại có liên quan lại với nhau, cho phép các nhà phát triển xây dựng các tác nhân ảo phức tạp, nhiều lượt."
+        "text": "An agent always has a larger context window than any chatbot",
+        "text_vi": "Agent luôn có context window lớn hơn bất kỳ chatbot nào"
       },
       {
         "key": "B",
-        "text": "A data migration path.",
-        "text_vi": "Một đường dẫn di chuyển dữ liệu."
+        "text": "An agent combines a model with tools and a reasoning loop so it can act toward a goal",
+        "text_vi": "Agent kết hợp mô hình với công cụ và vòng lặp suy luận để hành động hướng tới một mục tiêu"
       },
       {
         "key": "C",
-        "text": "A SQL query.",
-        "text_vi": "Một truy vấn SQL."
+        "text": "An agent is a saved prompt template that can be reused by teams to standardize requests",
+        "text_vi": "Agent là một mẫu prompt được lưu để các nhóm dùng lại nhằm chuẩn hóa yêu cầu"
       },
       {
         "key": "D",
-        "text": "The speed of the network.",
-        "text_vi": "Tốc độ của mạng."
+        "text": "An agent is a dashboard that reports on model accuracy over time",
+        "text_vi": "Agent là một bảng điều khiển báo cáo độ chính xác của mô hình theo thời gian"
       }
     ],
     "answer": [
-      "A"
+      "B"
     ],
-    "explanation": "Correct: A modular building block used to group related conversational turns or topics together, enabling developers to build complex, multi-turn virtual agents. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Trong Dialogflow CX, 'Flow' là gì?",
-    "explanation_vi": "Đúng: Một khối xây dựng mô-đun được sử dụng để nhóm các lượt hoặc chủ đề hội thoại có liên quan lại với nhau, cho phép các nhà phát triển xây dựng các tác nhân ảo phức tạp, nhiều lượt. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "An agent is a model plus tools and a reasoning loop that acts autonomously toward a goal, for example by calling search or a database. A prompt template or a monitoring dashboard does not take actions.",
+    "explanation_vi": "Agent là mô hình cộng với công cụ và vòng lặp suy luận, hành động tự chủ hướng tới mục tiêu, ví dụ gọi tìm kiếm hoặc cơ sở dữ liệu. Mẫu prompt hay bảng điều khiển giám sát không thực hiện hành động.",
+    "lessonId": "d2-t6",
+    "objective": "2.5 Agents and tooling"
   },
   {
     "id": 39,
     "topic": "Google Cloud Gen AI Solutions (35%)",
-    "question": "Which Vertex AI capability enables an LLM to use a calculator or a Python interpreter to solve complex math problems?",
+    "question": "A multilingual support center wants to transcribe recorded calls and translate the transcripts into several languages for review, using ready-made services rather than building models. Which approach fits?",
+    "question_vi": "Một trung tâm hỗ trợ đa ngôn ngữ muốn chuyển các cuộc gọi đã ghi âm thành văn bản và dịch bản ghi sang nhiều ngôn ngữ để xem xét, dùng dịch vụ có sẵn thay vì xây mô hình. Cách nào phù hợp?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Grounding",
-        "text_vi": "Nối đất"
+        "text": "Training a custom speech model with AutoML before any transcription",
+        "text_vi": "Huấn luyện mô hình giọng nói tùy chỉnh bằng AutoML trước khi chuyển bất kỳ bản ghi nào"
       },
       {
         "key": "B",
-        "text": "Text-to-Speech",
-        "text_vi": "Chuyển văn bản thành giọng nói"
+        "text": "Fine-tuning Gemma on call recordings to learn each language",
+        "text_vi": "Fine-tuning Gemma trên bản ghi cuộc gọi để học từng ngôn ngữ"
       },
       {
         "key": "C",
-        "text": "Model Registry",
-        "text_vi": "Cơ quan đăng ký mẫu"
+        "text": "Using the Natural Language API alone to convert audio to text",
+        "text_vi": "Chỉ dùng Natural Language API để chuyển âm thanh thành văn bản"
       },
       {
         "key": "D",
-        "text": "Extensions / Function Calling / Tools",
-        "text_vi": "Tiện ích mở rộng/Gọi hàm/Công cụ"
+        "text": "Pre-built Speech-to-Text and Translation APIs",
+        "text_vi": "Các API dựng sẵn Speech-to-Text và Translation"
       }
     ],
     "answer": [
       "D"
     ],
-    "explanation": "Correct: Extensions / Function Calling / Tools Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Khả năng AI của Vertex nào cho phép LLM sử dụng máy tính hoặc trình thông dịch Python để giải các bài toán phức tạp?",
-    "explanation_vi": "Đúng: Tiện ích mở rộng/Gọi hàm/Công cụ Xem lại lý do tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế thì không."
+    "explanation": "Pre-built AI APIs give ready-made speech, translation and language capabilities without training. Speech-to-Text handles the transcription and the Translation API handles other languages.",
+    "explanation_vi": "Các API AI dựng sẵn cung cấp năng lực giọng nói, dịch thuật và ngôn ngữ mà không cần huấn luyện. Speech-to-Text lo việc chuyển giọng nói thành văn bản và Translation API lo các ngôn ngữ khác.",
+    "lessonId": "d2-t6",
+    "objective": "2.5 Agents and tooling"
   },
   {
     "id": 40,
     "topic": "Improving Gen AI Model Output (20%)",
-    "question": "What is 'Meta-Prompting'?",
+    "question": "A law firm's assistant cites court cases that sound real but do not exist. Which explanation is MOST accurate?",
+    "question_vi": "Trợ lý của một công ty luật trích dẫn các vụ án nghe có vẻ thật nhưng thực tế không tồn tại. Giải thích nào CHÍNH XÁC NHẤT?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Prompting a model on the Facebook platform.",
-        "text_vi": "Nhắc nhở một người mẫu trên nền tảng Facebook."
+        "text": "Models predict likely text rather than verify facts, so they can state falsehoods fluently",
+        "text_vi": "Mô hình dự đoán văn bản có khả năng cao chứ không kiểm chứng sự thật, nên có thể nói điều sai một cách trôi chảy"
       },
       {
         "key": "B",
-        "text": "Using exclusively metadata.",
-        "text_vi": "Sử dụng siêu dữ liệu độc quyền."
+        "text": "Safety settings are blocking the real cases from appearing in the answers",
+        "text_vi": "Cài đặt an toàn đang chặn các vụ án thật không cho xuất hiện trong câu trả lời"
       },
       {
         "key": "C",
-        "text": "Instructing an LLM to act as a prompt engineer and generate, refine, or optimize a prompt for a secondary task or for another LLM.",
-        "text_vi": "Hướng dẫn LLM hoạt động như một kỹ sư nhắc nhở và tạo, tinh chỉnh (fine-tuning) hoặc tối ưu hóa lời nhắc cho một nhiệm vụ phụ hoặc cho một LLM khác."
+        "text": "Model drift occurred because the firm's clients changed their behavior",
+        "text_vi": "Model drift xảy ra vì khách hàng của công ty đã thay đổi hành vi"
       },
       {
         "key": "D",
-        "text": "Deleting prompts.",
-        "text_vi": "Đang xóa lời nhắc."
+        "text": "The model is too small to have seen any legal text during its training",
+        "text_vi": "Mô hình quá nhỏ nên chưa từng thấy bất kỳ văn bản pháp lý nào khi huấn luyện"
       }
     ],
     "answer": [
-      "C"
+      "A"
     ],
-    "explanation": "Correct: Instructing an LLM to act as a prompt engineer and generate, refine, or optimize a prompt for a secondary task or for another LLM. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "'Meta-Prompting' là gì?",
-    "explanation_vi": "Đúng: Hướng dẫn LLM hoạt động như một kỹ sư nhắc nhở và tạo, tinh chỉnh (fine-tuning) hoặc tối ưu hóa lời nhắc cho một nhiệm vụ phụ hoặc cho một LLM khác. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "This is a hallucination: the model generates fluent, confident text that is not true because it predicts likely wording and does not check facts. The fix is grounding on real sources plus human review, not safety filters or a bigger model. Drift is performance changing over time, which does not explain invented cases.",
+    "explanation_vi": "Đây là hallucination: mô hình tạo ra văn bản trôi chảy, tự tin nhưng không đúng vì nó dự đoán cách diễn đạt có khả năng cao chứ không kiểm tra sự thật. Cách xử lý là grounding trên nguồn thật cùng rà soát của con người, không phải bộ lọc an toàn hay mô hình lớn hơn. Drift là hiệu năng thay đổi theo thời gian, không giải thích được việc bịa ra vụ án.",
+    "lessonId": "d3-t1",
+    "objective": "3.1 Foundation model limitations"
   },
   {
     "id": 41,
     "topic": "Improving Gen AI Model Output (20%)",
-    "question": "In RAG systems, what is 'Hybrid Search'?",
+    "question": "A hotel chain's assistant cannot answer questions about a loyalty policy that was updated last week or about the company's private staff handbook. Which limitation of foundation models does this show?",
+    "question_vi": "Trợ lý của một chuỗi khách sạn không trả lời được câu hỏi về chính sách khách hàng thân thiết vừa cập nhật tuần trước hay về sổ tay nhân viên nội bộ. Điều này cho thấy hạn chế nào của foundation model?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Searching across two different cloud providers.",
-        "text_vi": "Tìm kiếm trên hai nhà cung cấp đám mây khác nhau."
+        "text": "Knowledge cutoff: the model has no knowledge of recent events or private enterprise data",
+        "text_vi": "Knowledge cutoff: mô hình không biết các sự kiện gần đây hay dữ liệu riêng của doanh nghiệp"
       },
       {
         "key": "B",
-        "text": "Searching for images and video simultaneously.",
-        "text_vi": "Tìm kiếm hình ảnh và video cùng một lúc."
+        "text": "Bias: the model prefers one group of guests over another",
+        "text_vi": "Bias: mô hình ưu ái nhóm khách này hơn nhóm khách khác"
       },
       {
         "key": "C",
-        "text": "Combining traditional keyword-based search (BM25) with semantic vector search to improve retrieval accuracy by capturing both exact terms and contextual meaning.",
-        "text_vi": "Kết hợp tìm kiếm dựa trên từ khóa truyền thống (BM25) với tìm kiếm vectơ ngữ nghĩa để cải thiện độ chính xác khi truy xuất bằng cách nắm bắt cả thuật ngữ chính xác và ý nghĩa ngữ cảnh."
+        "text": "Edge case: the model fails on a request that is extremely rare or unlike its training examples",
+        "text_vi": "Edge case: mô hình thất bại với một yêu cầu cực kỳ hiếm gặp hoặc khác với các ví dụ huấn luyện"
       },
       {
         "key": "D",
-        "text": "Searching the dark web.",
-        "text_vi": "Tìm kiếm trên web tối."
+        "text": "Safety filtering: the model blocked the answer for being harmful",
+        "text_vi": "Safety filtering: mô hình chặn câu trả lời vì cho rằng có hại"
       }
     ],
     "answer": [
-      "C"
+      "A"
     ],
-    "explanation": "Correct: Combining traditional keyword-based search (BM25) with semantic vector search to improve retrieval accuracy by capturing both exact terms and contextual meaning. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Trong hệ thống RAG, 'Tìm kiếm kết hợp' là gì?",
-    "explanation_vi": "Đúng: Kết hợp tìm kiếm dựa trên từ khóa truyền thống (BM25) với tìm kiếm vectơ ngữ nghĩa để cải thiện độ chính xác khi truy xuất bằng cách nắm bắt cả thuật ngữ chính xác và ý nghĩa ngữ cảnh. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Foundation models only know what was in their training data, so they miss recent updates and private company information. Grounding or RAG on current documents is the usual fix.",
+    "explanation_vi": "Foundation model chỉ biết những gì có trong dữ liệu huấn luyện nên bỏ lỡ cập nhật mới và thông tin riêng của công ty. Cách khắc phục thường là grounding hoặc RAG trên tài liệu hiện hành.",
+    "lessonId": "d3-t1",
+    "objective": "3.1 Foundation model limitations"
   },
   {
     "id": 42,
     "topic": "Improving Gen AI Model Output (20%)",
-    "question": "How does a 'Sliding Window' approach handle documents that exceed the LLM's context limit?",
+    "question": "A hospital uses gen AI to draft patient discharge instructions, and mistakes could harm patients. Which Google-recommended practice should be added?",
+    "question_vi": "Một bệnh viện dùng gen AI để soạn hướng dẫn xuất viện cho bệnh nhân và sai sót có thể gây hại. Nên bổ sung thực hành nào được Google khuyến nghị?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "By translating the text to a denser language.",
-        "text_vi": "Bằng cách dịch văn bản sang một ngôn ngữ dày đặc hơn."
+        "text": "Raising the temperature so that each instruction is more varied",
+        "text_vi": "Tăng temperature để mỗi hướng dẫn đa dạng hơn"
       },
       {
         "key": "B",
-        "text": "By processing the document in sequential, overlapping chunks to ensure context isn't abruptly cut off at chunk boundaries.",
-        "text_vi": "Bằng cách xử lý tài liệu theo các phần chồng chéo, tuần tự để đảm bảo ngữ cảnh không bị cắt đứt đột ngột ở ranh giới các phần."
+        "text": "Fine-tuning once and then removing human review entirely to save clinical staff time",
+        "text_vi": "Fine-tuning một lần rồi bỏ hoàn toàn rà soát của con người để tiết kiệm nhân sự y tế"
       },
       {
         "key": "C",
-        "text": "By compressing the text into a zip file.",
-        "text_vi": "Bằng cách nén văn bản vào một tệp zip."
+        "text": "Using a longer context window so the model remembers more",
+        "text_vi": "Dùng context window dài hơn để mô hình nhớ được nhiều hơn"
       },
       {
         "key": "D",
-        "text": "By deleting the document.",
-        "text_vi": "Bằng cách xóa tài liệu."
+        "text": "Human in the loop review, where clinicians check outputs before they reach patients",
+        "text_vi": "Human in the loop, trong đó bác sĩ kiểm tra đầu ra trước khi đến tay bệnh nhân"
       }
     ],
     "answer": [
-      "B"
+      "D"
     ],
-    "explanation": "Correct: By processing the document in sequential, overlapping chunks to ensure context isn't abruptly cut off at chunk boundaries. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Cách tiếp cận 'Cửa sổ trượt' xử lý các tài liệu vượt quá giới hạn ngữ cảnh của LLM như thế nào?",
-    "explanation_vi": "Đúng: Bằng cách xử lý tài liệu theo các phần chồng chéo, tuần tự để đảm bảo ngữ cảnh không bị cắt đứt đột ngột ở ranh giới các phần. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Human in the loop review is recommended for sensitive, regulated or high-stakes outputs, either before or after deployment. Temperature, fine-tuning and context length do not guarantee correctness.",
+    "explanation_vi": "Rà soát human in the loop được khuyến nghị cho đầu ra nhạy cảm, bị quản lý hoặc rủi ro cao, trước hoặc sau khi triển khai. Temperature, fine-tuning và độ dài context không đảm bảo tính đúng đắn.",
+    "lessonId": "d3-t2",
+    "objective": "3.1 Practices to overcome limitations"
   },
   {
     "id": 43,
     "topic": "Improving Gen AI Model Output (20%)",
-    "question": "What is 'Maieutic Prompting' (Socratic Prompting)?",
-    "type": "single",
+    "question": "An insurer's claims assistant sometimes quotes out-of-date coverage rules and invents policy terms. Which TWO practices would BEST address this? (Select TWO.)",
+    "question_vi": "Trợ lý xử lý bồi thường của một hãng bảo hiểm đôi khi nêu quy định bảo hiểm lỗi thời và bịa ra điều khoản. Hai thực hành nào giải quyết vấn đề này TỐT NHẤT? (Chọn HAI.)",
+    "type": "multiple",
     "options": [
       {
         "key": "A",
-        "text": "A technique for image generation.",
-        "text_vi": "Một kỹ thuật tạo hình ảnh."
+        "text": "Raise the temperature so the model explores more phrasing",
+        "text_vi": "Tăng temperature để mô hình thử nhiều cách diễn đạt hơn"
       },
       {
         "key": "B",
-        "text": "Generating poetry.",
-        "text_vi": "Sáng tạo thơ."
+        "text": "Ground answers in current policy documents using RAG",
+        "text_vi": "Neo câu trả lời vào tài liệu chính sách hiện hành bằng RAG"
       },
       {
         "key": "C",
-        "text": "Telling the AI it is wrong constantly.",
-        "text_vi": "Nói với AI rằng nó liên tục sai."
+        "text": "Fine-tune once on last year's policies and treat it as always current",
+        "text_vi": "Fine-tuning một lần trên chính sách năm ngoái và coi như luôn cập nhật"
       },
       {
         "key": "D",
-        "text": "Guiding the LLM to arrive at an answer by asking it a series of probing, logical questions (like the Socratic method) rather than giving it direct instructions.",
-        "text_vi": "Hướng dẫn LLM đi đến câu trả lời bằng cách hỏi nó một loạt câu hỏi logic, thăm dò (như phương pháp Socrat) thay vì đưa ra hướng dẫn trực tiếp."
+        "text": "Add human review for sensitive coverage decisions",
+        "text_vi": "Bổ sung rà soát của con người cho các quyết định bảo hiểm nhạy cảm"
+      },
+      {
+        "key": "E",
+        "text": "Turn off safety settings to let the model answer more questions",
+        "text_vi": "Tắt cài đặt an toàn để mô hình trả lời được nhiều câu hỏi hơn"
       }
     ],
     "answer": [
+      "B",
       "D"
     ],
-    "explanation": "Correct: Guiding the LLM to arrive at an answer by asking it a series of probing, logical questions (like the Socratic method) rather than giving it direct instructions. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "'Nhắc nhở Maieutic' (Nhắc nhở Socrates) là gì?",
-    "explanation_vi": "Đúng: Hướng dẫn LLM đi đến câu trả lời bằng cách hỏi nó một loạt câu hỏi logic, thăm dò (như phương pháp Socrates) thay vì đưa ra hướng dẫn trực tiếp. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Grounding with RAG supplies current, authoritative content, and human review catches remaining errors in high-stakes decisions. Fine-tuning does not supply live facts, and higher temperature or fewer safety settings do not improve accuracy.",
+    "explanation_vi": "Grounding với RAG cung cấp nội dung hiện hành, đáng tin cậy, còn rà soát của con người bắt các lỗi còn lại trong quyết định quan trọng. Fine-tuning không cung cấp thông tin thời gian thực, và temperature cao hơn hay bớt cài đặt an toàn không cải thiện độ chính xác.",
+    "lessonId": "d3-t2",
+    "objective": "3.1 Practices to overcome limitations"
   },
   {
     "id": 44,
     "topic": "Improving Gen AI Model Output (20%)",
-    "question": "Why is it a best practice to ask the LLM to 'cite its sources' when using Grounding/RAG?",
+    "question": "After launching a gen AI assistant, a bank wants to keep its quality high over the next two years. What is the BEST approach?",
+    "question_vi": "Sau khi ra mắt trợ lý gen AI, một ngân hàng muốn giữ chất lượng cao trong hai năm tới. Cách nào là TỐT NHẤT?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "It forces the model to link its generated claims directly to the retrieved context chunks, improving traceability and reducing hallucination.",
-        "text_vi": "Nó buộc mô hình liên kết trực tiếp các xác nhận quyền sở hữu được tạo với các khối ngữ cảnh được truy xuất, cải thiện khả năng truy xuất nguồn gốc và giảm ảo giác AI (hallucination)."
+        "text": "Evaluate once before launch and review again only if customers complain",
+        "text_vi": "Đánh giá một lần trước khi ra mắt và chỉ xem lại nếu khách hàng phàn nàn"
       },
       {
         "key": "B",
-        "text": "It makes the output shorter.",
-        "text_vi": "Nó làm cho đầu ra ngắn hơn."
+        "text": "Define KPIs, track performance and drift continuously, and re-evaluate after any change to the model, prompt or data",
+        "text_vi": "Xác định KPI, theo dõi liên tục hiệu năng và drift, và đánh giá lại sau mọi thay đổi về mô hình, prompt hoặc dữ liệu"
       },
       {
         "key": "C",
-        "text": "It speeds up the inference.",
-        "text_vi": "Nó tăng tốc độ suy luận."
+        "text": "Freeze the model and prompts so that the behavior never changes",
+        "text_vi": "Đóng băng mô hình và prompt để hành vi không bao giờ thay đổi"
       },
       {
         "key": "D",
-        "text": "It reduces the cloud bill.",
-        "text_vi": "Nó làm giảm hóa đơn đám mây."
+        "text": "Rely on the vendor's published benchmarks instead of internal tests",
+        "text_vi": "Dựa vào các benchmark mà nhà cung cấp công bố thay vì kiểm thử nội bộ"
       }
     ],
     "answer": [
-      "A"
+      "B"
     ],
-    "explanation": "Correct: It forces the model to link its generated claims directly to the retrieved context chunks, improving traceability and reducing hallucination. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Tại sao cách tốt nhất là yêu cầu LLM 'trích dẫn nguồn của nó' khi sử dụng Nối đất/RAG?",
-    "explanation_vi": "Đúng: Nó buộc mô hình liên kết trực tiếp các xác nhận quyền sở hữu được tạo với các khối ngữ cảnh được truy xuất, cải thiện khả năng truy xuất nguồn gốc và giảm ảo giác AI (hallucination). Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Performance drifts as data and usage change, so continuous monitoring against KPIs plus re-evaluation after changes is recommended. A one-time check or generic benchmarks will not reveal problems in the bank's own use case.",
+    "explanation_vi": "Hiệu năng bị drift khi dữ liệu và cách dùng thay đổi, nên cần giám sát liên tục theo KPI và đánh giá lại sau mỗi thay đổi. Kiểm tra một lần hay benchmark chung không phát hiện được vấn đề trong trường hợp sử dụng riêng của ngân hàng.",
+    "lessonId": "d3-t3",
+    "objective": "3.1 Monitoring and evaluation"
   },
   {
     "id": 45,
     "topic": "Improving Gen AI Model Output (20%)",
-    "question": "What is 'Prompt Drift' (or Systemic Drift)?",
+    "question": "A support team gets inconsistent ticket summaries, so it adds three example summaries to the prompt. Which prompting technique is this?",
+    "question_vi": "Một nhóm hỗ trợ nhận được các bản tóm tắt ticket không nhất quán nên thêm ba ví dụ tóm tắt vào prompt. Đây là kỹ thuật prompting nào?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "The user changing their mind.",
-        "text_vi": "Người dùng thay đổi ý định của họ."
+        "text": "Zero-shot prompting",
+        "text_vi": "Zero-shot prompting"
       },
       {
         "key": "B",
-        "text": "The prompt moving across the screen.",
-        "text_vi": "Lời nhắc di chuyển trên màn hình."
+        "text": "Role prompting",
+        "text_vi": "Role prompting"
       },
       {
         "key": "C",
-        "text": "The phenomenon where a previously highly optimized prompt starts producing degraded or different results over time because the underlying foundation model API was updated behind the scenes.",
-        "text_vi": "Hiện tượng lời nhắc được tối ưu hóa cao trước đó bắt đầu tạo ra các kết quả kém chất lượng hoặc khác nhau theo thời gian do API mô hình nền tảng cơ bản đã được cập nhật ở hậu trường."
+        "text": "Prompt chaining",
+        "text_vi": "Prompt chaining"
       },
       {
         "key": "D",
-        "text": "The server crashing.",
-        "text_vi": "Máy chủ gặp sự cố."
+        "text": "Few-shot prompting",
+        "text_vi": "Few-shot prompting"
       }
     ],
     "answer": [
-      "C"
+      "D"
     ],
-    "explanation": "Correct: The phenomenon where a previously highly optimized prompt starts producing degraded or different results over time because the underlying foundation model API was updated behind the scenes. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "'Trôi dạt nhanh chóng' (hoặc Trôi dạt hệ thống) là gì?",
-    "explanation_vi": "Đúng: Hiện tượng lời nhắc được tối ưu hóa cao trước đó bắt đầu tạo ra các kết quả kém chất lượng hoặc khác nhau theo thời gian do API mô hình nền tảng cơ bản đã được cập nhật ở hậu trường. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Few-shot prompting includes several examples in the prompt to show the desired output. Zero-shot gives none, and role prompting sets a persona rather than providing examples.",
+    "explanation_vi": "Few-shot prompting đưa nhiều ví dụ vào prompt để minh họa đầu ra mong muốn. Zero-shot không có ví dụ nào, còn role prompting đặt vai trò chứ không cung cấp ví dụ.",
+    "lessonId": "d3-t4",
+    "objective": "3.2 Prompt engineering techniques"
   },
   {
     "id": 46,
     "topic": "Improving Gen AI Model Output (20%)",
-    "question": "If you want the model to generate a diverse set of creative brainstorming ideas, how should you adjust 'Top-K' and 'Temperature'?",
+    "question": "A legal operations team must review long contracts: first extract key clauses, then flag risks, then draft a summary. Which technique splits this into linked steps where each output feeds the next prompt?",
+    "question_vi": "Một nhóm vận hành pháp lý phải rà soát hợp đồng dài: trước hết trích xuất điều khoản chính, rồi đánh dấu rủi ro, sau đó soạn bản tóm tắt. Kỹ thuật nào chia việc này thành các bước liên kết, trong đó đầu ra của bước trước làm đầu vào của prompt sau?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Set Max Tokens to 10.",
-        "text_vi": "Đặt Mã thông báo tối đa thành 10."
+        "text": "Prompt chaining",
+        "text_vi": "Prompt chaining"
       },
       {
         "key": "B",
-        "text": "Set Temperature to 0 and Top-K to 1.",
-        "text_vi": "Đặt Nhiệt độ thành 0 và Top-K thành 1."
+        "text": "Zero-shot prompting",
+        "text_vi": "Zero-shot prompting"
       },
       {
         "key": "C",
-        "text": "Turn off the API.",
-        "text_vi": "Tắt API."
+        "text": "Role prompting",
+        "text_vi": "Role prompting"
       },
       {
         "key": "D",
-        "text": "Increase Temperature (e.g., 0.8+) and increase Top-K (or use Top-P) to allow the model to select from a wider variety of less probable, more creative words.",
-        "text_vi": "Tăng Nhiệt độ (ví dụ: 0,8+) và tăng Top-K (hoặc sử dụng Top-P) để cho phép mô hình chọn từ nhiều từ ít có khả năng xảy ra hơn, sáng tạo hơn."
+        "text": "Temperature tuning",
+        "text_vi": "Temperature tuning"
       }
     ],
     "answer": [
-      "D"
+      "A"
     ],
-    "explanation": "Correct: Increase Temperature (e.g., 0.8+) and increase Top-K (or use Top-P) to allow the model to select from a wider variety of less probable, more creative words. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Nếu muốn mô hình tạo ra một tập hợp ý tưởng sáng tạo đa dạng, bạn nên điều chỉnh “Top-K” và “Nhiệt độ” như thế nào?",
-    "explanation_vi": "Đúng: Tăng Nhiệt độ (ví dụ: 0,8+) và tăng Top-K (hoặc sử dụng Top-P) để cho phép mô hình chọn từ nhiều từ ít có khả năng xảy ra hơn, sáng tạo hơn. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Prompt chaining breaks a complex task into connected steps, with each response building on the previous one. Zero-shot and role prompting change how a single request is framed.",
+    "explanation_vi": "Prompt chaining chia nhiệm vụ phức tạp thành các bước liên kết, mỗi phản hồi dựa trên phản hồi trước. Zero-shot và role prompting chỉ thay đổi cách diễn đạt một yêu cầu đơn lẻ.",
+    "lessonId": "d3-t4",
+    "objective": "3.2 Prompt engineering techniques"
   },
   {
     "id": 47,
     "topic": "Improving Gen AI Model Output (20%)",
-    "question": "What does 'Instruction Tuning' do to a base LLM?",
+    "question": "Which statement best explains how ReAct prompting differs from chain-of-thought prompting?",
+    "question_vi": "Phát biểu nào giải thích đúng nhất ReAct prompting khác chain-of-thought prompting ở điểm nào?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "It trains the base model (which only predicts the next word) on formatted Q&A or command-response pairs so it learns to follow user directions and act as a helpful assistant.",
-        "text_vi": "Nó huấn luyện mô hình cơ sở (chỉ dự đoán từ tiếp theo) theo các cặp Hỏi & Đáp hoặc phản hồi lệnh được định dạng để học cách làm theo hướng dẫn của người dùng và hoạt động như một trợ lý hữu ích."
+        "text": "ReAct combines reasoning with actions such as calling tools, while chain-of-thought focuses on internal step-by-step reasoning",
+        "text_vi": "ReAct kết hợp suy luận với hành động như gọi công cụ, còn chain-of-thought tập trung vào suy luận từng bước nội bộ"
       },
       {
         "key": "B",
-        "text": "It compresses the model size.",
-        "text_vi": "Nó nén kích thước mô hình."
+        "text": "ReAct removes the need for reasoning, while chain-of-thought requires it",
+        "text_vi": "ReAct loại bỏ nhu cầu suy luận, còn chain-of-thought đòi hỏi suy luận"
       },
       {
         "key": "C",
-        "text": "It tunes the audio output.",
-        "text_vi": "Nó điều chỉnh đầu ra âm thanh."
+        "text": "ReAct retrains the model on new data, while chain-of-thought does not",
+        "text_vi": "ReAct huấn luyện lại mô hình trên dữ liệu mới, còn chain-of-thought thì không"
       },
       {
         "key": "D",
-        "text": "It deletes the base model.",
-        "text_vi": "Nó xóa mô hình cơ sở."
+        "text": "ReAct only works for images, while chain-of-thought only works for text",
+        "text_vi": "ReAct chỉ hoạt động với hình ảnh, còn chain-of-thought chỉ hoạt động với văn bản"
       }
     ],
     "answer": [
       "A"
     ],
-    "explanation": "Correct: It trains the base model (which only predicts the next word) on formatted Q&A or command-response pairs so it learns to follow user directions and act as a helpful assistant. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "'Điều chỉnh lệnh' làm gì với LLM cơ bản?",
-    "explanation_vi": "Đúng: Nó huấn luyện mô hình cơ sở (chỉ dự đoán từ tiếp theo) theo các cặp Hỏi & Đáp hoặc phản hồi lệnh được định dạng để nó học cách làm theo hướng dẫn của người dùng và hoạt động như một trợ lý hữu ích. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "ReAct follows a loop of thought, action and observation so the model can interact with the outside world, for example through search. Chain-of-thought guides step-by-step reasoning without external tools.",
+    "explanation_vi": "ReAct theo vòng lặp suy nghĩ, hành động và quan sát để mô hình tương tác với thế giới bên ngoài, ví dụ qua tìm kiếm. Chain-of-thought dẫn dắt suy luận từng bước mà không dùng công cụ bên ngoài.",
+    "lessonId": "d3-t5",
+    "objective": "3.2 Advanced prompting"
   },
   {
     "id": 48,
     "topic": "Improving Gen AI Model Output (20%)",
-    "question": "What is a 'Stop Sequence' in LLM generation?",
+    "question": "Why might a company choose RAG instead of fine-tuning for knowledge that changes frequently?",
+    "question_vi": "Vì sao một công ty có thể chọn RAG thay vì fine-tuning cho kiến thức thay đổi thường xuyên?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "A syntax error.",
-        "text_vi": "Một lỗi cú pháp."
+        "text": "RAG permanently rewrites the model so it memorizes every new document",
+        "text_vi": "RAG viết lại vĩnh viễn mô hình để nó ghi nhớ mọi tài liệu mới"
       },
       {
         "key": "B",
-        "text": "A specific string of characters (e.g., 'Human:', '\\n\\n') defined by the developer that, when generated by the model, immediately halts any further text generation.",
-        "text_vi": "Một chuỗi ký tự cụ thể (ví dụ: 'Con người:', '\\n\\n') được nhà phát triển xác định mà khi được mô hình tạo ra sẽ ngay lập tức dừng mọi hoạt động tạo văn bản tiếp theo."
+        "text": "Fine-tuning is not available for any model on Google Cloud",
+        "text_vi": "Fine-tuning không khả dụng cho bất kỳ mô hình nào trên Google Cloud"
       },
       {
         "key": "C",
-        "text": "A network firewall rule.",
-        "text_vi": "Một quy tắc tường lửa mạng."
+        "text": "RAG retrieves current information when a question is asked, so the model does not need retraining when documents change",
+        "text_vi": "RAG truy xuất thông tin hiện hành khi có câu hỏi, nên không cần huấn luyện lại mô hình khi tài liệu thay đổi"
       },
       {
         "key": "D",
-        "text": "A command to shut down the server.",
-        "text_vi": "Lệnh tắt máy chủ."
+        "text": "RAG makes the model larger so it can store more facts internally",
+        "text_vi": "RAG làm mô hình lớn hơn để lưu được nhiều dữ kiện hơn bên trong"
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": "Correct: A specific string of characters (e.g., 'Human:', '\\n\\n') defined by the developer that, when generated by the model, immediately halts any further text generation. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "'Chuỗi dừng' trong thế hệ LLM là gì?",
-    "explanation_vi": "Đúng: Một chuỗi ký tự cụ thể (ví dụ: 'Con người:', '\\n\\n') được nhà phát triển xác định, khi được mô hình tạo ra, sẽ ngay lập tức dừng mọi hoạt động tạo văn bản tiếp theo. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "RAG keeps knowledge current by retrieving relevant content at answer time, whereas fine-tuning bakes in a snapshot and does not supply live facts. Fine-tuning is available, and RAG does not change the model's size.",
+    "explanation_vi": "RAG giữ kiến thức luôn hiện hành bằng cách truy xuất nội dung liên quan lúc trả lời, còn fine-tuning chỉ ghi nhận một bản chụp và không cung cấp thông tin thời gian thực. Fine-tuning vẫn khả dụng, và RAG không thay đổi kích thước mô hình.",
+    "lessonId": "d3-t6",
+    "objective": "3.3 Grounding and RAG"
   },
   {
     "id": 49,
     "topic": "Improving Gen AI Model Output (20%)",
-    "question": "How can 'Data Formatting' in a prompt mitigate the 'Lost in the Middle' effect?",
+    "question": "A news media company is building an assistant that must answer questions about recent public events and show the external sources behind each answer. Which Google Cloud approach fits BEST?",
+    "question_vi": "Một công ty truyền thông tin tức đang xây trợ lý phải trả lời câu hỏi về các sự kiện công khai gần đây và hiển thị nguồn bên ngoài đằng sau mỗi câu trả lời. Cách nào của Google Cloud phù hợp NHẤT?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "By removing all punctuation.",
-        "text_vi": "Bằng cách loại bỏ tất cả dấu câu."
+        "text": "Fine-tuning the model every month on the previous month's articles",
+        "text_vi": "Fine-tuning mô hình hằng tháng trên các bài viết của tháng trước"
       },
       {
         "key": "B",
-        "text": "By converting all text to binary.",
-        "text_vi": "Bằng cách chuyển đổi tất cả văn bản sang nhị phân."
+        "text": "Pre-built RAG with Agent Search over the newsroom's private archive only",
+        "text_vi": "RAG dựng sẵn với Agent Search chỉ trên kho lưu trữ riêng của tòa soạn"
       },
       {
         "key": "C",
-        "text": "By clearly delineating sections using XML tags (e.g., <document1>, <context>) or Markdown, helping the model's attention mechanism easily identify and separate relevant information blocks.",
-        "text_vi": "Bằng cách phân định rõ ràng các phần sử dụng thẻ XML (ví dụ: <document1>, <context>) hoặc Markdown, giúp cơ chế chú ý của mô hình dễ dàng xác định và phân tách các khối thông tin liên quan."
+        "text": "Grounding with Google Search to bring in current public web information",
+        "text_vi": "Grounding with Google Search để đưa vào thông tin web công khai hiện hành"
       },
       {
         "key": "D",
-        "text": "By changing the font color.",
-        "text_vi": "Bằng cách thay đổi màu chữ."
+        "text": "Increasing the maximum output length so answers include more detail",
+        "text_vi": "Tăng độ dài đầu ra tối đa để câu trả lời chi tiết hơn"
       }
     ],
     "answer": [
       "C"
     ],
-    "explanation": "Correct: By clearly delineating sections using XML tags (e.g., <document1>, <context>) or Markdown, helping the model's attention mechanism easily identify and separate relevant information blocks. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Làm cách nào 'Định dạng dữ liệu' có thể giảm thiểu ngay lập tức hiệu ứng 'Mất giữa chừng'?",
-    "explanation_vi": "Đúng: Bằng cách phân định rõ ràng các phần sử dụng thẻ XML (ví dụ: <document1>, <context>) hoặc Markdown, giúp cơ chế chú ý của mô hình dễ dàng xác định và phân tách các khối thông tin liên quan. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Grounding with Google Search ties answers to current world data and can provide sources. A private archive cannot cover breaking public events, and monthly fine-tuning is always out of date.",
+    "explanation_vi": "Grounding with Google Search gắn câu trả lời với dữ liệu thế giới hiện hành và có thể cung cấp nguồn. Kho lưu trữ riêng không bao phủ được các sự kiện công khai mới nổi, còn fine-tuning hằng tháng luôn bị lỗi thời.",
+    "lessonId": "d3-t6",
+    "objective": "3.3 Grounding and RAG"
   },
   {
     "id": 50,
     "topic": "Improving Gen AI Model Output (20%)",
-    "question": "What is 'Contrastive Prompting'?",
+    "question": "A media team is brainstorming unusual, varied slogan ideas for a campaign. Which sampling adjustment is MOST likely to help?",
+    "question_vi": "Một nhóm truyền thông đang động não các khẩu hiệu độc đáo, đa dạng cho chiến dịch. Điều chỉnh sampling nào nhiều khả năng giúp ích NHẤT?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Providing the model with both a 'good' example and a 'bad' example of the desired output, explicitly contrasting them to highlight exactly what it should and shouldn't do.",
-        "text_vi": "Cung cấp cho mô hình cả ví dụ 'tốt' và ví dụ 'xấu' về đầu ra mong muốn, đối chiếu chúng một cách rõ ràng để nêu bật chính xác những gì nó nên và không nên làm."
+        "text": "Lower the temperature close to zero for the most predictable wording",
+        "text_vi": "Hạ temperature gần bằng không để cách diễn đạt dễ đoán nhất"
       },
       {
         "key": "B",
-        "text": "A technique for black and white images.",
-        "text_vi": "Một kỹ thuật cho ảnh đen trắng."
+        "text": "Shorten the output length so each answer is one word",
+        "text_vi": "Rút ngắn độ dài đầu ra để mỗi câu trả lời chỉ một từ"
       },
       {
         "key": "C",
-        "text": "Arguing with the AI.",
-        "text_vi": "Tranh luận với AI."
+        "text": "Raise the temperature to increase randomness and variety",
+        "text_vi": "Tăng temperature để tăng tính ngẫu nhiên và sự đa dạng"
       },
       {
         "key": "D",
-        "text": "Changing the screen contrast.",
-        "text_vi": "Thay đổi độ tương phản của màn hình."
+        "text": "Tighten safety settings so that the model refuses creative requests",
+        "text_vi": "Siết cài đặt an toàn để mô hình từ chối các yêu cầu sáng tạo"
       }
     ],
     "answer": [
-      "A"
+      "C"
     ],
-    "explanation": "Correct: Providing the model with both a 'good' example and a 'bad' example of the desired output, explicitly contrasting them to highlight exactly what it should and shouldn't do. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "'Nhắc nhở tương phản' là gì?",
-    "explanation_vi": "Đúng: Cung cấp cho mô hình cả ví dụ 'tốt' và ví dụ 'xấu' về đầu ra mong muốn, đối chiếu rõ ràng chúng để nêu bật chính xác những gì nó nên và không nên làm. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Temperature controls randomness: low values suit factual tasks and high values suit creative ones. The other settings reduce variety or block output instead of encouraging ideas.",
+    "explanation_vi": "Temperature điều khiển độ ngẫu nhiên: giá trị thấp phù hợp tác vụ thực tế, giá trị cao phù hợp tác vụ sáng tạo. Các cài đặt còn lại làm giảm sự đa dạng hoặc chặn đầu ra thay vì khuyến khích ý tưởng.",
+    "lessonId": "d3-t7",
+    "objective": "3.3 Sampling parameters and settings"
   },
   {
     "id": 51,
     "topic": "Improving Gen AI Model Output (20%)",
-    "question": "When designing a prompt for code generation, what is 'Code Comment Prompting'?",
+    "question": "Which statement about safety settings in a gen AI model is correct?",
+    "question_vi": "Phát biểu nào về cài đặt an toàn (safety settings) trong mô hình gen AI là đúng?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Rating the AI's code.",
-        "text_vi": "Đánh giá mã của AI."
+        "text": "They verify each statement against trusted sources before responding",
+        "text_vi": "Chúng đối chiếu từng phát biểu với nguồn đáng tin trước khi trả lời"
       },
       {
         "key": "B",
-        "text": "Writing the prompt inside the IDE as a natural language comment (e.g., '// Function to calculate factorial'), which triggers the AI assistant to complete the code block below it.",
-        "text_vi": "Viết lời nhắc bên trong IDE dưới dạng nhận xét bằng ngôn ngữ tự nhiên (ví dụ: '// Hàm tính giai thừa'), điều này sẽ kích hoạt trợ lý AI hoàn thành khối mã bên dưới nó."
+        "text": "They replace grounding by making the model aware of recent events",
+        "text_vi": "Chúng thay thế grounding bằng cách giúp mô hình biết các sự kiện gần đây"
       },
       {
         "key": "C",
-        "text": "Writing code in the prompt.",
-        "text_vi": "Viết mã trong lời nhắc."
+        "text": "They filter harmful content, but they do not guarantee that the output is factually accurate",
+        "text_vi": "Chúng lọc nội dung có hại, nhưng không đảm bảo đầu ra chính xác về mặt sự thật"
       },
       {
         "key": "D",
-        "text": "Asking the AI to delete comments.",
-        "text_vi": "Yêu cầu AI xóa bình luận."
+        "text": "They raise creativity by loosening the limits on token count",
+        "text_vi": "Chúng tăng tính sáng tạo bằng cách nới lỏng giới hạn số token"
       }
     ],
     "answer": [
-      "B"
+      "C"
     ],
-    "explanation": "Correct: Writing the prompt inside the IDE as a natural language comment (e.g., '// Function to calculate factorial'), which triggers the AI assistant to complete the code block below it. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Khi thiết kế lời nhắc tạo mã, 'Nhắc nhở nhận xét mã' là gì?",
-    "explanation_vi": "Đúng: Viết lời nhắc bên trong IDE dưới dạng nhận xét bằng ngôn ngữ tự nhiên (ví dụ: '// Hàm tính giai thừa'), điều này sẽ kích hoạt trợ lý AI hoàn thành khối mã bên dưới nó. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Safety settings block or filter harmful content, but a harmless answer can still be wrong. Accuracy needs grounding, RAG, good prompts and review.",
+    "explanation_vi": "Safety settings chặn hoặc lọc nội dung có hại, nhưng câu trả lời vô hại vẫn có thể sai. Độ chính xác cần grounding, RAG, prompt tốt và rà soát.",
+    "lessonId": "d3-t7",
+    "objective": "3.3 Sampling parameters and settings"
   },
   {
     "id": 52,
     "topic": "Business Strategy for Gen AI (15%)",
-    "question": "When calculating ROI for a Gen AI project, what is the difference between 'Hard Savings' and 'Soft Savings'?",
+    "question": "A retail executive wants the largest available model for generating descriptions for 10,000 products by next quarter on a limited budget. What should the leader do first?",
+    "question_vi": "Một giám đốc bán lẻ muốn dùng mô hình lớn nhất hiện có để tạo mô tả cho 10.000 sản phẩm trước quý sau với ngân sách hạn chế. Lãnh đạo nên làm gì trước tiên?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "There is no difference.",
-        "text_vi": "Không có sự khác biệt."
+        "text": "Start from the business problem and constraints, then choose the simplest option that meets them",
+        "text_vi": "Bắt đầu từ vấn đề kinh doanh và các ràng buộc, rồi chọn phương án đơn giản nhất đáp ứng được"
       },
       {
         "key": "B",
-        "text": "Hard savings are physical, soft savings are digital.",
-        "text_vi": "Tiết kiệm cứng là tiết kiệm vật chất, tiết kiệm mềm là tiết kiệm kỹ thuật số."
+        "text": "Pick the biggest model available, since size always guarantees quality",
+        "text_vi": "Chọn mô hình lớn nhất hiện có, vì kích thước luôn đảm bảo chất lượng"
       },
       {
         "key": "C",
-        "text": "Hard savings are difficult to achieve.",
-        "text_vi": "Tiết kiệm cứng rất khó đạt được."
+        "text": "Begin building a new foundation model so the company owns it outright",
+        "text_vi": "Bắt đầu xây một foundation model mới để công ty sở hữu hoàn toàn"
       },
       {
         "key": "D",
-        "text": "Hard savings are direct, measurable cost reductions (e.g., lower software licensing, reduced outsourced headcount), while soft savings represent productivity gains or time saved that don't immediately reduce budget.",
-        "text_vi": "Tiết kiệm cứng là giảm chi phí trực tiếp, có thể đo lường được (ví dụ: giảm giấy phép phần mềm, giảm số lượng nhân viên thuê ngoài), trong khi tiết kiệm mềm thể hiện mức tăng năng suất hoặc tiết kiệm thời gian mà không làm giảm ngân sách ngay lập tức."
+        "text": "Delay the project until all gen AI technology stops changing",
+        "text_vi": "Hoãn dự án cho đến khi toàn bộ công nghệ gen AI ngừng thay đổi"
       }
     ],
     "answer": [
-      "D"
+      "A"
     ],
-    "explanation": "Correct: Hard savings are direct, measurable cost reductions (e.g., lower software licensing, reduced outsourced headcount), while soft savings represent productivity gains or time saved that don't immediately reduce budget. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Khi tính ROI cho dự án Gen AI, sự khác biệt giữa 'Tiết kiệm cứng' và 'Tiết kiệm mềm' là gì?",
-    "explanation_vi": "Đúng: Tiết kiệm cứng là giảm chi phí trực tiếp, có thể đo lường được (ví dụ: giảm cấp phép phần mềm, giảm số lượng nhân viên thuê ngoài), trong khi tiết kiệm mềm thể hiện mức tăng năng suất hoặc thời gian tiết kiệm được nhưng không làm giảm ngân sách ngay lập tức. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "Google Cloud recommends starting from the business need and constraints such as budget and time, then picking the simplest solution that works. The biggest model is not always best, and building from scratch is slow and costly.",
+    "explanation_vi": "Google Cloud khuyến nghị bắt đầu từ nhu cầu kinh doanh và các ràng buộc như ngân sách, thời gian, rồi chọn giải pháp đơn giản nhất mà hiệu quả. Mô hình lớn nhất không phải lúc nào cũng tốt nhất, và xây từ đầu thì chậm và tốn kém.",
+    "lessonId": "d4-t1",
+    "objective": "4.1 Choosing the right gen AI solution"
   },
   {
     "id": 53,
     "topic": "Business Strategy for Gen AI (15%)",
-    "question": "According to the EU AI Act, a Gen AI system used for evaluating job applicants' resumes would likely be categorized under which risk tier?",
+    "question": "Which approach reflects Google Cloud's recommended spectrum for choosing a gen AI solution?",
+    "question_vi": "Cách tiếp cận nào phản ánh đúng phổ lựa chọn giải pháp gen AI mà Google Cloud khuyến nghị?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Minimal Risk",
-        "text_vi": "Rủi ro tối thiểu"
+        "text": "Start by training a custom model, then simplify once it proves its value",
+        "text_vi": "Bắt đầu bằng việc huấn luyện mô hình tùy chỉnh, rồi đơn giản hóa khi đã chứng minh giá trị"
       },
       {
         "key": "B",
-        "text": "Unacceptable Risk (Banned)",
-        "text_vi": "Rủi ro không thể chấp nhận được (Cấm)"
+        "text": "Always buy the most expensive tier to avoid later migration work",
+        "text_vi": "Luôn mua gói đắt nhất để tránh công việc di chuyển sau này"
       },
       {
         "key": "C",
-        "text": "High Risk (Subject to strict obligations like transparency, human oversight, and bias testing)",
-        "text_vi": "Rủi ro cao (Tuân theo các nghĩa vụ nghiêm ngặt như tính minh bạch, sự giám sát của con người và kiểm tra sai lệch)"
+        "text": "Select a solution based on competitors' announcements instead of needs",
+        "text_vi": "Chọn giải pháp dựa trên thông báo của đối thủ thay vì nhu cầu của mình"
       },
       {
         "key": "D",
-        "text": "Limited Risk",
-        "text_vi": "Rủi ro hạn chế"
+        "text": "Start with a ready-made product, customize with grounding, RAG or agents if needed, and build or tune only when required",
+        "text_vi": "Bắt đầu với sản phẩm có sẵn, tùy biến bằng grounding, RAG hoặc agent nếu cần, và chỉ xây dựng hoặc tinh chỉnh khi thật sự cần"
       }
     ],
     "answer": [
-      "C"
+      "D"
     ],
-    "explanation": "Correct: High Risk (Subject to strict obligations like transparency, human oversight, and bias testing) Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Theo Đạo luật AI của EU, hệ thống Gen AI được sử dụng để đánh giá hồ sơ của người xin việc có thể sẽ được phân loại theo cấp độ rủi ro nào?",
-    "explanation_vi": "Đúng: Rủi ro cao (Tuân theo các nghĩa vụ nghiêm ngặt như tính minh bạch, sự giám sát của con người và kiểm tra sai lệch) Xem lại lý do tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "The recommended path moves from ready-made products to customization to building or tuning, choosing the simplest option that meets the need. Starting with custom training adds cost, time and risk before value is shown.",
+    "explanation_vi": "Lộ trình khuyến nghị đi từ sản phẩm có sẵn, đến tùy biến, rồi đến xây dựng hoặc tinh chỉnh, chọn phương án đơn giản nhất đáp ứng nhu cầu. Bắt đầu bằng huấn luyện tùy chỉnh làm tăng chi phí, thời gian và rủi ro trước khi thấy giá trị.",
+    "lessonId": "d4-t1",
+    "objective": "4.1 Choosing the right gen AI solution"
   },
   {
     "id": 54,
     "topic": "Business Strategy for Gen AI (15%)",
-    "question": "What does it mean for a system to be 'Secure by Default' in Google's SAIF framework?",
+    "question": "A telecom company's CEO has announced a gen AI vision, but frontline employees have many ideas that are not being heard. Which strategy is MOST likely to succeed?",
+    "question_vi": "CEO của một công ty viễn thông đã công bố tầm nhìn gen AI, nhưng nhân viên tuyến đầu có nhiều ý tưởng chưa được lắng nghe. Chiến lược nào nhiều khả năng thành công NHẤT?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "The system has no passwords.",
-        "text_vi": "Hệ thống không có mật khẩu."
+        "text": "Rely only on executive decisions so that the direction stays consistent across every business unit",
+        "text_vi": "Chỉ dựa vào quyết định của ban điều hành để hướng đi nhất quán trong mọi đơn vị kinh doanh"
       },
       {
         "key": "B",
-        "text": "The system is configured with the most secure settings out-of-the-box (e.g., denying public access, requiring authentication) without requiring the user to manually harden it.",
-        "text_vi": "Hệ thống được định cấu hình với các cài đặt sẵn dùng an toàn nhất (ví dụ: từ chối quyền truy cập công cộng, yêu cầu xác thực) mà không yêu cầu người dùng phải tăng cường thủ công."
+        "text": "Let each employee adopt any tool independently without shared guidance",
+        "text_vi": "Để mỗi nhân viên tự dùng bất kỳ công cụ nào mà không có hướng dẫn chung"
       },
       {
         "key": "C",
-        "text": "The system cannot be used.",
-        "text_vi": "Hệ thống không thể được sử dụng."
+        "text": "Combine top-down leadership vision with bottom-up employee ideas and feedback",
+        "text_vi": "Kết hợp tầm nhìn từ lãnh đạo (top-down) với ý tưởng và phản hồi từ nhân viên (bottom-up)"
       },
       {
         "key": "D",
-        "text": "The system is open-source.",
-        "text_vi": "Hệ thống này là nguồn mở."
-      }
-    ],
-    "answer": [
-      "B"
-    ],
-    "explanation": "Correct: The system is configured with the most secure settings out-of-the-box (e.g., denying public access, requiring authentication) without requiring the user to manually harden it. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Việc một hệ thống được 'Bảo mật theo mặc định' trong khung SAIF của Google có ý nghĩa gì?",
-    "explanation_vi": "Đúng: Hệ thống được định cấu hình với cài đặt sẵn có an toàn nhất (ví dụ: từ chối quyền truy cập công cộng, yêu cầu xác thực) mà không yêu cầu người dùng tăng cường thủ công. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
-  },
-  {
-    "id": 55,
-    "topic": "Business Strategy for Gen AI (15%)",
-    "question": "In a 'Build vs. Buy' decision for Gen AI in a highly regulated industry (like defense), why might 'Build' (or deploy open-source locally) be preferred?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "To maintain absolute, air-gapped control over the infrastructure, model weights, and sensitive data, ensuring it never touches a multi-tenant public cloud API.",
-        "text_vi": "Để duy trì quyền kiểm soát tuyệt đối, không giới hạn đối với cơ sở hạ tầng, trọng lượng mô hình và dữ liệu nhạy cảm, đảm bảo nó không bao giờ chạm vào API đám mây công cộng nhiều bên thuê."
-      },
-      {
-        "key": "B",
-        "text": "Because it is faster to deploy.",
-        "text_vi": "Bởi vì nó triển khai nhanh hơn."
-      },
-      {
-        "key": "C",
-        "text": "Because public APIs are illegal.",
-        "text_vi": "Bởi vì API công khai là bất hợp pháp."
-      },
-      {
-        "key": "D",
-        "text": "Because it is cheaper.",
-        "text_vi": "Bởi vì nó rẻ hơn."
-      }
-    ],
-    "answer": [
-      "A"
-    ],
-    "explanation": "Correct: To maintain absolute, air-gapped control over the infrastructure, model weights, and sensitive data, ensuring it never touches a multi-tenant public cloud API. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Trong quyết định 'Xây dựng so với Mua' dành cho Gen AI trong một ngành được quản lý chặt chẽ (như quốc phòng), tại sao 'Xây dựng' (hoặc triển khai nguồn mở cục bộ) có thể được ưu tiên hơn?",
-    "explanation_vi": "Đúng: Để duy trì quyền kiểm soát tuyệt đối, không giới hạn đối với cơ sở hạ tầng, trọng lượng mô hình và dữ liệu nhạy cảm, đảm bảo nó không bao giờ chạm vào API đám mây công cộng nhiều bên thuê. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
-  },
-  {
-    "id": 56,
-    "topic": "Business Strategy for Gen AI (15%)",
-    "question": "What is 'Generative AI Indemnification'?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "A tax on AI generated content.",
-        "text_vi": "Thuế đối với nội dung do AI tạo ra."
-      },
-      {
-        "key": "B",
-        "text": "A software bug.",
-        "text_vi": "Một lỗi phần mềm."
-      },
-      {
-        "key": "C",
-        "text": "A certificate of completion.",
-        "text_vi": "Giấy chứng nhận hoàn thành."
-      },
-      {
-        "key": "D",
-        "text": "A legal protection offered by providers (like Google) to defend and pay damages for customers if they are sued for copyright infringement based on the AI's generated output.",
-        "text_vi": "Một biện pháp bảo vệ pháp lý do các nhà cung cấp (như Google) đưa ra để bảo vệ và bồi thường thiệt hại cho khách hàng nếu họ bị kiện vì vi phạm bản quyền dựa trên kết quả do AI tạo ra."
-      }
-    ],
-    "answer": [
-      "D"
-    ],
-    "explanation": "Correct: A legal protection offered by providers (like Google) to defend and pay damages for customers if they are sued for copyright infringement based on the AI's generated output. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "'Bồi thường AI sáng tạo' là gì?",
-    "explanation_vi": "Đúng: Sự bảo vệ pháp lý được cung cấp bởi các nhà cung cấp (như Google) để bảo vệ và bồi thường thiệt hại cho khách hàng nếu họ bị kiện vì vi phạm bản quyền dựa trên kết quả do AI tạo ra. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
-  },
-  {
-    "id": 57,
-    "topic": "Business Strategy for Gen AI (15%)",
-    "question": "Why is the 'ADKAR' model (Awareness, Desire, Knowledge, Ability, Reinforcement) relevant to Gen AI initiatives?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "It is a proven Change Management framework used to guide employees through the cultural and workflow shifts required to successfully adopt AI tools.",
-        "text_vi": "Đó là một khung Quản lý Thay đổi đã được chứng minh, dùng để hướng dẫn nhân viên vượt qua những thay đổi về văn hóa và quy trình làm việc cần thiết để áp dụng thành công các công cụ AI."
-      },
-      {
-        "key": "B",
-        "text": "It is an ML algorithm.",
-        "text_vi": "Nó là một thuật toán ML."
-      },
-      {
-        "key": "C",
-        "text": "It is a pricing tier.",
-        "text_vi": "Đó là một mức giá."
-      },
-      {
-        "key": "D",
-        "text": "It is a security protocol.",
-        "text_vi": "Nó là một giao thức bảo mật."
-      }
-    ],
-    "answer": [
-      "A"
-    ],
-    "explanation": "Correct: It is a proven Change Management framework used to guide employees through the cultural and workflow shifts required to successfully adopt AI tools. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Tại sao mô hình 'ADKAR' (Nhận thức, Mong muốn, Kiến thức, Khả năng, Củng cố) lại phù hợp với các sáng kiến ​​​​Gen AI?",
-    "explanation_vi": "Đúng: Đó là một khung Quản lý Thay đổi đã được chứng minh dùng để hướng dẫn nhân viên vượt qua những thay đổi về văn hóa và quy trình làm việc cần thiết để áp dụng thành công các công cụ AI. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
-  },
-  {
-    "id": 58,
-    "topic": "Business Strategy for Gen AI (15%)",
-    "question": "How does Gen AI transform 'Knowledge Management' within an enterprise?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "By deleting old files.",
-        "text_vi": "Bằng cách xóa các tập tin cũ."
-      },
-      {
-        "key": "B",
-        "text": "By printing all documents.",
-        "text_vi": "Bằng cách in tất cả các tài liệu."
-      },
-      {
-        "key": "C",
-        "text": "By forcing employees to memorize data.",
-        "text_vi": "Bằng cách buộc nhân viên phải ghi nhớ dữ liệu."
-      },
-      {
-        "key": "D",
-        "text": "By moving from rigid, keyword-based intranet searches to conversational, semantic search that synthesizes answers across silos (documents, wikis, tickets).",
-        "text_vi": "Bằng cách chuyển từ tìm kiếm mạng nội bộ dựa trên từ khóa cứng nhắc sang tìm kiếm ngữ nghĩa, đàm thoại tổng hợp các câu trả lời trên các bộ phận (tài liệu, wiki, vé)."
-      }
-    ],
-    "answer": [
-      "D"
-    ],
-    "explanation": "Correct: By moving from rigid, keyword-based intranet searches to conversational, semantic search that synthesizes answers across silos (documents, wikis, tickets). Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Gen AI biến đổi 'Quản lý tri thức' trong doanh nghiệp như thế nào?",
-    "explanation_vi": "Đúng: Bằng cách chuyển từ tìm kiếm mạng nội bộ dựa trên từ khóa cứng nhắc sang tìm kiếm ngữ nghĩa, đàm thoại để tổng hợp các câu trả lời trên các bộ phận (tài liệu, wiki, vé). Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
-  },
-  {
-    "id": 59,
-    "topic": "Business Strategy for Gen AI (15%)",
-    "question": "What is a primary 'Ethical Risk' when an LLM is used to write news articles without human oversight?",
-    "type": "single",
-    "options": [
-      {
-        "key": "A",
-        "text": "The articles might be too long.",
-        "text_vi": "Các bài viết có thể quá dài."
-      },
-      {
-        "key": "B",
-        "text": "The model might use big words.",
-        "text_vi": "Mô hình có thể sử dụng những từ ngữ lớn lao."
-      },
-      {
-        "key": "C",
-        "text": "The model may confidently hallucinate facts, amplify training data biases, or generate synthetic propaganda, damaging journalistic integrity and societal trust.",
-        "text_vi": "Mô hình này có thể gây ảo giác AI (hallucination) một cách tự tin về sự thật, khuếch đại thành kiến ​​trong dữ liệu đào tạo hoặc tạo ra các tuyên truyền tổng hợp, gây tổn hại đến tính liêm chính của báo chí và niềm tin của xã hội."
-      },
-      {
-        "key": "D",
-        "text": "It saves too much time.",
-        "text_vi": "Nó tiết kiệm quá nhiều thời gian."
+        "text": "Pause all employee input until the first project has been completed",
+        "text_vi": "Tạm dừng mọi đóng góp của nhân viên cho đến khi hoàn thành dự án đầu tiên"
       }
     ],
     "answer": [
       "C"
     ],
-    "explanation": "Correct: The model may confidently hallucinate facts, amplify training data biases, or generate synthetic propaganda, damaging journalistic integrity and societal trust. Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "'Rủi ro đạo đức' chính là gì khi LLM được sử dụng để viết các bài báo mà không có sự giám sát của con người?",
-    "explanation_vi": "Đúng: Mô hình có thể gây ảo giác AI (hallucination) một cách tự tin về sự thật, khuếch đại thành kiến ​​trong dữ liệu đào tạo hoặc tạo ra các tuyên truyền tổng hợp, gây tổn hại đến tính liêm chính của báo chí và niềm tin xã hội. Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "The best gen AI strategy combines leadership vision with employee ideas and feedback. Top-down alone misses practical use cases, and bottom-up alone lacks direction and consistency.",
+    "explanation_vi": "Chiến lược gen AI tốt nhất kết hợp tầm nhìn của lãnh đạo với ý tưởng và phản hồi của nhân viên. Chỉ top-down thì bỏ lỡ các trường hợp sử dụng thực tế, còn chỉ bottom-up thì thiếu định hướng và nhất quán.",
+    "lessonId": "d4-t2",
+    "objective": "4.1 Factors that shape gen AI needs"
   },
   {
-    "id": 60,
+    "id": 55,
     "topic": "Business Strategy for Gen AI (15%)",
-    "question": "In an AI maturity model, what characterizes a 'Siloed' or 'Ad-hoc' organization?",
+    "question": "A regional public-health agency plans a gen AI tool for clinics that handle sensitive patient data and have limited connectivity. What should the leader consider when selecting a solution?",
+    "question_vi": "Một cơ quan y tế công cộng khu vực lên kế hoạch dùng công cụ gen AI cho các phòng khám xử lý dữ liệu bệnh nhân nhạy cảm và kết nối hạn chế. Lãnh đạo nên cân nhắc điều gì khi chọn giải pháp?",
     "type": "single",
     "options": [
       {
         "key": "A",
-        "text": "Enterprise-wide AI deployment.",
-        "text_vi": "Triển khai AI trên toàn doanh nghiệp."
+        "text": "Which model currently receives the most press coverage",
+        "text_vi": "Mô hình nào hiện được báo chí nhắc đến nhiều nhất"
       },
       {
         "key": "B",
-        "text": "Individual teams experimenting with disparate AI tools (like public ChatGPT) without IT approval, security reviews, or a unified corporate strategy (Shadow AI).",
-        "text_vi": "Các nhóm riêng lẻ đang thử nghiệm các công cụ AI khác nhau (như ChatGPT công khai) mà không có sự phê duyệt của bộ phận CNTT, đánh giá bảo mật hoặc chiến lược công ty thống nhất (Shadow AI)."
+        "text": "Only the model's score on a general public leaderboard",
+        "text_vi": "Chỉ điểm số của mô hình trên bảng xếp hạng công khai chung"
       },
       {
         "key": "C",
-        "text": "Complete ban on AI.",
-        "text_vi": "Lệnh cấm hoàn toàn đối với AI."
+        "text": "Whether other agencies have announced similar projects first",
+        "text_vi": "Liệu các cơ quan khác đã công bố các dự án tương tự trước hay chưa"
       },
       {
         "key": "D",
-        "text": "Centralized governance and MLOps.",
-        "text_vi": "Quản trị tập trung và MLOps."
+        "text": "Business needs and constraints such as privacy, connectivity, latency, skills, budget and time",
+        "text_vi": "Nhu cầu kinh doanh và các ràng buộc như quyền riêng tư, kết nối, độ trễ, kỹ năng, ngân sách và thời gian"
+      }
+    ],
+    "answer": [
+      "D"
+    ],
+    "explanation": "Needs such as scale, customization, privacy, latency and connectivity, together with resources like people, money and time, determine which solution fits. Popularity and leaderboards ignore these constraints.",
+    "explanation_vi": "Các nhu cầu như quy mô, tùy biến, quyền riêng tư, độ trễ và kết nối, cùng nguồn lực như con người, tiền bạc và thời gian, quyết định giải pháp phù hợp. Mức độ nổi tiếng và bảng xếp hạng bỏ qua các ràng buộc này.",
+    "lessonId": "d4-t2",
+    "objective": "4.1 Factors that shape gen AI needs"
+  },
+  {
+    "id": 56,
+    "topic": "Business Strategy for Gen AI (15%)",
+    "question": "Which approach is BEST for measuring the business impact of a gen AI initiative?",
+    "question_vi": "Cách nào là TỐT NHẤT để đo lường tác động kinh doanh của một sáng kiến gen AI?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Count how many prompts employees typed during the pilot",
+        "text_vi": "Đếm số prompt mà nhân viên đã gõ trong thời gian thí điểm"
+      },
+      {
+        "key": "B",
+        "text": "Compare the number of parameters in the model with competitors",
+        "text_vi": "So sánh số tham số của mô hình với các đối thủ"
+      },
+      {
+        "key": "C",
+        "text": "Track KPIs tied to business goals, such as time saved, customer satisfaction, error rate and ROI",
+        "text_vi": "Theo dõi các KPI gắn với mục tiêu kinh doanh như thời gian tiết kiệm, mức hài lòng của khách, tỷ lệ lỗi và ROI"
+      },
+      {
+        "key": "D",
+        "text": "Report only how excited the project team felt about the pilot",
+        "text_vi": "Chỉ báo cáo nhóm dự án cảm thấy hào hứng thế nào về đợt thí điểm"
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "Impact is measured by defining key metrics linked to business goals, collecting data and iterating. Activity counts, model size and enthusiasm do not show business value.",
+    "explanation_vi": "Tác động được đo bằng cách xác định các chỉ số chính gắn với mục tiêu kinh doanh, thu thập dữ liệu và cải tiến lặp lại. Số lượng hoạt động, kích thước mô hình và sự hào hứng không thể hiện giá trị kinh doanh.",
+    "lessonId": "d4-t3",
+    "objective": "4.1 Integrating gen AI and measuring impact"
+  },
+  {
+    "id": 57,
+    "topic": "Business Strategy for Gen AI (15%)",
+    "question": "A healthcare company's security team wants to control who can access its gen AI resources and get a view of its overall security posture in Google Cloud. Which pairing fits?",
+    "question_vi": "Nhóm bảo mật của một công ty y tế muốn kiểm soát ai được truy cập các tài nguyên gen AI và có cái nhìn tổng thể về tình trạng bảo mật trên Google Cloud. Cặp công cụ nào phù hợp?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "IAM to control access, and Security Command Center to see security posture",
+        "text_vi": "IAM để kiểm soát truy cập, và Security Command Center để xem tình trạng bảo mật"
+      },
+      {
+        "key": "B",
+        "text": "Security Command Center to grant and revoke permissions, and IAM to scan for threats and misconfigurations",
+        "text_vi": "Security Command Center để cấp và thu hồi quyền, và IAM để quét mối đe dọa và cấu hình sai"
+      },
+      {
+        "key": "C",
+        "text": "Model Garden to restrict access, and Agent Search to log threats",
+        "text_vi": "Model Garden để hạn chế truy cập, và Agent Search để ghi nhật ký mối đe dọa"
+      },
+      {
+        "key": "D",
+        "text": "Gemini for Workspace to set permissions, and Gems to report posture",
+        "text_vi": "Gemini for Workspace để đặt quyền, và Gems để báo cáo tình trạng bảo mật"
+      }
+    ],
+    "answer": [
+      "A"
+    ],
+    "explanation": "Identity and Access Management controls who can do what, while Security Command Center gives visibility into security posture and risks. The wrong options swap these roles or use products that are unrelated to security.",
+    "explanation_vi": "Identity and Access Management kiểm soát ai được làm gì, còn Security Command Center cung cấp tầm nhìn về tình trạng bảo mật và rủi ro. Các phương án sai hoán đổi vai trò này hoặc dùng sản phẩm không liên quan đến bảo mật.",
+    "lessonId": "d4-t4",
+    "objective": "4.2 Secure AI, SAIF and security tools"
+  },
+  {
+    "id": 58,
+    "topic": "Business Strategy for Gen AI (15%)",
+    "question": "A retailer's security leader wants a framework for managing risks specific to AI systems, such as prompt injection and data poisoning, that builds on existing security practices. What should the leader adopt?",
+    "question_vi": "Lãnh đạo bảo mật của một nhà bán lẻ muốn có khung quản lý rủi ro đặc thù của hệ thống AI, như prompt injection và data poisoning, dựa trên các thực hành bảo mật hiện có. Nên áp dụng gì?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Gemma, Google's lightweight open model family",
+        "text_vi": "Gemma, họ mô hình mã nguồn mở gọn nhẹ của Google"
+      },
+      {
+        "key": "B",
+        "text": "Google's Secure AI Framework (SAIF)",
+        "text_vi": "Secure AI Framework (SAIF) của Google"
+      },
+      {
+        "key": "C",
+        "text": "AutoML, which trains models from labeled data",
+        "text_vi": "AutoML, huấn luyện mô hình từ dữ liệu có nhãn"
+      },
+      {
+        "key": "D",
+        "text": "Conversational Insights, which analyzes customer communications",
+        "text_vi": "Conversational Insights, phân tích các cuộc trao đổi với khách hàng"
       }
     ],
     "answer": [
       "B"
     ],
-    "explanation": "Correct: Individual teams experimenting with disparate AI tools (like public ChatGPT) without IT approval, security reviews, or a unified corporate strategy (Shadow AI). Review why this choice fits the question and why alternatives do not.",
-    "question_vi": "Trong mô hình trưởng thành của AI, điều gì đặc trưng cho một tổ chức 'Siloed' hoặc 'Ad-hoc'?",
-    "explanation_vi": "Đúng: Các nhóm riêng lẻ đang thử nghiệm các công cụ AI khác nhau (như ChatGPT công khai) mà không có sự phê duyệt của bộ phận CNTT, đánh giá bảo mật hoặc chiến lược công ty thống nhất (Shadow AI). Xem lại tại sao lựa chọn này phù hợp với câu hỏi và tại sao các lựa chọn thay thế lại không."
+    "explanation": "SAIF is Google's framework for managing AI and ML security risks across the lifecycle, building on existing security foundations. The other options are models or customer-experience tools, not security frameworks.",
+    "explanation_vi": "SAIF là khung của Google để quản lý rủi ro bảo mật AI và ML trong toàn vòng đời, dựa trên nền tảng bảo mật hiện có. Các phương án khác là mô hình hoặc công cụ trải nghiệm khách hàng, không phải khung bảo mật.",
+    "lessonId": "d4-t4",
+    "objective": "4.2 Secure AI, SAIF and security tools"
+  },
+  {
+    "id": 59,
+    "topic": "Business Strategy for Gen AI (15%)",
+    "question": "A research team at a hospital wants to share patient data with an AI vendor in a way that can never be traced back to individuals. Which technique should it use?",
+    "question_vi": "Một nhóm nghiên cứu tại bệnh viện muốn chia sẻ dữ liệu bệnh nhân với nhà cung cấp AI theo cách không thể truy ngược về từng cá nhân. Nên dùng kỹ thuật nào?",
+    "type": "single",
+    "options": [
+      {
+        "key": "A",
+        "text": "Pseudonymization, which replaces identifiers but can be reversed with a key",
+        "text_vi": "Giả danh hóa (pseudonymization), thay thế định danh nhưng có thể đảo ngược bằng khóa"
+      },
+      {
+        "key": "B",
+        "text": "Encrypting the files with a key that the research team keeps",
+        "text_vi": "Mã hóa các tệp bằng khóa do nhóm nghiên cứu giữ"
+      },
+      {
+        "key": "C",
+        "text": "Anonymization, which irreversibly removes the link to individuals",
+        "text_vi": "Ẩn danh hóa (anonymization), loại bỏ vĩnh viễn liên kết với cá nhân"
+      },
+      {
+        "key": "D",
+        "text": "Raising the model temperature so the outputs are less exact",
+        "text_vi": "Tăng temperature của mô hình để đầu ra bớt chính xác"
+      }
+    ],
+    "answer": [
+      "C"
+    ],
+    "explanation": "Anonymization is irreversible, while pseudonymization can be reversed with a key, so only anonymization prevents tracing back. Encryption protects data but the key holder can still read it.",
+    "explanation_vi": "Anonymization là không thể đảo ngược, còn pseudonymization có thể đảo ngược bằng khóa, nên chỉ anonymization ngăn được việc truy ngược. Mã hóa bảo vệ dữ liệu nhưng người giữ khóa vẫn đọc được.",
+    "lessonId": "d4-t5",
+    "objective": "4.3 Responsible AI"
+  },
+  {
+    "id": 60,
+    "topic": "Business Strategy for Gen AI (15%)",
+    "question": "A bank is launching a gen AI assistant that recommends loan products. Which TWO actions best support responsible AI? (Select TWO.)",
+    "question_vi": "Một ngân hàng sắp ra mắt trợ lý gen AI gợi ý sản phẩm vay. Hai hành động nào hỗ trợ responsible AI tốt nhất? (Chọn HAI.)",
+    "type": "multiple",
+    "options": [
+      {
+        "key": "A",
+        "text": "Rely on the vendor to have removed all bias without testing",
+        "text_vi": "Tin rằng nhà cung cấp đã loại bỏ mọi thiên kiến mà không cần kiểm thử"
+      },
+      {
+        "key": "B",
+        "text": "Test with diverse data and audit regularly for bias and fairness",
+        "text_vi": "Kiểm thử với dữ liệu đa dạng và kiểm toán định kỳ về thiên kiến và tính công bằng"
+      },
+      {
+        "key": "C",
+        "text": "Collect as much personal data as possible in case it becomes useful",
+        "text_vi": "Thu thập càng nhiều dữ liệu cá nhân càng tốt phòng khi hữu ích"
+      },
+      {
+        "key": "D",
+        "text": "Hide that customers are talking to AI to avoid confusion",
+        "text_vi": "Giấu việc khách hàng đang trò chuyện với AI để tránh gây nhầm lẫn"
+      },
+      {
+        "key": "E",
+        "text": "Keep human oversight with clearly assigned accountability for outcomes",
+        "text_vi": "Duy trì sự giám sát của con người với trách nhiệm giải trình được phân công rõ ràng cho kết quả"
+      }
+    ],
+    "answer": [
+      "B",
+      "E"
+    ],
+    "explanation": "Responsible AI relies on fairness (diverse data, regular audits), accountability with human oversight, transparency and privacy. Assuming the vendor handled bias, over-collecting data and hiding AI use all work against these pillars.",
+    "explanation_vi": "Responsible AI dựa trên tính công bằng (dữ liệu đa dạng, kiểm toán định kỳ), trách nhiệm giải trình với sự giám sát của con người, minh bạch và quyền riêng tư. Giả định nhà cung cấp đã xử lý thiên kiến, thu thập dữ liệu quá mức và giấu việc dùng AI đều đi ngược các trụ cột này.",
+    "lessonId": "d4-t5",
+    "objective": "4.3 Responsible AI"
   }
 ]

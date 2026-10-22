@@ -6,13 +6,36 @@
 (function () {
   "use strict";
 
-  const LESSONS = window.CCARP_LESSONS || [];
-  const MANIFEST = window.QUIZ_MANIFEST_CCARP || [];
-  const PROGRESS_KEY = "ccarp_learn_done";
+  // Cấu hình theo kỳ thi: trang khác (vd. genai-learn.html) đặt window.LEARN_CONFIG trước khi nạp file này.
+  // Không có cấu hình thì dùng mặc định CCAR-P.
+  const CFG = Object.assign({
+    lessons: window.CCARP_LESSONS,
+    manifest: window.QUIZ_MANIFEST_CCARP,
+    progressKey: "ccarp_learn_done",
+    examId: "ccarp",
+    folder: "CCAR-P",
+    setVarPrefix: "QUIZ_DATA_CCARP_SET_",
+    lessonsFile: "CCAR-P/lessons/lessons.js",
+    buildCmd: "python build_ccarp.py",
+    title: "Claude Certified Architect – Professional (CCAR-P)",
+    subtitle: "Bài học song ngữ theo Exam Guide v1.0 — 7 domain, {topics} objective",
+    questionsPerSet: 63,
+    formatNote: {
+      en: "Item format: multiple-choice and multiple-response items; each item states how many responses to select. Result: pass/fail with a scaled score plus percent-correct by domain.",
+      vi: "Dạng câu hỏi: chọn một và chọn nhiều đáp án; mỗi câu ghi rõ số đáp án cần chọn. Kết quả: đạt/không đạt kèm điểm quy đổi và tỷ lệ đúng theo từng domain."
+    },
+    domainWord: "Domain",
+    practiceSource: "CCAR-P",
+    practiceFilter: null
+  }, window.LEARN_CONFIG || {});
+
+  const LESSONS = CFG.lessons || [];
+  const MANIFEST = CFG.manifest || [];
+  const PROGRESS_KEY = CFG.progressKey;
   const PRACTICE_SIZE = 5;
 
   // Thông tin kỳ thi lấy từ CCAR-P Exam Guide v1.0 (Section 5, 6, 8)
-  const EXAM_FACTS = [
+  const CCARP_FACTS = [
     { val: "63", lbl: "Số câu hỏi" },
     { val: "120 phút", lbl: "Thời gian (~1m54s/câu)" },
     { val: "720 / 1000", lbl: "Điểm đạt (thang 100–1.000)" },
@@ -21,7 +44,7 @@
     { val: "Pearson VUE", lbl: "Online proctored / test center" }
   ];
 
-  const STUDY_STEPS = [
+  const CCARP_STEPS = [
     {
       en: "Study the blueprint and self-assess against every objective — each lesson below is one objective.",
       vi: "Nắm blueprint và tự đánh giá theo từng objective — mỗi bài học bên dưới tương ứng một objective."
@@ -40,7 +63,7 @@
     }
   ];
 
-  const SAMPLES = [
+  const CCARP_SAMPLES = [
     {
       domain: "Domain 3 — Integration",
       q: "A team exposes a customer-support agent that can read tickets, draft replies, issue refunds, and delete user accounts. Support staff only ever need to read tickets and draft replies. Applying least-privilege principles, which change best reduces risk?",
@@ -84,6 +107,10 @@
       why_vi: "Câu trả lời tự tin nhưng sai ngay sau khi làm mới tài liệu, trong khi model và latency không đổi, cho thấy retrieval đang cấp ngữ cảnh kém cho model — ví dụ re-index lỗi hoặc embedding không khớp."
     }
   ];
+
+  const EXAM_FACTS = CFG.facts || CCARP_FACTS;
+  const STUDY_STEPS = CFG.steps || CCARP_STEPS;
+  const SAMPLES = CFG.samples || CCARP_SAMPLES;
 
   const els = {
     main: document.getElementById("learnMain"),
@@ -193,8 +220,12 @@
     return LESSONS.find((d) => String(d.domain) === String(num));
   }
 
+  function findDomainOf(t) {
+    return LESSONS.find((d) => d.topics.includes(t));
+  }
+
   function itemsPerSet(domain) {
-    return Math.round((domain.weight / 100) * 63);
+    return Math.round((domain.weight / 100) * CFG.questionsPerSet);
   }
 
   // ==========================================================================
@@ -251,16 +282,16 @@
     const maxWeight = Math.max(...LESSONS.map((d) => d.weight), 1);
 
     els.main.innerHTML = `
-      <h2 class="page-title">Claude Certified Architect – Professional (CCAR-P)</h2>
-      <div class="page-title-vi">Bài học song ngữ theo Exam Guide v1.0 — 7 domain, ${allTopics().length} objective</div>
+      <h2 class="page-title">${esc(CFG.title)}</h2>
+      <div class="page-title-vi">${esc(CFG.subtitle.replace("{topics}", allTopics().length))}</div>
 
       <section class="card">
         <div class="card-label">Exam at a glance · Thông tin kỳ thi</div>
         <div class="facts-grid">
           ${EXAM_FACTS.map((f) => `<div class="fact"><span class="val">${esc(f.val)}</span><span class="lbl">${esc(f.lbl)}</span></div>`).join("")}
         </div>
-        <p class="en-text">Item format: multiple-choice and multiple-response items; each item states how many responses to select. Result: pass/fail with a scaled score plus percent-correct by domain.</p>
-        <p class="vi-text">Dạng câu hỏi: chọn một và chọn nhiều đáp án; mỗi câu ghi rõ số đáp án cần chọn. Kết quả: đạt/không đạt kèm điểm quy đổi và tỷ lệ đúng theo từng domain.</p>
+        <p class="en-text">${esc(CFG.formatNote.en)}</p>
+        <p class="vi-text">${esc(CFG.formatNote.vi)}</p>
       </section>
 
       <section class="card">
@@ -283,7 +314,7 @@
         ${LESSONS.map((d) => {
           const doneCount = d.topics.filter((t) => done.has(t.id)).length;
           return `<a class="domain-card" href="#d${d.domain}">
-            <span class="dc-num">DOMAIN ${d.domain} · ${d.weight}%</span>
+            <span class="dc-num">${esc(CFG.domainWord.toUpperCase())} ${d.domain} · ${d.weight}%</span>
             <h4>${esc(d.title)}</h4>
             <span class="vi-line">${esc(d.title_vi)}</span>
             <div class="dc-meta">${d.topics.length} bài học · đã học ${doneCount}/${d.topics.length}</div>
@@ -291,8 +322,8 @@
         }).join("")}
       </div>
 
-      <h3 style="margin:1.75rem 0 0.75rem;">Official sample questions · Câu hỏi mẫu chính thức</h3>
-      ${SAMPLES.map(renderSample).join("")}
+      ${SAMPLES.length ? `<h3 style="margin:1.75rem 0 0.75rem;">Official sample questions · Câu hỏi mẫu chính thức</h3>
+      ${SAMPLES.map(renderSample).join("")}` : ""}
     `;
   }
 
@@ -315,10 +346,10 @@
   function renderDomain(d) {
     const done = getDone();
     els.main.innerHTML = `
-      <div class="breadcrumb"><a href="#overview">Tổng quan</a> › Domain ${d.domain}</div>
-      <h2 class="page-title">Domain ${d.domain}: ${esc(d.title)}</h2>
+      <div class="breadcrumb"><a href="#overview">Tổng quan</a> › ${esc(CFG.domainWord)} ${d.domain}</div>
+      <h2 class="page-title">${esc(CFG.domainWord)} ${d.domain}: ${esc(d.title)}</h2>
       <div class="page-title-vi">${esc(d.title_vi)}</div>
-      <span class="objective-badge">Tỷ trọng ${d.weight}% · ~${itemsPerSet(d)}/63 câu</span>
+      <span class="objective-badge">Tỷ trọng ${d.weight}% · ~${itemsPerSet(d)}/${CFG.questionsPerSet} câu</span>
 
       <section class="card">
         <div class="card-label">Overview · Tổng quan</div>
@@ -359,7 +390,7 @@
       </section>` : "";
 
     els.main.innerHTML = `
-      <div class="breadcrumb"><a href="#overview">Tổng quan</a> › <a href="#d${d.domain}">Domain ${d.domain}: ${esc(d.title)}</a></div>
+      <div class="breadcrumb"><a href="#overview">Tổng quan</a> › <a href="#d${d.domain}">${esc(CFG.domainWord)} ${d.domain}: ${esc(d.title)}</a></div>
       <h2 class="page-title">${esc(t.title)}</h2>
       <div class="page-title-vi">${esc(t.title_vi)}</div>
       <span class="objective-badge">🎯 Objective: ${esc(t.objective)}</span>
@@ -398,8 +429,8 @@
 
       <section class="card" id="practiceCard">
         <div class="card-label">📝 Practice · Luyện câu hỏi theo bài này</div>
-        <p class="en-text">Questions are drawn from the CCAR-P mock exam bank for this objective.</p>
-        <p class="vi-text">Câu hỏi được lấy từ ngân hàng đề thi thử CCAR-P, đúng objective của bài này.</p>
+        <p class="en-text">Questions are drawn from the ${esc(CFG.practiceSource)} mock exam bank for this ${CFG.practiceFilter ? "topic" : "objective"}.</p>
+        <p class="vi-text">Câu hỏi được lấy từ ngân hàng đề thi thử ${esc(CFG.practiceSource)}, ${CFG.practiceFilter ? "sát chủ đề" : "đúng objective"} của bài này.</p>
         <button type="button" class="btn btn-primary practice-check" id="startPracticeBtn">Luyện ${PRACTICE_SIZE} câu</button>
         <div id="practiceArea"></div>
       </section>
@@ -408,7 +439,7 @@
         <button type="button" class="btn btn-secondary ${isDone ? "done" : ""}" id="markDoneBtn">${isDone ? "✓ Đã học xong" : "Đánh dấu đã học"}</button>
         <div style="display:flex; gap:0.5rem; flex-wrap:wrap;">
           ${prev ? `<a class="btn btn-secondary" href="#${prev.topic.id}">❮ Bài trước</a>` : ""}
-          ${next ? `<a class="btn btn-primary" href="#${next.topic.id}">Bài tiếp ❯</a>` : `<a class="btn btn-primary" href="index.html?exam=ccarp">Làm đề thi thử ❯</a>`}
+          ${next ? `<a class="btn btn-primary" href="#${next.topic.id}">Bài tiếp ❯</a>` : `<a class="btn btn-primary" href="index.html?exam=${CFG.examId}">Làm đề thi thử ❯</a>`}
         </div>
       </div>
     `;
@@ -439,9 +470,9 @@
   async function loadQuestionPool() {
     if (questionPool) return questionPool;
     const sets = MANIFEST.length ? MANIFEST : Array.from({ length: 10 }, (_, i) => ({
-      jsFile: `set_${i + 1}.js`, jsVar: `QUIZ_DATA_CCARP_SET_${i + 1}`
+      jsFile: `set_${i + 1}.js`, jsVar: `${CFG.setVarPrefix}${i + 1}`
     }));
-    await Promise.all(sets.map((s) => (window[s.jsVar] ? null : loadScript(`CCAR-P/${s.jsFile}`).catch(() => null))));
+    await Promise.all(sets.map((s) => (window[s.jsVar] ? null : loadScript(`${CFG.folder}/${s.jsFile}`).catch(() => null))));
     questionPool = [];
     sets.forEach((s) => (window[s.jsVar] || []).forEach((q) => questionPool.push(q)));
     return questionPool;
@@ -450,7 +481,19 @@
   async function startPractice(t) {
     const area = document.getElementById("practiceArea");
     area.innerHTML = `<p class="en-text">Đang tải câu hỏi…</p>`;
-    const pool = (await loadQuestionPool()).filter((q) => q.lessonId === t.id);
+    const allQ = await loadQuestionPool();
+    let pool = CFG.practiceFilter
+      ? allQ.filter((q) => CFG.practiceFilter(q, findDomainOf(t), t))
+      : allQ.filter((q) => q.lessonId === t.id);
+    // Chủ đề ít câu khớp từ khóa: bổ sung câu cùng lĩnh vực cho đủ số câu luyện
+    if (CFG.practiceFilter && pool.length < PRACTICE_SIZE) {
+      const dom = findDomainOf(t);
+      const sameDomain = (q) => (q.lessonId
+        ? String(q.lessonId).startsWith(`d${dom.domain}-`)
+        : CFG.practiceFilter(q, dom, { keywords: dom.topics.flatMap((x) => x.keywords || []) }));
+      const extra = allQ.filter((q) => !pool.includes(q) && sameDomain(q));
+      pool = pool.concat(extra.sort(() => Math.random() - 0.5).slice(0, PRACTICE_SIZE - pool.length));
+    }
     if (!pool.length) {
       area.innerHTML = `<p class="en-text">Chưa có câu hỏi cho bài này.</p>`;
       return;
@@ -505,7 +548,7 @@
     closeMenu();
 
     if (!LESSONS.length) {
-      els.main.innerHTML = `<p class="learn-loading">Chưa có dữ liệu bài học (CCAR-P/lessons/lessons.js). Hãy chạy <code>python build_ccarp.py</code>.</p>`;
+      els.main.innerHTML = `<p class="learn-loading">Chưa có dữ liệu bài học (${esc(CFG.lessonsFile)}). Hãy chạy <code>${esc(CFG.buildCmd)}</code>.</p>`;
       return;
     }
 

@@ -1,0 +1,1089 @@
+{
+ "domain": 2,
+ "title": "Google Cloud's gen AI offerings",
+ "title_vi": "Các offering gen AI của Google Cloud",
+ "weight": 35,
+ "overview": "This domain tests whether you can recognize Google Cloud's gen AI portfolio and match the right offering to a business need. Go from the big picture to detail: why Google Cloud (AI-first, enterprise-ready, open, democratized), the AI-optimized infrastructure beneath it (TPUs, AI Hypercomputer, edge AI), the prebuilt offerings that enable AI-powered work (Gemini app, Gems, Gemini Enterprise, Gemini Notebook, Gemini for Workspace), the offerings that improve customer experience (Agent Search, Customer Engagement Suite), the developer platform (Agent Platform, Model Garden, AutoML, RAG, Google AI Studio vs Agent Studio), and finally agents and their tooling (tool types and pre-built AI APIs).",
+ "overview_vi": "Domain này kiểm tra liệu bạn nhận ra được danh mục gen AI của Google Cloud và ghép đúng offering với nhu cầu kinh doanh hay không. Hãy đi từ bức tranh lớn đến chi tiết: vì sao chọn Google Cloud (AI-first, enterprise-ready, mở, dân chủ hóa), hạ tầng tối ưu AI bên dưới (TPU, AI Hypercomputer, edge AI), các offering dựng sẵn cho công việc có AI (Gemini app, Gems, Gemini Enterprise, Gemini Notebook, Gemini for Workspace), các offering cải thiện trải nghiệm khách hàng (Agent Search, Customer Engagement Suite), nền tảng cho developer (Agent Platform, Model Garden, AutoML, RAG, Google AI Studio so với Agent Studio), và cuối cùng là agent và tooling (các loại tool và AI API dựng sẵn).",
+ "topics": [
+  {
+   "id": "d2-t1",
+   "objective": "Describe Google Cloud's strengths in the field of gen AI (AI-first approach, enterprise-ready platform, comprehensive ecosystem, open approach, data control, democratization of AI).",
+   "title": "Google Cloud's strengths in gen AI",
+   "title_vi": "Thế mạnh của Google Cloud trong gen AI",
+   "sources": [
+    "guide.txt",
+    "exam-guide-official-checklist.md",
+    "bonus-reference-guide.md",
+    "module3-v2.md",
+    "module1-v2.md"
+   ],
+   "sections": [
+    {
+     "heading": "The big picture: why choose Google Cloud for gen AI",
+     "heading_vi": "Bức tranh tổng thể: vì sao chọn Google Cloud cho gen AI",
+     "body": "Google Cloud's pitch rests on a few connected strengths. First, an AI-first approach: Google has invested in AI research and products for years and keeps committing to future innovation, which shows up as cutting-edge models (Gemini, Gemma, Imagen, Veo) and tools. Second, an enterprise-ready AI platform: responsible, secure, private, reliable and scalable. Third, a comprehensive AI ecosystem in which gen AI is integrated across Google products and services. Fourth, an open approach. Fifth, AI-optimized infrastructure (covered in the next topic). Finally, democratization: making AI development reachable for people without deep ML expertise.\n\nOn the exam, these strengths are usually tested as 'which statement best describes why an organization would choose Google Cloud' or 'which strength does this scenario illustrate'. Learn the keyword for each strength.",
+     "body_vi": "Lập luận của Google Cloud dựa trên một số thế mạnh liên kết với nhau. Thứ nhất, cách tiếp cận AI-first: Google đã đầu tư vào nghiên cứu và sản phẩm AI nhiều năm và tiếp tục cam kết đổi mới trong tương lai, thể hiện qua các model tiên tiến (Gemini, Gemma, Imagen, Veo) và công cụ. Thứ hai, nền tảng AI sẵn sàng cho doanh nghiệp (enterprise-ready): có trách nhiệm, bảo mật, riêng tư, đáng tin cậy và mở rộng được. Thứ ba, hệ sinh thái AI toàn diện, trong đó gen AI được tích hợp khắp các sản phẩm và dịch vụ của Google. Thứ tư, cách tiếp cận mở. Thứ năm, hạ tầng tối ưu cho AI (xem topic kế tiếp). Cuối cùng là dân chủ hóa: giúp cả người không có chuyên môn ML sâu cũng tiếp cận được việc phát triển AI.\n\nTrong đề thi, các thế mạnh này thường được hỏi dạng 'phát biểu nào mô tả đúng nhất lý do tổ chức chọn Google Cloud' hoặc 'tình huống này minh họa thế mạnh nào'. Hãy nhớ từ khóa của từng thế mạnh.",
+     "bullets": [
+      {
+       "en": "AI-first and future innovation: cutting-edge solutions and continued investment",
+       "vi": "AI-first và đổi mới tương lai: giải pháp tiên tiến và đầu tư liên tục"
+      },
+      {
+       "en": "Enterprise-ready: responsible, secure, private, reliable, scalable",
+       "vi": "Enterprise-ready: có trách nhiệm, bảo mật, riêng tư, đáng tin cậy, mở rộng được"
+      },
+      {
+       "en": "Ecosystem: gen AI integrated across Google products and services (e.g., Workspace, Google Cloud)",
+       "vi": "Hệ sinh thái: gen AI tích hợp khắp sản phẩm và dịch vụ Google (vd Workspace, Google Cloud)"
+      },
+      {
+       "en": "Open approach: first-party, third-party and open-source models",
+       "vi": "Cách tiếp cận mở: model first-party, third-party và open-source"
+      }
+     ]
+    },
+    {
+     "heading": "Open approach, data control and democratization",
+     "heading_vi": "Cách tiếp cận mở, kiểm soát dữ liệu và dân chủ hóa",
+     "body": "The open approach means customers are not locked into a single model: besides Google's own first-party models they can use third-party and open-source models (for example through Model Garden), and open-weights models such as Gemma. Flexibility lets teams pick the best model for each task and avoid vendor lock-in.\n\nData control: Google Cloud's AI platform gives users control over their data through security, privacy and governance capabilities, together with open and leading first-party models, pre-built and customizable solutions, and agents. The business message: you can ground and customize AI with your own data while keeping it protected and governed.\n\nDemocratization: Google Cloud lowers the barrier to AI development with low-code and no-code tools, pre-trained models and APIs. A business analyst can use no-code tools, a developer can call a pre-trained API, and an ML engineer can build custom models, all on the same platform.",
+     "body_vi": "Cách tiếp cận mở nghĩa là khách hàng không bị khóa vào một model duy nhất: ngoài model first-party của Google, họ có thể dùng model third-party và open-source (ví dụ qua Model Garden) và model open-weights như Gemma. Sự linh hoạt giúp đội chọn model tốt nhất cho từng tác vụ và tránh vendor lock-in.\n\nKiểm soát dữ liệu: nền tảng AI của Google Cloud cho người dùng quyền kiểm soát dữ liệu thông qua các năng lực security, privacy và governance, cùng với các model first-party mở và hàng đầu, giải pháp dựng sẵn và tùy biến được, và agent. Thông điệp kinh doanh: bạn có thể grounding và tùy biến AI bằng dữ liệu của mình mà vẫn giữ dữ liệu được bảo vệ và quản trị.\n\nDân chủ hóa: Google Cloud hạ rào cản phát triển AI bằng công cụ low-code và no-code, pre-trained model và API. Một business analyst dùng được công cụ no-code, một developer gọi pre-trained API, một ML engineer xây model tùy biến, tất cả trên cùng một nền tảng."
+    },
+    {
+     "heading": "Exam pitfalls",
+     "heading_vi": "Bẫy thường gặp",
+     "body": "Do not confuse 'open' with 'insecure' or 'free': open approach is about model choice and flexibility, while security, privacy and governance are separate enterprise-ready strengths. Likewise, 'democratization' is about accessibility (low-code/no-code, pre-trained models, APIs), not about making models public.",
+     "body_vi": "Đừng nhầm 'mở' với 'không an toàn' hay 'miễn phí': cách tiếp cận mở là về lựa chọn model và tính linh hoạt, còn security, privacy, governance là thế mạnh enterprise-ready riêng. Tương tự, 'dân chủ hóa' là về khả năng tiếp cận (low-code/no-code, pre-trained model, API), không phải công khai model."
+    }
+   ],
+   "table": {
+    "caption": "Strength to keyword map",
+    "caption_vi": "Bản đồ thế mạnh - từ khóa",
+    "headers": [
+     "Strength",
+     "What it means",
+     "Typical cue in a question"
+    ],
+    "headers_vi": [
+     "Thế mạnh",
+     "Ý nghĩa",
+     "Dấu hiệu trong đề"
+    ],
+    "rows": [
+     [
+      "AI-first",
+      "Years of AI research and continued innovation",
+      "cutting-edge, future innovation"
+     ],
+     [
+      "Enterprise-ready",
+      "Responsible, secure, private, reliable, scalable",
+      "governance, compliance, scale"
+     ],
+     [
+      "Ecosystem",
+      "Gen AI built into many Google products",
+      "integration across products"
+     ],
+     [
+      "Open approach",
+      "First-party, third-party, open-source models",
+      "avoid lock-in, model choice"
+     ],
+     [
+      "Democratization",
+      "Low-code/no-code, pre-trained models, APIs",
+      "non-experts, citizen developers"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Google's strengths: AI-first, enterprise-ready, comprehensive ecosystem, open approach, AI-optimized infrastructure, democratization.",
+     "vi": "Thế mạnh của Google: AI-first, enterprise-ready, hệ sinh thái toàn diện, cách tiếp cận mở, hạ tầng tối ưu AI, dân chủ hóa."
+    },
+    {
+     "en": "Enterprise-ready means responsible, secure, private, reliable and scalable.",
+     "vi": "Enterprise-ready nghĩa là có trách nhiệm, bảo mật, riêng tư, đáng tin cậy và mở rộng được."
+    },
+    {
+     "en": "Open approach = first-party plus third-party and open-source models; reduces lock-in.",
+     "vi": "Cách tiếp cận mở = model first-party cùng third-party và open-source; giảm lock-in."
+    },
+    {
+     "en": "Data control comes from security, privacy and governance plus customizable solutions and agents.",
+     "vi": "Kiểm soát dữ liệu đến từ security, privacy, governance cùng giải pháp tùy biến và agent."
+    },
+    {
+     "en": "Democratization = low-code/no-code tools, pre-trained models and APIs.",
+     "vi": "Dân chủ hóa = công cụ low-code/no-code, pre-trained model và API."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "If the scenario stresses access to many model providers or avoiding lock-in, the answer is the open approach.",
+     "vi": "Nếu tình huống nhấn mạnh truy cập nhiều nhà cung cấp model hoặc tránh lock-in, đáp án là cách tiếp cận mở."
+    },
+    {
+     "en": "If non-technical staff build AI solutions, think democratization (low-code/no-code, pre-trained models, APIs).",
+     "vi": "Nếu nhân sự không chuyên kỹ thuật tự xây giải pháp AI, hãy nghĩ tới dân chủ hóa (low-code/no-code, pre-trained model, API)."
+    },
+    {
+     "en": "Gen AI appearing inside Gmail, Docs, Meet etc. illustrates the integrated ecosystem.",
+     "vi": "Gen AI xuất hiện trong Gmail, Docs, Meet... minh họa hệ sinh thái tích hợp."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Enterprise-ready",
+     "en": "AI platform that is responsible, secure, private, reliable and scalable.",
+     "vi": "Nền tảng AI có trách nhiệm, bảo mật, riêng tư, đáng tin cậy, mở rộng được."
+    },
+    {
+     "term": "Open approach",
+     "en": "Support for first-party, third-party and open-source models.",
+     "vi": "Hỗ trợ model first-party, third-party và open-source."
+    },
+    {
+     "term": "Democratization of AI",
+     "en": "Making AI development accessible via low-code/no-code, pre-trained models, APIs.",
+     "vi": "Giúp phát triển AI dễ tiếp cận qua low-code/no-code, pre-trained model, API."
+    },
+    {
+     "term": "Pre-trained model",
+     "en": "A model already trained that can be used directly or adapted.",
+     "vi": "Model đã được huấn luyện sẵn, dùng trực tiếp hoặc điều chỉnh."
+    },
+    {
+     "term": "Gemma",
+     "en": "Google's open-weights model family.",
+     "vi": "Họ model open-weights của Google."
+    },
+    {
+     "term": "Vendor lock-in",
+     "en": "Dependence on one provider that makes switching hard.",
+     "vi": "Phụ thuộc một nhà cung cấp khiến khó chuyển đổi."
+    }
+   ],
+   "keywords": [
+    "ai-first",
+    "enterprise-ready",
+    "open approach",
+    "ecosystem",
+    "democratize",
+    "low-code",
+    "no-code",
+    "pre-trained models",
+    "apis",
+    "data control",
+    "governance",
+    "privacy",
+    "security",
+    "scalable",
+    "vendor lock-in"
+   ]
+  },
+  {
+   "id": "d2-t2",
+   "objective": "Identify the essential components of Google Cloud's AI-optimized infrastructure and its benefits (e.g., hypercomputer, TPUs, GPUs, data centers, cloud computing).",
+   "title": "AI-optimized infrastructure and edge AI",
+   "title_vi": "Hạ tầng tối ưu cho AI và AI tại edge",
+   "sources": [
+    "guide.txt",
+    "exam-guide-official-checklist.md",
+    "module3-v2.md",
+    "bonus-reference-guide.md"
+   ],
+   "sections": [
+    {
+     "heading": "Infrastructure: the base layer",
+     "heading_vi": "Hạ tầng: tầng nền tảng",
+     "body": "Gen AI is often described as five layers: infrastructure, models, platform, agents and applications. Infrastructure is the foundation. Training and serving large models requires enormous compute, so Google Cloud provides AI-optimized infrastructure built from custom-designed processors, GPUs, Google's data centers and cloud computing.\n\nTPUs (Tensor Processing Units) are Google's custom-designed chips for AI workloads. GPUs from partners are also available. AI Hypercomputer is the integrated infrastructure used to train, tune and serve AI workloads; it brings together hardware (TPUs, GPUs), networking and software as one system. The exam mentions TPUs more often than the hypercomputer, but know that the hypercomputer is the umbrella.",
+     "body_vi": "Gen AI thường được mô tả theo năm tầng: hạ tầng, model, nền tảng, agent và ứng dụng. Hạ tầng là nền móng. Huấn luyện và phục vụ model lớn cần năng lực tính toán khổng lồ, nên Google Cloud cung cấp hạ tầng tối ưu cho AI gồm bộ xử lý thiết kế riêng, GPU, data center của Google và cloud computing.\n\nTPU (Tensor Processing Unit) là chip do Google thiết kế riêng cho workload AI. GPU cũng có sẵn. AI Hypercomputer là hạ tầng tích hợp dùng để train, tune và serve workload AI; nó kết hợp phần cứng (TPU, GPU), mạng và phần mềm thành một hệ thống. Đề thi nhắc TPU nhiều hơn hypercomputer, nhưng hãy biết hypercomputer là khái niệm bao trùm.",
+     "bullets": [
+      {
+       "en": "TPU: custom-designed by Google for AI",
+       "vi": "TPU: do Google thiết kế riêng cho AI"
+      },
+      {
+       "en": "GPU: general accelerators for parallel compute",
+       "vi": "GPU: bộ tăng tốc cho tính toán song song"
+      },
+      {
+       "en": "AI Hypercomputer: integrated system to train, tune and serve AI workloads",
+       "vi": "AI Hypercomputer: hệ thống tích hợp để train, tune và serve workload AI"
+      },
+      {
+       "en": "Data centers and cloud computing: global, scalable foundation",
+       "vi": "Data center và cloud computing: nền tảng toàn cầu, mở rộng được"
+      }
+     ]
+    },
+    {
+     "heading": "Benefits for the business",
+     "heading_vi": "Lợi ích cho doanh nghiệp",
+     "body": "AI-optimized infrastructure delivers performance (faster training and inference), scalability (grow or shrink with demand without buying hardware), efficiency (purpose-built chips for AI) and reliability. Leaders benefit because they can adopt gen AI without building and managing their own compute, paying for what they use, and they can handle large-scale workloads efficiently.",
+     "body_vi": "Hạ tầng tối ưu cho AI mang lại hiệu năng (train và inference nhanh hơn), khả năng mở rộng (tăng giảm theo nhu cầu mà không phải mua phần cứng), hiệu quả (chip chuyên dụng cho AI) và độ tin cậy. Lãnh đạo hưởng lợi vì có thể áp dụng gen AI mà không cần tự xây và vận hành hạ tầng tính toán, trả tiền theo mức dùng, và xử lý workload quy mô lớn hiệu quả."
+    },
+    {
+     "heading": "AI on the edge: LiteRT and Gemini Nano",
+     "heading_vi": "AI tại edge: LiteRT và Gemini Nano",
+     "body": "Edge computing runs AI on devices or servers close to where the data is generated or needed (smartphones, IoT gateways, local servers) rather than in a large cloud. Benefits: real-time responsiveness, stronger data privacy, and less dependence on an internet connection.\n\nLiteRT (Lite Runtime) lets you run ML models efficiently on edge devices and phones; models can be converted to LiteRT, packaged with dependencies in containers and deployed to edge hardware, then managed and monitored using Agent Platform tools. Gemini Nano is Google's smallest model, designed to run on-device: data stays on the device (privacy), responses are fast with no round trip to the cloud (speed), and it works offline. Examples: Google Pixel features such as call notes and recorder summaries; Android developers can access it through the AI Edge SDK.",
+     "body_vi": "Edge computing chạy AI trên thiết bị hoặc máy chủ gần nơi dữ liệu phát sinh hoặc cần dùng (smartphone, IoT gateway, máy chủ cục bộ) thay vì trên cloud lớn. Lợi ích: phản hồi thời gian thực, quyền riêng tư dữ liệu mạnh hơn, và ít phụ thuộc kết nối internet.\n\nLiteRT (Lite Runtime) giúp chạy model ML hiệu quả trên thiết bị edge và điện thoại; model có thể được chuyển sang LiteRT, đóng gói cùng dependency trong container và triển khai lên phần cứng edge, sau đó quản lý và giám sát bằng công cụ Agent Platform. Gemini Nano là model nhỏ gọn nhất của Google, thiết kế để chạy trên thiết bị: dữ liệu ở lại thiết bị (riêng tư), phản hồi nhanh vì không phải gửi lên cloud (tốc độ), và dùng được offline. Ví dụ: tính năng của Google Pixel như ghi chú cuộc gọi, tóm tắt bản ghi âm; developer Android truy cập qua AI Edge SDK."
+    }
+   ],
+   "table": {
+    "caption": "Infrastructure components at a glance",
+    "caption_vi": "Tổng quan các thành phần hạ tầng",
+    "headers": [
+     "Component",
+     "What it is",
+     "Benefit"
+    ],
+    "headers_vi": [
+     "Thành phần",
+     "Là gì",
+     "Lợi ích"
+    ],
+    "rows": [
+     [
+      "TPU",
+      "Google custom-designed AI chip",
+      "Efficient large-scale AI training and serving"
+     ],
+     [
+      "GPU",
+      "Accelerator for parallel compute",
+      "Flexible high-performance AI workloads"
+     ],
+     [
+      "AI Hypercomputer",
+      "Integrated hardware, networking, software to train/tune/serve",
+      "One optimized system for AI workloads"
+     ],
+     [
+      "LiteRT",
+      "Runtime for ML models on edge devices",
+      "On-device efficiency"
+     ],
+     [
+      "Gemini Nano",
+      "Smallest Gemini model for on-device use",
+      "Privacy, speed, offline access"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Infrastructure is the foundation layer of the five-layer gen AI stack.",
+     "vi": "Hạ tầng là tầng nền của chồng năm tầng gen AI."
+    },
+    {
+     "en": "TPUs are Google's custom-designed AI chips; GPUs are also supported.",
+     "vi": "TPU là chip AI do Google thiết kế riêng; GPU cũng được hỗ trợ."
+    },
+    {
+     "en": "AI Hypercomputer integrates hardware, networking and software to train, tune and serve AI.",
+     "vi": "AI Hypercomputer tích hợp phần cứng, mạng và phần mềm để train, tune và serve AI."
+    },
+    {
+     "en": "Edge AI runs near the data: real time, privacy, less reliance on connectivity.",
+     "vi": "Edge AI chạy gần dữ liệu: thời gian thực, riêng tư, ít phụ thuộc kết nối."
+    },
+    {
+     "en": "LiteRT deploys models to edge devices; Gemini Nano is Google's on-device model.",
+     "vi": "LiteRT triển khai model lên thiết bị edge; Gemini Nano là model on-device của Google."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "Offline use, on-device privacy and low latency point to Gemini Nano / edge AI.",
+     "vi": "Dùng offline, riêng tư trên thiết bị và độ trễ thấp là dấu hiệu Gemini Nano / edge AI."
+    },
+    {
+     "en": "'Custom-designed chips for AI' means TPUs, not GPUs.",
+     "vi": "'Chip thiết kế riêng cho AI' là TPU, không phải GPU."
+    },
+    {
+     "en": "Do not confuse LiteRT (runtime to deploy models on devices) with Gemini Nano (an actual model).",
+     "vi": "Đừng nhầm LiteRT (runtime để triển khai model lên thiết bị) với Gemini Nano (một model thực sự)."
+    }
+   ],
+   "terms": [
+    {
+     "term": "TPU",
+     "en": "Tensor Processing Unit, Google's custom AI accelerator.",
+     "vi": "Tensor Processing Unit, bộ tăng tốc AI do Google thiết kế."
+    },
+    {
+     "term": "AI Hypercomputer",
+     "en": "Integrated infrastructure for training, tuning and serving AI workloads.",
+     "vi": "Hạ tầng tích hợp để huấn luyện, tinh chỉnh và phục vụ workload AI."
+    },
+    {
+     "term": "GPU",
+     "en": "Graphics Processing Unit used to accelerate AI workloads.",
+     "vi": "Bộ xử lý đồ họa dùng để tăng tốc workload AI."
+    },
+    {
+     "term": "Edge computing",
+     "en": "Running AI near the data source on devices or local servers.",
+     "vi": "Chạy AI gần nguồn dữ liệu trên thiết bị hoặc máy chủ cục bộ."
+    },
+    {
+     "term": "LiteRT",
+     "en": "Lite Runtime for running ML models efficiently on edge devices.",
+     "vi": "Lite Runtime để chạy model ML hiệu quả trên thiết bị edge."
+    },
+    {
+     "term": "Gemini Nano",
+     "en": "Google's lightest model, designed to run on-device.",
+     "vi": "Model gọn nhẹ nhất của Google, thiết kế chạy trên thiết bị."
+    }
+   ],
+   "keywords": [
+    "tpu",
+    "gpu",
+    "hypercomputer",
+    "ai hypercomputer",
+    "infrastructure",
+    "data centers",
+    "edge",
+    "on-device",
+    "gemini nano",
+    "litert",
+    "offline",
+    "latency",
+    "scalable",
+    "train",
+    "serve"
+   ]
+  },
+  {
+   "id": "d2-t3",
+   "objective": "Describe how Google Cloud's prebuilt gen AI offerings enable AI-powered work (Gemini app and Gemini Advanced, Gemini Enterprise, Gemini for Google Workspace).",
+   "title": "Prebuilt offerings for AI-powered work",
+   "title_vi": "Các offering dựng sẵn cho công việc có AI",
+   "sources": [
+    "guide.txt",
+    "exam-guide-official-checklist.md",
+    "module4-v2.md",
+    "bonus-reference-guide.md",
+    "module3-v2.md"
+   ],
+   "sections": [
+    {
+     "heading": "Definition: ready-to-use AI applications",
+     "heading_vi": "Định nghĩa: ứng dụng AI dùng ngay",
+     "body": "Prebuilt offerings sit at the application layer: employees use them directly with little or no code. They improve productivity by drafting, summarizing, searching, analyzing and automating tasks. The key exam skill is matching the offering to the need.\n\nThe Gemini app is Google's gen AI chatbot for writing, summarizing, translating and generating images. Gemini Advanced adds more capable features and enterprise-grade protection. Gems are personalized AI assistants within Gemini, acting like reusable prompt templates and guided workflows for repeated tasks.",
+     "body_vi": "Các offering dựng sẵn nằm ở tầng ứng dụng: nhân viên dùng trực tiếp với ít hoặc không cần code. Chúng nâng năng suất bằng cách soạn thảo, tóm tắt, tìm kiếm, phân tích và tự động hóa tác vụ. Kỹ năng thi quan trọng là ghép offering với nhu cầu.\n\nGemini app là chatbot gen AI của Google để viết, tóm tắt, dịch và tạo ảnh. Gemini Advanced bổ sung tính năng mạnh hơn và bảo vệ cấp doanh nghiệp. Gems là trợ lý AI cá nhân hóa trong Gemini, hoạt động như template prompt tái sử dụng và quy trình có hướng dẫn cho tác vụ lặp lại."
+    },
+    {
+     "heading": "Gemini Enterprise, Gemini Notebook and Workspace",
+     "heading_vi": "Gemini Enterprise, Gemini Notebook và Workspace",
+     "body": "Gemini Enterprise provides custom search and conversational agents that access internal company data. The exam guide cites the Gemini Notebook API, multimodal search and custom agent capabilities as examples. Business value: employees find and use company knowledge in one place, and teams build agents for their own workflows.\n\nGemini Notebook (formerly NotebookLM) is a research assistant that works from sources the user uploads: it summarizes, answers questions, generates ideas and can create quizzes, and every answer is grounded in the uploaded sources. It does not browse the whole internet, and grounding is not exclusive to it.\n\nGemini for Google Workspace embeds AI in the apps people already use: drafting email in Gmail, generating images in Slides, summarizing meetings in Meet, and so on. Gemini for Google Cloud assists developers and operators: writing and debugging code, optimizing cloud applications, analyzing data in BigQuery and strengthening security.",
+     "body_vi": "Gemini Enterprise cung cấp tìm kiếm tùy biến và agent hội thoại truy cập dữ liệu nội bộ của công ty. Exam guide nêu Gemini Notebook API, multimodal search và custom agent làm ví dụ. Giá trị kinh doanh: nhân viên tìm và dùng tri thức công ty ở một nơi, và các đội xây agent cho quy trình của riêng mình.\n\nGemini Notebook (trước đây là NotebookLM) là trợ lý nghiên cứu làm việc dựa trên nguồn do người dùng upload: tóm tắt, trả lời câu hỏi, tạo ý tưởng và có thể tạo quiz, và mọi câu trả lời đều bám vào nguồn đã upload. Nó không duyệt toàn bộ internet, và grounding không phải tính năng chỉ riêng nó có.\n\nGemini for Google Workspace nhúng AI vào các ứng dụng người dùng đã dùng sẵn: soạn email trong Gmail, tạo ảnh trong Slides, tóm tắt cuộc họp trong Meet, v.v. Gemini for Google Cloud hỗ trợ developer và vận hành: viết và debug code, tối ưu ứng dụng cloud, phân tích dữ liệu trong BigQuery và tăng cường bảo mật."
+    },
+    {
+     "heading": "Business implication and pitfalls",
+     "heading_vi": "Hệ quả kinh doanh và bẫy",
+     "body": "Choose by need: general-purpose assistance (Gemini app), repeated personalized tasks (Gems), enterprise data search and agents (Gemini Enterprise), source-bound research (Gemini Notebook), AI inside daily productivity apps (Gemini for Workspace), and AI help for building and running on Google Cloud (Gemini for Google Cloud). A common trap is picking a build-your-own platform when a prebuilt offering already meets the need.",
+     "body_vi": "Chọn theo nhu cầu: trợ giúp đa dụng (Gemini app), tác vụ lặp lại cá nhân hóa (Gems), tìm kiếm dữ liệu doanh nghiệp và agent (Gemini Enterprise), nghiên cứu bám nguồn (Gemini Notebook), AI trong ứng dụng năng suất hằng ngày (Gemini for Workspace), và AI hỗ trợ xây dựng, vận hành trên Google Cloud (Gemini for Google Cloud). Bẫy phổ biến là chọn nền tảng tự xây trong khi offering dựng sẵn đã đáp ứng nhu cầu."
+    }
+   ],
+   "table": {
+    "caption": "Which offering for which need",
+    "caption_vi": "Offering nào cho nhu cầu nào",
+    "headers": [
+     "Need",
+     "Offering"
+    ],
+    "headers_vi": [
+     "Nhu cầu",
+     "Offering"
+    ],
+    "rows": [
+     [
+      "General chatbot: write, summarize, translate, create images",
+      "Gemini app (Gemini Advanced for more features and enterprise protection)"
+     ],
+     [
+      "Reusable personalized assistant for a repeated task",
+      "Gems"
+     ],
+     [
+      "Search and agents over internal company data, multimodal search, custom agents",
+      "Gemini Enterprise"
+     ],
+     [
+      "Summarize and Q&A strictly from uploaded documents, quizzes",
+      "Gemini Notebook"
+     ],
+     [
+      "AI inside Gmail, Docs, Slides, Meet",
+      "Gemini for Google Workspace"
+     ],
+     [
+      "Help developers/operators write code, optimize cloud apps, analyze BigQuery data",
+      "Gemini for Google Cloud"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Prebuilt offerings are used directly by employees with little or no code.",
+     "vi": "Offering dựng sẵn được nhân viên dùng trực tiếp với ít hoặc không cần code."
+    },
+    {
+     "en": "Gems are personalized assistants that work like reusable prompt templates.",
+     "vi": "Gems là trợ lý cá nhân hóa hoạt động như template prompt tái sử dụng."
+    },
+    {
+     "en": "Gemini Enterprise: custom search and agents over internal data (Gemini Notebook API, multimodal search, custom agents).",
+     "vi": "Gemini Enterprise: tìm kiếm tùy biến và agent trên dữ liệu nội bộ (Gemini Notebook API, multimodal search, custom agent)."
+    },
+    {
+     "en": "Gemini Notebook answers are grounded only in user-uploaded sources.",
+     "vi": "Câu trả lời của Gemini Notebook chỉ bám vào nguồn người dùng upload."
+    },
+    {
+     "en": "Gemini for Workspace embeds AI in Gmail, Docs, Slides, Meet; Gemini for Google Cloud helps developers and operators.",
+     "vi": "Gemini for Workspace nhúng AI vào Gmail, Docs, Slides, Meet; Gemini for Google Cloud hỗ trợ developer và vận hành."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "'Only the documents I uploaded' points to Gemini Notebook, not a web-searching chatbot.",
+     "vi": "'Chỉ dựa trên tài liệu tôi upload' là Gemini Notebook, không phải chatbot tìm web."
+    },
+    {
+     "en": "The statement 'grounding is only available in Gemini Notebook' is false.",
+     "vi": "Phát biểu 'grounding chỉ có ở Gemini Notebook' là sai."
+    },
+    {
+     "en": "Employees need AI in the tools they already use: choose Gemini for Google Workspace, not a custom build.",
+     "vi": "Nhân viên cần AI trong công cụ đang dùng: chọn Gemini for Google Workspace, không phải tự xây."
+    },
+    {
+     "en": "Gemini for Google Cloud is for developers/IT; Gemini for Workspace is for general productivity.",
+     "vi": "Gemini for Google Cloud dành cho developer/IT; Gemini for Workspace cho năng suất chung."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Gemini app",
+     "en": "Google's gen AI chatbot for writing, summarizing, translating and image creation.",
+     "vi": "Chatbot gen AI của Google để viết, tóm tắt, dịch, tạo ảnh."
+    },
+    {
+     "term": "Gems",
+     "en": "Personalized AI assistants in Gemini, like reusable prompt templates.",
+     "vi": "Trợ lý AI cá nhân hóa trong Gemini, như template prompt tái sử dụng."
+    },
+    {
+     "term": "Gemini Enterprise",
+     "en": "Custom search and conversational agents over internal data.",
+     "vi": "Tìm kiếm tùy biến và agent hội thoại trên dữ liệu nội bộ."
+    },
+    {
+     "term": "Gemini Notebook",
+     "en": "Research assistant grounded in user-uploaded sources (formerly NotebookLM).",
+     "vi": "Trợ lý nghiên cứu bám nguồn người dùng upload (trước đây NotebookLM)."
+    },
+    {
+     "term": "Gemini for Google Workspace",
+     "en": "Gen AI built into Gmail, Docs, Slides, Meet and other Workspace apps.",
+     "vi": "Gen AI tích hợp trong Gmail, Docs, Slides, Meet và các app Workspace."
+    },
+    {
+     "term": "Gemini for Google Cloud",
+     "en": "AI assistance for developers and operators on Google Cloud.",
+     "vi": "Trợ lý AI cho developer và vận hành trên Google Cloud."
+    },
+    {
+     "term": "Multimodal search",
+     "en": "Searching across different data types such as text, images, audio, video.",
+     "vi": "Tìm kiếm trên nhiều loại dữ liệu như văn bản, ảnh, âm thanh, video."
+    }
+   ],
+   "keywords": [
+    "gemini app",
+    "gemini advanced",
+    "gems",
+    "gemini enterprise",
+    "gemini notebook",
+    "notebooklm",
+    "workspace",
+    "gmail",
+    "google workspace",
+    "multimodal search",
+    "custom agents",
+    "summarize",
+    "uploaded",
+    "gemini for google cloud",
+    "bigquery"
+   ]
+  },
+  {
+   "id": "d2-t4",
+   "objective": "Describe how Google Cloud's gen AI offerings improve the customer experience (external search offerings; Customer Engagement Suite).",
+   "title": "Offerings that improve customer experience",
+   "title_vi": "Các offering cải thiện trải nghiệm khách hàng",
+   "sources": [
+    "guide.txt",
+    "exam-guide-official-checklist.md",
+    "bonus-reference-guide.md",
+    "module4-v2.md",
+    "module5-v2.md"
+   ],
+   "sections": [
+    {
+     "heading": "External search offerings",
+     "heading_vi": "Các offering tìm kiếm bên ngoài",
+     "body": "Customers expect fast, relevant answers. Google Cloud offers external search so that an organization's customers (or the public) can find information. Agent Search on Gemini Enterprise Agent Platform is an enterprise search and recommendation solution with pre-built RAG: it lets you build search over your own data without assembling the infrastructure yourself, and results can be grounded in that data. Google Search can be used to bring up-to-date information from the web, for example to ground answers and compensate for a model's knowledge cutoff.\n\nBusiness value: better findability, more relevant recommendations, fewer hallucinations through grounding, and quicker time to market than building search from scratch.",
+     "body_vi": "Khách hàng mong đợi câu trả lời nhanh và liên quan. Google Cloud cung cấp tìm kiếm bên ngoài để khách hàng (hoặc công chúng) của tổ chức tìm được thông tin. Agent Search trên Gemini Enterprise Agent Platform là giải pháp tìm kiếm và gợi ý cho doanh nghiệp với RAG dựng sẵn: cho phép xây tìm kiếm trên dữ liệu của bạn mà không phải tự dựng hạ tầng, và kết quả có thể được grounding vào dữ liệu đó. Google Search có thể dùng để lấy thông tin cập nhật từ web, ví dụ để grounding câu trả lời và bù knowledge cutoff của model.\n\nGiá trị kinh doanh: dễ tìm hơn, gợi ý liên quan hơn, ít hallucination nhờ grounding, và đưa ra thị trường nhanh hơn so với tự xây tìm kiếm từ đầu."
+    },
+    {
+     "heading": "Customer Engagement Suite",
+     "heading_vi": "Customer Engagement Suite",
+     "body": "The Customer Engagement Suite (called Gemini Enterprise for Customer Experience in current naming) groups tools for customer service. Conversational Agents (CX Agent Studio) builds chatbots and agents that serve customers by voice or text. Agent Assist supports human contact-center agents in real time while they are talking to a customer, for example suggesting answers. Conversational Insights (Customer Experience Insights) analyzes all customer communications to extract insights such as topics and sentiment. Google Cloud Contact Center as a Service (CCaaS) is the cloud-native, enterprise-grade contact center solution on which these tools are built.",
+     "body_vi": "Customer Engagement Suite (trong cách gọi hiện tại là Gemini Enterprise for Customer Experience) gom các công cụ cho dịch vụ khách hàng. Conversational Agents (CX Agent Studio) xây chatbot và agent phục vụ khách hàng bằng giọng nói hoặc văn bản. Agent Assist hỗ trợ nhân viên contact center đang trực tiếp nói chuyện với khách theo thời gian thực, ví dụ gợi ý câu trả lời. Conversational Insights (Customer Experience Insights) phân tích toàn bộ giao tiếp với khách hàng để rút ra insight như chủ đề và cảm xúc. Google Cloud Contact Center as a Service (CCaaS) là giải pháp contact center cloud-native cấp doanh nghiệp mà các công cụ trên được xây dựng trên đó."
+    },
+    {
+     "heading": "Business implication and pitfalls",
+     "heading_vi": "Hệ quả kinh doanh và bẫy",
+     "body": "Benefits: 24/7 self-service, shorter handling time, consistent answers, better agent productivity and data-driven improvement of service. The most common trap is mixing Conversational Agents (talks to the customer instead of a human) with Agent Assist (helps the human agent) and Conversational Insights (analyzes conversations afterwards, not live).",
+     "body_vi": "Lợi ích: tự phục vụ 24/7, rút ngắn thời gian xử lý, câu trả lời nhất quán, nhân viên năng suất hơn và cải thiện dịch vụ dựa trên dữ liệu. Bẫy phổ biến nhất là lẫn Conversational Agents (nói chuyện với khách thay người) với Agent Assist (giúp nhân viên) và Conversational Insights (phân tích hội thoại, không phải trực tiếp)."
+    }
+   ],
+   "table": {
+    "caption": "Customer experience products",
+    "caption_vi": "Sản phẩm cho trải nghiệm khách hàng",
+    "headers": [
+     "Product",
+     "Who it serves",
+     "What it does"
+    ],
+    "headers_vi": [
+     "Sản phẩm",
+     "Phục vụ ai",
+     "Làm gì"
+    ],
+    "rows": [
+     [
+      "Agent Search (Agent Platform)",
+      "Customers / employees searching",
+      "Enterprise search and recommendations with pre-built RAG"
+     ],
+     [
+      "Google Search",
+      "Apps needing fresh web info",
+      "Grounds answers in current web information"
+     ],
+     [
+      "Conversational Agents / CX Agent Studio",
+      "Customers",
+      "Chatbots and agents for customer interactions"
+     ],
+     [
+      "Agent Assist",
+      "Human contact-center agents",
+      "Real-time help during live conversations"
+     ],
+     [
+      "Conversational Insights",
+      "Managers / analysts",
+      "Analyzes all customer communications for insights"
+     ],
+     [
+      "CCaaS",
+      "Contact center operations",
+      "Cloud-native enterprise contact center platform"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Agent Search provides enterprise search and recommendations with pre-built RAG.",
+     "vi": "Agent Search cung cấp tìm kiếm và gợi ý doanh nghiệp với RAG dựng sẵn."
+    },
+    {
+     "en": "Conversational Agents (CX Agent Studio) build customer-facing chatbots and agents.",
+     "vi": "Conversational Agents (CX Agent Studio) xây chatbot và agent đối diện khách hàng."
+    },
+    {
+     "en": "Agent Assist helps human agents during live conversations.",
+     "vi": "Agent Assist giúp nhân viên trong lúc hội thoại trực tiếp."
+    },
+    {
+     "en": "Conversational Insights analyzes customer communications to extract insights.",
+     "vi": "Conversational Insights phân tích giao tiếp khách hàng để rút insight."
+    },
+    {
+     "en": "CCaaS is the cloud-native contact center foundation for these tools.",
+     "vi": "CCaaS là nền tảng contact center cloud-native cho các công cụ này."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "'Assisting a live human agent' = Agent Assist; 'automating the conversation' = Conversational Agents.",
+     "vi": "'Hỗ trợ nhân viên đang trực tiếp' = Agent Assist; 'tự động hóa hội thoại' = Conversational Agents."
+    },
+    {
+     "en": "'Analyze all calls/chats for sentiment and trends' = Conversational Insights.",
+     "vi": "'Phân tích mọi cuộc gọi/chat để lấy cảm xúc và xu hướng' = Conversational Insights."
+    },
+    {
+     "en": "Search over company data with no infrastructure to build = Agent Search.",
+     "vi": "Tìm kiếm trên dữ liệu công ty mà không cần dựng hạ tầng = Agent Search."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Agent Search",
+     "en": "Search and recommendation solution on Agent Platform with pre-built RAG.",
+     "vi": "Giải pháp tìm kiếm và gợi ý trên Agent Platform với RAG dựng sẵn."
+    },
+    {
+     "term": "Conversational Agents",
+     "en": "Customer-facing chatbots/agents built with CX Agent Studio.",
+     "vi": "Chatbot/agent đối diện khách hàng xây bằng CX Agent Studio."
+    },
+    {
+     "term": "Agent Assist",
+     "en": "Real-time assistance for human contact-center agents.",
+     "vi": "Hỗ trợ thời gian thực cho nhân viên contact center."
+    },
+    {
+     "term": "Conversational Insights",
+     "en": "Analysis of customer communications to extract insights.",
+     "vi": "Phân tích giao tiếp khách hàng để rút insight."
+    },
+    {
+     "term": "CCaaS",
+     "en": "Contact Center as a Service, cloud-native contact center solution.",
+     "vi": "Contact Center as a Service, giải pháp contact center cloud-native."
+    },
+    {
+     "term": "Customer Engagement Suite",
+     "en": "Group of Google Cloud tools for customer service and contact centers.",
+     "vi": "Nhóm công cụ Google Cloud cho dịch vụ khách hàng và contact center."
+    }
+   ],
+   "keywords": [
+    "agent search",
+    "customer engagement suite",
+    "conversational agents",
+    "agent assist",
+    "conversational insights",
+    "ccaas",
+    "contact center",
+    "customer service",
+    "chatbot",
+    "google search",
+    "customer experience",
+    "sentiment",
+    "recommendations",
+    "self-service",
+    "live agent"
+   ]
+  },
+  {
+   "id": "d2-t5",
+   "objective": "Describe how Google Cloud empowers developers to build with AI (Agent Platform: Model Garden, Agent Search, AutoML; RAG offerings; building custom agents).",
+   "title": "Building with AI on Agent Platform",
+   "title_vi": "Xây dựng với AI trên Agent Platform",
+   "sources": [
+    "guide.txt",
+    "exam-guide-official-checklist.md",
+    "module3-v2.md",
+    "module5-v2.md",
+    "bonus-reference-guide.md"
+   ],
+   "sections": [
+    {
+     "heading": "Agent Platform: the development platform",
+     "heading_vi": "Agent Platform: nền tảng phát triển",
+     "body": "Gemini Enterprise Agent Platform (Agent Platform, formerly Vertex AI) is Google Cloud's unified platform for building, tuning, deploying and managing models and agents. It covers model selection, evaluation, deployment and monitoring in one place.\n\nModel Garden is the catalog where you discover and choose models: Google's first-party models, third-party models and open-source models. Model Builder is for training or using your own models: custom training with ML frameworks (PyTorch, TensorFlow and others) gives full control over algorithms and hyperparameters, while AutoML builds models with little ML expertise by automating model creation. MLOps tools on Agent Platform (for example Feature Store, Pipelines, Model Registry, Model Monitoring) help teams collaborate, monitor and continuously improve models.",
+     "body_vi": "Gemini Enterprise Agent Platform (Agent Platform, trước đây là Vertex AI) là nền tảng hợp nhất của Google Cloud để xây dựng, tinh chỉnh, triển khai và quản lý model và agent. Nó bao gồm chọn model, đánh giá, triển khai và giám sát ở một nơi.\n\nModel Garden là danh mục để khám phá và chọn model: model first-party của Google, third-party và open-source. Model Builder dùng để train hoặc dùng model của riêng bạn: custom training với ML framework (PyTorch, TensorFlow...) cho toàn quyền kiểm soát thuật toán và hyperparameter, còn AutoML xây model với ít chuyên môn ML bằng cách tự động hóa việc tạo model. Công cụ MLOps trên Agent Platform (ví dụ Feature Store, Pipelines, Model Registry, Model Monitoring) giúp đội cộng tác, giám sát và cải thiện model liên tục.",
+     "bullets": [
+      {
+       "en": "Model Garden: discover and choose models",
+       "vi": "Model Garden: khám phá và chọn model"
+      },
+      {
+       "en": "Model Builder: custom training (full control) or AutoML (little ML expertise)",
+       "vi": "Model Builder: custom training (toàn quyền) hoặc AutoML (ít chuyên môn ML)"
+      },
+      {
+       "en": "MLOps tools: collaborate, monitor, improve models",
+       "vi": "Công cụ MLOps: cộng tác, giám sát, cải thiện model"
+      }
+     ]
+    },
+    {
+     "heading": "Google AI Studio vs Agent Studio, and accessing Gemini API",
+     "heading_vi": "Google AI Studio so với Agent Studio, và truy cập Gemini API",
+     "body": "Google AI Studio is a free, web-based environment for rapid prototyping with the Gemini API; you can get an API key quickly and test prompts and parameters (for example temperature). Its audience is developers, students and researchers. Agent Studio, on Google Cloud, is for building and deploying production-grade, large-scale AI applications with security and organizational control (IAM) and advanced tuning. Best practice: prototype in Google AI Studio, then move to Agent Studio when you need production, strict governance or model customization.\n\nTo access the Gemini API, developers can use Google Cloud developer tools such as Cloud Run functions and Cloud Run, or low-code/no-code tools such as Apps Script and AppSheet.",
+     "body_vi": "Google AI Studio là môi trường web miễn phí để prototype nhanh với Gemini API; bạn lấy API key nhanh và thử prompt cùng tham số (ví dụ temperature). Đối tượng là developer, sinh viên và nhà nghiên cứu. Agent Studio, trên Google Cloud, dùng để xây và triển khai ứng dụng AI cấp production, quy mô lớn với bảo mật và kiểm soát tổ chức (IAM) cùng tinh chỉnh nâng cao. Thực hành tốt: prototype ở Google AI Studio, rồi chuyển sang Agent Studio khi cần production, governance chặt hoặc tùy biến model.\n\nĐể truy cập Gemini API, developer có thể dùng công cụ phát triển Google Cloud như Cloud Run functions và Cloud Run, hoặc công cụ low-code/no-code như Apps Script và AppSheet."
+    },
+    {
+     "heading": "RAG offerings and custom agents",
+     "heading_vi": "Các offering RAG và custom agent",
+     "body": "RAG (retrieval-augmented generation) grounds model answers in your own up-to-date data without retraining. Data can be first-party enterprise data, third-party data or world data from Google Search. Google Cloud offers: pre-built RAG with Agent Search (no infrastructure to build), RAG APIs (embed RAG capabilities into custom applications), and grounding with Google Search (use Google's index for current information).\n\nAgent Platform is also where you build custom agents: choose a model from Model Garden, give it tools and data, and deploy and monitor it with managed services. Choose pre-built RAG for speed, RAG APIs for flexibility in custom apps.",
+     "body_vi": "RAG (retrieval-augmented generation) grounding câu trả lời của model vào dữ liệu cập nhật của bạn mà không cần huấn luyện lại. Dữ liệu có thể là dữ liệu doanh nghiệp first-party, dữ liệu third-party hoặc dữ liệu thế giới từ Google Search. Google Cloud cung cấp: RAG dựng sẵn với Agent Search (không cần dựng hạ tầng), RAG APIs (nhúng khả năng RAG vào ứng dụng tùy biến), và grounding với Google Search (dùng chỉ mục của Google cho thông tin hiện tại).\n\nAgent Platform cũng là nơi xây custom agent: chọn model từ Model Garden, cấp tool và dữ liệu, rồi triển khai và giám sát bằng dịch vụ được quản lý. Chọn RAG dựng sẵn để nhanh, RAG APIs để linh hoạt trong ứng dụng tùy biến."
+    }
+   ],
+   "table": {
+    "caption": "Which tool for which developer need",
+    "caption_vi": "Công cụ nào cho nhu cầu developer nào",
+    "headers": [
+     "Need",
+     "Choose"
+    ],
+    "headers_vi": [
+     "Nhu cầu",
+     "Chọn"
+    ],
+    "rows": [
+     [
+      "Browse and select first-party, third-party, open-source models",
+      "Model Garden"
+     ],
+     [
+      "Build a model with little ML expertise",
+      "Agent Platform AutoML (Model Builder)"
+     ],
+     [
+      "Full control over algorithms, frameworks, hyperparameters",
+      "Custom training (Model Builder)"
+     ],
+     [
+      "Quick free prototype with Gemini API and API key",
+      "Google AI Studio"
+     ],
+     [
+      "Production-grade, governed, scaled AI apps",
+      "Agent Studio"
+     ],
+     [
+      "RAG with no infrastructure",
+      "Pre-built RAG with Agent Search"
+     ],
+     [
+      "RAG inside a custom application",
+      "RAG APIs"
+     ],
+     [
+      "Call Gemini API without writing much code",
+      "Apps Script or AppSheet (code: Cloud Run functions, Cloud Run)"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Agent Platform (formerly Vertex AI) is the unified platform to build, tune, deploy and monitor models and agents.",
+     "vi": "Agent Platform (trước đây Vertex AI) là nền tảng hợp nhất để xây, tinh chỉnh, triển khai và giám sát model và agent."
+    },
+    {
+     "en": "Model Garden = choose models; Model Builder = train your own (custom or AutoML).",
+     "vi": "Model Garden = chọn model; Model Builder = train model của bạn (custom hoặc AutoML)."
+    },
+    {
+     "en": "Google AI Studio is for quick prototyping; Agent Studio is for production with governance.",
+     "vi": "Google AI Studio để prototype nhanh; Agent Studio cho production có governance."
+    },
+    {
+     "en": "Gemini API is reachable via Cloud Run functions, Cloud Run, Apps Script and AppSheet.",
+     "vi": "Gemini API truy cập được qua Cloud Run functions, Cloud Run, Apps Script và AppSheet."
+    },
+    {
+     "en": "RAG options: pre-built RAG with Agent Search, RAG APIs, grounding with Google Search.",
+     "vi": "Lựa chọn RAG: RAG dựng sẵn với Agent Search, RAG APIs, grounding với Google Search."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "Limited ML expertise plus own data points to AutoML; need for full control points to custom training.",
+     "vi": "Ít chuyên môn ML cùng dữ liệu riêng là AutoML; cần toàn quyền kiểm soát là custom training."
+    },
+    {
+     "en": "Prototype quickly and cheaply = Google AI Studio; enterprise IAM and production = Agent Studio.",
+     "vi": "Prototype nhanh và rẻ = Google AI Studio; IAM doanh nghiệp và production = Agent Studio."
+    },
+    {
+     "en": "Up-to-date internal answers without retraining = RAG/grounding, not fine-tuning.",
+     "vi": "Trả lời cập nhật từ dữ liệu nội bộ mà không retrain = RAG/grounding, không phải fine-tuning."
+    },
+    {
+     "en": "Model Garden is where you find models; it is not the platform that deploys or trains them.",
+     "vi": "Model Garden là nơi tìm model; không phải nền tảng triển khai hay train."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Agent Platform",
+     "en": "Google Cloud's unified platform for building, tuning, deploying models and agents (formerly Vertex AI).",
+     "vi": "Nền tảng hợp nhất của Google Cloud để xây, tinh chỉnh, triển khai model và agent (trước đây Vertex AI)."
+    },
+    {
+     "term": "Model Garden",
+     "en": "Catalog of first-party, third-party and open-source models.",
+     "vi": "Danh mục model first-party, third-party và open-source."
+    },
+    {
+     "term": "Model Builder",
+     "en": "Tools to train or use your own models, via custom training or AutoML.",
+     "vi": "Công cụ để train hoặc dùng model riêng, qua custom training hoặc AutoML."
+    },
+    {
+     "term": "AutoML",
+     "en": "Automated model creation requiring little ML expertise.",
+     "vi": "Tạo model tự động, ít cần chuyên môn ML."
+    },
+    {
+     "term": "Google AI Studio",
+     "en": "Free web tool for rapid Gemini prototyping.",
+     "vi": "Công cụ web miễn phí để prototype Gemini nhanh."
+    },
+    {
+     "term": "Agent Studio",
+     "en": "Environment for production-grade AI apps with governance.",
+     "vi": "Môi trường cho ứng dụng AI cấp production có governance."
+    },
+    {
+     "term": "RAG APIs",
+     "en": "APIs to embed retrieval-augmented generation into custom apps.",
+     "vi": "API để nhúng retrieval-augmented generation vào ứng dụng tùy biến."
+    },
+    {
+     "term": "MLOps",
+     "en": "Practices and tools to monitor and improve models over time.",
+     "vi": "Thực hành và công cụ để giám sát và cải thiện model theo thời gian."
+    }
+   ],
+   "keywords": [
+    "model garden",
+    "agent platform",
+    "vertex ai",
+    "automl",
+    "custom training",
+    "model builder",
+    "mlops",
+    "google ai studio",
+    "agent studio",
+    "gemini api",
+    "cloud run",
+    "apps script",
+    "appsheet",
+    "rag",
+    "rag apis"
+   ]
+  },
+  {
+   "id": "d2-t6",
+   "objective": "Define the purpose and types of tooling for gen AI agents (extensions, functions, data stores, plugins; Google Cloud services and pre-built AI APIs; Agent Studio vs Google AI Studio).",
+   "title": "Gen AI agents and tooling",
+   "title_vi": "Gen AI agent và công cụ (tooling)",
+   "sources": [
+    "guide.txt",
+    "exam-guide-official-checklist.md",
+    "module5-v2.md",
+    "bonus-reference-guide.md"
+   ],
+   "sections": [
+    {
+     "heading": "What an agent is and how it works",
+     "heading_vi": "Agent là gì và hoạt động ra sao",
+     "body": "A gen AI agent is software that learns the best way to reach a goal based on its input and the tools available to it, with a focus on autonomous action. An agent has three core components: a model (the reasoning engine), tools (to interact with the external environment) and a reasoning loop (plan, act, observe, repeat until the goal is met).\n\nTypes: deterministic agents follow predefined paths (predictable, good for compliance-bound steps); generative agents are defined in natural language and driven by an LLM (flexible but with hallucination risk); hybrid agents combine both and are often the most practical.",
+     "body_vi": "Gen AI agent là phần mềm học cách tốt nhất để đạt mục tiêu dựa trên đầu vào và các tool sẵn có, tập trung vào hành động tự chủ. Agent có ba thành phần cốt lõi: model (động cơ suy luận), tool (để tương tác với môi trường bên ngoài) và reasoning loop (lập kế hoạch, hành động, quan sát, lặp lại đến khi đạt mục tiêu).\n\nCác loại: agent deterministic đi theo đường định sẵn (dự đoán được, hợp với bước bắt buộc tuân thủ); agent generative được định nghĩa bằng ngôn ngữ tự nhiên và chạy bởi LLM (linh hoạt nhưng có rủi ro hallucination); agent hybrid kết hợp cả hai và thường thực dụng nhất."
+    },
+    {
+     "heading": "Tool types",
+     "heading_vi": "Các loại tool",
+     "body": "Agents use tools to act on the outside world. Four types appear on the exam: Extensions connect to external services through APIs; Functions are specific actions or tasks the agent can call (executed on the client side); Data stores give access to information, such as enterprise documents used for RAG; Plugins add skills or integrations. Tools are what turn a model that only produces text into an agent that completes tasks.",
+     "body_vi": "Agent dùng tool để tác động lên thế giới bên ngoài. Có bốn loại xuất hiện trong đề: Extensions kết nối dịch vụ bên ngoài qua API; Functions là hành động hoặc tác vụ cụ thể agent có thể gọi (thực thi phía client); Data stores cấp quyền truy cập thông tin, ví dụ tài liệu doanh nghiệp dùng cho RAG; Plugins bổ sung kỹ năng hoặc tích hợp. Tool biến một model chỉ sinh văn bản thành agent hoàn thành được tác vụ.",
+     "bullets": [
+      {
+       "en": "Extensions: connect to external services via APIs",
+       "vi": "Extensions: kết nối dịch vụ ngoài qua API"
+      },
+      {
+       "en": "Functions: specific actions/tasks",
+       "vi": "Functions: hành động/tác vụ cụ thể"
+      },
+      {
+       "en": "Data stores: access to information (RAG)",
+       "vi": "Data stores: truy cập thông tin (RAG)"
+      },
+      {
+       "en": "Plugins: add skills or integrations",
+       "vi": "Plugins: thêm kỹ năng hoặc tích hợp"
+      }
+     ]
+    },
+    {
+     "heading": "Google Cloud services and pre-built AI APIs",
+     "heading_vi": "Dịch vụ Google Cloud và AI API dựng sẵn",
+     "body": "Agents can be built on Google Cloud services: Cloud Storage and databases (data), Cloud Functions and Cloud Run (run code and expose actions), Agent Platform (models and agent building), and the Google Cloud API Library (browse and enable APIs). Pre-built AI APIs give ready-made capabilities without training models, and are often tested as 'choose the right API' (see table).\n\nAlso know when to use Google AI Studio (free, fast prototyping with the Gemini API) versus Agent Studio (production-grade, governed, enterprise).",
+     "body_vi": "Agent có thể được xây trên các dịch vụ Google Cloud: Cloud Storage và database (dữ liệu), Cloud Functions và Cloud Run (chạy code và cung cấp hành động), Agent Platform (model và xây agent), và Google Cloud API Library (duyệt và bật API). AI API dựng sẵn cung cấp năng lực có sẵn mà không phải train model, và thường được hỏi dạng 'chọn API phù hợp' (xem bảng).\n\nCũng cần biết khi nào dùng Google AI Studio (miễn phí, prototype nhanh với Gemini API) so với Agent Studio (cấp production, có governance, doanh nghiệp)."
+    }
+   ],
+   "table": {
+    "caption": "Pre-built AI APIs: which one for which need",
+    "caption_vi": "AI API dựng sẵn: chọn API nào",
+    "headers": [
+     "API",
+     "Use it to",
+     "Cue"
+    ],
+    "headers_vi": [
+     "API",
+     "Dùng để",
+     "Dấu hiệu"
+    ],
+    "rows": [
+     [
+      "Speech-to-Text",
+      "Convert speech to text; transcribe audio/video",
+      "transcribe"
+     ],
+     [
+      "Text-to-Speech",
+      "Convert text to natural-sounding speech; voice interfaces",
+      "voice UI"
+     ],
+     [
+      "Translation API",
+      "Translate text, documents, websites, audio/video",
+      "translate"
+     ],
+     [
+      "Document Translation",
+      "Translate formatted documents while keeping layout",
+      "keep layout"
+     ],
+     [
+      "Document AI",
+      "Extract data from many document formats, automate document processing, summarize",
+      "invoices, forms"
+     ],
+     [
+      "Cloud Vision",
+      "Analyze images: tag objects/text, detect faces/landmarks, moderate content, visual search",
+      "images"
+     ],
+     [
+      "Cloud Video Intelligence",
+      "Analyze video and extract information; content discovery, media analysis",
+      "video"
+     ],
+     [
+      "Natural Language",
+      "Insights from unstructured text: sentiment, classification, entities",
+      "sentiment, entity"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "An agent = model + tools + reasoning loop, acting autonomously toward a goal.",
+     "vi": "Agent = model + tool + reasoning loop, hành động tự chủ hướng tới mục tiêu."
+    },
+    {
+     "en": "Agent types: deterministic (predefined), generative (LLM-driven), hybrid (both).",
+     "vi": "Các loại agent: deterministic (định sẵn), generative (LLM), hybrid (cả hai)."
+    },
+    {
+     "en": "Tool types: extensions, functions, data stores, plugins.",
+     "vi": "Các loại tool: extensions, functions, data stores, plugins."
+    },
+    {
+     "en": "Pre-built AI APIs provide ready capabilities (speech, translation, documents, vision, video, language) without training.",
+     "vi": "AI API dựng sẵn cung cấp năng lực có sẵn (giọng nói, dịch, tài liệu, thị giác, video, ngôn ngữ) mà không cần train."
+    },
+    {
+     "en": "Cloud Run, Cloud Functions, Cloud Storage, databases and API Library support agent tooling.",
+     "vi": "Cloud Run, Cloud Functions, Cloud Storage, database và API Library hỗ trợ tooling cho agent."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "Transcribe calls = Speech-to-Text; keep layout when translating = Document Translation; sentiment in reviews = Natural Language.",
+     "vi": "Phiên âm cuộc gọi = Speech-to-Text; dịch giữ layout = Document Translation; cảm xúc trong review = Natural Language."
+    },
+    {
+     "en": "Invoices and forms extraction = Document AI, not Vision.",
+     "vi": "Trích xuất hóa đơn, form = Document AI, không phải Vision."
+    },
+    {
+     "en": "A tool-less LLM only generates text; tools are what let it take actions in the environment.",
+     "vi": "LLM không có tool chỉ sinh văn bản; tool mới cho phép thực hiện hành động trong môi trường."
+    },
+    {
+     "en": "Strictly ordered compliance steps favor deterministic or hybrid agents.",
+     "vi": "Các bước tuân thủ theo thứ tự nghiêm ngặt phù hợp agent deterministic hoặc hybrid."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Agent",
+     "en": "Software that pursues a goal using a model, tools and a reasoning loop.",
+     "vi": "Phần mềm theo đuổi mục tiêu bằng model, tool và reasoning loop."
+    },
+    {
+     "term": "Reasoning loop",
+     "en": "Cycle of planning, acting and observing until the task is done.",
+     "vi": "Chu trình lập kế hoạch, hành động và quan sát đến khi xong tác vụ."
+    },
+    {
+     "term": "Extensions",
+     "en": "Tools that connect agents to external services through APIs.",
+     "vi": "Tool kết nối agent với dịch vụ bên ngoài qua API."
+    },
+    {
+     "term": "Functions",
+     "en": "Specific actions or tasks an agent can call.",
+     "vi": "Hành động hoặc tác vụ cụ thể agent có thể gọi."
+    },
+    {
+     "term": "Data stores",
+     "en": "Tools giving agents access to information.",
+     "vi": "Tool cho agent truy cập thông tin."
+    },
+    {
+     "term": "Plugins",
+     "en": "Tools that add skills or integrations.",
+     "vi": "Tool bổ sung kỹ năng hoặc tích hợp."
+    },
+    {
+     "term": "Document AI",
+     "en": "API that extracts data from documents and automates processing.",
+     "vi": "API trích xuất dữ liệu từ tài liệu và tự động hóa xử lý."
+    },
+    {
+     "term": "Google Cloud API Library",
+     "en": "Catalog to find and enable Google Cloud APIs.",
+     "vi": "Danh mục để tìm và bật API Google Cloud."
+    }
+   ],
+   "keywords": [
+    "agent",
+    "tools",
+    "extensions",
+    "functions",
+    "data stores",
+    "plugins",
+    "deterministic",
+    "generative",
+    "hybrid",
+    "reasoning loop",
+    "speech-to-text",
+    "text-to-speech",
+    "translation api",
+    "document translation",
+    "document ai"
+   ]
+  }
+ ]
+}

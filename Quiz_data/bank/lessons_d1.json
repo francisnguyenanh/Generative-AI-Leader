@@ -1,0 +1,1011 @@
+{
+  "domain": 1,
+  "title": "Fundamentals of gen AI",
+  "title_vi": "Nền tảng về gen AI",
+  "weight": 30,
+  "overview": "This domain (about 30% of the exam) builds the vocabulary and mental models the rest of the exam relies on. Start with the big picture: AI contains ML, ML contains deep learning, and gen AI is an ML application that creates new content using foundation models such as LLMs, multimodal models and diffusion models. Then learn how machines learn (supervised, unsupervised, reinforcement) and how models move through the ML lifecycle with Google Cloud tools. Next comes practical decision-making: how to choose a foundation model for a business use case, and why data type, quality and accessibility determine results. Finally, zoom out to the five layers of the gen AI landscape (infrastructure, models, platforms, agents, applications) and zoom in on Google's models: Gemini, Gemma, Imagen and Veo. Exam questions here reward precise definitions and quick matching of a scenario to the right concept, tool or model.",
+  "overview_vi": "Domain này (khoảng 30% bài thi) xây dựng từ vựng và mô hình tư duy mà phần còn lại của bài thi dựa vào. Bắt đầu từ bức tranh lớn: AI chứa ML, ML chứa deep learning, và gen AI là ứng dụng ML tạo nội dung mới bằng foundation model như LLM, mô hình đa phương thức và diffusion. Sau đó học cách máy học (supervised, unsupervised, reinforcement) và cách mô hình đi qua vòng đời ML với công cụ Google Cloud. Tiếp theo là ra quyết định thực tế: chọn foundation model cho use case kinh doanh, và vì sao loại dữ liệu, chất lượng và khả năng tiếp cận quyết định kết quả. Cuối cùng, nhìn rộng ra năm tầng của hệ sinh thái gen AI (infrastructure, models, platforms, agents, applications) và nhìn sâu vào các mô hình của Google: Gemini, Gemma, Imagen và Veo. Câu hỏi ở đây thưởng cho định nghĩa chính xác và khả năng ghép nhanh kịch bản với đúng khái niệm, công cụ hoặc mô hình.",
+  "topics": [
+    {
+      "id": "d1-t1",
+      "objective": "1.1 Describe core generative AI (gen AI) concepts and use cases: defining core gen AI concepts (AI, NLP, ML, generative AI, foundation models, multimodal foundation models, diffusion models, prompt tuning, prompt engineering, large language models).",
+      "title": "Core gen AI concepts and terminology",
+      "title_vi": "Khái niệm và thuật ngữ cốt lõi của gen AI",
+      "sources": [
+        "exam-guide-official-checklist.md",
+        "module1-v2.md",
+        "module2-v2.md",
+        "bonus-reference-guide.md",
+        "official/study.txt"
+      ],
+      "sections": [
+        {
+          "heading": "From AI to generative AI: nested concepts",
+          "heading_vi": "Từ AI đến generative AI: các khái niệm lồng nhau",
+          "body": "Artificial intelligence (AI) is the broad field of building machines that perform tasks that normally need human intelligence, such as learning, problem-solving and decision-making. Machine learning (ML) is a subfield of AI in which machines learn from data to perform specific tasks instead of following hand-written rules. Deep learning is a subset of ML that uses artificial neural networks with many layers to extract complex patterns from data. Natural language processing (NLP) is the AI area concerned with understanding and generating human language. Generative AI is an application of ML that focuses on creating new content.\n\nA simple way to remember the hierarchy: AI is the broadest circle, ML sits inside AI, deep learning sits inside ML, and gen AI is a use of these techniques that produces new text, images, code, audio or video rather than only classifying or predicting.",
+          "body_vi": "Trí tuệ nhân tạo (AI) là lĩnh vực rộng về xây dựng máy móc thực hiện các tác vụ thường đòi hỏi trí tuệ con người như học, giải quyết vấn đề và ra quyết định. Machine learning (ML) là một nhánh của AI trong đó máy học từ dữ liệu để thực hiện các tác vụ cụ thể thay vì làm theo quy tắc viết tay. Deep learning là tập con của ML dùng mạng neural nhân tạo nhiều lớp để trích xuất các mẫu phức tạp từ dữ liệu. Natural language processing (NLP) là mảng AI liên quan đến hiểu và tạo ngôn ngữ con người. Generative AI là một ứng dụng của ML tập trung vào tạo ra nội dung mới.\n\nCách nhớ thứ bậc: AI là vòng tròn rộng nhất, ML nằm trong AI, deep learning nằm trong ML, còn gen AI là một cách dùng các kỹ thuật này để tạo ra văn bản, hình ảnh, code, âm thanh hoặc video mới thay vì chỉ phân loại hay dự đoán.",
+          "bullets": [
+            {
+              "en": "AI > ML > deep learning; gen AI is an application of ML that creates new content.",
+              "vi": "AI > ML > deep learning; gen AI là một ứng dụng của ML để tạo nội dung mới."
+            },
+            {
+              "en": "NLP: AI that works with human language (understanding and generating it).",
+              "vi": "NLP: AI làm việc với ngôn ngữ con người (hiểu và tạo ra nó)."
+            }
+          ]
+        },
+        {
+          "heading": "Foundation models, LLMs, multimodal and diffusion models",
+          "heading_vi": "Foundation model, LLM, mô hình đa phương thức và diffusion",
+          "body": "Foundation models are large AI models trained on massive amounts of (mostly unlabeled) diverse data, which gives them a broad understanding of the world. They are flexible across many use cases and can be adapted to specialized domains through additional, targeted training. They are the basis of gen AI. A large language model (LLM) is a type of foundation model designed to understand and generate human language. A multimodal foundation model can process and generate several data types, such as text, images, audio, video and code, in the same application. Diffusion models are generative models best known for image (and video) generation: they learn to create content by progressively refining noise into a coherent output guided by the prompt. Imagen is Google's text-to-image diffusion model.\n\nThe key exam contrast: a traditional ML model is trained for one specific task, while a foundation model is trained once on broad data and then reused for many tasks.",
+          "body_vi": "Foundation model là các mô hình AI lớn được huấn luyện trên lượng dữ liệu khổng lồ, đa dạng (phần lớn là dữ liệu chưa gán nhãn), nhờ đó hiểu biết rộng về thế giới. Chúng linh hoạt cho nhiều use case và có thể được điều chỉnh cho các lĩnh vực chuyên biệt bằng huấn luyện bổ sung có mục tiêu. Chúng là nền tảng của gen AI. Large language model (LLM) là một loại foundation model được thiết kế để hiểu và tạo ngôn ngữ con người. Multimodal foundation model có thể xử lý và tạo nhiều loại dữ liệu như văn bản, hình ảnh, âm thanh, video và code trong cùng một ứng dụng. Diffusion model là các mô hình sinh nổi tiếng với việc tạo ảnh (và video): chúng học tạo nội dung bằng cách tinh chỉnh dần nhiễu thành đầu ra mạch lạc theo hướng dẫn của prompt. Imagen là diffusion model text-to-image của Google.\n\nĐiểm đối chiếu hay thi: mô hình ML truyền thống được huấn luyện cho một tác vụ cụ thể, còn foundation model được huấn luyện một lần trên dữ liệu rộng rồi tái sử dụng cho nhiều tác vụ."
+        },
+        {
+          "heading": "Prompting, prompt engineering and prompt tuning",
+          "heading_vi": "Prompting, prompt engineering và prompt tuning",
+          "body": "Prompting is the method of interacting with and guiding a foundation model by giving it instructions or input to generate the desired output. Prompt engineering is the art and science of crafting effective prompts to maximize the value of the model and tailor responses to specific needs; it does NOT change the model. Prompt tuning, in contrast, adapts model behavior by learning a small set of soft prompt (embedding) parameters while the base model weights stay frozen, so it is lighter than full fine-tuning. Fine-tuning updates the model itself with additional task-specific training data.\n\nOrder from lightest to heaviest customization: prompt engineering (words only) -> prompt tuning (small learned parameters) -> fine-tuning (model is further trained).",
+          "body_vi": "Prompting là phương pháp tương tác và hướng dẫn foundation model bằng cách đưa chỉ dẫn hoặc đầu vào để tạo đầu ra mong muốn. Prompt engineering là nghệ thuật và khoa học tạo ra các prompt hiệu quả để tối đa hóa giá trị của mô hình và điều chỉnh phản hồi theo nhu cầu cụ thể; nó KHÔNG thay đổi mô hình. Prompt tuning thì điều chỉnh hành vi mô hình bằng cách học một tập nhỏ tham số soft prompt (embedding) trong khi trọng số mô hình gốc được giữ nguyên, nên nhẹ hơn fine-tuning đầy đủ. Fine-tuning cập nhật chính mô hình bằng dữ liệu huấn luyện bổ sung theo tác vụ.\n\nThứ tự tùy biến từ nhẹ đến nặng: prompt engineering (chỉ chữ) -> prompt tuning (tham số nhỏ được học) -> fine-tuning (mô hình được huấn luyện thêm)."
+        },
+        {
+          "heading": "What gen AI can do: create, summarize, discover, automate",
+          "heading_vi": "Gen AI làm được gì: tạo, tóm tắt, khám phá, tự động hóa",
+          "body": "The official guide groups gen AI value into four verbs. Create: generate new content such as text, images, code or video. Summarize: condense long information into concise summaries. Discover: find the right information at the right time (for example enterprise search over internal documents). Automate: take over tasks that were previously manual, such as drafting replies or processing documents.\n\nBusiness implication: gen AI is especially strong with unstructured data (text, images, audio, video), so many enterprise use cases that were previously hard to automate become feasible.",
+          "body_vi": "Exam guide chính thức gom giá trị của gen AI thành bốn động từ. Create (tạo): sinh nội dung mới như văn bản, hình ảnh, code hay video. Summarize (tóm tắt): cô đọng thông tin dài thành bản tóm tắt ngắn gọn. Discover (khám phá): tìm đúng thông tin vào đúng thời điểm (ví dụ tìm kiếm doanh nghiệp trên tài liệu nội bộ). Automate (tự động hóa): đảm nhận các tác vụ trước đây làm thủ công, như soạn thư trả lời hay xử lý tài liệu.\n\nÝ nghĩa kinh doanh: gen AI đặc biệt mạnh với dữ liệu phi cấu trúc (văn bản, hình ảnh, âm thanh, video), nên nhiều use case doanh nghiệp trước đây khó tự động hóa nay trở nên khả thi."
+        }
+      ],
+      "table": {
+        "caption": "Customization techniques compared",
+        "caption_vi": "So sánh các kỹ thuật tùy biến",
+        "headers": [
+          "Technique",
+          "Changes the model?",
+          "Effort",
+          "Typical use"
+        ],
+        "headers_vi": [
+          "Kỹ thuật",
+          "Thay đổi mô hình?",
+          "Công sức",
+          "Dùng khi"
+        ],
+        "rows": [
+          [
+            "Prompt engineering",
+            "No",
+            "Lowest",
+            "Better instructions, examples, format"
+          ],
+          [
+            "Prompt tuning",
+            "Learns small soft-prompt parameters; base weights frozen",
+            "Low-medium",
+            "Adapt behavior cheaply for a task"
+          ],
+          [
+            "Fine-tuning",
+            "Yes, further training on task/domain data",
+            "Highest",
+            "Specialized task or domain performance"
+          ]
+        ]
+      },
+      "keyPoints": [
+        {
+          "en": "AI is the broad field; ML is a subfield; deep learning uses multi-layer neural networks; gen AI is an ML application that creates new content.",
+          "vi": "AI là lĩnh vực rộng; ML là nhánh con; deep learning dùng mạng neural nhiều lớp; gen AI là ứng dụng ML tạo nội dung mới."
+        },
+        {
+          "en": "Foundation models are trained on massive, diverse (mostly unlabeled) data and adapted to many tasks; LLMs are foundation models for language.",
+          "vi": "Foundation model được huấn luyện trên dữ liệu khổng lồ, đa dạng (phần lớn chưa gán nhãn) và thích ứng cho nhiều tác vụ; LLM là foundation model cho ngôn ngữ."
+        },
+        {
+          "en": "Multimodal models handle several data types (text, image, audio, video, code); diffusion models are known for image/video generation.",
+          "vi": "Mô hình đa phương thức xử lý nhiều loại dữ liệu (văn bản, ảnh, âm thanh, video, code); diffusion model nổi tiếng với tạo ảnh/video."
+        },
+        {
+          "en": "Prompt engineering changes only the input; prompt tuning learns small soft-prompt parameters; fine-tuning further trains the model.",
+          "vi": "Prompt engineering chỉ đổi đầu vào; prompt tuning học tham số soft-prompt nhỏ; fine-tuning huấn luyện thêm chính mô hình."
+        },
+        {
+          "en": "Gen AI value = create, summarize, discover, automate.",
+          "vi": "Giá trị gen AI = create, summarize, discover, automate."
+        }
+      ],
+      "examTips": [
+        {
+          "en": "Prompt engineering vs prompt tuning is a classic trap: if the model's behavior is changed by learned parameters it is not prompt engineering.",
+          "vi": "Prompt engineering và prompt tuning là bẫy kinh điển: nếu hành vi mô hình đổi nhờ tham số được học thì đó không phải prompt engineering."
+        },
+        {
+          "en": "'Trained on massive unlabeled data and reusable across many tasks' points to a foundation model, not a task-specific ML model.",
+          "vi": "'Huấn luyện trên dữ liệu khổng lồ chưa gán nhãn, tái dùng cho nhiều tác vụ' trỏ tới foundation model, không phải mô hình ML riêng cho một tác vụ."
+        },
+        {
+          "en": "Do not confuse the hierarchy: gen AI is not a synonym for AI; it is one application of ML.",
+          "vi": "Đừng nhầm thứ bậc: gen AI không đồng nghĩa AI; nó chỉ là một ứng dụng của ML."
+        }
+      ],
+      "terms": [
+        {
+          "term": "Foundation model",
+          "en": "Large model trained on massive diverse data and adaptable to many tasks.",
+          "vi": "Mô hình lớn huấn luyện trên dữ liệu khổng lồ, đa dạng và thích ứng được nhiều tác vụ."
+        },
+        {
+          "term": "LLM",
+          "en": "A foundation model designed to understand and generate human language.",
+          "vi": "Foundation model được thiết kế để hiểu và tạo ngôn ngữ con người."
+        },
+        {
+          "term": "Multimodal model",
+          "en": "A model that processes and/or generates multiple data types.",
+          "vi": "Mô hình xử lý và/hoặc tạo nhiều loại dữ liệu."
+        },
+        {
+          "term": "Diffusion model",
+          "en": "Generative model that refines noise into content, widely used for images and video.",
+          "vi": "Mô hình sinh tinh chỉnh nhiễu thành nội dung, dùng nhiều cho ảnh và video."
+        },
+        {
+          "term": "Prompt engineering",
+          "en": "Crafting effective prompts without changing the model.",
+          "vi": "Soạn prompt hiệu quả mà không đổi mô hình."
+        },
+        {
+          "term": "Prompt tuning",
+          "en": "Learning small soft-prompt parameters with frozen model weights.",
+          "vi": "Học tham số soft-prompt nhỏ với trọng số mô hình đóng băng."
+        },
+        {
+          "term": "Deep learning",
+          "en": "ML using multi-layer neural networks.",
+          "vi": "ML dùng mạng neural nhiều lớp."
+        },
+        {
+          "term": "NLP",
+          "en": "AI that understands and generates human language.",
+          "vi": "AI hiểu và tạo ngôn ngữ con người."
+        }
+      ],
+      "keywords": [
+        "artificial intelligence",
+        "machine learning",
+        "deep learning",
+        "natural language processing",
+        "generative ai",
+        "foundation model",
+        "multimodal",
+        "diffusion model",
+        "large language model",
+        "llm",
+        "prompt engineering",
+        "prompt tuning",
+        "prompt",
+        "summarize",
+        "create new content"
+      ]
+    },
+    {
+      "id": "d1-t2",
+      "objective": "1.1 Describe the machine learning approaches (supervised, unsupervised, reinforcement) and identify the stages of the machine learning lifecycle (data ingestion, data preparation, model training, model deployment, model management) and the Google Cloud tools for each stage.",
+      "title": "Machine learning approaches and the ML lifecycle",
+      "title_vi": "Các phương pháp machine learning và vòng đời ML",
+      "sources": [
+        "exam-guide-official-checklist.md",
+        "module2-v2.md",
+        "official/study.txt"
+      ],
+      "sections": [
+        {
+          "heading": "Three ways machines learn",
+          "heading_vi": "Ba cách máy học",
+          "body": "Supervised learning trains a model on labeled data so that it can predict outputs for new inputs (for example classifying emails as spam or not spam, or predicting a price). Unsupervised learning uses unlabeled data to find natural groupings and patterns on its own (for example customer segmentation). Reinforcement learning learns through interaction with an environment and feedback: the agent takes actions to maximize rewards and minimize penalties (for example game playing or robotics).\n\nThe deciding question is the data: labeled data and a known target -> supervised; unlabeled data and no target -> unsupervised; sequential decisions with reward feedback -> reinforcement.",
+          "body_vi": "Supervised learning huấn luyện mô hình trên dữ liệu có nhãn để dự đoán đầu ra cho đầu vào mới (ví dụ phân loại email spam hay không, dự đoán giá). Unsupervised learning dùng dữ liệu chưa gán nhãn để tự tìm các nhóm và mẫu tự nhiên (ví dụ phân khúc khách hàng). Reinforcement learning học qua tương tác với môi trường và phản hồi: tác tử thực hiện hành động để tối đa hóa phần thưởng và giảm thiểu hình phạt (ví dụ chơi game, robot).\n\nCâu hỏi quyết định là dữ liệu: có nhãn và có mục tiêu rõ -> supervised; không nhãn, không mục tiêu -> unsupervised; chuỗi quyết định có phản hồi phần thưởng -> reinforcement."
+        },
+        {
+          "heading": "The five stages of the ML lifecycle",
+          "heading_vi": "Năm giai đoạn của vòng đời ML",
+          "body": "The official guide describes: (1) Data ingestion and preparation, the process of collecting, cleaning and transforming raw data into a usable format for analysis or training (the course deck separates this into ingestion and preparation); (2) Model training, creating the ML model using data; (3) Model deployment, making the trained model available for use; (4) Model management, managing and maintaining models over time.\n\nSecurity and responsible AI apply across the whole lifecycle, not only at deployment.",
+          "body_vi": "Exam guide mô tả: (1) Data ingestion and preparation (thu thập và chuẩn bị dữ liệu), quá trình thu thập, làm sạch và biến đổi dữ liệu thô thành định dạng dùng được cho phân tích hoặc huấn luyện (deck khóa học tách thành ingestion và preparation); (2) Model training, tạo mô hình ML bằng dữ liệu; (3) Model deployment, làm cho mô hình đã huấn luyện sẵn sàng sử dụng; (4) Model management, quản lý và duy trì mô hình theo thời gian.\n\nBảo mật và responsible AI áp dụng xuyên suốt vòng đời, không chỉ khi triển khai."
+        },
+        {
+          "heading": "Google Cloud tools per stage",
+          "heading_vi": "Công cụ Google Cloud theo từng giai đoạn",
+          "body": "Ingestion: Pub/Sub for real-time streaming data, Cloud Storage for images, audio and other unstructured data, Cloud SQL and Spanner for relational structured data. Preparation: BigQuery for advanced analytics and fixing inconsistencies, Dataplex Universal Catalog (shown in the deck as universal catalog) and Data Catalog for governance and discovery of internal datasets. Training: Agent Platform (formerly Vertex AI) as the managed training environment, with pre-built containers and accelerators (TPU/GPU). Deployment: Agent Platform endpoints with autoscaling and low-latency real-time and batch prediction. Management: Model Registry (versioning), Model Monitoring (drift), Feature Store (feature/data management), Model Garden (store and organize models), Pipelines (automate ML tasks).\n\nBusiness implication: managed services let teams without deep ML infrastructure skills train, deploy and govern models, and drift monitoring protects accuracy after launch.",
+          "body_vi": "Ingestion: Pub/Sub cho dữ liệu streaming thời gian thực, Cloud Storage cho ảnh, âm thanh và dữ liệu phi cấu trúc khác, Cloud SQL và Spanner cho dữ liệu quan hệ có cấu trúc. Preparation: BigQuery cho phân tích nâng cao và sửa dữ liệu không nhất quán, Dataplex Universal Catalog (deck ghi là universal catalog) và Data Catalog để quản trị và khám phá dataset nội bộ. Training: Agent Platform (trước đây là Vertex AI) là môi trường huấn luyện được quản lý, có pre-built container và bộ tăng tốc (TPU/GPU). Deployment: endpoint của Agent Platform với autoscaling và dự đoán độ trễ thấp theo thời gian thực và batch. Management: Model Registry (versioning), Model Monitoring (drift), Feature Store (quản lý feature/dữ liệu), Model Garden (lưu trữ, tổ chức model), Pipelines (tự động hóa tác vụ ML).\n\nÝ nghĩa kinh doanh: dịch vụ được quản lý giúp đội ngũ không có kỹ năng hạ tầng ML sâu vẫn huấn luyện, triển khai và quản trị được mô hình; theo dõi drift bảo vệ độ chính xác sau khi ra mắt."
+        }
+      ],
+      "table": {
+        "caption": "ML lifecycle stages and Google Cloud tools",
+        "caption_vi": "Các giai đoạn vòng đời ML và công cụ Google Cloud",
+        "headers": [
+          "Stage",
+          "What happens",
+          "Google Cloud tools"
+        ],
+        "headers_vi": [
+          "Giai đoạn",
+          "Diễn ra gì",
+          "Công cụ Google Cloud"
+        ],
+        "rows": [
+          [
+            "Data ingestion",
+            "Collect raw data from sources",
+            "Pub/Sub, Cloud Storage, Cloud SQL, Spanner"
+          ],
+          [
+            "Data preparation",
+            "Clean, transform, label, govern",
+            "BigQuery, Dataplex Universal Catalog, Data Catalog"
+          ],
+          [
+            "Model training",
+            "Build/train the model",
+            "Agent Platform (formerly Vertex AI), pre-built containers, TPU/GPU"
+          ],
+          [
+            "Model deployment",
+            "Make the model available for predictions",
+            "Agent Platform endpoints, autoscaling, real-time and batch prediction"
+          ],
+          [
+            "Model management",
+            "Version, monitor, automate",
+            "Model Registry, Model Monitoring, Feature Store, Model Garden, Pipelines"
+          ]
+        ]
+      },
+      "keyPoints": [
+        {
+          "en": "Supervised = labeled data; unsupervised = unlabeled data, finds patterns; reinforcement = learns from rewards and penalties.",
+          "vi": "Supervised = dữ liệu có nhãn; unsupervised = không nhãn, tìm mẫu; reinforcement = học từ thưởng và phạt."
+        },
+        {
+          "en": "Lifecycle: data ingestion and preparation -> training -> deployment -> management.",
+          "vi": "Vòng đời: ingestion và preparation -> training -> deployment -> management."
+        },
+        {
+          "en": "Agent Platform (formerly Vertex AI) is the managed ML platform for training and deployment.",
+          "vi": "Agent Platform (trước đây Vertex AI) là nền tảng ML được quản lý cho huấn luyện và triển khai."
+        },
+        {
+          "en": "Model Registry = versioning; Model Monitoring = drift; Feature Store = features; Model Garden = model catalog; Pipelines = automation.",
+          "vi": "Model Registry = versioning; Model Monitoring = drift; Feature Store = feature; Model Garden = danh mục model; Pipelines = tự động hóa."
+        },
+        {
+          "en": "Drift means model accuracy changes over time as real-world data changes.",
+          "vi": "Drift nghĩa là độ chính xác mô hình thay đổi theo thời gian khi dữ liệu thực tế đổi."
+        }
+      ],
+      "examTips": [
+        {
+          "en": "Match the tool to the stage: 'detect accuracy degrading over time' -> Model Monitoring; 'track model versions' -> Model Registry; 'automate ML workflows' -> Pipelines.",
+          "vi": "Ghép công cụ với giai đoạn: 'phát hiện độ chính xác giảm dần' -> Model Monitoring; 'theo dõi phiên bản' -> Model Registry; 'tự động hóa quy trình ML' -> Pipelines."
+        },
+        {
+          "en": "Segmenting customers with no predefined categories is unsupervised, not supervised.",
+          "vi": "Phân khúc khách hàng không có danh mục định trước là unsupervised, không phải supervised."
+        },
+        {
+          "en": "Older questions may say Vertex AI; the current name is Agent Platform. Treat them as the same platform.",
+          "vi": "Đề cũ có thể ghi Vertex AI; tên hiện tại là Agent Platform. Coi là cùng một nền tảng."
+        }
+      ],
+      "terms": [
+        {
+          "term": "Supervised learning",
+          "en": "Learning from labeled data to predict outputs.",
+          "vi": "Học từ dữ liệu có nhãn để dự đoán đầu ra."
+        },
+        {
+          "term": "Unsupervised learning",
+          "en": "Finding patterns in unlabeled data.",
+          "vi": "Tìm mẫu trong dữ liệu chưa gán nhãn."
+        },
+        {
+          "term": "Reinforcement learning",
+          "en": "Learning by interaction to maximize reward.",
+          "vi": "Học qua tương tác để tối đa hóa phần thưởng."
+        },
+        {
+          "term": "Model drift",
+          "en": "Change in model accuracy over time.",
+          "vi": "Sự thay đổi độ chính xác của mô hình theo thời gian."
+        },
+        {
+          "term": "Model Registry",
+          "en": "Tracks and versions models.",
+          "vi": "Theo dõi và quản lý phiên bản mô hình."
+        },
+        {
+          "term": "Feature Store",
+          "en": "Manages data features used by models.",
+          "vi": "Quản lý các feature dữ liệu mà mô hình dùng."
+        },
+        {
+          "term": "Pipelines",
+          "en": "Automate ML tasks and workflows.",
+          "vi": "Tự động hóa tác vụ và quy trình ML."
+        },
+        {
+          "term": "Pub/Sub",
+          "en": "Real-time streaming ingestion service.",
+          "vi": "Dịch vụ thu nạp dữ liệu streaming thời gian thực."
+        }
+      ],
+      "keywords": [
+        "supervised learning",
+        "unsupervised learning",
+        "reinforcement learning",
+        "ml lifecycle",
+        "data ingestion",
+        "data preparation",
+        "model training",
+        "model deployment",
+        "model management",
+        "model registry",
+        "model monitoring",
+        "drift",
+        "feature store",
+        "pipelines",
+        "bigquery"
+      ]
+    },
+    {
+      "id": "d1-t3",
+      "objective": "1.1 Identify how to choose the appropriate foundation model for a business use case (modality, context window, security, availability and reliability, cost, performance, fine-tuning, customization) and identify business use cases where gen AI can create, summarize, discover and automate.",
+      "title": "Choosing a foundation model and business use cases",
+      "title_vi": "Chọn foundation model và các use case kinh doanh",
+      "sources": [
+        "exam-guide-official-checklist.md",
+        "module2-v2.md",
+        "module3-v2.md",
+        "bonus-reference-guide.md",
+        "official/study.txt"
+      ],
+      "sections": [
+        {
+          "heading": "Factors for choosing a model",
+          "heading_vi": "Các yếu tố khi chọn mô hình",
+          "body": "There is no single best model; the right one depends on the business use case. The official guide lists the factors: Modality (input and output data types must match the need: text, image, audio, video); Context window (the amount of text the model can consider; larger windows help coherent, relevant answers over long inputs but increase computational cost); Security (data protection, privacy and governance requirements); Availability and reliability (consistent uptime and reliable behavior under load, including redundancy and disaster recovery); Cost; Performance (accuracy, speed and efficiency, balanced against cost); Fine-tuning and customization (whether the model can be adapted to your task or domain).\n\nThe recurring theme is trade-offs: bigger or more capable models usually cost more and may respond more slowly, so pick the simplest model that meets the requirement.",
+          "body_vi": "Không có mô hình tốt nhất cho mọi trường hợp; mô hình phù hợp phụ thuộc use case kinh doanh. Exam guide liệt kê các yếu tố: Modality (kiểu dữ liệu đầu vào và đầu ra phải khớp nhu cầu: văn bản, hình ảnh, âm thanh, video); Context window (lượng văn bản mô hình có thể xem xét; cửa sổ lớn hơn giúp trả lời mạch lạc, liên quan trên đầu vào dài nhưng tăng chi phí tính toán); Security (yêu cầu bảo vệ dữ liệu, quyền riêng tư và quản trị); Availability và reliability (uptime ổn định và hoạt động đáng tin cậy dưới tải, gồm dự phòng và khôi phục thảm họa); Cost (chi phí); Performance (độ chính xác, tốc độ, hiệu quả, cân bằng với chi phí); Fine-tuning và customization (mô hình có thể được điều chỉnh cho tác vụ hoặc lĩnh vực của bạn hay không).\n\nChủ đề lặp lại là đánh đổi: mô hình lớn/mạnh hơn thường tốn kém hơn và có thể chậm hơn, nên chọn mô hình đơn giản nhất đáp ứng yêu cầu.",
+          "bullets": [
+            {
+              "en": "Modality: match input/output types to the use case.",
+              "vi": "Modality: khớp kiểu dữ liệu vào/ra với use case."
+            },
+            {
+              "en": "Context window: larger = more context but higher compute cost.",
+              "vi": "Context window: lớn hơn = nhiều ngữ cảnh hơn nhưng chi phí tính toán cao hơn."
+            },
+            {
+              "en": "Performance vs cost is always a trade-off.",
+              "vi": "Performance và cost luôn là một đánh đổi."
+            }
+          ]
+        },
+        {
+          "heading": "Customization options and where to find models",
+          "heading_vi": "Các tùy chọn tùy biến và nơi tìm mô hình",
+          "body": "If a general model is not good enough, you can customize it. Fine-tuning improves a pre-trained or foundation model for specific tasks or domains. Lighter options include better prompting, prompt tuning, and grounding the model with your own data (RAG), which is covered in later domains. On Google Cloud, Model Garden on Agent Platform is the place to browse, test and deploy Google, third-party and open models, so you can compare candidates against your factors.\n\nBusiness implication: customization costs time, data and money, so use the lightest technique that closes the gap and measure the result.",
+          "body_vi": "Nếu mô hình tổng quát chưa đủ tốt, bạn có thể tùy biến. Fine-tuning cải thiện mô hình pre-trained hoặc foundation model cho tác vụ hay lĩnh vực cụ thể. Các lựa chọn nhẹ hơn gồm prompt tốt hơn, prompt tuning và grounding mô hình bằng dữ liệu của bạn (RAG), được đề cập ở các domain sau. Trên Google Cloud, Model Garden trên Agent Platform là nơi duyệt, thử và triển khai các mô hình của Google, bên thứ ba và mã nguồn mở, để bạn so sánh ứng viên theo các yếu tố trên.\n\nÝ nghĩa kinh doanh: tùy biến tốn thời gian, dữ liệu và tiền, nên dùng kỹ thuật nhẹ nhất đủ lấp khoảng trống và đo kết quả."
+        },
+        {
+          "heading": "Business use cases: create, summarize, discover, automate",
+          "heading_vi": "Use case kinh doanh: tạo, tóm tắt, khám phá, tự động hóa",
+          "body": "Typical use cases named in the guide: text generation (marketing copy, emails, reports), image generation (campaign visuals, design drafts), code generation (writing, explaining and debugging code), video generation (short marketing or training videos), data analysis (asking questions of data and summarizing insights), and personalized user experience (tailored recommendations, content and assistants). Map each to the four verbs: create (text, image, code, video), summarize (long documents, meetings, calls), discover (enterprise search, finding the right information), automate (manual drafting, triage, routine responses).\n\nWhen a question describes a business need, first identify the modality and the verb, then check constraints such as data sensitivity, cost and latency.",
+          "body_vi": "Các use case điển hình trong guide: text generation (nội dung marketing, email, báo cáo), image generation (hình ảnh chiến dịch, bản nháp thiết kế), code generation (viết, giải thích, gỡ lỗi code), video generation (video marketing hoặc đào tạo ngắn), data analysis (đặt câu hỏi cho dữ liệu và tóm tắt insight), và personalized user experience (gợi ý, nội dung, trợ lý cá nhân hóa). Ánh xạ mỗi use case vào bốn động từ: create (văn bản, ảnh, code, video), summarize (tài liệu dài, cuộc họp, cuộc gọi), discover (tìm kiếm doanh nghiệp, tìm đúng thông tin), automate (soạn thảo thủ công, phân loại, phản hồi thường quy).\n\nKhi đề mô tả một nhu cầu kinh doanh, trước hết xác định modality và động từ, rồi kiểm tra các ràng buộc như độ nhạy dữ liệu, chi phí và độ trễ."
+        }
+      ],
+      "table": {
+        "caption": "Model selection factors at a glance",
+        "caption_vi": "Tóm tắt các yếu tố chọn mô hình",
+        "headers": [
+          "Factor",
+          "Question to ask"
+        ],
+        "headers_vi": [
+          "Yếu tố",
+          "Câu hỏi cần đặt"
+        ],
+        "rows": [
+          [
+            "Modality",
+            "Does the model take and produce the data types I need?"
+          ],
+          [
+            "Context window",
+            "How much input must it consider at once, and what does that cost?"
+          ],
+          [
+            "Security",
+            "Are privacy, governance and data protection requirements met?"
+          ],
+          [
+            "Availability and reliability",
+            "Is it consistently available and reliable under load?"
+          ],
+          [
+            "Cost",
+            "Does the price fit the budget at expected volume?"
+          ],
+          [
+            "Performance",
+            "Is accuracy and speed sufficient for the use case?"
+          ],
+          [
+            "Fine-tuning / customization",
+            "Can it be adapted to my task or domain?"
+          ]
+        ]
+      },
+      "keyPoints": [
+        {
+          "en": "Choose a model by modality, context window, security, availability/reliability, cost, performance, and fine-tuning/customization.",
+          "vi": "Chọn mô hình theo modality, context window, security, availability/reliability, cost, performance và fine-tuning/customization."
+        },
+        {
+          "en": "Larger context windows give more context but increase computational cost.",
+          "vi": "Context window lớn cho nhiều ngữ cảnh hơn nhưng tăng chi phí tính toán."
+        },
+        {
+          "en": "Fine-tuning enhances a pre-trained model for a specific task or domain.",
+          "vi": "Fine-tuning nâng cao mô hình pre-trained cho tác vụ hoặc lĩnh vực cụ thể."
+        },
+        {
+          "en": "Model Garden on Agent Platform lets you explore and deploy Google, third-party and open models.",
+          "vi": "Model Garden trên Agent Platform cho phép khám phá và triển khai mô hình của Google, bên thứ ba và mã nguồn mở."
+        },
+        {
+          "en": "Use cases: text, image, code and video generation, data analysis, personalized experiences.",
+          "vi": "Use case: tạo văn bản, ảnh, code, video, phân tích dữ liệu, trải nghiệm cá nhân hóa."
+        }
+      ],
+      "examTips": [
+        {
+          "en": "Start from the requirement: if the need is video, a text-only model is eliminated by modality before cost is compared.",
+          "vi": "Bắt đầu từ yêu cầu: nếu cần video thì mô hình chỉ văn bản bị loại do modality trước khi so sánh chi phí."
+        },
+        {
+          "en": "'Best' is relative: the correct answer is usually the model that fits the stated constraints, not the largest one.",
+          "vi": "'Tốt nhất' là tương đối: đáp án đúng thường là mô hình phù hợp ràng buộc nêu ra, không phải mô hình lớn nhất."
+        },
+        {
+          "en": "Sensitive or regulated data in the scenario points to security and governance as the deciding factor.",
+          "vi": "Dữ liệu nhạy cảm hoặc được quản lý trong kịch bản chỉ ra security và governance là yếu tố quyết định."
+        }
+      ],
+      "terms": [
+        {
+          "term": "Modality",
+          "en": "The type of data a model takes in or produces (text, image, audio, video).",
+          "vi": "Kiểu dữ liệu mô hình nhận vào hoặc tạo ra (văn bản, ảnh, âm thanh, video)."
+        },
+        {
+          "term": "Context window",
+          "en": "Amount of text a model can consider at once.",
+          "vi": "Lượng văn bản mô hình có thể xem xét cùng lúc."
+        },
+        {
+          "term": "Fine-tuning",
+          "en": "Further training of a pre-trained model for a task or domain.",
+          "vi": "Huấn luyện thêm mô hình pre-trained cho tác vụ hoặc lĩnh vực."
+        },
+        {
+          "term": "Model Garden",
+          "en": "Catalog to discover, test and deploy models on Agent Platform.",
+          "vi": "Danh mục để khám phá, thử và triển khai mô hình trên Agent Platform."
+        },
+        {
+          "term": "Availability",
+          "en": "Model is consistently accessible when needed.",
+          "vi": "Mô hình luôn truy cập được khi cần."
+        },
+        {
+          "term": "Reliability",
+          "en": "Model performs dependably under load.",
+          "vi": "Mô hình hoạt động đáng tin cậy dưới tải."
+        },
+        {
+          "term": "Personalization",
+          "en": "Tailoring content or experience to each user.",
+          "vi": "Cá nhân hóa nội dung hoặc trải nghiệm cho từng người dùng."
+        }
+      ],
+      "keywords": [
+        "choose a model",
+        "foundation model selection",
+        "modality",
+        "context window",
+        "security",
+        "availability",
+        "reliability",
+        "cost",
+        "performance",
+        "fine-tuning",
+        "customization",
+        "model garden",
+        "text generation",
+        "image generation",
+        "code generation"
+      ]
+    },
+    {
+      "id": "d1-t4",
+      "objective": "1.2 Describe how various data types are used in gen AI and the business implications: characteristics and importance of data quality and accessibility; structured vs unstructured data; labeled vs unlabeled data.",
+      "title": "Data types, quality and accessibility",
+      "title_vi": "Loại dữ liệu, chất lượng và khả năng tiếp cận",
+      "sources": [
+        "exam-guide-official-checklist.md",
+        "module2-v2.md",
+        "bonus-reference-guide.md",
+        "official/study.txt"
+      ],
+      "sections": [
+        {
+          "heading": "Structured vs unstructured data",
+          "heading_vi": "Dữ liệu có cấu trúc và phi cấu trúc",
+          "body": "Data is information in many forms: numbers, dates, text descriptions, images and sounds. Structured data is organized with a predefined format and is easy to search, typically stored in relational databases or tables (sales records, customer tables, inventory, transactions, SQL and BigQuery tables). Unstructured data lacks a predefined structure and needs more sophisticated analysis (images, video, audio, emails, free text documents, social media posts). Semi-structured data such as JSON, XML or logs sits in between.\n\nBusiness implication: most enterprise data is unstructured, and gen AI is particularly good at working with it (summarizing, searching, extracting meaning), which unlocks value that traditional analytics left untouched.",
+          "body_vi": "Dữ liệu là thông tin ở nhiều dạng: số, ngày tháng, mô tả văn bản, hình ảnh và âm thanh. Dữ liệu có cấu trúc (structured) được tổ chức theo định dạng định sẵn và dễ tìm kiếm, thường lưu trong cơ sở dữ liệu quan hệ hoặc bảng (bản ghi bán hàng, bảng khách hàng, tồn kho, giao dịch, bảng SQL và BigQuery). Dữ liệu phi cấu trúc (unstructured) không có cấu trúc định sẵn và cần kỹ thuật phân tích phức tạp hơn (ảnh, video, âm thanh, email, tài liệu văn bản tự do, bài đăng mạng xã hội). Dữ liệu bán cấu trúc như JSON, XML hay log nằm ở giữa.\n\nÝ nghĩa kinh doanh: phần lớn dữ liệu doanh nghiệp là phi cấu trúc, và gen AI đặc biệt giỏi xử lý loại này (tóm tắt, tìm kiếm, trích xuất ý nghĩa), mở ra giá trị mà phân tích truyền thống chưa khai thác."
+        },
+        {
+          "heading": "Labeled vs unlabeled data",
+          "heading_vi": "Dữ liệu có nhãn và chưa gán nhãn",
+          "body": "Labeled data has associated tags such as a name, type or number (photos tagged 'cat' or 'dog'; transactions marked fraud or not fraud). It is used for supervised learning and is costly because people must annotate it. Unlabeled data is raw, unprocessed information that has not been tagged and lacks meaning by itself, such as unorganized photos or streams of audio recordings. It is used for unsupervised learning and for pre-training foundation models, which learn from massive amounts of unlabeled data.\n\nDo not mix up labeled/unlabeled (are there tags?) with structured/unstructured (is there a predefined format?). They are independent dimensions.",
+          "body_vi": "Dữ liệu có nhãn (labeled) có các thẻ đi kèm như tên, loại hoặc số (ảnh được gắn 'mèo' hay 'chó'; giao dịch được đánh dấu gian lận hay không). Nó dùng cho supervised learning và tốn kém vì cần con người chú thích. Dữ liệu chưa gán nhãn (unlabeled) là thông tin thô chưa xử lý, chưa được gắn thẻ và tự nó thiếu ý nghĩa, như ảnh chưa sắp xếp hay luồng ghi âm. Nó dùng cho unsupervised learning và để pre-train foundation model, vốn học từ lượng khổng lồ dữ liệu chưa gán nhãn.\n\nĐừng nhầm labeled/unlabeled (có thẻ hay không) với structured/unstructured (có định dạng định sẵn hay không). Hai chiều này độc lập nhau."
+        },
+        {
+          "heading": "Data quality and data accessibility",
+          "heading_vi": "Chất lượng dữ liệu và khả năng tiếp cận dữ liệu",
+          "body": "Quality data is accurate, complete, consistent and relevant. Completeness: no missing values or gaps that bias learning. Consistency: uniform formats and labels; inconsistent formats or labeling can confuse the model and impair learning. Relevance: the data fits the task. Poor quality leads to unreliable or biased outputs ('garbage in, garbage out').\n\nAccessible data for model training must be readily available, usable and in the proper format. The guide's accessibility considerations are availability (can you get to it when needed), cost (of storing, moving and preparing it) and format (is it in a usable form). Business implication: investing in data strategy, governance and preparation is often a bigger determinant of gen AI success than the choice of model.",
+          "body_vi": "Dữ liệu chất lượng là dữ liệu chính xác, đầy đủ, nhất quán và liên quan. Completeness (đầy đủ): không thiếu giá trị hay khoảng trống gây lệch khi học. Consistency (nhất quán): định dạng và nhãn đồng nhất; định dạng hoặc gán nhãn không nhất quán có thể làm mô hình bối rối và cản trở việc học. Relevance (liên quan): dữ liệu phù hợp với tác vụ. Chất lượng kém dẫn đến đầu ra thiếu tin cậy hoặc thiên lệch ('garbage in, garbage out').\n\nDữ liệu có thể tiếp cận (accessible) cho huấn luyện phải sẵn sàng, dùng được và đúng định dạng. Các cân nhắc về accessibility trong guide là availability (có truy cập được khi cần không), cost (chi phí lưu trữ, di chuyển, chuẩn bị) và format (có ở dạng dùng được không). Ý nghĩa kinh doanh: đầu tư vào chiến lược dữ liệu, governance và chuẩn bị dữ liệu thường quyết định thành công gen AI nhiều hơn việc chọn mô hình."
+        }
+      ],
+      "table": {
+        "caption": "Data characteristics compared",
+        "caption_vi": "So sánh đặc điểm dữ liệu",
+        "headers": [
+          "Dimension",
+          "Type",
+          "Meaning",
+          "Examples"
+        ],
+        "headers_vi": [
+          "Chiều",
+          "Loại",
+          "Ý nghĩa",
+          "Ví dụ"
+        ],
+        "rows": [
+          [
+            "Format",
+            "Structured",
+            "Predefined format, easy to search",
+            "Relational tables, SQL, BigQuery, transactions"
+          ],
+          [
+            "Format",
+            "Unstructured",
+            "No predefined structure, needs sophisticated analysis",
+            "Images, video, audio, emails, free text"
+          ],
+          [
+            "Tags",
+            "Labeled",
+            "Has tags (name, type, number)",
+            "Photos tagged cat/dog, fraud flags"
+          ],
+          [
+            "Tags",
+            "Unlabeled",
+            "Raw, untagged",
+            "Unorganized photos, audio streams"
+          ]
+        ]
+      },
+      "keyPoints": [
+        {
+          "en": "Structured data fits a predefined format (tables); unstructured does not (images, video, audio, emails, free text).",
+          "vi": "Structured có định dạng định sẵn (bảng); unstructured thì không (ảnh, video, âm thanh, email, văn bản tự do)."
+        },
+        {
+          "en": "Labeled data has tags and supports supervised learning; unlabeled data is raw and supports unsupervised learning and foundation model pre-training.",
+          "vi": "Dữ liệu có nhãn có thẻ và hỗ trợ supervised; chưa gán nhãn là thô, hỗ trợ unsupervised và pre-train foundation model."
+        },
+        {
+          "en": "Quality data is accurate, complete, consistent and relevant.",
+          "vi": "Dữ liệu chất lượng là chính xác, đầy đủ, nhất quán và liên quan."
+        },
+        {
+          "en": "Accessibility covers availability, cost and format.",
+          "vi": "Accessibility gồm availability, cost và format."
+        },
+        {
+          "en": "Most enterprise data is unstructured, which gen AI handles well.",
+          "vi": "Phần lớn dữ liệu doanh nghiệp là phi cấu trúc, và gen AI xử lý tốt loại này."
+        }
+      ],
+      "examTips": [
+        {
+          "en": "Inconsistent formats or labeling is the textbook example of a consistency problem that confuses the model.",
+          "vi": "Định dạng hoặc nhãn không nhất quán là ví dụ điển hình về vấn đề consistency làm mô hình bối rối."
+        },
+        {
+          "en": "Beware swapped definitions: SQL tables are structured; emails, images and video are unstructured.",
+          "vi": "Coi chừng đảo định nghĩa: bảng SQL là structured; email, ảnh, video là unstructured."
+        },
+        {
+          "en": "When a scenario says the model gives poor results despite a strong model, suspect data quality or accessibility first.",
+          "vi": "Khi kịch bản nói kết quả kém dù mô hình mạnh, hãy nghi ngờ chất lượng hoặc khả năng tiếp cận dữ liệu trước."
+        }
+      ],
+      "terms": [
+        {
+          "term": "Structured data",
+          "en": "Organized in a predefined format, easy to search.",
+          "vi": "Được tổ chức theo định dạng định sẵn, dễ tìm kiếm."
+        },
+        {
+          "term": "Unstructured data",
+          "en": "No predefined structure; needs sophisticated analysis.",
+          "vi": "Không có cấu trúc định sẵn; cần phân tích phức tạp."
+        },
+        {
+          "term": "Labeled data",
+          "en": "Data with associated tags.",
+          "vi": "Dữ liệu có thẻ đi kèm."
+        },
+        {
+          "term": "Unlabeled data",
+          "en": "Raw, untagged data.",
+          "vi": "Dữ liệu thô, chưa gắn thẻ."
+        },
+        {
+          "term": "Data quality",
+          "en": "Accurate, complete, consistent, relevant data.",
+          "vi": "Dữ liệu chính xác, đầy đủ, nhất quán, liên quan."
+        },
+        {
+          "term": "Data accessibility",
+          "en": "Data is available, usable and in proper format.",
+          "vi": "Dữ liệu sẵn sàng, dùng được và đúng định dạng."
+        }
+      ],
+      "keywords": [
+        "structured data",
+        "unstructured data",
+        "labeled data",
+        "unlabeled data",
+        "data quality",
+        "data accessibility",
+        "completeness",
+        "consistency",
+        "relevance",
+        "availability",
+        "format",
+        "semi-structured",
+        "training data",
+        "bias",
+        "data types"
+      ]
+    },
+    {
+      "id": "d1-t5",
+      "objective": "1.3 Identify the core layers of the gen AI landscape and the business implications: Infrastructure, Models, Platforms, Agents, Applications.",
+      "title": "The five layers of the gen AI landscape",
+      "title_vi": "Năm tầng của hệ sinh thái gen AI",
+      "sources": [
+        "exam-guide-official-checklist.md",
+        "module3-v2.md",
+        "bonus-reference-guide.md",
+        "official/study.txt"
+      ],
+      "sections": [
+        {
+          "heading": "The stack from bottom to top",
+          "heading_vi": "Ngăn xếp từ dưới lên trên",
+          "body": "The gen AI landscape is described as five layers. Infrastructure provides the core computing resources: physical hardware such as servers, GPUs and TPUs, plus the software needed to store and run AI models and training data. Models are complex algorithms trained on vast amounts of data; they learn patterns and relationships, which lets them generate new content, translate languages, answer questions and more. Platforms offer APIs, data management and model deployment tools; they bridge the gap between models and agents and simplify the complexity of managing infrastructure. Agents are software that learns how to best achieve a goal based on the inputs and tools available to it. Applications are the user-facing gen-AI-powered layer through which people interact with and benefit from AI.\n\nEach layer builds on the one below: applications use agents, agents use models through platforms, and models run on infrastructure.",
+          "body_vi": "Hệ sinh thái gen AI được mô tả bằng năm tầng. Infrastructure cung cấp tài nguyên tính toán lõi: phần cứng vật lý như server, GPU và TPU, cùng phần mềm cần thiết để lưu trữ và chạy mô hình AI và dữ liệu huấn luyện. Models là các thuật toán phức tạp được huấn luyện trên lượng dữ liệu khổng lồ; chúng học các mẫu và mối quan hệ, nhờ đó tạo nội dung mới, dịch ngôn ngữ, trả lời câu hỏi và nhiều hơn nữa. Platforms cung cấp API, quản lý dữ liệu và công cụ triển khai mô hình; chúng nối khoảng cách giữa model và agent và đơn giản hóa độ phức tạp của việc quản lý hạ tầng. Agents là phần mềm học cách đạt mục tiêu tốt nhất dựa trên đầu vào và công cụ có sẵn. Applications là tầng hướng người dùng chạy bằng gen AI, nơi con người tương tác và hưởng lợi từ AI.\n\nMỗi tầng xây trên tầng dưới: application dùng agent, agent dùng model qua platform, và model chạy trên infrastructure."
+        },
+        {
+          "heading": "Who works with each layer and on Google Cloud",
+          "heading_vi": "Ai làm việc với từng tầng và trên Google Cloud",
+          "body": "Infrastructure: infrastructure and ML engineers, platform teams; on Google Cloud this is the AI-optimized infrastructure (TPUs, GPUs, AI Hypercomputer for training, tuning and serving). Models: AI practitioners, researchers and data scientists; examples are Gemini, Gemma, Imagen and Veo, available through Model Garden alongside third-party and open models. Platforms: developers and ML engineers; on Google Cloud this is Agent Platform (formerly Vertex AI) with Model Garden, tuning, deployment and Agent Studio. Agents: developers and business teams building goal-driven assistants, for example with Agent Studio or Gemini Enterprise. Applications: end users and business teams; examples are the Gemini app, Gemini for Google Workspace and Gemini Enterprise.\n\nBusiness implication: the higher you work in the stack, the faster and easier adoption is but the less control you have; the lower you go, the more control and customization but also more skill, time and cost required. Choose the highest layer that meets the need.",
+          "body_vi": "Infrastructure: kỹ sư hạ tầng và ML, đội nền tảng; trên Google Cloud là hạ tầng tối ưu cho AI (TPU, GPU, AI Hypercomputer để huấn luyện, tinh chỉnh và phục vụ). Models: AI practitioner, nhà nghiên cứu và data scientist; ví dụ Gemini, Gemma, Imagen, Veo, có trong Model Garden cùng mô hình bên thứ ba và mã nguồn mở. Platforms: developer và kỹ sư ML; trên Google Cloud là Agent Platform (trước đây Vertex AI) với Model Garden, tuning, triển khai và Agent Studio. Agents: developer và đội kinh doanh xây trợ lý hướng mục tiêu, ví dụ bằng Agent Studio hoặc Gemini Enterprise. Applications: người dùng cuối và đội kinh doanh; ví dụ ứng dụng Gemini, Gemini for Google Workspace và Gemini Enterprise.\n\nÝ nghĩa kinh doanh: làm việc ở tầng càng cao thì áp dụng càng nhanh, dễ nhưng ít kiểm soát; xuống tầng thấp hơn thì kiểm soát và tùy biến nhiều hơn nhưng cần thêm kỹ năng, thời gian và chi phí. Chọn tầng cao nhất đáp ứng được nhu cầu."
+        }
+      ],
+      "table": {
+        "caption": "Five layers of the gen AI landscape",
+        "caption_vi": "Năm tầng của hệ sinh thái gen AI",
+        "headers": [
+          "Layer",
+          "What it provides",
+          "Typical audience",
+          "Google example"
+        ],
+        "headers_vi": [
+          "Tầng",
+          "Cung cấp gì",
+          "Đối tượng điển hình",
+          "Ví dụ Google"
+        ],
+        "rows": [
+          [
+            "Applications",
+            "User-facing gen AI experiences",
+            "End users, business teams",
+            "Gemini app, Gemini for Google Workspace, Gemini Enterprise"
+          ],
+          [
+            "Agents",
+            "Goal-driven software using models and tools",
+            "Developers, business teams",
+            "Agent Studio, Gemini Enterprise agents"
+          ],
+          [
+            "Platforms",
+            "APIs, data management, model deployment tools",
+            "Developers, ML engineers",
+            "Agent Platform (formerly Vertex AI), Model Garden"
+          ],
+          [
+            "Models",
+            "Trained algorithms that generate content",
+            "AI practitioners, data scientists",
+            "Gemini, Gemma, Imagen, Veo"
+          ],
+          [
+            "Infrastructure",
+            "Compute hardware and software to store and run models",
+            "Infrastructure/ML engineers",
+            "TPUs, GPUs, AI Hypercomputer"
+          ]
+        ]
+      },
+      "keyPoints": [
+        {
+          "en": "Five layers: Infrastructure, Models, Platforms, Agents, Applications.",
+          "vi": "Năm tầng: Infrastructure, Models, Platforms, Agents, Applications."
+        },
+        {
+          "en": "Infrastructure = servers, GPUs, TPUs and software to store and run models and data.",
+          "vi": "Infrastructure = server, GPU, TPU và phần mềm để lưu trữ, chạy mô hình và dữ liệu."
+        },
+        {
+          "en": "Platforms bridge models and agents and simplify infrastructure management with APIs, data management and deployment tools.",
+          "vi": "Platform nối model với agent và đơn giản hóa quản lý hạ tầng bằng API, quản lý dữ liệu và công cụ triển khai."
+        },
+        {
+          "en": "Agents pursue a goal using inputs and available tools; applications are what users see.",
+          "vi": "Agent theo đuổi mục tiêu bằng đầu vào và công cụ sẵn có; application là thứ người dùng nhìn thấy."
+        },
+        {
+          "en": "Higher layers = faster adoption and less control; lower layers = more control and more effort.",
+          "vi": "Tầng cao = áp dụng nhanh, ít kiểm soát; tầng thấp = nhiều kiểm soát, nhiều công sức hơn."
+        }
+      ],
+      "examTips": [
+        {
+          "en": "Identify the layer by the verb: 'user interacts' = application; 'achieves a goal with tools' = agent; 'APIs and deployment tools' = platform; 'trained algorithm' = model; 'GPUs/TPUs' = infrastructure.",
+          "vi": "Nhận diện tầng bằng động từ: 'người dùng tương tác' = application; 'đạt mục tiêu bằng công cụ' = agent; 'API và công cụ triển khai' = platform; 'thuật toán đã huấn luyện' = model; 'GPU/TPU' = infrastructure."
+        },
+        {
+          "en": "Platform is the bridge between models and agents, not between infrastructure and users.",
+          "vi": "Platform là cầu nối giữa model và agent, không phải giữa infrastructure và người dùng."
+        },
+        {
+          "en": "A business that wants quick value with minimal ML skills should favor higher layers (applications) over building on infrastructure.",
+          "vi": "Doanh nghiệp muốn giá trị nhanh với ít kỹ năng ML nên ưu tiên tầng cao (application) hơn là xây trên infrastructure."
+        }
+      ],
+      "terms": [
+        {
+          "term": "Infrastructure layer",
+          "en": "Compute hardware and software to run AI.",
+          "vi": "Phần cứng và phần mềm tính toán để chạy AI."
+        },
+        {
+          "term": "Model layer",
+          "en": "Trained algorithms that generate content.",
+          "vi": "Các thuật toán đã huấn luyện tạo nội dung."
+        },
+        {
+          "term": "Platform layer",
+          "en": "APIs, data management and model deployment tools.",
+          "vi": "API, quản lý dữ liệu và công cụ triển khai mô hình."
+        },
+        {
+          "term": "Agent",
+          "en": "Software that pursues a goal using inputs and tools.",
+          "vi": "Phần mềm theo đuổi mục tiêu bằng đầu vào và công cụ."
+        },
+        {
+          "term": "Application layer",
+          "en": "User-facing gen-AI-powered products.",
+          "vi": "Sản phẩm hướng người dùng chạy bằng gen AI."
+        },
+        {
+          "term": "TPU",
+          "en": "Google's accelerator hardware for AI workloads.",
+          "vi": "Phần cứng tăng tốc của Google cho workload AI."
+        }
+      ],
+      "keywords": [
+        "infrastructure",
+        "models",
+        "platforms",
+        "agents",
+        "applications",
+        "gen ai landscape",
+        "layers",
+        "tpu",
+        "gpu",
+        "ai hypercomputer",
+        "agent platform",
+        "user-facing",
+        "apis",
+        "model deployment",
+        "vertex ai"
+      ]
+    },
+    {
+      "id": "d1-t6",
+      "objective": "1.4 Identify the use cases and strengths of Google's foundation models: Gemini, Gemma, Imagen, Veo.",
+      "title": "Google's foundation models: Gemini, Gemma, Imagen, Veo",
+      "title_vi": "Các foundation model của Google: Gemini, Gemma, Imagen, Veo",
+      "sources": [
+        "exam-guide-official-checklist.md",
+        "module2-v2.md",
+        "module3-v2.md",
+        "bonus-reference-guide.md",
+        "official/study.txt"
+      ],
+      "sections": [
+        {
+          "heading": "The four models and their strengths",
+          "heading_vi": "Bốn mô hình và thế mạnh",
+          "body": "Gemini is Google's multimodal model family: it supports multimodal understanding (text, images, audio, video, code), advanced conversational AI, content creation and question answering. It is the general-purpose choice. Gemma offers developers a user-friendly, customizable, lightweight open model for local deployment and specialized AI applications. Imagen is a text-to-image diffusion model that generates high-quality images from textual descriptions. Veo generates video content from text descriptions or still images.\n\nIn short: Gemini = general multimodal; Gemma = open and customizable, run it yourself; Imagen = images; Veo = video.",
+          "body_vi": "Gemini là họ mô hình đa phương thức của Google: hỗ trợ hiểu đa phương thức (văn bản, ảnh, âm thanh, video, code), AI hội thoại nâng cao, tạo nội dung và hỏi đáp. Đây là lựa chọn đa dụng. Gemma cung cấp cho developer mô hình mở, nhẹ, dễ dùng và tùy biến được, phù hợp triển khai cục bộ và ứng dụng AI chuyên biệt. Imagen là diffusion model text-to-image tạo ảnh chất lượng cao từ mô tả văn bản. Veo tạo nội dung video từ mô tả văn bản hoặc ảnh tĩnh.\n\nTóm lại: Gemini = đa phương thức tổng quát; Gemma = mở và tùy biến, tự chạy; Imagen = ảnh; Veo = video."
+        },
+        {
+          "heading": "Use cases and how to pick",
+          "heading_vi": "Use case và cách chọn",
+          "body": "Pick Gemini when the task is general: chat assistants, summarization, question answering, content drafting, or understanding mixed inputs such as an image plus a question. Pick Gemma when you need an open, lightweight model you can customize and deploy locally or on your own infrastructure, for example for specialized applications, constrained environments or tighter control over where the model runs. Pick Imagen for marketing visuals, product mock-ups and design drafts generated from text. Pick Veo for short marketing, training or social videos created from a prompt or a still image.\n\nAll four are available to explore through Model Garden on Agent Platform (formerly Vertex AI), where you can also compare third-party and other open models.",
+          "body_vi": "Chọn Gemini khi tác vụ tổng quát: trợ lý chat, tóm tắt, hỏi đáp, soạn nội dung, hoặc hiểu đầu vào hỗn hợp như ảnh kèm câu hỏi. Chọn Gemma khi cần mô hình mở, nhẹ, tùy biến được và triển khai cục bộ hoặc trên hạ tầng của bạn, ví dụ cho ứng dụng chuyên biệt, môi trường hạn chế hoặc kiểm soát chặt hơn nơi mô hình chạy. Chọn Imagen cho hình ảnh marketing, mock-up sản phẩm và bản nháp thiết kế tạo từ văn bản. Chọn Veo cho video marketing, đào tạo hoặc mạng xã hội ngắn tạo từ prompt hoặc ảnh tĩnh.\n\nCả bốn đều có thể khám phá qua Model Garden trên Agent Platform (trước đây Vertex AI), nơi bạn cũng có thể so sánh mô hình bên thứ ba và mô hình mở khác."
+        },
+        {
+          "heading": "Business implications and pitfalls",
+          "heading_vi": "Ý nghĩa kinh doanh và bẫy thường gặp",
+          "body": "Matching the model to the modality is the first filter: text and mixed inputs point to Gemini, images to Imagen, video to Veo. A requirement for local deployment or deep customization points to Gemma. Using the right specialized model avoids paying for capability you do not need, while Gemini's multimodality reduces the need to stitch several models together for mixed-media tasks.\n\nCommon confusions: Gemma (open, customizable, local) versus Gemini (general-purpose multimodal); Imagen (image) versus Veo (video). Imagen is a diffusion model, linking back to the core concepts.",
+          "body_vi": "Khớp mô hình với modality là bộ lọc đầu tiên: văn bản và đầu vào hỗn hợp -> Gemini, ảnh -> Imagen, video -> Veo. Yêu cầu triển khai cục bộ hoặc tùy biến sâu -> Gemma. Dùng đúng mô hình chuyên biệt tránh trả tiền cho năng lực không cần, còn tính đa phương thức của Gemini giảm nhu cầu ghép nhiều mô hình cho tác vụ đa phương tiện.\n\nCác nhầm lẫn thường gặp: Gemma (mở, tùy biến, cục bộ) với Gemini (đa dụng, đa phương thức); Imagen (ảnh) với Veo (video). Imagen là diffusion model, liên hệ lại với khái niệm cốt lõi."
+        }
+      ],
+      "table": {
+        "caption": "Google foundation models compared",
+        "caption_vi": "So sánh foundation model của Google",
+        "headers": [
+          "Model",
+          "Strength",
+          "Typical use case"
+        ],
+        "headers_vi": [
+          "Mô hình",
+          "Thế mạnh",
+          "Use case điển hình"
+        ],
+        "rows": [
+          [
+            "Gemini",
+            "Multimodal understanding, conversation, content creation, Q&A",
+            "General assistants, summarization, mixed text/image/audio/video tasks"
+          ],
+          [
+            "Gemma",
+            "Lightweight, open, customizable",
+            "Local deployment, specialized applications, own-infrastructure hosting"
+          ],
+          [
+            "Imagen",
+            "Text-to-image diffusion model, high-quality images",
+            "Marketing visuals, product mock-ups, design drafts"
+          ],
+          [
+            "Veo",
+            "Video from text or still images",
+            "Short marketing, training or social videos"
+          ]
+        ]
+      },
+      "keyPoints": [
+        {
+          "en": "Gemini: multimodal understanding, advanced conversational AI, content creation and question answering.",
+          "vi": "Gemini: hiểu đa phương thức, AI hội thoại nâng cao, tạo nội dung và hỏi đáp."
+        },
+        {
+          "en": "Gemma: lightweight, customizable open model for local deployment and specialized applications.",
+          "vi": "Gemma: mô hình mở nhẹ, tùy biến cho triển khai cục bộ và ứng dụng chuyên biệt."
+        },
+        {
+          "en": "Imagen: text-to-image diffusion model.",
+          "vi": "Imagen: diffusion model text-to-image."
+        },
+        {
+          "en": "Veo: generates video from text descriptions or still images.",
+          "vi": "Veo: tạo video từ mô tả văn bản hoặc ảnh tĩnh."
+        },
+        {
+          "en": "All are accessible through Model Garden on Agent Platform.",
+          "vi": "Tất cả truy cập được qua Model Garden trên Agent Platform."
+        }
+      ],
+      "examTips": [
+        {
+          "en": "'Generate video from a text prompt or a still image' -> Veo; 'generate an image from text' -> Imagen. Do not swap them.",
+          "vi": "'Tạo video từ prompt hoặc ảnh tĩnh' -> Veo; 'tạo ảnh từ văn bản' -> Imagen. Đừng đảo."
+        },
+        {
+          "en": "'Open, lightweight, customizable, run locally' -> Gemma, not Gemini.",
+          "vi": "'Mở, nhẹ, tùy biến, chạy cục bộ' -> Gemma, không phải Gemini."
+        },
+        {
+          "en": "'Multimodal, conversational, general-purpose' -> Gemini.",
+          "vi": "'Đa phương thức, hội thoại, đa dụng' -> Gemini."
+        },
+        {
+          "en": "Modality is usually the quickest way to eliminate wrong options.",
+          "vi": "Modality thường là cách nhanh nhất để loại các đáp án sai."
+        }
+      ],
+      "terms": [
+        {
+          "term": "Gemini",
+          "en": "Google's multimodal model family for general-purpose tasks.",
+          "vi": "Họ mô hình đa phương thức của Google cho tác vụ đa dụng."
+        },
+        {
+          "term": "Gemma",
+          "en": "Lightweight, customizable open model for local and specialized use.",
+          "vi": "Mô hình mở nhẹ, tùy biến cho dùng cục bộ và chuyên biệt."
+        },
+        {
+          "term": "Imagen",
+          "en": "Text-to-image diffusion model.",
+          "vi": "Diffusion model text-to-image."
+        },
+        {
+          "term": "Veo",
+          "en": "Text/image-to-video generation model.",
+          "vi": "Mô hình tạo video từ văn bản/ảnh."
+        },
+        {
+          "term": "Open model",
+          "en": "A model whose weights can be downloaded and self-hosted/customized.",
+          "vi": "Mô hình có trọng số tải về, tự host và tùy biến được."
+        },
+        {
+          "term": "Model Garden",
+          "en": "Catalog to explore Google, third-party and open models.",
+          "vi": "Danh mục khám phá mô hình Google, bên thứ ba và mã nguồn mở."
+        }
+      ],
+      "keywords": [
+        "gemini",
+        "gemma",
+        "imagen",
+        "veo",
+        "text-to-image",
+        "text-to-video",
+        "open model",
+        "lightweight",
+        "local deployment",
+        "multimodal",
+        "video generation",
+        "image generation",
+        "model garden",
+        "conversational"
+      ]
+    }
+  ]
+}

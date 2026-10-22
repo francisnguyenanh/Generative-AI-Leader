@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="vi" data-theme="light">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Bài Học Generative AI Leader | Google Cloud</title>
+  <meta name="description"
+    content="Bài học song ngữ Anh - Việt cho kỳ thi Google Cloud Generative AI Leader, sắp xếp từ 4 lĩnh vực lớn xuống từng chủ đề nhỏ theo Exam Guide chính thức.">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/learn.css">
+</head>
+
+<body>
+
+  <header class="site-header">
+    <div class="container header-content">
+      <a class="brand" href="#overview" title="Tổng quan kỳ thi Generative AI Leader">
+        <div class="brand-info">
+          <h1>GenAI Leader · Bài học</h1>
+          <span>Google Cloud Generative AI Leader</span>
+        </div>
+      </a>
+
+      <div class="header-actions">
+        <button type="button" class="btn-icon learn-menu-btn" id="menuToggleBtn" aria-label="Mở mục lục"
+          title="Mục lục">☰</button>
+
+        <a class="btn-learn-link" href="index.html?exam=genai" title="Làm 10 bộ đề thi thử Generative AI Leader">
+          📝 <span class="learn-link-text">Luyện đề</span>
+        </a>
+
+        <button type="button" class="btn-lang-toggle active" id="langToggleBtn" aria-label="Bật/Tắt dịch tiếng Việt"
+          title="Bật/Tắt hiển thị bản dịch tiếng Việt song ngữ">
+          <span class="lang-icon">🇻🇳</span>
+          <span class="lang-label" id="langToggleText">Dịch TV: Bật</span>
+        </button>
+
+        <button type="button" class="btn-icon" id="themeToggleBtn" aria-label="Chuyển giao diện sáng/tối"
+          title="Chuyển giao diện">🌙</button>
+      </div>
+    </div>
+  </header>
+
+  <div class="container learn-layout">
+    <aside class="learn-sidebar" id="learnSidebar" aria-label="Mục lục bài học">
+      <div class="learn-search">
+        <input type="search" id="searchInput" placeholder="Tìm bài học, thuật ngữ…" aria-label="Tìm bài học">
+      </div>
+      <div class="learn-progress" id="progressSummary"></div>
+      <nav class="learn-nav" id="learnNav"></nav>
+    </aside>
+    <div class="learn-backdrop" id="learnBackdrop"></div>
+
+    <main class="learn-main" id="learnMain">
+      <p class="learn-loading">Đang tải bài học…</p>
+    </main>
+  </div>
+
+  <script src="Quiz_data/lessons/lessons.js"></script>
+  <script src="Quiz_data/manifest.js"></script>
+  <script>
+    // Cấu hình cho js/learn.js (mặc định của learn.js là CCAR-P)
+    (function () {
+      var DOMAIN_TOPICS = [
+        "Generative AI Fundamentals",
+        "Google Cloud Gen AI Solutions",
+        "Improving Gen AI Model Output",
+        "Business Strategy for Gen AI"
+      ];
+      window.LEARN_CONFIG = {
+        lessons: window.GENAI_LESSONS,
+        manifest: window.QUIZ_MANIFEST,
+        progressKey: "genai_learn_done",
+        examId: "genai",
+        folder: "Quiz_data",
+        setVarPrefix: "QUIZ_DATA_SET_",
+        lessonsFile: "Quiz_data/lessons/lessons.js",
+        buildCmd: "python build_genai_lessons.py",
+        title: "Google Cloud Generative AI Leader",
+        subtitle: "Bài học song ngữ theo Exam Guide chính thức — 4 lĩnh vực, {topics} chủ đề",
+        questionsPerSet: 60,
+        domainWord: "Section",
+        practiceSource: "Generative AI Leader",
+        facts: [
+          { val: "50–60", lbl: "Số câu hỏi" },
+          { val: "90 phút", lbl: "Thời gian làm bài" },
+          { val: "$99", lbl: "Lệ phí thi (chưa gồm thuế)" },
+          { val: "3 năm", lbl: "Hiệu lực chứng chỉ" },
+          { val: "EN · JA · ES · PT", lbl: "Ngôn ngữ đề thi" },
+          { val: "Online / test center", lbl: "Hình thức thi có giám sát" }
+        ],
+        formatNote: {
+          en: "Item format: multiple choice. No prerequisites; aimed at business-level leaders (strategic leadership and influence, not hands-on implementation). Details can change, so check the official certification page before booking.",
+          vi: "Dạng câu hỏi: trắc nghiệm. Không có điều kiện tiên quyết; dành cho lãnh đạo cấp kinh doanh (tập trung chiến lược, không phải triển khai kỹ thuật). Thông tin có thể thay đổi, hãy kiểm tra trang chứng chỉ chính thức trước khi đặt lịch."
+        },
+        steps: [
+          { en: "Study the 4 sections of the exam guide, from the big picture (section overview) down to each topic.", vi: "Nắm 4 lĩnh vực của exam guide, đi từ bức tranh lớn (tổng quan lĩnh vực) xuống từng chủ đề nhỏ." },
+          { en: "Read the English text first (the exam uses these terms and product names), then check the Vietnamese translation.", vi: "Đọc phần tiếng Anh trước (đề thi dùng đúng các thuật ngữ và tên sản phẩm này), sau đó đối chiếu bản dịch tiếng Việt." },
+          { en: "Finish each topic with the practice questions, then take the full 60-question, 90-minute mock exams.", vi: "Kết thúc mỗi bài bằng phần luyện câu hỏi, sau đó làm đề thi thử đầy đủ 60 câu / 90 phút." },
+          { en: "Product names change often (e.g. Agent Platform, formerly Vertex AI): confirm against the official exam guide.", vi: "Tên sản phẩm đổi thường xuyên (vd. Agent Platform, trước đây là Vertex AI): hãy đối chiếu với exam guide chính thức." }
+        ],
+        samples: [],
+        // Mỗi câu hỏi đã gắn lessonId; câu nào chưa có thì lọc theo lĩnh vực + từ khóa của bài học
+        practiceFilter: function (q, domain, topic) {
+          if (q.lessonId) return q.lessonId === topic.id;
+          var want = DOMAIN_TOPICS[(domain && domain.domain) - 1];
+          if (!want || String(q.topic || "").indexOf(want) !== 0) return false;
+          var text = [q.question].concat((q.options || []).map(function (o) { return o.text; }), [q.explanation]).join(" ").toLowerCase();
+          return (topic.keywords || []).some(function (k) { return text.indexOf(String(k).toLowerCase()) !== -1; });
+        }
+      };
+    })();
+  </script>
+  <script src="js/learn.js"></script>
+</body>
+
+</html>

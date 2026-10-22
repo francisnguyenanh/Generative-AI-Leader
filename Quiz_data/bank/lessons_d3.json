@@ -1,0 +1,1218 @@
+{
+ "domain": 3,
+ "title": "Techniques to improve gen AI model output",
+ "title_vi": "Kỹ thuật cải thiện đầu ra của mô hình gen AI",
+ "weight": 20,
+ "overview": "Foundation models are powerful but imperfect: they hallucinate, have a knowledge cutoff, inherit bias and struggle with edge cases. This domain moves from the big picture to the detail. First you learn the limitations, then the Google-recommended practices that overcome them (grounding, RAG, prompt engineering, fine-tuning, human in the loop) and how to monitor and manage models over time. Then you go deeper into prompt engineering techniques (zero-shot to few-shot, role, chaining, chain-of-thought, ReAct, metaprompting), grounding and RAG with Google Cloud offerings, and the sampling parameters (temperature, top-p, tokens, safety settings) that tune model behaviour. About 20% of the exam.",
+ "overview_vi": "Foundation model mạnh nhưng không hoàn hảo: chúng hallucinate, có knowledge cutoff, kế thừa bias và gặp khó với edge case. Domain này đi từ bức tranh lớn đến chi tiết. Trước hết bạn học các giới hạn, rồi các thực hành Google khuyến nghị để khắc phục (grounding, RAG, prompt engineering, fine-tuning, human in the loop) và cách giám sát, quản lý model theo thời gian. Sau đó đi sâu vào kỹ thuật prompt engineering (zero-shot đến few-shot, role, chaining, chain-of-thought, ReAct, metaprompting), grounding và RAG với các offering của Google Cloud, và các tham số sampling (temperature, top-p, token, safety settings) điều chỉnh hành vi model. Chiếm khoảng 20% đề thi.",
+ "topics": [
+  {
+   "id": "d3-t1",
+   "objective": "3.1 Describe how to proactively overcome foundation model limitations: identify common limitations of foundation models (data dependency, knowledge cutoff, bias, fairness, hallucinations, edge cases).",
+   "title": "Limitations of foundation models",
+   "title_vi": "Các giới hạn của foundation model",
+   "sources": [
+    "exam-guide-official-checklist.md",
+    "module2-v2.md",
+    "module4-v2.md",
+    "official/guide.txt",
+    "official/study.txt"
+   ],
+   "sections": [
+    {
+     "heading": "Why foundation models fall short",
+     "heading_vi": "Vì sao foundation model có giới hạn",
+     "body": "A foundation model is a large model pre-trained on huge, broad datasets and then adapted to many tasks. It does not 'know' facts the way a database does: it predicts likely next tokens from patterns learned in training. That is powerful for language and creativity, but it creates predictable weaknesses that a gen AI leader must recognise before choosing a remedy.\n\nThe exam lists six: data dependency, knowledge cutoff, bias, fairness, hallucinations and edge cases. Learn each one as a cause-and-symptom pair, because later questions ask which technique fixes which limitation.",
+     "body_vi": "Foundation model là mô hình lớn được tiền huấn luyện trên tập dữ liệu rất rộng rồi thích ứng cho nhiều tác vụ. Nó không 'biết' sự thật như một cơ sở dữ liệu: nó dự đoán token tiếp theo có khả năng cao dựa trên các mẫu học được. Điều này mạnh cho ngôn ngữ và sáng tạo nhưng tạo ra những điểm yếu có thể đoán trước, mà người lãnh đạo gen AI phải nhận ra trước khi chọn cách khắc phục.\n\nĐề thi liệt kê sáu giới hạn: data dependency, knowledge cutoff, bias, fairness, hallucination và edge case. Hãy học mỗi giới hạn như một cặp nguyên nhân - triệu chứng, vì các câu sau sẽ hỏi kỹ thuật nào khắc phục giới hạn nào."
+    },
+    {
+     "heading": "The six limitations in detail",
+     "heading_vi": "Sáu giới hạn chi tiết",
+     "body": "Data dependency: output quality depends on the quality, quantity and coverage of the training data. Poor, narrow or unrepresentative data gives poor results. Knowledge cutoff: the model only knows what was in its training data up to a date, so it cannot answer about recent events or your private, newly changed company data.\n\nBias: training data reflects human and historical prejudices, and the model can reproduce or amplify them. Fairness: the related concern that outputs should not systematically disadvantage groups of people. Hallucination: the model produces fluent, confident text that is false, nonsensical or not supported by any source. Edge cases: unusual, rare or ambiguous inputs outside the typical training distribution where the model behaves unpredictably.",
+     "body_vi": "Data dependency: chất lượng đầu ra phụ thuộc vào chất lượng, số lượng và độ phủ của dữ liệu huấn luyện. Dữ liệu kém, hẹp hoặc không đại diện sẽ cho kết quả kém. Knowledge cutoff: model chỉ biết những gì có trong dữ liệu huấn luyện đến một mốc thời gian, nên không trả lời được về sự kiện gần đây hoặc dữ liệu nội bộ mới thay đổi của công ty bạn.\n\nBias: dữ liệu huấn luyện phản ánh định kiến của con người và lịch sử, model có thể tái tạo hoặc khuếch đại chúng. Fairness: mối quan tâm liên quan, rằng đầu ra không được bất lợi một cách có hệ thống cho một nhóm người. Hallucination: model sinh văn bản trôi chảy, tự tin nhưng sai, vô nghĩa hoặc không có nguồn hỗ trợ. Edge case: đầu vào hiếm, bất thường hoặc mơ hồ nằm ngoài phân phối huấn luyện thông thường, nơi model hành xử khó đoán.",
+     "bullets": [
+      {
+       "en": "Data dependency: garbage in, garbage out; gaps in training data become gaps in answers.",
+       "vi": "Data dependency: dữ liệu vào kém thì kết quả kém; lỗ hổng dữ liệu thành lỗ hổng câu trả lời."
+      },
+      {
+       "en": "Knowledge cutoff: stale or missing knowledge of recent events and private data.",
+       "vi": "Knowledge cutoff: kiến thức lỗi thời hoặc thiếu về sự kiện gần đây và dữ liệu riêng."
+      },
+      {
+       "en": "Bias and fairness: skewed or discriminatory outputs inherited from data.",
+       "vi": "Bias và fairness: đầu ra lệch hoặc phân biệt đối xử kế thừa từ dữ liệu."
+      },
+      {
+       "en": "Hallucination: plausible but false or unsupported content.",
+       "vi": "Hallucination: nội dung hợp lý nhưng sai hoặc không có căn cứ."
+      },
+      {
+       "en": "Edge cases: unusual inputs cause unpredictable behaviour.",
+       "vi": "Edge case: đầu vào bất thường gây hành vi khó đoán."
+      }
+     ]
+    },
+    {
+     "heading": "Business implication",
+     "heading_vi": "Ý nghĩa với doanh nghiệp",
+     "body": "Limitations are risks, not reasons to avoid gen AI. A fabricated policy answer to a customer, a biased screening recommendation or an outdated price all carry reputational, legal and financial cost. The correct leadership response is to identify the limitation that matters for the use case and then apply a proactive mitigation (next topic), rather than to expect a bigger model to remove all of them.\n\nBecause outputs are probabilistic, the same prompt can yield different answers, so quality must be tested and monitored continuously, not assumed after launch.",
+     "body_vi": "Giới hạn là rủi ro, không phải lý do tránh gen AI. Một câu trả lời chính sách bịa đặt cho khách hàng, một khuyến nghị sàng lọc thiên lệch hay một mức giá lỗi thời đều gây thiệt hại về danh tiếng, pháp lý và tài chính. Phản ứng đúng của lãnh đạo là xác định giới hạn quan trọng với use case rồi áp dụng biện pháp giảm thiểu chủ động (topic tiếp theo), thay vì mong một model lớn hơn loại bỏ mọi giới hạn.\n\nVì đầu ra mang tính xác suất, cùng một prompt có thể cho câu trả lời khác nhau, nên chất lượng phải được kiểm thử và giám sát liên tục, không được mặc định là ổn sau khi ra mắt."
+    }
+   ],
+   "table": {
+    "caption": "Limitation, cause and typical symptom",
+    "caption_vi": "Giới hạn, nguyên nhân và triệu chứng điển hình",
+    "headers": [
+     "Limitation",
+     "Cause",
+     "Symptom"
+    ],
+    "headers_vi": [
+     "Giới hạn",
+     "Nguyên nhân",
+     "Triệu chứng"
+    ],
+    "rows": [
+     [
+      "Data dependency",
+      "Training data quality/coverage",
+      "Weak results in niche domains"
+     ],
+     [
+      "Knowledge cutoff",
+      "Training stops at a date",
+      "Outdated or missing facts"
+     ],
+     [
+      "Bias / fairness",
+      "Skewed or prejudiced data",
+      "Unequal or stereotyped outputs"
+     ],
+     [
+      "Hallucination",
+      "Next-token prediction without fact checking",
+      "Confident but false statements"
+     ],
+     [
+      "Edge cases",
+      "Rare inputs outside training distribution",
+      "Erratic or wrong answers"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Foundation models predict likely text; they do not verify facts.",
+     "vi": "Foundation model dự đoán văn bản có khả năng cao; chúng không kiểm chứng sự thật."
+    },
+    {
+     "en": "The six limitations: data dependency, knowledge cutoff, bias, fairness, hallucinations, edge cases.",
+     "vi": "Sáu giới hạn: data dependency, knowledge cutoff, bias, fairness, hallucination, edge case."
+    },
+    {
+     "en": "Knowledge cutoff means no knowledge of recent events or private enterprise data.",
+     "vi": "Knowledge cutoff nghĩa là không biết sự kiện gần đây hay dữ liệu riêng doanh nghiệp."
+    },
+    {
+     "en": "Hallucinations are fluent and confident, which makes them hard to spot without checks.",
+     "vi": "Hallucination trôi chảy và tự tin nên khó phát hiện nếu không kiểm tra."
+    },
+    {
+     "en": "Bias in data can be reproduced or amplified in output, raising fairness concerns.",
+     "vi": "Bias trong dữ liệu có thể được tái tạo hoặc khuếch đại trong đầu ra, gây vấn đề fairness."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "If the scenario says the model gives outdated answers or does not know company data, the limitation is knowledge cutoff / data dependency, not bias.",
+     "vi": "Nếu tình huống nói model trả lời lỗi thời hoặc không biết dữ liệu công ty, giới hạn là knowledge cutoff / data dependency, không phải bias."
+    },
+    {
+     "en": "'Confident but incorrect or invented answer' is the definition of a hallucination.",
+     "vi": "'Câu trả lời tự tin nhưng sai hoặc bịa' là định nghĩa của hallucination."
+    },
+    {
+     "en": "Do not pick 'use a larger model' as the fix for limitations; the exam favours grounding, RAG, prompt design and human oversight.",
+     "vi": "Đừng chọn 'dùng model lớn hơn' để khắc phục giới hạn; đề thi ưu tiên grounding, RAG, thiết kế prompt và giám sát của con người."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Foundation model",
+     "en": "A large model pre-trained on broad data and adaptable to many tasks.",
+     "vi": "Model lớn tiền huấn luyện trên dữ liệu rộng, thích ứng cho nhiều tác vụ."
+    },
+    {
+     "term": "Knowledge cutoff",
+     "en": "The date after which the model has no training knowledge.",
+     "vi": "Mốc thời gian sau đó model không có kiến thức huấn luyện."
+    },
+    {
+     "term": "Hallucination",
+     "en": "Fluent output that is false, nonsensical or unsupported.",
+     "vi": "Đầu ra trôi chảy nhưng sai, vô nghĩa hoặc không có căn cứ."
+    },
+    {
+     "term": "Bias",
+     "en": "Systematic skew in outputs inherited from training data.",
+     "vi": "Độ lệch có hệ thống trong đầu ra kế thừa từ dữ liệu huấn luyện."
+    },
+    {
+     "term": "Fairness",
+     "en": "Goal that outputs do not unjustly disadvantage groups.",
+     "vi": "Mục tiêu đầu ra không bất lợi một cách bất công cho các nhóm."
+    },
+    {
+     "term": "Edge case",
+     "en": "Rare or unusual input where model behaviour is unreliable.",
+     "vi": "Đầu vào hiếm hoặc bất thường khiến hành vi model không đáng tin."
+    }
+   ],
+   "keywords": [
+    "limitation",
+    "hallucination",
+    "knowledge cutoff",
+    "bias",
+    "fairness",
+    "data dependency",
+    "edge case",
+    "outdated",
+    "training data",
+    "inaccurate",
+    "fabricate",
+    "foundation model",
+    "confident",
+    "stereotype"
+   ]
+  },
+  {
+   "id": "d3-t2",
+   "objective": "3.1 Describe the Google Cloud-recommended practices to address limitations (e.g., grounding, retrieval-augmented generation [RAG], prompt engineering, fine-tuning, human in the loop [HITL]).",
+   "title": "Overcoming limitations: Google-recommended practices",
+   "title_vi": "Khắc phục giới hạn: các thực hành Google khuyến nghị",
+   "sources": [
+    "exam-guide-official-checklist.md",
+    "module4-v2.md",
+    "module5-v2.md",
+    "official/guide.txt",
+    "official/study.txt"
+   ],
+   "sections": [
+    {
+     "heading": "Five practices, one toolbox",
+     "heading_vi": "Năm thực hành, một bộ công cụ",
+     "body": "Google Cloud recommends combining five practices rather than relying on one: grounding, retrieval-augmented generation (RAG), prompt engineering, fine-tuning and human in the loop (HITL). They act at different points: before the model (prompt, data), inside the model (fine-tuning) and after generation (review).\n\nGrounding connects the model to verifiable sources so answers are tied to facts. RAG is the most common way to ground: retrieve relevant documents and add them to the prompt. Prompt engineering shapes the instructions and context. Fine-tuning further trains a model on task- or domain-specific data. HITL keeps people in the loop to review and decide.",
+     "body_vi": "Google Cloud khuyến nghị kết hợp năm thực hành thay vì chỉ dựa vào một: grounding, retrieval-augmented generation (RAG), prompt engineering, fine-tuning và human in the loop (HITL). Chúng tác động ở các điểm khác nhau: trước model (prompt, dữ liệu), bên trong model (fine-tuning) và sau khi sinh (review).\n\nGrounding nối model với nguồn có thể kiểm chứng để câu trả lời gắn với sự thật. RAG là cách grounding phổ biến nhất: truy xuất tài liệu liên quan và thêm vào prompt. Prompt engineering định hình chỉ dẫn và ngữ cảnh. Fine-tuning huấn luyện thêm model trên dữ liệu theo tác vụ hay lĩnh vực. HITL giữ con người trong vòng lặp để review và quyết định.",
+     "bullets": [
+      {
+       "en": "Grounding / RAG: reduces hallucination and overcomes knowledge cutoff with current, authoritative data.",
+       "vi": "Grounding / RAG: giảm hallucination và vượt knowledge cutoff bằng dữ liệu hiện hành, đáng tin."
+      },
+      {
+       "en": "Prompt engineering: clearer instructions, context and format for better output; cheapest first step.",
+       "vi": "Prompt engineering: chỉ dẫn, ngữ cảnh, định dạng rõ hơn cho đầu ra tốt hơn; bước rẻ nhất để bắt đầu."
+      },
+      {
+       "en": "Fine-tuning: improves performance on a specific task or domain, style or terminology.",
+       "vi": "Fine-tuning: cải thiện hiệu năng cho tác vụ hay lĩnh vực cụ thể, văn phong, thuật ngữ."
+      },
+      {
+       "en": "HITL: human oversight for sensitive or high-risk output.",
+       "vi": "HITL: con người giám sát đầu ra nhạy cảm hoặc rủi ro cao."
+      }
+     ]
+    },
+    {
+     "heading": "Human in the loop (HITL)",
+     "heading_vi": "Human in the loop (HITL)",
+     "body": "HITL means people review, validate or correct model output and make the final call. Typical uses: content moderation, sensitive applications (healthcare, finance), high-stakes decisions, and any case where an error is costly. It also helps surface bias and edge cases that automated checks miss.\n\nGoogle describes two review points. Pre-generation review: experts review and approve data, prompts, configuration and the system before deployment. Post-generation review: ongoing review of outputs after deployment, with feedback used to improve the system. Mature programmes use both.",
+     "body_vi": "HITL nghĩa là con người xem xét, xác thực hoặc sửa đầu ra của model và đưa ra quyết định cuối cùng. Dùng điển hình: kiểm duyệt nội dung, ứng dụng nhạy cảm (y tế, tài chính), quyết định rủi ro cao và mọi trường hợp lỗi gây tốn kém. HITL cũng giúp phát hiện bias và edge case mà kiểm tra tự động bỏ sót.\n\nGoogle mô tả hai điểm review. Pre-generation review: chuyên gia duyệt dữ liệu, prompt, cấu hình và hệ thống trước khi triển khai. Post-generation review: review liên tục đầu ra sau khi triển khai, dùng phản hồi để cải thiện hệ thống. Chương trình trưởng thành dùng cả hai."
+    },
+    {
+     "heading": "Choosing the right technique",
+     "heading_vi": "Chọn đúng kỹ thuật",
+     "body": "Start with the cheapest, fastest lever and escalate only if needed: prompt engineering first, then grounding/RAG when the model lacks current or private facts, then fine-tuning when you need consistent domain behaviour or style that prompting cannot deliver. Add HITL wherever the consequence of an error is high, regardless of which technique you pick.\n\nNote that fine-tuning teaches patterns and style but does not give the model fresh, citable facts; for frequently changing enterprise data, grounding with RAG is the better and cheaper answer.",
+     "body_vi": "Bắt đầu với đòn bẩy rẻ và nhanh nhất rồi nâng cấp nếu cần: prompt engineering trước, sau đó grounding/RAG khi model thiếu dữ kiện hiện hành hoặc riêng tư, rồi fine-tuning khi cần hành vi lĩnh vực nhất quán hay văn phong mà prompt không đạt được. Thêm HITL ở bất cứ nơi nào hậu quả lỗi cao, bất kể chọn kỹ thuật nào.\n\nLưu ý fine-tuning dạy các mẫu và văn phong nhưng không cung cấp dữ kiện mới có thể trích dẫn; với dữ liệu doanh nghiệp thay đổi thường xuyên, grounding bằng RAG là đáp án tốt và rẻ hơn."
+    }
+   ],
+   "table": {
+    "caption": "Which technique addresses which limitation",
+    "caption_vi": "Kỹ thuật nào xử lý giới hạn nào",
+    "headers": [
+     "Limitation",
+     "Best-fit technique(s)"
+    ],
+    "headers_vi": [
+     "Giới hạn",
+     "Kỹ thuật phù hợp nhất"
+    ],
+    "rows": [
+     [
+      "Hallucinations",
+      "Grounding / RAG, clear prompts, HITL review"
+     ],
+     [
+      "Knowledge cutoff",
+      "Grounding / RAG (incl. Grounding with Google Search)"
+     ],
+     [
+      "Data dependency / missing domain knowledge",
+      "RAG with enterprise data; fine-tuning for domain adaptation"
+     ],
+     [
+      "Inconsistent format, tone or task behaviour",
+      "Prompt engineering; fine-tuning for persistent style"
+     ],
+     [
+      "Bias / fairness",
+      "Diverse data, prompt guidance, safety settings, HITL review"
+     ],
+     [
+      "Edge cases / high-risk decisions",
+      "HITL (pre- and post-generation), testing and monitoring"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Google recommends layering grounding, RAG, prompt engineering, fine-tuning and HITL.",
+     "vi": "Google khuyến nghị xếp lớp grounding, RAG, prompt engineering, fine-tuning và HITL."
+    },
+    {
+     "en": "Grounding and RAG fix hallucination and knowledge cutoff by supplying current, authoritative data.",
+     "vi": "Grounding và RAG xử lý hallucination và knowledge cutoff bằng dữ liệu hiện hành, đáng tin."
+    },
+    {
+     "en": "Fine-tuning adapts a model to a task or domain; it does not supply live facts.",
+     "vi": "Fine-tuning thích ứng model cho tác vụ hay lĩnh vực; không cung cấp dữ kiện cập nhật."
+    },
+    {
+     "en": "HITL: pre-generation review before deployment, post-generation review after deployment.",
+     "vi": "HITL: pre-generation review trước triển khai, post-generation review sau triển khai."
+    },
+    {
+     "en": "Use HITL for sensitive, regulated or high-stakes outputs.",
+     "vi": "Dùng HITL cho đầu ra nhạy cảm, bị quản lý hoặc rủi ro cao."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "'Reduce hallucinations using the company's current documents without retraining' = grounding / RAG.",
+     "vi": "'Giảm hallucination bằng tài liệu hiện hành của công ty mà không huấn luyện lại' = grounding / RAG."
+    },
+    {
+     "en": "When a question stresses healthcare, finance or high-risk decisions, add human review (HITL) to the best answer.",
+     "vi": "Khi câu hỏi nhấn mạnh y tế, tài chính hay quyết định rủi ro cao, hãy chọn đáp án có human review (HITL)."
+    },
+    {
+     "en": "Prompt engineering is usually the lowest-cost first step; fine-tuning is heavier and a later escalation.",
+     "vi": "Prompt engineering thường là bước đầu chi phí thấp nhất; fine-tuning nặng hơn và là bước nâng cấp sau."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Grounding",
+     "en": "Tying model output to verifiable sources of information.",
+     "vi": "Gắn đầu ra của model với nguồn thông tin có thể kiểm chứng."
+    },
+    {
+     "term": "RAG",
+     "en": "Retrieving relevant data and adding it to the prompt before generation.",
+     "vi": "Truy xuất dữ liệu liên quan và thêm vào prompt trước khi sinh."
+    },
+    {
+     "term": "Prompt engineering",
+     "en": "Designing inputs to guide the model to better output.",
+     "vi": "Thiết kế đầu vào để dẫn model tới đầu ra tốt hơn."
+    },
+    {
+     "term": "Fine-tuning",
+     "en": "Further training a model on task- or domain-specific data.",
+     "vi": "Huấn luyện thêm model trên dữ liệu theo tác vụ hay lĩnh vực."
+    },
+    {
+     "term": "HITL",
+     "en": "Human in the loop: people review or approve model output.",
+     "vi": "Con người trong vòng lặp: người review hoặc phê duyệt đầu ra."
+    },
+    {
+     "term": "Pre-generation review",
+     "en": "Expert review of data, prompts and system before deployment.",
+     "vi": "Chuyên gia duyệt dữ liệu, prompt, hệ thống trước triển khai."
+    },
+    {
+     "term": "Post-generation review",
+     "en": "Ongoing review of outputs after deployment.",
+     "vi": "Review liên tục đầu ra sau triển khai."
+    }
+   ],
+   "keywords": [
+    "human in the loop",
+    "hitl",
+    "grounding",
+    "rag",
+    "retrieval-augmented generation",
+    "prompt engineering",
+    "fine-tuning",
+    "reduce hallucinations",
+    "pre-generation review",
+    "post-generation review",
+    "content moderation",
+    "sensitive",
+    "high-risk",
+    "domain-specific",
+    "without retraining"
+   ]
+  },
+  {
+   "id": "d3-t3",
+   "objective": "3.1 Recognize Google-recommended practices for continuous monitoring and evaluation of gen AI models (e.g., automatic model upgrades, key performance indicators, security patches and updates, versioning, performance tracking, drift monitoring, Agent Platform Feature Store).",
+   "title": "Monitoring, evaluation and model management",
+   "title_vi": "Giám sát, đánh giá và quản lý model",
+   "sources": [
+    "exam-guide-official-checklist.md",
+    "module3-v2.md",
+    "official/guide.txt",
+    "official/study.txt"
+   ],
+   "sections": [
+    {
+     "heading": "Why gen AI needs continuous monitoring",
+     "heading_vi": "Vì sao gen AI cần giám sát liên tục",
+     "body": "A deployed model is not finished. Data, users and the world change, so accuracy and safety can degrade over time. This gradual loss is called drift. Google-recommended practice is continuous monitoring and evaluation: define key performance indicators (KPIs), track performance against them, detect drift, and keep models current and secure.\n\nGood KPIs link model quality to business outcomes, for example accuracy or groundedness of answers, latency, cost, user satisfaction, and safety incident rates.",
+     "body_vi": "Model đã triển khai chưa phải là xong. Dữ liệu, người dùng và thế giới thay đổi nên độ chính xác và an toàn có thể suy giảm theo thời gian. Sự suy giảm dần này gọi là drift. Thực hành Google khuyến nghị là giám sát và đánh giá liên tục: xác định chỉ số hiệu năng chính (KPI), theo dõi hiệu năng so với KPI, phát hiện drift, và giữ model luôn cập nhật, an toàn.\n\nKPI tốt gắn chất lượng model với kết quả kinh doanh, ví dụ độ chính xác hoặc mức bám nguồn của câu trả lời, độ trễ, chi phí, mức hài lòng người dùng và tỷ lệ sự cố an toàn."
+    },
+    {
+     "heading": "The practices",
+     "heading_vi": "Các thực hành",
+     "body": "Keep models up to date: use automatic model upgrades where appropriate so you benefit from improved versions, and apply security patches and updates promptly. Use versioning so you can track which model version produced which results and roll back if a new version underperforms. Track performance continuously with metrics and evaluation, and monitor for drift so you retrain, re-ground or adjust before users are harmed.\n\nOn the Google Cloud Agent Platform (formerly Vertex AI) the matching tools are: Model Registry for versioning, Model Monitoring for drift and performance monitoring, Feature Store for managing and serving ML features consistently, Pipelines for automating and repeating ML workflows, and Model Garden for discovering and organising Google, third-party and open models in one place.",
+     "body_vi": "Giữ model luôn mới: dùng automatic model upgrade khi phù hợp để hưởng các phiên bản cải tiến, và áp dụng security patch và bản cập nhật kịp thời. Dùng versioning để biết phiên bản model nào tạo kết quả nào và rollback nếu phiên bản mới kém hơn. Theo dõi hiệu năng liên tục bằng metric và đánh giá, và giám sát drift để huấn luyện lại, grounding lại hoặc điều chỉnh trước khi người dùng bị ảnh hưởng.\n\nTrên Google Cloud Agent Platform (trước đây là Vertex AI) các công cụ tương ứng là: Model Registry cho versioning, Model Monitoring cho giám sát drift và hiệu năng, Feature Store để quản lý và phục vụ feature ML nhất quán, Pipelines để tự động hóa và lặp lại workflow ML, và Model Garden để khám phá và tổ chức model của Google, bên thứ ba và open-source ở một nơi.",
+     "bullets": [
+      {
+       "en": "Automatic model upgrades and security patches keep models current and secure.",
+       "vi": "Automatic model upgrade và security patch giữ model mới và an toàn."
+      },
+      {
+       "en": "Versioning enables traceability and rollback.",
+       "vi": "Versioning cho phép truy vết và rollback."
+      },
+      {
+       "en": "Drift monitoring detects declining accuracy over time.",
+       "vi": "Drift monitoring phát hiện độ chính xác giảm dần theo thời gian."
+      }
+     ]
+    },
+    {
+     "heading": "Pitfalls",
+     "heading_vi": "Bẫy thường gặp",
+     "body": "Monitoring is a lifecycle practice, not a one-time test before launch. Evaluation should be repeated whenever the model, prompt, data or grounding source changes. Combine automated metrics with human review, since automated scores can miss subtle quality, bias or safety issues.\n\nDo not confuse the tools: Model Registry stores and versions models; Model Monitoring watches deployed models for drift; Feature Store manages features; Model Garden is a catalogue for choosing models, not a monitoring tool.",
+     "body_vi": "Giám sát là thực hành xuyên vòng đời, không phải kiểm thử một lần trước khi ra mắt. Đánh giá nên lặp lại mỗi khi model, prompt, dữ liệu hoặc nguồn grounding thay đổi. Kết hợp metric tự động với review của con người, vì điểm tự động có thể bỏ sót vấn đề tinh tế về chất lượng, bias hay an toàn.\n\nĐừng nhầm công cụ: Model Registry lưu và quản lý phiên bản model; Model Monitoring theo dõi model đã triển khai về drift; Feature Store quản lý feature; Model Garden là danh mục để chọn model, không phải công cụ giám sát."
+    }
+   ],
+   "table": {
+    "caption": "Lifecycle task and Google Cloud tool",
+    "caption_vi": "Tác vụ vòng đời và công cụ Google Cloud",
+    "headers": [
+     "Task",
+     "Tool / practice"
+    ],
+    "headers_vi": [
+     "Tác vụ",
+     "Công cụ / thực hành"
+    ],
+    "rows": [
+     [
+      "Versioning models",
+      "Model Registry"
+     ],
+     [
+      "Drift and performance monitoring",
+      "Model Monitoring"
+     ],
+     [
+      "Managing and serving features",
+      "Feature Store"
+     ],
+     [
+      "Automating ML workflows",
+      "Pipelines"
+     ],
+     [
+      "Finding and organising models",
+      "Model Garden"
+     ],
+     [
+      "Staying current and secure",
+      "Automatic model upgrades, security patches and updates"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Continuous monitoring and evaluation is required because performance drifts over time.",
+     "vi": "Cần giám sát và đánh giá liên tục vì hiệu năng drift theo thời gian."
+    },
+    {
+     "en": "Define KPIs and track performance against them.",
+     "vi": "Xác định KPI và theo dõi hiệu năng theo KPI."
+    },
+    {
+     "en": "Apply automatic model upgrades and security patches and updates.",
+     "vi": "Áp dụng automatic model upgrade và security patch, bản cập nhật."
+    },
+    {
+     "en": "Model Registry = versioning; Model Monitoring = drift; Feature Store = features; Pipelines = automation; Model Garden = model catalogue.",
+     "vi": "Model Registry = versioning; Model Monitoring = drift; Feature Store = feature; Pipelines = tự động hóa; Model Garden = danh mục model."
+    },
+    {
+     "en": "Re-evaluate after any change to model, prompt or data.",
+     "vi": "Đánh giá lại sau mọi thay đổi model, prompt hoặc dữ liệu."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "'Accuracy declining over time as data changes' = drift; the tool is Model Monitoring.",
+     "vi": "'Độ chính xác giảm dần khi dữ liệu thay đổi' = drift; công cụ là Model Monitoring."
+    },
+    {
+     "en": "'Track which model version is deployed and roll back' = versioning with Model Registry.",
+     "vi": "'Theo dõi phiên bản model đang triển khai và rollback' = versioning với Model Registry."
+    },
+    {
+     "en": "Evaluation is ongoing, not a one-time pre-launch test.",
+     "vi": "Đánh giá là liên tục, không phải kiểm thử một lần trước khi ra mắt."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Drift",
+     "en": "Gradual decline in model accuracy as real-world data changes.",
+     "vi": "Sự suy giảm dần độ chính xác khi dữ liệu thực tế thay đổi."
+    },
+    {
+     "term": "KPI",
+     "en": "Key performance indicator used to measure model and business success.",
+     "vi": "Chỉ số hiệu năng chính đo thành công của model và kinh doanh."
+    },
+    {
+     "term": "Model Registry",
+     "en": "Agent Platform service for storing and versioning models.",
+     "vi": "Dịch vụ của Agent Platform để lưu và quản lý phiên bản model."
+    },
+    {
+     "term": "Model Monitoring",
+     "en": "Agent Platform capability to monitor deployed models for drift and performance.",
+     "vi": "Khả năng của Agent Platform giám sát model đã triển khai về drift và hiệu năng."
+    },
+    {
+     "term": "Feature Store",
+     "en": "Agent Platform service to manage and serve ML features.",
+     "vi": "Dịch vụ của Agent Platform để quản lý và phục vụ feature ML."
+    },
+    {
+     "term": "Pipelines",
+     "en": "Agent Platform tooling to automate ML workflows.",
+     "vi": "Công cụ Agent Platform để tự động hóa workflow ML."
+    },
+    {
+     "term": "Model Garden",
+     "en": "Catalogue of Google, third-party and open models on Agent Platform.",
+     "vi": "Danh mục model Google, bên thứ ba và open-source trên Agent Platform."
+    }
+   ],
+   "keywords": [
+    "drift",
+    "model monitoring",
+    "model registry",
+    "versioning",
+    "feature store",
+    "pipelines",
+    "model garden",
+    "kpi",
+    "performance tracking",
+    "security patches",
+    "automatic model upgrades",
+    "continuous monitoring",
+    "evaluation",
+    "rollback",
+    "agent platform"
+   ]
+  },
+  {
+   "id": "d3-t4",
+   "objective": "3.2 Describe prompt engineering techniques and how they drive better results: define prompt engineering and its significance; identify prompting techniques and use cases (zero-shot, one-shot, few-shot, role prompting, prompt chaining).",
+   "title": "Prompt engineering fundamentals and basic techniques",
+   "title_vi": "Nền tảng prompt engineering và các kỹ thuật cơ bản",
+   "sources": [
+    "exam-guide-official-checklist.md",
+    "module4-v2.md",
+    "module5-v2.md",
+    "bonus-reference-guide.md",
+    "official/guide.txt",
+    "official/study.txt"
+   ],
+   "sections": [
+    {
+     "heading": "What prompt engineering is and why it matters",
+     "heading_vi": "Prompt engineering là gì và vì sao quan trọng",
+     "body": "A prompt is the input you give an LLM: instructions, context, examples and the question. Prompt engineering is the practice of designing and refining prompts to guide the model toward accurate, relevant, well-formatted output. Because the model's behaviour depends heavily on its input, better prompts often deliver large quality gains without any retraining, which makes it the fastest and cheapest way to improve results.\n\nA strong prompt usually states the task clearly, gives relevant context, specifies the output format and length, and sets constraints or tone. Iteration is normal: test, inspect the output and refine.",
+     "body_vi": "Prompt là đầu vào bạn đưa cho LLM: chỉ dẫn, ngữ cảnh, ví dụ và câu hỏi. Prompt engineering là thực hành thiết kế và tinh chỉnh prompt để dẫn model tới đầu ra chính xác, liên quan, đúng định dạng. Vì hành vi model phụ thuộc nhiều vào đầu vào, prompt tốt hơn thường mang lại cải thiện chất lượng lớn mà không cần huấn luyện lại, nên đây là cách nhanh và rẻ nhất để cải thiện kết quả.\n\nMột prompt tốt thường nêu rõ tác vụ, cung cấp ngữ cảnh liên quan, chỉ định định dạng và độ dài đầu ra, và đặt ràng buộc hoặc giọng điệu. Lặp lại là bình thường: thử, xem đầu ra rồi tinh chỉnh."
+    },
+    {
+     "heading": "Basic techniques with example prompts",
+     "heading_vi": "Kỹ thuật cơ bản kèm prompt mẫu",
+     "body": "Zero-shot: only the instruction, no examples. Example: 'Classify the sentiment of this review as positive, negative or neutral: \"The delivery was late but the product is great.\"' One-shot: one example shows the pattern. Few-shot: several examples show the pattern and format; best when the task or output format is unusual. Example: 'Review: \"Loved it\" -> positive. Review: \"Broke in a day\" -> negative. Review: \"Arrived on time\" -> ?'.\n\nRole prompting assigns a persona to set expertise and tone. Example: 'You are a senior financial advisor. Explain index funds to a first-time investor in under 100 words.' Prompt chaining breaks a complex task into steps where each output feeds the next prompt, or, in a conversation, builds on earlier turns to keep context. Example: step 1 'Summarise this contract in 5 bullets'; step 2 'From those bullets, list the risks'; step 3 'Draft an email to the client about the top risk'.",
+     "body_vi": "Zero-shot: chỉ có chỉ dẫn, không ví dụ. Ví dụ: 'Phân loại cảm xúc của đánh giá sau là tích cực, tiêu cực hay trung lập: \"Giao hàng trễ nhưng sản phẩm rất tốt.\"' One-shot: một ví dụ cho thấy mẫu. Few-shot: vài ví dụ cho thấy mẫu và định dạng; phù hợp nhất khi tác vụ hoặc định dạng đầu ra khác thường. Ví dụ: 'Đánh giá: \"Rất thích\" -> tích cực. Đánh giá: \"Hỏng sau một ngày\" -> tiêu cực. Đánh giá: \"Đến đúng giờ\" -> ?'.\n\nRole prompting gán một persona để đặt chuyên môn và giọng điệu. Ví dụ: 'Bạn là cố vấn tài chính cấp cao. Giải thích quỹ chỉ số cho nhà đầu tư lần đầu trong dưới 100 từ.' Prompt chaining chia tác vụ phức tạp thành các bước mà đầu ra của bước này làm đầu vào của prompt kế tiếp, hoặc trong hội thoại thì dựa trên các lượt trước để giữ ngữ cảnh. Ví dụ: bước 1 'Tóm tắt hợp đồng này thành 5 gạch đầu dòng'; bước 2 'Từ các gạch đó, liệt kê rủi ro'; bước 3 'Soạn email gửi khách về rủi ro lớn nhất'.",
+     "bullets": [
+      {
+       "en": "Zero-shot: instruction only; good for simple, common tasks.",
+       "vi": "Zero-shot: chỉ chỉ dẫn; tốt cho tác vụ đơn giản, phổ biến."
+      },
+      {
+       "en": "One-shot / few-shot: examples set pattern and format.",
+       "vi": "One-shot / few-shot: ví dụ định ra mẫu và định dạng."
+      },
+      {
+       "en": "Role prompting: persona sets expertise, tone and perspective.",
+       "vi": "Role prompting: persona đặt chuyên môn, giọng điệu, góc nhìn."
+      },
+      {
+       "en": "Prompt chaining: sequence of linked prompts for complex tasks.",
+       "vi": "Prompt chaining: chuỗi prompt liên kết cho tác vụ phức tạp."
+      }
+     ]
+    },
+    {
+     "heading": "Reusing prompts, Gems and pitfalls",
+     "heading_vi": "Tái sử dụng prompt, Gems và bẫy",
+     "body": "To optimise your prompting workflow, reuse proven prompts as templates with placeholders, chain prompts, and save context. In the Gemini app, Gems are customised AI assistants you set up once with instructions and reuse, effectively a saved prompt template for a recurring task (for example a 'meeting-notes formatter' or 'brand-voice editor').\n\nPitfalls: vague prompts give vague answers; too many conflicting instructions confuse the model; examples that are unrepresentative bias the output. Prompting reduces but does not eliminate hallucination, so it does not replace grounding or human review for factual or high-risk work.",
+     "body_vi": "Để tối ưu quy trình prompt, hãy tái dùng prompt đã chứng minh hiệu quả như template có placeholder, nối chuỗi prompt và lưu ngữ cảnh. Trong ứng dụng Gemini, Gems là trợ lý AI tùy biến bạn thiết lập một lần với chỉ dẫn rồi dùng lại, về bản chất là template prompt đã lưu cho một tác vụ lặp lại (ví dụ 'trình định dạng biên bản họp' hay 'biên tập giọng thương hiệu').\n\nBẫy: prompt mơ hồ cho câu trả lời mơ hồ; quá nhiều chỉ dẫn mâu thuẫn làm model rối; ví dụ không đại diện làm lệch đầu ra. Prompt giảm nhưng không loại bỏ hallucination, nên không thay thế grounding hay review của con người cho công việc cần sự thật hoặc rủi ro cao."
+    }
+   ],
+   "table": {
+    "caption": "Basic prompting techniques at a glance",
+    "caption_vi": "Tổng quan kỹ thuật prompt cơ bản",
+    "headers": [
+     "Technique",
+     "What you provide",
+     "Best for"
+    ],
+    "headers_vi": [
+     "Kỹ thuật",
+     "Bạn cung cấp",
+     "Phù hợp nhất"
+    ],
+    "rows": [
+     [
+      "Zero-shot",
+      "Instruction only",
+      "Simple, common tasks"
+     ],
+     [
+      "One-shot",
+      "Instruction + 1 example",
+      "Show a format quickly"
+     ],
+     [
+      "Few-shot",
+      "Instruction + several examples",
+      "Unusual tasks or strict output formats"
+     ],
+     [
+      "Role prompting",
+      "A persona/role",
+      "Tone, expertise, perspective"
+     ],
+     [
+      "Prompt chaining",
+      "Linked multi-step prompts",
+      "Complex tasks, keeping context"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Prompt engineering designs and refines inputs to improve output without retraining.",
+     "vi": "Prompt engineering thiết kế và tinh chỉnh đầu vào để cải thiện đầu ra mà không huấn luyện lại."
+    },
+    {
+     "en": "Zero-shot has no examples, one-shot one, few-shot several.",
+     "vi": "Zero-shot không ví dụ, one-shot một ví dụ, few-shot vài ví dụ."
+    },
+    {
+     "en": "Role prompting sets persona, tone and expertise.",
+     "vi": "Role prompting đặt persona, giọng điệu và chuyên môn."
+    },
+    {
+     "en": "Prompt chaining splits a complex task into linked steps or builds on prior conversation turns.",
+     "vi": "Prompt chaining chia tác vụ phức tạp thành các bước liên kết hoặc dựa trên các lượt hội thoại trước."
+    },
+    {
+     "en": "Reuse prompts as templates; Gems in the Gemini app are reusable customised assistants.",
+     "vi": "Tái dùng prompt như template; Gems trong ứng dụng Gemini là trợ lý tùy biến dùng lại được."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "Need the model to follow a specific output pattern? Pick few-shot (examples) over zero-shot.",
+     "vi": "Cần model theo một mẫu đầu ra cụ thể? Chọn few-shot (có ví dụ) thay vì zero-shot."
+    },
+    {
+     "en": "'Act as an expert...' is role prompting, not few-shot.",
+     "vi": "'Hãy đóng vai chuyên gia...' là role prompting, không phải few-shot."
+    },
+    {
+     "en": "Prompt engineering alone is not the answer when the model lacks current or private facts; that needs grounding.",
+     "vi": "Chỉ prompt engineering chưa đủ khi model thiếu dữ kiện hiện hành hoặc riêng tư; cần grounding."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Prompt",
+     "en": "The input (instructions, context, examples) given to an LLM.",
+     "vi": "Đầu vào (chỉ dẫn, ngữ cảnh, ví dụ) đưa cho LLM."
+    },
+    {
+     "term": "Zero-shot prompting",
+     "en": "Asking with no examples.",
+     "vi": "Hỏi mà không có ví dụ."
+    },
+    {
+     "term": "One-shot prompting",
+     "en": "Providing a single example.",
+     "vi": "Cung cấp một ví dụ."
+    },
+    {
+     "term": "Few-shot prompting",
+     "en": "Providing several examples.",
+     "vi": "Cung cấp vài ví dụ."
+    },
+    {
+     "term": "Role prompting",
+     "en": "Assigning the model a persona or role.",
+     "vi": "Gán cho model một persona hay vai trò."
+    },
+    {
+     "term": "Prompt chaining",
+     "en": "Linking prompts so each builds on the previous output.",
+     "vi": "Nối prompt để mỗi prompt dựa trên đầu ra trước."
+    },
+    {
+     "term": "Gems",
+     "en": "Customised, reusable AI assistants in the Gemini app.",
+     "vi": "Trợ lý AI tùy biến, dùng lại được trong ứng dụng Gemini."
+    }
+   ],
+   "keywords": [
+    "prompt engineering",
+    "prompt",
+    "zero-shot",
+    "one-shot",
+    "few-shot",
+    "role prompting",
+    "persona",
+    "prompt chaining",
+    "examples",
+    "template",
+    "gems",
+    "instructions",
+    "context",
+    "refine"
+   ]
+  },
+  {
+   "id": "d3-t5",
+   "objective": "3.2 Identify advanced prompting techniques and when to use them (e.g., chain-of-thought prompting, ReAct prompting).",
+   "title": "Advanced prompting: CoT, ReAct and metaprompting",
+   "title_vi": "Prompt nâng cao: CoT, ReAct và metaprompting",
+   "sources": [
+    "exam-guide-official-checklist.md",
+    "module5-v2.md",
+    "official/guide.txt",
+    "official/study.txt"
+   ],
+   "sections": [
+    {
+     "heading": "Chain-of-thought (CoT)",
+     "heading_vi": "Chain-of-thought (CoT)",
+     "body": "Chain-of-thought prompting guides the model to work through a problem step by step by showing examples that include the intermediate reasoning steps, or by instructing it to reason before answering. Making the reasoning explicit improves accuracy on multi-step problems such as arithmetic, logic and planning, and lets a reviewer inspect how the answer was reached.\n\nExample prompt: 'A store sells pens at 3 for $4. How much do 12 pens cost? Think step by step before giving the final answer.' A few-shot CoT version includes a worked example with its reasoning before the new question.",
+     "body_vi": "Chain-of-thought prompting dẫn model giải quyết vấn đề từng bước bằng cách đưa ví dụ có các bước suy luận trung gian, hoặc chỉ dẫn model suy luận trước khi trả lời. Làm rõ suy luận giúp tăng độ chính xác ở bài toán nhiều bước như số học, logic, lập kế hoạch, và cho người review xem câu trả lời đến từ đâu.\n\nPrompt mẫu: 'Cửa hàng bán bút 3 cái giá 4 đô. 12 cái bút giá bao nhiêu? Hãy suy nghĩ từng bước trước khi đưa đáp án cuối.' Phiên bản few-shot CoT kèm một ví dụ có lời giải và suy luận trước câu hỏi mới."
+    },
+    {
+     "heading": "ReAct and the reasoning loop",
+     "heading_vi": "ReAct và vòng lặp suy luận",
+     "body": "ReAct (Reason + Act) is a prompting framework that lets the model both reason about the user's query and take actions, such as calling a search tool or an API, then observe the result and continue. It runs a loop: Thought (what do I need?), Action (use a tool), Observation (read the result), repeating until it can answer. This is the basis of the reasoning loop inside AI agents, which weigh the goal, available tools and information gathered at each iteration.\n\nBecause the answer is based on information the model actually retrieved, ReAct grounds responses in the outside world and reduces hallucination. Example: 'Is it cheaper to fly or take the train from Hanoi to Da Nang next Friday?' Thought: need current prices; Action: query flight and rail price tools; Observation: results; Thought: compare; Answer.",
+     "body_vi": "ReAct (Reason + Act) là framework prompt cho phép model vừa suy luận về truy vấn của người dùng vừa hành động, như gọi công cụ tìm kiếm hay API, rồi quan sát kết quả và tiếp tục. Nó chạy vòng lặp: Thought (cần gì?), Action (dùng công cụ), Observation (đọc kết quả), lặp lại đến khi trả lời được. Đây là nền tảng của reasoning loop trong AI agent, vốn cân nhắc mục tiêu, công cụ sẵn có và thông tin đã thu thập ở mỗi vòng.\n\nVì câu trả lời dựa trên thông tin model thực sự truy xuất, ReAct neo phản hồi vào thế giới bên ngoài và giảm hallucination. Ví dụ: 'Bay hay đi tàu từ Hà Nội đến Đà Nẵng thứ Sáu tới rẻ hơn?' Thought: cần giá hiện tại; Action: gọi công cụ giá vé máy bay và tàu; Observation: kết quả; Thought: so sánh; Answer."
+    },
+    {
+     "heading": "Metaprompting and when to use which",
+     "heading_vi": "Metaprompting và khi nào dùng kỹ thuật nào",
+     "body": "Metaprompting uses a prompt to guide the AI to create, refine or interpret other prompts. Example: 'You are a prompt engineer. Rewrite this prompt so it specifies audience, tone and output format: \"Write about our new product.\"' It helps non-experts produce well-structured prompts and speeds up prompt iteration.\n\nChoose by need: CoT when the problem needs multi-step internal reasoning; ReAct when the model must fetch external information or act with tools; combine them for deeper reasoning plus dynamic action; metaprompting to generate or improve prompts themselves. Simple tasks do not need these techniques.",
+     "body_vi": "Metaprompting dùng một prompt để hướng dẫn AI tạo, tinh chỉnh hoặc diễn giải các prompt khác. Ví dụ: 'Bạn là prompt engineer. Viết lại prompt này để nêu rõ đối tượng, giọng điệu và định dạng đầu ra: \"Viết về sản phẩm mới của chúng tôi.\"' Nó giúp người không chuyên tạo prompt có cấu trúc tốt và tăng tốc lặp prompt.\n\nChọn theo nhu cầu: CoT khi bài toán cần suy luận nhiều bước nội bộ; ReAct khi model phải lấy thông tin bên ngoài hoặc hành động bằng công cụ; kết hợp cả hai để có suy luận sâu hơn cộng hành động linh hoạt; metaprompting để tạo hoặc cải thiện chính các prompt. Tác vụ đơn giản không cần các kỹ thuật này."
+    }
+   ],
+   "table": {
+    "caption": "Advanced techniques compared",
+    "caption_vi": "So sánh kỹ thuật nâng cao",
+    "headers": [
+     "Technique",
+     "Core idea",
+     "Use when"
+    ],
+    "headers_vi": [
+     "Kỹ thuật",
+     "Ý chính",
+     "Dùng khi"
+    ],
+    "rows": [
+     [
+      "Chain-of-thought",
+      "Show intermediate reasoning steps",
+      "Multi-step math, logic, planning"
+     ],
+     [
+      "ReAct",
+      "Reason, act with tools, observe, repeat",
+      "Need live data or tool use; agents"
+     ],
+     [
+      "Metaprompting",
+      "Prompt that creates or improves prompts",
+      "Generating/refining prompts"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "CoT guides step-by-step reasoning using examples with intermediate steps.",
+     "vi": "CoT dẫn suy luận từng bước bằng ví dụ có các bước trung gian."
+    },
+    {
+     "en": "ReAct = reason + act: the model reasons and uses tools to act on the query.",
+     "vi": "ReAct = reason + act: model suy luận và dùng công cụ để hành động theo truy vấn."
+    },
+    {
+     "en": "ReAct loop: Thought, Action, Observation, repeat.",
+     "vi": "Vòng ReAct: Thought, Action, Observation, lặp lại."
+    },
+    {
+     "en": "CoT focuses on internal reasoning; ReAct adds interaction with the outside world.",
+     "vi": "CoT tập trung suy luận nội bộ; ReAct thêm tương tác với thế giới bên ngoài."
+    },
+    {
+     "en": "Metaprompting uses AI to write or improve prompts.",
+     "vi": "Metaprompting dùng AI để viết hoặc cải thiện prompt."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "Complex reasoning or math question with intermediate steps = chain-of-thought.",
+     "vi": "Câu hỏi suy luận phức tạp hoặc toán có bước trung gian = chain-of-thought."
+    },
+    {
+     "en": "Model must call a search tool or API and act on results = ReAct.",
+     "vi": "Model phải gọi công cụ tìm kiếm hay API và hành động theo kết quả = ReAct."
+    },
+    {
+     "en": "'Use a prompt to generate or improve other prompts' = metaprompting.",
+     "vi": "'Dùng một prompt để tạo hoặc cải thiện prompt khác' = metaprompting."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Chain-of-thought (CoT)",
+     "en": "Prompting that elicits intermediate reasoning steps.",
+     "vi": "Prompt khơi gợi các bước suy luận trung gian."
+    },
+    {
+     "term": "ReAct",
+     "en": "Prompting framework combining reasoning with actions on external tools.",
+     "vi": "Framework prompt kết hợp suy luận với hành động trên công cụ bên ngoài."
+    },
+    {
+     "term": "Reasoning loop",
+     "en": "Iterative think-act-observe cycle used by agents.",
+     "vi": "Chu trình lặp nghĩ - hành động - quan sát mà agent dùng."
+    },
+    {
+     "term": "Metaprompting",
+     "en": "Using prompts to create, refine or interpret other prompts.",
+     "vi": "Dùng prompt để tạo, tinh chỉnh hoặc diễn giải prompt khác."
+    }
+   ],
+   "keywords": [
+    "chain-of-thought",
+    "cot",
+    "react",
+    "reason and act",
+    "reasoning loop",
+    "metaprompting",
+    "step by step",
+    "intermediate reasoning",
+    "agent",
+    "tools",
+    "multi-step",
+    "observation",
+    "complex reasoning"
+   ]
+  },
+  {
+   "id": "d3-t6",
+   "objective": "3.3 Identify grounding techniques and their use cases: grounding with first-party, third-party and world data; how RAG affects generated output; Google Cloud grounding offerings (pre-built RAG with Agent Search, RAG APIs, Grounding with Google Search).",
+   "title": "Grounding and RAG",
+   "title_vi": "Grounding và RAG",
+   "sources": [
+    "exam-guide-official-checklist.md",
+    "module4-v2.md",
+    "module5-v2.md",
+    "bonus-reference-guide.md",
+    "official/guide.txt",
+    "official/study.txt"
+   ],
+   "sections": [
+    {
+     "heading": "What grounding is and the three data types",
+     "heading_vi": "Grounding là gì và ba loại dữ liệu",
+     "body": "Grounding connects a model's output to verifiable sources of information so that responses are based on facts rather than only on the model's training. It reduces hallucination, overcomes the knowledge cutoff and lets answers cite their sources.\n\nThe guide distinguishes three kinds of grounding data: first-party enterprise data (your own documents, databases and systems), third-party data (data from external providers or partners) and world data (broad, up-to-date public information, for example through Google Search). Pick by the question: company policies need first-party data; current events need world data.",
+     "body_vi": "Grounding nối đầu ra của model với các nguồn thông tin có thể kiểm chứng để phản hồi dựa trên sự thật chứ không chỉ dựa trên huấn luyện. Nó giảm hallucination, vượt knowledge cutoff và cho phép câu trả lời trích dẫn nguồn.\n\nGuide phân biệt ba loại dữ liệu grounding: first-party enterprise data (tài liệu, cơ sở dữ liệu, hệ thống của chính bạn), third-party data (dữ liệu từ nhà cung cấp hoặc đối tác bên ngoài) và world data (thông tin công khai rộng, cập nhật, ví dụ qua Google Search). Chọn theo câu hỏi: chính sách công ty cần first-party data; sự kiện hiện tại cần world data."
+    },
+    {
+     "heading": "How RAG works and affects output",
+     "heading_vi": "RAG hoạt động và ảnh hưởng đầu ra thế nào",
+     "body": "Retrieval-augmented generation (RAG) is the most common grounding technique. Four steps: (1) Retrieval: search a knowledge source and fetch the passages most relevant to the user's query. (2) Augmentation: add those passages to the prompt as context. (3) Generation: the LLM writes the answer using that context. (4) Iteration (optional): refine the query or retrieve again to improve the result.\n\nEffect on output: answers are more accurate, current and specific to your data, hallucinations drop, and sources can be cited, all without retraining the model. Output quality still depends on retrieval quality: poor or outdated source documents give poor answers. Example: an employee asks 'How many vacation days do I have?'; RAG retrieves the HR policy, adds it to the prompt and the model answers from it.",
+     "body_vi": "Retrieval-augmented generation (RAG) là kỹ thuật grounding phổ biến nhất. Bốn bước: (1) Retrieval: tìm trong nguồn tri thức và lấy các đoạn liên quan nhất tới truy vấn. (2) Augmentation: thêm các đoạn đó vào prompt làm ngữ cảnh. (3) Generation: LLM viết câu trả lời dựa trên ngữ cảnh đó. (4) Iteration (tùy chọn): tinh chỉnh truy vấn hoặc truy xuất lại để cải thiện kết quả.\n\nẢnh hưởng đến đầu ra: câu trả lời chính xác hơn, cập nhật hơn, cụ thể cho dữ liệu của bạn, hallucination giảm, có thể trích dẫn nguồn, tất cả mà không cần huấn luyện lại model. Chất lượng đầu ra vẫn phụ thuộc chất lượng truy xuất: tài liệu nguồn kém hoặc lỗi thời cho câu trả lời kém. Ví dụ: nhân viên hỏi 'Tôi có bao nhiêu ngày phép?'; RAG truy xuất chính sách nhân sự, thêm vào prompt và model trả lời dựa vào đó.",
+     "bullets": [
+      {
+       "en": "Retrieval: find relevant content.",
+       "vi": "Retrieval: tìm nội dung liên quan."
+      },
+      {
+       "en": "Augmentation: add it to the prompt.",
+       "vi": "Augmentation: thêm vào prompt."
+      },
+      {
+       "en": "Generation: answer using that context.",
+       "vi": "Generation: trả lời dựa trên ngữ cảnh đó."
+      },
+      {
+       "en": "Iteration (optional): refine and repeat.",
+       "vi": "Iteration (tùy chọn): tinh chỉnh và lặp lại."
+      }
+     ]
+    },
+    {
+     "heading": "Google Cloud offerings and RAG vs fine-tuning",
+     "heading_vi": "Các offering Google Cloud và RAG so với fine-tuning",
+     "body": "Google Cloud offers three grounding routes. Pre-built RAG with Agent Search: a managed, ready-made search and RAG solution over your enterprise data stores, fastest to deploy with little code. RAG APIs: building blocks for developers who want to assemble a custom RAG pipeline (for example custom retrieval and ranking). Grounding with Google Search: grounds Gemini responses in current public web information (world data) and provides sources.\n\nRAG versus fine-tuning: RAG injects fresh, external knowledge at query time, is cheaper to update (change the documents) and supports citations; fine-tuning changes the model itself to improve performance on a specific task, style or domain but needs training data and compute and does not keep facts current. They can be combined.",
+     "body_vi": "Google Cloud cung cấp ba hướng grounding. Pre-built RAG với Agent Search: giải pháp tìm kiếm và RAG dựng sẵn, được quản lý, trên kho dữ liệu doanh nghiệp, triển khai nhanh nhất với ít code. RAG APIs: các khối xây dựng cho developer muốn tự lắp pipeline RAG tùy biến (ví dụ truy xuất và xếp hạng tùy chỉnh). Grounding with Google Search: neo phản hồi Gemini vào thông tin web công khai hiện hành (world data) và cung cấp nguồn.\n\nRAG so với fine-tuning: RAG đưa tri thức bên ngoài mới vào lúc truy vấn, cập nhật rẻ hơn (đổi tài liệu) và hỗ trợ trích dẫn; fine-tuning thay đổi chính model để cải thiện hiệu năng cho tác vụ, văn phong hay lĩnh vực cụ thể nhưng cần dữ liệu huấn luyện, tính toán và không giữ dữ kiện cập nhật. Có thể kết hợp cả hai."
+    }
+   ],
+   "table": {
+    "caption": "Google Cloud grounding offerings and RAG vs fine-tuning",
+    "caption_vi": "Offering grounding của Google Cloud và RAG so với fine-tuning",
+    "headers": [
+     "Option",
+     "What it is",
+     "Choose when"
+    ],
+    "headers_vi": [
+     "Lựa chọn",
+     "Là gì",
+     "Chọn khi"
+    ],
+    "rows": [
+     [
+      "Pre-built RAG with Agent Search",
+      "Managed search/RAG over enterprise data",
+      "Fast, low-code grounding on first-party data"
+     ],
+     [
+      "RAG APIs",
+      "Developer building blocks for custom RAG",
+      "You need a customised RAG pipeline"
+     ],
+     [
+      "Grounding with Google Search",
+      "Grounds Gemini in current web data with sources",
+      "Need up-to-date world knowledge"
+     ],
+     [
+      "RAG (vs)",
+      "Adds external knowledge at query time",
+      "Facts change often; need citations; no retraining"
+     ],
+     [
+      "Fine-tuning (vs)",
+      "Retrains model for a task/domain/style",
+      "Need specialised behaviour, not fresh facts"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Grounding ties answers to verifiable sources, cutting hallucination and knowledge-cutoff issues.",
+     "vi": "Grounding gắn câu trả lời với nguồn kiểm chứng được, giảm hallucination và vấn đề knowledge cutoff."
+    },
+    {
+     "en": "Three data types: first-party enterprise, third-party and world data.",
+     "vi": "Ba loại dữ liệu: first-party enterprise, third-party và world data."
+    },
+    {
+     "en": "RAG steps: retrieval, augmentation, generation, iteration (optional).",
+     "vi": "Các bước RAG: retrieval, augmentation, generation, iteration (tùy chọn)."
+    },
+    {
+     "en": "Google Cloud: pre-built RAG with Agent Search, RAG APIs, Grounding with Google Search.",
+     "vi": "Google Cloud: pre-built RAG với Agent Search, RAG APIs, Grounding with Google Search."
+    },
+    {
+     "en": "RAG keeps knowledge current without retraining; fine-tuning does not supply live facts.",
+     "vi": "RAG giữ tri thức cập nhật mà không huấn luyện lại; fine-tuning không cung cấp dữ kiện sống."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "Answers must reflect the company's latest internal documents with minimal effort: Agent Search (pre-built RAG).",
+     "vi": "Câu trả lời phải phản ánh tài liệu nội bộ mới nhất với ít công sức: Agent Search (pre-built RAG)."
+    },
+    {
+     "en": "Need up-to-the-minute public information with sources: Grounding with Google Search.",
+     "vi": "Cần thông tin công khai mới nhất kèm nguồn: Grounding with Google Search."
+    },
+    {
+     "en": "Frequently changing data favours RAG over fine-tuning; do not choose retraining just to add new facts.",
+     "vi": "Dữ liệu thay đổi thường xuyên thiên về RAG hơn fine-tuning; đừng chọn huấn luyện lại chỉ để thêm dữ kiện mới."
+    },
+    {
+     "en": "Know the order: retrieval, then augmentation, then generation.",
+     "vi": "Nhớ thứ tự: retrieval, rồi augmentation, rồi generation."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Grounding",
+     "en": "Connecting model output to verifiable information sources.",
+     "vi": "Nối đầu ra model với nguồn thông tin có thể kiểm chứng."
+    },
+    {
+     "term": "First-party data",
+     "en": "Your own enterprise data.",
+     "vi": "Dữ liệu doanh nghiệp của chính bạn."
+    },
+    {
+     "term": "Third-party data",
+     "en": "Data supplied by external providers or partners.",
+     "vi": "Dữ liệu do nhà cung cấp hoặc đối tác bên ngoài cung cấp."
+    },
+    {
+     "term": "World data",
+     "en": "Broad public information, e.g. via Google Search.",
+     "vi": "Thông tin công khai rộng, ví dụ qua Google Search."
+    },
+    {
+     "term": "RAG",
+     "en": "Retrieval-augmented generation: retrieve, augment the prompt, generate.",
+     "vi": "Retrieval-augmented generation: truy xuất, bổ sung prompt, sinh."
+    },
+    {
+     "term": "Agent Search",
+     "en": "Agent Platform capability providing pre-built search and RAG over enterprise data.",
+     "vi": "Khả năng của Agent Platform cung cấp tìm kiếm và RAG dựng sẵn trên dữ liệu doanh nghiệp."
+    },
+    {
+     "term": "RAG APIs",
+     "en": "Developer APIs for building custom RAG pipelines.",
+     "vi": "API cho developer để xây pipeline RAG tùy biến."
+    },
+    {
+     "term": "Grounding with Google Search",
+     "en": "Feature grounding Gemini answers in Google Search results.",
+     "vi": "Tính năng neo câu trả lời Gemini vào kết quả Google Search."
+    }
+   ],
+   "keywords": [
+    "grounding",
+    "rag",
+    "retrieval-augmented generation",
+    "retrieval",
+    "augmentation",
+    "first-party data",
+    "third-party data",
+    "world data",
+    "agent search",
+    "rag apis",
+    "grounding with google search",
+    "enterprise data",
+    "knowledge base",
+    "citations",
+    "fine-tuning",
+    "vector"
+   ]
+  },
+  {
+   "id": "d3-t7",
+   "objective": "3.3 Identify how sampling parameters and settings are used to control the behavior of gen AI models (e.g., token count, temperature, top-p [nucleus sampling], safety settings, and output length).",
+   "title": "Sampling parameters and settings",
+   "title_vi": "Tham số sampling và cài đặt",
+   "sources": [
+    "exam-guide-official-checklist.md",
+    "module5-v2.md",
+    "bonus-reference-guide.md",
+    "official/guide.txt",
+    "official/study.txt"
+   ],
+   "sections": [
+    {
+     "heading": "Tokens, context window and output length",
+     "heading_vi": "Token, context window và độ dài đầu ra",
+     "body": "A token is a chunk of text (a word, part of a word or punctuation) that the model processes. Token count matters because models limit how much they can handle and many services price by tokens. The context window is the amount of text (input plus output) the model can consider at once; a larger window lets you supply longer documents or conversations but costs more compute. Output length (max output tokens) caps how long the response can be; set it to control verbosity, cost and latency, though too low a limit can truncate an answer.",
+     "body_vi": "Token là một mảnh văn bản (từ, một phần từ hoặc dấu câu) mà model xử lý. Token count quan trọng vì model giới hạn lượng xử lý được và nhiều dịch vụ tính giá theo token. Context window là lượng văn bản (đầu vào cộng đầu ra) model có thể xét cùng lúc; cửa sổ lớn hơn cho phép đưa tài liệu hoặc hội thoại dài hơn nhưng tốn tính toán hơn. Output length (max output tokens) giới hạn độ dài phản hồi; dùng để kiểm soát độ dài, chi phí và độ trễ, nhưng giới hạn quá thấp có thể cắt cụt câu trả lời."
+    },
+    {
+     "heading": "Temperature and top-p",
+     "heading_vi": "Temperature và top-p",
+     "body": "The model assigns a probability to each possible next token. Temperature controls randomness when choosing: low temperature makes output more deterministic and repeatable (best for factual Q&A, extraction, code), high temperature makes it more diverse and creative (brainstorming, marketing copy). Top-p (nucleus sampling) restricts choice to the smallest set of tokens whose cumulative probability reaches p: a low top-p keeps only the most likely tokens (focused, consistent), a high top-p admits more candidates (more varied).\n\nIndicative ranges from the course material: factual tasks, temperature about 0.0 to 0.2 with top-p about 0.1 to 0.5; balanced, temperature about 0.2 to 0.5 with top-p 0.7 to 0.8; creative, temperature about 0.7 to 1.0 with top-p about 0.9 to 0.95. The rule of thumb: when in doubt for accuracy and consistency, lower the temperature. Hallucinations are not eliminated by temperature 0; grounding is still needed.",
+     "body_vi": "Model gán xác suất cho mỗi token tiếp theo có thể. Temperature điều khiển độ ngẫu nhiên khi chọn: temperature thấp làm đầu ra xác định và lặp lại được (tốt cho hỏi đáp sự thật, trích xuất, code), temperature cao làm đầu ra đa dạng và sáng tạo (brainstorm, nội dung marketing). Top-p (nucleus sampling) giới hạn lựa chọn trong tập token nhỏ nhất có xác suất tích lũy đạt p: top-p thấp chỉ giữ token khả dĩ nhất (tập trung, nhất quán), top-p cao cho nhiều ứng viên hơn (đa dạng hơn).\n\nKhoảng tham khảo từ tài liệu khóa học: tác vụ sự thật, temperature khoảng 0.0 đến 0.2 với top-p khoảng 0.1 đến 0.5; cân bằng, temperature khoảng 0.2 đến 0.5 với top-p 0.7 đến 0.8; sáng tạo, temperature khoảng 0.7 đến 1.0 với top-p khoảng 0.9 đến 0.95. Quy tắc: khi phân vân giữa chính xác và nhất quán, hạ temperature. Temperature 0 không loại bỏ hallucination; vẫn cần grounding."
+    },
+    {
+     "heading": "Safety settings",
+     "heading_vi": "Cài đặt an toàn",
+     "body": "Safety settings configure filters that block or flag harmful content categories (for example harassment, hate speech, sexually explicit or dangerous content) in prompts and responses, with adjustable thresholds. Tighten them for public-facing or regulated applications; relax only with justification and review. They manage content risk, not factual accuracy, and complement, not replace, responsible AI governance and human review.",
+     "body_vi": "Safety settings cấu hình bộ lọc chặn hoặc gắn cờ các nhóm nội dung có hại (ví dụ quấy rối, ngôn từ thù ghét, nội dung khiêu dâm hay nguy hiểm) trong prompt và phản hồi, với ngưỡng điều chỉnh được. Siết chặt cho ứng dụng hướng công chúng hoặc bị quản lý; chỉ nới lỏng khi có lý do và có review. Chúng quản lý rủi ro nội dung, không phải độ chính xác sự thật, và bổ sung chứ không thay thế quản trị AI có trách nhiệm và review của con người."
+    }
+   ],
+   "table": {
+    "caption": "Parameter effects and typical use",
+    "caption_vi": "Tác động tham số và cách dùng điển hình",
+    "headers": [
+     "Setting",
+     "Effect",
+     "Typical use"
+    ],
+    "headers_vi": [
+     "Cài đặt",
+     "Tác động",
+     "Cách dùng điển hình"
+    ],
+    "rows": [
+     [
+      "Temperature low",
+      "More deterministic, repeatable",
+      "Factual Q&A, extraction, code"
+     ],
+     [
+      "Temperature high",
+      "More random, creative",
+      "Brainstorming, creative writing"
+     ],
+     [
+      "Top-p low / high",
+      "Narrow / wide candidate pool",
+      "Focused vs varied output"
+     ],
+     [
+      "Output length",
+      "Caps response size",
+      "Control cost, latency, verbosity"
+     ],
+     [
+      "Context window",
+      "Amount of text considered at once",
+      "Long documents or chats"
+     ],
+     [
+      "Safety settings",
+      "Filter harmful content",
+      "Public-facing, regulated apps"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Temperature controls randomness: low for facts, high for creativity.",
+     "vi": "Temperature điều khiển độ ngẫu nhiên: thấp cho sự thật, cao cho sáng tạo."
+    },
+    {
+     "en": "Top-p (nucleus) limits sampling to tokens within a cumulative probability threshold.",
+     "vi": "Top-p (nucleus) giới hạn sampling trong các token trong ngưỡng xác suất tích lũy."
+    },
+    {
+     "en": "Token count and output length affect cost, latency and truncation.",
+     "vi": "Token count và output length ảnh hưởng chi phí, độ trễ và việc cắt cụt."
+    },
+    {
+     "en": "A larger context window handles more text but needs more compute.",
+     "vi": "Context window lớn xử lý nhiều văn bản hơn nhưng cần nhiều tính toán hơn."
+    },
+    {
+     "en": "Safety settings filter harmful content; they do not guarantee factual accuracy.",
+     "vi": "Safety settings lọc nội dung có hại; không đảm bảo độ chính xác sự thật."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "Consistent, factual, repeatable answers: lower temperature. Varied, creative ideas: raise temperature.",
+     "vi": "Câu trả lời nhất quán, đúng sự thật, lặp lại được: hạ temperature. Ý tưởng đa dạng, sáng tạo: tăng temperature."
+    },
+    {
+     "en": "Do not confuse top-p (probability threshold) with top-k or with temperature; both are randomness controls but work differently.",
+     "vi": "Đừng nhầm top-p (ngưỡng xác suất) với top-k hay temperature; đều điều khiển độ ngẫu nhiên nhưng cơ chế khác."
+    },
+    {
+     "en": "Setting temperature to 0 is not a fix for hallucination; grounding is.",
+     "vi": "Đặt temperature 0 không phải cách sửa hallucination; grounding mới là cách."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Token",
+     "en": "A chunk of text processed by the model.",
+     "vi": "Một mảnh văn bản model xử lý."
+    },
+    {
+     "term": "Temperature",
+     "en": "Setting controlling randomness of token selection.",
+     "vi": "Cài đặt điều khiển độ ngẫu nhiên khi chọn token."
+    },
+    {
+     "term": "Top-p (nucleus sampling)",
+     "en": "Sampling from the smallest token set whose cumulative probability reaches p.",
+     "vi": "Lấy mẫu từ tập token nhỏ nhất có xác suất tích lũy đạt p."
+    },
+    {
+     "term": "Output length",
+     "en": "Maximum length of the generated response.",
+     "vi": "Độ dài tối đa của phản hồi sinh ra."
+    },
+    {
+     "term": "Context window",
+     "en": "Amount of text the model can consider at once.",
+     "vi": "Lượng văn bản model xét được cùng lúc."
+    },
+    {
+     "term": "Safety settings",
+     "en": "Configurable filters for harmful content.",
+     "vi": "Bộ lọc cấu hình được cho nội dung có hại."
+    }
+   ],
+   "keywords": [
+    "temperature",
+    "top-p",
+    "nucleus sampling",
+    "token",
+    "token count",
+    "output length",
+    "max output tokens",
+    "context window",
+    "safety settings",
+    "randomness",
+    "deterministic",
+    "creative",
+    "sampling",
+    "parameters",
+    "consistent"
+   ]
+  }
+ ]
+}

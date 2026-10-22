@@ -1,0 +1,780 @@
+{
+ "domain": 4,
+ "title": "Business Strategies for a Successful Gen AI Solution",
+ "title_vi": "Chiến lược kinh doanh cho một giải pháp Gen AI thành công",
+ "weight": 15,
+ "overview": "This domain tests whether you can guide an organization from choosing the right kind of gen AI solution to running it securely and responsibly. Think in order: recognize the solution types (text, image, code, personalized experiences) and match one to the business need; weigh needs (scale, customization, user interaction, privacy, latency, connectivity) and resources (people, money, time) under a top-down plus bottom-up strategy; integrate it step by step (vision, prioritize, invest, change, measure, champion responsible AI) and measure impact with KPIs; then protect it with secure AI (SAIF, IAM, Security Command Center, workload monitoring) and govern it with responsible AI (transparency, privacy, fairness, accountability, explainability).",
+ "overview_vi": "Domain này kiểm tra liệu bạn có dẫn dắt được một tổ chức từ việc chọn đúng loại giải pháp gen AI đến vận hành nó một cách an toàn và có trách nhiệm hay không. Hãy tư duy theo thứ tự: nhận diện các loại giải pháp (text, ảnh, code, trải nghiệm cá nhân hóa) và khớp với nhu cầu kinh doanh; cân nhắc needs (scale, customization, user interaction, privacy, latency, connectivity) và resources (người, tiền, thời gian) dưới chiến lược top-down kết hợp bottom-up; tích hợp từng bước (vision, ưu tiên, đầu tư, thay đổi, đo lường, thúc đẩy responsible AI) và đo tác động bằng KPI; sau đó bảo vệ bằng secure AI (SAIF, IAM, Security Command Center, workload monitoring) và quản trị bằng responsible AI (minh bạch, quyền riêng tư, công bằng, trách nhiệm giải trình, khả năng giải thích).",
+ "topics": [
+  {
+   "id": "d4-t1",
+   "objective": "Describe the Google Cloud-recommended steps to successfully implement a transformational gen AI solution: recognizing the different types of gen AI solutions (e.g., text generation, image generation, code generation, personalized user needs) and describing how to choose the right gen AI solution for a specific business need.",
+   "title": "Types of gen AI solutions and choosing the right one",
+   "title_vi": "Các loại giải pháp gen AI và cách chọn giải pháp phù hợp",
+   "sources": [
+    "exam-guide-official-checklist.md",
+    "module1-v2.md",
+    "module4-v2.md",
+    "module5-v2.md",
+    "bonus-reference-guide.md",
+    "study.txt"
+   ],
+   "sections": [
+    {
+     "heading": "What counts as a gen AI solution",
+     "heading_vi": "Giải pháp gen AI gồm những gì",
+     "body": "A gen AI solution applies a generative model to create new content for a business purpose. The exam guide names four families: text generation (drafting, summarizing, chat, translation), image generation (marketing visuals, product mock-ups), code generation (writing, explaining and fixing code) and solutions that address personalized user needs (recommendations, tailored answers and feedback for each user). Multimodal models can combine text, image, audio and video in one solution.\n\nThe type of solution follows the type of output the business needs. The model's modality (the data types it accepts and produces) is therefore the first filter when choosing a model.",
+     "body_vi": "Giải pháp gen AI là việc áp dụng một mô hình sinh (generative model) để tạo nội dung mới phục vụ mục tiêu kinh doanh. Exam guide nêu bốn nhóm: text generation (soạn thảo, tóm tắt, chat, dịch), image generation (hình ảnh marketing, mock-up sản phẩm), code generation (viết, giải thích và sửa code) và các giải pháp đáp ứng nhu cầu cá nhân hóa của người dùng (gợi ý, câu trả lời và phản hồi riêng cho từng người). Mô hình multimodal có thể kết hợp text, hình ảnh, audio và video trong cùng một giải pháp.\n\nLoại giải pháp đi theo loại đầu ra mà doanh nghiệp cần. Vì vậy modality của mô hình (kiểu dữ liệu nhận vào và tạo ra) là bộ lọc đầu tiên khi chọn mô hình.",
+     "bullets": [
+      {
+       "en": "Text generation: drafting, summarizing, Q&A, chat.",
+       "vi": "Text generation: soạn thảo, tóm tắt, hỏi đáp, chat."
+      },
+      {
+       "en": "Image generation: marketing and design visuals.",
+       "vi": "Image generation: hình ảnh marketing, thiết kế."
+      },
+      {
+       "en": "Code generation: write, explain, debug code.",
+       "vi": "Code generation: viết, giải thích, gỡ lỗi code."
+      },
+      {
+       "en": "Personalized experiences: recommendations and tailored responses.",
+       "vi": "Trải nghiệm cá nhân hóa: gợi ý và phản hồi riêng cho từng người dùng."
+      }
+     ]
+    },
+    {
+     "heading": "Matching the solution to the business need",
+     "heading_vi": "Khớp giải pháp với nhu cầu kinh doanh",
+     "body": "Start from the business problem, not the technology. Google Cloud's recommended roadmap is: identify requirements and constraints (business requirements such as cost and ROI, technical constraints such as data privacy and latency), select the gen AI tool that best fits the specific need (text, image, code), then measure impact with KPIs.\n\nThe workbook lists factors for choosing a model: modality, context window (larger windows give more coherent answers but cost more compute), performance (accuracy, speed, efficiency versus cost) and availability and reliability (uptime, redundancy, disaster recovery). The largest model is not automatically the best; balance quality against cost and latency.",
+     "body_vi": "Hãy bắt đầu từ bài toán kinh doanh, không phải từ công nghệ. Lộ trình Google Cloud khuyến nghị là: xác định yêu cầu và ràng buộc (yêu cầu kinh doanh như chi phí, ROI; ràng buộc kỹ thuật như quyền riêng tư dữ liệu, độ trễ), chọn công cụ gen AI phù hợp nhất với nhu cầu cụ thể (text, ảnh, code), rồi đo tác động bằng KPI.\n\nWorkbook liệt kê các yếu tố khi chọn mô hình: modality, context window (cửa sổ lớn cho câu trả lời mạch lạc hơn nhưng tốn tính toán hơn), performance (độ chính xác, tốc độ, hiệu quả so với chi phí) và availability/reliability (uptime, dự phòng, khôi phục sau thảm họa). Mô hình lớn nhất chưa chắc là tốt nhất; hãy cân bằng chất lượng với chi phí và độ trễ."
+    },
+    {
+     "heading": "Build, buy or customize on Google Cloud",
+     "heading_vi": "Build, buy hay customize trên Google Cloud",
+     "body": "The decks present a spectrum. Use ready-made products (Gemini app, Gemini for Google Workspace, Gemini Enterprise) when they already meet the need; customize with Google Cloud platforms (Agent Studio and no-code agent building, grounding and RAG with Agent Search or RAG APIs, pre-built APIs such as Speech-to-Text or Document Translation) when you need company data or specific behavior; and build or tune on Agent Platform (formerly Vertex AI, with Model Garden and fine-tuning) when you need deep control.\n\nChoose the simplest option that meets the need. More customization means more people, money and time, which is why the next topic ties choices to needs and resources.",
+     "body_vi": "Các deck trình bày một phổ lựa chọn. Dùng sản phẩm có sẵn (Gemini app, Gemini for Google Workspace, Gemini Enterprise) khi chúng đã đáp ứng nhu cầu; tùy biến (customize) bằng các nền tảng Google Cloud (Agent Studio và xây dựng agent no-code, grounding và RAG với Agent Search hoặc RAG APIs, các API dựng sẵn như Speech-to-Text hay Document Translation) khi cần dữ liệu công ty hoặc hành vi riêng; và xây dựng/tinh chỉnh trên Agent Platform (trước đây là Vertex AI, có Model Garden và fine-tuning) khi cần kiểm soát sâu.\n\nHãy chọn phương án đơn giản nhất đáp ứng được nhu cầu. Tùy biến càng nhiều thì càng tốn người, tiền và thời gian, nên topic tiếp theo gắn lựa chọn với nhu cầu và nguồn lực."
+    }
+   ],
+   "table": {
+    "caption": "Build vs buy vs customize spectrum",
+    "caption_vi": "Phổ build - buy - customize",
+    "headers": [
+     "Approach",
+     "Examples on Google Cloud",
+     "Best when"
+    ],
+    "headers_vi": [
+     "Cách tiếp cận",
+     "Ví dụ trên Google Cloud",
+     "Phù hợp khi"
+    ],
+    "rows": [
+     [
+      "Buy / use ready-made",
+      "Gemini app, Gemini for Google Workspace, Gemini Enterprise",
+      "A standard need and fast time-to-value; limited AI expertise"
+     ],
+     [
+      "Customize",
+      "Agent Studio, grounding/RAG (Agent Search, RAG APIs), pre-built APIs",
+      "You need company data or specific workflows without training a model"
+     ],
+     [
+      "Build / tune",
+      "Agent Platform, Model Garden, fine-tuning",
+      "Highly specialized needs and you have the people, budget and time"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Four solution families in the guide: text, image, code generation and personalized user experiences.",
+     "vi": "Bốn nhóm giải pháp trong guide: tạo text, ảnh, code và trải nghiệm cá nhân hóa."
+    },
+    {
+     "en": "Always start from the business problem and constraints, not from the model.",
+     "vi": "Luôn bắt đầu từ bài toán và ràng buộc kinh doanh, không phải từ mô hình."
+    },
+    {
+     "en": "Model selection factors: modality, context window, performance, availability and reliability.",
+     "vi": "Yếu tố chọn mô hình: modality, context window, performance, availability và reliability."
+    },
+    {
+     "en": "Spectrum: ready-made product, then customize (grounding, RAG, agents), then build or tune.",
+     "vi": "Phổ lựa chọn: sản phẩm có sẵn, rồi tùy biến (grounding, RAG, agent), rồi build/tune."
+    },
+    {
+     "en": "Pick the simplest option that meets the need; the biggest model is not always best.",
+     "vi": "Chọn phương án đơn giản nhất đáp ứng nhu cầu; mô hình lớn nhất không phải lúc nào cũng tốt nhất."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "If the scenario needs only a standard capability, the best answer is usually the ready-made or no-code option, not training a custom model.",
+     "vi": "Nếu tình huống chỉ cần năng lực chuẩn, đáp án tốt nhất thường là sản phẩm có sẵn hoặc no-code, không phải huấn luyện mô hình riêng."
+    },
+    {
+     "en": "Match the output type to the solution: image output means an image-capable model, not a text-only one.",
+     "vi": "Khớp loại đầu ra với giải pháp: đầu ra ảnh cần mô hình tạo được ảnh, không phải mô hình chỉ có text."
+    },
+    {
+     "en": "Answers that skip requirements and constraints and jump to technology are typically wrong.",
+     "vi": "Đáp án bỏ qua yêu cầu và ràng buộc để nhảy vào công nghệ thường là sai."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Modality",
+     "en": "The type of data a model accepts or produces (text, image, audio, video).",
+     "vi": "Kiểu dữ liệu mô hình nhận hoặc tạo ra (text, ảnh, audio, video)."
+    },
+    {
+     "term": "Context window",
+     "en": "How much input the model can consider at once; larger windows cost more compute.",
+     "vi": "Lượng đầu vào mô hình xem xét cùng lúc; cửa sổ lớn tốn nhiều tính toán hơn."
+    },
+    {
+     "term": "Code generation",
+     "en": "Using gen AI to write, explain or fix source code.",
+     "vi": "Dùng gen AI để viết, giải thích hoặc sửa mã nguồn."
+    },
+    {
+     "term": "Personalization",
+     "en": "Tailoring content or recommendations to an individual user.",
+     "vi": "Điều chỉnh nội dung hoặc gợi ý cho từng người dùng."
+    },
+    {
+     "term": "Grounding / RAG",
+     "en": "Connecting model answers to trusted, current data without retraining.",
+     "vi": "Gắn câu trả lời của mô hình với dữ liệu tin cậy, cập nhật mà không cần huấn luyện lại."
+    },
+    {
+     "term": "Agent Platform",
+     "en": "Google Cloud's unified platform to build, tune and deploy gen AI (formerly Vertex AI).",
+     "vi": "Nền tảng hợp nhất của Google Cloud để xây dựng, tinh chỉnh, triển khai gen AI (trước đây là Vertex AI)."
+    }
+   ],
+   "keywords": [
+    "text generation",
+    "image generation",
+    "code generation",
+    "personalization",
+    "personalized",
+    "multimodal",
+    "modality",
+    "context window",
+    "business requirements",
+    "technical constraints",
+    "choose the right",
+    "ready-made",
+    "customize",
+    "fine-tuning",
+    "agent studio"
+   ]
+  },
+  {
+   "id": "d4-t2",
+   "objective": "Identify the key factors that influence gen AI needs (e.g., business requirements, technical constraints) and describe the overall gen AI strategy Google Cloud recommends.",
+   "title": "Factors that shape gen AI needs and overall strategy",
+   "title_vi": "Các yếu tố định hình nhu cầu gen AI và chiến lược tổng thể",
+   "sources": [
+    "exam-guide-official-checklist.md",
+    "study.txt",
+    "module5-v2.md",
+    "bonus-reference-guide.md"
+   ],
+   "sections": [
+    {
+     "heading": "Questions to ask before starting",
+     "heading_vi": "Những câu hỏi cần đặt ra trước khi bắt đầu",
+     "body": "The workbook says to consider needs and resources before starting a gen AI project. Needs: scale (how many users?), customization (how specialized is the AI?), user interaction (how will users engage?), privacy (how sensitive is the data?), latency (what response time is acceptable?) and connectivity (what is the network situation?). Resources: people (is AI expertise available?), money (what is the budget?) and time (what are the timelines?).\n\nThese map to business requirements (cost, ROI, timeline) and technical constraints (privacy, latency, connectivity). A real-time on-device use case with poor connectivity, for example, pushes toward a different solution than a batch back-office summarizer.",
+     "body_vi": "Workbook nói cần cân nhắc nhu cầu (needs) và nguồn lực (resources) trước khi bắt đầu dự án gen AI. Needs: scale (bao nhiêu người dùng?), customization (AI chuyên biệt đến đâu?), user interaction (người dùng tương tác thế nào?), privacy (dữ liệu nhạy cảm đến đâu?), latency (thời gian phản hồi chấp nhận được?) và connectivity (kết nối mạng ra sao?). Resources: people (có chuyên gia AI không?), money (ngân sách?) và time (tiến độ?).\n\nChúng tương ứng với yêu cầu kinh doanh (chi phí, ROI, tiến độ) và ràng buộc kỹ thuật (quyền riêng tư, độ trễ, kết nối). Ví dụ, ca dùng thời gian thực trên thiết bị với kết nối kém sẽ dẫn tới giải pháp khác với ca tóm tắt hàng loạt ở back-office.",
+     "bullets": [
+      {
+       "en": "Needs: Scale, Customization, User interaction, Privacy, Latency, Connectivity.",
+       "vi": "Needs: Scale, Customization, User interaction, Privacy, Latency, Connectivity."
+      },
+      {
+       "en": "Resources: People, Money, Time.",
+       "vi": "Resources: People, Money, Time."
+      }
+     ]
+    },
+    {
+     "heading": "Top-down plus bottom-up",
+     "heading_vi": "Top-down kết hợp bottom-up",
+     "body": "Google Cloud recommends combining a top-down approach (leadership sets the vision and strategy) with a bottom-up approach (employees identify practical applications and give feedback). Top-down alone risks solutions detached from daily work; bottom-up alone risks scattered pilots with no funding or alignment.",
+     "body_vi": "Google Cloud khuyến nghị kết hợp cách tiếp cận top-down (lãnh đạo đặt tầm nhìn và chiến lược) với bottom-up (nhân viên tìm ứng dụng thực tế và phản hồi). Chỉ top-down dễ tạo giải pháp xa rời công việc hằng ngày; chỉ bottom-up dễ dẫn tới các pilot rời rạc, thiếu ngân sách và thiếu đồng bộ."
+    },
+    {
+     "heading": "Six strategy pillars",
+     "heading_vi": "Sáu trụ cột chiến lược",
+     "body": "The workbook lists six pillars: strategic focus (focused implementations with clear business value), exploration (encourage experimentation and collaboration), responsible AI (ethical guidelines, secure and responsible development), resourcing (invest in data strategy, leverage existing resources, develop AI talent), impact (measure impact on business goals and show tangible benefits) and continuous improvement (refine solutions from feedback and data).\n\nBusiness implication: strategy is a cycle. Focus and explore, resource it, deliver impact, learn, and refine, all under responsible AI.",
+     "body_vi": "Workbook liệt kê sáu trụ cột: strategic focus (triển khai tập trung, giá trị kinh doanh rõ), exploration (khuyến khích thử nghiệm và hợp tác), responsible AI (nguyên tắc đạo đức, phát triển an toàn và có trách nhiệm), resourcing (đầu tư chiến lược dữ liệu, tận dụng nguồn lực sẵn có, phát triển nhân tài AI), impact (đo tác động lên mục tiêu kinh doanh và chứng minh lợi ích cụ thể) và continuous improvement (liên tục cải tiến giải pháp từ phản hồi và dữ liệu).\n\nÝ nghĩa kinh doanh: chiến lược là một vòng lặp. Tập trung và khám phá, cấp nguồn lực, tạo tác động, học hỏi và tinh chỉnh, tất cả dưới responsible AI."
+    }
+   ],
+   "table": {
+    "caption": "Six gen AI strategy pillars",
+    "caption_vi": "Sáu trụ cột chiến lược gen AI",
+    "headers": [
+     "Pillar",
+     "Meaning"
+    ],
+    "headers_vi": [
+     "Trụ cột",
+     "Ý nghĩa"
+    ],
+    "rows": [
+     [
+      "Strategic focus",
+      "Prioritize focused implementations with clear business value"
+     ],
+     [
+      "Exploration",
+      "Encourage experimentation and collaboration"
+     ],
+     [
+      "Responsible AI",
+      "Ethical guidelines; secure and responsible development"
+     ],
+     [
+      "Resourcing",
+      "Data strategy, existing resources, AI talent"
+     ],
+     [
+      "Impact",
+      "Measure impact on business goals; show tangible benefits"
+     ],
+     [
+      "Continuous improvement",
+      "Refine based on feedback and data"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Needs: scale, customization, user interaction, privacy, latency, connectivity.",
+     "vi": "Needs: scale, customization, user interaction, privacy, latency, connectivity."
+    },
+    {
+     "en": "Resources: people, money, time.",
+     "vi": "Resources: people, money, time."
+    },
+    {
+     "en": "Best strategy combines top-down (leadership vision) and bottom-up (employee ideas and feedback).",
+     "vi": "Chiến lược tốt kết hợp top-down (tầm nhìn lãnh đạo) và bottom-up (ý tưởng và phản hồi của nhân viên)."
+    },
+    {
+     "en": "Six pillars: strategic focus, exploration, responsible AI, resourcing, impact, continuous improvement.",
+     "vi": "Sáu trụ cột: strategic focus, exploration, responsible AI, resourcing, impact, continuous improvement."
+    },
+    {
+     "en": "Business requirements and technical constraints both influence which solution fits.",
+     "vi": "Yêu cầu kinh doanh và ràng buộc kỹ thuật cùng quyết định giải pháp phù hợp."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "A question about 'latency' or 'connectivity' is testing the Needs list, while 'budget' or 'expertise' is testing Resources.",
+     "vi": "Câu hỏi về 'latency' hay 'connectivity' đang kiểm tra danh sách Needs, còn 'budget' hay 'expertise' kiểm tra Resources."
+    },
+    {
+     "en": "If options are only top-down or only bottom-up, the answer that combines both is the Google Cloud recommendation.",
+     "vi": "Nếu các lựa chọn chỉ top-down hoặc chỉ bottom-up, đáp án kết hợp cả hai là khuyến nghị của Google Cloud."
+    },
+    {
+     "en": "Do not confuse the strategy pillars with the integration steps (vision, prioritize, invest, change, measure, champion).",
+     "vi": "Đừng nhầm các trụ cột chiến lược với các bước tích hợp (vision, prioritize, invest, change, measure, champion)."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Top-down",
+     "en": "Leadership sets vision and strategy.",
+     "vi": "Lãnh đạo đặt tầm nhìn và chiến lược."
+    },
+    {
+     "term": "Bottom-up",
+     "en": "Employees find practical uses and give feedback.",
+     "vi": "Nhân viên tìm ứng dụng thực tế và phản hồi."
+    },
+    {
+     "term": "Latency",
+     "en": "Time between a request and the model's response.",
+     "vi": "Thời gian từ lúc gửi yêu cầu đến khi mô hình phản hồi."
+    },
+    {
+     "term": "Connectivity",
+     "en": "Network access available to users or devices running the solution.",
+     "vi": "Khả năng kết nối mạng của người dùng/thiết bị chạy giải pháp."
+    },
+    {
+     "term": "Resourcing",
+     "en": "Investing in data strategy, existing assets and AI talent.",
+     "vi": "Đầu tư vào chiến lược dữ liệu, tài sản sẵn có và nhân tài AI."
+    },
+    {
+     "term": "Continuous improvement",
+     "en": "Refining solutions using feedback and data over time.",
+     "vi": "Liên tục tinh chỉnh giải pháp bằng phản hồi và dữ liệu."
+    }
+   ],
+   "keywords": [
+    "scale",
+    "customization",
+    "user interaction",
+    "privacy",
+    "latency",
+    "connectivity",
+    "people",
+    "money",
+    "time",
+    "top-down",
+    "bottom-up",
+    "strategic focus",
+    "exploration",
+    "resourcing",
+    "continuous improvement"
+   ]
+  },
+  {
+   "id": "d4-t3",
+   "objective": "Identify the steps to integrate gen AI into an organization and identify techniques to measure the impact of gen AI initiatives.",
+   "title": "Integrating gen AI into the organization and measuring impact",
+   "title_vi": "Tích hợp gen AI vào tổ chức và đo lường tác động",
+   "sources": [
+    "exam-guide-official-checklist.md",
+    "study.txt",
+    "module5-v2.md",
+    "bonus-reference-guide.md"
+   ],
+   "sections": [
+    {
+     "heading": "Six steps to integrate gen AI",
+     "heading_vi": "Sáu bước tích hợp gen AI",
+     "body": "Google Cloud's plan: establish a clear vision, prioritize use cases, invest in capabilities, manage change, measure value, and champion responsible AI.\n\nVision means aligning with business strategy, securing leadership buy-in and naming champions. Prioritizing is based on feasibility and transformative value: technical feasibility, data readiness and alignment with business goals. Investing in capabilities means training and hiring plus a culture of learning and proofs of concept. Managing change means adapting workflows and sharing knowledge. Measuring value means tracking with quantitative KPIs to show ROI. Championing responsible AI means governance across the company for fairness, transparency, privacy and security.",
+     "body_vi": "Kế hoạch của Google Cloud: thiết lập vision rõ ràng, ưu tiên use case, đầu tư năng lực, quản lý thay đổi, đo giá trị và thúc đẩy responsible AI.\n\nVision nghĩa là gắn với chiến lược doanh nghiệp, có sự ủng hộ của lãnh đạo và chỉ định người dẫn dắt (champion). Ưu tiên dựa trên tính khả thi và giá trị chuyển đổi: khả thi kỹ thuật, mức sẵn sàng của dữ liệu và độ phù hợp với mục tiêu kinh doanh. Đầu tư năng lực là đào tạo, tuyển dụng và văn hóa học hỏi, thử nghiệm PoC. Quản lý thay đổi là điều chỉnh quy trình và chia sẻ kiến thức. Đo giá trị là theo dõi bằng KPI định lượng để chứng minh ROI. Thúc đẩy responsible AI là quản trị toàn công ty về công bằng, minh bạch, quyền riêng tư và bảo mật.",
+     "bullets": [
+      {
+       "en": "1 Vision, 2 Prioritize use cases, 3 Invest in capabilities, 4 Manage change, 5 Measure value, 6 Champion responsible AI.",
+       "vi": "1 Vision, 2 Ưu tiên use case, 3 Đầu tư năng lực, 4 Quản lý thay đổi, 5 Đo giá trị, 6 Thúc đẩy responsible AI."
+      }
+     ]
+    },
+    {
+     "heading": "Planning for impact: measuring it",
+     "heading_vi": "Lập kế hoạch cho tác động: cách đo",
+     "body": "The decks give three techniques: define key metrics (those most relevant to your goals and business objectives), collect and analyze data (set up tracking mechanisms, run surveys and analyze existing data), and improve continuously through iteration, using the insights to refine strategy and optimize performance.\n\nTypical KPIs used in the study material include ROI, time saved, customer satisfaction (CSAT) and error rate. Choose metrics tied to the original business goal, not just technical model scores.",
+     "body_vi": "Các deck nêu ba kỹ thuật: xác định chỉ số chính (liên quan nhất tới mục tiêu và mục tiêu kinh doanh), thu thập và phân tích dữ liệu (thiết lập cơ chế theo dõi, khảo sát và phân tích dữ liệu sẵn có), và cải tiến liên tục qua lặp, dùng insight để tinh chỉnh chiến lược và tối ưu hiệu suất.\n\nCác KPI điển hình trong tài liệu ôn gồm ROI, thời gian tiết kiệm, mức hài lòng khách hàng (CSAT) và tỉ lệ lỗi. Hãy chọn chỉ số gắn với mục tiêu kinh doanh ban đầu, không chỉ điểm số kỹ thuật của mô hình."
+    },
+    {
+     "heading": "Planning for change",
+     "heading_vi": "Lập kế hoạch cho thay đổi",
+     "body": "Gen AI evolves quickly. The deck recommends reviewing and improving strategy regularly, staying informed, engaging with the gen AI community, investing in training and capability building, and attracting and retaining talent. Treat adoption as ongoing, not a one-time rollout.",
+     "body_vi": "Gen AI phát triển rất nhanh. Deck khuyến nghị thường xuyên rà soát và cải thiện chiến lược, cập nhật thông tin, tham gia cộng đồng gen AI, đầu tư đào tạo và phát triển năng lực, thu hút và giữ chân nhân tài. Hãy coi việc áp dụng là liên tục, không phải triển khai một lần."
+    }
+   ],
+   "keyPoints": [
+    {
+     "en": "Integration steps: vision, prioritize use cases, invest in capabilities, manage change, measure value, champion responsible AI.",
+     "vi": "Các bước tích hợp: vision, ưu tiên use case, đầu tư năng lực, quản lý thay đổi, đo giá trị, thúc đẩy responsible AI."
+    },
+    {
+     "en": "Prioritize by feasibility, data readiness and alignment with business goals.",
+     "vi": "Ưu tiên theo tính khả thi, mức sẵn sàng dữ liệu và độ phù hợp mục tiêu kinh doanh."
+    },
+    {
+     "en": "Measure impact: define key metrics, collect and analyze data, iterate to improve.",
+     "vi": "Đo tác động: xác định chỉ số chính, thu thập và phân tích dữ liệu, lặp để cải thiện."
+    },
+    {
+     "en": "KPIs should link to business goals (ROI, time saved, CSAT, error rate).",
+     "vi": "KPI phải gắn với mục tiêu kinh doanh (ROI, thời gian tiết kiệm, CSAT, tỉ lệ lỗi)."
+    },
+    {
+     "en": "Leadership buy-in and champions are part of establishing the vision.",
+     "vi": "Sự ủng hộ của lãnh đạo và champion là một phần của việc thiết lập vision."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "The first step is a clear vision with leadership support; answers that start with deploying a big model are wrong.",
+     "vi": "Bước đầu là vision rõ ràng cùng sự ủng hộ của lãnh đạo; đáp án bắt đầu bằng triển khai mô hình lớn là sai."
+    },
+    {
+     "en": "Responsible AI is championed as part of integration, not added at the end as an afterthought.",
+     "vi": "Responsible AI được thúc đẩy ngay trong quá trình tích hợp, không phải thêm vào sau cùng."
+    },
+    {
+     "en": "To show value, choose business KPIs and iterate; a one-off demo is not measurement.",
+     "vi": "Để chứng minh giá trị, chọn KPI kinh doanh và lặp lại; một demo đơn lẻ không phải là đo lường."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Use case prioritization",
+     "en": "Ranking use cases by feasibility, data readiness and business alignment.",
+     "vi": "Xếp hạng use case theo tính khả thi, dữ liệu sẵn sàng và độ phù hợp kinh doanh."
+    },
+    {
+     "term": "Change management",
+     "en": "Helping people and workflows adapt to new AI-enabled ways of working.",
+     "vi": "Giúp con người và quy trình thích nghi với cách làm việc có AI."
+    },
+    {
+     "term": "KPI",
+     "en": "Quantitative key performance indicator tied to a business goal.",
+     "vi": "Chỉ số hiệu suất chính định lượng gắn với mục tiêu kinh doanh."
+    },
+    {
+     "term": "ROI",
+     "en": "Return on investment; value gained relative to cost.",
+     "vi": "Lợi tức đầu tư; giá trị thu được so với chi phí."
+    },
+    {
+     "term": "Proof of concept (PoC)",
+     "en": "A small experiment to test feasibility and value.",
+     "vi": "Thử nghiệm nhỏ để kiểm chứng tính khả thi và giá trị."
+    },
+    {
+     "term": "Champion",
+     "en": "A designated advocate who drives adoption in the organization.",
+     "vi": "Người được chỉ định dẫn dắt việc áp dụng trong tổ chức."
+    }
+   ],
+   "keywords": [
+    "integrate gen ai",
+    "vision",
+    "prioritize use cases",
+    "invest in capabilities",
+    "change management",
+    "measure value",
+    "champion responsible ai",
+    "kpi",
+    "roi",
+    "measure impact",
+    "leadership buy-in",
+    "proof of concept",
+    "adoption",
+    "key metrics",
+    "iterate"
+   ]
+  },
+  {
+   "id": "d4-t4",
+   "objective": "Define secure AI and its importance in protecting AI systems from malicious attacks and misuse: security throughout the ML lifecycle, Google's Secure AI Framework (SAIF), and Google Cloud security tools (secure-by-design infrastructure, IAM, Security Command Center, workload monitoring).",
+   "title": "Secure AI: SAIF and Google Cloud security tools",
+   "title_vi": "Secure AI: SAIF và các công cụ bảo mật của Google Cloud",
+   "sources": [
+    "exam-guide-official-checklist.md",
+    "study.txt",
+    "module2-v2.md",
+    "bonus-reference-guide.md"
+   ],
+   "sections": [
+    {
+     "heading": "What secure AI means and why it matters",
+     "heading_vi": "Secure AI là gì và vì sao quan trọng",
+     "body": "Secure AI means protecting your AI applications from harm: malicious attacks and misuse. AI brings large benefits but also security risks. AI-specific threats named in the study material include prompt injection, data poisoning and model extraction or theft, on top of ordinary security threats.\n\nSecurity must cover the whole ML lifecycle: data collection, data preparation, model training, deployment and prediction, and model management. Two principles applied across it are to protect against adversarial attacks and to monitor AI output to prevent leaks and harmful content.",
+     "body_vi": "Secure AI nghĩa là bảo vệ các ứng dụng AI khỏi bị tổn hại: tấn công độc hại và lạm dụng. AI mang lại lợi ích lớn nhưng cũng kèm rủi ro bảo mật. Các mối đe dọa đặc thù AI nêu trong tài liệu ôn gồm prompt injection, data poisoning và model extraction/theft, bên cạnh các mối đe dọa bảo mật thông thường.\n\nBảo mật phải bao phủ toàn bộ vòng đời ML: thu thập dữ liệu, chuẩn bị dữ liệu, huấn luyện mô hình, triển khai và dự đoán, và quản lý mô hình. Hai nguyên tắc áp dụng xuyên suốt là bảo vệ trước adversarial attack và giám sát đầu ra của AI để ngăn rò rỉ và nội dung có hại."
+    },
+    {
+     "heading": "Google's Secure AI Framework (SAIF)",
+     "heading_vi": "Secure AI Framework (SAIF) của Google",
+     "body": "SAIF is Google's framework that helps organizations manage AI/ML model risks and ensure security. In the course it is described by three core principles: build responsibly (embed security and ethics from the start of development), deploy securely (a safe path to production and protection of operations from vulnerabilities and threats) and establish security standards (consistent evaluation and operating rules that strengthen governance and compliance).\n\nThe supplementary deck stresses that SAIF is not an isolated AI-only mechanism; it extends existing security foundations (for example zero-trust controls) across the AI stack, adds AI-specific threat modeling and relies on continuous monitoring and incident response across the lifecycle. SAIF is a framework, not a product to buy.",
+     "body_vi": "SAIF là framework của Google giúp tổ chức quản lý rủi ro mô hình AI/ML và đảm bảo bảo mật. Trong khóa học, nó được mô tả bằng ba nguyên tắc cốt lõi: build responsibly (đưa bảo mật và đạo đức vào ngay từ đầu quá trình phát triển), deploy securely (đường đi an toàn lên production và bảo vệ vận hành khỏi lỗ hổng, mối đe dọa) và establish security standards (quy tắc đánh giá, vận hành nhất quán giúp tăng cường governance và tuân thủ).\n\nDeck bổ sung nhấn mạnh SAIF không phải cơ chế riêng chỉ cho AI; nó mở rộng nền tảng bảo mật sẵn có (ví dụ kiểm soát zero-trust) sang toàn bộ AI stack, bổ sung threat modeling đặc thù AI và dựa vào giám sát liên tục cùng ứng phó sự cố xuyên suốt vòng đời. SAIF là một framework, không phải sản phẩm để mua."
+    },
+    {
+     "heading": "Google Cloud security tools",
+     "heading_vi": "Các công cụ bảo mật của Google Cloud",
+     "body": "Google Cloud's secure-by-design infrastructure supports security across the AI/ML lifecycle, and tools protect data, models and applications. Identity and Access Management (IAM) controls who can access which resources (fine-grained, least privilege). Security Command Center gives visibility into security posture and centralizes vulnerability findings and threat detection. Workload monitoring tools help build and maintain secure AI systems through anomaly detection and audit logging. Encryption protects data at rest and in transit.\n\nThe course also mentions Google Threat Intelligence Group and Mandiant for threat intelligence and incident response, moving security operations toward an AI-driven model.",
+     "body_vi": "Hạ tầng secure-by-design của Google Cloud hỗ trợ bảo mật xuyên suốt vòng đời AI/ML, và các công cụ bảo vệ dữ liệu, mô hình, ứng dụng. Identity and Access Management (IAM) kiểm soát ai được truy cập tài nguyên nào (chi tiết, đặc quyền tối thiểu). Security Command Center cho thấy tư thế bảo mật (security posture) và tập trung các phát hiện lỗ hổng, phát hiện mối đe dọa. Công cụ workload monitoring giúp xây dựng và duy trì hệ thống AI an toàn nhờ phát hiện bất thường và audit log. Mã hóa bảo vệ dữ liệu khi lưu trữ và khi truyền.\n\nKhóa học cũng nhắc Google Threat Intelligence Group và Mandiant cho threat intelligence và ứng phó sự cố, đưa vận hành bảo mật theo hướng do AI dẫn dắt."
+    }
+   ],
+   "table": {
+    "caption": "Which tool for which purpose",
+    "caption_vi": "Công cụ nào cho mục đích nào",
+    "headers": [
+     "Tool / concept",
+     "Purpose"
+    ],
+    "headers_vi": [
+     "Công cụ / khái niệm",
+     "Mục đích"
+    ],
+    "rows": [
+     [
+      "Secure-by-design infrastructure",
+      "Foundation that supports security across the AI/ML lifecycle"
+     ],
+     [
+      "IAM",
+      "Control who can access which resources"
+     ],
+     [
+      "Security Command Center",
+      "Visibility into security posture; vulnerability and threat findings"
+     ],
+     [
+      "Workload monitoring tools",
+      "Build and maintain secure AI systems; detect anomalies"
+     ],
+     [
+      "SAIF",
+      "Framework to manage AI/ML model risks and ensure security"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Secure AI protects AI systems from malicious attacks and misuse.",
+     "vi": "Secure AI bảo vệ hệ thống AI khỏi tấn công độc hại và lạm dụng."
+    },
+    {
+     "en": "Security applies at every ML lifecycle stage, from data collection to model management.",
+     "vi": "Bảo mật áp dụng ở mọi giai đoạn vòng đời ML, từ thu thập dữ liệu đến quản lý mô hình."
+    },
+    {
+     "en": "SAIF is Google's framework to manage AI/ML risks; it builds on existing security foundations.",
+     "vi": "SAIF là framework của Google để quản lý rủi ro AI/ML; nó xây trên nền tảng bảo mật sẵn có."
+    },
+    {
+     "en": "IAM controls access; Security Command Center shows security posture; workload monitoring maintains secure systems.",
+     "vi": "IAM kiểm soát truy cập; Security Command Center cho thấy security posture; workload monitoring duy trì hệ thống an toàn."
+    },
+    {
+     "en": "AI-specific threats: prompt injection, data poisoning, model extraction.",
+     "vi": "Mối đe dọa đặc thù AI: prompt injection, data poisoning, model extraction."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "IAM = who can access; Security Command Center = posture visibility. Swapping them is a common distractor.",
+     "vi": "IAM = ai được truy cập; Security Command Center = nhìn thấy posture. Đảo hai khái niệm này là bẫy thường gặp."
+    },
+    {
+     "en": "SAIF is a framework for managing AI risk, not a model, a firewall product or a fairness tool.",
+     "vi": "SAIF là framework quản lý rủi ro AI, không phải mô hình, sản phẩm tường lửa hay công cụ công bằng."
+    },
+    {
+     "en": "Secure AI is about attacks and misuse; bias and explainability belong to responsible AI.",
+     "vi": "Secure AI nói về tấn công và lạm dụng; bias và explainability thuộc responsible AI."
+    }
+   ],
+   "terms": [
+    {
+     "term": "SAIF",
+     "en": "Google's Secure AI Framework for managing AI/ML model risks.",
+     "vi": "Secure AI Framework của Google để quản lý rủi ro mô hình AI/ML."
+    },
+    {
+     "term": "IAM",
+     "en": "Identity and Access Management; controls access to resources.",
+     "vi": "Identity and Access Management; kiểm soát truy cập tài nguyên."
+    },
+    {
+     "term": "Security Command Center",
+     "en": "Google Cloud service for security posture visibility and threat findings.",
+     "vi": "Dịch vụ Google Cloud cho khả năng quan sát security posture và phát hiện mối đe dọa."
+    },
+    {
+     "term": "Secure-by-design",
+     "en": "Infrastructure designed with security built in from the start.",
+     "vi": "Hạ tầng được thiết kế với bảo mật tích hợp ngay từ đầu."
+    },
+    {
+     "term": "Prompt injection",
+     "en": "Malicious input crafted to manipulate model behavior.",
+     "vi": "Đầu vào độc hại nhằm thao túng hành vi mô hình."
+    },
+    {
+     "term": "Data poisoning",
+     "en": "Corrupting training data to harm the model.",
+     "vi": "Làm hỏng dữ liệu huấn luyện để gây hại cho mô hình."
+    },
+    {
+     "term": "Adversarial attack",
+     "en": "Inputs crafted to make a model fail or leak information.",
+     "vi": "Đầu vào được tạo ra để khiến mô hình sai hoặc rò rỉ thông tin."
+    }
+   ],
+   "keywords": [
+    "secure ai",
+    "saif",
+    "secure ai framework",
+    "iam",
+    "identity and access management",
+    "security command center",
+    "workload monitoring",
+    "secure-by-design",
+    "prompt injection",
+    "data poisoning",
+    "adversarial",
+    "malicious attacks",
+    "misuse",
+    "ml lifecycle",
+    "encryption"
+   ]
+  },
+  {
+   "id": "d4-t5",
+   "objective": "Describe the importance of responsible AI in business: responsible AI and transparency, privacy considerations (privacy risks, data anonymization and pseudonymization), the implications of data quality, bias and fairness, and the importance of accountability and explainability in AI systems.",
+   "title": "Responsible AI: transparency, privacy, fairness, accountability",
+   "title_vi": "Responsible AI: minh bạch, quyền riêng tư, công bằng, trách nhiệm giải trình",
+   "sources": [
+    "exam-guide-official-checklist.md",
+    "study.txt",
+    "module2-v2.md",
+    "bonus-reference-guide.md"
+   ],
+   "sections": [
+    {
+     "heading": "Why responsible AI matters",
+     "heading_vi": "Vì sao responsible AI quan trọng",
+     "body": "Responsible AI means ensuring your AI applications do not cause harm and are used in an ethical manner. It must be considered throughout the entire AI lifecycle: data preparation, model training, deployment and ongoing monitoring. Google's AI Principles guide this work (as summarized in the reference material: socially beneficial, avoiding unfair bias, built and tested for safety, accountable to people, incorporating privacy design and upholding high standards of scientific excellence).\n\nFor business, responsible AI protects trust, supports legal compliance (data privacy, equality, intellectual property and product liability are key legal areas) and reduces risk of harmful outputs.",
+     "body_vi": "Responsible AI nghĩa là đảm bảo ứng dụng AI không gây hại và được dùng theo cách có đạo đức. Nó phải được cân nhắc xuyên suốt toàn bộ vòng đời AI: chuẩn bị dữ liệu, huấn luyện mô hình, triển khai và giám sát liên tục. AI Principles của Google định hướng công việc này (theo tài liệu tham khảo: hữu ích cho xã hội, tránh bias bất công, xây dựng và kiểm thử an toàn, có trách nhiệm giải trình với con người, tích hợp thiết kế bảo vệ quyền riêng tư và giữ chuẩn khoa học cao).\n\nVới doanh nghiệp, responsible AI bảo vệ niềm tin, hỗ trợ tuân thủ pháp lý (quyền riêng tư dữ liệu, bình đẳng, sở hữu trí tuệ và trách nhiệm sản phẩm là các mảng pháp lý chính) và giảm rủi ro đầu ra có hại."
+    },
+    {
+     "heading": "Transparency and privacy",
+     "heading_vi": "Minh bạch và quyền riêng tư",
+     "body": "Transparency means making visible how data is used and how the AI system works, including telling users that AI is being used. Privacy risks include leaking sensitive data in training data or outputs and misusing personal data.\n\nTwo key protection techniques are tested. Anonymization removes or transforms data so individuals can no longer be identified: it is irreversible. Pseudonymization replaces identifiers with codes or aliases; with the additional information (a mapping key) people can still be re-identified, so pseudonymized data remains personal data that needs protection.",
+     "body_vi": "Minh bạch (transparency) là làm cho việc dữ liệu được dùng ra sao và hệ thống AI hoạt động thế nào trở nên rõ ràng, gồm cả việc cho người dùng biết đang dùng AI. Rủi ro quyền riêng tư gồm rò rỉ dữ liệu nhạy cảm trong dữ liệu huấn luyện hoặc đầu ra, và lạm dụng dữ liệu cá nhân.\n\nHai kỹ thuật bảo vệ thường được thi. Anonymization (ẩn danh hóa) loại bỏ hoặc biến đổi dữ liệu để không còn xác định được cá nhân: không thể đảo ngược. Pseudonymization (giả danh hóa) thay định danh bằng mã hoặc biệt danh; nếu có thông tin bổ sung (khóa ánh xạ) vẫn truy ngược được cá nhân, nên dữ liệu giả danh hóa vẫn là dữ liệu cá nhân cần được bảo vệ."
+    },
+    {
+     "heading": "Data quality, bias, fairness, accountability, explainability",
+     "heading_vi": "Chất lượng dữ liệu, bias, công bằng, trách nhiệm giải trình, khả năng giải thích",
+     "body": "Models learn from data, so poor-quality or unrepresentative data produces biased, unfair outcomes that harm groups of people and the business. Mitigation: use diverse, representative datasets, audit model performance regularly to find and reduce bias over time, and keep human oversight.\n\nAccountability means clear human responsibility for AI outputs and outcomes. Explainability means being able to understand and explain why the model reached a conclusion, avoiding opaque black boxes where decisions affect people (for example loan approval). A very accurate but unexplainable model is not an acceptable answer when fairness and transparency matter.",
+     "body_vi": "Mô hình học từ dữ liệu, nên dữ liệu kém chất lượng hoặc không đại diện sẽ tạo kết quả thiên lệch, bất công, gây hại cho các nhóm người và cho doanh nghiệp. Cách giảm thiểu: dùng bộ dữ liệu đa dạng, đại diện; kiểm toán hiệu suất mô hình định kỳ để phát hiện và giảm bias theo thời gian; giữ sự giám sát của con người.\n\nAccountability (trách nhiệm giải trình) là trách nhiệm rõ ràng của con người đối với đầu ra và kết quả của AI. Explainability (khả năng giải thích) là hiểu và giải thích được vì sao mô hình đưa ra kết luận, tránh các hộp đen khó hiểu khi quyết định ảnh hưởng đến con người (ví dụ duyệt khoản vay). Mô hình rất chính xác nhưng không giải thích được không phải đáp án chấp nhận được khi công bằng và minh bạch quan trọng."
+    }
+   ],
+   "table": {
+    "caption": "Anonymization vs pseudonymization",
+    "caption_vi": "Anonymization và pseudonymization",
+    "headers": [
+     "",
+     "Anonymization",
+     "Pseudonymization"
+    ],
+    "headers_vi": [
+     "",
+     "Anonymization",
+     "Pseudonymization"
+    ],
+    "rows": [
+     [
+      "How",
+      "Removes or transforms data so individuals cannot be identified",
+      "Replaces identifiers with codes or aliases"
+     ],
+     [
+      "Reversible?",
+      "No",
+      "Yes, if a mapping key or extra information exists"
+     ],
+     [
+      "Still personal data?",
+      "No longer identifiable",
+      "Yes, still needs protection"
+     ]
+    ]
+   },
+   "keyPoints": [
+    {
+     "en": "Responsible AI = AI that does not cause harm and is used ethically, across the whole lifecycle.",
+     "vi": "Responsible AI = AI không gây hại và dùng có đạo đức, xuyên suốt vòng đời."
+    },
+    {
+     "en": "Pillars: transparency, privacy, fairness (data quality and bias), accountability, explainability.",
+     "vi": "Các trụ cột: transparency, privacy, fairness (chất lượng dữ liệu và bias), accountability, explainability."
+    },
+    {
+     "en": "Anonymization is irreversible; pseudonymization can be reversed with a key.",
+     "vi": "Anonymization không thể đảo ngược; pseudonymization có thể đảo ngược nếu có khóa."
+    },
+    {
+     "en": "Mitigate bias with diverse datasets, regular audits and human oversight.",
+     "vi": "Giảm bias bằng dữ liệu đa dạng, kiểm toán định kỳ và giám sát của con người."
+    },
+    {
+     "en": "Accountability assigns human responsibility; explainability lets you justify outputs.",
+     "vi": "Accountability gán trách nhiệm cho con người; explainability cho phép biện minh đầu ra."
+    }
+   ],
+   "examTips": [
+    {
+     "en": "Ethically sound choices: diverse training data and regular bias audits; wrong choices prioritize speed over fairness, use unexplainable black boxes or skip human oversight.",
+     "vi": "Lựa chọn đúng: dữ liệu huấn luyện đa dạng và kiểm toán bias định kỳ; lựa chọn sai: ưu tiên tốc độ hơn công bằng, dùng hộp đen khó giải thích hoặc bỏ qua giám sát con người."
+    },
+    {
+     "en": "If the question stresses that data can be traced back with a key, the answer is pseudonymization; if it cannot be re-identified, anonymization.",
+     "vi": "Nếu câu hỏi nhấn mạnh dữ liệu có thể truy ngược bằng khóa, đáp án là pseudonymization; nếu không thể tái định danh, là anonymization."
+    },
+    {
+     "en": "Responsible AI covers the whole lifecycle (data prep, training, deployment, monitoring), not just deployment.",
+     "vi": "Responsible AI bao phủ toàn vòng đời (chuẩn bị dữ liệu, huấn luyện, triển khai, giám sát), không chỉ khâu triển khai."
+    }
+   ],
+   "terms": [
+    {
+     "term": "Transparency",
+     "en": "Making clear that AI is used and how data and the system work.",
+     "vi": "Làm rõ việc dùng AI và cách dữ liệu và hệ thống vận hành."
+    },
+    {
+     "term": "Anonymization",
+     "en": "Irreversibly removing identifiability from data.",
+     "vi": "Loại bỏ khả năng nhận dạng khỏi dữ liệu một cách không thể đảo ngược."
+    },
+    {
+     "term": "Pseudonymization",
+     "en": "Replacing identifiers with aliases; reversible with a key.",
+     "vi": "Thay định danh bằng biệt danh; đảo ngược được nếu có khóa."
+    },
+    {
+     "term": "Bias",
+     "en": "Systematic unfairness in model outputs, often from unrepresentative data.",
+     "vi": "Sự thiên lệch hệ thống trong đầu ra mô hình, thường do dữ liệu không đại diện."
+    },
+    {
+     "term": "Fairness",
+     "en": "Equitable treatment of different groups by an AI system.",
+     "vi": "Đối xử công bằng với các nhóm khác nhau của hệ thống AI."
+    },
+    {
+     "term": "Accountability",
+     "en": "Clear human responsibility for AI outcomes.",
+     "vi": "Trách nhiệm rõ ràng của con người đối với kết quả của AI."
+    },
+    {
+     "term": "Explainability",
+     "en": "Ability to understand and explain why a model produced an output.",
+     "vi": "Khả năng hiểu và giải thích vì sao mô hình tạo ra một đầu ra."
+    },
+    {
+     "term": "Human oversight",
+     "en": "Humans review and can override AI decisions (human-in-the-loop).",
+     "vi": "Con người xem xét và có thể bác bỏ quyết định của AI (human-in-the-loop)."
+    }
+   ],
+   "keywords": [
+    "responsible ai",
+    "transparency",
+    "privacy",
+    "anonymization",
+    "pseudonymization",
+    "bias",
+    "fairness",
+    "data quality",
+    "accountability",
+    "explainability",
+    "black box",
+    "human oversight",
+    "ai principles",
+    "ethical",
+    "diverse dataset"
+   ]
+  }
+ ]
+}

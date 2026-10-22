@@ -27,7 +27,9 @@
       defaultCount: 60,
       defaultDuration: 90,
       passPercent: 70,
-      passLabel: "≥ 70%"
+      passLabel: "≥ 70%",
+      learnUrl: "genai-learn.html",
+      learnTitle: "Bài học Generative AI Leader song ngữ theo 4 lĩnh vực"
     },
     ccarp: {
       id: "ccarp",
@@ -253,8 +255,14 @@
     if (els.brandTitle) els.brandTitle.textContent = exam.name;
     if (els.brandIcon) els.brandIcon.textContent = exam.icon;
 
-    // Link trang học (chỉ có với CCAR-P)
-    if (els.learnLink) els.learnLink.style.display = exam.learnUrl ? "" : "none";
+    // Link trang học theo từng kỳ thi
+    if (els.learnLink) {
+      els.learnLink.style.display = exam.learnUrl ? "" : "none";
+      if (exam.learnUrl) {
+        els.learnLink.setAttribute("href", exam.learnUrl);
+        els.learnLink.setAttribute("title", exam.learnTitle || "Bài học CCAR-P song ngữ theo 7 domain");
+      }
+    }
   }
 
   async function switchExam(examId) {

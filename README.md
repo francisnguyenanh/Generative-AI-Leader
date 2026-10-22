@@ -3,7 +3,7 @@
 Nền tảng thi thử chứng chỉ AI hàng đầu với hệ thống bộ đề chuẩn hóa, hỗ trợ song ngữ Anh - Việt, chế độ bấm giờ thi 90 phút, phân tích điểm chuyên sâu theo từng lĩnh vực và xem lại chi tiết từng câu hỏi.
 
 Hỗ trợ 2 kỳ thi chứng chỉ chính:
-1. **Google Cloud Generative AI Leader**: 10 bộ đề thi (600 câu hỏi trắc nghiệm) • 4 Lĩnh vực trọng tâm.
+1. **Google Cloud Generative AI Leader**: 10 bộ đề thi (600 câu hỏi trắc nghiệm) • 4 Lĩnh vực trọng tâm. • kèm **trang học song ngữ** (`genai-learn.html`: 4 lĩnh vực → 24 chủ đề, nguồn `Quiz_data/bank/lessons_d1..d4.json`, build bằng `python build_genai_lessons.py`).
 2. **Claude Certified Architect (CCAR-P)**: 10 bộ đề thi (630 câu hỏi tình huống) • 7 Domain • 120 phút • kèm **trang học song ngữ** (`ccarp-learn.html`).
 
 ---
